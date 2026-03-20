@@ -1,0 +1,200 @@
+{
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/lobby/summary",
+      "covers_features": [
+        "F-009",
+        "F-007"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions",
+      "covers_features": [
+        "F-009",
+        "F-010",
+        "F-003",
+        "F-001"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions/{sessionId}",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/pause",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/resume",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/end",
+      "covers_features": [
+        "F-010",
+        "F-007"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/hands",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions/{sessionId}/hands/{handId}",
+      "covers_features": [
+        "F-001",
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions/{sessionId}/hands/{handId}/actions",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/hands/{handId}/actions",
+      "covers_features": [
+        "F-002",
+        "F-001",
+        "F-003"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/export",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/hands/clear",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}/review",
+      "covers_features": [
+        "F-006",
+        "F-004"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}/review/replay",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/summary",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/gto-trend",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/gto/preflop-ranges",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/gto/postflop-advice",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/storage/status",
+      "covers_features": [
+        "F-005"
+      ]
+    }
+  ],
+  "models": [
+    "Card",
+    "PlayerInfo",
+    "PlayerAction",
+    "PlayerActionRequest",
+    "AvailableActions",
+    "ActionResult",
+    "GameEvent",
+    "HandState",
+    "PotInfo",
+    "HandResult",
+    "CreateSessionRequest",
+    "Session",
+    "SessionListItem",
+    "SessionSummary",
+    "HandHistoryListResponse",
+    "HandHistoryItem",
+    "HandRecord",
+    "StreetRecord",
+    "HandHistoryExport",
+    "HandReview",
+    "DecisionPoint",
+    "ReplayData",
+    "ReplayStep",
+    "PracticeStatsSummary",
+    "GTOTrendData",
+    "PreflopRange",
+    "PostflopAdviceRequest",
+    "PostflopAdvice",
+    "LobbySummary",
+    "StorageStatus",
+    "ErrorResponse"
+  ]
+}
