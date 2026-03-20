@@ -1,0 +1,147 @@
+{
+  "flows": [
+    {
+      "name": "game-setup",
+      "covers_features": [
+        "F-002",
+        "F-003",
+        "F-004"
+      ]
+    },
+    {
+      "name": "core-gameplay",
+      "covers_features": [
+        "F-001",
+        "F-003",
+        "F-010"
+      ]
+    },
+    {
+      "name": "gto-analysis",
+      "covers_features": [
+        "F-004",
+        "F-006",
+        "F-011"
+      ]
+    },
+    {
+      "name": "hand-history-replay",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "stats-dashboard",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "session-management",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "piosolver-upi-setup",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "in-game-mode-toggle",
+      "covers_features": [
+        "F-010",
+        "F-011"
+      ]
+    }
+  ],
+  "components": [
+    "AppShell",
+    "SideNav",
+    "PageHeader",
+    "PokerTable",
+    "PlayerSeat",
+    "HoleCards",
+    "CommunityCards",
+    "PotDisplay",
+    "ActionPanel",
+    "RaiseSlider",
+    "ChipAnimation",
+    "DealAnimation",
+    "BettingRoundIndicator",
+    "AnalysisOverlay",
+    "AnalysisModeToggle",
+    "GTOSuggestionPanel",
+    "FrequencyPieChart",
+    "EVBarChart",
+    "RangeMatrix",
+    "PostHandSummaryCard",
+    "DecisionTimeline",
+    "EVDiffBadge",
+    "BetSizingNote",
+    "GameSetupForm",
+    "GameTypeSelector",
+    "BlindsInput",
+    "StackInput",
+    "BotDifficultyConfigurator",
+    "BotDifficultyBadge",
+    "BotQuickSettings",
+    "UPIConfigPanel",
+    "FilePathInput",
+    "ConnectionTestButton",
+    "CFRFileLoader",
+    "UPIStatusIndicator",
+    "HandHistoryList",
+    "HandHistoryItem",
+    "HandHistoryFilter",
+    "HandReplayView",
+    "ReplayControls",
+    "HandReplayTimeline",
+    "StatsDashboard",
+    "OverviewCards",
+    "EVTrendChart",
+    "PositionPerformanceChart",
+    "LeakSummaryTable",
+    "LeakItem",
+    "TimeRangeFilter",
+    "InsufficientDataNotice",
+    "SessionList",
+    "SessionCard",
+    "SessionActions",
+    "SaveExitDialog",
+    "ConfirmDialog",
+    "Toast",
+    "LoadingSpinner",
+    "SkeletonScreen",
+    "EmptyState",
+    "Tooltip",
+    "ProgressBar",
+    "KeyboardShortcutHint",
+    "PlayingCard"
+  ],
+  "interaction_rules": [
+    "IR-001: Progressive form validation after first submit, blinds/stack validated on blur",
+    "IR-002: PioSOLVER path auto-detection on blur, test button enabled only when path valid",
+    "IR-003: CFR file loading with progress bar and retry on failure",
+    "IR-004: Action buttons disabled during non-player turns with BOT thinking animation",
+    "IR-005: Raise uses slider with preset anchors plus direct input with range validation",
+    "IR-006: Fold confirmation only when player can check but chooses fold",
+    "IR-007: Keyboard shortcuts F/C/R/A for actions with visual hints on buttons",
+    "IR-008: Deal and chip animations 300-500ms, toggle in settings",
+    "IR-009: Analysis mode toggle persists across hands",
+    "IR-010: GTO panel defaults collapsed showing recommended action and EV only",
+    "IR-011: EV diff color coding: ≤0.5bb green, 0.5-2bb yellow, >2bb red",
+    "IR-012: Post-hand summary card auto-shows, dismissible after 3s, non-blocking",
+    "IR-013: Skeleton screen during table initialization",
+    "IR-014: Empty state with CTA for hand history when no hands played",
+    "IR-015: Insufficient data notice when < 20 hands in stats",
+    "IR-016: UPI features grayed with tooltip when PioSOLVER not configured",
+    "IR-017: Confirm dialog on leaving active game: save/discard/cancel",
+    "IR-018: Session delete requires confirmation with session summary",
+    "IR-019: Main nav always visible, collapses to mini mode on table page",
+    "IR-020: UPI timeout >10s triggers fallback to built-in strategy with toast notification",
+    "IR-021: SQLite error shows toast with auto-retry, persistent failure shows error dialog",
+    "IR-022: Bet sizing classification note displayed as footnote in GTO comparison panel"
+  ]
+}
