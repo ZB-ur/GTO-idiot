@@ -1,0 +1,31 @@
+{
+  "competitors": [
+    "GTO Wizard",
+    "DTO Poker",
+    "PioSolver",
+    "GTO+",
+    "GTOBase",
+    "Poker Trainer",
+    "PokerSnowie",
+    "Postflop+"
+  ],
+  "key_insights": [
+    "免费+浏览器端+完整对战+GTO复盘的组合在现有市场中没有直接竞品，定位空白明确",
+    "Postflop GTO 数据覆盖范围是 MVP 核心风险，需严格限定初始 spot 集合",
+    "BOT 行为可信度和个性化直接决定对战体验质量和用户留存",
+    "复盘功能（EV分析+频率对比）是核心价值主张，应投入最多设计精力",
+    "技术方案成熟：开源牌局引擎+预计算GTO表+IndexedDB+React图表，无需突破性技术",
+    "渐进式扩展路径清晰：预计算表→WASM solver→用户导入solver文件",
+    "纯静态部署零运维成本，适合个人/小团队启动",
+    "游戏化元素（GTO偏离度评分、streak机制）可显著提升用户粘性"
+  ],
+  "feasibility": "high",
+  "risks": [
+    "Postflop GTO 数据整理工作量大，简化版覆盖率可能不满足高级用户预期",
+    "BOT AI 行为过于机械或不合理会严重损害用户体验",
+    "牌局引擎边界情况复杂（split pot、side pot、all-in 等），测试成本高",
+    "IndexedDB 在大量牌局数据下的查询性能可能需要优化",
+    "浏览器数据清除导致用户数据丢失的风险（需提供导出备份）",
+    "与 GTO Wizard 等成熟产品竞争时，GTO 数据深度和准确性是短板"
+  ]
+}
