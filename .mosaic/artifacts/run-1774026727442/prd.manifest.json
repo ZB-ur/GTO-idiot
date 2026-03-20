@@ -1,0 +1,66 @@
+{
+  "features": [
+    {
+      "id": "F-001",
+      "name": "poker-engine"
+    },
+    {
+      "id": "F-002",
+      "name": "player-actions"
+    },
+    {
+      "id": "F-003",
+      "name": "bot-ai"
+    },
+    {
+      "id": "F-004",
+      "name": "gto-strategy-data"
+    },
+    {
+      "id": "F-005",
+      "name": "hand-history"
+    },
+    {
+      "id": "F-006",
+      "name": "hand-review"
+    },
+    {
+      "id": "F-007",
+      "name": "practice-stats"
+    },
+    {
+      "id": "F-008",
+      "name": "poker-table-ui"
+    },
+    {
+      "id": "F-009",
+      "name": "game-lobby"
+    },
+    {
+      "id": "F-010",
+      "name": "session-management"
+    }
+  ],
+  "constraints": [
+    "纯前端 Web 应用（React + TypeScript + Tailwind CSS），无后端服务器",
+    "数据持久化使用 localStorage，无需登录和云同步",
+    "GTO 策略为简化规则版（range chart + 决策树），非 solver 精确解",
+    "仅支持六人桌（6-max）No-Limit Hold'em",
+    "经典绿色牌桌风格 UI，桌面端优先",
+    "Bot 为纯规则引擎，不使用 ML 或外部 API",
+    "扑克牌渲染使用 SVG 或 CSS，不依赖外部图片"
+  ],
+  "out_of_scope": [
+    "真实 GTO solver 集成",
+    "多人在线对战",
+    "用户账号系统",
+    "跨设备数据同步",
+    "锦标赛/SNG 模式",
+    "高级统计可视化（筹码曲线图等）",
+    "手牌导入功能",
+    "社区功能",
+    "移动端深度适配",
+    "多语言国际化",
+    "音效和高级动画"
+  ]
+}
