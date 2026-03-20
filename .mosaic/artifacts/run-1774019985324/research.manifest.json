@@ -1,0 +1,30 @@
+{
+  "competitors": [
+    "GTO Wizard",
+    "GTOBase",
+    "PioSOLVER",
+    "GTO+",
+    "Simple GTO Trainer",
+    "Fearless River (WPT GTO Trainer)",
+    "TexasSolver (open source)",
+    "Desktop Postflop (open source, suspended)"
+  ],
+  "key_insights": [
+    ".cfr 解析应分层实现：MVP 用预计算 JSON 策略表 + 可选 UPI 协议桥接 PioSOLVER",
+    "多难度 BOT 是核心差异化，市场上无竞品覆盖 exploit vs GTO 切换训练",
+    "Leak 追踪（按位置/场景聚合）比单手分析更有长期价值",
+    "Bet sizing 归类算法是 GTO 对比准确性的技术关键",
+    "Node.js 生态（pokersolver + better-sqlite3 + React）完全支撑全栈实现",
+    "纯本地零订阅定位填补市场空白，开源策略可形成社区飞轮",
+    "PioSOLVER UPI 协议提供成熟的外部集成路径（stdin/stdout 通信）"
+  ],
+  "feasibility": "medium",
+  "risks": [
+    ".cfr 文件为私有二进制格式，无公开规范，直接解析难度大，需依赖 UPI 协议或预计算策略表作为替代",
+    "Bet sizing 抽象化映射（玩家实际操作 → solver 策略节点）影响 GTO 对比准确性，设计不当会导致分析结果误导",
+    "预计算 GTO 策略表的覆盖面有限，无法覆盖所有 flop/turn/river 组合（~22100 种 flop × 多种 betting line）",
+    "6-max 牌局逻辑复杂度高：side pot、all-in equity run-out、多人底池 EV 计算等边界情况多",
+    "UPI 协议依赖用户本地安装 PioSOLVER（仅 Windows），限制了跨平台和零依赖的产品定位",
+    "开源 solver（desktop-postflop）已停更，如需嵌入实时求解能力，维护风险高"
+  ]
+}
