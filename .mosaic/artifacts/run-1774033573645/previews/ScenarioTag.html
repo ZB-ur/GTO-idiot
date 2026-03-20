@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScenarioTag Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">ScenarioTag</h2>
+
+  <!-- All tag variants -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-500 mb-2">Tag variants</p>
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-lg border bg-purple-50 text-purple-700 border-purple-200">3-Bet Pot</span>
+      <span class="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-lg border bg-red-50 text-red-700 border-red-200">River Bluff</span>
+      <span class="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-lg border bg-blue-50 text-blue-700 border-blue-200">C-Bet</span>
+      <span class="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-lg border bg-amber-50 text-amber-700 border-amber-200">Check Raise</span>
+      <span class="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-lg border bg-emerald-50 text-emerald-700 border-emerald-200">Open Raise</span>
+      <span class="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-lg border bg-orange-50 text-orange-700 border-orange-200">Squeeze</span>
+      <span class="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-lg border bg-pink-50 text-pink-700 border-pink-200">Donk Bet</span>
+      <span class="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-lg border bg-cyan-50 text-cyan-700 border-cyan-200">Probe Bet</span>
+      <span class="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-lg border bg-gray-50 text-gray-700 border-gray-200">Fold To 3-Bet</span>
+    </div>
+  </div>
+
+  <!-- In context: Hand history card -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-500 mb-2">In context: hand summary</p>
+    <div class="max-w-sm p-4 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm font-semibold text-gray-900">Hand #42</span>
+        <span class="text-xs text-gray-500">BTN · +12.5 BB</span>
+      </div>
+      <div class="flex flex-wrap gap-1.5">
+        <span class="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-lg border bg-purple-50 text-purple-700 border-purple-200">3-Bet Pot</span>
+        <span class="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-lg border bg-blue-50 text-blue-700 border-blue-200">C-Bet</span>
+        <span class="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-lg border bg-red-50 text-red-700 border-red-200">River Bluff</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

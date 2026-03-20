@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConfirmDialog Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Danger Variant ===== -->
+  <div class="p-4 pb-2">
+    <p class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-3">Danger Variant — All-in Confirmation</p>
+  </div>
+
+  <div class="relative flex items-center justify-center" style="height: 280px; background: rgba(0,0,0,0.35);">
+    <!-- Dialog -->
+    <div class="relative bg-white rounded-xl shadow-md w-full max-w-md mx-4 overflow-hidden">
+      <div class="p-6">
+        <div class="flex items-start gap-4">
+          <!-- Icon -->
+          <div class="flex-shrink-0 w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+            </svg>
+          </div>
+          <!-- Text -->
+          <div class="flex-1 min-w-0">
+            <h3 class="text-lg font-semibold text-gray-900">Confirm All-in</h3>
+            <p class="mt-2 text-sm text-gray-500 leading-relaxed">You are about to go all-in with 98.5 BB. This action cannot be undone. Are you sure?</p>
+          </div>
+        </div>
+      </div>
+      <!-- Actions -->
+      <div class="flex gap-3 px-6 pb-6">
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-slate-50 transition-colors">Cancel</button>
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium text-white bg-red-500 rounded-lg hover:bg-red-600 transition-colors">All-in</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Warning Variant ===== -->
+  <div class="p-4 pb-2 pt-6">
+    <p class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-3">Warning Variant — Large Raise</p>
+  </div>
+
+  <div class="relative flex items-center justify-center" style="height: 280px; background: rgba(0,0,0,0.35);">
+    <!-- Dialog -->
+    <div class="relative bg-white rounded-xl shadow-md w-full max-w-md mx-4 overflow-hidden">
+      <div class="p-6">
+        <div class="flex items-start gap-4">
+          <!-- Icon -->
+          <div class="flex-shrink-0 w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-amber-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+            </svg>
+          </div>
+          <!-- Text -->
+          <div class="flex-1 min-w-0">
+            <h3 class="text-lg font-semibold text-gray-900">Confirm Large Raise</h3>
+            <p class="mt-2 text-sm text-gray-500 leading-relaxed">You are about to raise to 32 BB (65% of your stack). Do you want to proceed?</p>
+          </div>
+        </div>
+      </div>
+      <!-- Actions -->
+      <div class="flex gap-3 px-6 pb-6">
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-slate-50 transition-colors">Go Back</button>
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium text-white bg-amber-500 rounded-lg hover:bg-amber-600 transition-colors">Raise 32 BB</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

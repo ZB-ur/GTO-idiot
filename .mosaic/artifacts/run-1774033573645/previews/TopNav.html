@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TopNav Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- TopNav — Active Session State -->
+  <nav class="w-full bg-white border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-14">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🃏</span>
+        <span class="text-lg font-bold text-gray-900 tracking-tight">GTO Idiot</span>
+      </div>
+
+      <!-- Nav Links (Play is active) -->
+      <div class="flex items-center gap-1">
+        <button class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium bg-blue-50 text-blue-600">
+          <span>♠</span>
+          <span>对战</span>
+        </button>
+        <button class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:text-gray-900 hover:bg-slate-50">
+          <span>📋</span>
+          <span>历史</span>
+        </button>
+        <button class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:text-gray-900 hover:bg-slate-50">
+          <span>📊</span>
+          <span>统计</span>
+        </button>
+      </div>
+
+      <!-- Session Badge — active -->
+      <div class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 rounded-lg text-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span class="text-gray-500">进行中</span>
+        <span class="text-gray-300">|</span>
+        <span class="text-gray-900 font-medium">#42</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Spacer -->
+  <div class="h-8"></div>
+
+  <!-- TopNav — No Session State -->
+  <nav class="w-full bg-white border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-14">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🃏</span>
+        <span class="text-lg font-bold text-gray-900 tracking-tight">GTO Idiot</span>
+      </div>
+
+      <div class="flex items-center gap-1">
+        <button class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:text-gray-900 hover:bg-slate-50">
+          <span>♠</span>
+          <span>对战</span>
+        </button>
+        <button class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium bg-blue-50 text-blue-600">
+          <span>📋</span>
+          <span>历史</span>
+        </button>
+        <button class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:text-gray-900 hover:bg-slate-50">
+          <span>📊</span>
+          <span>统计</span>
+        </button>
+      </div>
+
+      <span class="text-sm text-gray-400">无活跃 Session</span>
+    </div>
+  </nav>
+
+  <!-- Spacer -->
+  <div class="h-8"></div>
+
+  <!-- TopNav — Paused Session State -->
+  <nav class="w-full bg-white border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-14">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🃏</span>
+        <span class="text-lg font-bold text-gray-900 tracking-tight">GTO Idiot</span>
+      </div>
+
+      <div class="flex items-center gap-1">
+        <button class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:text-gray-900 hover:bg-slate-50">
+          <span>♠</span>
+          <span>对战</span>
+        </button>
+        <button class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:text-gray-900 hover:bg-slate-50">
+          <span>📋</span>
+          <span>历史</span>
+        </button>
+        <button class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium bg-blue-50 text-blue-600">
+          <span>📊</span>
+          <span>统计</span>
+        </button>
+      </div>
+
+      <div class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 rounded-lg text-sm">
+        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+        <span class="text-gray-500">已暂停</span>
+        <span class="text-gray-300">|</span>
+        <span class="text-gray-900 font-medium">#128</span>
+      </div>
+    </div>
+  </nav>
+
+</body>
+</html>

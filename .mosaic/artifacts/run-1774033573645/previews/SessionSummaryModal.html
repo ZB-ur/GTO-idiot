@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SessionSummaryModal Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #0007; font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+
+<!-- Modal -->
+<div style="width:100%;max-width:32rem;margin:1rem;" class="bg-white rounded-xl shadow-lg overflow-hidden">
+  <!-- Header — profit state -->
+  <div class="px-6 py-5 bg-emerald-50">
+    <div class="flex items-center justify-between">
+      <h2 class="text-lg font-semibold text-gray-900">Session Summary</h2>
+      <button class="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-white/60 transition-colors">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <p class="mt-1 text-2xl font-bold text-emerald-600">+24.5 BB</p>
+    <p class="text-sm text-gray-500 mt-0.5">47 hands &middot; 1h 12m</p>
+  </div>
+
+  <!-- Profit Curve Chart -->
+  <div class="px-6 pt-4">
+    <h3 class="text-sm font-semibold text-gray-900 mb-2">Profit Curve</h3>
+    <div class="bg-slate-50 rounded-lg p-3 border border-gray-200">
+      <svg viewBox="0 0 480 160" class="w-full" preserveAspectRatio="xMidYMid meet">
+        <!-- zero line -->
+        <line x1="48" y1="96" x2="464" y2="96" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 3" />
+        <!-- area fill -->
+        <path d="M 48,96 L 48,110 L 96,105 L 144,88 L 192,75 L 240,82 L 288,60 L 336,48 L 384,55 L 432,38 L 464,30 L 464,96 Z" fill="rgba(16,185,129,0.12)" />
+        <!-- line -->
+        <polyline points="48,110 96,105 144,88 192,75 240,82 288,60 336,48 384,55 432,38 464,30" fill="none" stroke="#10b981" stroke-width="2" stroke-linejoin="round" />
+        <!-- dots at key points -->
+        <circle cx="48" cy="110" r="3" fill="#10b981" />
+        <circle cx="192" cy="75" r="3" fill="#10b981" />
+        <circle cx="384" cy="55" r="3" fill="#10b981" />
+        <circle cx="464" cy="30" r="3" fill="#10b981" />
+        <!-- axis labels -->
+        <text x="48" y="156" font-size="10" fill="#9ca3af">Hand 1</text>
+        <text x="464" y="156" font-size="10" fill="#9ca3af" text-anchor="end">Hand 47</text>
+        <text x="42" y="34" font-size="10" fill="#9ca3af" text-anchor="end">+30</text>
+        <text x="42" y="114" font-size="10" fill="#9ca3af" text-anchor="end">-5</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Key Statistics Grid -->
+  <div class="px-6 pt-4 pb-2">
+    <h3 class="text-sm font-semibold text-gray-900 mb-2">Key Statistics</h3>
+    <div class="grid grid-cols-4 gap-3">
+      <div class="bg-slate-50 rounded-lg p-3 border border-gray-200 text-center">
+        <p class="text-xs text-gray-500">VPIP</p>
+        <p class="text-base font-semibold text-gray-900 mt-0.5">26.3%</p>
+      </div>
+      <div class="bg-slate-50 rounded-lg p-3 border border-gray-200 text-center">
+        <p class="text-xs text-gray-500">PFR</p>
+        <p class="text-base font-semibold text-gray-900 mt-0.5">19.1%</p>
+      </div>
+      <div class="bg-slate-50 rounded-lg p-3 border border-gray-200 text-center">
+        <p class="text-xs text-gray-500">Aggression</p>
+        <p class="text-base font-semibold text-gray-900 mt-0.5">2.45</p>
+      </div>
+      <div class="bg-slate-50 rounded-lg p-3 border border-gray-200 text-center">
+        <p class="text-xs text-gray-500">WTSD</p>
+        <p class="text-base font-semibold text-gray-900 mt-0.5">28.6%</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EV Loss Callout -->
+  <div class="px-6 pt-3 pb-4">
+    <div class="flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2.5">
+      <svg class="w-4 h-4 text-amber-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+      </svg>
+      <p class="text-sm text-amber-800">
+        Avg EV loss: <span class="font-semibold">0.85 BB/hand</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="px-6 py-4 border-t border-gray-200 flex justify-end gap-3">
+    <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-slate-50 transition-colors">
+      Close
+    </button>
+    <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">
+      View Hand History
+    </button>
+  </div>
+</div>
+
+</body>
+</html>

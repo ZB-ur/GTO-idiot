@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PageContainer Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- Simulated AppShell header for context -->
+  <div class="bg-white border-b border-gray-200 px-6 py-3">
+    <span class="text-lg font-semibold text-gray-900">GTO Idiot</span>
+  </div>
+
+  <!-- PageContainer (default: max-w-4xl centered) -->
+  <main class="px-4 py-6 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+
+    <!-- Sample content to show container boundaries -->
+    <div class="space-y-6">
+      <!-- Card 1 -->
+      <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Page Title</h2>
+        <p class="text-base text-gray-500">
+          This content sits inside the PageContainer which provides consistent padding and a max-width of max-w-4xl with auto horizontal margins.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-1">Section Card</h3>
+        <p class="text-sm text-gray-500">
+          Child components rendered inside the container inherit the constrained width and uniform spacing.
+        </p>
+      </div>
+
+      <!-- Card 3 — stats row -->
+      <div class="grid grid-cols-3 gap-4">
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 text-center">
+          <p class="text-sm text-gray-500">Hands</p>
+          <p class="text-2xl font-bold text-gray-900 mt-1">1,248</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 text-center">
+          <p class="text-sm text-gray-500">Profit</p>
+          <p class="text-2xl font-bold text-emerald-500 mt-1">+42.5 BB</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 text-center">
+          <p class="text-sm text-gray-500">EV Loss</p>
+          <p class="text-2xl font-bold text-red-500 mt-1">−1.2 BB</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Visual guide: edge markers to show max-width constraint -->
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="border-t border-dashed border-gray-300 mt-2 pt-2 text-center">
+      <span class="text-xs text-gray-400">← max-w-4xl mx-auto container boundary →</span>
+    </div>
+  </div>
+
+</body>
+</html>

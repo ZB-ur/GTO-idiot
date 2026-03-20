@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreetStatsChart Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-3xl mx-auto">
+    <!-- StreetStatsChart -->
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+      <!-- Header -->
+      <div class="mb-4">
+        <h3 class="text-lg font-semibold text-gray-900">Action Frequency by Street</h3>
+        <p class="text-sm text-gray-500 mt-0.5">Your action distribution vs GTO optimal per street</p>
+      </div>
+
+      <!-- Legend -->
+      <div class="flex flex-wrap gap-4 mb-5 text-xs">
+        <div class="flex items-center gap-1.5">
+          <span class="w-3 h-3 rounded-sm inline-block" style="background:#ef4444"></span>
+          <span class="w-3 h-3 rounded-sm inline-block" style="background:#fca5a5"></span>
+          <span class="text-gray-600">Fold</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="w-3 h-3 rounded-sm inline-block" style="background:#8b5cf6"></span>
+          <span class="w-3 h-3 rounded-sm inline-block" style="background:#c4b5fd"></span>
+          <span class="text-gray-600">Check</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="w-3 h-3 rounded-sm inline-block" style="background:#3b82f6"></span>
+          <span class="w-3 h-3 rounded-sm inline-block" style="background:#93c5fd"></span>
+          <span class="text-gray-600">Call</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="w-3 h-3 rounded-sm inline-block" style="background:#f59e0b"></span>
+          <span class="w-3 h-3 rounded-sm inline-block" style="background:#fcd34d"></span>
+          <span class="text-gray-600">Raise</span>
+        </div>
+        <div class="flex items-center gap-1.5 ml-2 pl-2 border-l border-gray-200">
+          <span class="w-3 h-3 rounded-sm bg-gray-700 inline-block"></span>
+          <span class="text-gray-600">You</span>
+          <span class="w-3 h-3 rounded-sm bg-gray-300 inline-block"></span>
+          <span class="text-gray-600">GTO</span>
+        </div>
+      </div>
+
+      <!-- Chart area (static bar chart) -->
+      <div class="relative" style="height: 280px;">
+        <!-- Y-axis labels -->
+        <div class="absolute left-0 top-0 bottom-6 w-10 flex flex-col justify-between text-right pr-2">
+          <span class="text-xs text-gray-400">100%</span>
+          <span class="text-xs text-gray-400">75%</span>
+          <span class="text-xs text-gray-400">50%</span>
+          <span class="text-xs text-gray-400">25%</span>
+          <span class="text-xs text-gray-400">0%</span>
+        </div>
+
+        <!-- Grid lines + bars -->
+        <div class="ml-10 h-full flex flex-col">
+          <div class="relative flex-1 border-b border-gray-200">
+            <!-- Horizontal grid lines -->
+            <div class="absolute inset-0">
+              <div class="absolute w-full border-t border-dashed border-gray-100" style="top:0%"></div>
+              <div class="absolute w-full border-t border-dashed border-gray-100" style="top:25%"></div>
+              <div class="absolute w-full border-t border-dashed border-gray-100" style="top:50%"></div>
+              <div class="absolute w-full border-t border-dashed border-gray-100" style="top:75%"></div>
+            </div>
+
+            <!-- Bar groups container -->
+            <div class="absolute inset-0 flex items-end justify-around px-2">
+              
+              <!-- Preflop group -->
+              <div class="flex items-end gap-px" style="width:22%">
+                <!-- Fold You/GTO -->
+                <div class="flex-1 flex flex-col items-center gap-px">
+                  <div class="w-full rounded-t-sm" style="height:calc(250px * 0.35);background:#ef4444"></div>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-px">
+                  <div class="w-full rounded-t-sm" style="height:calc(250px * 0.30);background:#fca5a5"></div>
+                </div>
+                <!-- Check You/GTO -->
+                <div class="flex-1 flex flex-col items-center gap-px">
+                  <div class="w-full rounded-t-sm" style="height:calc(250px * 0.05);background:#8b5cf6"></div>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-px">
+                  <div class="w-full rounded-t-sm" style="height:calc(250px * 0.03);background:#c4b5fd"></div>
+                </div>
+                <!-- Call You/GTO -->
+                <div class="flex-1 flex flex-col items-center gap-px">
+                  <div class="w-full rounded-t-sm" style="height:calc(250px * 0.30);background:#3b82f6"></div>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-px">
+                  <div class="w-full rounded-t-sm" style="height:calc(250px * 0.22);background:#93c5fd"></div>
+                </div>
+                <!-- Raise You/GTO -->
+                <div class="flex-1 flex flex-col items-center gap-px">
+                  <div class="w-full rounded-t-sm" style="height:calc(250px * 0.30);background:#f59e0b"></div>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-px">
+                  <div class="w-full rounded-t-sm" style="height:calc(250px * 0.45);background:#fcd34d"></div>
+                </div>
+              </div>
+
+              <!-- Flop group -->
+              <div class="flex items-end gap-px" style="width:22%">
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.40);background:#ef4444"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.35);background:#fca5a5"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.25);background:#8b5cf6"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.30);background:#c4b5fd"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.20);background:#3b82f6"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.15);background:#93c5fd"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.15);background:#f59e0b"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.20);background:#fcd34d"></div></div>
+              </div>
+
+              <!-- Turn group -->
+              <div class="flex items-end gap-px" style="width:22%">
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.45);background:#ef4444"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.40);background:#fca5a5"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.20);background:#8b5cf6"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.25);background:#c4b5fd"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.18);background:#3b82f6"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.15);background:#93c5fd"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.17);background:#f59e0b"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.20);background:#fcd34d"></div></div>
+              </div>
+
+              <!-- River group -->
+              <div class="flex items-end gap-px" style="width:22%">
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.50);background:#ef4444"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.45);background:#fca5a5"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.15);background:#8b5cf6"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.20);background:#c4b5fd"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.15);background:#3b82f6"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.12);background:#93c5fd"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.20);background:#f59e0b"></div></div>
+                <div class="flex-1"><div class="w-full rounded-t-sm" style="height:calc(250px * 0.23);background:#fcd34d"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- X-axis labels -->
+          <div class="flex justify-around pt-2">
+            <span class="text-sm text-gray-500" style="width:22%;text-align:center">Preflop</span>
+            <span class="text-sm text-gray-500" style="width:22%;text-align:center">Flop</span>
+            <span class="text-sm text-gray-500" style="width:22%;text-align:center">Turn</span>
+            <span class="text-sm text-gray-500" style="width:22%;text-align:center">River</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample sizes footer -->
+      <div class="flex justify-around mt-3 pt-3 border-t border-gray-100">
+        <div class="text-center">
+          <span class="text-xs text-gray-400">Preflop: </span>
+          <span class="text-xs font-medium text-gray-600">482 hands</span>
+        </div>
+        <div class="text-center">
+          <span class="text-xs text-gray-400">Flop: </span>
+          <span class="text-xs font-medium text-gray-600">310 hands</span>
+        </div>
+        <div class="text-center">
+          <span class="text-xs text-gray-400">Turn: </span>
+          <span class="text-xs font-medium text-gray-600">198 hands</span>
+        </div>
+        <div class="text-center">
+          <span class="text-xs text-gray-400">River: </span>
+          <span class="text-xs font-medium text-gray-600">127 hands</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

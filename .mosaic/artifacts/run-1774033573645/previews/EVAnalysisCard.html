@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVAnalysisCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 480px; display: flex; flex-direction: column; gap: 24px;">
+
+    <!-- Example 1: Major EV Loss -->
+    <div class="bg-white border border-gray-200 rounded-xl p-5">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide">EV Analysis</h3>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-lg border bg-red-50 text-red-500 border-red-200">
+          <span>✗</span> Major Loss
+        </span>
+      </div>
+      <div class="grid grid-cols-3 gap-3 mb-4">
+        <div class="bg-slate-50 rounded-lg p-3 text-center">
+          <div class="text-xs text-gray-500 mb-1">Your EV</div>
+          <div class="text-lg font-bold text-red-500">-1.25 BB</div>
+        </div>
+        <div class="bg-slate-50 rounded-lg p-3 text-center">
+          <div class="text-xs text-gray-500 mb-1">GTO Optimal</div>
+          <div class="text-lg font-bold text-emerald-600">+0.85 BB</div>
+        </div>
+        <div class="bg-red-50 rounded-lg p-3 text-center">
+          <div class="text-xs text-gray-500 mb-1">EV Loss</div>
+          <div class="text-lg font-bold text-red-500">-2.10 BB</div>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center gap-2 text-xs text-gray-400 mb-1.5">
+          <span>EV Comparison</span>
+        </div>
+        <div class="relative h-6 bg-slate-100 rounded-lg overflow-hidden">
+          <div class="absolute inset-y-0 left-0 bg-blue-100 rounded-lg" style="width: 100%"></div>
+          <div class="absolute inset-y-0 left-0 bg-red-400 rounded-lg" style="width: 15%"></div>
+          <div class="absolute inset-0 flex items-center justify-between px-2">
+            <span class="text-xs font-medium text-white drop-shadow-sm">You</span>
+            <span class="text-xs font-medium text-blue-600">GTO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 2: Minor EV Loss -->
+    <div class="bg-white border border-gray-200 rounded-xl p-5">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide">EV Analysis</h3>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-lg border bg-amber-50 text-amber-500 border-amber-200">
+          <span>⚠</span> Minor Loss
+        </span>
+      </div>
+      <div class="grid grid-cols-3 gap-3 mb-4">
+        <div class="bg-slate-50 rounded-lg p-3 text-center">
+          <div class="text-xs text-gray-500 mb-1">Your EV</div>
+          <div class="text-lg font-bold text-emerald-600">+0.65 BB</div>
+        </div>
+        <div class="bg-slate-50 rounded-lg p-3 text-center">
+          <div class="text-xs text-gray-500 mb-1">GTO Optimal</div>
+          <div class="text-lg font-bold text-emerald-600">+0.85 BB</div>
+        </div>
+        <div class="bg-amber-50 rounded-lg p-3 text-center">
+          <div class="text-xs text-gray-500 mb-1">EV Loss</div>
+          <div class="text-lg font-bold text-amber-500">-0.20 BB</div>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center gap-2 text-xs text-gray-400 mb-1.5">
+          <span>EV Comparison</span>
+        </div>
+        <div class="relative h-6 bg-slate-100 rounded-lg overflow-hidden">
+          <div class="absolute inset-y-0 left-0 bg-blue-100 rounded-lg" style="width: 100%"></div>
+          <div class="absolute inset-y-0 left-0 bg-amber-400 rounded-lg" style="width: 76%"></div>
+          <div class="absolute inset-0 flex items-center justify-between px-2">
+            <span class="text-xs font-medium text-white drop-shadow-sm">You</span>
+            <span class="text-xs font-medium text-blue-600">GTO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 3: Optimal Play -->
+    <div class="bg-white border border-gray-200 rounded-xl p-5">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide">EV Analysis</h3>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-lg border bg-emerald-50 text-emerald-500 border-emerald-200">
+          <span>✓</span> Optimal
+        </span>
+      </div>
+      <div class="grid grid-cols-3 gap-3 mb-4">
+        <div class="bg-slate-50 rounded-lg p-3 text-center">
+          <div class="text-xs text-gray-500 mb-1">Your EV</div>
+          <div class="text-lg font-bold text-emerald-600">+1.20 BB</div>
+        </div>
+        <div class="bg-slate-50 rounded-lg p-3 text-center">
+          <div class="text-xs text-gray-500 mb-1">GTO Optimal</div>
+          <div class="text-lg font-bold text-emerald-600">+1.20 BB</div>
+        </div>
+        <div class="bg-emerald-50 rounded-lg p-3 text-center">
+          <div class="text-xs text-gray-500 mb-1">EV Loss</div>
+          <div class="text-lg font-bold text-emerald-500">0.00 BB</div>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center gap-2 text-xs text-gray-400 mb-1.5">
+          <span>EV Comparison</span>
+        </div>
+        <div class="relative h-6 bg-slate-100 rounded-lg overflow-hidden">
+          <div class="absolute inset-y-0 left-0 bg-blue-100 rounded-lg" style="width: 100%"></div>
+          <div class="absolute inset-y-0 left-0 bg-emerald-400 rounded-lg" style="width: 100%"></div>
+          <div class="absolute inset-0 flex items-center justify-between px-2">
+            <span class="text-xs font-medium text-white drop-shadow-sm">You</span>
+            <span class="text-xs font-medium text-blue-600">GTO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickStartPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-xl mx-auto">
+    <section class="w-full">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">快捷操作</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+        <!-- 新牌局 (primary) -->
+        <div class="relative flex flex-col items-start gap-3 p-6 rounded-xl border border-blue-200 bg-blue-50 cursor-pointer select-none transition-all duration-200 hover:bg-blue-100 hover:border-blue-300 hover:shadow-md">
+          <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-blue-600 text-white">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+          </div>
+          <div class="text-left">
+            <div class="text-base font-semibold text-gray-900">新牌局</div>
+            <div class="text-sm text-gray-500 mt-0.5">开始一局新的 6-max 德州扑克</div>
+          </div>
+        </div>
+
+        <!-- 继续牌局 (secondary, with badge) -->
+        <div class="relative flex flex-col items-start gap-3 p-6 rounded-xl border border-emerald-200 bg-emerald-50 cursor-pointer select-none transition-all duration-200 hover:bg-emerald-100 hover:border-emerald-300 hover:shadow-md">
+          <span class="absolute top-4 right-4 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700">进行中</span>
+          <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-emerald-600 text-white">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </div>
+          <div class="text-left">
+            <div class="text-base font-semibold text-gray-900">继续牌局</div>
+            <div class="text-sm text-gray-500 mt-0.5">回到上次未完成的牌局</div>
+          </div>
+        </div>
+
+        <!-- 历史记录 (default) -->
+        <div class="relative flex flex-col items-start gap-3 p-6 rounded-xl border border-gray-200 bg-white cursor-pointer select-none transition-all duration-200 hover:bg-slate-50 hover:border-gray-300 hover:shadow-md">
+          <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-gray-100 text-gray-600">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 8v4l3 3" />
+              <circle cx="12" cy="12" r="10" />
+            </svg>
+          </div>
+          <div class="text-left">
+            <div class="text-base font-semibold text-gray-900">历史记录</div>
+            <div class="text-sm text-gray-500 mt-0.5">浏览过往手牌与复盘回放</div>
+          </div>
+        </div>
+
+        <!-- 数据统计 (default) -->
+        <div class="relative flex flex-col items-start gap-3 p-6 rounded-xl border border-gray-200 bg-white cursor-pointer select-none transition-all duration-200 hover:bg-slate-50 hover:border-gray-300 hover:shadow-md">
+          <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-gray-100 text-gray-600">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 20V10" />
+              <path d="M12 20V4" />
+              <path d="M6 20v-6" />
+            </svg>
+          </div>
+          <div class="text-left">
+            <div class="text-base font-semibold text-gray-900">数据统计</div>
+            <div class="text-sm text-gray-500 mt-0.5">查看长期表现与 GTO 偏差分析</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</body>
+</html>

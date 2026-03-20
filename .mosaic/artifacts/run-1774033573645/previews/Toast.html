@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">Toast</h2>
+
+  <!-- All toast types stacked vertically for preview -->
+  <div class="flex flex-col gap-3 max-w-sm">
+
+    <!-- Success -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-emerald-50 border-emerald-200" role="alert">
+      <span class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs font-bold">✓</span>
+      <span class="text-sm font-medium text-emerald-800">Hand saved successfully!</span>
+      <button class="ml-2 text-emerald-800 opacity-60 hover:opacity-100 text-lg leading-none" aria-label="Close">×</button>
+    </div>
+
+    <!-- Warning -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-amber-50 border-amber-200" role="alert">
+      <span class="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center text-white text-xs font-bold">⚠</span>
+      <span class="text-sm font-medium text-amber-800">Session data may be incomplete</span>
+      <button class="ml-2 text-amber-800 opacity-60 hover:opacity-100 text-lg leading-none" aria-label="Close">×</button>
+    </div>
+
+    <!-- Error -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-red-50 border-red-200" role="alert">
+      <span class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-white text-xs font-bold">✕</span>
+      <span class="text-sm font-medium text-red-800">Failed to export hand history</span>
+      <button class="ml-2 text-red-800 opacity-60 hover:opacity-100 text-lg leading-none" aria-label="Close">×</button>
+    </div>
+
+  </div>
+
+  <!-- Positioned toast preview -->
+  <div class="mt-8">
+    <p class="text-sm text-gray-500 mb-2">Positioned (top-right, as rendered in app)</p>
+    <div class="relative w-full h-48 bg-white border border-gray-200 rounded-xl overflow-hidden">
+      <div class="absolute top-4 right-4 flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-emerald-50 border-emerald-200" role="alert">
+        <span class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs font-bold">✓</span>
+        <span class="text-sm font-medium text-emerald-800">Hand #42 saved!</span>
+        <button class="ml-2 text-emerald-800 opacity-60 hover:opacity-100 text-lg leading-none" aria-label="Close">×</button>
+      </div>
+      <div class="flex items-center justify-center h-full text-gray-300 text-sm">App content area</div>
+    </div>
+  </div>
+</body>
+</html>

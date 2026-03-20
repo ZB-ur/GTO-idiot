@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandHistoryList Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-4xl mx-auto px-4 py-8 space-y-6">
+
+    <!-- Page Header -->
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-900">Hand History</h1>
+        <p class="text-sm text-gray-500 mt-1">47 hands recorded</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <!-- Filter Button (active state) -->
+        <button class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-blue-50 text-blue-700">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+          </svg>
+          Filter
+          <span class="w-5 h-5 text-xs bg-blue-600 text-white rounded-full flex items-center justify-center">2</span>
+        </button>
+        <!-- Export Button -->
+        <button class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Export (2)
+        </button>
+      </div>
+    </div>
+
+    <!-- Filter Panel -->
+    <div class="p-4 bg-white border border-gray-200 rounded-xl space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-sm font-semibold text-gray-900">Filters</h3>
+        <button class="text-xs text-blue-600 hover:text-blue-700">Reset (2)</button>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">From</label>
+          <input type="date" value="2026-03-01" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">To</label>
+          <input type="date" value="2026-03-21" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Min Profit (BB)</label>
+          <input type="number" placeholder="-100" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Max Profit (BB)</label>
+          <input type="number" placeholder="+200" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none" />
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs text-gray-500 mb-2">Scenarios</label>
+        <div class="flex flex-wrap gap-2">
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-blue-600 text-white">Open Raise</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-blue-600 text-white">3-Bet Pot</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-gray-600">4-Bet Pot</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-gray-600">SRP</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-gray-600">River Bluff</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-gray-600">Check Raise</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-gray-600">All-in Pre</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Select All Bar -->
+    <div class="flex items-center gap-3 px-1">
+      <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-gray-300" />
+      <span class="text-sm text-gray-500">2 selected</span>
+    </div>
+
+    <!-- Session Group 1 -->
+    <div class="space-y-8">
+      <div class="space-y-2">
+        <div class="flex items-center justify-between px-1">
+          <div class="flex items-center gap-2">
+            <h2 class="text-sm font-semibold text-gray-700">Fri, Mar 21</h2>
+            <span class="text-xs text-gray-400">5 hands</span>
+          </div>
+          <span class="text-sm font-semibold text-emerald-600">+18.5 BB</span>
+        </div>
+
+        <!-- Hand Card 1 — selected -->
+        <div class="flex items-center gap-4 p-4 bg-white border border-blue-600 rounded-xl bg-blue-50/30">
+          <input type="checkbox" checked class="w-4 h-4 text-blue-600 rounded border-gray-300" />
+          <div class="w-16 text-sm font-mono text-gray-500">#47</div>
+          <span class="inline-flex items-center justify-center w-10 h-6 text-xs font-semibold rounded-lg bg-slate-100 text-gray-700">BTN</span>
+          <div class="flex-1 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs rounded-lg bg-blue-50 text-blue-700">open raise</span>
+            <span class="px-2 py-0.5 text-xs rounded-lg bg-blue-50 text-blue-700">3bet pot</span>
+          </div>
+          <span class="text-xs text-gray-400">SD</span>
+          <div class="w-20 text-right text-sm font-semibold text-emerald-600">+12.5 BB</div>
+          <button class="px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">Replay</button>
+        </div>
+
+        <!-- Hand Card 2 — selected, loss -->
+        <div class="flex items-center gap-4 p-4 bg-white border border-blue-600 rounded-xl bg-blue-50/30">
+          <input type="checkbox" checked class="w-4 h-4 text-blue-600 rounded border-gray-300" />
+          <div class="w-16 text-sm font-mono text-gray-500">#46</div>
+          <span class="inline-flex items-center justify-center w-10 h-6 text-xs font-semibold rounded-lg bg-slate-100 text-gray-700">CO</span>
+          <div class="flex-1 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs rounded-lg bg-blue-50 text-blue-700">open raise</span>
+          </div>
+          <div class="w-20 text-right text-sm font-semibold text-red-500">-3.0 BB</div>
+          <button class="px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">Replay</button>
+        </div>
+
+        <!-- Hand Card 3 — unselected -->
+        <div class="flex items-center gap-4 p-4 bg-white border border-gray-200 rounded-xl">
+          <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-gray-300" />
+          <div class="w-16 text-sm font-mono text-gray-500">#45</div>
+          <span class="inline-flex items-center justify-center w-10 h-6 text-xs font-semibold rounded-lg bg-slate-100 text-gray-700">BB</span>
+          <div class="flex-1 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs rounded-lg bg-blue-50 text-blue-700">check raise</span>
+          </div>
+          <span class="text-xs text-gray-400">SD</span>
+          <div class="w-20 text-right text-sm font-semibold text-emerald-600">+8.0 BB</div>
+          <button class="px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">Replay</button>
+        </div>
+
+        <!-- Hand Card 4 -->
+        <div class="flex items-center gap-4 p-4 bg-white border border-gray-200 rounded-xl">
+          <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-gray-300" />
+          <div class="w-16 text-sm font-mono text-gray-500">#44</div>
+          <span class="inline-flex items-center justify-center w-10 h-6 text-xs font-semibold rounded-lg bg-slate-100 text-gray-700">SB</span>
+          <div class="flex-1 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs rounded-lg bg-blue-50 text-blue-700">3bet pot</span>
+          </div>
+          <div class="w-20 text-right text-sm font-semibold text-emerald-600">+2.0 BB</div>
+          <button class="px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">Replay</button>
+        </div>
+
+        <!-- Hand Card 5 -->
+        <div class="flex items-center gap-4 p-4 bg-white border border-gray-200 rounded-xl">
+          <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-gray-300" />
+          <div class="w-16 text-sm font-mono text-gray-500">#43</div>
+          <span class="inline-flex items-center justify-center w-10 h-6 text-xs font-semibold rounded-lg bg-slate-100 text-gray-700">UTG</span>
+          <div class="flex-1 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs rounded-lg bg-blue-50 text-blue-700">open raise</span>
+          </div>
+          <div class="w-20 text-right text-sm font-semibold text-red-500">-1.0 BB</div>
+          <button class="px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">Replay</button>
+        </div>
+      </div>
+
+      <!-- Session Group 2 -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between px-1">
+          <div class="flex items-center gap-2">
+            <h2 class="text-sm font-semibold text-gray-700">Thu, Mar 20</h2>
+            <span class="text-xs text-gray-400">3 hands</span>
+          </div>
+          <span class="text-sm font-semibold text-red-500">-4.5 BB</span>
+        </div>
+
+        <div class="flex items-center gap-4 p-4 bg-white border border-gray-200 rounded-xl">
+          <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-gray-300" />
+          <div class="w-16 text-sm font-mono text-gray-500">#42</div>
+          <span class="inline-flex items-center justify-center w-10 h-6 text-xs font-semibold rounded-lg bg-slate-100 text-gray-700">HJ</span>
+          <div class="flex-1 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs rounded-lg bg-blue-50 text-blue-700">open raise</span>
+            <span class="px-2 py-0.5 text-xs rounded-lg bg-blue-50 text-blue-700">river bluff</span>
+          </div>
+          <span class="text-xs text-gray-400">SD</span>
+          <div class="w-20 text-right text-sm font-semibold text-red-500">-8.0 BB</div>
+          <button class="px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">Replay</button>
+        </div>
+
+        <div class="flex items-center gap-4 p-4 bg-white border border-gray-200 rounded-xl">
+          <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-gray-300" />
+          <div class="w-16 text-sm font-mono text-gray-500">#41</div>
+          <span class="inline-flex items-center justify-center w-10 h-6 text-xs font-semibold rounded-lg bg-slate-100 text-gray-700">BTN</span>
+          <div class="flex-1 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs rounded-lg bg-blue-50 text-blue-700">single raised pot</span>
+          </div>
+          <div class="w-20 text-right text-sm font-semibold text-emerald-600">+2.5 BB</div>
+          <button class="px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">Replay</button>
+        </div>
+
+        <div class="flex items-center gap-4 p-4 bg-white border border-gray-200 rounded-xl">
+          <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-gray-300" />
+          <div class="w-16 text-sm font-mono text-gray-500">#40</div>
+          <span class="inline-flex items-center justify-center w-10 h-6 text-xs font-semibold rounded-lg bg-slate-100 text-gray-700">CO</span>
+          <div class="flex-1 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs rounded-lg bg-blue-50 text-blue-700">open raise</span>
+          </div>
+          <div class="w-20 text-right text-sm font-semibold text-emerald-600">+1.0 BB</div>
+          <button class="px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">Replay</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex items-center justify-center gap-2 pt-4">
+      <button class="px-3 py-2 text-sm text-gray-600 bg-white border border-gray-200 rounded-lg opacity-40 cursor-not-allowed">Previous</button>
+      <span class="text-sm text-gray-500 px-3">Page 1 of 3</span>
+      <button class="px-3 py-2 text-sm text-gray-600 bg-white border border-gray-200 rounded-lg hover:bg-slate-50">Next</button>
+    </div>
+
+  </div>
+</body>
+</html>
