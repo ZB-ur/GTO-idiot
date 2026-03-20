@@ -1,0 +1,321 @@
+{
+  "components": [
+    {
+      "name": "PlayingCard",
+      "file": "components/PlayingCard.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "DealerButton",
+      "file": "components/DealerButton.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "DeviationBadge",
+      "file": "components/DeviationBadge.tsx",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "name": "EVLossIndicator",
+      "file": "components/EVLossIndicator.tsx",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "name": "ActionButton",
+      "file": "components/ActionButton.tsx",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "name": "KPICard",
+      "file": "components/KPICard.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "ConfirmDialog",
+      "file": "components/ConfirmDialog.tsx",
+      "covers_features": [
+        "F-002",
+        "F-005"
+      ]
+    },
+    {
+      "name": "LoadingSpinner",
+      "file": "components/LoadingSpinner.tsx",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "EmptyState",
+      "file": "components/EmptyState.tsx",
+      "covers_features": [
+        "F-005",
+        "F-007"
+      ]
+    },
+    {
+      "name": "StorageWarningBanner",
+      "file": "components/StorageWarningBanner.tsx",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "TooltipPopover",
+      "file": "components/TooltipPopover.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "GTODisclaimerBanner",
+      "file": "components/GTODisclaimerBanner.tsx",
+      "covers_features": [
+        "F-004",
+        "F-006"
+      ]
+    },
+    {
+      "name": "TrendRangeSelector",
+      "file": "components/TrendRangeSelector.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "ExportButton",
+      "file": "components/ExportButton.tsx",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "ClearHistoryButton",
+      "file": "components/ClearHistoryButton.tsx",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "CommunityCards",
+      "file": "components/CommunityCards.tsx",
+      "covers_features": [
+        "F-008",
+        "F-001"
+      ]
+    },
+    {
+      "name": "PotDisplay",
+      "file": "components/PotDisplay.tsx",
+      "covers_features": [
+        "F-001",
+        "F-008"
+      ]
+    },
+    {
+      "name": "BetSlider",
+      "file": "components/BetSlider.tsx",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "name": "QuickBetButtons",
+      "file": "components/QuickBetButtons.tsx",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "name": "SessionStatusBar",
+      "file": "components/SessionStatusBar.tsx",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "name": "BotStylePicker",
+      "file": "components/BotStylePicker.tsx",
+      "covers_features": [
+        "F-003",
+        "F-009"
+      ]
+    },
+    {
+      "name": "SeatSelector",
+      "file": "components/SeatSelector.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "QuickStartCard",
+      "file": "components/QuickStartCard.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "ResumeSessionCard",
+      "file": "components/ResumeSessionCard.tsx",
+      "covers_features": [
+        "F-010",
+        "F-009"
+      ]
+    },
+    {
+      "name": "PauseOverlay",
+      "file": "components/PauseOverlay.tsx",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "name": "HandHistoryCard",
+      "file": "components/HandHistoryCard.tsx",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "HistoryFilterBar",
+      "file": "components/HistoryFilterBar.tsx",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "StreetNavigator",
+      "file": "components/StreetNavigator.tsx",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "name": "ReplayControls",
+      "file": "components/ReplayControls.tsx",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "name": "KPICardGroup",
+      "file": "components/KPICardGroup.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "StreetAccuracyChart",
+      "file": "components/StreetAccuracyChart.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "PositionWinRateChart",
+      "file": "components/PositionWinRateChart.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "BotStyleWinRateChart",
+      "file": "components/BotStyleWinRateChart.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "TopNavBar",
+      "file": "components/TopNavBar.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    }
+  ],
+  "screenshots": [
+    "screenshots/PlayingCard.png",
+    "screenshots/DealerButton.png",
+    "screenshots/DeviationBadge.png",
+    "screenshots/EVLossIndicator.png",
+    "screenshots/ActionButton.png",
+    "screenshots/KPICard.png",
+    "screenshots/ConfirmDialog.png",
+    "screenshots/LoadingSpinner.png",
+    "screenshots/EmptyState.png",
+    "screenshots/StorageWarningBanner.png",
+    "screenshots/TooltipPopover.png",
+    "screenshots/GTODisclaimerBanner.png",
+    "screenshots/TrendRangeSelector.png",
+    "screenshots/ExportButton.png",
+    "screenshots/ClearHistoryButton.png",
+    "screenshots/CommunityCards.png",
+    "screenshots/PotDisplay.png",
+    "screenshots/BetSlider.png",
+    "screenshots/QuickBetButtons.png",
+    "screenshots/SessionStatusBar.png",
+    "screenshots/BotStylePicker.png",
+    "screenshots/SeatSelector.png",
+    "screenshots/QuickStartCard.png",
+    "screenshots/ResumeSessionCard.png",
+    "screenshots/PauseOverlay.png",
+    "screenshots/HandHistoryCard.png",
+    "screenshots/HistoryFilterBar.png",
+    "screenshots/StreetNavigator.png",
+    "screenshots/ReplayControls.png",
+    "screenshots/KPICardGroup.png",
+    "screenshots/StreetAccuracyChart.png",
+    "screenshots/PositionWinRateChart.png",
+    "screenshots/BotStyleWinRateChart.png",
+    "screenshots/TopNavBar.png"
+  ],
+  "previews": [
+    "previews/PlayingCard.html",
+    "previews/DealerButton.html",
+    "previews/DeviationBadge.html",
+    "previews/EVLossIndicator.html",
+    "previews/ActionButton.html",
+    "previews/KPICard.html",
+    "previews/ConfirmDialog.html",
+    "previews/LoadingSpinner.html",
+    "previews/EmptyState.html",
+    "previews/StorageWarningBanner.html",
+    "previews/TooltipPopover.html",
+    "previews/GTODisclaimerBanner.html",
+    "previews/TrendRangeSelector.html",
+    "previews/ExportButton.html",
+    "previews/ClearHistoryButton.html",
+    "previews/CommunityCards.html",
+    "previews/PotDisplay.html",
+    "previews/BetSlider.html",
+    "previews/QuickBetButtons.html",
+    "previews/SessionStatusBar.html",
+    "previews/BotStylePicker.html",
+    "previews/SeatSelector.html",
+    "previews/QuickStartCard.html",
+    "previews/ResumeSessionCard.html",
+    "previews/PauseOverlay.html",
+    "previews/HandHistoryCard.html",
+    "previews/HistoryFilterBar.html",
+    "previews/StreetNavigator.html",
+    "previews/ReplayControls.html",
+    "previews/KPICardGroup.html",
+    "previews/StreetAccuracyChart.html",
+    "previews/PositionWinRateChart.html",
+    "previews/BotStyleWinRateChart.html",
+    "previews/TopNavBar.html"
+  ]
+}

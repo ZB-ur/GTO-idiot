@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommunityCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #111827;
+      font-family: system-ui, sans-serif;
+    }
+    .perspective { perspective: 600px; }
+    .preserve-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; }
+    .rotate-y-0 { transform: rotateY(0deg); }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    .flip-transition { transition: transform 0.5s ease-out; }
+  </style>
+</head>
+<body>
+
+  <!-- Scene: Poker felt background -->
+  <div class="min-h-screen flex flex-col items-center justify-center gap-16">
+
+    <!-- Label -->
+    <h2 class="text-gray-400 text-sm font-semibold uppercase tracking-widest">Community Cards</h2>
+
+    <!-- Variant 1: Flop (3 cards revealed) -->
+    <div>
+      <p class="text-gray-500 text-xs text-center mb-3 uppercase tracking-wider">Flop — 3 revealed</p>
+      <div class="bg-emerald-800 rounded-xl border-2 border-amber-900/60 px-8 py-6 shadow-lg">
+        <div class="flex items-center justify-center gap-2">
+          <!-- Card 1: A♠ - revealed -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-0 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200 text-gray-900">
+                <span class="text-lg font-bold leading-none">A</span>
+                <span class="text-xl leading-none mt-0.5">♠</span>
+              </div>
+              <div class="backface-hidden rotate-y-180 absolute inset-0 rounded-md bg-gradient-to-br from-emerald-700 to-emerald-900 border-2 border-emerald-600 shadow-md flex items-center justify-center">
+                <div class="w-10 h-14 rounded-sm border border-emerald-500/40 bg-emerald-800/50 flex items-center justify-center">
+                  <span class="text-emerald-400/60 text-lg">♠</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: K♥ - revealed -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-0 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200 text-red-600">
+                <span class="text-lg font-bold leading-none">K</span>
+                <span class="text-xl leading-none mt-0.5">♥</span>
+              </div>
+              <div class="backface-hidden rotate-y-180 absolute inset-0 rounded-md bg-gradient-to-br from-emerald-700 to-emerald-900 border-2 border-emerald-600 shadow-md flex items-center justify-center">
+                <div class="w-10 h-14 rounded-sm border border-emerald-500/40 bg-emerald-800/50 flex items-center justify-center">
+                  <span class="text-emerald-400/60 text-lg">♠</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: 7♦ - revealed -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-0 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200 text-red-600">
+                <span class="text-lg font-bold leading-none">7</span>
+                <span class="text-xl leading-none mt-0.5">♦</span>
+              </div>
+              <div class="backface-hidden rotate-y-180 absolute inset-0 rounded-md bg-gradient-to-br from-emerald-700 to-emerald-900 border-2 border-emerald-600 shadow-md flex items-center justify-center">
+                <div class="w-10 h-14 rounded-sm border border-emerald-500/40 bg-emerald-800/50 flex items-center justify-center">
+                  <span class="text-emerald-400/60 text-lg">♠</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: face down (not yet dealt) -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-180 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200"></div>
+              <div class="backface-hidden rotate-y-180 absolute inset-0 rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20 flex items-center justify-center"></div>
+            </div>
+          </div>
+
+          <!-- Card 5: empty slot -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-180 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200"></div>
+              <div class="backface-hidden rotate-y-180 absolute inset-0 rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20 flex items-center justify-center"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant 2: Turn (4 cards revealed) -->
+    <div>
+      <p class="text-gray-500 text-xs text-center mb-3 uppercase tracking-wider">Turn — 4 revealed</p>
+      <div class="bg-emerald-800 rounded-xl border-2 border-amber-900/60 px-8 py-6 shadow-lg">
+        <div class="flex items-center justify-center gap-2">
+          <!-- Card 1: A♠ -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-0 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200 text-gray-900">
+                <span class="text-lg font-bold leading-none">A</span>
+                <span class="text-xl leading-none mt-0.5">♠</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: K♥ -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-0 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200 text-red-600">
+                <span class="text-lg font-bold leading-none">K</span>
+                <span class="text-xl leading-none mt-0.5">♥</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: 7♦ -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-0 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200 text-red-600">
+                <span class="text-lg font-bold leading-none">7</span>
+                <span class="text-xl leading-none mt-0.5">♦</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: T♣ - turn card -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-0 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200 text-gray-900">
+                <span class="text-lg font-bold leading-none">T</span>
+                <span class="text-xl leading-none mt-0.5">♣</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: empty slot -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-180 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200"></div>
+              <div class="backface-hidden rotate-y-180 absolute inset-0 rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20 flex items-center justify-center"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant 3: River (all 5 revealed) -->
+    <div>
+      <p class="text-gray-500 text-xs text-center mb-3 uppercase tracking-wider">River — 5 revealed</p>
+      <div class="bg-emerald-800 rounded-xl border-2 border-amber-900/60 px-8 py-6 shadow-lg">
+        <div class="flex items-center justify-center gap-2">
+          <!-- Card 1: A♠ -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-0 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200 text-gray-900">
+                <span class="text-lg font-bold leading-none">A</span>
+                <span class="text-xl leading-none mt-0.5">♠</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: K♥ -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-0 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200 text-red-600">
+                <span class="text-lg font-bold leading-none">K</span>
+                <span class="text-xl leading-none mt-0.5">♥</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: 7♦ -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-0 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200 text-red-600">
+                <span class="text-lg font-bold leading-none">7</span>
+                <span class="text-xl leading-none mt-0.5">♦</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: T♣ -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-0 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200 text-gray-900">
+                <span class="text-lg font-bold leading-none">T</span>
+                <span class="text-xl leading-none mt-0.5">♣</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: 2♥ - river card -->
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="preserve-3d rotate-y-0 flip-transition absolute inset-0">
+              <div class="backface-hidden absolute inset-0 rounded-md bg-white shadow-md flex flex-col items-center justify-center border border-gray-200 text-red-600">
+                <span class="text-lg font-bold leading-none">2</span>
+                <span class="text-xl leading-none mt-0.5">♥</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant 4: Preflop (no cards revealed, 5 empty slots) -->
+    <div>
+      <p class="text-gray-500 text-xs text-center mb-3 uppercase tracking-wider">Preflop — empty board</p>
+      <div class="bg-emerald-800 rounded-xl border-2 border-amber-900/60 px-8 py-6 shadow-lg">
+        <div class="flex items-center justify-center gap-2">
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="absolute inset-0 rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+          </div>
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="absolute inset-0 rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+          </div>
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="absolute inset-0 rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+          </div>
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="absolute inset-0 rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+          </div>
+          <div class="perspective relative w-16 h-[88px]">
+            <div class="absolute inset-0 rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

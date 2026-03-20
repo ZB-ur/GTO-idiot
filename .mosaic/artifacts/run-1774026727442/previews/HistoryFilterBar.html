@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HistoryFilterBar Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- State 1: No active filters -->
+  <div class="max-w-4xl mx-auto mb-6">
+    <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">Default — No Filters Active</p>
+    <div class="bg-gray-800 border border-gray-600 rounded-xl p-4">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wider">Filters</h3>
+      </div>
+      <div class="flex flex-wrap items-end gap-4">
+        <!-- Date Range -->
+        <div class="flex items-end gap-2">
+          <div class="flex flex-col gap-1">
+            <label class="text-xs text-gray-500 font-medium">From</label>
+            <input type="date" class="bg-gray-700 border border-gray-600 rounded-lg px-3 py-1.5 text-sm text-gray-500 focus:outline-none" style="color-scheme: dark;" />
+          </div>
+          <span class="text-gray-500 pb-1.5">–</span>
+          <div class="flex flex-col gap-1">
+            <label class="text-xs text-gray-500 font-medium">To</label>
+            <input type="date" class="bg-gray-700 border border-gray-600 rounded-lg px-3 py-1.5 text-sm text-gray-500 focus:outline-none" style="color-scheme: dark;" />
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-px h-8 bg-gray-600"></div>
+
+        <!-- Position -->
+        <div class="flex flex-col gap-1">
+          <label class="text-xs text-gray-500 font-medium">Position</label>
+          <div class="flex gap-1">
+            <button class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">UTG</button>
+            <button class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">MP</button>
+            <button class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">CO</button>
+            <button class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">BTN</button>
+            <button class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">SB</button>
+            <button class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">BB</button>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-px h-8 bg-gray-600"></div>
+
+        <!-- Result -->
+        <div class="flex flex-col gap-1">
+          <label class="text-xs text-gray-500 font-medium">Result</label>
+          <div class="flex gap-1">
+            <button class="px-3 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">Win</button>
+            <button class="px-3 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">Loss</button>
+            <button class="px-3 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">Even</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- State 2: Active filters (BTN + Win selected, date range set) -->
+  <div class="max-w-4xl mx-auto">
+    <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">Active Filters — BTN + Win + Date Range</p>
+    <div class="bg-gray-800 border border-gray-600 rounded-xl p-4">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wider">Filters</h3>
+        <button class="text-xs text-emerald-400 font-medium">Reset All</button>
+      </div>
+      <div class="flex flex-wrap items-end gap-4">
+        <!-- Date Range with values -->
+        <div class="flex items-end gap-2">
+          <div class="flex flex-col gap-1">
+            <label class="text-xs text-gray-500 font-medium">From</label>
+            <div class="bg-gray-700 border border-gray-600 rounded-lg px-3 py-1.5 text-sm text-white">2026-03-01</div>
+          </div>
+          <span class="text-gray-500 pb-1.5">–</span>
+          <div class="flex flex-col gap-1">
+            <label class="text-xs text-gray-500 font-medium">To</label>
+            <div class="bg-gray-700 border border-gray-600 rounded-lg px-3 py-1.5 text-sm text-white">2026-03-21</div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-px h-8 bg-gray-600"></div>
+
+        <!-- Position — BTN active -->
+        <div class="flex flex-col gap-1">
+          <label class="text-xs text-gray-500 font-medium">Position</label>
+          <div class="flex gap-1">
+            <button class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">UTG</button>
+            <button class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">MP</button>
+            <button class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">CO</button>
+            <button class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-emerald-600 text-white shadow-md shadow-emerald-900/40">BTN</button>
+            <button class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">SB</button>
+            <button class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">BB</button>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-px h-8 bg-gray-600"></div>
+
+        <!-- Result — Win active -->
+        <div class="flex flex-col gap-1">
+          <label class="text-xs text-gray-500 font-medium">Result</label>
+          <div class="flex gap-1">
+            <button class="px-3 py-1.5 text-xs font-bold rounded-lg bg-green-600/30 text-green-400 ring-1 ring-green-500/50">Win</button>
+            <button class="px-3 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">Loss</button>
+            <button class="px-3 py-1.5 text-xs font-bold rounded-lg bg-gray-700 text-gray-400">Even</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

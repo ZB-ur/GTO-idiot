@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EVLossIndicator Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">EV Loss Indicator</p>
+
+    <div style="display: flex; gap: 24px; align-items: center;">
+      <!-- Zero loss -->
+      <span class="inline-flex items-center gap-1 font-mono text-sm font-semibold text-green-400 select-none">
+        <span class="text-xs opacity-70">EV</span>
+        <span>0.00</span>
+        <span class="text-xs opacity-70">BB</span>
+      </span>
+
+      <!-- Small loss -->
+      <span class="inline-flex items-center gap-1 font-mono text-sm font-semibold text-yellow-400 select-none">
+        <span class="text-xs opacity-70">EV</span>
+        <span>-0.25</span>
+        <span class="text-xs opacity-70">BB</span>
+      </span>
+
+      <!-- Medium loss -->
+      <span class="inline-flex items-center gap-1 font-mono text-sm font-semibold text-yellow-400 select-none">
+        <span class="text-xs opacity-70">EV</span>
+        <span>-0.50</span>
+        <span class="text-xs opacity-70">BB</span>
+      </span>
+
+      <!-- Large loss -->
+      <span class="inline-flex items-center gap-1 font-mono text-sm font-semibold text-red-400 select-none">
+        <span class="text-xs opacity-70">EV</span>
+        <span>-1.75</span>
+        <span class="text-xs opacity-70">BB</span>
+      </span>
+
+      <!-- Very large loss -->
+      <span class="inline-flex items-center gap-1 font-mono text-sm font-semibold text-red-400 select-none">
+        <span class="text-xs opacity-70">EV</span>
+        <span>-5.00</span>
+        <span class="text-xs opacity-70">BB</span>
+      </span>
+    </div>
+
+    <!-- In context -->
+    <p class="text-gray-500 text-xs mt-4">In context with deviation badge</p>
+    <div class="bg-gray-800 rounded-xl p-4 flex flex-col gap-3">
+      <div class="flex items-center gap-4">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-sm font-semibold
+          border bg-green-400/15 text-green-400 border-green-400/30 select-none">
+          <span class="text-base leading-none">✓</span>
+          Correct
+        </span>
+        <span class="inline-flex items-center gap-1 font-mono text-sm font-semibold text-green-400 select-none">
+          <span class="text-xs opacity-70">EV</span>
+          <span>0.00</span>
+          <span class="text-xs opacity-70">BB</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-sm font-semibold
+          border bg-red-400/15 text-red-400 border-red-400/30 select-none">
+          <span class="text-base leading-none">✗</span>
+          Error
+        </span>
+        <span class="inline-flex items-center gap-1 font-mono text-sm font-semibold text-red-400 select-none">
+          <span class="text-xs opacity-70">EV</span>
+          <span>-2.30</span>
+          <span class="text-xs opacity-70">BB</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

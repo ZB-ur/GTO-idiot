@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KPICardGroup Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #111827; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 960px; margin: 0 auto;">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+      <!-- 总手数 -->
+      <div class="bg-gray-800 rounded-xl border border-gray-600 p-5 flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <span class="text-sm text-gray-400 font-medium">总手数</span>
+          <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background: rgba(5,150,105,0.2);">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h4l3-7 4 14 3-7h4" />
+            </svg>
+          </div>
+        </div>
+        <div class="flex items-end gap-2">
+          <span class="text-3xl font-bold text-white tracking-tight">1,248</span>
+          <span class="text-sm text-gray-500 mb-1">hands</span>
+        </div>
+      </div>
+
+      <!-- GTO 符合率 -->
+      <div class="bg-gray-800 rounded-xl border border-gray-600 p-5 flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <span class="text-sm text-gray-400 font-medium">GTO 符合率</span>
+          <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background: rgba(5,150,105,0.2);">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+        </div>
+        <div class="flex items-end gap-2">
+          <span class="text-3xl font-bold text-white tracking-tight">73%</span>
+        </div>
+        <div class="flex items-center gap-1 text-sm text-green-400">
+          <span>↑</span>
+          <span>良好</span>
+        </div>
+      </div>
+
+      <!-- 累计 EV 损失 -->
+      <div class="bg-gray-800 rounded-xl border border-gray-600 p-5 flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <span class="text-sm text-gray-400 font-medium">累计 EV 损失</span>
+          <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background: rgba(239,68,68,0.2);">
+            <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+            </svg>
+          </div>
+        </div>
+        <div class="flex items-end gap-2">
+          <span class="text-3xl font-bold text-white tracking-tight">14.3</span>
+          <span class="text-sm text-gray-500 mb-1">BB</span>
+        </div>
+        <div class="flex items-center gap-1 text-sm text-gray-400">
+          <span>→</span>
+          <span>中等</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

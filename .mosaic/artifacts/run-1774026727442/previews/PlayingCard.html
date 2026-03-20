@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PlayingCard Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 24px;">
+    <!-- Size variants label -->
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">Playing Cards — Size Variants</p>
+
+    <!-- Small cards -->
+    <div style="display: flex; gap: 8px; align-items: flex-end;">
+      <p class="text-gray-500 text-xs w-10">SM</p>
+      <!-- Ace of Spades sm -->
+      <div class="w-12 h-[68px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+        <div class="w-full h-full flex flex-col items-center justify-center text-gray-900">
+          <span class="text-sm font-bold leading-none">A</span>
+          <span class="text-base leading-none">♠</span>
+        </div>
+      </div>
+      <!-- King of Hearts sm -->
+      <div class="w-12 h-[68px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+        <div class="w-full h-full flex flex-col items-center justify-center text-red-600">
+          <span class="text-sm font-bold leading-none">K</span>
+          <span class="text-base leading-none">♥</span>
+        </div>
+      </div>
+      <!-- Face down sm -->
+      <div class="w-12 h-[68px] rounded-md inline-flex bg-gradient-to-br from-emerald-700 to-emerald-900 border-2 border-emerald-600">
+        <div class="w-full h-full flex items-center justify-center">
+          <div class="w-[70%] h-[80%] rounded-sm border border-emerald-500/40 bg-emerald-800/50 flex items-center justify-center">
+            <span class="text-emerald-400/60 text-xs font-bold">♠♥♦♣</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Medium cards -->
+    <div style="display: flex; gap: 8px; align-items: flex-end;">
+      <p class="text-gray-500 text-xs w-10">MD</p>
+      <!-- Ace of Spades -->
+      <div class="w-16 h-[92px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+        <div class="w-full h-full flex flex-col items-center justify-center text-gray-900">
+          <span class="text-lg font-bold leading-none">A</span>
+          <span class="text-xl leading-none">♠</span>
+        </div>
+      </div>
+      <!-- King of Hearts -->
+      <div class="w-16 h-[92px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+        <div class="w-full h-full flex flex-col items-center justify-center text-red-600">
+          <span class="text-lg font-bold leading-none">K</span>
+          <span class="text-xl leading-none">♥</span>
+        </div>
+      </div>
+      <!-- Queen of Diamonds -->
+      <div class="w-16 h-[92px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+        <div class="w-full h-full flex flex-col items-center justify-center text-red-600">
+          <span class="text-lg font-bold leading-none">Q</span>
+          <span class="text-xl leading-none">♦</span>
+        </div>
+      </div>
+      <!-- Jack of Clubs -->
+      <div class="w-16 h-[92px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+        <div class="w-full h-full flex flex-col items-center justify-center text-gray-900">
+          <span class="text-lg font-bold leading-none">J</span>
+          <span class="text-xl leading-none">♣</span>
+        </div>
+      </div>
+      <!-- Face down -->
+      <div class="w-16 h-[92px] rounded-md inline-flex bg-gradient-to-br from-emerald-700 to-emerald-900 border-2 border-emerald-600">
+        <div class="w-full h-full flex items-center justify-center">
+          <div class="w-[70%] h-[80%] rounded-sm border border-emerald-500/40 bg-emerald-800/50 flex items-center justify-center">
+            <span class="text-emerald-400/60 text-xs font-bold">♠♥♦♣</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Large cards -->
+    <div style="display: flex; gap: 8px; align-items: flex-end;">
+      <p class="text-gray-500 text-xs w-10">LG</p>
+      <!-- Ten of Spades lg -->
+      <div class="w-20 h-[116px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+        <div class="w-full h-full flex flex-col items-center justify-center text-gray-900">
+          <span class="text-xl font-bold leading-none">T</span>
+          <span class="text-2xl leading-none">♠</span>
+        </div>
+      </div>
+      <!-- 9 of Hearts lg -->
+      <div class="w-20 h-[116px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+        <div class="w-full h-full flex flex-col items-center justify-center text-red-600">
+          <span class="text-xl font-bold leading-none">9</span>
+          <span class="text-2xl leading-none">♥</span>
+        </div>
+      </div>
+      <!-- Face down lg -->
+      <div class="w-20 h-[116px] rounded-md inline-flex bg-gradient-to-br from-emerald-700 to-emerald-900 border-2 border-emerald-600">
+        <div class="w-full h-full flex items-center justify-center">
+          <div class="w-[70%] h-[80%] rounded-sm border border-emerald-500/40 bg-emerald-800/50 flex items-center justify-center">
+            <span class="text-emerald-400/60 text-xs font-bold">♠♥♦♣</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

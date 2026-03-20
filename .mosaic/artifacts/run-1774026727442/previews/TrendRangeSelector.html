@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrendRangeSelector Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 24px;">
+    <!-- Label -->
+    <p class="text-sm text-gray-400 mb-1">趋势范围选择器 — 选中 "50局"</p>
+
+    <!-- Selector: 50 selected -->
+    <div class="inline-flex items-center gap-1 rounded-lg bg-gray-800 p-1">
+      <button class="px-3 py-1.5 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-150">
+        20局
+      </button>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-md bg-emerald-600 text-white shadow-sm transition-all duration-150">
+        50局
+      </button>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-150">
+        100局
+      </button>
+    </div>
+
+    <!-- Label -->
+    <p class="text-sm text-gray-400 mb-1 mt-4">趋势范围选择器 — 选中 "20局"</p>
+
+    <!-- Selector: 20 selected -->
+    <div class="inline-flex items-center gap-1 rounded-lg bg-gray-800 p-1">
+      <button class="px-3 py-1.5 text-sm font-medium rounded-md bg-emerald-600 text-white shadow-sm transition-all duration-150">
+        20局
+      </button>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-md text-gray-300 transition-all duration-150">
+        50局
+      </button>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-md text-gray-300 transition-all duration-150">
+        100局
+      </button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTODisclaimerBanner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-3xl mx-auto space-y-6">
+    <!-- In context: inside a card -->
+    <div class="bg-gray-800 border border-gray-600 rounded-xl p-6 space-y-4">
+      <h2 class="text-lg font-semibold text-white">手牌复盘分析</h2>
+      <div class="text-sm text-gray-300">
+        <p>整体评分：<span class="text-amber-400 font-semibold">78/100</span></p>
+        <p>GTO 符合率：<span class="text-emerald-400 font-semibold">66.7%</span></p>
+      </div>
+      <!-- The banner -->
+      <div class="flex items-start gap-3 px-4 py-3 bg-emerald-800/20 border border-emerald-800/40 rounded-lg">
+        <span class="text-emerald-400 text-sm mt-0.5 flex-shrink-0">ℹ️</span>
+        <p class="text-xs text-gray-300 leading-relaxed">
+          <span class="font-medium text-emerald-400">GTO 参考声明：</span>
+          本应用提供的 GTO 建议基于简化规则引擎，为近似参考值，
+          <span class="text-gray-400">非 solver 精确解</span>。
+          实际 GTO 策略可能因具体场景而异，建议结合实践经验综合判断。
+        </p>
+      </div>
+    </div>
+
+    <!-- Standalone -->
+    <div class="flex items-start gap-3 px-4 py-3 bg-emerald-800/20 border border-emerald-800/40 rounded-lg">
+      <span class="text-emerald-400 text-sm mt-0.5 flex-shrink-0">ℹ️</span>
+      <p class="text-xs text-gray-300 leading-relaxed">
+        <span class="font-medium text-emerald-400">GTO 参考声明：</span>
+        本应用提供的 GTO 建议基于简化规则引擎，为近似参考值，
+        <span class="text-gray-400">非 solver 精确解</span>。
+        实际 GTO 策略可能因具体场景而异，建议结合实践经验综合判断。
+      </p>
+    </div>
+  </div>
+</body>
+</html>
