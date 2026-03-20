@@ -1,0 +1,72 @@
+{
+  "features": [
+    {
+      "id": "F-001",
+      "name": "game-engine"
+    },
+    {
+      "id": "F-002",
+      "name": "game-setup"
+    },
+    {
+      "id": "F-003",
+      "name": "bot-ai"
+    },
+    {
+      "id": "F-004",
+      "name": "gto-strategy-store"
+    },
+    {
+      "id": "F-005",
+      "name": "pio-upi-bridge"
+    },
+    {
+      "id": "F-006",
+      "name": "gto-comparison"
+    },
+    {
+      "id": "F-007",
+      "name": "hand-history"
+    },
+    {
+      "id": "F-008",
+      "name": "stats-dashboard"
+    },
+    {
+      "id": "F-009",
+      "name": "session-management"
+    },
+    {
+      "id": "F-010",
+      "name": "poker-table-ui"
+    },
+    {
+      "id": "F-011",
+      "name": "analysis-overlay"
+    }
+  ],
+  "constraints": [
+    "纯本地运行：React + Node.js + SQLite，无云服务依赖",
+    "默认 GTO 策略为内置预计算 JSON 表，PioSOLVER UPI 为可选高级功能",
+    "PioSOLVER UPI 仅支持用户本地已安装 PioSOLVER 的 Windows 环境",
+    "Bet sizing 归类算法精度需文档化",
+    "EV 计算精度与 solver 输出一致",
+    "牌力评估使用成熟 npm 库，不自行实现",
+    "数据库使用 better-sqlite3 同步 API",
+    "MVP 前端运行在浏览器，暂不打包桌面应用",
+    "预计算策略表需覆盖所有 preflop 位置对 + 50+ 种 flop texture"
+  ],
+  "out_of_scope": [
+    "多桌同时进行",
+    "在线多人对战",
+    "自定义 BOT 策略编辑器",
+    "GTO solver 实时计算",
+    "手机端适配",
+    "ICM 计算",
+    "Solver 文件自动更新",
+    "桌面应用打包（Electron/Tauri）",
+    "非 6-max 桌型",
+    "扑克网站手牌导入",
+    "多语言国际化"
+  ]
+}
