@@ -1,0 +1,1761 @@
+openapi: "3.0.3"
+info:
+  title: Texas Hold'em GTO Strategy Trainer API
+  description: |
+    本地德州扑克 GTO 策略练习器后端 API。
+    纯本地运行：React 前端 + Node.js 后端 + SQLite 数据库，无云服务依赖。
+  version: 1.0.0
+  contact:
+    name: Mosaicat
+
+servers:
+  - url: http://localhost:3001/api/v1
+    description: Local development server
+
+tags:
+  - name: Games
+    description: 牌局生命周期管理（创建、行动、结算）
+  - name: GTO
+    description: GTO 策略查询与对比分析
+  - name: PioSOLVER
+    description: PioSOLVER UPI 桥接（高级模式）
+  - name: HandHistory
+    description: 对战历史记录与手牌回放
+  - name: Stats
+    description: 统计分析面板与 Leak 检测
+  - name: Sessions
+    description: 会话保存与恢复
+  - name: Settings
+    description: 应用设置
+
+paths:
+  # ── Games ──────────────────────────────────────────────
+  /games:
+    post:
+      tags: [Games]
+      operationId: createGame
+      summary: 创建新牌局
+      description: |
+        根据配置创建 6-max 单桌牌局（1 人类 vs 5 BOT）。
+        返回牌局 ID 和初始状态。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GameSetupRequest"
+      responses:
+        "201":
+          description: 牌局创建成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "400":
+          $ref: "#/components/responses/ValidationError"
+
+  /games/{gameId}:
+    get:
+      tags: [Games]
+      operationId: getGameState
+      summary: 获取当前牌局状态
+      description: 返回牌局完整状态（座位、筹码、公共牌、底池、当前阶段）
+      parameters:
+        - $ref: "#/components/parameters/gameId"
+      responses:
+        "200":
+          description: 牌局状态
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /games/{gameId}/deal:
+    post:
+      tags: [Games]
+      operationId: dealNewHand
+      summary: 发一手新牌
+      description: |
+        开始新一手牌：洗牌、发手牌、收取盲注、确定行动顺序。
+        返回更新后的牌局状态（含玩家手牌）。
+      parameters:
+        - $ref: "#/components/parameters/gameId"
+      responses:
+        "200":
+          description: 新手牌已发出
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "400":
+          description: 当前手牌未结束
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/responses/ValidationError"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /games/{gameId}/action:
+    post:
+      tags: [Games]
+      operationId: performAction
+      summary: 执行玩家动作
+      description: |
+        玩家执行一个动作（fold/check/call/raise/all-in）。
+        后端处理该动作后，自动执行后续所有 BOT 动作直到：
+        1. 再次轮到玩家行动
+        2. 当前 street 结束需要发公共牌
+        3. 手牌结束（所有人 fold 或 showdown）
+        返回更新后的牌局状态，包含所有已执行的动作序列。
+      parameters:
+        - $ref: "#/components/parameters/gameId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlayerActionRequest"
+      responses:
+        "200":
+          description: 动作执行成功，返回更新状态
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ActionResult"
+        "400":
+          $ref: "#/components/responses/ValidationError"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          description: 非玩家回合或动作不合法
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /games/{gameId}/bots:
+    patch:
+      tags: [Games]
+      operationId: updateBotDifficulty
+      summary: 更新 BOT 难度设置
+      description: |
+        在手牌间更新 BOT 难度配置，下手生效。
+        仅允许在非手牌进行中时调用。
+      parameters:
+        - $ref: "#/components/parameters/gameId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BotDifficultyUpdateRequest"
+      responses:
+        "200":
+          description: BOT 难度已更新
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "400":
+          $ref: "#/components/responses/ValidationError"
+        "409":
+          description: 手牌进行中不可修改
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ── GTO Strategy ───────────────────────────────────────
+  /gto/strategy:
+    post:
+      tags: [GTO]
+      operationId: queryGTOStrategy
+      summary: 查询 GTO 策略
+      description: |
+        根据当前牌局场景查询 GTO 最优策略。
+        支持内置预计算策略和 PioSOLVER UPI 两种数据源。
+        返回各动作的 GTO 频率和 EV 值。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GTOQueryRequest"
+      responses:
+        "200":
+          description: GTO 策略查询结果
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GTOStrategyResponse"
+        "400":
+          $ref: "#/components/responses/ValidationError"
+        "503":
+          description: PioSOLVER UPI 不可用，已降级到内置策略
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GTOStrategyResponse"
+
+  /gto/range-matrix:
+    post:
+      tags: [GTO]
+      operationId: getGTORangeMatrix
+      summary: 获取 GTO 范围矩阵
+      description: |
+        获取指定场景下的 13×13 手牌范围矩阵，
+        每个手牌组合标注各动作（fold/call/raise）的频率。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GTOQueryRequest"
+      responses:
+        "200":
+          description: 范围矩阵数据
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RangeMatrixResponse"
+        "400":
+          $ref: "#/components/responses/ValidationError"
+
+  /gto/compare:
+    post:
+      tags: [GTO]
+      operationId: compareHandWithGTO
+      summary: 手牌 GTO 对比分析
+      description: |
+        对一手完整手牌进行逐节点 GTO 对比分析。
+        返回每个决策点的玩家动作 vs GTO 最优动作 + EV 差值。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GTOCompareRequest"
+      responses:
+        "200":
+          description: GTO 对比分析结果
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GTOCompareResponse"
+        "400":
+          $ref: "#/components/responses/ValidationError"
+
+  /gto/bet-sizing-map:
+    post:
+      tags: [GTO]
+      operationId: mapBetSizing
+      summary: Bet sizing 归类映射
+      description: |
+        将实际下注金额映射到最近的 solver betting line。
+        返回映射结果和精度说明。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BetSizingMapRequest"
+      responses:
+        "200":
+          description: Bet sizing 映射结果
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BetSizingMapResponse"
+
+  # ── PioSOLVER UPI ──────────────────────────────────────
+  /pio/connect:
+    post:
+      tags: [PioSOLVER]
+      operationId: connectPioSolver
+      summary: 连接 PioSOLVER
+      description: |
+        启动 PioSOLVER 进程并建立 UPI 通信连接。
+        需提供 PioSOLVER 可执行文件的本地路径。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PioConnectRequest"
+      responses:
+        "200":
+          description: 连接成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PioStatusResponse"
+        "400":
+          description: 路径无效或文件不存在
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: PioSOLVER 进程启动失败
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /pio/test:
+    post:
+      tags: [PioSOLVER]
+      operationId: testPioConnection
+      summary: 测试 PioSOLVER 连接
+      description: 向 PioSOLVER 发送 ping 命令验证连接是否正常
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PioConnectRequest"
+      responses:
+        "200":
+          description: 连接测试结果
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PioTestResponse"
+
+  /pio/disconnect:
+    post:
+      tags: [PioSOLVER]
+      operationId: disconnectPioSolver
+      summary: 断开 PioSOLVER 连接
+      description: 终止 PioSOLVER 进程并释放资源
+      responses:
+        "200":
+          description: 已断开连接
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PioStatusResponse"
+
+  /pio/status:
+    get:
+      tags: [PioSOLVER]
+      operationId: getPioStatus
+      summary: 获取 PioSOLVER 连接状态
+      responses:
+        "200":
+          description: 当前连接状态
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PioStatusResponse"
+
+  /pio/load-tree:
+    post:
+      tags: [PioSOLVER]
+      operationId: loadCFRFile
+      summary: 加载 .cfr 策略文件
+      description: |
+        通过 UPI load_tree 命令加载用户指定的 .cfr 文件。
+        返回策略树信息摘要。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CFRLoadRequest"
+      responses:
+        "200":
+          description: 策略文件加载成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CFRLoadResponse"
+        "400":
+          description: 文件路径无效或格式不支持
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "408":
+          description: 加载超时
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "409":
+          description: PioSOLVER 未连接
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ── Hand History ───────────────────────────────────────
+  /hands:
+    get:
+      tags: [HandHistory]
+      operationId: listHands
+      summary: 获取手牌历史列表
+      description: |
+        分页获取手牌历史记录，支持按时间/位置/盈亏筛选。
+        按时间倒序排列。
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 100
+        - name: position
+          in: query
+          description: 按位置筛选（可多选，逗号分隔）
+          schema:
+            type: string
+            example: "BTN,CO"
+        - name: result
+          in: query
+          description: 按盈亏筛选
+          schema:
+            type: string
+            enum: [all, win, loss]
+            default: all
+        - name: startDate
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: endDate
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: sessionId
+          in: query
+          description: 按会话筛选
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 手牌历史列表
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HandHistoryListResponse"
+
+  /hands/{handId}:
+    get:
+      tags: [HandHistory]
+      operationId: getHandDetail
+      summary: 获取单手牌详情
+      description: |
+        获取单手牌的完整信息，包含所有动作序列、公共牌、结果。
+        用于手牌回放视图。
+      parameters:
+        - $ref: "#/components/parameters/handId"
+      responses:
+        "200":
+          description: 手牌详情
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HandDetail"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /hands/{handId}/gto-analysis:
+    get:
+      tags: [HandHistory]
+      operationId: getHandGTOAnalysis
+      summary: 获取手牌 GTO 分析结果
+      description: |
+        获取已保存的 GTO 对比分析结果。
+        包含每个决策点的 GTO 数据和 EV 差值。
+      parameters:
+        - $ref: "#/components/parameters/handId"
+      responses:
+        "200":
+          description: GTO 分析结果
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GTOCompareResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  # ── Stats Dashboard ────────────────────────────────────
+  /stats/overview:
+    get:
+      tags: [Stats]
+      operationId: getStatsOverview
+      summary: 获取总览统计
+      description: 返回总手数、整体胜率、累计盈亏、平均 EV 损失/手
+      parameters:
+        - $ref: "#/components/parameters/startDate"
+        - $ref: "#/components/parameters/endDate"
+      responses:
+        "200":
+          description: 总览统计数据
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StatsOverview"
+
+  /stats/ev-trend:
+    get:
+      tags: [Stats]
+      operationId: getEVTrend
+      summary: 获取 EV 损失趋势数据
+      description: |
+        返回累计 EV 损失趋势数据点，用于绘制折线图。
+        X 轴为手数序号，Y 轴为累计 EV 损失（bb）。
+      parameters:
+        - $ref: "#/components/parameters/startDate"
+        - $ref: "#/components/parameters/endDate"
+        - name: granularity
+          in: query
+          description: 数据粒度
+          schema:
+            type: string
+            enum: [hand, session, day]
+            default: hand
+      responses:
+        "200":
+          description: EV 趋势数据
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EVTrendResponse"
+
+  /stats/position-performance:
+    get:
+      tags: [Stats]
+      operationId: getPositionPerformance
+      summary: 获取各位置表现数据
+      description: 返回 6 个位置（UTG/HJ/CO/BTN/SB/BB）的胜率、EV 和手数统计
+      parameters:
+        - $ref: "#/components/parameters/startDate"
+        - $ref: "#/components/parameters/endDate"
+      responses:
+        "200":
+          description: 各位置表现数据
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PositionPerformanceResponse"
+
+  /stats/leaks:
+    get:
+      tags: [Stats]
+      operationId: getLeaks
+      summary: 获取 Leak 汇总
+      description: |
+        按场景聚合分析常见 leak，返回实际频率 vs GTO 频率的偏差。
+        按严重程度（EV 损失）排序。
+      parameters:
+        - $ref: "#/components/parameters/startDate"
+        - $ref: "#/components/parameters/endDate"
+        - name: limit
+          in: query
+          description: 返回 leak 数量上限
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 50
+      responses:
+        "200":
+          description: Leak 汇总数据
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeakSummaryResponse"
+
+  # ── Sessions ───────────────────────────────────────────
+  /sessions:
+    get:
+      tags: [Sessions]
+      operationId: listSessions
+      summary: 获取会话列表
+      description: 返回所有已保存会话，按保存时间倒序
+      responses:
+        "200":
+          description: 会话列表
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SessionListResponse"
+
+    post:
+      tags: [Sessions]
+      operationId: saveSession
+      summary: 保存当前牌局为会话
+      description: |
+        保存当前牌局的完整状态（筹码/位置/盲注/BOT 配置），
+        以便后续恢复继续对战。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SessionSaveRequest"
+      responses:
+        "201":
+          description: 会话保存成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Session"
+        "400":
+          $ref: "#/components/responses/ValidationError"
+
+  /sessions/{sessionId}:
+    get:
+      tags: [Sessions]
+      operationId: getSession
+      summary: 获取会话详情
+      parameters:
+        - $ref: "#/components/parameters/sessionId"
+      responses:
+        "200":
+          description: 会话详情
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Session"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+    delete:
+      tags: [Sessions]
+      operationId: deleteSession
+      summary: 删除会话
+      parameters:
+        - $ref: "#/components/parameters/sessionId"
+      responses:
+        "204":
+          description: 会话已删除
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /sessions/{sessionId}/restore:
+    post:
+      tags: [Sessions]
+      operationId: restoreSession
+      summary: 恢复会话
+      description: |
+        从已保存会话恢复牌局状态，创建新的游戏实例。
+        返回恢复后的牌局状态。
+      parameters:
+        - $ref: "#/components/parameters/sessionId"
+      responses:
+        "200":
+          description: 会话恢复成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  # ── Settings ───────────────────────────────────────────
+  /settings:
+    get:
+      tags: [Settings]
+      operationId: getSettings
+      summary: 获取应用设置
+      responses:
+        "200":
+          description: 当前应用设置
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppSettings"
+
+    patch:
+      tags: [Settings]
+      operationId: updateSettings
+      summary: 更新应用设置
+      description: 更新分析模式偏好、动画开关等应用级设置
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppSettingsUpdate"
+      responses:
+        "200":
+          description: 设置已更新
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppSettings"
+
+components:
+  parameters:
+    gameId:
+      name: gameId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+      description: 牌局唯一标识
+
+    handId:
+      name: handId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+      description: 手牌唯一标识
+
+    sessionId:
+      name: sessionId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+      description: 会话唯一标识
+
+    startDate:
+      name: startDate
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: 起始时间筛选
+
+    endDate:
+      name: endDate
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: 结束时间筛选
+
+  schemas:
+    # ── Enums ──────────────────────────────────────────
+    Position:
+      type: string
+      enum: [UTG, HJ, CO, BTN, SB, BB]
+
+    ActionType:
+      type: string
+      enum: [fold, check, call, raise, all-in]
+
+    Street:
+      type: string
+      enum: [preflop, flop, turn, river]
+
+    BotDifficulty:
+      type: string
+      enum: [fish, tag, gto]
+      description: "鱼(松散被动) / TAG(紧凶) / GTO(策略表随机化)"
+
+    GameType:
+      type: string
+      enum: [cash, tournament]
+
+    GTOSource:
+      type: string
+      enum: [builtin, piosolver]
+      description: "内置预计算策略 / PioSOLVER UPI"
+
+    HandResult:
+      type: string
+      enum: [win, loss, tie]
+
+    # ── Card ───────────────────────────────────────────
+    Card:
+      type: string
+      pattern: "^[2-9TJQKA][shdc]$"
+      description: "扑克牌表示（如 As=黑桃A, Td=方块10）"
+      example: "As"
+
+    HoleCardPair:
+      type: object
+      required: [card1, card2]
+      properties:
+        card1:
+          $ref: "#/components/schemas/Card"
+        card2:
+          $ref: "#/components/schemas/Card"
+
+    # ── Game Setup ─────────────────────────────────────
+    GameSetupRequest:
+      type: object
+      required: [gameType, smallBlind, bigBlind, startingStack, bots, gtoSource]
+      properties:
+        gameType:
+          $ref: "#/components/schemas/GameType"
+        smallBlind:
+          type: integer
+          minimum: 1
+          example: 5
+        bigBlind:
+          type: integer
+          minimum: 2
+          example: 10
+        startingStack:
+          type: integer
+          minimum: 20
+          description: 起始筹码（必须 ≥ 10BB）
+          example: 1000
+        bots:
+          type: array
+          items:
+            $ref: "#/components/schemas/BotConfig"
+          minItems: 5
+          maxItems: 5
+        gtoSource:
+          $ref: "#/components/schemas/GTOSource"
+        pioSolverPath:
+          type: string
+          description: PioSOLVER 可执行文件路径（仅 gtoSource=piosolver 时需要）
+        cfrFilePath:
+          type: string
+          description: .cfr 策略文件路径（仅 gtoSource=piosolver 时需要）
+
+    BotConfig:
+      type: object
+      required: [seat, difficulty]
+      properties:
+        seat:
+          type: integer
+          minimum: 1
+          maximum: 5
+          description: BOT 座位号（1-5，玩家固定座位 0）
+        name:
+          type: string
+          description: BOT 昵称
+          example: "Bot_1"
+        difficulty:
+          $ref: "#/components/schemas/BotDifficulty"
+
+    BotDifficultyUpdateRequest:
+      type: object
+      required: [bots]
+      properties:
+        bots:
+          type: array
+          items:
+            type: object
+            required: [seat, difficulty]
+            properties:
+              seat:
+                type: integer
+                minimum: 1
+                maximum: 5
+              difficulty:
+                $ref: "#/components/schemas/BotDifficulty"
+
+    # ── Game State ─────────────────────────────────────
+    GameState:
+      type: object
+      required: [gameId, status, gameType, blinds, seats, dealerSeat, currentHandNumber]
+      properties:
+        gameId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [waiting, playing, hand_complete, finished]
+          description: "waiting=等待发牌, playing=手牌进行中, hand_complete=手牌结束等待下一手, finished=牌局结束"
+        gameType:
+          $ref: "#/components/schemas/GameType"
+        blinds:
+          type: object
+          required: [small, big]
+          properties:
+            small:
+              type: integer
+            big:
+              type: integer
+        seats:
+          type: array
+          items:
+            $ref: "#/components/schemas/SeatState"
+          minItems: 6
+          maxItems: 6
+        dealerSeat:
+          type: integer
+          minimum: 0
+          maximum: 5
+        currentHandNumber:
+          type: integer
+        currentHand:
+          $ref: "#/components/schemas/HandState"
+        gtoSource:
+          $ref: "#/components/schemas/GTOSource"
+
+    SeatState:
+      type: object
+      required: [seat, name, isHuman, isActive, stack, position]
+      properties:
+        seat:
+          type: integer
+          minimum: 0
+          maximum: 5
+        name:
+          type: string
+        isHuman:
+          type: boolean
+        isActive:
+          type: boolean
+          description: 是否仍在牌局中（未淘汰）
+        stack:
+          type: integer
+          description: 当前筹码量
+        position:
+          $ref: "#/components/schemas/Position"
+        botDifficulty:
+          $ref: "#/components/schemas/BotDifficulty"
+        holeCards:
+          $ref: "#/components/schemas/HoleCardPair"
+          description: 手牌（仅人类玩家可见，showdown 时 BOT 也可见）
+        currentBet:
+          type: integer
+          description: 当前街已下注金额
+          default: 0
+        lastAction:
+          $ref: "#/components/schemas/ActionType"
+        isFolded:
+          type: boolean
+          default: false
+        isAllIn:
+          type: boolean
+          default: false
+
+    HandState:
+      type: object
+      required: [handId, street, pot, communityCards, actions, activePlayer]
+      properties:
+        handId:
+          type: string
+          format: uuid
+        street:
+          $ref: "#/components/schemas/Street"
+        pot:
+          $ref: "#/components/schemas/PotInfo"
+        communityCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          maxItems: 5
+        actions:
+          type: array
+          items:
+            $ref: "#/components/schemas/ActionRecord"
+          description: 当前手牌所有已执行的动作序列
+        activePlayer:
+          type: integer
+          nullable: true
+          description: 当前应行动的座位号（null 表示无需行动）
+        isPlayerTurn:
+          type: boolean
+          description: 是否轮到人类玩家行动
+        validActions:
+          type: array
+          items:
+            $ref: "#/components/schemas/ValidAction"
+          description: 当前玩家可执行的合法动作列表
+
+    PotInfo:
+      type: object
+      required: [main]
+      properties:
+        main:
+          type: integer
+          description: 主池金额
+        sidePots:
+          type: array
+          items:
+            type: object
+            required: [amount, eligibleSeats]
+            properties:
+              amount:
+                type: integer
+              eligibleSeats:
+                type: array
+                items:
+                  type: integer
+        total:
+          type: integer
+          description: 所有池总计
+
+    ValidAction:
+      type: object
+      required: [action]
+      properties:
+        action:
+          $ref: "#/components/schemas/ActionType"
+        minAmount:
+          type: integer
+          description: 最小金额（raise 时适用）
+        maxAmount:
+          type: integer
+          description: 最大金额（raise 时适用，= stack 即 all-in）
+        callAmount:
+          type: integer
+          description: 跟注需要的金额
+
+    ActionRecord:
+      type: object
+      required: [seat, action, street, timestamp]
+      properties:
+        seat:
+          type: integer
+        playerName:
+          type: string
+        action:
+          $ref: "#/components/schemas/ActionType"
+        amount:
+          type: integer
+          description: 动作涉及金额（raise/call/all-in 时有值）
+        street:
+          $ref: "#/components/schemas/Street"
+        timestamp:
+          type: string
+          format: date-time
+
+    # ── Player Action ──────────────────────────────────
+    PlayerActionRequest:
+      type: object
+      required: [action]
+      properties:
+        action:
+          $ref: "#/components/schemas/ActionType"
+        amount:
+          type: integer
+          description: 加注金额（仅 raise 时必填）
+          minimum: 0
+
+    ActionResult:
+      type: object
+      required: [gameState, executedActions]
+      properties:
+        gameState:
+          $ref: "#/components/schemas/GameState"
+        executedActions:
+          type: array
+          items:
+            $ref: "#/components/schemas/ActionRecord"
+          description: 本次请求触发执行的所有动作（含玩家动作和后续 BOT 动作）
+        handResult:
+          $ref: "#/components/schemas/HandResultSummary"
+          description: 如手牌结束则返回结算信息
+        gtoSummary:
+          $ref: "#/components/schemas/GTOHandSummary"
+          description: 如手牌结束且分析模式开启则返回 GTO 摘要
+
+    HandResultSummary:
+      type: object
+      required: [winners, potDistribution]
+      properties:
+        winners:
+          type: array
+          items:
+            type: object
+            required: [seat, amount]
+            properties:
+              seat:
+                type: integer
+              amount:
+                type: integer
+              handRank:
+                type: string
+                description: 牌力描述（如 "两对, Aces and Kings"）
+              holeCards:
+                $ref: "#/components/schemas/HoleCardPair"
+        potDistribution:
+          type: array
+          items:
+            type: object
+            required: [seat, amount]
+            properties:
+              seat:
+                type: integer
+              amount:
+                type: integer
+        playerProfit:
+          type: integer
+          description: 人类玩家本手盈亏
+
+    GTOHandSummary:
+      type: object
+      required: [totalEVLoss, mistakeCount, decisionPoints]
+      properties:
+        totalEVLoss:
+          type: number
+          format: double
+          description: 总 EV 损失（bb 单位）
+        mistakeCount:
+          type: integer
+          description: 失误决策点数
+        decisionPoints:
+          type: integer
+          description: 总决策点数
+
+    # ── GTO Strategy ───────────────────────────────────
+    GTOQueryRequest:
+      type: object
+      required: [position, street, potSize, stackSize]
+      properties:
+        gameId:
+          type: string
+          format: uuid
+          description: 关联牌局 ID（自动获取上下文）
+        position:
+          $ref: "#/components/schemas/Position"
+        street:
+          $ref: "#/components/schemas/Street"
+        holeCards:
+          $ref: "#/components/schemas/HoleCardPair"
+        communityCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+        potSize:
+          type: integer
+          description: 当前底池大小
+        stackSize:
+          type: integer
+          description: 有效筹码量
+        facingAction:
+          type: string
+          description: 面对的动作（如 "open", "3bet", "cbet"）
+        actionHistory:
+          type: array
+          items:
+            $ref: "#/components/schemas/ActionRecord"
+          description: 当前街的动作历史
+        source:
+          $ref: "#/components/schemas/GTOSource"
+
+    GTOStrategyResponse:
+      type: object
+      required: [actions, source]
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: "#/components/schemas/GTOAction"
+        source:
+          $ref: "#/components/schemas/GTOSource"
+        degraded:
+          type: boolean
+          description: 是否因 UPI 不可用降级到内置策略
+          default: false
+        betSizingNote:
+          type: string
+          description: Bet sizing 归类说明（如 "实际 42% pot → 归为 half pot"）
+
+    GTOAction:
+      type: object
+      required: [action, frequency, ev]
+      properties:
+        action:
+          $ref: "#/components/schemas/ActionType"
+        amount:
+          type: integer
+          description: 动作金额（raise 时的加注量）
+        frequency:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 1
+          description: GTO 频率（0-1）
+        ev:
+          type: number
+          format: double
+          description: 期望值（bb 单位）
+
+    RangeMatrixResponse:
+      type: object
+      required: [matrix, source]
+      properties:
+        matrix:
+          type: array
+          items:
+            $ref: "#/components/schemas/RangeMatrixCell"
+          description: 13×13 = 169 个手牌组合的策略
+        source:
+          $ref: "#/components/schemas/GTOSource"
+
+    RangeMatrixCell:
+      type: object
+      required: [hand, actions]
+      properties:
+        hand:
+          type: string
+          description: 手牌表示（如 "AKs", "QTo", "77"）
+          example: "AKs"
+        row:
+          type: integer
+          minimum: 0
+          maximum: 12
+        col:
+          type: integer
+          minimum: 0
+          maximum: 12
+        actions:
+          type: array
+          items:
+            type: object
+            required: [action, frequency]
+            properties:
+              action:
+                $ref: "#/components/schemas/ActionType"
+              frequency:
+                type: number
+                format: double
+                minimum: 0
+                maximum: 1
+
+    GTOCompareRequest:
+      type: object
+      required: [handId]
+      properties:
+        handId:
+          type: string
+          format: uuid
+
+    GTOCompareResponse:
+      type: object
+      required: [handId, totalEVLoss, decisionNodes]
+      properties:
+        handId:
+          type: string
+          format: uuid
+        totalEVLoss:
+          type: number
+          format: double
+          description: 总 EV 损失（bb）
+        decisionNodes:
+          type: array
+          items:
+            $ref: "#/components/schemas/DecisionNodeAnalysis"
+
+    DecisionNodeAnalysis:
+      type: object
+      required: [street, nodeIndex, playerAction, gtoStrategy, evDiff, severity]
+      properties:
+        street:
+          $ref: "#/components/schemas/Street"
+        nodeIndex:
+          type: integer
+          description: 决策点在手牌中的序号
+        position:
+          $ref: "#/components/schemas/Position"
+        potSize:
+          type: integer
+        playerAction:
+          type: object
+          required: [action]
+          properties:
+            action:
+              $ref: "#/components/schemas/ActionType"
+            amount:
+              type: integer
+        gtoStrategy:
+          type: array
+          items:
+            $ref: "#/components/schemas/GTOAction"
+        evDiff:
+          type: number
+          format: double
+          description: EV 差值（bb，负值表示损失）
+        severity:
+          type: string
+          enum: [optimal, minor, major]
+          description: "optimal=≤0.5bb绿色, minor=0.5-2bb黄色, major=>2bb红色"
+        betSizingNote:
+          type: string
+          description: Bet sizing 归类映射说明
+
+    BetSizingMapRequest:
+      type: object
+      required: [actualBet, potSize]
+      properties:
+        actualBet:
+          type: integer
+          description: 实际下注金额
+        potSize:
+          type: integer
+          description: 下注时底池大小
+
+    BetSizingMapResponse:
+      type: object
+      required: [actualBet, actualPotRatio, mappedLine, mappedPotRatio, deviation]
+      properties:
+        actualBet:
+          type: integer
+        actualPotRatio:
+          type: number
+          format: double
+          description: 实际下注占底池比例
+        mappedLine:
+          type: string
+          description: 归类后的 solver line 名称
+          example: "half_pot"
+        mappedPotRatio:
+          type: number
+          format: double
+          description: 归类后的标准比例
+          example: 0.5
+        deviation:
+          type: number
+          format: double
+          description: 实际与归类的偏差百分比
+
+    # ── PioSOLVER ──────────────────────────────────────
+    PioConnectRequest:
+      type: object
+      required: [executablePath]
+      properties:
+        executablePath:
+          type: string
+          description: PioSOLVER 可执行文件绝对路径
+          example: "C:\\PioSOLVER\\PioSOLVER2-edge.exe"
+
+    PioStatusResponse:
+      type: object
+      required: [connected]
+      properties:
+        connected:
+          type: boolean
+        version:
+          type: string
+          description: PioSOLVER 版本信息
+        loadedTree:
+          type: string
+          nullable: true
+          description: 当前已加载的 .cfr 文件路径
+        uptime:
+          type: integer
+          description: 连接时长（秒）
+
+    PioTestResponse:
+      type: object
+      required: [success]
+      properties:
+        success:
+          type: boolean
+        responseTime:
+          type: integer
+          description: 响应时间（ms）
+        error:
+          type: string
+          description: 失败时的错误信息
+
+    CFRLoadRequest:
+      type: object
+      required: [filePath]
+      properties:
+        filePath:
+          type: string
+          description: .cfr 文件绝对路径
+          example: "C:\\PioSolver\\solutions\\BTN_vs_BB_SRP.cfr"
+
+    CFRLoadResponse:
+      type: object
+      required: [success, filePath]
+      properties:
+        success:
+          type: boolean
+        filePath:
+          type: string
+        treeSummary:
+          type: object
+          properties:
+            positions:
+              type: string
+              description: 策略树涉及的位置
+              example: "BTN vs BB"
+            potSize:
+              type: integer
+            effectiveStack:
+              type: integer
+            board:
+              type: string
+              description: 锁定的公共牌（如有）
+              example: "Ah Kd 7s"
+            nodeCount:
+              type: integer
+              description: 策略树节点数
+        loadTime:
+          type: integer
+          description: 加载耗时（ms）
+        error:
+          type: string
+
+    # ── Hand History ───────────────────────────────────
+    HandHistoryListResponse:
+      type: object
+      required: [items, total, page, pageSize]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/HandHistoryItem"
+        total:
+          type: integer
+        page:
+          type: integer
+        pageSize:
+          type: integer
+
+    HandHistoryItem:
+      type: object
+      required: [handId, handNumber, playedAt, position, result, profit]
+      properties:
+        handId:
+          type: string
+          format: uuid
+        handNumber:
+          type: integer
+        playedAt:
+          type: string
+          format: date-time
+        position:
+          $ref: "#/components/schemas/Position"
+        holeCards:
+          $ref: "#/components/schemas/HoleCardPair"
+        result:
+          $ref: "#/components/schemas/HandResult"
+        profit:
+          type: integer
+          description: 盈亏金额
+        evLoss:
+          type: number
+          format: double
+          description: 该手牌总 EV 损失（bb）
+        sessionId:
+          type: string
+          format: uuid
+
+    HandDetail:
+      type: object
+      required: [handId, handNumber, playedAt, gameSetup, seats, streets, result]
+      properties:
+        handId:
+          type: string
+          format: uuid
+        handNumber:
+          type: integer
+        playedAt:
+          type: string
+          format: date-time
+        gameSetup:
+          type: object
+          properties:
+            gameType:
+              $ref: "#/components/schemas/GameType"
+            blinds:
+              type: object
+              properties:
+                small:
+                  type: integer
+                big:
+                  type: integer
+        seats:
+          type: array
+          items:
+            type: object
+            required: [seat, name, position, startingStack]
+            properties:
+              seat:
+                type: integer
+              name:
+                type: string
+              position:
+                $ref: "#/components/schemas/Position"
+              startingStack:
+                type: integer
+              holeCards:
+                $ref: "#/components/schemas/HoleCardPair"
+              isHuman:
+                type: boolean
+        streets:
+          type: array
+          items:
+            type: object
+            required: [street, actions]
+            properties:
+              street:
+                $ref: "#/components/schemas/Street"
+              communityCards:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Card"
+              actions:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ActionRecord"
+              potAfter:
+                type: integer
+        result:
+          $ref: "#/components/schemas/HandResultSummary"
+
+    # ── Stats ──────────────────────────────────────────
+    StatsOverview:
+      type: object
+      required: [totalHands, winRate, totalProfit, avgEVLossPerHand, dataInsufficient]
+      properties:
+        totalHands:
+          type: integer
+        winRate:
+          type: number
+          format: double
+          description: 胜率百分比
+        totalProfit:
+          type: integer
+          description: 累计盈亏
+        avgEVLossPerHand:
+          type: number
+          format: double
+          description: 平均每手 EV 损失（bb）
+        dataInsufficient:
+          type: boolean
+          description: 是否手数不足（< 20 手）
+
+    EVTrendResponse:
+      type: object
+      required: [dataPoints]
+      properties:
+        dataPoints:
+          type: array
+          items:
+            type: object
+            required: [x, y]
+            properties:
+              x:
+                type: integer
+                description: 手数序号或日期时间戳
+              y:
+                type: number
+                format: double
+                description: 累计 EV 损失（bb）
+              label:
+                type: string
+                description: X 轴标签
+
+    PositionPerformanceResponse:
+      type: object
+      required: [positions]
+      properties:
+        positions:
+          type: array
+          items:
+            type: object
+            required: [position, hands, winRate, totalProfit, avgEVLoss]
+            properties:
+              position:
+                $ref: "#/components/schemas/Position"
+              hands:
+                type: integer
+              winRate:
+                type: number
+                format: double
+              totalProfit:
+                type: integer
+              avgEVLoss:
+                type: number
+                format: double
+
+    LeakSummaryResponse:
+      type: object
+      required: [leaks]
+      properties:
+        leaks:
+          type: array
+          items:
+            $ref: "#/components/schemas/LeakItem"
+
+    LeakItem:
+      type: object
+      required: [scenario, actualFrequency, gtoFrequency, deviation, occurrences, totalEVLoss, severity]
+      properties:
+        scenario:
+          type: string
+          description: 场景描述
+          example: "CO vs 3bet fold"
+        actualFrequency:
+          type: number
+          format: double
+          description: 实际频率（0-1）
+        gtoFrequency:
+          type: number
+          format: double
+          description: GTO 推荐频率（0-1）
+        deviation:
+          type: number
+          format: double
+          description: 偏差百分点
+        occurrences:
+          type: integer
+          description: 出现次数
+        totalEVLoss:
+          type: number
+          format: double
+          description: 该 leak 累计 EV 损失（bb）
+        severity:
+          type: string
+          enum: [low, medium, high]
+
+    # ── Sessions ───────────────────────────────────────
+    SessionListResponse:
+      type: object
+      required: [sessions]
+      properties:
+        sessions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Session"
+
+    Session:
+      type: object
+      required: [sessionId, savedAt, gameSetup, handsPlayed, seats]
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+        savedAt:
+          type: string
+          format: date-time
+        gameSetup:
+          type: object
+          properties:
+            gameType:
+              $ref: "#/components/schemas/GameType"
+            blinds:
+              type: object
+              properties:
+                small:
+                  type: integer
+                big:
+                  type: integer
+        handsPlayed:
+          type: integer
+        seats:
+          type: array
+          items:
+            type: object
+            properties:
+              seat:
+                type: integer
+              name:
+                type: string
+              stack:
+                type: integer
+              isHuman:
+                type: boolean
+              botDifficulty:
+                $ref: "#/components/schemas/BotDifficulty"
+        dealerSeat:
+          type: integer
+        gtoSource:
+          $ref: "#/components/schemas/GTOSource"
+
+    SessionSaveRequest:
+      type: object
+      required: [gameId]
+      properties:
+        gameId:
+          type: string
+          format: uuid
+          description: 要保存的牌局 ID
+
+    # ── Settings ───────────────────────────────────────
+    AppSettings:
+      type: object
+      properties:
+        analysisModeEnabled:
+          type: boolean
+          description: 分析模式默认开关
+          default: true
+        animationsEnabled:
+          type: boolean
+          description: 动画效果开关
+          default: true
+        animationSpeed:
+          type: integer
+          description: 动画速度 (ms)
+          default: 400
+          minimum: 100
+          maximum: 1000
+        botThinkingDelay:
+          type: boolean
+          description: BOT 思考延迟开关
+          default: true
+        defaultGTOSource:
+          $ref: "#/components/schemas/GTOSource"
+        pioSolverPath:
+          type: string
+          nullable: true
+          description: PioSOLVER 路径（记忆上次配置）
+
+    AppSettingsUpdate:
+      type: object
+      properties:
+        analysisModeEnabled:
+          type: boolean
+        animationsEnabled:
+          type: boolean
+        animationSpeed:
+          type: integer
+          minimum: 100
+          maximum: 1000
+        botThinkingDelay:
+          type: boolean
+        defaultGTOSource:
+          $ref: "#/components/schemas/GTOSource"
+        pioSolverPath:
+          type: string
+          nullable: true
+
+    # ── Common ─────────────────────────────────────────
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code:
+              type: string
+              description: 错误码
+              example: "INVALID_ACTION"
+            message:
+              type: string
+              description: 人类可读错误信息
+            details:
+              type: object
+              description: 额外错误详情
+
+  responses:
+    ValidationError:
+      description: 请求参数校验失败
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+
+    NotFound:
+      description: 资源不存在
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"

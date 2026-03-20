@@ -1,0 +1,259 @@
+{
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/games",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/games/{gameId}",
+      "covers_features": [
+        "F-001",
+        "F-010"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/games/{gameId}/deal",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/games/{gameId}/action",
+      "covers_features": [
+        "F-001",
+        "F-003",
+        "F-006",
+        "F-011"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/games/{gameId}/bots",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/gto/strategy",
+      "covers_features": [
+        "F-004",
+        "F-006",
+        "F-011"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/gto/range-matrix",
+      "covers_features": [
+        "F-004",
+        "F-006"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/gto/compare",
+      "covers_features": [
+        "F-006",
+        "F-011"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/gto/bet-sizing-map",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/pio/connect",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/pio/test",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/pio/disconnect",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/pio/status",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/pio/load-tree",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}/gto-analysis",
+      "covers_features": [
+        "F-006",
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/overview",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/ev-trend",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/position-performance",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/leaks",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions/{sessionId}",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sessions/{sessionId}",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/restore",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/settings",
+      "covers_features": [
+        "F-010",
+        "F-011"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/settings",
+      "covers_features": [
+        "F-010",
+        "F-011"
+      ]
+    }
+  ],
+  "models": [
+    "Card",
+    "HoleCardPair",
+    "GameSetupRequest",
+    "BotConfig",
+    "BotDifficultyUpdateRequest",
+    "GameState",
+    "SeatState",
+    "HandState",
+    "PotInfo",
+    "ValidAction",
+    "ActionRecord",
+    "PlayerActionRequest",
+    "ActionResult",
+    "HandResultSummary",
+    "GTOHandSummary",
+    "GTOQueryRequest",
+    "GTOStrategyResponse",
+    "GTOAction",
+    "RangeMatrixResponse",
+    "RangeMatrixCell",
+    "GTOCompareRequest",
+    "GTOCompareResponse",
+    "DecisionNodeAnalysis",
+    "BetSizingMapRequest",
+    "BetSizingMapResponse",
+    "PioConnectRequest",
+    "PioStatusResponse",
+    "PioTestResponse",
+    "CFRLoadRequest",
+    "CFRLoadResponse",
+    "HandHistoryListResponse",
+    "HandHistoryItem",
+    "HandDetail",
+    "StatsOverview",
+    "EVTrendResponse",
+    "PositionPerformanceResponse",
+    "LeakSummaryResponse",
+    "LeakItem",
+    "SessionListResponse",
+    "Session",
+    "SessionSaveRequest",
+    "AppSettings",
+    "AppSettingsUpdate",
+    "ErrorResponse"
+  ]
+}
