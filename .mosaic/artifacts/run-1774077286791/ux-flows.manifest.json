@@ -1,0 +1,94 @@
+{
+  "flows": [
+    {
+      "name": "session-start-table-setup",
+      "covers_features": [
+        "F-010",
+        "F-004"
+      ]
+    },
+    {
+      "name": "single-hand-gameplay",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004"
+      ]
+    },
+    {
+      "name": "hand-result-continuation",
+      "covers_features": [
+        "F-005",
+        "F-006",
+        "F-010"
+      ]
+    },
+    {
+      "name": "post-hand-gto-review",
+      "covers_features": [
+        "F-007",
+        "F-008"
+      ]
+    },
+    {
+      "name": "history-browsing-filtering",
+      "covers_features": [
+        "F-009",
+        "F-006"
+      ]
+    }
+  ],
+  "components": [
+    "AppShell",
+    "TopNavBar",
+    "LandingScreen",
+    "PokerTable",
+    "PlayerSeat",
+    "CardDisplay",
+    "CommunityCards",
+    "PotDisplay",
+    "DealerButton",
+    "ActionIndicator",
+    "ActionPanel",
+    "BetSizer",
+    "ConfirmDialog",
+    "BotThinkingIndicator",
+    "HandResultModal",
+    "SessionSummary",
+    "ReplayView",
+    "ReplayControls",
+    "DecisionComparison",
+    "EVDisplay",
+    "StrategyExplanation",
+    "HandSummaryCard",
+    "HistoryList",
+    "HistoryListItem",
+    "DateRangeFilter",
+    "Toast",
+    "SkeletonLoader",
+    "DesktopOnlyGuard",
+    "ConfidenceBadge"
+  ],
+  "interaction_rules": [
+    "Action panel enables only during player turn; disabled/greyed out otherwise",
+    "Bet/Raise amount constrained: min = 2x last raise (min-raise), max = remaining stack (all-in); invalid amounts disable confirm button",
+    "Quick bet sizing buttons: 1/3 pot, 1/2 pot, 2/3 pot, pot, all-in",
+    "Fold confirmation dialog when player has invested > 20BB in current hand",
+    "All-in always requires confirmation dialog",
+    "End session requires confirmation dialog with P&L summary",
+    "Illegal actions (e.g. Check when facing bet) hidden rather than shown as disabled",
+    "BOT thinking delay 0.5-1.5s with pulse animation to simulate natural play",
+    "Card deal animation 0.2s per card flip",
+    "Replay data loading shows skeleton placeholder",
+    "History list loads with skeleton, 20 items per page with virtual scroll",
+    "Date range filter applies immediately on selection without submit button",
+    "beforeunload warning when hand is in progress",
+    "IndexedDB write failure shows non-blocking toast notification",
+    "Decision color coding: green (#22c55e) for EV diff < 0.5BB, yellow (#eab308) for 0.5-2BB, red (#ef4444) for > 2BB",
+    "Multi-way pot EV displays warning icon with tooltip about approximation",
+    "Side pot scenarios marked as reference-only EV",
+    "Minimum viewport width 1024px; smaller screens show desktop-only message",
+    "Immersive table view with collapsed navbar during gameplay"
+  ]
+}
