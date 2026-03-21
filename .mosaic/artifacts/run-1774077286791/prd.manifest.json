@@ -1,0 +1,66 @@
+{
+  "features": [
+    {
+      "id": "F-001",
+      "name": "poker-engine"
+    },
+    {
+      "id": "F-002",
+      "name": "player-actions"
+    },
+    {
+      "id": "F-003",
+      "name": "gto-bot-engine"
+    },
+    {
+      "id": "F-004",
+      "name": "table-ui"
+    },
+    {
+      "id": "F-005",
+      "name": "game-result"
+    },
+    {
+      "id": "F-006",
+      "name": "data-persistence"
+    },
+    {
+      "id": "F-007",
+      "name": "hand-replay"
+    },
+    {
+      "id": "F-008",
+      "name": "ev-analysis"
+    },
+    {
+      "id": "F-009",
+      "name": "history-list"
+    },
+    {
+      "id": "F-010",
+      "name": "session-management"
+    }
+  ],
+  "constraints": [
+    "纯前端应用（React + TypeScript + Tailwind CSS），无后端服务器",
+    "数据存储使用 IndexedDB",
+    "GTO 策略为近似规则实现，非 solver 精确计算",
+    "固定盲注 1/2，起始筹码 100BB",
+    "仅支持 6-max 六人桌",
+    "牌力评估使用开源库（pokersolver/phe）",
+    "EV 计算采用简化模型，复杂场景标注置信度",
+    "BOT 决策和牌力评估需在 200ms 内完成"
+  ],
+  "out_of_scope": [
+    "多人在线对战",
+    "锦标赛/SNG 模式",
+    "自定义盲注结构或筹码深度",
+    "Solver 级精确 GTO 计算",
+    "排行榜和社交功能",
+    "移动端原生适配",
+    "手牌历史导入导出",
+    "多桌同时游戏",
+    "BOT 难度/风格自定义",
+    "国际化/多语言支持"
+  ]
+}
