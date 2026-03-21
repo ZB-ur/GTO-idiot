@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProfitTrendChart Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-semibold text-gray-900">Profit Trend</h3>
+      <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">by hand</span>
+    </div>
+
+    <svg viewBox="0 0 600 200" class="w-full h-48">
+      <!-- Grid -->
+      <line x1="40" y1="40" x2="560" y2="40" stroke="#f3f4f6" stroke-width="1"/>
+      <line x1="40" y1="100" x2="560" y2="100" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4"/>
+      <line x1="40" y1="160" x2="560" y2="160" stroke="#f3f4f6" stroke-width="1"/>
+
+      <!-- Area -->
+      <defs>
+        <linearGradient id="profitGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2563eb" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="M40,100 L90,95 L140,85 L190,90 L240,75 L290,80 L340,60 L390,55 L440,65 L490,50 L540,45 L540,100 L40,100 Z" fill="url(#profitGrad)" opacity="0.5"/>
+
+      <!-- Line -->
+      <path d="M40,100 L90,95 L140,85 L190,90 L240,75 L290,80 L340,60 L390,55 L440,65 L490,50 L540,45" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Dots at key points -->
+      <circle cx="540" cy="45" r="4" fill="#2563eb"/>
+      <circle cx="40" cy="100" r="3" fill="#2563eb"/>
+
+      <!-- Labels -->
+      <text x="35" y="44" text-anchor="end" fill="#9ca3af" font-size="10" font-family="system-ui">+40 BB</text>
+      <text x="35" y="104" text-anchor="end" fill="#9ca3af" font-size="10" font-family="system-ui">0</text>
+      <text x="35" y="164" text-anchor="end" fill="#9ca3af" font-size="10" font-family="system-ui">-40 BB</text>
+
+      <text x="40" y="185" text-anchor="start" fill="#9ca3af" font-size="10" font-family="system-ui">Hand 1</text>
+      <text x="540" y="185" text-anchor="end" fill="#9ca3af" font-size="10" font-family="system-ui">Hand 200</text>
+    </svg>
+  </div>
+</body>
+</html>

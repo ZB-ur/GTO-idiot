@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DecisionAnalysis Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md mx-auto bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-4">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg border bg-amber-50 text-amber-700 border-amber-200">
+        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+        Minor Deviation
+      </span>
+      <div class="text-right">
+        <div class="text-lg font-bold text-red-500">-1.35 BB</div>
+        <div class="text-[10px] text-gray-400 font-medium">EV Difference</div>
+      </div>
+    </div>
+
+    <!-- User action -->
+    <div class="mb-4">
+      <div class="text-xs text-gray-400 font-medium mb-1">Your Action</div>
+      <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-blue-50 border border-blue-200">
+        <span class="text-sm font-semibold text-blue-700">Call 6.0 BB</span>
+        <span class="text-sm font-bold text-gray-900">EV: 1.25 BB</span>
+      </div>
+    </div>
+
+    <!-- GTO actions -->
+    <div>
+      <div class="text-xs text-gray-400 font-medium mb-2">GTO Strategy</div>
+      <div class="space-y-1.5">
+        <!-- Raise (best) -->
+        <div class="flex items-center justify-between px-3 py-2 rounded-lg text-sm bg-emerald-50 border border-emerald-200">
+          <div class="flex items-center gap-2">
+            <span class="font-semibold text-emerald-700">Raise 18.0 BB</span>
+            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-100 px-1.5 py-0.5 rounded">BEST</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-1.5 w-24">
+              <div class="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-emerald-500 rounded-full" style="width:55%"></div></div>
+              <span class="text-[10px] text-gray-400 font-medium w-8 text-right">55%</span>
+            </div>
+            <span class="font-bold text-emerald-700">2.60 BB</span>
+          </div>
+        </div>
+        <!-- Call -->
+        <div class="flex items-center justify-between px-3 py-2 rounded-lg text-sm bg-gray-50 border border-gray-100">
+          <div class="flex items-center gap-2">
+            <span class="font-semibold text-gray-700">Call 6.0 BB</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-1.5 w-24">
+              <div class="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-gray-400 rounded-full" style="width:30%"></div></div>
+              <span class="text-[10px] text-gray-400 font-medium w-8 text-right">30%</span>
+            </div>
+            <span class="font-bold text-gray-600">1.25 BB</span>
+          </div>
+        </div>
+        <!-- Fold -->
+        <div class="flex items-center justify-between px-3 py-2 rounded-lg text-sm bg-gray-50 border border-gray-100">
+          <div class="flex items-center gap-2">
+            <span class="font-semibold text-gray-700">Fold</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-1.5 w-24">
+              <div class="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-gray-400 rounded-full" style="width:15%"></div></div>
+              <span class="text-[10px] text-gray-400 font-medium w-8 text-right">15%</span>
+            </div>
+            <span class="font-bold text-gray-600">0.00 BB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

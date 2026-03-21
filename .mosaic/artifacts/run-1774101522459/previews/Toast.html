@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">Toast Component</h2>
+
+  <!-- Stacked toasts for preview (not fixed position) -->
+  <div class="flex flex-col gap-3 max-w-md">
+
+    <!-- Success -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-green-50 border-green-200" role="alert">
+      <span class="text-base font-bold text-green-500">✓</span>
+      <span class="text-sm font-medium text-green-800">Hand saved to history successfully</span>
+      <button class="ml-auto text-sm text-green-800 opacity-60 hover:opacity-100">✕</button>
+    </div>
+
+    <!-- Warning -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-yellow-50 border-yellow-200" role="alert">
+      <span class="text-base font-bold text-yellow-500">⚠</span>
+      <span class="text-sm font-medium text-yellow-800">GTO calculation timed out, using heuristic estimate</span>
+      <button class="ml-auto text-sm text-yellow-800 opacity-60 hover:opacity-100">✕</button>
+    </div>
+
+    <!-- Error -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-red-50 border-red-200" role="alert">
+      <span class="text-base font-bold text-red-500">✕</span>
+      <span class="text-sm font-medium text-red-800">Storage unavailable. Hand history cannot be saved.</span>
+      <button class="ml-auto text-sm text-red-800 opacity-60 hover:opacity-100">✕</button>
+    </div>
+  </div>
+
+  <!-- Positioned toast example (simulating real position) -->
+  <p class="text-sm text-gray-600 mt-8 mb-2">Fixed Position Preview (top-right)</p>
+  <div class="relative bg-white rounded-xl border border-gray-200 shadow-sm h-40 overflow-hidden">
+    <div class="absolute top-4 right-4 flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-green-50 border-green-200" role="alert">
+      <span class="text-base font-bold text-green-500">✓</span>
+      <span class="text-sm font-medium text-green-800">Session started</span>
+      <button class="ml-2 text-sm text-green-800 opacity-60 hover:opacity-100">✕</button>
+    </div>
+    <div class="flex items-center justify-center h-full text-gray-400 text-sm">App content area</div>
+  </div>
+</body>
+</html>

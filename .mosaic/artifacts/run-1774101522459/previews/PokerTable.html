@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokerTable Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #0f172a; font-family: system-ui, sans-serif; }
+    .animate-bounce-dot { animation: bounce 1s infinite; }
+    .animate-bounce-dot:nth-child(2) { animation-delay: 150ms; }
+    .animate-bounce-dot:nth-child(3) { animation-delay: 300ms; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col h-screen bg-slate-900">
+
+    <!-- ── Session Status Bar ── -->
+    <div class="flex items-center justify-between bg-gray-800 border-b border-gray-700 px-4 py-2 flex-shrink-0">
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-2">
+          <span class="text-gray-500 text-xs uppercase tracking-wide font-medium">Hand</span>
+          <span class="text-white text-sm font-semibold" style="font-variant-numeric:tabular-nums">#17</span>
+        </div>
+        <div class="w-px h-4 bg-gray-600"></div>
+        <div class="flex items-center gap-2">
+          <span class="text-gray-500 text-xs uppercase tracking-wide font-medium">Phase</span>
+          <span class="text-emerald-400 text-sm font-semibold">Flop</span>
+        </div>
+        <div class="w-px h-4 bg-gray-600"></div>
+        <div class="flex items-center gap-2">
+          <span class="text-gray-500 text-xs uppercase tracking-wide font-medium">Played</span>
+          <span class="text-white text-sm font-semibold" style="font-variant-numeric:tabular-nums">16</span>
+        </div>
+        <div class="w-px h-4 bg-gray-600"></div>
+        <div class="flex items-center gap-2">
+          <span class="text-gray-500 text-xs uppercase tracking-wide font-medium">P/L</span>
+          <span class="text-green-400 text-sm font-semibold" style="font-variant-numeric:tabular-nums">+12.5 BB</span>
+        </div>
+        <div class="w-px h-4 bg-gray-600"></div>
+        <div class="flex items-center gap-2">
+          <span class="text-gray-500 text-xs uppercase tracking-wide font-medium">Time</span>
+          <span class="text-gray-300 text-sm font-medium">23m</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300 text-sm font-medium transition-colors">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 4a1 1 0 0 1 1 1v10a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1zm5 0a1 1 0 0 1 1 1v10a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1z" clip-rule="evenodd"/></svg>
+          Pause
+        </button>
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-500/20 text-red-400 text-sm font-medium transition-colors">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4z" clip-rule="evenodd"/></svg>
+          End Session
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Table Area ── -->
+    <div class="flex-1 flex items-center justify-center p-8">
+      <div class="relative w-full max-w-4xl" style="aspect-ratio: 16 / 9;">
+
+        <!-- Outer rail -->
+        <div class="absolute inset-0 rounded-[50%] bg-gradient-to-b from-amber-900 to-amber-950 shadow-2xl" style="padding:12px">
+          <!-- Felt -->
+          <div class="w-full h-full rounded-[50%] bg-gradient-to-br from-emerald-800 to-emerald-900 border-4 border-emerald-700/50 shadow-inner relative overflow-visible">
+
+            <!-- Center: Pot + Community Cards -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <!-- Pot Display -->
+              <div class="flex flex-col items-center gap-1.5">
+                <div class="text-xs font-medium text-emerald-300/70 uppercase tracking-wider">Total Pot</div>
+                <div class="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-4 py-1.5 border border-emerald-500/20">
+                  <div class="relative w-5 h-5 flex-shrink-0">
+                    <div class="absolute bottom-0 left-0 w-5 h-1.5 rounded-full bg-amber-400 border border-amber-500"></div>
+                    <div class="absolute bottom-1 left-0 w-5 h-1.5 rounded-full bg-amber-300 border border-amber-400"></div>
+                    <div class="absolute bottom-2 left-0 w-5 h-1.5 rounded-full bg-yellow-300 border border-yellow-400"></div>
+                  </div>
+                  <span class="text-lg font-bold text-yellow-300" style="font-variant-numeric:tabular-nums">14.5</span>
+                </div>
+              </div>
+
+              <!-- Community Cards (3 flop cards dealt) -->
+              <div class="flex flex-col items-center gap-2">
+                <span class="text-xs font-medium tracking-wide uppercase text-emerald-300/70">Flop</span>
+                <div class="flex items-center gap-2">
+                  <!-- Card 1: A♠ -->
+                  <div style="width:64px;height:88px;" class="rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center">
+                    <span class="text-lg font-bold text-gray-900">A</span>
+                    <span class="text-xl mt-0.5 text-gray-900">&#9824;</span>
+                  </div>
+                  <!-- Card 2: K♥ -->
+                  <div style="width:64px;height:88px;" class="rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center">
+                    <span class="text-lg font-bold text-red-500">K</span>
+                    <span class="text-xl mt-0.5 text-red-500">&#9829;</span>
+                  </div>
+                  <!-- Card 3: 7♦ -->
+                  <div style="width:64px;height:88px;" class="rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center">
+                    <span class="text-lg font-bold text-blue-500">7</span>
+                    <span class="text-xl mt-0.5 text-blue-500">&#9830;</span>
+                  </div>
+                  <!-- Empty slot 4 -->
+                  <div style="width:64px;height:88px;" class="rounded-lg border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+                  <!-- Empty slot 5 -->
+                  <div style="width:64px;height:88px;" class="rounded-lg border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Seat 0 (User / bottom-center) — BTN ── -->
+        <div class="z-10" style="position:absolute;bottom:-48px;left:50%;transform:translateX(-50%)">
+          <div class="relative flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 border-amber-400 bg-amber-50 shadow-lg shadow-amber-200/50 transition-all" style="min-width:120px">
+            <!-- Dealer button -->
+            <div class="absolute -top-3 -right-3 z-10">
+              <div class="w-7 h-7 rounded-full bg-white border-2 border-amber-400 shadow flex items-center justify-center text-[10px] font-extrabold text-amber-600">D</div>
+            </div>
+            <!-- Cards above (bottom position) -->
+            <div class="flex gap-1 mb-0.5">
+              <div class="w-8 h-11 rounded bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center">
+                <span class="text-xs font-bold text-gray-900">A</span>
+                <span class="text-xs text-gray-900">&#9824;</span>
+              </div>
+              <div class="w-8 h-11 rounded bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center">
+                <span class="text-xs font-bold text-red-500">K</span>
+                <span class="text-xs text-red-500">&#9829;</span>
+              </div>
+            </div>
+            <!-- Avatar -->
+            <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-lg font-bold">Y</div>
+            <div class="flex items-center gap-1">
+              <span class="text-sm font-semibold text-gray-900">You</span>
+            </div>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">BTN</span>
+            <span class="text-xs font-bold text-gray-900">98.5 BB</span>
+          </div>
+        </div>
+
+        <!-- ── Seat 1 (BOT-TAG / bottom-right) — SB ── -->
+        <div class="z-10" style="position:absolute;bottom:-24px;right:4%">
+          <div class="relative flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 border-gray-200 bg-white shadow-sm transition-all" style="min-width:120px">
+            <div class="w-12 h-12 rounded-full bg-slate-100 text-gray-500 border border-gray-200 flex items-center justify-center text-lg">&#129302;</div>
+            <div class="flex items-center gap-1">
+              <span class="text-sm font-semibold text-gray-900">BOT-TAG</span>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-700">TAG</span>
+            </div>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-sky-100 text-sky-700">SB</span>
+            <span class="text-xs font-bold text-gray-900">95.0 BB</span>
+            <div class="flex gap-1 mt-0.5">
+              <div class="w-8 h-11 rounded bg-blue-900 border border-blue-800 shadow-sm"></div>
+              <div class="w-8 h-11 rounded bg-blue-900 border border-blue-800 shadow-sm"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Seat 2 (BOT-LAG / top-right) — BB ── -->
+        <div class="z-10" style="position:absolute;top:-24px;right:4%">
+          <div class="relative flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 border-gray-200 bg-white shadow-sm transition-all" style="min-width:120px">
+            <div class="w-12 h-12 rounded-full bg-slate-100 text-gray-500 border border-gray-200 flex items-center justify-center text-lg">&#129302;</div>
+            <div class="flex items-center gap-1">
+              <span class="text-sm font-semibold text-gray-900">BOT-LAG</span>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-100 text-amber-700">LAG</span>
+            </div>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700">BB</span>
+            <span class="text-xs font-bold text-gray-900">87.5 BB</span>
+            <div class="flex gap-1 mt-0.5">
+              <div class="w-8 h-11 rounded bg-blue-900 border border-blue-800 shadow-sm"></div>
+              <div class="w-8 h-11 rounded bg-blue-900 border border-blue-800 shadow-sm"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Seat 3 (BOT-GTO / top-center) — UTG — Currently Acting (thinking) ── -->
+        <div class="z-10" style="position:absolute;top:-48px;left:50%;transform:translateX(-50%)">
+          <div class="relative flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 border-amber-400 bg-amber-50 shadow-lg shadow-amber-200/50 transition-all" style="min-width:120px">
+            <div class="relative">
+              <div class="w-12 h-12 rounded-full bg-slate-100 text-gray-500 border border-gray-200 flex items-center justify-center text-lg animate-pulse">&#129302;</div>
+              <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 flex gap-0.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-bounce-dot"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-bounce-dot"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-bounce-dot"></span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="text-sm font-semibold text-gray-900">BOT-GTO</span>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-700">GTO</span>
+            </div>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-700">UTG</span>
+            <span class="text-xs font-bold text-gray-900">104.0 BB</span>
+            <div class="flex gap-1 mt-0.5">
+              <div class="w-8 h-11 rounded bg-blue-900 border border-blue-800 shadow-sm"></div>
+              <div class="w-8 h-11 rounded bg-blue-900 border border-blue-800 shadow-sm"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Seat 4 (BOT-Nit / top-left) — MP — Folded ── -->
+        <div class="z-10" style="position:absolute;top:-24px;left:4%">
+          <div class="relative flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 border-gray-100 bg-gray-50 opacity-60 transition-all" style="min-width:120px">
+            <div class="w-12 h-12 rounded-full bg-slate-100 text-gray-500 border border-gray-200 flex items-center justify-center text-lg">&#129302;</div>
+            <div class="flex items-center gap-1">
+              <span class="text-sm font-semibold text-gray-900">BOT-Nit</span>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-gray-100 text-gray-600">Nit</span>
+            </div>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-700">MP</span>
+            <span class="text-xs font-bold text-gray-900">100.0 BB</span>
+            <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Folded</span>
+          </div>
+        </div>
+
+        <!-- ── Seat 5 (BOT-Fish / bottom-left) — CO ── -->
+        <div class="z-10" style="position:absolute;bottom:-24px;left:4%">
+          <div class="relative flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 border-gray-200 bg-white shadow-sm transition-all" style="min-width:120px">
+            <div class="flex gap-1 mb-0.5">
+              <div class="w-8 h-11 rounded bg-blue-900 border border-blue-800 shadow-sm"></div>
+              <div class="w-8 h-11 rounded bg-blue-900 border border-blue-800 shadow-sm"></div>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-slate-100 text-gray-500 border border-gray-200 flex items-center justify-center text-lg">&#129302;</div>
+            <div class="flex items-center gap-1">
+              <span class="text-sm font-semibold text-gray-900">BOT-Fish</span>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700">Fish</span>
+            </div>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">CO</span>
+            <span class="text-xs font-bold text-gray-900">92.0 BB</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Action Panel (bottom, waiting state) ── -->
+    <div class="flex-shrink-0 bg-slate-800 border-t border-gray-700">
+      <div class="w-full max-w-2xl mx-auto p-6">
+        <div class="bg-slate-700 rounded-xl border border-gray-600 p-8 text-center">
+          <p class="text-gray-400 text-lg font-medium">Waiting for BOT-GTO to act...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

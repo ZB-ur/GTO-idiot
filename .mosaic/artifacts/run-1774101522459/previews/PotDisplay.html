@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PotDisplay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-8">
+
+    <!-- Main pot only -->
+    <div>
+      <p class="text-sm font-semibold text-gray-600 mb-2">Main Pot Only</p>
+      <div class="inline-flex flex-col items-center gap-1.5 bg-emerald-800 rounded-xl p-6">
+        <div class="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 text-white font-bold shadow-md">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="8" fill="currentColor" opacity="0.3"/><circle cx="10" cy="10" r="5" fill="currentColor"/></svg>
+          <span class="text-lg">24.5 BB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main + Side pots -->
+    <div>
+      <p class="text-sm font-semibold text-gray-600 mb-2">Main + Side Pots</p>
+      <div class="inline-flex flex-col items-center gap-1.5 bg-emerald-800 rounded-xl p-6">
+        <div class="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 text-white font-bold shadow-md">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="8" fill="currentColor" opacity="0.3"/><circle cx="10" cy="10" r="5" fill="currentColor"/></svg>
+          <span class="text-lg">156.0 BB</span>
+        </div>
+        <div class="flex gap-2">
+          <div class="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-100 text-amber-800 text-sm font-semibold border border-amber-200">
+            <span class="text-[10px] font-bold text-amber-500">SIDE 1</span>
+            <span>42.0 BB</span>
+          </div>
+          <div class="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-100 text-amber-800 text-sm font-semibold border border-amber-200">
+            <span class="text-[10px] font-bold text-amber-500">SIDE 2</span>
+            <span>18.0 BB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

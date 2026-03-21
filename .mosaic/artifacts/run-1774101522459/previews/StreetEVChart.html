@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreetEVChart Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-lg mx-auto bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+    <h3 class="text-lg font-semibold text-gray-900 mb-6">EV Loss by Street</h3>
+
+    <div class="space-y-4">
+      <!-- Preflop -->
+      <div class="rounded-lg p-3 cursor-pointer hover:bg-gray-50">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm font-semibold text-gray-900">Preflop</span>
+          <div class="flex items-center gap-4">
+            <span class="text-xs text-gray-400 font-medium">312 decisions</span>
+            <span class="text-sm font-bold text-red-500">-45.2 BB</span>
+          </div>
+        </div>
+        <div class="relative h-6 bg-gray-100 rounded-lg overflow-hidden">
+          <div class="absolute inset-y-0 left-0 bg-blue-500 rounded-lg flex items-center justify-end pr-2" style="width: 42%">
+            <span class="text-[10px] font-bold text-white">avg -0.14 BB</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flop -->
+      <div class="rounded-lg p-3 cursor-pointer hover:bg-gray-50">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm font-semibold text-gray-900">Flop</span>
+          <div class="flex items-center gap-4">
+            <span class="text-xs text-gray-400 font-medium">198 decisions</span>
+            <span class="text-sm font-bold text-red-500">-108.6 BB</span>
+          </div>
+        </div>
+        <div class="relative h-6 bg-gray-100 rounded-lg overflow-hidden">
+          <div class="absolute inset-y-0 left-0 bg-emerald-500 rounded-lg flex items-center justify-end pr-2" style="width: 100%">
+            <span class="text-[10px] font-bold text-white">avg -0.55 BB</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Turn -->
+      <div class="rounded-lg p-3 cursor-pointer hover:bg-gray-50">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm font-semibold text-gray-900">Turn</span>
+          <div class="flex items-center gap-4">
+            <span class="text-xs text-gray-400 font-medium">124 decisions</span>
+            <span class="text-sm font-bold text-red-500">-82.4 BB</span>
+          </div>
+        </div>
+        <div class="relative h-6 bg-gray-100 rounded-lg overflow-hidden">
+          <div class="absolute inset-y-0 left-0 bg-amber-500 rounded-lg flex items-center justify-end pr-2" style="width: 76%">
+            <span class="text-[10px] font-bold text-white">avg -0.66 BB</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- River -->
+      <div class="rounded-lg p-3 cursor-pointer hover:bg-gray-50">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm font-semibold text-gray-900">River</span>
+          <div class="flex items-center gap-4">
+            <span class="text-xs text-gray-400 font-medium">86 decisions</span>
+            <span class="text-sm font-bold text-red-500">-56.8 BB</span>
+          </div>
+        </div>
+        <div class="relative h-6 bg-gray-100 rounded-lg overflow-hidden">
+          <div class="absolute inset-y-0 left-0 bg-red-500 rounded-lg flex items-center justify-end pr-2" style="width: 52%">
+            <span class="text-[10px] font-bold text-white">avg -0.66 BB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

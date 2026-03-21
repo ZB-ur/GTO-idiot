@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StatsOverview Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="grid grid-cols-5 gap-4 max-w-4xl mx-auto">
+
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 flex flex-col gap-1">
+      <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Total Hands</span>
+      <span class="text-2xl font-bold text-gray-900">1,248</span>
+      <span class="text-xs text-gray-400">24 sessions</span>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 flex flex-col gap-1">
+      <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Win Rate</span>
+      <span class="text-2xl font-bold text-emerald-600">47.3%</span>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 flex flex-col gap-1">
+      <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Profit / Loss</span>
+      <span class="text-2xl font-bold text-emerald-600">+86.5 BB</span>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 flex flex-col gap-1">
+      <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Total EV Loss</span>
+      <span class="text-2xl font-bold text-red-500">-142.8 BB</span>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 flex flex-col gap-1">
+      <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Avg EV Loss / Hand</span>
+      <span class="text-2xl font-bold text-amber-600">-0.11 BB</span>
+    </div>
+
+  </div>
+</body>
+</html>
