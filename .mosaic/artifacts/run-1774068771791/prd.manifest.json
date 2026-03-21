@@ -1,0 +1,64 @@
+{
+  "features": [
+    {
+      "id": "F-001",
+      "name": "poker-engine"
+    },
+    {
+      "id": "F-002",
+      "name": "hand-evaluator"
+    },
+    {
+      "id": "F-003",
+      "name": "position-system"
+    },
+    {
+      "id": "F-004",
+      "name": "bot-ai"
+    },
+    {
+      "id": "F-005",
+      "name": "gto-strategy-tables"
+    },
+    {
+      "id": "F-006",
+      "name": "game-table-ui"
+    },
+    {
+      "id": "F-007",
+      "name": "game-history-recording"
+    },
+    {
+      "id": "F-008",
+      "name": "hand-review"
+    },
+    {
+      "id": "F-009",
+      "name": "session-stats"
+    },
+    {
+      "id": "F-010",
+      "name": "app-navigation"
+    }
+  ],
+  "constraints": [
+    "纯前端Web应用，无后端服务，数据存储使用浏览器localStorage",
+    "GTO策略为内置预计算简化策略表（25%粒度），非实时求解",
+    "技术栈限定React + TypeScript + Tailwind CSS",
+    "仅支持六人桌No-Limit Hold'em Cash Game，固定盲注1/2，起始筹码200BB",
+    "手牌评估使用查表法，浏览器端毫秒级响应",
+    "中文界面，扑克术语保留英文"
+  ],
+  "out_of_scope": [
+    "多桌/锦标赛模式",
+    "BOT难度分级调节",
+    "实时求解器级别GTO计算",
+    "多人在线/联网功能",
+    "移动端适配/原生App",
+    "用户账号系统",
+    "手牌历史导入",
+    "社区功能（排行榜/分享）",
+    "Pot Odds/EV计算器",
+    "国际化/多语言"
+  ]
+}
