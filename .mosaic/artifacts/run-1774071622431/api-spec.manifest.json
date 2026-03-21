@@ -1,0 +1,144 @@
+{
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/sessions",
+      "covers_features": [
+        "F-001",
+        "F-003",
+        "F-004"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions/{sessionId}",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sessions/{sessionId}",
+      "covers_features": [
+        "F-001",
+        "F-009"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/resume",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/hands",
+      "covers_features": [
+        "F-001",
+        "F-003"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions/{sessionId}/hands/current",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-004"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions/{sessionId}/hands/{handNumber}",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/hands/current/actions",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/solver/preflop",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/solver/postflop",
+      "covers_features": [
+        "F-006",
+        "F-010"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/review/hand",
+      "covers_features": [
+        "F-008",
+        "F-010"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/review/batch",
+      "covers_features": [
+        "F-008",
+        "F-009"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/stats/session",
+      "covers_features": [
+        "F-009",
+        "F-010"
+      ]
+    }
+  ],
+  "models": [
+    "Card",
+    "Position",
+    "BotStyle",
+    "Street",
+    "ActionType",
+    "DeviationLevel",
+    "PrecisionLevel",
+    "Session",
+    "Seat",
+    "SessionCheckpoint",
+    "SessionEndResponse",
+    "HandState",
+    "HandPlayer",
+    "Pot",
+    "LegalAction",
+    "PlayerAction",
+    "ActionResponse",
+    "BotActionEvent",
+    "HandResult",
+    "ActionRecord",
+    "HandRecord",
+    "StreetRecord",
+    "PostflopSolveRequest",
+    "GtoStrategy",
+    "GtoAction",
+    "HandReview",
+    "DecisionPointReview",
+    "BatchReviewResponse",
+    "SessionSummary",
+    "Error",
+    "ActionError",
+    "CreateSessionRequest"
+  ]
+}
