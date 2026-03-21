@@ -1,0 +1,323 @@
+{
+  "project_name": "gto-idiot",
+  "tech_stack": {
+    "language": "TypeScript (strict)",
+    "framework": "React 18 + Vite",
+    "build_tool": "npm"
+  },
+  "commands": {
+    "setupCommand": "npm install",
+    "verifyCommand": "npx tsc --noEmit",
+    "buildCommand": "npm run build"
+  },
+  "modules": [
+    {
+      "name": "scaffold",
+      "description": "Project setup — Vite + React + TS + Tailwind + Dexie + Router config, shared types, folder structure",
+      "files": [
+        "package.json",
+        "tsconfig.json",
+        "tsconfig.node.json",
+        "vite.config.ts",
+        "tailwind.config.ts",
+        "postcss.config.js",
+        "index.html",
+        "src/main.tsx",
+        "src/index.css",
+        "src/vite-env.d.ts",
+        "src/types/index.ts",
+        "src/types/card.ts",
+        "src/types/game.ts",
+        "src/types/gto.ts",
+        "src/types/analysis.ts",
+        "src/types/replay.ts",
+        "src/types/storage.ts",
+        "src/types/bot.ts",
+        "src/types/error.ts"
+      ],
+      "dependencies": [],
+      "covers_tasks": [
+        "T-001",
+        "T-002"
+      ],
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-004",
+        "F-012"
+      ],
+      "priority": 0
+    },
+    {
+      "name": "core-engine",
+      "description": "Core poker logic — deck/dealing, hand evaluation, game state machine, action validation. Pure functions with no UI dependency.",
+      "files": [
+        "src/engine/deck.ts",
+        "src/engine/hand-evaluator.ts",
+        "src/engine/game-state.ts",
+        "src/engine/action-validator.ts",
+        "src/engine/pot-calculator.ts",
+        "src/engine/utils.ts"
+      ],
+      "dependencies": [
+        "scaffold"
+      ],
+      "covers_tasks": [
+        "T-003",
+        "T-004",
+        "T-005",
+        "T-006"
+      ],
+      "covers_features": [
+        "F-001",
+        "F-002"
+      ],
+      "priority": 1
+    },
+    {
+      "name": "bot-engine",
+      "description": "BOT opponent engine — 5 parameterized profiles (TAG/LAG/NIT/Fish/Maniac), preflop range tables, postflop heuristic decision trees, randomization layer.",
+      "files": [
+        "src/engine/bot/profiles.ts",
+        "src/engine/bot/preflop-ranges.ts",
+        "src/engine/bot/decision-engine.ts",
+        "src/engine/bot/postflop-heuristics.ts",
+        "src/engine/bot/sizing.ts"
+      ],
+      "dependencies": [
+        "scaffold",
+        "core-engine"
+      ],
+      "covers_tasks": [
+        "T-007",
+        "T-008"
+      ],
+      "covers_features": [
+        "F-003"
+      ],
+      "priority": 2
+    },
+    {
+      "name": "gto-engine",
+      "description": "GTO strategy engine — preflop range lookup tables, board texture classifier, Monte Carlo equity calculator (Web Worker), postflop heuristic recommendation engine.",
+      "files": [
+        "src/engine/gto/preflop-ranges.ts",
+        "src/engine/gto/preflop-data.json",
+        "src/engine/gto/preflop-lookup.ts",
+        "src/engine/gto/board-texture.ts",
+        "src/engine/gto/equity-worker.ts",
+        "src/engine/gto/equity-calculator.ts",
+        "src/engine/gto/postflop-engine.ts"
+      ],
+      "dependencies": [
+        "scaffold",
+        "core-engine"
+      ],
+      "covers_tasks": [
+        "T-013",
+        "T-014",
+        "T-015",
+        "T-016",
+        "T-017"
+      ],
+      "covers_features": [
+        "F-005",
+        "F-006",
+        "F-010"
+      ],
+      "priority": 2
+    },
+    {
+      "name": "data-services",
+      "description": "Data layer and service layer — Dexie.js database, game service orchestration, hand recording, history/stats/replay/analysis services.",
+      "files": [
+        "src/services/db.ts",
+        "src/services/storage-service.ts",
+        "src/services/game-service.ts",
+        "src/services/hand-recorder.ts",
+        "src/services/history-service.ts",
+        "src/services/replay-service.ts",
+        "src/services/analysis-service.ts"
+      ],
+      "dependencies": [
+        "scaffold",
+        "core-engine",
+        "bot-engine",
+        "gto-engine"
+      ],
+      "covers_tasks": [
+        "T-009",
+        "T-010",
+        "T-011",
+        "T-012",
+        "T-030",
+        "T-031",
+        "T-032",
+        "T-035",
+        "T-038",
+        "T-039",
+        "T-044"
+      ],
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-007",
+        "F-008",
+        "F-009",
+        "F-010",
+        "F-011",
+        "F-012"
+      ],
+      "priority": 3
+    },
+    {
+      "name": "ui-foundation",
+      "description": "App shell, routing, shared primitives, poker table layout, card/chip components, action panel, and seat selector.",
+      "files": [
+        "src/App.tsx",
+        "src/components/shared/Modal.tsx",
+        "src/components/shared/Toast.tsx",
+        "src/components/shared/Spinner.tsx",
+        "src/components/shared/SkeletonLoader.tsx",
+        "src/components/shell/AppShell.tsx",
+        "src/components/shell/HomeScreen.tsx",
+        "src/components/shell/SeatSelector.tsx",
+        "src/components/table/CardComponent.tsx",
+        "src/components/table/ChipStack.tsx",
+        "src/components/table/PokerTable.tsx",
+        "src/components/table/PlayerSeat.tsx",
+        "src/components/table/CommunityCards.tsx",
+        "src/components/table/PotDisplay.tsx",
+        "src/components/action/ActionPanel.tsx",
+        "src/components/action/RaiseSlider.tsx",
+        "src/components/action/AllInConfirmDialog.tsx",
+        "src/hooks/useCardDeal.ts",
+        "src/hooks/useChipMove.ts",
+        "src/hooks/useActionPanel.ts",
+        "src/contexts/GameContext.tsx"
+      ],
+      "dependencies": [
+        "scaffold",
+        "data-services"
+      ],
+      "covers_tasks": [
+        "T-018",
+        "T-019",
+        "T-020",
+        "T-021",
+        "T-022",
+        "T-023",
+        "T-024",
+        "T-025",
+        "T-026",
+        "T-027",
+        "T-028",
+        "T-043"
+      ],
+      "covers_features": [
+        "F-002",
+        "F-004"
+      ],
+      "priority": 4
+    },
+    {
+      "name": "ui-features",
+      "description": "Feature pages — game loop integration, history list/filters/stats/profit chart, hand replayer with timeline, GTO analysis panels, settings/storage management.",
+      "files": [
+        "src/pages/PlayPage.tsx",
+        "src/pages/HistoryPage.tsx",
+        "src/pages/ReplayPage.tsx",
+        "src/pages/SettingsPage.tsx",
+        "src/components/history/HandHistoryList.tsx",
+        "src/components/history/HandHistoryRow.tsx",
+        "src/components/history/HistoryFilter.tsx",
+        "src/components/history/StatsDashboard.tsx",
+        "src/components/history/StatCard.tsx",
+        "src/components/history/ProfitChart.tsx",
+        "src/components/history/StorageInfo.tsx",
+        "src/components/history/DataCleanupDialog.tsx",
+        "src/components/replay/HandReplayer.tsx",
+        "src/components/replay/ReplayControls.tsx",
+        "src/components/replay/ActionTimeline.tsx",
+        "src/components/replay/DecisionPointMarker.tsx",
+        "src/components/analysis/GTOPanel.tsx",
+        "src/components/analysis/GTOActionComparison.tsx",
+        "src/components/analysis/EVDifferenceBadge.tsx",
+        "src/components/analysis/GTOFrequencyBar.tsx",
+        "src/components/analysis/ReviewSummary.tsx",
+        "src/components/analysis/LeakCard.tsx",
+        "src/hooks/useReplayNavigation.ts",
+        "src/contexts/ReplayContext.tsx"
+      ],
+      "dependencies": [
+        "scaffold",
+        "data-services",
+        "ui-foundation"
+      ],
+      "covers_tasks": [
+        "T-029",
+        "T-033",
+        "T-034",
+        "T-036",
+        "T-037",
+        "T-040",
+        "T-041",
+        "T-042"
+      ],
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-008",
+        "F-009",
+        "F-010",
+        "F-011",
+        "F-012"
+      ],
+      "priority": 5
+    },
+    {
+      "name": "testing",
+      "description": "End-to-end and integration tests — full game loop, replay correctness, GTO analysis accuracy, service layer tests.",
+      "files": [
+        "vitest.config.ts",
+        "src/__tests__/engine/deck.test.ts",
+        "src/__tests__/engine/hand-evaluator.test.ts",
+        "src/__tests__/engine/game-state.test.ts",
+        "src/__tests__/engine/bot-decision.test.ts",
+        "src/__tests__/services/game-service.test.ts",
+        "src/__tests__/services/analysis-service.test.ts",
+        "src/__tests__/e2e/game-loop.test.ts"
+      ],
+      "dependencies": [
+        "scaffold",
+        "core-engine",
+        "bot-engine",
+        "gto-engine",
+        "data-services",
+        "ui-foundation",
+        "ui-features"
+      ],
+      "covers_tasks": [
+        "T-045"
+      ],
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008",
+        "F-009",
+        "F-010",
+        "F-011",
+        "F-012"
+      ],
+      "priority": 6
+    }
+  ]
+}
