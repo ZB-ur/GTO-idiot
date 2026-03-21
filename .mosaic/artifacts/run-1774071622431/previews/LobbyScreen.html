@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LobbyScreen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen bg-slate-50 flex flex-col">
+
+    <!-- AppHeader -->
+    <header class="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-emerald-800 flex items-center justify-center">
+          <span class="text-white text-sm font-bold">♠G</span>
+        </div>
+        <span class="font-semibold text-gray-900">GTO Idiot</span>
+      </div>
+      <nav class="flex items-center gap-4 text-sm text-gray-500">
+        <span class="text-blue-600 font-medium">Lobby</span>
+        <span class="hover:text-gray-700 cursor-pointer">History</span>
+      </nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="flex-1 flex flex-col items-center justify-center px-4 py-12">
+
+      <!-- Hero -->
+      <div class="text-center mb-10">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-emerald-800 shadow-lg mb-6">
+          <span class="text-3xl">♠</span>
+          <span class="text-white text-3xl font-bold ml-0.5">G</span>
+        </div>
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">GTO Idiot</h1>
+        <p class="text-gray-600 text-lg max-w-md mx-auto">
+          6-max No-Limit Hold'em GTO strategy trainer.<br />
+          Play against bots, learn optimal poker.
+        </p>
+      </div>
+
+      <!-- Action buttons — active session variant -->
+      <div class="flex flex-col sm:flex-row gap-4 mb-10 w-full max-w-md">
+        <button class="flex-1 px-6 py-4 bg-emerald-800 hover:bg-emerald-900 text-white font-semibold rounded-xl shadow-md transition-colors text-lg">
+          Resume Session
+        </button>
+        <button class="flex-1 px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md transition-colors text-lg">
+          New Session
+        </button>
+      </div>
+
+      <!-- Last session quick stats -->
+      <div class="w-full max-w-md bg-white border border-gray-200 rounded-xl shadow-sm p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-semibold text-gray-900">Last Session</h2>
+          <span class="text-sm text-gray-400">87 hands</span>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 mb-4">
+          <!-- Profit -->
+          <div class="text-center">
+            <p class="text-sm text-gray-500 mb-1">Profit</p>
+            <p class="text-xl font-bold text-green-500">+24.5 BB</p>
+          </div>
+          <!-- Win Rate -->
+          <div class="text-center">
+            <p class="text-sm text-gray-500 mb-1">Win Rate</p>
+            <p class="text-xl font-bold text-gray-900">12.3</p>
+            <p class="text-xs text-gray-400">BB/100</p>
+          </div>
+          <!-- GTO Score -->
+          <div class="text-center">
+            <p class="text-sm text-gray-500 mb-1">GTO Score</p>
+            <p class="text-xl font-bold text-green-500">74</p>
+            <div class="mt-1 h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
+              <div class="h-full rounded-full bg-green-500" style="width: 74%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra stats -->
+        <div class="flex justify-between text-sm text-gray-500 border-t border-gray-100 pt-3">
+          <span>VPIP 28%</span>
+          <span>Showdown 34%</span>
+          <span>Fold 62%</span>
+        </div>
+      </div>
+
+      <!-- View history link -->
+      <a href="#" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        View Session History
+      </a>
+    </main>
+
+    <!-- GlobalDisclaimerFooter -->
+    <footer class="border-t border-gray-200 bg-white px-6 py-3 text-center">
+      <p class="text-xs text-gray-400">
+        GTO calculations are simplified approximations for training purposes only. Not suitable for real-money strategy decisions.
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrecisionDisclaimer Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-4">
+    <p class="text-sm font-semibold text-gray-600">Precision Disclaimer Badges</p>
+    <div class="flex flex-wrap gap-3">
+      <!-- Exact -->
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border bg-emerald-50 border-emerald-200 text-emerald-700">
+        <span>✓</span><span>Exact</span>
+      </span>
+      <!-- Precomputed -->
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border bg-blue-50 border-blue-200 text-blue-700">
+        <span>⚡</span><span>Precomputed</span>
+      </span>
+      <!-- Simplified -->
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border bg-amber-50 border-amber-200 text-amber-700">
+        <span>≈</span><span>Simplified</span>
+      </span>
+      <!-- Pseudo HU -->
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border bg-orange-50 border-orange-200 text-orange-700">
+        <span>⚠</span><span>Pseudo HU</span>
+      </span>
+    </div>
+
+    <!-- With tooltip shown -->
+    <p class="text-sm font-semibold text-gray-600 mt-6">With Tooltip (static preview)</p>
+    <div class="pt-10 pl-4">
+      <span class="relative inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border bg-amber-50 border-amber-200 text-amber-700 cursor-help">
+        <span>≈</span><span>Simplified</span>
+        <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-lg bg-gray-900 text-white text-xs font-normal whitespace-nowrap shadow-lg z-50">
+          Simplified calculation — for reference only
+          <span class="absolute top-full left-1/2 -translate-x-1/2 -mt-px border-4 border-transparent border-t-gray-900"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeviationBadge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-4">
+    <p class="text-sm font-semibold text-gray-600">Deviation Badges</p>
+    <div class="flex flex-wrap gap-3">
+      <!-- Match -->
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        GTO Match
+      </span>
+      <!-- Minor Deviation -->
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+        Minor Deviation
+      </span>
+      <!-- Major Deviation -->
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-700">
+        <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+        Major Deviation
+      </span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Session Summary Screen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen py-8 px-4">
+    <div class="max-w-4xl mx-auto space-y-6">
+
+      <!-- Header -->
+      <div class="text-center space-y-1">
+        <h1 class="text-2xl font-bold text-gray-900">Session Summary</h1>
+        <p class="text-lg font-semibold text-green-500">+42.5 BB</p>
+        <p class="text-sm text-gray-500">87 hands played</p>
+      </div>
+
+      <!-- GTO Score + Profit Curve -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- GTO Gauge -->
+        <div class="bg-white border border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center">
+          <h3 class="text-sm font-semibold text-gray-700 mb-4">GTO Conformance</h3>
+          <div class="relative" style="width:140px;height:140px;">
+            <svg width="140" height="140" viewBox="0 0 140 140" style="transform:rotate(-90deg)">
+              <circle cx="70" cy="70" r="54" fill="none" stroke="#e5e7eb" stroke-width="10"/>
+              <circle cx="70" cy="70" r="54" fill="none" stroke="#22c55e" stroke-width="10"
+                stroke-linecap="round"
+                stroke-dasharray="339.29"
+                stroke-dashoffset="84.82"/>
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span class="text-3xl font-bold text-green-500">75</span>
+              <span class="text-xs text-gray-500 uppercase tracking-wide">Good</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profit Curve -->
+        <div class="md:col-span-2 bg-white border border-gray-200 rounded-xl p-4">
+          <h3 class="text-sm font-semibold text-gray-700 mb-3">Profit Curve (BB)</h3>
+          <svg viewBox="0 0 600 200" class="w-full" style="min-width:400px">
+            <!-- zero line -->
+            <line x1="50" y1="110" x2="580" y2="110" stroke="#d1d5db" stroke-dasharray="4 4"/>
+            <!-- y axis -->
+            <line x1="50" y1="20" x2="50" y2="170" stroke="#d1d5db"/>
+            <!-- x axis -->
+            <line x1="50" y1="170" x2="580" y2="170" stroke="#d1d5db"/>
+            <!-- curve path: simulated data -->
+            <polyline fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round"
+              points="
+                50,110
+                80,115
+                110,120
+                140,108
+                170,100
+                200,95
+                230,105
+                260,90
+                290,78
+                320,82
+                350,70
+                380,65
+                410,72
+                440,60
+                470,55
+                500,48
+                530,42
+                560,35
+                580,30
+              "/>
+            <!-- y labels -->
+            <text x="44" y="24" text-anchor="end" fill="#9ca3af" font-size="10">60</text>
+            <text x="44" y="114" text-anchor="end" fill="#9ca3af" font-size="10">0</text>
+            <text x="44" y="174" text-anchor="end" fill="#9ca3af" font-size="10">-20</text>
+            <!-- x labels -->
+            <text x="50" y="188" text-anchor="middle" fill="#9ca3af" font-size="10">#1</text>
+            <text x="580" y="188" text-anchor="middle" fill="#9ca3af" font-size="10">#87</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <div class="bg-white border border-gray-200 rounded-xl p-4 text-center">
+          <p class="text-sm text-gray-500 mb-1">Hands Played</p>
+          <p class="text-xl font-bold text-gray-900">87</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-4 text-center">
+          <p class="text-sm text-gray-500 mb-1">Net Profit</p>
+          <p class="text-xl font-bold text-green-500">+42.5 BB</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-4 text-center">
+          <p class="text-sm text-gray-500 mb-1">Win Rate</p>
+          <p class="text-xl font-bold text-gray-900">48.9 BB/100</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-4 text-center">
+          <p class="text-sm text-gray-500 mb-1">VPIP</p>
+          <p class="text-xl font-bold text-gray-900">24.1%</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-4 text-center">
+          <p class="text-sm text-gray-500 mb-1">Showdown %</p>
+          <p class="text-xl font-bold text-gray-900">31.0%</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-4 text-center">
+          <p class="text-sm text-gray-500 mb-1">Fold %</p>
+          <p class="text-xl font-bold text-gray-900">68.7%</p>
+        </div>
+      </div>
+
+      <!-- Worst Hands -->
+      <div class="bg-white border border-gray-200 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Worst Hands</h3>
+        <div class="divide-y divide-gray-100">
+          <!-- Hand 1 -->
+          <div class="flex items-center justify-between py-3 px-2 hover:bg-slate-50 rounded-lg cursor-pointer">
+            <div class="flex items-center gap-3">
+              <span class="text-sm text-gray-500 font-mono w-10">#23</span>
+              <span class="flex gap-1">
+                <span class="font-mono font-bold text-gray-900">A♠</span>
+                <span class="font-mono font-bold text-red-500">K♥</span>
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-red-500">-8.3 BB</span>
+              <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <!-- Hand 2 -->
+          <div class="flex items-center justify-between py-3 px-2 hover:bg-slate-50 rounded-lg cursor-pointer">
+            <div class="flex items-center gap-3">
+              <span class="text-sm text-gray-500 font-mono w-10">#51</span>
+              <span class="flex gap-1">
+                <span class="font-mono font-bold text-red-500">Q♥</span>
+                <span class="font-mono font-bold text-red-500">J♦</span>
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-red-500">-6.1 BB</span>
+              <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <!-- Hand 3 -->
+          <div class="flex items-center justify-between py-3 px-2 hover:bg-slate-50 rounded-lg cursor-pointer">
+            <div class="flex items-center gap-3">
+              <span class="text-sm text-gray-500 font-mono w-10">#67</span>
+              <span class="flex gap-1">
+                <span class="font-mono font-bold text-gray-900">T♠</span>
+                <span class="font-mono font-bold text-gray-900">9♣</span>
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-red-500">-4.7 BB</span>
+              <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <!-- Hand 4 -->
+          <div class="flex items-center justify-between py-3 px-2 hover:bg-slate-50 rounded-lg cursor-pointer">
+            <div class="flex items-center gap-3">
+              <span class="text-sm text-gray-500 font-mono w-10">#12</span>
+              <span class="flex gap-1">
+                <span class="font-mono font-bold text-blue-500">8♦</span>
+                <span class="font-mono font-bold text-gray-900">7♣</span>
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-red-500">-3.2 BB</span>
+              <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <!-- Hand 5 -->
+          <div class="flex items-center justify-between py-3 px-2 hover:bg-slate-50 rounded-lg cursor-pointer">
+            <div class="flex items-center gap-3">
+              <span class="text-sm text-gray-500 font-mono w-10">#44</span>
+              <span class="flex gap-1">
+                <span class="font-mono font-bold text-green-600">5♣</span>
+                <span class="font-mono font-bold text-green-600">5♣</span>
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-red-500">-2.9 BB</span>
+              <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <button class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">
+          Play Again
+        </button>
+        <button class="px-6 py-3 bg-white border border-gray-200 hover:bg-gray-50 text-gray-900 font-semibold rounded-lg transition-colors">
+          View History
+        </button>
+      </div>
+
+      <!-- Disclaimer -->
+      <footer class="text-center text-xs text-gray-400 pt-4 border-t border-gray-200 mt-6">
+        GTO calculations are simplified approximations for educational purposes only — not professional poker advice.
+      </footer>
+
+    </div>
+  </div>
+</body>
+</html>

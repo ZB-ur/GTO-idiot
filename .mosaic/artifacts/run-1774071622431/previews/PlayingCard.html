@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayingCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-6">
+    <!-- Section: Sizes -->
+    <div>
+      <p class="text-sm font-semibold text-gray-600 mb-2">Sizes</p>
+      <div class="flex items-end gap-3">
+        <!-- Small -->
+        <div class="w-10 h-14 rounded-lg border-2 border-gray-300 bg-white shadow-sm flex flex-col justify-between p-1 select-none relative">
+          <div class="flex flex-col items-center leading-none text-red-500">
+            <span class="text-xs font-bold">A</span>
+            <span class="text-[8px]">♥</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center text-red-500 opacity-20">
+            <span class="text-lg">♥</span>
+          </div>
+          <div class="flex flex-col items-center leading-none rotate-180 text-red-500">
+            <span class="text-xs font-bold">A</span>
+            <span class="text-[8px]">♥</span>
+          </div>
+        </div>
+        <!-- Medium -->
+        <div class="w-16 h-22 rounded-lg border-2 border-gray-300 bg-white shadow-sm flex flex-col justify-between p-1 select-none relative">
+          <div class="flex flex-col items-center leading-none text-gray-900">
+            <span class="text-sm font-bold">K</span>
+            <span class="text-xs">♠</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center text-gray-900 opacity-20">
+            <span class="text-2xl">♠</span>
+          </div>
+          <div class="flex flex-col items-center leading-none rotate-180 text-gray-900">
+            <span class="text-sm font-bold">K</span>
+            <span class="text-xs">♠</span>
+          </div>
+        </div>
+        <!-- Large -->
+        <div class="w-20 h-28 rounded-lg border-2 border-gray-300 bg-white shadow-sm flex flex-col justify-between p-1 select-none relative">
+          <div class="flex flex-col items-center leading-none text-blue-500">
+            <span class="text-lg font-bold">Q</span>
+            <span class="text-sm">♦</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center text-blue-500 opacity-20">
+            <span class="text-4xl">♦</span>
+          </div>
+          <div class="flex flex-col items-center leading-none rotate-180 text-blue-500">
+            <span class="text-lg font-bold">Q</span>
+            <span class="text-sm">♦</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: All Suits -->
+    <div>
+      <p class="text-sm font-semibold text-gray-600 mb-2">All Suits (medium)</p>
+      <div class="flex gap-3">
+        <!-- Spade -->
+        <div class="w-16 h-22 rounded-lg border-2 border-gray-300 bg-white shadow-sm flex flex-col justify-between p-1 select-none relative">
+          <div class="flex flex-col items-center leading-none text-gray-900"><span class="text-sm font-bold">A</span><span class="text-xs">♠</span></div>
+          <div class="absolute inset-0 flex items-center justify-center text-gray-900 opacity-20"><span class="text-2xl">♠</span></div>
+          <div class="flex flex-col items-center leading-none rotate-180 text-gray-900"><span class="text-sm font-bold">A</span><span class="text-xs">♠</span></div>
+        </div>
+        <!-- Heart -->
+        <div class="w-16 h-22 rounded-lg border-2 border-gray-300 bg-white shadow-sm flex flex-col justify-between p-1 select-none relative">
+          <div class="flex flex-col items-center leading-none text-red-500"><span class="text-sm font-bold">K</span><span class="text-xs">♥</span></div>
+          <div class="absolute inset-0 flex items-center justify-center text-red-500 opacity-20"><span class="text-2xl">♥</span></div>
+          <div class="flex flex-col items-center leading-none rotate-180 text-red-500"><span class="text-sm font-bold">K</span><span class="text-xs">♥</span></div>
+        </div>
+        <!-- Diamond -->
+        <div class="w-16 h-22 rounded-lg border-2 border-gray-300 bg-white shadow-sm flex flex-col justify-between p-1 select-none relative">
+          <div class="flex flex-col items-center leading-none text-blue-500"><span class="text-sm font-bold">Q</span><span class="text-xs">♦</span></div>
+          <div class="absolute inset-0 flex items-center justify-center text-blue-500 opacity-20"><span class="text-2xl">♦</span></div>
+          <div class="flex flex-col items-center leading-none rotate-180 text-blue-500"><span class="text-sm font-bold">Q</span><span class="text-xs">♦</span></div>
+        </div>
+        <!-- Club -->
+        <div class="w-16 h-22 rounded-lg border-2 border-gray-300 bg-white shadow-sm flex flex-col justify-between p-1 select-none relative">
+          <div class="flex flex-col items-center leading-none text-green-700"><span class="text-sm font-bold">J</span><span class="text-xs">♣</span></div>
+          <div class="absolute inset-0 flex items-center justify-center text-green-700 opacity-20"><span class="text-2xl">♣</span></div>
+          <div class="flex flex-col items-center leading-none rotate-180 text-green-700"><span class="text-sm font-bold">J</span><span class="text-xs">♣</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: States -->
+    <div>
+      <p class="text-sm font-semibold text-gray-600 mb-2">States</p>
+      <div class="flex gap-3">
+        <!-- Highlighted -->
+        <div class="w-16 h-22 rounded-lg border-2 border-amber-400 ring-2 ring-amber-400/50 bg-white shadow-sm flex flex-col justify-between p-1 select-none relative">
+          <div class="flex flex-col items-center leading-none text-red-500"><span class="text-sm font-bold">A</span><span class="text-xs">♥</span></div>
+          <div class="absolute inset-0 flex items-center justify-center text-red-500 opacity-20"><span class="text-2xl">♥</span></div>
+          <div class="flex flex-col items-center leading-none rotate-180 text-red-500"><span class="text-sm font-bold">A</span><span class="text-xs">♥</span></div>
+        </div>
+        <!-- Face Down -->
+        <div class="w-16 h-22 rounded-lg border-2 border-gray-300 bg-gradient-to-br from-blue-700 to-blue-900 shadow-sm flex items-center justify-center select-none">
+          <div class="w-3/4 h-3/4 rounded border border-blue-400/30" style="background: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,0.05) 4px, rgba(255,255,255,0.05) 8px);"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

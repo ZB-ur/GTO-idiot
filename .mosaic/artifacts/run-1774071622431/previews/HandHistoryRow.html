@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HandHistoryRow Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+<div class="max-w-xl mx-auto space-y-2 py-8">
+
+  <!-- Won hand -->
+  <div class="flex items-center gap-4 px-4 py-3 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 cursor-pointer">
+    <div class="text-sm text-gray-400 font-mono w-10 text-right">#42</div>
+    <div class="flex gap-1">
+      <span class="text-sm font-bold text-gray-900">A♠</span>
+      <span class="text-sm font-bold text-red-500">K♥</span>
+    </div>
+    <div class="flex-1"></div>
+    <div class="text-sm font-bold font-mono text-green-500">+24.5 BB</div>
+    <div class="text-xs text-gray-400 w-16 text-right">14:32</div>
+    <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+  </div>
+
+  <!-- Lost hand -->
+  <div class="flex items-center gap-4 px-4 py-3 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 cursor-pointer">
+    <div class="text-sm text-gray-400 font-mono w-10 text-right">#41</div>
+    <div class="flex gap-1">
+      <span class="text-sm font-bold text-red-500">Q♥</span>
+      <span class="text-sm font-bold text-blue-500">J♦</span>
+    </div>
+    <div class="flex-1"></div>
+    <div class="text-sm font-bold font-mono text-red-500">-12.0 BB</div>
+    <div class="text-xs text-gray-400 w-16 text-right">14:28</div>
+    <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+  </div>
+
+  <!-- Folded (0) -->
+  <div class="flex items-center gap-4 px-4 py-3 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 cursor-pointer">
+    <div class="text-sm text-gray-400 font-mono w-10 text-right">#40</div>
+    <div class="flex gap-1">
+      <span class="text-sm font-bold text-green-600">7♣</span>
+      <span class="text-sm font-bold text-blue-500">2♦</span>
+    </div>
+    <div class="flex-1"></div>
+    <div class="text-sm font-bold font-mono text-gray-400">-1.0 BB</div>
+    <div class="text-xs text-gray-400 w-16 text-right">14:25</div>
+    <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+  </div>
+
+  <!-- Big win -->
+  <div class="flex items-center gap-4 px-4 py-3 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 cursor-pointer">
+    <div class="text-sm text-gray-400 font-mono w-10 text-right">#39</div>
+    <div class="flex gap-1">
+      <span class="text-sm font-bold text-red-500">A♥</span>
+      <span class="text-sm font-bold text-red-500">A♦</span>
+    </div>
+    <div class="flex-1"></div>
+    <div class="text-sm font-bold font-mono text-green-500">+98.0 BB</div>
+    <div class="text-xs text-gray-400 w-16 text-right">14:20</div>
+    <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EvLossIndicator Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-4">
+    <p class="text-sm font-semibold text-gray-600">EV Loss Indicators</p>
+    <div class="flex flex-wrap items-center gap-4">
+      <!-- Zero loss -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-emerald-50">
+          <span class="text-sm font-mono font-bold text-emerald-600">0.00</span>
+          <span class="text-xs font-medium text-emerald-600 opacity-70">BB</span>
+        </div>
+        <span class="text-xs text-gray-400">No loss</span>
+      </div>
+      <!-- Small loss -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-amber-50">
+          <span class="text-sm font-mono font-bold text-amber-600">-0.45</span>
+          <span class="text-xs font-medium text-amber-600 opacity-70">BB</span>
+        </div>
+        <span class="text-xs text-gray-400">Minor</span>
+      </div>
+      <!-- Medium loss -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-amber-50">
+          <span class="text-sm font-mono font-bold text-amber-600">-1.00</span>
+          <span class="text-xs font-medium text-amber-600 opacity-70">BB</span>
+        </div>
+        <span class="text-xs text-gray-400">Moderate</span>
+      </div>
+      <!-- Large loss -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-red-50">
+          <span class="text-sm font-mono font-bold text-red-600">-3.72</span>
+          <span class="text-xs font-medium text-red-600 opacity-70">BB</span>
+        </div>
+        <span class="text-xs text-gray-400">Major</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
