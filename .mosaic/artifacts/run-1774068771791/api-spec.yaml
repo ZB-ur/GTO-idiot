@@ -1,0 +1,1383 @@
+openapi: 3.0.3
+info:
+  title: GTO Idiot - Internal Service API
+  description: |
+    Internal service layer API for GTO Idiot poker trainer.
+    This is a pure frontend application — all endpoints are implemented as
+    in-browser service modules backed by localStorage. The OpenAPI spec
+    documents the data contract between React UI components and the
+    service/engine layer.
+  version: 1.0.0
+
+tags:
+  - name: Game
+    description: Game session lifecycle and hand management
+  - name: Action
+    description: Player and BOT actions within a hand
+  - name: Evaluation
+    description: Hand strength evaluation
+  - name: GTO
+    description: GTO strategy lookup and comparison
+  - name: History
+    description: Hand history storage and retrieval
+  - name: Review
+    description: Post-hand GTO review and analysis
+  - name: Stats
+    description: Session statistics and analytics
+
+paths:
+  /games:
+    post:
+      operationId: createGame
+      tags: [Game]
+      summary: Start a new game session
+      description: |
+        Initialize a six-player table (1 human + 5 BOTs), each with 200BB (400 chips).
+        Assigns random seat for the user, sets initial dealer button position.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGameRequest'
+      responses:
+        '201':
+          description: Game session created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameState'
+
+  /games/{gameId}:
+    get:
+      operationId: getGameState
+      tags: [Game]
+      summary: Get current game state
+      description: Returns the full current state of the game session including all player info, pot, community cards, and current street.
+      parameters:
+        - $ref: '#/components/parameters/GameId'
+      responses:
+        '200':
+          description: Current game state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameState'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: endGame
+      tags: [Game]
+      summary: End a game session
+      description: Terminates the current game session. If a hand is in progress, it is abandoned (not recorded).
+      parameters:
+        - $ref: '#/components/parameters/GameId'
+      responses:
+        '200':
+          description: Game session ended
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  gameId:
+                    type: string
+                  handsPlayed:
+                    type: integer
+                  finalChips:
+                    type: integer
+                    description: User's final chip count
+
+  /games/{gameId}/hands:
+    post:
+      operationId: startHand
+      tags: [Game]
+      summary: Deal a new hand
+      description: |
+        Starts a new hand: shuffles deck (Fisher-Yates), deals 2 hole cards to each player,
+        posts SB/BB blinds, rotates dealer button. Returns the initial hand state with
+        the user's hole cards visible and BOT cards hidden.
+      parameters:
+        - $ref: '#/components/parameters/GameId'
+      responses:
+        '201':
+          description: New hand dealt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HandState'
+        '400':
+          description: Cannot start hand (e.g. game not in valid state)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /games/{gameId}/hands/{handId}:
+    get:
+      operationId: getHandState
+      tags: [Game]
+      summary: Get current hand state
+      description: Returns the full state of the current hand including visible cards, pot, actions taken, and current action seat.
+      parameters:
+        - $ref: '#/components/parameters/GameId'
+        - $ref: '#/components/parameters/HandId'
+      responses:
+        '200':
+          description: Current hand state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HandState'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /games/{gameId}/hands/{handId}/actions:
+    post:
+      operationId: submitAction
+      tags: [Action]
+      summary: Submit a player action
+      description: |
+        Submit an action (fold/check/call/raise/all-in) for the current active player.
+        For human player actions, validates legality. After processing, advances the game
+        state (next player's turn, next street, or showdown). Returns updated hand state.
+      parameters:
+        - $ref: '#/components/parameters/GameId'
+        - $ref: '#/components/parameters/HandId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayerAction'
+      responses:
+        '200':
+          description: Action processed, returns updated hand state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+        '400':
+          description: Illegal action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /games/{gameId}/hands/{handId}/legal-actions:
+    get:
+      operationId: getLegalActions
+      tags: [Action]
+      summary: Get legal actions for current player
+      description: Returns the set of legal actions for the currently active player, including min/max raise amounts.
+      parameters:
+        - $ref: '#/components/parameters/GameId'
+        - $ref: '#/components/parameters/HandId'
+      responses:
+        '200':
+          description: Legal actions available
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegalActions'
+
+  /games/{gameId}/hands/{handId}/bot-decision:
+    post:
+      operationId: getBotDecision
+      tags: [Action]
+      summary: Get and execute BOT decision
+      description: |
+        Computes a BOT decision based on simplified GTO strategy tables.
+        Considers position, hole cards, board texture, hand strength classification,
+        and action history. Uses mixed strategy with randomization at 25% granularity.
+        Automatically submits the action and returns the result.
+      parameters:
+        - $ref: '#/components/parameters/GameId'
+        - $ref: '#/components/parameters/HandId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [seatIndex]
+              properties:
+                seatIndex:
+                  type: integer
+                  minimum: 0
+                  maximum: 5
+                  description: BOT seat index
+      responses:
+        '200':
+          description: BOT decision computed and executed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BotDecisionResult'
+
+  /hands/evaluate:
+    post:
+      operationId: evaluateHand
+      tags: [Evaluation]
+      summary: Evaluate hand strength
+      description: |
+        Evaluates the best 5-card hand from up to 7 cards (2 hole + up to 5 community).
+        Returns hand rank, hand name, and the 5 cards used. Supports all standard
+        poker hand rankings from high card to royal flush.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EvaluateHandRequest'
+      responses:
+        '200':
+          description: Hand evaluation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HandEvaluation'
+
+  /gto/preflop:
+    post:
+      operationId: getGTOPreflopStrategy
+      tags: [GTO]
+      summary: Get preflop GTO strategy recommendation
+      description: |
+        Looks up simplified GTO preflop strategy for the given position, hole cards,
+        and scenario (open/facing-raise/facing-3bet). Returns recommended action
+        distribution at 25% frequency granularity.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GTOPreflopRequest'
+      responses:
+        '200':
+          description: GTO preflop recommendation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GTORecommendation'
+
+  /gto/postflop:
+    post:
+      operationId: getGTOPostflopStrategy
+      tags: [GTO]
+      summary: Get postflop GTO strategy recommendation
+      description: |
+        Looks up simplified GTO postflop strategy based on board texture classification,
+        hand strength category, position, and action history. Returns recommended
+        action distribution.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GTOPostflopRequest'
+      responses:
+        '200':
+          description: GTO postflop recommendation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GTORecommendation'
+
+  /gto/compare:
+    post:
+      operationId: compareActionToGTO
+      tags: [GTO]
+      summary: Compare a user action against GTO recommendation
+      description: |
+        Compares the user's actual action against the GTO-recommended action distribution
+        for the given game situation. Returns deviation level (match/slight/severe) and
+        the full GTO recommendation for display.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GTOCompareRequest'
+      responses:
+        '200':
+          description: GTO comparison result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GTOCompareResult'
+
+  /history/hands:
+    get:
+      operationId: listHandHistory
+      tags: [History]
+      summary: List hand history records
+      description: |
+        Returns paginated hand history from localStorage, sorted by time descending.
+        Each record is a summary suitable for list display. Supports cursor-based
+        pagination for scroll loading.
+      parameters:
+        - name: cursor
+          in: query
+          description: Cursor for pagination (hand ID to start after)
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Number of records to return (default 20, max 50)
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 50
+      responses:
+        '200':
+          description: Hand history list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HandHistoryList'
+    delete:
+      operationId: clearHandHistory
+      tags: [History]
+      summary: Clear old hand history records
+      description: |
+        Removes the oldest hand records to free localStorage space.
+        Called automatically when storage exceeds 2000 hands or on write failure.
+      parameters:
+        - name: count
+          in: query
+          description: Number of oldest records to delete (default 100)
+          schema:
+            type: integer
+            default: 100
+      responses:
+        '200':
+          description: Records cleared
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  deletedCount:
+                    type: integer
+                  remainingCount:
+                    type: integer
+
+  /history/hands/{handId}:
+    get:
+      operationId: getHandRecord
+      tags: [History]
+      summary: Get full hand record
+      description: Returns the complete hand record including all player hole cards, community cards, and full action sequence for every street.
+      parameters:
+        - $ref: '#/components/parameters/HistoryHandId'
+      responses:
+        '200':
+          description: Full hand record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HandRecord'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /review/hands/{handId}:
+    get:
+      operationId: getHandReview
+      tags: [Review]
+      summary: Get hand review with GTO analysis
+      description: |
+        Returns a structured review of a completed hand, with GTO comparison at
+        each user decision point. Includes per-street breakdown, deviation scoring,
+        and an overall GTO conformance score for the hand.
+      parameters:
+        - $ref: '#/components/parameters/HistoryHandId'
+      responses:
+        '200':
+          description: Hand review with GTO analysis
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HandReview'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /review/hands/{handId}/streets/{street}:
+    get:
+      operationId: getStreetReview
+      tags: [Review]
+      summary: Get review for a specific street
+      description: Returns the action replay and GTO analysis for a single street of a hand.
+      parameters:
+        - $ref: '#/components/parameters/HistoryHandId'
+        - name: street
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/Street'
+      responses:
+        '200':
+          description: Street review data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreetReview'
+
+  /stats/overview:
+    get:
+      operationId: getStatsOverview
+      tags: [Stats]
+      summary: Get overview statistics
+      description: |
+        Aggregates overall statistics from all hand history records in localStorage.
+        Returns total hands, total profit/loss, average profit per hand, and overall
+        GTO conformance rate.
+      responses:
+        '200':
+          description: Overview statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsOverview'
+
+  /stats/core-metrics:
+    get:
+      operationId: getCoreMetrics
+      tags: [Stats]
+      summary: Get core player metrics
+      description: |
+        Calculates core poker player metrics: VPIP (Voluntarily Put money In Pot),
+        PFR (Pre-Flop Raise percentage), AF (Aggression Factor).
+      responses:
+        '200':
+          description: Core player metrics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoreMetrics'
+
+  /stats/by-position:
+    get:
+      operationId: getStatsByPosition
+      tags: [Stats]
+      summary: Get statistics broken down by position
+      description: Returns win rate and GTO conformance rate for each of the 6 table positions.
+      responses:
+        '200':
+          description: Position-based statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PositionStats'
+
+  /stats/by-hand-strength:
+    get:
+      operationId: getStatsByHandStrength
+      tags: [Stats]
+      summary: Get statistics by starting hand strength
+      description: Returns decision quality distribution grouped by starting hand strength categories.
+      responses:
+        '200':
+          description: Hand strength analysis
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HandStrengthStats'
+
+components:
+  parameters:
+    GameId:
+      name: gameId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+      description: Game session identifier
+    HandId:
+      name: handId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Hand identifier within a game session
+    HistoryHandId:
+      name: handId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Hand identifier in history storage
+
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  schemas:
+    # ---------- Enums & Primitives ----------
+
+    Suit:
+      type: string
+      enum: [hearts, diamonds, clubs, spades]
+
+    Rank:
+      type: string
+      enum: ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
+
+    Card:
+      type: object
+      required: [rank, suit]
+      properties:
+        rank:
+          $ref: '#/components/schemas/Rank'
+        suit:
+          $ref: '#/components/schemas/Suit'
+
+    HiddenCard:
+      type: object
+      description: A face-down card (BOT hole cards during play)
+      properties:
+        hidden:
+          type: boolean
+          enum: [true]
+
+    Position:
+      type: string
+      enum: [UTG, MP, CO, BTN, SB, BB]
+
+    Street:
+      type: string
+      enum: [preflop, flop, turn, river, showdown]
+
+    ActionType:
+      type: string
+      enum: [fold, check, call, raise, all-in]
+
+    HandRankName:
+      type: string
+      enum:
+        - high-card
+        - one-pair
+        - two-pair
+        - three-of-a-kind
+        - straight
+        - flush
+        - full-house
+        - four-of-a-kind
+        - straight-flush
+        - royal-flush
+
+    BoardTexture:
+      type: string
+      enum: [dry, wet, paired, monotone, connected]
+      description: Board texture classification for postflop GTO lookup
+
+    HandStrengthCategory:
+      type: string
+      enum: [strong, medium, weak, draw]
+      description: Hand strength classification for GTO lookup
+
+    PreflopScenario:
+      type: string
+      enum: [open, facing-raise, facing-3bet]
+
+    DeviationLevel:
+      type: string
+      enum: [match, slight, severe]
+      description: |
+        GTO deviation level:
+        - match (green): user action is the highest-frequency GTO action
+        - slight (yellow): user action exists in GTO distribution but not optimal
+        - severe (red): user action has 0% or very low frequency in GTO distribution
+
+    # ---------- Game State ----------
+
+    CreateGameRequest:
+      type: object
+      properties:
+        userSeatPreference:
+          type: integer
+          minimum: 0
+          maximum: 5
+          description: Optional preferred seat index (random if omitted)
+
+    PlayerInfo:
+      type: object
+      required: [seatIndex, name, chips, position, isHuman, isActive]
+      properties:
+        seatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+        name:
+          type: string
+          description: Display name (e.g. "You", "BOT-1")
+        chips:
+          type: integer
+          description: Current chip count
+        position:
+          $ref: '#/components/schemas/Position'
+        isHuman:
+          type: boolean
+        isActive:
+          type: boolean
+          description: Still in the current hand (not folded/eliminated)
+        isFolded:
+          type: boolean
+        isAllIn:
+          type: boolean
+        currentBet:
+          type: integer
+          description: Amount bet in current street
+        holeCards:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/Card'
+              - $ref: '#/components/schemas/HiddenCard'
+          minItems: 0
+          maxItems: 2
+          description: Visible hole cards (shown for human; hidden for BOTs during play; all shown at showdown)
+
+    GameState:
+      type: object
+      required: [gameId, players, dealerSeatIndex, blinds, handsPlayed, isHandInProgress]
+      properties:
+        gameId:
+          type: string
+          format: uuid
+        players:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlayerInfo'
+          minItems: 6
+          maxItems: 6
+        dealerSeatIndex:
+          type: integer
+        blinds:
+          type: object
+          required: [small, big]
+          properties:
+            small:
+              type: integer
+              example: 1
+            big:
+              type: integer
+              example: 2
+        handsPlayed:
+          type: integer
+        isHandInProgress:
+          type: boolean
+
+    HandState:
+      type: object
+      required: [handId, gameId, street, pot, communityCards, players, activeSeatIndex, actionHistory]
+      properties:
+        handId:
+          type: string
+        gameId:
+          type: string
+        street:
+          $ref: '#/components/schemas/Street'
+        pot:
+          $ref: '#/components/schemas/PotInfo'
+        communityCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+          maxItems: 5
+        players:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlayerInfo'
+          minItems: 6
+          maxItems: 6
+        activeSeatIndex:
+          type: integer
+          nullable: true
+          description: Seat index of the player who must act next (null if hand is over)
+        actionHistory:
+          type: array
+          items:
+            $ref: '#/components/schemas/StreetActions'
+        isComplete:
+          type: boolean
+          description: Whether the hand has concluded
+        result:
+          $ref: '#/components/schemas/HandResult'
+
+    PotInfo:
+      type: object
+      required: [main, sidePots, total]
+      properties:
+        main:
+          type: integer
+          description: Main pot amount
+        sidePots:
+          type: array
+          items:
+            type: object
+            required: [amount, eligibleSeats]
+            properties:
+              amount:
+                type: integer
+              eligibleSeats:
+                type: array
+                items:
+                  type: integer
+        total:
+          type: integer
+          description: Total of main + all side pots
+
+    StreetActions:
+      type: object
+      required: [street, actions]
+      properties:
+        street:
+          $ref: '#/components/schemas/Street'
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionRecord'
+
+    ActionRecord:
+      type: object
+      required: [seatIndex, playerName, position, actionType, timestamp]
+      properties:
+        seatIndex:
+          type: integer
+        playerName:
+          type: string
+        position:
+          $ref: '#/components/schemas/Position'
+        actionType:
+          $ref: '#/components/schemas/ActionType'
+        amount:
+          type: integer
+          description: Bet/raise amount (present for call/raise/all-in)
+        timestamp:
+          type: integer
+          format: int64
+          description: Unix timestamp ms
+
+    HandResult:
+      type: object
+      required: [winners, potDistribution]
+      properties:
+        winners:
+          type: array
+          items:
+            type: object
+            required: [seatIndex, amountWon]
+            properties:
+              seatIndex:
+                type: integer
+              amountWon:
+                type: integer
+              handRank:
+                $ref: '#/components/schemas/HandRankName'
+              bestFiveCards:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Card'
+                minItems: 5
+                maxItems: 5
+        potDistribution:
+          type: array
+          items:
+            type: object
+            properties:
+              potType:
+                type: string
+                enum: [main, side]
+              amount:
+                type: integer
+              winnerSeatIndex:
+                type: integer
+        allHoleCards:
+          type: array
+          description: All players' hole cards revealed at showdown
+          items:
+            type: object
+            properties:
+              seatIndex:
+                type: integer
+              holeCards:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Card'
+                minItems: 2
+                maxItems: 2
+
+    # ---------- Actions ----------
+
+    PlayerAction:
+      type: object
+      required: [seatIndex, actionType]
+      properties:
+        seatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+        actionType:
+          $ref: '#/components/schemas/ActionType'
+        amount:
+          type: integer
+          description: Required for raise action (total raise-to amount)
+
+    ActionResult:
+      type: object
+      required: [handState, processedAction]
+      properties:
+        handState:
+          $ref: '#/components/schemas/HandState'
+        processedAction:
+          $ref: '#/components/schemas/ActionRecord'
+        streetAdvanced:
+          type: boolean
+          description: Whether the action caused a street transition
+        newStreet:
+          $ref: '#/components/schemas/Street'
+        handComplete:
+          type: boolean
+          description: Whether the hand is now complete
+
+    LegalActions:
+      type: object
+      required: [seatIndex, actions]
+      properties:
+        seatIndex:
+          type: integer
+        actions:
+          type: array
+          items:
+            type: object
+            required: [actionType, isAvailable]
+            properties:
+              actionType:
+                $ref: '#/components/schemas/ActionType'
+              isAvailable:
+                type: boolean
+              minAmount:
+                type: integer
+                description: Minimum amount (for raise)
+              maxAmount:
+                type: integer
+                description: Maximum amount (for raise, equals stack for all-in)
+
+    BotDecisionResult:
+      type: object
+      required: [seatIndex, chosenAction, strategyInfo, actionResult]
+      properties:
+        seatIndex:
+          type: integer
+        chosenAction:
+          $ref: '#/components/schemas/PlayerAction'
+        strategyInfo:
+          type: object
+          description: Debug info about the GTO table lookup (not shown to user during play)
+          properties:
+            lookupKey:
+              type: string
+            distribution:
+              type: object
+              additionalProperties:
+                type: number
+        actionResult:
+          $ref: '#/components/schemas/ActionResult'
+
+    # ---------- Hand Evaluation ----------
+
+    EvaluateHandRequest:
+      type: object
+      required: [holeCards, communityCards]
+      properties:
+        holeCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+          minItems: 2
+          maxItems: 2
+        communityCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+          minItems: 0
+          maxItems: 5
+
+    HandEvaluation:
+      type: object
+      required: [rankValue, rankName, bestFiveCards]
+      properties:
+        rankValue:
+          type: integer
+          description: Numeric rank for comparison (higher is better)
+        rankName:
+          $ref: '#/components/schemas/HandRankName'
+        rankDisplayName:
+          type: string
+          description: Human-readable name (e.g. "一对 Aces", "同花顺")
+        bestFiveCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+          minItems: 5
+          maxItems: 5
+        strengthCategory:
+          $ref: '#/components/schemas/HandStrengthCategory'
+
+    # ---------- GTO Strategy ----------
+
+    GTOPreflopRequest:
+      type: object
+      required: [position, holeCards, scenario]
+      properties:
+        position:
+          $ref: '#/components/schemas/Position'
+        holeCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+          minItems: 2
+          maxItems: 2
+        scenario:
+          $ref: '#/components/schemas/PreflopScenario'
+        raiseCount:
+          type: integer
+          description: Number of raises before this action (0 for open scenario)
+
+    GTOPostflopRequest:
+      type: object
+      required: [position, holeCards, communityCards, street, potSize, actionHistory]
+      properties:
+        position:
+          $ref: '#/components/schemas/Position'
+        holeCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+          minItems: 2
+          maxItems: 2
+        communityCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+          minItems: 3
+          maxItems: 5
+        street:
+          $ref: '#/components/schemas/Street'
+        potSize:
+          type: integer
+        effectiveStack:
+          type: integer
+          description: Effective stack size in chips
+        actionHistory:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionRecord'
+          description: Actions in current street so far
+
+    GTORecommendation:
+      type: object
+      required: [actions, boardTexture, handStrength, isSimplified]
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GTOActionFrequency'
+          description: Recommended action distribution sorted by frequency descending
+        boardTexture:
+          $ref: '#/components/schemas/BoardTexture'
+        handStrength:
+          $ref: '#/components/schemas/HandStrengthCategory'
+        isSimplified:
+          type: boolean
+          enum: [true]
+          description: Always true — indicates this is a simplified GTO reference, not solver output
+        notes:
+          type: string
+          description: Optional contextual note about the recommendation
+
+    GTOActionFrequency:
+      type: object
+      required: [actionType, frequency]
+      properties:
+        actionType:
+          $ref: '#/components/schemas/ActionType'
+        frequency:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Frequency as decimal (0.25 = 25%). Granularity is 25%.
+        amount:
+          type: integer
+          description: Suggested bet/raise amount (for raise actions)
+
+    GTOCompareRequest:
+      type: object
+      required: [userAction, situation]
+      properties:
+        userAction:
+          $ref: '#/components/schemas/PlayerAction'
+        situation:
+          type: object
+          required: [position, holeCards, communityCards, street, potSize]
+          properties:
+            position:
+              $ref: '#/components/schemas/Position'
+            holeCards:
+              type: array
+              items:
+                $ref: '#/components/schemas/Card'
+              minItems: 2
+              maxItems: 2
+            communityCards:
+              type: array
+              items:
+                $ref: '#/components/schemas/Card'
+              maxItems: 5
+            street:
+              $ref: '#/components/schemas/Street'
+            potSize:
+              type: integer
+            effectiveStack:
+              type: integer
+            actionHistory:
+              type: array
+              items:
+                $ref: '#/components/schemas/ActionRecord'
+            scenario:
+              $ref: '#/components/schemas/PreflopScenario'
+
+    GTOCompareResult:
+      type: object
+      required: [deviationLevel, userAction, gtoRecommendation, userActionGTOFrequency]
+      properties:
+        deviationLevel:
+          $ref: '#/components/schemas/DeviationLevel'
+        userAction:
+          type: object
+          properties:
+            actionType:
+              $ref: '#/components/schemas/ActionType'
+            amount:
+              type: integer
+        gtoRecommendation:
+          $ref: '#/components/schemas/GTORecommendation'
+        userActionGTOFrequency:
+          type: number
+          format: float
+          description: The GTO frequency of the user's chosen action (0.0 to 1.0)
+        deviationExplanation:
+          type: string
+          description: Brief explanation of the deviation in Chinese
+
+    # ---------- History ----------
+
+    HandHistoryList:
+      type: object
+      required: [hands, totalCount, hasMore]
+      properties:
+        hands:
+          type: array
+          items:
+            $ref: '#/components/schemas/HandHistorySummary'
+        totalCount:
+          type: integer
+        hasMore:
+          type: boolean
+        nextCursor:
+          type: string
+          nullable: true
+
+    HandHistorySummary:
+      type: object
+      required: [handId, timestamp, userPosition, holeCards, result, gtoConformance]
+      properties:
+        handId:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        userPosition:
+          $ref: '#/components/schemas/Position'
+        holeCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+          minItems: 2
+          maxItems: 2
+        result:
+          type: integer
+          description: Net chips won/lost (positive = profit, negative = loss)
+        gtoConformance:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: GTO conformance score for this hand (0.0 to 1.0)
+        finalStreet:
+          $ref: '#/components/schemas/Street'
+
+    HandRecord:
+      type: object
+      required: [handId, timestamp, gameId, players, communityCards, streets, result]
+      properties:
+        handId:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        gameId:
+          type: string
+        dealerSeatIndex:
+          type: integer
+        players:
+          type: array
+          items:
+            type: object
+            required: [seatIndex, name, position, startingChips, holeCards, isHuman]
+            properties:
+              seatIndex:
+                type: integer
+              name:
+                type: string
+              position:
+                $ref: '#/components/schemas/Position'
+              startingChips:
+                type: integer
+              endingChips:
+                type: integer
+              holeCards:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Card'
+                minItems: 2
+                maxItems: 2
+              isHuman:
+                type: boolean
+        communityCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+          maxItems: 5
+        streets:
+          type: array
+          items:
+            $ref: '#/components/schemas/StreetActions'
+        result:
+          $ref: '#/components/schemas/HandResult'
+        potHistory:
+          type: array
+          items:
+            type: object
+            properties:
+              street:
+                $ref: '#/components/schemas/Street'
+              potAfter:
+                type: integer
+
+    # ---------- Review ----------
+
+    HandReview:
+      type: object
+      required: [handId, summary, streetReviews, overallGTOScore]
+      properties:
+        handId:
+          type: string
+        summary:
+          $ref: '#/components/schemas/HandHistorySummary'
+        streetReviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/StreetReview'
+        overallGTOScore:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Overall GTO conformance score for this hand
+        totalDecisionPoints:
+          type: integer
+          description: Number of user decision points in this hand
+        deviationSummary:
+          type: object
+          properties:
+            matchCount:
+              type: integer
+            slightCount:
+              type: integer
+            severeCount:
+              type: integer
+
+    StreetReview:
+      type: object
+      required: [street, communityCards, potAtStart, actions]
+      properties:
+        street:
+          $ref: '#/components/schemas/Street'
+        communityCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+          description: Community cards visible at this street
+        potAtStart:
+          type: integer
+        potAtEnd:
+          type: integer
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReviewAction'
+
+    ReviewAction:
+      type: object
+      required: [seatIndex, playerName, position, actionType, isUserAction]
+      properties:
+        seatIndex:
+          type: integer
+        playerName:
+          type: string
+        position:
+          $ref: '#/components/schemas/Position'
+        actionType:
+          $ref: '#/components/schemas/ActionType'
+        amount:
+          type: integer
+        isUserAction:
+          type: boolean
+        gtoComparison:
+          description: Present only for user decision points
+          $ref: '#/components/schemas/GTOCompareResult'
+
+    # ---------- Stats ----------
+
+    StatsOverview:
+      type: object
+      required: [totalHands, totalProfitLoss, avgProfitPerHand, gtoConformanceRate, hasSufficientData]
+      properties:
+        totalHands:
+          type: integer
+        totalProfitLoss:
+          type: integer
+          description: Net chips won/lost across all hands
+        avgProfitPerHand:
+          type: number
+          format: float
+        gtoConformanceRate:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+        hasSufficientData:
+          type: boolean
+          description: True if >= 10 hands played
+
+    CoreMetrics:
+      type: object
+      required: [vpip, pfr, af, hasSufficientData]
+      properties:
+        vpip:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Voluntarily Put money In Pot (excluding blinds)
+        pfr:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Pre-Flop Raise percentage
+        af:
+          type: number
+          format: float
+          description: Aggression Factor = (bets + raises) / calls
+        hasSufficientData:
+          type: boolean
+
+    PositionStats:
+      type: object
+      required: [positions]
+      properties:
+        positions:
+          type: array
+          items:
+            type: object
+            required: [position, handsPlayed, winRate, gtoConformanceRate]
+            properties:
+              position:
+                $ref: '#/components/schemas/Position'
+              handsPlayed:
+                type: integer
+              winRate:
+                type: number
+                format: float
+                description: Proportion of hands won at this position
+              avgProfit:
+                type: number
+                format: float
+              gtoConformanceRate:
+                type: number
+                format: float
+                minimum: 0
+                maximum: 1
+          minItems: 6
+          maxItems: 6
+
+    HandStrengthStats:
+      type: object
+      required: [categories]
+      properties:
+        categories:
+          type: array
+          items:
+            type: object
+            required: [category, handsPlayed, gtoConformanceRate]
+            properties:
+              category:
+                type: string
+                description: Starting hand strength category (e.g. "premium", "strong", "medium", "speculative", "weak")
+              handsPlayed:
+                type: integer
+              avgProfit:
+                type: number
+                format: float
+              gtoConformanceRate:
+                type: number
+                format: float
+                minimum: 0
+                maximum: 1
+              exampleHands:
+                type: array
+                items:
+                  type: string
+                description: Example hands in this category (e.g. ["AA","KK","QQ","AKs"])
+
+    # ---------- Common ----------
+
+    Error:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          enum:
+            - GAME_NOT_FOUND
+            - HAND_NOT_FOUND
+            - INVALID_ACTION
+            - NOT_YOUR_TURN
+            - HAND_IN_PROGRESS
+            - NO_HAND_IN_PROGRESS
+            - STORAGE_FULL
+            - INVALID_STATE
+          description: Machine-readable error code
+        message:
+          type: string
+          description: Human-readable error message in Chinese

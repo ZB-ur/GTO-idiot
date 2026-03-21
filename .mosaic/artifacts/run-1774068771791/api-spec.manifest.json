@@ -1,0 +1,197 @@
+{
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/games",
+      "covers_features": [
+        "F-001",
+        "F-003",
+        "F-006"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/games/{gameId}",
+      "covers_features": [
+        "F-001",
+        "F-006"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/games/{gameId}",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/games/{gameId}/hands",
+      "covers_features": [
+        "F-001",
+        "F-003"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/games/{gameId}/hands/{handId}",
+      "covers_features": [
+        "F-001",
+        "F-006"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/games/{gameId}/hands/{handId}/actions",
+      "covers_features": [
+        "F-001",
+        "F-006"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/games/{gameId}/hands/{handId}/legal-actions",
+      "covers_features": [
+        "F-001",
+        "F-006"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/games/{gameId}/hands/{handId}/bot-decision",
+      "covers_features": [
+        "F-004",
+        "F-005"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/hands/evaluate",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/gto/preflop",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/gto/postflop",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/gto/compare",
+      "covers_features": [
+        "F-005",
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/history/hands",
+      "covers_features": [
+        "F-007",
+        "F-010"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/history/hands",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/history/hands/{handId}",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/review/hands/{handId}",
+      "covers_features": [
+        "F-008",
+        "F-005",
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/review/hands/{handId}/streets/{street}",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/overview",
+      "covers_features": [
+        "F-009",
+        "F-010"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/core-metrics",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/by-position",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/by-hand-strength",
+      "covers_features": [
+        "F-009"
+      ]
+    }
+  ],
+  "models": [
+    "Card",
+    "HiddenCard",
+    "PlayerInfo",
+    "GameState",
+    "HandState",
+    "PotInfo",
+    "StreetActions",
+    "ActionRecord",
+    "HandResult",
+    "PlayerAction",
+    "ActionResult",
+    "LegalActions",
+    "BotDecisionResult",
+    "HandEvaluation",
+    "GTOPreflopRequest",
+    "GTOPostflopRequest",
+    "GTORecommendation",
+    "GTOActionFrequency",
+    "GTOCompareRequest",
+    "GTOCompareResult",
+    "HandHistoryList",
+    "HandHistorySummary",
+    "HandRecord",
+    "HandReview",
+    "StreetReview",
+    "ReviewAction",
+    "StatsOverview",
+    "CoreMetrics",
+    "PositionStats",
+    "HandStrengthStats",
+    "Error"
+  ]
+}
