@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokerTable Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="relative w-full max-w-4xl mx-auto" style="aspect-ratio: 16 / 10;">
+
+    <!-- Table felt - elliptical -->
+    <div class="absolute rounded-[50%] border-[6px] border-gray-700" style="inset: 8%; background: #064e3b; box-shadow: inset 0 4px 30px rgba(0,0,0,0.5), 0 0 40px rgba(0,0,0,0.3);">
+      <!-- Inner rail -->
+      <div class="absolute inset-3 rounded-[50%] border border-emerald-700/40"></div>
+
+      <!-- Community Cards + Pot (centered) -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2">
+        <!-- 3 flop cards + 2 empty slots -->
+        <div class="flex gap-1.5">
+          <!-- Card: A♠ -->
+          <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center border border-gray-200">
+            <span class="text-sm font-bold text-gray-900">A</span>
+            <span class="text-base leading-none text-gray-900">♠</span>
+          </div>
+          <!-- Card: K♥ -->
+          <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center border border-gray-200">
+            <span class="text-sm font-bold text-red-500">K</span>
+            <span class="text-base leading-none text-red-500">♥</span>
+          </div>
+          <!-- Card: 7♦ -->
+          <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center border border-gray-200">
+            <span class="text-sm font-bold text-red-500">7</span>
+            <span class="text-base leading-none text-red-500">♦</span>
+          </div>
+          <!-- Empty slot -->
+          <div class="w-10 h-14 rounded-lg border border-emerald-700/30" style="background: rgba(6,78,59,0.3);"></div>
+          <!-- Empty slot -->
+          <div class="w-10 h-14 rounded-lg border border-emerald-700/30" style="background: rgba(6,78,59,0.3);"></div>
+        </div>
+
+        <!-- Pot display -->
+        <div class="flex flex-col items-center gap-0.5">
+          <div class="bg-gray-900/80 backdrop-blur-sm rounded-full px-4 py-1 flex items-center gap-1.5">
+            <div class="w-3.5 h-3.5 rounded-full bg-yellow-500 border border-yellow-600 shadow-sm"></div>
+            <span class="text-gray-50 text-sm font-semibold">1,240</span>
+          </div>
+          <div class="flex gap-1">
+            <div class="bg-gray-900/60 rounded-full px-2 py-0.5 text-xs text-gray-400">Side: 360</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SEAT 0 - Bottom Center (Hero) - BTN ========== -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top: 82%; left: 50%;">
+      <div class="relative">
+        <div class="relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 min-w-[90px] bg-gray-800 ring-2 ring-emerald-500 shadow-lg" style="box-shadow: 0 0 15px rgba(16,185,129,0.2);">
+          <!-- Hero hole cards (visible) -->
+          <div class="flex gap-0.5 -mt-8">
+            <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center border border-gray-200">
+              <span class="text-sm font-bold text-gray-900">A</span>
+              <span class="text-base leading-none text-gray-900">♠</span>
+            </div>
+            <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center border border-gray-200">
+              <span class="text-sm font-bold text-red-500">K</span>
+              <span class="text-base leading-none text-red-500">♥</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-gray-50 text-sm font-medium">Hero</span>
+            <span class="text-[10px] text-gray-400 bg-gray-700 rounded px-1 py-0.5 font-mono">BTN</span>
+          </div>
+          <span class="text-emerald-400 text-xs font-semibold">1,850 BB</span>
+          <span class="text-[10px] text-gray-500 uppercase tracking-wide">raise</span>
+          <!-- Current bet chip -->
+          <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-gray-900/80 rounded-full px-2 py-0.5 flex items-center gap-1">
+            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+            <span class="text-gray-300 text-[10px] font-semibold">120</span>
+          </div>
+        </div>
+        <!-- Dealer button -->
+        <div class="absolute w-6 h-6 rounded-full bg-white text-gray-900 text-[10px] font-bold flex items-center justify-center shadow-md border border-gray-300 z-10" style="top: -28px; left: 40px;">D</div>
+      </div>
+    </div>
+
+    <!-- ========== SEAT 1 - Bottom Left - SB ========== -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top: 65%; left: 8%;">
+      <div class="relative">
+        <div class="relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 min-w-[90px] bg-gray-800 border border-gray-700">
+          <div class="flex gap-0.5 -mt-8">
+            <div class="w-10 h-14 rounded-lg shadow-md border border-gray-600 flex items-center justify-center" style="background: linear-gradient(135deg, #047857, #064e3b);">
+              <div class="w-6 h-9 border border-emerald-400/30 rounded-sm"></div>
+            </div>
+            <div class="w-10 h-14 rounded-lg shadow-md border border-gray-600 flex items-center justify-center" style="background: linear-gradient(135deg, #047857, #064e3b);">
+              <div class="w-6 h-9 border border-emerald-400/30 rounded-sm"></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-gray-50 text-sm font-medium">BOT-1</span>
+            <span class="text-[10px] text-gray-400 bg-gray-700 rounded px-1 py-0.5 font-mono">SB</span>
+          </div>
+          <span class="text-emerald-400 text-xs font-semibold">980 BB</span>
+          <span class="text-[10px] text-gray-500 uppercase tracking-wide">call</span>
+          <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-gray-900/80 rounded-full px-2 py-0.5 flex items-center gap-1">
+            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+            <span class="text-gray-300 text-[10px] font-semibold">120</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SEAT 2 - Top Left - BB ========== -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top: 18%; left: 8%;">
+      <div class="relative">
+        <div class="relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 min-w-[90px] bg-gray-800 border border-gray-700">
+          <div class="flex gap-0.5 -mt-8">
+            <div class="w-10 h-14 rounded-lg shadow-md border border-gray-600 flex items-center justify-center" style="background: linear-gradient(135deg, #047857, #064e3b);">
+              <div class="w-6 h-9 border border-emerald-400/30 rounded-sm"></div>
+            </div>
+            <div class="w-10 h-14 rounded-lg shadow-md border border-gray-600 flex items-center justify-center" style="background: linear-gradient(135deg, #047857, #064e3b);">
+              <div class="w-6 h-9 border border-emerald-400/30 rounded-sm"></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-gray-50 text-sm font-medium">BOT-2</span>
+            <span class="text-[10px] text-gray-400 bg-gray-700 rounded px-1 py-0.5 font-mono">BB</span>
+          </div>
+          <span class="text-emerald-400 text-xs font-semibold">1,120 BB</span>
+          <span class="text-[10px] text-gray-500 uppercase tracking-wide">check</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SEAT 3 - Top Center - UTG ========== -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top: 2%; left: 50%;">
+      <div class="relative">
+        <div class="relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 min-w-[90px] bg-gray-800/60 border border-gray-700/50 opacity-60">
+          <div class="flex gap-0.5 -mt-8"></div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-gray-50 text-sm font-medium">BOT-3</span>
+            <span class="text-[10px] text-gray-400 bg-gray-700 rounded px-1 py-0.5 font-mono">UTG</span>
+          </div>
+          <span class="text-emerald-400 text-xs font-semibold">750 BB</span>
+          <span class="text-[10px] text-gray-500 uppercase tracking-wide">fold</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SEAT 4 - Top Right - HJ ========== -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top: 18%; left: 92%;">
+      <div class="relative">
+        <div class="relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 min-w-[90px] bg-gray-800 border border-gray-700">
+          <div class="flex gap-0.5 -mt-8">
+            <div class="w-10 h-14 rounded-lg shadow-md border border-gray-600 flex items-center justify-center" style="background: linear-gradient(135deg, #047857, #064e3b);">
+              <div class="w-6 h-9 border border-emerald-400/30 rounded-sm"></div>
+            </div>
+            <div class="w-10 h-14 rounded-lg shadow-md border border-gray-600 flex items-center justify-center" style="background: linear-gradient(135deg, #047857, #064e3b);">
+              <div class="w-6 h-9 border border-emerald-400/30 rounded-sm"></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-gray-50 text-sm font-medium">BOT-4</span>
+            <span class="text-[10px] text-gray-400 bg-gray-700 rounded px-1 py-0.5 font-mono">HJ</span>
+          </div>
+          <span class="text-yellow-500 text-xs font-semibold">ALL IN</span>
+          <span class="text-[10px] text-gray-500 uppercase tracking-wide">all_in</span>
+          <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-gray-900/80 rounded-full px-2 py-0.5 flex items-center gap-1">
+            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+            <span class="text-gray-300 text-[10px] font-semibold">640</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SEAT 5 - Bottom Right - CO ========== -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top: 65%; left: 92%;">
+      <div class="relative">
+        <div class="relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 min-w-[90px] bg-gray-800 border border-gray-700">
+          <div class="flex gap-0.5 -mt-8">
+            <div class="w-10 h-14 rounded-lg shadow-md border border-gray-600 flex items-center justify-center" style="background: linear-gradient(135deg, #047857, #064e3b);">
+              <div class="w-6 h-9 border border-emerald-400/30 rounded-sm"></div>
+            </div>
+            <div class="w-10 h-14 rounded-lg shadow-md border border-gray-600 flex items-center justify-center" style="background: linear-gradient(135deg, #047857, #064e3b);">
+              <div class="w-6 h-9 border border-emerald-400/30 rounded-sm"></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-gray-50 text-sm font-medium">BOT-5</span>
+            <span class="text-[10px] text-gray-400 bg-gray-700 rounded px-1 py-0.5 font-mono">CO</span>
+          </div>
+          <span class="text-emerald-400 text-xs font-semibold">1,300 BB</span>
+          <span class="text-[10px] text-gray-500 uppercase tracking-wide">call</span>
+          <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-gray-900/80 rounded-full px-2 py-0.5 flex items-center gap-1">
+            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+            <span class="text-gray-300 text-[10px] font-semibold">120</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

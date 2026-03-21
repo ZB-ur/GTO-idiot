@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeviationMarker Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-6">
+    <!-- Size: md -->
+    <div>
+      <p class="text-gray-500 text-xs mb-3 uppercase tracking-wide">Size: md</p>
+      <div class="flex items-center gap-3">
+        <button class="inline-flex items-center gap-1.5 px-2.5 py-1 text-sm bg-green-400/20 text-green-400 border border-green-400/40 rounded-lg font-medium cursor-pointer hover:ring-2 ring-green-400/30 transition-all">
+          <span class="bg-green-400 rounded-full w-2 h-2"></span>
+          轻微
+        </button>
+        <button class="inline-flex items-center gap-1.5 px-2.5 py-1 text-sm bg-yellow-400/20 text-yellow-400 border border-yellow-400/40 rounded-lg font-medium cursor-pointer hover:ring-2 ring-yellow-400/30 transition-all">
+          <span class="bg-yellow-400 rounded-full w-2 h-2"></span>
+          中等
+        </button>
+        <button class="inline-flex items-center gap-1.5 px-2.5 py-1 text-sm bg-red-400/20 text-red-400 border border-red-400/40 rounded-lg font-medium cursor-pointer hover:ring-2 ring-red-400/30 transition-all">
+          <span class="bg-red-400 rounded-full w-2 h-2"></span>
+          严重
+        </button>
+      </div>
+    </div>
+
+    <!-- Size: sm -->
+    <div>
+      <p class="text-gray-500 text-xs mb-3 uppercase tracking-wide">Size: sm</p>
+      <div class="flex items-center gap-3">
+        <button class="inline-flex items-center gap-1.5 px-1.5 py-0.5 text-xs bg-green-400/20 text-green-400 border border-green-400/40 rounded-lg font-medium cursor-pointer hover:ring-2 ring-green-400/30 transition-all">
+          <span class="bg-green-400 rounded-full w-1.5 h-1.5"></span>
+          轻微
+        </button>
+        <button class="inline-flex items-center gap-1.5 px-1.5 py-0.5 text-xs bg-yellow-400/20 text-yellow-400 border border-yellow-400/40 rounded-lg font-medium cursor-pointer hover:ring-2 ring-yellow-400/30 transition-all">
+          <span class="bg-yellow-400 rounded-full w-1.5 h-1.5"></span>
+          中等
+        </button>
+        <button class="inline-flex items-center gap-1.5 px-1.5 py-0.5 text-xs bg-red-400/20 text-red-400 border border-red-400/40 rounded-lg font-medium cursor-pointer hover:ring-2 ring-red-400/30 transition-all">
+          <span class="bg-red-400 rounded-full w-1.5 h-1.5"></span>
+          严重
+        </button>
+      </div>
+    </div>
+
+    <!-- In context: timeline usage -->
+    <div>
+      <p class="text-gray-500 text-xs mb-3 uppercase tracking-wide">In context — Street Timeline</p>
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-4">
+        <div class="flex items-center gap-4 text-sm text-gray-400">
+          <span class="text-gray-50 font-medium">Preflop</span>
+          <span class="text-gray-700">→</span>
+          <div class="flex items-center gap-1.5">
+            <span class="text-gray-50 font-medium">Flop</span>
+            <button class="inline-flex items-center gap-1.5 px-1.5 py-0.5 text-xs bg-yellow-400/20 text-yellow-400 border border-yellow-400/40 rounded-lg font-medium">
+              <span class="bg-yellow-400 rounded-full w-1.5 h-1.5"></span>
+              中等
+            </button>
+          </div>
+          <span class="text-gray-700">→</span>
+          <div class="flex items-center gap-1.5">
+            <span class="text-gray-50 font-medium">Turn</span>
+            <button class="inline-flex items-center gap-1.5 px-1.5 py-0.5 text-xs bg-red-400/20 text-red-400 border border-red-400/40 rounded-lg font-medium">
+              <span class="bg-red-400 rounded-full w-1.5 h-1.5"></span>
+              严重
+            </button>
+          </div>
+          <span class="text-gray-700">→</span>
+          <span class="text-gray-50 font-medium">River</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

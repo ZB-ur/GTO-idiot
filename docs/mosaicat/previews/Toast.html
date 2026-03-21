@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="space-y-4 max-w-sm">
+    <p class="text-gray-400 text-sm mb-2 font-semibold">Toast Variants</p>
+
+    <!-- Success -->
+    <div class="flex items-center gap-3 px-4 py-3 bg-gray-900 border border-emerald-500/30 rounded-xl shadow-lg">
+      <div class="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-sm text-emerald-500 bg-emerald-500/10">&#10003;</div>
+      <span class="text-gray-50 text-sm font-medium max-w-xs">Hand saved successfully</span>
+      <button class="text-gray-500 hover:text-gray-300 ml-2 text-lg leading-none">&times;</button>
+    </div>
+
+    <!-- Error -->
+    <div class="flex items-center gap-3 px-4 py-3 bg-gray-900 border border-red-500/30 rounded-xl shadow-lg">
+      <div class="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-sm text-red-500 bg-red-500/10">&#10005;</div>
+      <span class="text-gray-50 text-sm font-medium max-w-xs">IndexedDB storage failed</span>
+      <button class="text-gray-500 hover:text-gray-300 ml-2 text-lg leading-none">&times;</button>
+    </div>
+
+    <!-- Warning -->
+    <div class="flex items-center gap-3 px-4 py-3 bg-gray-900 border border-yellow-500/30 rounded-xl shadow-lg">
+      <div class="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-sm text-yellow-500 bg-yellow-500/10">!</div>
+      <span class="text-gray-50 text-sm font-medium max-w-xs">CFR computation timed out, showing approximate results</span>
+      <button class="text-gray-500 hover:text-gray-300 ml-2 text-lg leading-none">&times;</button>
+    </div>
+
+    <!-- Info -->
+    <div class="flex items-center gap-3 px-4 py-3 bg-gray-900 border border-gray-500/30 rounded-xl shadow-lg">
+      <div class="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-sm text-gray-400 bg-gray-500/10">i</div>
+      <span class="text-gray-50 text-sm font-medium max-w-xs">New session started</span>
+      <button class="text-gray-500 hover:text-gray-300 ml-2 text-lg leading-none">&times;</button>
+    </div>
+  </div>
+</body>
+</html>

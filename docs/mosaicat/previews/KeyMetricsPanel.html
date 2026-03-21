@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KeyMetricsPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 720px; margin: 0 auto;">
+    <!-- Header -->
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+      <h2 class="text-lg font-semibold text-gray-50">关键指标</h2>
+      <div class="flex items-center gap-4 text-xs text-gray-500">
+        <span class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+          GTO范围内
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-yellow-500 inline-block"></span>
+          轻微偏差
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-red-500 inline-block"></span>
+          明显偏差
+        </span>
+      </div>
+    </div>
+
+    <!-- Primary Metrics Grid -->
+    <div class="grid grid-cols-3 gap-4 mb-4">
+      <!-- VPIP - in range -->
+      <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium text-gray-400 uppercase tracking-wide">VPIP</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+        </div>
+        <div class="text-3xl font-bold text-emerald-400" style="font-variant-numeric: tabular-nums;">24.5%</div>
+        <div class="text-xs text-gray-500 leading-relaxed">主动入池率 — 翻前主动投入筹码的频率</div>
+        <div class="text-xs text-gray-600 mt-auto pt-1 border-t border-gray-700/50">GTO Range: 22–28%</div>
+      </div>
+
+      <!-- PFR - slight deviation -->
+      <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium text-gray-400 uppercase tracking-wide">PFR</span>
+          <span class="w-2 h-2 rounded-full bg-yellow-500 inline-block"></span>
+        </div>
+        <div class="text-3xl font-bold text-yellow-400" style="font-variant-numeric: tabular-nums;">15.2%</div>
+        <div class="text-xs text-gray-500 leading-relaxed">翻前加注率 — 翻前主动加注的频率</div>
+        <div class="text-xs text-gray-600 mt-auto pt-1 border-t border-gray-700/50">GTO Range: 17–23%</div>
+      </div>
+
+      <!-- 3-Bet - in range -->
+      <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium text-gray-400 uppercase tracking-wide">3-Bet</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+        </div>
+        <div class="text-3xl font-bold text-emerald-400" style="font-variant-numeric: tabular-nums;">8.3%</div>
+        <div class="text-xs text-gray-500 leading-relaxed">3-Bet频率 — 面对加注时再加注的频率</div>
+        <div class="text-xs text-gray-600 mt-auto pt-1 border-t border-gray-700/50">GTO Range: 7–10%</div>
+      </div>
+
+      <!-- WTSD - severe deviation -->
+      <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium text-gray-400 uppercase tracking-wide">WTSD</span>
+          <span class="w-2 h-2 rounded-full bg-red-500 inline-block"></span>
+        </div>
+        <div class="text-3xl font-bold text-red-400" style="font-variant-numeric: tabular-nums;">38.7%</div>
+        <div class="text-xs text-gray-500 leading-relaxed">看到摊牌率 — 入池后看到摊牌的频率</div>
+        <div class="text-xs text-gray-600 mt-auto pt-1 border-t border-gray-700/50">GTO Range: 25–32%</div>
+      </div>
+
+      <!-- W$SD - in range -->
+      <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium text-gray-400 uppercase tracking-wide">W$SD</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+        </div>
+        <div class="text-3xl font-bold text-emerald-400" style="font-variant-numeric: tabular-nums;">52.1%</div>
+        <div class="text-xs text-gray-500 leading-relaxed">摊牌胜率 — 到摊牌时赢下底池的频率</div>
+        <div class="text-xs text-gray-600 mt-auto pt-1 border-t border-gray-700/50">GTO Range: 50–56%</div>
+      </div>
+
+      <!-- AF - slight deviation -->
+      <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium text-gray-400 uppercase tracking-wide">AF</span>
+          <span class="w-2 h-2 rounded-full bg-yellow-500 inline-block"></span>
+        </div>
+        <div class="text-3xl font-bold text-yellow-400" style="font-variant-numeric: tabular-nums;">2.14</div>
+        <div class="text-xs text-gray-500 leading-relaxed">攻击因子 — (下注+加注) / 跟注的比值</div>
+        <div class="text-xs text-gray-600 mt-auto pt-1 border-t border-gray-700/50">GTO Range: 2.5–3.5</div>
+      </div>
+    </div>
+
+    <!-- Secondary Metrics -->
+    <div class="grid grid-cols-2 gap-4">
+      <!-- C-Bet Flop - in range -->
+      <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium text-gray-400 uppercase tracking-wide">C-Bet Flop</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+        </div>
+        <div class="text-3xl font-bold text-emerald-400" style="font-variant-numeric: tabular-nums;">62.8%</div>
+        <div class="text-xs text-gray-500 leading-relaxed">翻牌持续下注率</div>
+        <div class="text-xs text-gray-600 mt-auto pt-1 border-t border-gray-700/50">GTO Range: 55–70%</div>
+      </div>
+
+      <!-- Fold to C-Bet - severe deviation -->
+      <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium text-gray-400 uppercase tracking-wide">Fold to C-Bet</span>
+          <span class="w-2 h-2 rounded-full bg-red-500 inline-block"></span>
+        </div>
+        <div class="text-3xl font-bold text-red-400" style="font-variant-numeric: tabular-nums;">68.4%</div>
+        <div class="text-xs text-gray-500 leading-relaxed">面对持续下注弃牌率</div>
+        <div class="text-xs text-gray-600 mt-auto pt-1 border-t border-gray-700/50">GTO Range: 40–55%</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PositionBreakdown Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 640px; margin: 0 auto;">
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-6">
+      <h3 class="text-lg font-semibold text-gray-50 mb-1">Position Breakdown</h3>
+      <p class="text-sm text-gray-500 mb-6">Profit/Loss by Position</p>
+
+      <!-- Chart area -->
+      <div class="flex items-end justify-between gap-3 px-2 mb-2" style="height: 192px;">
+        <!-- UTG: -18.5 BB -->
+        <div class="flex-1 flex flex-col items-center justify-end h-full cursor-pointer">
+          <span class="text-xs font-medium mb-1 text-red-400">-18.5 BB</span>
+          <div class="w-full rounded-t-lg bg-red-500" style="max-width: 48px; height: 37%;"></div>
+        </div>
+        <!-- HJ: -5.0 BB -->
+        <div class="flex-1 flex flex-col items-center justify-end h-full cursor-pointer">
+          <span class="text-xs font-medium mb-1 text-red-400">-5.0 BB</span>
+          <div class="w-full rounded-t-lg bg-red-500" style="max-width: 48px; height: 10%;"></div>
+        </div>
+        <!-- CO: +12.0 BB -->
+        <div class="flex-1 flex flex-col items-center justify-end h-full cursor-pointer">
+          <span class="text-xs font-medium mb-1 text-emerald-400">+12.0 BB</span>
+          <div class="w-full rounded-t-lg bg-emerald-500" style="max-width: 48px; height: 24%;"></div>
+        </div>
+        <!-- BTN: +50.0 BB -->
+        <div class="flex-1 flex flex-col items-center justify-end h-full cursor-pointer">
+          <span class="text-xs font-medium mb-1 text-emerald-400">+50.0 BB</span>
+          <div class="w-full rounded-t-lg bg-emerald-500" style="max-width: 48px; height: 100%;"></div>
+        </div>
+        <!-- SB: -22.5 BB -->
+        <div class="flex-1 flex flex-col items-center justify-end h-full cursor-pointer">
+          <span class="text-xs font-medium mb-1 text-red-400">-22.5 BB</span>
+          <div class="w-full rounded-t-lg bg-red-500" style="max-width: 48px; height: 45%;"></div>
+        </div>
+        <!-- BB: -8.0 BB -->
+        <div class="flex-1 flex flex-col items-center justify-end h-full cursor-pointer">
+          <span class="text-xs font-medium mb-1 text-red-400">-8.0 BB</span>
+          <div class="w-full rounded-t-lg bg-red-500" style="max-width: 48px; height: 16%;"></div>
+        </div>
+      </div>
+
+      <!-- Zero line -->
+      <div class="border-t border-gray-600 mx-2 mb-3"></div>
+
+      <!-- Position labels -->
+      <div class="flex justify-between gap-3 px-2">
+        <div class="flex-1 text-center">
+          <div class="text-sm font-semibold text-gray-50">UTG</div>
+          <div class="text-xs text-gray-500 mt-0.5">82 hands</div>
+        </div>
+        <div class="flex-1 text-center">
+          <div class="text-sm font-semibold text-gray-50">HJ</div>
+          <div class="text-xs text-gray-500 mt-0.5">79 hands</div>
+        </div>
+        <div class="flex-1 text-center">
+          <div class="text-sm font-semibold text-gray-50">CO</div>
+          <div class="text-xs text-gray-500 mt-0.5">85 hands</div>
+        </div>
+        <div class="flex-1 text-center">
+          <div class="text-sm font-semibold text-gray-50">BTN</div>
+          <div class="text-xs text-gray-500 mt-0.5">91 hands</div>
+        </div>
+        <div class="flex-1 text-center">
+          <div class="text-sm font-semibold text-gray-50">SB</div>
+          <div class="text-xs text-gray-500 mt-0.5">88 hands</div>
+        </div>
+        <div class="flex-1 text-center">
+          <div class="text-sm font-semibold text-gray-50">BB</div>
+          <div class="text-xs text-gray-500 mt-0.5">90 hands</div>
+        </div>
+      </div>
+
+      <!-- BB/100 row -->
+      <div class="flex justify-between gap-3 px-2 mt-3 pt-3 border-t border-gray-800">
+        <div class="flex-1 text-center">
+          <div class="text-gray-500 uppercase tracking-wider" style="font-size: 10px;">BB/100</div>
+          <div class="text-sm font-medium text-red-400">-22.6</div>
+        </div>
+        <div class="flex-1 text-center">
+          <div class="text-gray-500 uppercase tracking-wider" style="font-size: 10px;">BB/100</div>
+          <div class="text-sm font-medium text-red-400">-6.3</div>
+        </div>
+        <div class="flex-1 text-center">
+          <div class="text-gray-500 uppercase tracking-wider" style="font-size: 10px;">BB/100</div>
+          <div class="text-sm font-medium text-emerald-400">+14.1</div>
+        </div>
+        <div class="flex-1 text-center">
+          <div class="text-gray-500 uppercase tracking-wider" style="font-size: 10px;">BB/100</div>
+          <div class="text-sm font-medium text-emerald-400">+54.9</div>
+        </div>
+        <div class="flex-1 text-center">
+          <div class="text-gray-500 uppercase tracking-wider" style="font-size: 10px;">BB/100</div>
+          <div class="text-sm font-medium text-red-400">-25.6</div>
+        </div>
+        <div class="flex-1 text-center">
+          <div class="text-gray-500 uppercase tracking-wider" style="font-size: 10px;">BB/100</div>
+          <div class="text-sm font-medium text-red-400">-8.9</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkeletonLoader Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  </style>
+</head>
+<body>
+  <div class="space-y-8 max-w-lg">
+
+    <!-- Card variant -->
+    <div>
+      <p class="text-gray-400 text-sm mb-3 font-semibold">Variant: card</p>
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 space-y-4">
+        <div class="bg-gray-700 rounded animate-pulse h-4 w-1/3"></div>
+        <div class="bg-gray-700 rounded animate-pulse h-8 w-2/3"></div>
+        <div class="bg-gray-700 rounded animate-pulse h-3 w-1/2"></div>
+      </div>
+    </div>
+
+    <!-- List variant -->
+    <div>
+      <p class="text-gray-400 text-sm mb-3 font-semibold">Variant: list (3 rows)</p>
+      <div class="space-y-3">
+        <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 flex items-center gap-4">
+          <div class="bg-gray-700 rounded-lg animate-pulse h-10 w-10 shrink-0"></div>
+          <div class="flex-1 space-y-2">
+            <div class="bg-gray-700 rounded animate-pulse h-3 w-3/4"></div>
+            <div class="bg-gray-700 rounded animate-pulse h-3 w-1/2"></div>
+          </div>
+        </div>
+        <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 flex items-center gap-4">
+          <div class="bg-gray-700 rounded-lg animate-pulse h-10 w-10 shrink-0"></div>
+          <div class="flex-1 space-y-2">
+            <div class="bg-gray-700 rounded animate-pulse h-3 w-3/4"></div>
+            <div class="bg-gray-700 rounded animate-pulse h-3 w-1/2"></div>
+          </div>
+        </div>
+        <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 flex items-center gap-4">
+          <div class="bg-gray-700 rounded-lg animate-pulse h-10 w-10 shrink-0"></div>
+          <div class="flex-1 space-y-2">
+            <div class="bg-gray-700 rounded animate-pulse h-3 w-3/4"></div>
+            <div class="bg-gray-700 rounded animate-pulse h-3 w-1/2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart variant -->
+    <div>
+      <p class="text-gray-400 text-sm mb-3 font-semibold">Variant: chart</p>
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 space-y-4">
+        <div class="bg-gray-700 rounded animate-pulse h-4 w-1/4"></div>
+        <div class="flex items-end gap-2 h-32">
+          <div class="bg-gray-700 rounded animate-pulse flex-1" style="height: 45%"></div>
+          <div class="bg-gray-700 rounded animate-pulse flex-1" style="height: 70%"></div>
+          <div class="bg-gray-700 rounded animate-pulse flex-1" style="height: 30%"></div>
+          <div class="bg-gray-700 rounded animate-pulse flex-1" style="height: 85%"></div>
+          <div class="bg-gray-700 rounded animate-pulse flex-1" style="height: 55%"></div>
+          <div class="bg-gray-700 rounded animate-pulse flex-1" style="height: 40%"></div>
+          <div class="bg-gray-700 rounded animate-pulse flex-1" style="height: 90%"></div>
+          <div class="bg-gray-700 rounded animate-pulse flex-1" style="height: 60%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table variant -->
+    <div>
+      <p class="text-gray-400 text-sm mb-3 font-semibold">Variant: table (4 rows)</p>
+      <div class="bg-gray-900 border border-gray-700 rounded-xl overflow-hidden">
+        <div class="flex gap-4 px-6 py-3 border-b border-gray-700">
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-20"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-16"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-24"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-16"></div>
+        </div>
+        <div class="flex gap-4 px-6 py-4 border-b border-gray-800">
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-20"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-16"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-24"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-16"></div>
+        </div>
+        <div class="flex gap-4 px-6 py-4 border-b border-gray-800">
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-20"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-16"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-24"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-16"></div>
+        </div>
+        <div class="flex gap-4 px-6 py-4 border-b border-gray-800">
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-20"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-16"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-24"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-16"></div>
+        </div>
+        <div class="flex gap-4 px-6 py-4">
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-20"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-16"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-24"></div>
+          <div class="bg-gray-700 rounded animate-pulse h-3 w-16"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

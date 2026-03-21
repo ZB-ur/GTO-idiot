@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LoadingSpinner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .animate-spin { animation: spin 1s linear infinite; }
+  </style>
+</head>
+<body>
+  <div class="space-y-8">
+    <!-- Sizes -->
+    <div>
+      <p class="text-gray-400 text-sm mb-4 font-semibold">Sizes: sm / md / lg</p>
+      <div class="flex gap-10 items-start">
+        <!-- sm -->
+        <div class="flex flex-col items-center justify-center gap-3">
+          <div class="w-5 h-5 border-2 border-gray-700 border-t-emerald-500 rounded-full animate-spin"></div>
+          <span class="text-xs text-gray-400 font-medium">Loading...</span>
+        </div>
+        <!-- md -->
+        <div class="flex flex-col items-center justify-center gap-3">
+          <div class="w-8 h-8 border-[3px] border-gray-700 border-t-emerald-500 rounded-full animate-spin"></div>
+          <span class="text-sm text-gray-400 font-medium">Calculating...</span>
+        </div>
+        <!-- lg -->
+        <div class="flex flex-col items-center justify-center gap-3">
+          <div class="w-12 h-12 border-4 border-gray-700 border-t-emerald-500 rounded-full animate-spin"></div>
+          <span class="text-base text-gray-400 font-medium">CFR Solving...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- No label -->
+    <div>
+      <p class="text-gray-400 text-sm mb-4 font-semibold">Without Label</p>
+      <div class="flex gap-10 items-center">
+        <div class="w-8 h-8 border-[3px] border-gray-700 border-t-emerald-500 rounded-full animate-spin"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

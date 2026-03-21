@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modal Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <!-- Backdrop -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+
+    <!-- Modal Panel (md size) -->
+    <div class="max-w-lg w-full mx-4 bg-gray-900 border border-gray-700 rounded-xl shadow-xl">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-700">
+        <h2 class="text-lg font-semibold text-gray-50">Session 配置</h2>
+        <button class="flex items-center justify-center w-8 h-8 rounded-lg text-gray-400 hover:text-gray-50 hover:bg-gray-800 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Body: Session Config Form -->
+      <div class="px-6 py-5 space-y-5">
+
+        <!-- Blinds -->
+        <div class="space-y-2">
+          <label class="block text-sm font-medium text-gray-400">盲注大小</label>
+          <div class="flex gap-3">
+            <div class="flex-1">
+              <div class="text-xs text-gray-500 mb-1">小盲</div>
+              <div class="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-50 text-sm">1</div>
+            </div>
+            <div class="flex-1">
+              <div class="text-xs text-gray-500 mb-1">大盲</div>
+              <div class="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-50 text-sm">2</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bot Config -->
+        <div class="space-y-2">
+          <label class="block text-sm font-medium text-gray-400">BOT 对手</label>
+          <div class="space-y-2">
+            <div class="flex items-center gap-3 px-3 py-2.5 bg-gray-800 border border-gray-700 rounded-lg">
+              <div class="w-8 h-8 rounded-full bg-emerald-900 flex items-center justify-center text-emerald-500 text-xs font-bold">B1</div>
+              <div class="flex-1">
+                <div class="text-sm text-gray-50">BOT-1</div>
+                <div class="text-xs text-gray-500">Fish · 松散被动</div>
+              </div>
+              <span class="px-2 py-0.5 text-xs rounded-full bg-emerald-900/50 text-emerald-400 border border-emerald-800">Fish</span>
+            </div>
+            <div class="flex items-center gap-3 px-3 py-2.5 bg-gray-800 border border-gray-700 rounded-lg">
+              <div class="w-8 h-8 rounded-full bg-emerald-900 flex items-center justify-center text-emerald-500 text-xs font-bold">B2</div>
+              <div class="flex-1">
+                <div class="text-sm text-gray-50">BOT-2</div>
+                <div class="text-xs text-gray-500">Regular · TAG策略</div>
+              </div>
+              <span class="px-2 py-0.5 text-xs rounded-full bg-yellow-900/50 text-yellow-400 border border-yellow-800">Regular</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Starting Stack -->
+        <div class="space-y-2">
+          <label class="block text-sm font-medium text-gray-400">起始筹码 (BB)</label>
+          <div class="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-50 text-sm">100</div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-700">
+        <button class="px-4 py-2 text-sm font-medium text-gray-400 hover:text-gray-50 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
+          取消
+        </button>
+        <button class="px-4 py-2 text-sm font-medium text-gray-950 bg-emerald-500 hover:bg-emerald-400 rounded-lg transition-colors">
+          开始牌局
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background content (dimmed behind modal) -->
+  <div class="p-8 opacity-30">
+    <div class="max-w-4xl mx-auto space-y-6">
+      <div class="h-12 bg-gray-800 rounded-xl"></div>
+      <div class="grid grid-cols-3 gap-4">
+        <div class="h-32 bg-gray-800 rounded-xl"></div>
+        <div class="h-32 bg-gray-800 rounded-xl"></div>
+        <div class="h-32 bg-gray-800 rounded-xl"></div>
+      </div>
+      <div class="h-64 bg-gray-800 rounded-xl"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SessionSummaryModal Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <!-- Backdrop -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+    <!-- Modal -->
+    <div class="relative z-10 w-full max-w-md mx-4 bg-gray-900 border border-gray-700 rounded-xl shadow-2xl overflow-hidden">
+      <!-- Header -->
+      <div class="px-6 pt-6 pb-4 border-b border-gray-700">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-bold text-gray-50">Session 小结</h2>
+          <button class="p-1.5 rounded-lg text-gray-400 hover:text-gray-50 hover:bg-gray-800 transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="px-6 py-5">
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <!-- Net Profit -->
+          <div class="bg-gray-800 rounded-xl p-4 col-span-2">
+            <p class="text-sm text-gray-400 mb-1">净盈亏</p>
+            <p class="text-3xl font-bold text-emerald-500">+24.5 BB</p>
+          </div>
+
+          <!-- Hand Count -->
+          <div class="bg-gray-800 rounded-xl p-4">
+            <p class="text-sm text-gray-400 mb-1">总手数</p>
+            <p class="text-2xl font-bold text-gray-50">47</p>
+          </div>
+
+          <!-- Duration -->
+          <div class="bg-gray-800 rounded-xl p-4">
+            <p class="text-sm text-gray-400 mb-1">时长</p>
+            <p class="text-2xl font-bold text-gray-50">1h 23m</p>
+          </div>
+
+          <!-- Win Rate -->
+          <div class="bg-gray-800 rounded-xl p-4">
+            <p class="text-sm text-gray-400 mb-1">胜率</p>
+            <p class="text-2xl font-bold text-gray-50">55.3%</p>
+          </div>
+
+          <!-- BB/100 -->
+          <div class="bg-gray-800 rounded-xl p-4">
+            <p class="text-sm text-gray-400 mb-1">BB/100</p>
+            <p class="text-2xl font-bold text-emerald-500">52.1</p>
+          </div>
+        </div>
+
+        <!-- Key Deviations -->
+        <div>
+          <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
+            关键偏差回顾
+          </h3>
+          <div class="space-y-2">
+            <!-- Severe -->
+            <div class="flex items-start gap-3 bg-gray-800 rounded-lg p-3">
+              <div class="w-2 h-2 rounded-full mt-1.5 shrink-0 bg-red-400"></div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-0.5">
+                  <span class="text-xs font-medium text-red-400">严重</span>
+                  <span class="text-xs text-gray-500">#12 · 翻牌</span>
+                </div>
+                <p class="text-sm text-gray-300 leading-snug">
+                  GTO建议加注66% pot频率为60%，你选择了跟注
+                </p>
+                <p class="text-xs text-red-400 mt-1">EV损失: -3.20 BB</p>
+              </div>
+            </div>
+
+            <!-- Moderate -->
+            <div class="flex items-start gap-3 bg-gray-800 rounded-lg p-3">
+              <div class="w-2 h-2 rounded-full mt-1.5 shrink-0 bg-yellow-400"></div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-0.5">
+                  <span class="text-xs font-medium text-yellow-400">中等</span>
+                  <span class="text-xs text-gray-500">#27 · 翻前</span>
+                </div>
+                <p class="text-sm text-gray-300 leading-snug">
+                  CO位持AJo应3-Bet频率45%，你选择了跟注
+                </p>
+                <p class="text-xs text-red-400 mt-1">EV损失: -1.85 BB</p>
+              </div>
+            </div>
+
+            <!-- Minor -->
+            <div class="flex items-start gap-3 bg-gray-800 rounded-lg p-3">
+              <div class="w-2 h-2 rounded-full mt-1.5 shrink-0 bg-green-400"></div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-0.5">
+                  <span class="text-xs font-medium text-green-400">轻微</span>
+                  <span class="text-xs text-gray-500">#35 · 转牌</span>
+                </div>
+                <p class="text-sm text-gray-300 leading-snug">
+                  持续下注尺度偏小，建议66% pot而非33% pot
+                </p>
+                <p class="text-xs text-red-400 mt-1">EV损失: -0.45 BB</p>
+              </div>
+            </div>
+
+            <!-- Severe -->
+            <div class="flex items-start gap-3 bg-gray-800 rounded-lg p-3">
+              <div class="w-2 h-2 rounded-full mt-1.5 shrink-0 bg-red-400"></div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-0.5">
+                  <span class="text-xs font-medium text-red-400">严重</span>
+                  <span class="text-xs text-gray-500">#41 · 河牌</span>
+                </div>
+                <p class="text-sm text-gray-300 leading-snug">
+                  河牌应全压作为bluff频率25%，你选择了过牌
+                </p>
+                <p class="text-xs text-red-400 mt-1">EV损失: -4.10 BB</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="px-6 pb-6">
+        <button class="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-semibold rounded-xl transition-colors">
+          完成
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

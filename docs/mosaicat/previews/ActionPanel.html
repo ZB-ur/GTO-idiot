@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 420px; margin: 0 auto;">
+
+    <!-- ===== State 1: User Turn — Active with Raise Slider Open ===== -->
+    <div class="mb-8">
+      <div class="text-gray-500 text-xs mb-2 font-mono uppercase tracking-wider">● Your Turn — Raise Panel Open</div>
+      <div class="w-full opacity-100">
+        <!-- Raise Slider Panel -->
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-4 mb-3">
+          <!-- Preset Buttons -->
+          <div class="flex gap-2 mb-3">
+            <button class="flex-1 py-1.5 rounded-lg text-sm font-medium bg-gray-700 text-gray-300">33%</button>
+            <button class="flex-1 py-1.5 rounded-lg text-sm font-medium bg-gray-700 text-gray-300">50%</button>
+            <button class="flex-1 py-1.5 rounded-lg text-sm font-medium bg-yellow-600 text-white">66%</button>
+            <button class="flex-1 py-1.5 rounded-lg text-sm font-medium bg-gray-700 text-gray-300">100%</button>
+          </div>
+          <!-- Slider -->
+          <div class="flex items-center gap-3">
+            <span class="text-gray-500 text-xs font-mono w-10 text-right">4</span>
+            <div class="flex-1 relative h-2">
+              <div class="absolute inset-0 bg-gray-700 rounded-lg"></div>
+              <div class="absolute left-0 top-0 h-full bg-yellow-500 rounded-lg" style="width: 55%;"></div>
+              <div class="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-yellow-400 rounded-full border-2 border-yellow-300 shadow-md" style="left: calc(55% - 8px);"></div>
+            </div>
+            <span class="text-gray-500 text-xs font-mono w-10">200</span>
+          </div>
+          <!-- Amount & Confirm -->
+          <div class="flex items-center justify-between mt-3">
+            <div class="flex items-center gap-2">
+              <div class="w-20 bg-gray-900 border border-gray-600 rounded-lg px-2 py-1 text-center text-yellow-400 font-mono text-sm">12</div>
+              <span class="text-gray-500 text-xs">BB</span>
+            </div>
+            <button class="bg-yellow-600 text-white font-semibold px-6 py-1.5 rounded-lg text-sm">Raise to 12 ↵</button>
+          </div>
+        </div>
+        <!-- Main Buttons -->
+        <div class="flex gap-2">
+          <button class="bg-gray-800 border border-gray-700 text-gray-400 rounded-xl px-3 py-3 flex flex-col items-center justify-center gap-0.5">
+            <span class="text-lg">💡</span>
+            <span class="text-[10px] font-medium">Hint</span>
+          </button>
+          <div class="flex-1 flex gap-2">
+            <button class="flex-1 bg-gray-700 text-white font-semibold rounded-xl py-3 px-2 flex flex-col items-center justify-center gap-0.5">
+              <span class="text-base leading-none">Fold</span>
+              <span class="text-[10px] text-white/50 font-mono">F</span>
+            </button>
+            <button class="flex-1 bg-emerald-600 text-white font-semibold rounded-xl py-3 px-2 flex flex-col items-center justify-center gap-0.5">
+              <span class="text-base leading-none">Call 4</span>
+              <span class="text-[10px] text-white/50 font-mono">C</span>
+            </button>
+            <button class="flex-1 bg-yellow-600 text-white font-semibold rounded-xl py-3 px-2 flex flex-col items-center justify-center gap-0.5 ring-2 ring-yellow-400">
+              <span class="text-base leading-none">Raise</span>
+              <span class="text-[10px] text-white/50 font-mono">R</span>
+            </button>
+            <button class="flex-1 bg-red-600 text-white font-semibold rounded-xl py-3 px-2 flex flex-col items-center justify-center gap-0.5">
+              <span class="text-base leading-none">All In</span>
+              <span class="text-[10px] text-white/50 font-mono">A</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== State 2: User Turn — Basic (Fold/Check/Raise) ===== -->
+    <div class="mb-8">
+      <div class="text-gray-500 text-xs mb-2 font-mono uppercase tracking-wider">● Your Turn — Check Available</div>
+      <div class="w-full opacity-100">
+        <div class="flex gap-2">
+          <button class="bg-gray-800 border border-gray-700 text-emerald-400 rounded-xl px-3 py-3 flex flex-col items-center justify-center gap-0.5">
+            <span class="text-lg">💡</span>
+            <span class="text-[10px] font-medium">Hint</span>
+          </button>
+          <div class="flex-1 flex gap-2">
+            <button class="flex-1 bg-gray-700 text-white font-semibold rounded-xl py-3 px-2 flex flex-col items-center justify-center gap-0.5">
+              <span class="text-base leading-none">Fold</span>
+              <span class="text-[10px] text-white/50 font-mono">F</span>
+            </button>
+            <button class="flex-1 bg-emerald-600 text-white font-semibold rounded-xl py-3 px-2 flex flex-col items-center justify-center gap-0.5">
+              <span class="text-base leading-none">Check</span>
+              <span class="text-[10px] text-white/50 font-mono">C</span>
+            </button>
+            <button class="flex-1 bg-yellow-600 text-white font-semibold rounded-xl py-3 px-2 flex flex-col items-center justify-center gap-0.5">
+              <span class="text-base leading-none">Raise</span>
+              <span class="text-[10px] text-white/50 font-mono">R</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== State 3: Opponent Turn — Disabled ===== -->
+    <div class="mb-8">
+      <div class="text-gray-500 text-xs mb-2 font-mono uppercase tracking-wider">○ Opponent Turn — Disabled</div>
+      <div class="w-full opacity-40 pointer-events-none">
+        <div class="flex gap-2">
+          <button class="bg-gray-800 border border-gray-700 text-gray-400 rounded-xl px-3 py-3 flex flex-col items-center justify-center gap-0.5">
+            <span class="text-lg">💡</span>
+            <span class="text-[10px] font-medium">Hint</span>
+          </button>
+          <div class="flex-1 flex gap-2">
+            <button class="flex-1 bg-gray-700 text-white font-semibold rounded-xl py-3 px-2 flex flex-col items-center justify-center gap-0.5">
+              <span class="text-base leading-none">Fold</span>
+              <span class="text-[10px] text-white/50 font-mono">F</span>
+            </button>
+            <button class="flex-1 bg-emerald-600 text-white font-semibold rounded-xl py-3 px-2 flex flex-col items-center justify-center gap-0.5">
+              <span class="text-base leading-none">Call 6</span>
+              <span class="text-[10px] text-white/50 font-mono">C</span>
+            </button>
+            <button class="flex-1 bg-yellow-600 text-white font-semibold rounded-xl py-3 px-2 flex flex-col items-center justify-center gap-0.5">
+              <span class="text-base leading-none">Raise</span>
+              <span class="text-[10px] text-white/50 font-mono">R</span>
+            </button>
+            <button class="flex-1 bg-red-600 text-white font-semibold rounded-xl py-3 px-2 flex flex-col items-center justify-center gap-0.5">
+              <span class="text-base leading-none">All In</span>
+              <span class="text-[10px] text-white/50 font-mono">A</span>
+            </button>
+          </div>
+        </div>
+        <div class="text-center mt-2">
+          <span class="text-gray-500 text-xs">Waiting for opponent...</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

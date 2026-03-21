@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HistoryPage Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {}
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-950 text-gray-50">
+  <div class="max-w-4xl mx-auto px-4 py-6 space-y-6">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-50">Hand History</h1>
+        <p class="text-sm text-gray-500 mt-1">247 hands total</p>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="space-y-3">
+      <!-- Search -->
+      <div class="relative">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input
+          type="text"
+          placeholder="Search by hand # or session..."
+          class="w-full pl-10 pr-4 py-2.5 bg-gray-900 border border-gray-700 rounded-xl text-gray-50 text-sm placeholder-gray-500 focus:outline-none"
+        />
+      </div>
+
+      <!-- Filter row -->
+      <div class="flex flex-wrap gap-2">
+        <!-- Position pills -->
+        <div class="flex items-center gap-1 bg-gray-900 rounded-xl p-1 border border-gray-700">
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-emerald-500 text-white">All</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg text-gray-400 hover:text-gray-50">UTG</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg text-gray-400 hover:text-gray-50">HJ</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg text-gray-400 hover:text-gray-50">CO</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg text-gray-400 hover:text-gray-50">BTN</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg text-gray-400 hover:text-gray-50">SB</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg text-gray-400 hover:text-gray-50">BB</button>
+        </div>
+
+        <!-- Result select -->
+        <select class="px-3 py-2 bg-gray-900 border border-gray-700 rounded-xl text-sm text-gray-50 focus:outline-none">
+          <option>All Results</option>
+          <option>Wins</option>
+          <option>Losses</option>
+          <option>Break Even</option>
+        </select>
+
+        <!-- Sort select -->
+        <select class="px-3 py-2 bg-gray-900 border border-gray-700 rounded-xl text-sm text-gray-50 focus:outline-none">
+          <option>Newest First</option>
+          <option>Oldest First</option>
+          <option>Biggest Win</option>
+          <option>Biggest Loss</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Hand List -->
+    <div class="space-y-2">
+
+      <!-- Hand 1: Big win with deviation -->
+      <div class="w-full bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl p-4 flex items-center gap-4 cursor-pointer group">
+        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-sm font-bold text-gray-400">#247</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-sm font-semibold">
+              <span class="text-gray-50">A</span><span class="text-red-500">♥</span>
+              <span class="ml-1 text-gray-50">K</span><span class="text-red-500">♥</span>
+            </span>
+            <span class="px-2 py-0.5 bg-gray-800 rounded text-xs font-medium text-gray-400">BTN</span>
+            <span class="text-xs text-gray-500">River</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Mar 22, 02:45 PM</span>
+            <span class="flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+              <span class="text-xs text-gray-500">Moderate deviation</span>
+            </span>
+          </div>
+        </div>
+        <div class="flex-shrink-0 text-right">
+          <span class="text-sm font-semibold text-emerald-500">+24.5 BB</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <!-- Hand 2: Loss with severe deviation -->
+      <div class="w-full bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl p-4 flex items-center gap-4 cursor-pointer group">
+        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-sm font-bold text-gray-400">#246</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-sm font-semibold">
+              <span class="text-gray-50">Q</span><span class="text-red-500">♦</span>
+              <span class="ml-1 text-gray-50">J</span><span class="text-red-500">♦</span>
+            </span>
+            <span class="px-2 py-0.5 bg-gray-800 rounded text-xs font-medium text-gray-400">CO</span>
+            <span class="text-xs text-gray-500">River</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Mar 22, 02:41 PM</span>
+            <span class="flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+              <span class="text-xs text-gray-500">Severe deviation</span>
+            </span>
+          </div>
+        </div>
+        <div class="flex-shrink-0 text-right">
+          <span class="text-sm font-semibold text-red-500">-18.0 BB</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <!-- Hand 3: Small win, no deviation -->
+      <div class="w-full bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl p-4 flex items-center gap-4 cursor-pointer group">
+        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-sm font-bold text-gray-400">#245</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-sm font-semibold">
+              <span class="text-gray-50">9</span><span class="text-gray-50">♠</span>
+              <span class="ml-1 text-gray-50">9</span><span class="text-gray-50">♣</span>
+            </span>
+            <span class="px-2 py-0.5 bg-gray-800 rounded text-xs font-medium text-gray-400">HJ</span>
+            <span class="text-xs text-gray-500">Turn</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Mar 22, 02:38 PM</span>
+          </div>
+        </div>
+        <div class="flex-shrink-0 text-right">
+          <span class="text-sm font-semibold text-emerald-500">+6.0 BB</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <!-- Hand 4: Folded preflop -->
+      <div class="w-full bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl p-4 flex items-center gap-4 cursor-pointer group">
+        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-sm font-bold text-gray-400">#244</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-sm font-semibold text-gray-50">Folded</span>
+            <span class="px-2 py-0.5 bg-gray-800 rounded text-xs font-medium text-gray-400">UTG</span>
+            <span class="text-xs text-gray-500">Preflop</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Mar 22, 02:36 PM</span>
+          </div>
+        </div>
+        <div class="flex-shrink-0 text-right">
+          <span class="text-sm font-semibold text-gray-400">0 BB</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <!-- Hand 5: Loss, minor deviation -->
+      <div class="w-full bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl p-4 flex items-center gap-4 cursor-pointer group">
+        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-sm font-bold text-gray-400">#243</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-sm font-semibold">
+              <span class="text-gray-50">A</span><span class="text-gray-50">♠</span>
+              <span class="ml-1 text-gray-50">T</span><span class="text-gray-50">♣</span>
+            </span>
+            <span class="px-2 py-0.5 bg-gray-800 rounded text-xs font-medium text-gray-400">BB</span>
+            <span class="text-xs text-gray-500">Flop</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Mar 22, 02:33 PM</span>
+            <span class="flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+              <span class="text-xs text-gray-500">Minor deviation</span>
+            </span>
+          </div>
+        </div>
+        <div class="flex-shrink-0 text-right">
+          <span class="text-sm font-semibold text-red-500">-3.0 BB</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <!-- Hand 6: Win on flop -->
+      <div class="w-full bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl p-4 flex items-center gap-4 cursor-pointer group">
+        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-sm font-bold text-gray-400">#242</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-sm font-semibold">
+              <span class="text-gray-50">K</span><span class="text-gray-50">♠</span>
+              <span class="ml-1 text-gray-50">Q</span><span class="text-gray-50">♠</span>
+            </span>
+            <span class="px-2 py-0.5 bg-gray-800 rounded text-xs font-medium text-gray-400">SB</span>
+            <span class="text-xs text-gray-500">Flop</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Mar 22, 02:30 PM</span>
+          </div>
+        </div>
+        <div class="flex-shrink-0 text-right">
+          <span class="text-sm font-semibold text-emerald-500">+8.5 BB</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <!-- Hand 7: Big loss -->
+      <div class="w-full bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl p-4 flex items-center gap-4 cursor-pointer group">
+        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-sm font-bold text-gray-400">#241</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-sm font-semibold">
+              <span class="text-red-500">J♥</span>
+              <span class="ml-1 text-red-500">T♥</span>
+            </span>
+            <span class="px-2 py-0.5 bg-gray-800 rounded text-xs font-medium text-gray-400">BTN</span>
+            <span class="text-xs text-gray-500">River</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Mar 22, 02:26 PM</span>
+            <span class="flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+              <span class="text-xs text-gray-500">Severe deviation</span>
+            </span>
+          </div>
+        </div>
+        <div class="flex-shrink-0 text-right">
+          <span class="text-sm font-semibold text-red-500">-42.0 BB</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <!-- Hand 8: Break even -->
+      <div class="w-full bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl p-4 flex items-center gap-4 cursor-pointer group">
+        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-sm font-bold text-gray-400">#240</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-sm font-semibold">
+              <span class="text-gray-50">7</span><span class="text-red-500">♦</span>
+              <span class="ml-1 text-gray-50">6</span><span class="text-red-500">♦</span>
+            </span>
+            <span class="px-2 py-0.5 bg-gray-800 rounded text-xs font-medium text-gray-400">CO</span>
+            <span class="text-xs text-gray-500">Turn</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Mar 22, 02:22 PM</span>
+          </div>
+        </div>
+        <div class="flex-shrink-0 text-right">
+          <span class="text-sm font-semibold text-gray-400">0 BB</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+    </div>
+
+    <!-- Load More -->
+    <div class="flex justify-center pt-2">
+      <button class="px-6 py-2.5 bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl text-sm font-medium text-gray-400 hover:text-gray-50 transition-colors">
+        Load More
+      </button>
+    </div>
+
+  </div>
+</body>
+</html>

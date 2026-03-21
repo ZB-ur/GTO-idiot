@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreetTimeline Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes ping {
+      75%, 100% { transform: scale(2); opacity: 0; }
+    }
+    .animate-ping { animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; }
+  </style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto space-y-8">
+
+    <!-- Label -->
+    <p class="text-gray-500 text-xs font-mono uppercase tracking-widest mb-1">State 1 — Current: Flop, with deviations</p>
+
+    <!-- Timeline: Current = Flop, available through Turn -->
+    <div class="w-full rounded-xl bg-gray-900 border border-gray-700 px-4 py-3">
+      <div class="flex items-center justify-between">
+
+        <!-- Preflop (past, completed) -->
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+          <button class="relative flex flex-col items-center gap-1 px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 cursor-pointer transition-all duration-200">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center bg-emerald-500/60 transition-all duration-200">
+              <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <span class="text-xs font-semibold tracking-wide text-gray-300">Preflop</span>
+          </button>
+          <!-- 1 minor deviation on preflop -->
+          <div class="flex items-center gap-1">
+            <button class="group relative flex items-center justify-center" title="minor deviation — click to jump">
+              <span class="relative w-3 h-3 rounded-full bg-green-400 ring-2 ring-green-400/30 group-hover:scale-125 transition-transform duration-150 cursor-pointer"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Connector: preflop→flop (past) -->
+        <div class="flex-1 mx-1">
+          <div class="h-0.5 w-full rounded-full bg-emerald-500 transition-colors duration-300"></div>
+        </div>
+
+        <!-- Flop (current) -->
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+          <button class="relative flex flex-col items-center gap-1 px-4 py-2 rounded-lg bg-emerald-500/15 ring-2 ring-emerald-500 shadow-lg transition-all duration-200" aria-current="step">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center bg-emerald-500 shadow-md" style="box-shadow: 0 4px 6px -1px rgba(16,185,129,0.3);">
+              <span class="w-2 h-2 rounded-full bg-white"></span>
+            </div>
+            <span class="text-xs font-semibold tracking-wide text-emerald-400">Flop</span>
+          </button>
+          <!-- 1 severe deviation on flop -->
+          <div class="flex items-center gap-1">
+            <button class="group relative flex items-center justify-center" title="severe deviation — click to jump">
+              <span class="absolute w-4 h-4 rounded-full animate-ping bg-red-400/40"></span>
+              <span class="relative w-3 h-3 rounded-full bg-red-400 ring-2 ring-red-400/30 group-hover:scale-125 transition-transform duration-150 cursor-pointer"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Connector: flop→turn (not yet reached) -->
+        <div class="flex-1 mx-1">
+          <div class="h-0.5 w-full rounded-full bg-gray-600 transition-colors duration-300"></div>
+        </div>
+
+        <!-- Turn (available, future) -->
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+          <button class="relative flex flex-col items-center gap-1 px-4 py-2 rounded-lg bg-gray-800/50 hover:bg-gray-800 cursor-pointer transition-all duration-200">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center bg-gray-600 transition-all duration-200"></div>
+            <span class="text-xs font-semibold tracking-wide text-gray-500">Turn</span>
+          </button>
+          <!-- 1 moderate deviation on turn -->
+          <div class="flex items-center gap-1">
+            <button class="group relative flex items-center justify-center" title="moderate deviation — click to jump">
+              <span class="relative w-3 h-3 rounded-full bg-yellow-400 ring-2 ring-yellow-400/30 group-hover:scale-125 transition-transform duration-150 cursor-pointer"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Connector: turn→river (not available) -->
+        <div class="flex-1 mx-1">
+          <div class="h-0.5 w-full rounded-full bg-gray-800 transition-colors duration-300"></div>
+        </div>
+
+        <!-- River (not available) -->
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+          <button class="relative flex flex-col items-center gap-1 px-4 py-2 rounded-lg opacity-40 cursor-not-allowed transition-all duration-200" disabled>
+            <div class="w-6 h-6 rounded-full flex items-center justify-center bg-gray-800 border border-gray-700 transition-all duration-200"></div>
+            <span class="text-xs font-semibold tracking-wide text-gray-600">River</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Label -->
+    <p class="text-gray-500 text-xs font-mono uppercase tracking-widest mb-1 mt-10">State 2 — Current: River, all streets complete</p>
+
+    <!-- Timeline: Current = River, all streets available, multiple deviations -->
+    <div class="w-full rounded-xl bg-gray-900 border border-gray-700 px-4 py-3">
+      <div class="flex items-center justify-between">
+
+        <!-- Preflop (past) -->
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+          <button class="relative flex flex-col items-center gap-1 px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 cursor-pointer transition-all duration-200">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center bg-emerald-500/60">
+              <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <span class="text-xs font-semibold tracking-wide text-gray-300">Preflop</span>
+          </button>
+        </div>
+
+        <!-- Connector -->
+        <div class="flex-1 mx-1">
+          <div class="h-0.5 w-full rounded-full bg-emerald-500"></div>
+        </div>
+
+        <!-- Flop (past) -->
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+          <button class="relative flex flex-col items-center gap-1 px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 cursor-pointer transition-all duration-200">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center bg-emerald-500/60">
+              <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <span class="text-xs font-semibold tracking-wide text-gray-300">Flop</span>
+          </button>
+          <!-- 2 deviations on flop -->
+          <div class="flex items-center gap-1">
+            <button class="group relative flex items-center justify-center" title="moderate deviation">
+              <span class="relative w-3 h-3 rounded-full bg-yellow-400 ring-2 ring-yellow-400/30 group-hover:scale-125 transition-transform duration-150 cursor-pointer"></span>
+            </button>
+            <button class="group relative flex items-center justify-center" title="severe deviation">
+              <span class="absolute w-4 h-4 rounded-full animate-ping bg-red-400/40"></span>
+              <span class="relative w-3 h-3 rounded-full bg-red-400 ring-2 ring-red-400/30 group-hover:scale-125 transition-transform duration-150 cursor-pointer"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Connector -->
+        <div class="flex-1 mx-1">
+          <div class="h-0.5 w-full rounded-full bg-emerald-500"></div>
+        </div>
+
+        <!-- Turn (past) -->
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+          <button class="relative flex flex-col items-center gap-1 px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 cursor-pointer transition-all duration-200">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center bg-emerald-500/60">
+              <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <span class="text-xs font-semibold tracking-wide text-gray-300">Turn</span>
+          </button>
+          <!-- 1 minor deviation -->
+          <div class="flex items-center gap-1">
+            <button class="group relative flex items-center justify-center" title="minor deviation">
+              <span class="relative w-3 h-3 rounded-full bg-green-400 ring-2 ring-green-400/30 group-hover:scale-125 transition-transform duration-150 cursor-pointer"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Connector -->
+        <div class="flex-1 mx-1">
+          <div class="h-0.5 w-full rounded-full bg-emerald-500"></div>
+        </div>
+
+        <!-- River (current) -->
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+          <button class="relative flex flex-col items-center gap-1 px-4 py-2 rounded-lg bg-emerald-500/15 ring-2 ring-emerald-500 shadow-lg transition-all duration-200" aria-current="step" style="box-shadow: 0 10px 15px -3px rgba(16,185,129,0.1);">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center bg-emerald-500 shadow-md" style="box-shadow: 0 4px 6px -1px rgba(16,185,129,0.3);">
+              <span class="w-2 h-2 rounded-full bg-white"></span>
+            </div>
+            <span class="text-xs font-semibold tracking-wide text-emerald-400">River</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Label -->
+    <p class="text-gray-500 text-xs font-mono uppercase tracking-widest mb-1 mt-10">State 3 — Current: Preflop, no deviations yet</p>
+
+    <!-- Timeline: Current = Preflop, only preflop available, no deviations -->
+    <div class="w-full rounded-xl bg-gray-900 border border-gray-700 px-4 py-3">
+      <div class="flex items-center justify-between">
+
+        <!-- Preflop (current) -->
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+          <button class="relative flex flex-col items-center gap-1 px-4 py-2 rounded-lg bg-emerald-500/15 ring-2 ring-emerald-500 shadow-lg transition-all duration-200" aria-current="step" style="box-shadow: 0 10px 15px -3px rgba(16,185,129,0.1);">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center bg-emerald-500 shadow-md" style="box-shadow: 0 4px 6px -1px rgba(16,185,129,0.3);">
+              <span class="w-2 h-2 rounded-full bg-white"></span>
+            </div>
+            <span class="text-xs font-semibold tracking-wide text-emerald-400">Preflop</span>
+          </button>
+        </div>
+
+        <!-- Connector -->
+        <div class="flex-1 mx-1">
+          <div class="h-0.5 w-full rounded-full bg-gray-800"></div>
+        </div>
+
+        <!-- Flop (not available) -->
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+          <button class="relative flex flex-col items-center gap-1 px-4 py-2 rounded-lg opacity-40 cursor-not-allowed" disabled>
+            <div class="w-6 h-6 rounded-full flex items-center justify-center bg-gray-800 border border-gray-700"></div>
+            <span class="text-xs font-semibold tracking-wide text-gray-600">Flop</span>
+          </button>
+        </div>
+
+        <!-- Connector -->
+        <div class="flex-1 mx-1">
+          <div class="h-0.5 w-full rounded-full bg-gray-800"></div>
+        </div>
+
+        <!-- Turn (not available) -->
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+          <button class="relative flex flex-col items-center gap-1 px-4 py-2 rounded-lg opacity-40 cursor-not-allowed" disabled>
+            <div class="w-6 h-6 rounded-full flex items-center justify-center bg-gray-800 border border-gray-700"></div>
+            <span class="text-xs font-semibold tracking-wide text-gray-600">Turn</span>
+          </button>
+        </div>
+
+        <!-- Connector -->
+        <div class="flex-1 mx-1">
+          <div class="h-0.5 w-full rounded-full bg-gray-800"></div>
+        </div>
+
+        <!-- River (not available) -->
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+          <button class="relative flex flex-col items-center gap-1 px-4 py-2 rounded-lg opacity-40 cursor-not-allowed" disabled>
+            <div class="w-6 h-6 rounded-full flex items-center justify-center bg-gray-800 border border-gray-700"></div>
+            <span class="text-xs font-semibold tracking-wide text-gray-600">River</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="space-y-6">
+    <!-- Standalone -->
+    <div>
+      <p class="text-gray-400 text-sm mb-3 font-semibold">Dealer Button — Standalone</p>
+      <div class="flex gap-4 items-center">
+        <div class="w-8 h-8 rounded-full bg-white shadow-md border-2 border-gray-300 flex items-center justify-center select-none">
+          <span class="text-gray-900 font-black text-sm leading-none">D</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- In context: next to a player seat -->
+    <div>
+      <p class="text-gray-400 text-sm mb-3 font-semibold">In Context — Next to Player Seat</p>
+      <div class="relative bg-gray-900 border border-gray-700 rounded-xl p-4 w-48">
+        <div class="text-gray-50 text-sm font-semibold">Player 1</div>
+        <div class="text-emerald-400 text-xs">100 BB</div>
+        <!-- Dealer button positioned at top-right -->
+        <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-white shadow-md border-2 border-gray-300 flex items-center justify-center select-none">
+          <span class="text-gray-900 font-black text-sm leading-none">D</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
