@@ -1,0 +1,1169 @@
+{
+  "test_framework": "vitest",
+  "commands": {
+    "setupCommand": "cd code && npm install -D vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom fake-indexeddb",
+    "runCommand": "cd code && npx vitest run"
+  },
+  "test_suites": [
+    {
+      "module": "game-engine",
+      "test_file": "tests/game-engine.test.ts",
+      "test_cases": [
+        {
+          "name": "DeckManager creates a full 52-card deck with no duplicates",
+          "covers_tasks": [
+            "T-003"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "DeckManager Fisher-Yates shuffle produces valid permutation",
+          "covers_tasks": [
+            "T-003"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "DeckManager deals correct number of cards and removes from deck",
+          "covers_tasks": [
+            "T-003"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Hand state machine transitions preflop → flop → turn → river → showdown → settled",
+          "covers_tasks": [
+            "T-003"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Blind posting deducts correct amounts from SB and BB",
+          "covers_tasks": [
+            "T-003"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Validates legal actions based on game state",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Rejects invalid actions (e.g. check when facing bet)",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Processes fold correctly",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Processes call correctly — matches current bet",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Processes raise correctly — validates min/max sizes",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Processes all-in correctly",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Detects betting round completion",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Main pot calculated correctly for 2-player hand",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Side pot created for 3-player all-in with different stacks",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Multiple side pots for 4+ player all-in",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Hand evaluator ranks hands correctly across all hand types",
+          "covers_tasks": [
+            "T-006"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Hand evaluator handles 7-card best-5 extraction",
+          "covers_tasks": [
+            "T-006"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Showdown comparison determines winner correctly",
+          "covers_tasks": [
+            "T-006"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Showdown handles ties (split pot)",
+          "covers_tasks": [
+            "T-006"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Settlement distributes main pot to winner",
+          "covers_tasks": [
+            "T-007"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Settlement distributes side pots to eligible winners",
+          "covers_tasks": [
+            "T-007"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Settlement handles split pot rounding",
+          "covers_tasks": [
+            "T-007"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Full hand lifecycle: deal → bet → flop → bet → turn → bet → river → showdown → settle",
+          "covers_tasks": [
+            "T-003",
+            "T-004",
+            "T-005",
+            "T-006",
+            "T-007"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "bot-ai",
+      "test_file": "tests/bot-ai.test.ts",
+      "test_cases": [
+        {
+          "name": "TAG profile has correct VPIP/PFR/AF/3Bet% ranges",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "LAG profile has higher VPIP and AF than TAG",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "TP profile has low AF and moderate VPIP",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "LP profile has high VPIP and low AF",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "GTO profile delegates to gto-solver",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Bot folds weak hands from early position (TAG)",
+          "covers_tasks": [
+            "T-009"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Bot opens wider range from button position",
+          "covers_tasks": [
+            "T-009"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Bot calls with correct pot odds calculation",
+          "covers_tasks": [
+            "T-009"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Bot raises with strong hands per style parameters",
+          "covers_tasks": [
+            "T-009"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Bot 3-bets at rate consistent with profile",
+          "covers_tasks": [
+            "T-009"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Hand strength calculator returns correct relative strength",
+          "covers_tasks": [
+            "T-009"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Bot decision is deterministic given same inputs and seed",
+          "covers_tasks": [
+            "T-009"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Bot handles all-in when stack < raise size",
+          "covers_tasks": [
+            "T-009"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "gto-solver",
+      "test_file": "tests/gto-solver.test.ts",
+      "test_cases": [
+        {
+          "name": "Preflop range table returns correct open range for UTG",
+          "covers_tasks": [
+            "T-010"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Preflop range table returns correct open range for Button",
+          "covers_tasks": [
+            "T-010"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Preflop range table handles 3-bet scenario",
+          "covers_tasks": [
+            "T-010"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Preflop range table returns empty for invalid position",
+          "covers_tasks": [
+            "T-010"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Postflop heuristic returns raise for strong hand with low SPR",
+          "covers_tasks": [
+            "T-011"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Postflop heuristic returns call for drawing hand with pot odds",
+          "covers_tasks": [
+            "T-011"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Postflop heuristic returns fold for weak hand facing large bet",
+          "covers_tasks": [
+            "T-011"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Postflop EV estimation accounts for pot odds correctly",
+          "covers_tasks": [
+            "T-011"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Monte Carlo returns equity in [0,1] range",
+          "covers_tasks": [
+            "T-012"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Monte Carlo AA vs random yields ~85% equity",
+          "covers_tasks": [
+            "T-012"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Monte Carlo with known board converges within tolerance",
+          "covers_tasks": [
+            "T-012"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Monte Carlo respects configurable iteration count",
+          "covers_tasks": [
+            "T-012"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Batch evaluation processes multiple decision points",
+          "covers_tasks": [
+            "T-026"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Batch evaluation computes total EV loss",
+          "covers_tasks": [
+            "T-026"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Batch evaluation returns per-decision quality rating",
+          "covers_tasks": [
+            "T-026"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "gto-solver",
+      "test_file": "tests/gto-worker.test.ts",
+      "test_cases": [
+        {
+          "name": "Web Worker responds to evaluate message",
+          "covers_tasks": [
+            "T-013"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "Web Worker responds to batchEvaluate message",
+          "covers_tasks": [
+            "T-013"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "Web Worker times out after 5s with degraded result",
+          "covers_tasks": [
+            "T-013",
+            "T-031"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "Degraded fallback uses 100 iterations",
+          "covers_tasks": [
+            "T-013",
+            "T-031"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "Worker handles malformed messages gracefully",
+          "covers_tasks": [
+            "T-013",
+            "T-031"
+          ],
+          "type": "integration"
+        }
+      ]
+    },
+    {
+      "module": "persistence",
+      "test_file": "tests/persistence.test.ts",
+      "test_cases": [
+        {
+          "name": "Database initializes with correct schema and indexes",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SessionRepository.create stores session and returns id",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SessionRepository.get retrieves session by id",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SessionRepository.update modifies session fields",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SessionRepository.list returns sessions ordered by startedAt",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SessionRepository.getActive returns active session",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "HandHistoryRepository.save stores hand record",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "HandHistoryRepository.get retrieves hand by id",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "HandHistoryRepository.list supports cursor pagination",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "HandHistoryRepository.list filters by sessionId",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "HandHistoryRepository.delete removes hand record",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "HandHistoryRepository.count returns correct count",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Handles 100+ records with consistent pagination",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "Graceful error when IndexedDB is unavailable",
+          "covers_tasks": [
+            "T-031"
+          ],
+          "type": "integration"
+        }
+      ]
+    },
+    {
+      "module": "services",
+      "test_file": "tests/service-layer.test.ts",
+      "test_cases": [
+        {
+          "name": "SessionService.create creates session in DB",
+          "covers_tasks": [
+            "T-014",
+            "T-015"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "SessionService.pause saves game state",
+          "covers_tasks": [
+            "T-014",
+            "T-015"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "SessionService.resume restores paused session",
+          "covers_tasks": [
+            "T-014",
+            "T-015"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "SessionService.end finalizes session stats",
+          "covers_tasks": [
+            "T-014",
+            "T-015"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "HandService.start creates hand via engine",
+          "covers_tasks": [
+            "T-014"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "HandService.action processes user action and triggers bots",
+          "covers_tasks": [
+            "T-014"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "HandService.settle completes hand and saves history",
+          "covers_tasks": [
+            "T-014"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "SeatAssigner auto-assigns user to valid seat",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "SeatAssigner places user at selected seat",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "BOT allocation fills seats with varied profiles",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "integration"
+        }
+      ]
+    },
+    {
+      "module": "session-mgmt",
+      "test_file": "tests/session-mgmt.test.ts",
+      "test_cases": [
+        {
+          "name": "SessionManager.create initializes with correct defaults",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SessionManager.create validates blind levels",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SessionManager.pause sets pausedAt timestamp",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SessionManager.resume clears pausedAt",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SessionManager.end computes total duration excluding paused time",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SessionManager.getActive returns null when none active",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Only one active session allowed at a time",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "history-replay",
+      "test_file": "tests/history-replay.test.ts",
+      "test_cases": [
+        {
+          "name": "ReplayEngine.load reconstructs timeline from history",
+          "covers_tasks": [
+            "T-024"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "ReplayEngine.goToStep navigates forward",
+          "covers_tasks": [
+            "T-024"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "ReplayEngine.goToStep navigates backward",
+          "covers_tasks": [
+            "T-024"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "ReplayEngine.goToStep jumps to arbitrary step",
+          "covers_tasks": [
+            "T-024"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Timeline generates correct markers for street transitions",
+          "covers_tasks": [
+            "T-024"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Timeline marks user decision points distinctly",
+          "covers_tasks": [
+            "T-024"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "GTO analysis lazy-loads at decision point",
+          "covers_tasks": [
+            "T-025"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Quality color: green for EV loss < 0.5BB",
+          "covers_tasks": [
+            "T-025"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Quality color: yellow for EV loss 0.5-2BB",
+          "covers_tasks": [
+            "T-025"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Quality color: red for EV loss > 2BB",
+          "covers_tasks": [
+            "T-025"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "EV bar display renders correct relative widths",
+          "covers_tasks": [
+            "T-025"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "stats",
+      "test_file": "tests/stats.test.ts",
+      "test_cases": [
+        {
+          "name": "getOverview returns correct totals",
+          "covers_tasks": [
+            "T-027"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "getOverview handles zero hands gracefully",
+          "covers_tasks": [
+            "T-027"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "getByPosition breaks down per position",
+          "covers_tasks": [
+            "T-028"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "getByStreet returns EV data per street",
+          "covers_tasks": [
+            "T-028"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "getProfitTrend groups by hand correctly",
+          "covers_tasks": [
+            "T-029"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "getProfitTrend groups by session correctly",
+          "covers_tasks": [
+            "T-029"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "getProfitTrend respects limit parameter",
+          "covers_tasks": [
+            "T-029"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "app-shell",
+      "test_file": "tests/stores.test.ts",
+      "test_cases": [
+        {
+          "name": "gameStore initializes with null hand state",
+          "covers_tasks": [
+            "T-016"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "gameStore.setHandState updates current hand",
+          "covers_tasks": [
+            "T-016"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "gameStore.setAvailableActions updates action list",
+          "covers_tasks": [
+            "T-016"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "sessionStore tracks active session",
+          "covers_tasks": [
+            "T-016"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "sessionStore.clear resets to initial state",
+          "covers_tasks": [
+            "T-016"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "uiStore manages loading states",
+          "covers_tasks": [
+            "T-016"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "uiStore manages toast notifications",
+          "covers_tasks": [
+            "T-016"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "app-shell",
+      "test_file": "tests/app-shell.test.ts",
+      "test_cases": [
+        {
+          "name": "AppShell renders TopNav and content area",
+          "covers_tasks": [
+            "T-017"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "TopNav renders 4 navigation tabs",
+          "covers_tasks": [
+            "T-017"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Router navigates to correct page components",
+          "covers_tasks": [
+            "T-017"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "EmptyState renders message and optional action",
+          "covers_tasks": [
+            "T-032"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Skeleton renders placeholder with correct dimensions",
+          "covers_tasks": [
+            "T-032"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Toast displays and auto-dismisses",
+          "covers_tasks": [
+            "T-031",
+            "T-032"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "NewSessionDialog submits with valid blind levels",
+          "covers_tasks": [
+            "T-030"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SessionStatusBar displays duration, hands, P/L",
+          "covers_tasks": [
+            "T-030"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SessionSummaryModal displays end-of-session stats",
+          "covers_tasks": [
+            "T-030"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "game-ui",
+      "test_file": "tests/game-ui.test.ts",
+      "test_cases": [
+        {
+          "name": "Card renders correct suit and rank SVG",
+          "covers_tasks": [
+            "T-018"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Card renders face-down state",
+          "covers_tasks": [
+            "T-018"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "CommunityCards renders 0/3/4/5 cards per street",
+          "covers_tasks": [
+            "T-018"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "PlayerSeat displays name, chips, cards, dealer button",
+          "covers_tasks": [
+            "T-018"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "PotDisplay shows correct pot amount",
+          "covers_tasks": [
+            "T-018"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "ActionPanel renders only legal actions",
+          "covers_tasks": [
+            "T-019"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "RaiseSlider respects min/max constraints",
+          "covers_tasks": [
+            "T-019"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "RaiseSlider preset buttons compute correctly",
+          "covers_tasks": [
+            "T-019"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "All-in confirm dialog requires confirmation",
+          "covers_tasks": [
+            "T-019"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Animation timing constants match spec",
+          "covers_tasks": [
+            "T-021"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "game-ui",
+      "test_file": "tests/game-loop.test.ts",
+      "test_cases": [
+        {
+          "name": "User action flows through UI → service → engine → state update",
+          "covers_tasks": [
+            "T-020"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "Bots act sequentially after user action",
+          "covers_tasks": [
+            "T-020"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "Game progresses through full hand with user calling",
+          "covers_tasks": [
+            "T-020"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "User fold ends participation; hand continues among bots",
+          "covers_tasks": [
+            "T-020"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "Hand auto-settles when all but one folds",
+          "covers_tasks": [
+            "T-020"
+          ],
+          "type": "integration"
+        }
+      ]
+    },
+    {
+      "module": "persistence",
+      "test_file": "tests/hand-history-ui.test.ts",
+      "test_cases": [
+        {
+          "name": "HandHistoryList renders items from persistence",
+          "covers_tasks": [
+            "T-022"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "Infinite scroll loads next page",
+          "covers_tasks": [
+            "T-022"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "Delete removes hand with confirmation",
+          "covers_tasks": [
+            "T-022"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "Hand detail view shows full hand record",
+          "covers_tasks": [
+            "T-023"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "Empty state shown when no history exists",
+          "covers_tasks": [
+            "T-022",
+            "T-032"
+          ],
+          "type": "integration"
+        }
+      ]
+    },
+    {
+      "module": "app-shell",
+      "test_file": "tests/e2e-smoke.test.ts",
+      "test_cases": [
+        {
+          "name": "Full hand lifecycle: create session → play hand → see result",
+          "covers_tasks": [
+            "T-034"
+          ],
+          "type": "e2e"
+        },
+        {
+          "name": "Session flow: create → play → pause → resume → end → summary",
+          "covers_tasks": [
+            "T-034"
+          ],
+          "type": "e2e"
+        },
+        {
+          "name": "History flow: play → navigate to history → view detail",
+          "covers_tasks": [
+            "T-034"
+          ],
+          "type": "e2e"
+        },
+        {
+          "name": "Replay flow: open history → replay → step through → see GTO analysis",
+          "covers_tasks": [
+            "T-034"
+          ],
+          "type": "e2e"
+        },
+        {
+          "name": "Stats flow: play hands → see overview, position, trend charts",
+          "covers_tasks": [
+            "T-034"
+          ],
+          "type": "e2e"
+        },
+        {
+          "name": "Error resilience: IndexedDB failure shows toast, game continues",
+          "covers_tasks": [
+            "T-031",
+            "T-034"
+          ],
+          "type": "e2e"
+        }
+      ]
+    },
+    {
+      "module": "scaffold",
+      "test_file": "tests/scaffold.test.ts",
+      "test_cases": [
+        {
+          "name": "Project builds without TypeScript errors",
+          "covers_tasks": [
+            "T-001"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Vite dev server starts successfully",
+          "covers_tasks": [
+            "T-001"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "Tailwind CSS classes are purged in production build",
+          "covers_tasks": [
+            "T-001"
+          ],
+          "type": "unit"
+        }
+      ]
+    }
+  ]
+}
