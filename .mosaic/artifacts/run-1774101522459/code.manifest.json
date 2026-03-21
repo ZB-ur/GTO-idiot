@@ -1,12 +1,17 @@
 {
   "files": [
     {
-      "path": "code/dist/assets/index-B2ZWijIV.css",
+      "path": "code/README.md",
       "module": "unknown",
       "description": ""
     },
     {
-      "path": "code/dist/assets/index-CWAjFGWP.js",
+      "path": "code/dist/assets/index-CxUwkle_.js",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/dist/assets/index-D5HGYfoK.css",
       "module": "unknown",
       "description": ""
     },
@@ -41,6 +46,41 @@
       "description": ""
     },
     {
+      "path": "code/src/__tests__/bot/decision-engine.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
+      "path": "code/src/__tests__/e2e/hand-lifecycle.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
+      "path": "code/src/__tests__/engine/betting-round.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
+      "path": "code/src/__tests__/engine/game-engine.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
+      "path": "code/src/__tests__/engine/pot-manager.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
+      "path": "code/src/__tests__/gto/gto-evaluation.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
+      "path": "code/src/__tests__/services/hand-service.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
       "path": "code/src/bot/bot-profiles.ts",
       "module": "bot-ai",
       "description": ""
@@ -52,6 +92,11 @@
     },
     {
       "path": "code/src/bot/hand-strength.ts",
+      "module": "bot-ai",
+      "description": ""
+    },
+    {
+      "path": "code/src/bot/index.ts",
       "module": "bot-ai",
       "description": ""
     },
@@ -71,6 +116,11 @@
       "description": ""
     },
     {
+      "path": "code/src/components/game/ActionPanel.tsx",
+      "module": "game-ui",
+      "description": ""
+    },
+    {
       "path": "code/src/components/game/Card.tsx",
       "module": "game-ui",
       "description": ""
@@ -81,8 +131,63 @@
       "description": ""
     },
     {
+      "path": "code/src/components/game/ConfirmDialog.tsx",
+      "module": "game-ui",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/game/GamePage.tsx",
+      "module": "game-ui",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/game/PlayerSeat.tsx",
+      "module": "game-ui",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/game/PokerTable.tsx",
+      "module": "game-ui",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/game/PotDisplay.tsx",
+      "module": "game-ui",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/game/RaiseSlider.tsx",
+      "module": "game-ui",
+      "description": ""
+    },
+    {
       "path": "code/src/components/game/animations.ts",
       "module": "game-ui",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/game/useGameLoop.ts",
+      "module": "game-ui",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/history/HandHistoryDetail.tsx",
+      "module": "history-replay",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/history/HandHistoryItem.tsx",
+      "module": "history-replay",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/history/HandHistoryList.tsx",
+      "module": "history-replay",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/history/HistoryPage.tsx",
+      "module": "history-replay",
       "description": ""
     },
     {
@@ -93,6 +198,26 @@
     {
       "path": "code/src/components/layout/TopNav.tsx",
       "module": "app-shell",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/replay/DecisionAnalysis.tsx",
+      "module": "history-replay",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/replay/HandReplayViewer.tsx",
+      "module": "history-replay",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/replay/ReplayPage.tsx",
+      "module": "history-replay",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/replay/ReplayTimeline.tsx",
+      "module": "history-replay",
       "description": ""
     },
     {
@@ -151,7 +276,22 @@
       "description": ""
     },
     {
+      "path": "code/src/engine/game-engine.ts",
+      "module": "game-engine",
+      "description": ""
+    },
+    {
       "path": "code/src/engine/hand-evaluator.ts",
+      "module": "game-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/hand-state-machine.ts",
+      "module": "game-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/index.ts",
       "module": "game-engine",
       "description": ""
     },
@@ -161,7 +301,47 @@
       "description": ""
     },
     {
+      "path": "code/src/engine/settlement.ts",
+      "module": "game-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/gto/batch-evaluator.ts",
+      "module": "gto-solver",
+      "description": ""
+    },
+    {
+      "path": "code/src/gto/gto-client.ts",
+      "module": "gto-solver",
+      "description": ""
+    },
+    {
+      "path": "code/src/gto/gto-worker.ts",
+      "module": "gto-solver",
+      "description": ""
+    },
+    {
+      "path": "code/src/gto/index.ts",
+      "module": "gto-solver",
+      "description": ""
+    },
+    {
+      "path": "code/src/gto/monte-carlo.ts",
+      "module": "gto-solver",
+      "description": ""
+    },
+    {
+      "path": "code/src/gto/postflop-heuristic.ts",
+      "module": "gto-solver",
+      "description": ""
+    },
+    {
       "path": "code/src/gto/preflop-range-data.ts",
+      "module": "gto-solver",
+      "description": ""
+    },
+    {
+      "path": "code/src/gto/preflop-ranges.ts",
       "module": "gto-solver",
       "description": ""
     },
@@ -231,8 +411,73 @@
       "description": ""
     },
     {
+      "path": "code/src/services/gto-service.ts",
+      "module": "services",
+      "description": ""
+    },
+    {
+      "path": "code/src/services/hand-service.ts",
+      "module": "services",
+      "description": ""
+    },
+    {
+      "path": "code/src/services/history-service.ts",
+      "module": "services",
+      "description": ""
+    },
+    {
+      "path": "code/src/services/index.ts",
+      "module": "services",
+      "description": ""
+    },
+    {
+      "path": "code/src/services/replay-service.ts",
+      "module": "services",
+      "description": ""
+    },
+    {
+      "path": "code/src/services/session-service.ts",
+      "module": "services",
+      "description": ""
+    },
+    {
+      "path": "code/src/services/stats-service.ts",
+      "module": "services",
+      "description": ""
+    },
+    {
+      "path": "code/src/session/seat-assigner.ts",
+      "module": "services",
+      "description": ""
+    },
+    {
+      "path": "code/src/session/session-manager.ts",
+      "module": "services",
+      "description": ""
+    },
+    {
       "path": "code/src/stats/stats-aggregator.ts",
       "module": "stats",
+      "description": ""
+    },
+    {
+      "path": "code/src/stores/game-store.ts",
+      "module": "services",
+      "description": ""
+    },
+    {
+      "path": "code/src/stores/index.ts",
+      "module": "services",
+      "description": ""
+    },
+    {
+      "path": "code/src/stores/session-store.ts",
+      "module": "services",
+      "description": ""
+    },
+    {
+      "path": "code/src/stores/ui-store.ts",
+      "module": "services",
       "description": ""
     },
     {
@@ -266,8 +511,83 @@
       "description": ""
     },
     {
+      "path": "code/src/utils/uuid.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
       "path": "code/tailwind.config.js",
       "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/tests/app-shell.test.tsx",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tests/bot-ai.test.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tests/game-engine.test.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tests/game-loop.test.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tests/game-ui.test.tsx",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tests/gto-solver.test.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tests/gto-worker.test.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tests/history-replay.test.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tests/persistence.test.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tests/service-layer.test.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tests/session-mgmt.test.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tests/setup.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tests/stats.test.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tests/stores.test.ts",
+      "module": "unknown",
       "description": ""
     },
     {
@@ -283,6 +603,11 @@
     {
       "path": "code/vite.config.ts",
       "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/vitest.config.ts",
+      "module": "unknown",
       "description": ""
     }
   ],

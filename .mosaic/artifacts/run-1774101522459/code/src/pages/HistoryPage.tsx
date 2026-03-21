@@ -1,17 +1,32 @@
 // ============================================================
-// History Page — hand history browser
-// Will import from history-replay module once built
+// History Page — hand history browser with detail + replay
 // ============================================================
 
-import React from 'react';
+import React, { useState, useCallback } from 'react';
+import HistoryPageComponent from '../components/history/HistoryPage';
+import ReplayPage from '../components/replay/ReplayPage';
+
+type View = 'history' | 'replay';
 
 const HistoryPage: React.FC = () => {
-  return (
-    <div className="flex flex-col items-center justify-center h-full p-8">
-      <h2 className="text-2xl font-bold text-white mb-2">Hand History</h2>
-      <p className="text-gray-400">No hands played yet. Start a session to see your history.</p>
-    </div>
-  );
+  const [view, setView] = useState<View>('history');
+  const [replayHandId, setReplayHandId] = useState<string | null>(null);
+
+  const handleNavigateToReplay = useCallback((handId: string) => {
+    setReplayHandId(handId);
+    setView('replay');
+  }, []);
+
+  const handleBackFromReplay = useCallback(() => {
+    setView('history');
+    setReplayHandId(null);
+  }, []);
+
+  if (view === 'replay' && replayHandId) {
+    return <ReplayPage handId={replayHandId} onBack={handleBackFromReplay} />;
+  }
+
+  return <HistoryPageComponent onNavigateToReplay={handleNavigateToReplay} />;
 };
 
 export default HistoryPage;

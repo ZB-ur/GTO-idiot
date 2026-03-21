@@ -92,23 +92,43 @@ graph TD
 ```
 code/
 ├── src/
+│   ├── __tests__/
+│   │   ├── bot/
+│   │   ├── e2e/
+│   │   ├── engine/
+│   │   ├── gto/
+│   │   └── services/
 │   ├── bot/
 │   │   ├── bot-profiles.ts
 │   │   ├── decision-engine.ts
-│   │   └── hand-strength.ts
+│   │   ├── hand-strength.ts
+│   │   └── index.ts
 │   ├── components/
 │   │   ├── common/
 │   │   ├── game/
+│   │   ├── history/
 │   │   ├── layout/
+│   │   ├── replay/
 │   │   ├── session/
 │   │   └── stats/
 │   ├── engine/
 │   │   ├── betting-round.ts
 │   │   ├── deck-manager.ts
+│   │   ├── game-engine.ts
 │   │   ├── hand-evaluator.ts
-│   │   └── pot-manager.ts
+│   │   ├── hand-state-machine.ts
+│   │   ├── index.ts
+│   │   ├── pot-manager.ts
+│   │   └── settlement.ts
 │   ├── gto/
-│   │   └── preflop-range-data.ts
+│   │   ├── batch-evaluator.ts
+│   │   ├── gto-client.ts
+│   │   ├── gto-worker.ts
+│   │   ├── index.ts
+│   │   ├── monte-carlo.ts
+│   │   ├── postflop-heuristic.ts
+│   │   ├── preflop-range-data.ts
+│   │   └── preflop-ranges.ts
 │   ├── pages/
 │   │   ├── DashboardPage.tsx
 │   │   ├── GamePage.tsx
@@ -122,8 +142,24 @@ code/
 │   ├── replay/
 │   │   ├── replay-engine.ts
 │   │   └── timeline.ts
+│   ├── services/
+│   │   ├── gto-service.ts
+│   │   ├── hand-service.ts
+│   │   ├── history-service.ts
+│   │   ├── index.ts
+│   │   ├── replay-service.ts
+│   │   ├── session-service.ts
+│   │   └── stats-service.ts
+│   ├── session/
+│   │   ├── seat-assigner.ts
+│   │   └── session-manager.ts
 │   ├── stats/
 │   │   └── stats-aggregator.ts
+│   ├── stores/
+│   │   ├── game-store.ts
+│   │   ├── index.ts
+│   │   ├── session-store.ts
+│   │   └── ui-store.ts
 │   ├── types/
 │   │   ├── cards.ts
 │   │   ├── game.ts
@@ -131,18 +167,37 @@ code/
 │   │   ├── index.ts
 │   │   ├── session.ts
 │   │   └── stats.ts
+│   ├── utils/
+│   │   └── uuid.ts
 │   ├── App.tsx
 │   ├── index.css
 │   ├── main.tsx
 │   └── routes.tsx
+├── tests/
+│   ├── app-shell.test.tsx
+│   ├── bot-ai.test.ts
+│   ├── game-engine.test.ts
+│   ├── game-loop.test.ts
+│   ├── game-ui.test.tsx
+│   ├── gto-solver.test.ts
+│   ├── gto-worker.test.ts
+│   ├── history-replay.test.ts
+│   ├── persistence.test.ts
+│   ├── service-layer.test.ts
+│   ├── session-mgmt.test.ts
+│   ├── setup.ts
+│   ├── stats.test.ts
+│   └── stores.test.ts
 ├── index.html
 ├── package-lock.json
 ├── package.json
 ├── postcss.config.js
+├── README.md
 ├── tailwind.config.js
 ├── tsconfig.json
 ├── tsconfig.node.json
-└── vite.config.ts
+├── vite.config.ts
+└── vitest.config.ts
 ```
 
 ---
