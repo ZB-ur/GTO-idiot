@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomePage Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-5xl mx-auto space-y-6">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-50">GTO Idiot</h1>
+        <p class="text-sm text-gray-500 mt-1">Texas Hold'em GTO Trainer</p>
+      </div>
+      <button class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-semibold rounded-xl transition-colors shadow-lg shadow-emerald-500/20">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+        </svg>
+        New Session
+      </button>
+    </div>
+
+    <!-- Recovery Banner -->
+    <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-yellow-500/20 flex items-center justify-center">
+          <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-yellow-400">Unfinished Session Detected</p>
+          <p class="text-xs text-gray-400 mt-0.5">37 hands played · 1/2 blinds</p>
+        </div>
+      </div>
+      <button class="px-4 py-1.5 bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-400 text-sm font-medium rounded-lg border border-yellow-500/30 transition-colors">
+        Resume
+      </button>
+    </div>
+
+    <!-- Stats Summary Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-5">
+        <p class="text-xs font-medium text-gray-500 uppercase tracking-wider">Total Hands</p>
+        <p class="text-2xl font-bold text-gray-50 mt-2">1,248</p>
+        <p class="text-xs text-gray-500 mt-1">14 sessions</p>
+      </div>
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-5">
+        <p class="text-xs font-medium text-gray-500 uppercase tracking-wider">Win Rate</p>
+        <p class="text-2xl font-bold text-gray-50 mt-2">54.3%</p>
+        <p class="text-xs text-gray-500 mt-1">all time</p>
+      </div>
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-5">
+        <p class="text-xs font-medium text-gray-500 uppercase tracking-wider">Net Profit</p>
+        <p class="text-2xl font-bold text-emerald-400 mt-2">+86.5 BB</p>
+        <p class="text-xs text-gray-500 mt-1">+6.9 BB/100</p>
+      </div>
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-5">
+        <p class="text-xs font-medium text-gray-500 uppercase tracking-wider">Avg Hands/Session</p>
+        <p class="text-2xl font-bold text-gray-50 mt-2">89</p>
+        <p class="text-xs text-gray-500 mt-1">per session</p>
+      </div>
+    </div>
+
+    <!-- Recent Sessions -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl">
+      <div class="flex items-center justify-between p-5 border-b border-gray-700">
+        <h2 class="text-lg font-semibold text-gray-50">Recent Sessions</h2>
+        <button class="text-sm text-emerald-400 hover:text-emerald-300 font-medium transition-colors">View All →</button>
+      </div>
+      <div class="divide-y divide-gray-800">
+
+        <!-- Session 1 -->
+        <div class="flex items-center justify-between p-4 hover:bg-gray-800/50 transition-colors cursor-pointer">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center">
+              <span class="text-sm font-bold text-gray-400">1/2</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-medium text-gray-50">45 hands</span>
+                <span class="text-xs px-2 py-0.5 rounded-full border bg-emerald-500/20 text-emerald-400 border-emerald-500/30">active</span>
+              </div>
+              <div class="flex items-center gap-2 mt-0.5">
+                <span class="text-xs text-emerald-400">fish</span>
+                <span class="text-xs text-yellow-400">regular</span>
+                <span class="text-xs text-gray-600">·</span>
+                <span class="text-xs text-gray-500">2h ago</span>
+              </div>
+            </div>
+          </div>
+          <span class="text-sm font-semibold text-emerald-400">+12.5 BB</span>
+        </div>
+
+        <!-- Session 2 -->
+        <div class="flex items-center justify-between p-4 hover:bg-gray-800/50 transition-colors cursor-pointer">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center">
+              <span class="text-sm font-bold text-gray-400">1/2</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-medium text-gray-50">102 hands</span>
+                <span class="text-xs px-2 py-0.5 rounded-full border bg-gray-700 text-gray-400 border-gray-600">completed</span>
+              </div>
+              <div class="flex items-center gap-2 mt-0.5">
+                <span class="text-xs text-yellow-400">regular</span>
+                <span class="text-xs text-red-400">gto</span>
+                <span class="text-xs text-gray-600">·</span>
+                <span class="text-xs text-gray-500">1d ago</span>
+              </div>
+            </div>
+          </div>
+          <span class="text-sm font-semibold text-red-400">-24.0 BB</span>
+        </div>
+
+        <!-- Session 3 -->
+        <div class="flex items-center justify-between p-4 hover:bg-gray-800/50 transition-colors cursor-pointer">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center">
+              <span class="text-sm font-bold text-gray-400">2/4</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-medium text-gray-50">78 hands</span>
+                <span class="text-xs px-2 py-0.5 rounded-full border bg-gray-700 text-gray-400 border-gray-600">completed</span>
+              </div>
+              <div class="flex items-center gap-2 mt-0.5">
+                <span class="text-xs text-emerald-400">fish</span>
+                <span class="text-xs text-emerald-400">fish</span>
+                <span class="text-xs text-yellow-400">regular</span>
+                <span class="text-xs text-gray-600">·</span>
+                <span class="text-xs text-gray-500">3d ago</span>
+              </div>
+            </div>
+          </div>
+          <span class="text-sm font-semibold text-emerald-400">+45.0 BB</span>
+        </div>
+
+        <!-- Session 4 -->
+        <div class="flex items-center justify-between p-4 hover:bg-gray-800/50 transition-colors cursor-pointer">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center">
+              <span class="text-sm font-bold text-gray-400">1/2</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-medium text-gray-50">56 hands</span>
+                <span class="text-xs px-2 py-0.5 rounded-full border bg-gray-700 text-gray-400 border-gray-600">completed</span>
+              </div>
+              <div class="flex items-center gap-2 mt-0.5">
+                <span class="text-xs text-red-400">gto</span>
+                <span class="text-xs text-gray-600">·</span>
+                <span class="text-xs text-gray-500">5d ago</span>
+              </div>
+            </div>
+          </div>
+          <span class="text-sm font-semibold text-emerald-400">+8.5 BB</span>
+        </div>
+
+        <!-- Session 5 -->
+        <div class="flex items-center justify-between p-4 hover:bg-gray-800/50 transition-colors cursor-pointer">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center">
+              <span class="text-sm font-bold text-gray-400">1/2</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-medium text-gray-50">91 hands</span>
+                <span class="text-xs px-2 py-0.5 rounded-full border bg-yellow-500/20 text-yellow-400 border-yellow-500/30">paused</span>
+              </div>
+              <div class="flex items-center gap-2 mt-0.5">
+                <span class="text-xs text-yellow-400">regular</span>
+                <span class="text-xs text-yellow-400">regular</span>
+                <span class="text-xs text-gray-600">·</span>
+                <span class="text-xs text-gray-500">7d ago</span>
+              </div>
+            </div>
+          </div>
+          <span class="text-sm font-semibold text-red-400">-5.5 BB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 hover:bg-gray-800/50 transition-colors cursor-pointer group">
+        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-3 group-hover:bg-emerald-500/20 transition-colors">
+          <svg class="w-5 h-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+          </svg>
+        </div>
+        <h3 class="text-sm font-semibold text-gray-50">Statistics</h3>
+        <p class="text-xs text-gray-500 mt-1">View detailed performance metrics</p>
+      </div>
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 hover:bg-gray-800/50 transition-colors cursor-pointer group">
+        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-3 group-hover:bg-emerald-500/20 transition-colors">
+          <svg class="w-5 h-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-sm font-semibold text-gray-50">Hand History</h3>
+        <p class="text-xs text-gray-500 mt-1">Review past hands and replays</p>
+      </div>
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 hover:bg-gray-800/50 transition-colors cursor-pointer group">
+        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-3 group-hover:bg-emerald-500/20 transition-colors">
+          <svg class="w-5 h-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+          </svg>
+        </div>
+        <h3 class="text-sm font-semibold text-gray-50">GTO Ranges</h3>
+        <p class="text-xs text-gray-500 mt-1">Study preflop range charts</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

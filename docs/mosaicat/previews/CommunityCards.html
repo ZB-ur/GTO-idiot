@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommunityCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes cardIn {
+      0% { opacity: 0; transform: scale(0.75) translateY(-16px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .card-animate {
+      animation: cardIn 0.3s ease-out forwards;
+    }
+    .card-delay-0 { animation-delay: 0ms; }
+    .card-delay-1 { animation-delay: 150ms; }
+    .card-delay-2 { animation-delay: 300ms; }
+    .card-delay-3 { animation-delay: 450ms; }
+    .card-delay-4 { animation-delay: 600ms; }
+    .card-animate { opacity: 0; }
+  </style>
+</head>
+<body>
+
+  <div style="display: flex; flex-direction: column; gap: 64px; align-items: center;">
+
+    <!-- State 1: Preflop (no cards) -->
+    <div class="flex flex-col items-center gap-3">
+      <span class="text-xs font-semibold uppercase tracking-widest text-gray-400">Preflop</span>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2">
+          <div class="w-20 rounded-lg border-2 border-dashed border-emerald-700/40 bg-emerald-900/30 flex items-center justify-center" style="height:7rem;">
+            <span class="text-emerald-700/50 text-2xl">?</span>
+          </div>
+          <div class="w-20 rounded-lg border-2 border-dashed border-emerald-700/40 bg-emerald-900/30 flex items-center justify-center" style="height:7rem;">
+            <span class="text-emerald-700/50 text-2xl">?</span>
+          </div>
+          <div class="w-20 rounded-lg border-2 border-dashed border-emerald-700/40 bg-emerald-900/30 flex items-center justify-center" style="height:7rem;">
+            <span class="text-emerald-700/50 text-2xl">?</span>
+          </div>
+        </div>
+        <div class="w-px bg-emerald-700/30" style="height:5rem;"></div>
+        <div class="w-20 rounded-lg border-2 border-dashed border-emerald-700/40 bg-emerald-900/30 flex items-center justify-center" style="height:7rem;">
+          <span class="text-emerald-700/50 text-2xl">?</span>
+        </div>
+        <div class="w-px bg-emerald-700/30" style="height:5rem;"></div>
+        <div class="w-20 rounded-lg border-2 border-dashed border-emerald-700/40 bg-emerald-900/30 flex items-center justify-center" style="height:7rem;">
+          <span class="text-emerald-700/50 text-2xl">?</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 2: Flop (3 cards) -->
+    <div class="flex flex-col items-center gap-3">
+      <span class="text-xs font-semibold uppercase tracking-widest text-gray-400">Flop</span>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2">
+          <!-- A♠ -->
+          <div class="w-20 rounded-lg bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center card-animate card-delay-0" style="height:7rem;">
+            <span class="text-xl font-bold text-gray-900">A</span>
+            <span class="text-2xl leading-none text-gray-900">♠</span>
+          </div>
+          <!-- K♥ -->
+          <div class="w-20 rounded-lg bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center card-animate card-delay-1" style="height:7rem;">
+            <span class="text-xl font-bold text-red-500">K</span>
+            <span class="text-2xl leading-none text-red-500">♥</span>
+          </div>
+          <!-- 7♦ -->
+          <div class="w-20 rounded-lg bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center card-animate card-delay-2" style="height:7rem;">
+            <span class="text-xl font-bold text-red-500">7</span>
+            <span class="text-2xl leading-none text-red-500">♦</span>
+          </div>
+        </div>
+        <div class="w-px bg-emerald-700/30" style="height:5rem;"></div>
+        <div class="w-20 rounded-lg border-2 border-dashed border-emerald-700/40 bg-emerald-900/30 flex items-center justify-center" style="height:7rem;">
+          <span class="text-emerald-700/50 text-2xl">?</span>
+        </div>
+        <div class="w-px bg-emerald-700/30" style="height:5rem;"></div>
+        <div class="w-20 rounded-lg border-2 border-dashed border-emerald-700/40 bg-emerald-900/30 flex items-center justify-center" style="height:7rem;">
+          <span class="text-emerald-700/50 text-2xl">?</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 3: Turn (4 cards) -->
+    <div class="flex flex-col items-center gap-3">
+      <span class="text-xs font-semibold uppercase tracking-widest text-gray-400">Turn</span>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2">
+          <div class="w-20 rounded-lg bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center" style="height:7rem;">
+            <span class="text-xl font-bold text-gray-900">A</span>
+            <span class="text-2xl leading-none text-gray-900">♠</span>
+          </div>
+          <div class="w-20 rounded-lg bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center" style="height:7rem;">
+            <span class="text-xl font-bold text-red-500">K</span>
+            <span class="text-2xl leading-none text-red-500">♥</span>
+          </div>
+          <div class="w-20 rounded-lg bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center" style="height:7rem;">
+            <span class="text-xl font-bold text-red-500">7</span>
+            <span class="text-2xl leading-none text-red-500">♦</span>
+          </div>
+        </div>
+        <div class="w-px bg-emerald-700/30" style="height:5rem;"></div>
+        <!-- T♣ -->
+        <div class="w-20 rounded-lg bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center card-animate card-delay-3" style="height:7rem;">
+          <span class="text-xl font-bold text-gray-900">T</span>
+          <span class="text-2xl leading-none text-gray-900">♣</span>
+        </div>
+        <div class="w-px bg-emerald-700/30" style="height:5rem;"></div>
+        <div class="w-20 rounded-lg border-2 border-dashed border-emerald-700/40 bg-emerald-900/30 flex items-center justify-center" style="height:7rem;">
+          <span class="text-emerald-700/50 text-2xl">?</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 4: River (5 cards) -->
+    <div class="flex flex-col items-center gap-3">
+      <span class="text-xs font-semibold uppercase tracking-widest text-gray-400">River</span>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2">
+          <div class="w-20 rounded-lg bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center" style="height:7rem;">
+            <span class="text-xl font-bold text-gray-900">A</span>
+            <span class="text-2xl leading-none text-gray-900">♠</span>
+          </div>
+          <div class="w-20 rounded-lg bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center" style="height:7rem;">
+            <span class="text-xl font-bold text-red-500">K</span>
+            <span class="text-2xl leading-none text-red-500">♥</span>
+          </div>
+          <div class="w-20 rounded-lg bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center" style="height:7rem;">
+            <span class="text-xl font-bold text-red-500">7</span>
+            <span class="text-2xl leading-none text-red-500">♦</span>
+          </div>
+        </div>
+        <div class="w-px bg-emerald-700/30" style="height:5rem;"></div>
+        <div class="w-20 rounded-lg bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center" style="height:7rem;">
+          <span class="text-xl font-bold text-gray-900">T</span>
+          <span class="text-2xl leading-none text-gray-900">♣</span>
+        </div>
+        <div class="w-px bg-emerald-700/30" style="height:5rem;"></div>
+        <!-- 2♥ -->
+        <div class="w-20 rounded-lg bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center card-animate card-delay-4" style="height:7rem;">
+          <span class="text-xl font-bold text-red-500">2</span>
+          <span class="text-2xl leading-none text-red-500">♥</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

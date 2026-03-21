@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandList Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-3xl mx-auto" style="height: 640px;">
+    <div class="flex flex-col h-full bg-gray-950 rounded-xl border border-gray-700 overflow-hidden">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between px-4 py-3 border-b border-gray-700">
+        <h2 class="text-lg font-semibold text-gray-50">Hand History</h2>
+        <span class="text-sm text-gray-500">50 / 10,000 hands</span>
+      </div>
+
+      <!-- Column labels -->
+      <div class="grid grid-cols-[3rem_4rem_3.5rem_1fr_5rem_5rem] gap-2 px-4 py-2 text-xs text-gray-500 border-b border-gray-800 uppercase tracking-wider">
+        <span>#</span>
+        <span>Cards</span>
+        <span>Pos</span>
+        <span>Street</span>
+        <span class="text-right">Result</span>
+        <span class="text-right">Dev</span>
+      </div>
+
+      <!-- Scrollable list -->
+      <div class="flex-1 overflow-y-auto">
+
+        <!-- Row 1: Selected, win, severe deviation -->
+        <div class="grid grid-cols-[3rem_4rem_3.5rem_1fr_5rem_5rem] gap-2 items-center px-4 bg-gray-800 border-l-2 border-l-red-400 cursor-pointer" style="height: 72px;">
+          <span class="text-sm text-gray-400 font-mono">142</span>
+          <span class="flex gap-0.5">
+            <span class="inline-flex items-center font-mono text-sm text-gray-50">A♠</span>
+            <span class="inline-flex items-center font-mono text-sm text-red-500">K♥</span>
+          </span>
+          <span class="text-xs font-medium text-emerald-500 bg-emerald-500/10 rounded px-1.5 py-0.5 text-center">BTN</span>
+          <div class="flex flex-col">
+            <span class="text-sm text-gray-300">River</span>
+            <span class="text-xs text-gray-600">03/22 14:32</span>
+          </div>
+          <span class="text-sm text-right text-emerald-500 font-semibold">+24.5 BB</span>
+          <span class="flex justify-end"><span class="inline-block w-2 h-2 rounded-full bg-red-400"></span></span>
+        </div>
+
+        <!-- Row 2: Loss, moderate deviation -->
+        <div class="grid grid-cols-[3rem_4rem_3.5rem_1fr_5rem_5rem] gap-2 items-center px-4 hover:bg-gray-900 border-l-2 border-l-yellow-400 cursor-pointer" style="height: 72px;">
+          <span class="text-sm text-gray-400 font-mono">141</span>
+          <span class="flex gap-0.5">
+            <span class="inline-flex items-center font-mono text-sm text-red-500">Q♦</span>
+            <span class="inline-flex items-center font-mono text-sm text-red-500">J♥</span>
+          </span>
+          <span class="text-xs font-medium text-emerald-500 bg-emerald-500/10 rounded px-1.5 py-0.5 text-center">CO</span>
+          <div class="flex flex-col">
+            <span class="text-sm text-gray-300">Turn</span>
+            <span class="text-xs text-gray-600">03/22 14:28</span>
+          </div>
+          <span class="text-sm text-right text-red-500 font-semibold">-12.0 BB</span>
+          <span class="flex justify-end"><span class="inline-block w-2 h-2 rounded-full bg-yellow-400"></span></span>
+        </div>
+
+        <!-- Row 3: Win, minor deviation -->
+        <div class="grid grid-cols-[3rem_4rem_3.5rem_1fr_5rem_5rem] gap-2 items-center px-4 hover:bg-gray-900 border-l-2 border-l-green-400 cursor-pointer" style="height: 72px;">
+          <span class="text-sm text-gray-400 font-mono">140</span>
+          <span class="flex gap-0.5">
+            <span class="inline-flex items-center font-mono text-sm text-gray-50">T♣</span>
+            <span class="inline-flex items-center font-mono text-sm text-gray-50">T♠</span>
+          </span>
+          <span class="text-xs font-medium text-emerald-500 bg-emerald-500/10 rounded px-1.5 py-0.5 text-center">HJ</span>
+          <div class="flex flex-col">
+            <span class="text-sm text-gray-300">Flop</span>
+            <span class="text-xs text-gray-600">03/22 14:25</span>
+          </div>
+          <span class="text-sm text-right text-emerald-500 font-semibold">+6.0 BB</span>
+          <span class="flex justify-end"><span class="inline-block w-2 h-2 rounded-full bg-green-400"></span></span>
+        </div>
+
+        <!-- Row 4: Break even, no deviation -->
+        <div class="grid grid-cols-[3rem_4rem_3.5rem_1fr_5rem_5rem] gap-2 items-center px-4 hover:bg-gray-900 border-l-2 border-l-transparent cursor-pointer" style="height: 72px;">
+          <span class="text-sm text-gray-400 font-mono">139</span>
+          <span class="flex gap-0.5">
+            <span class="inline-flex items-center font-mono text-sm text-gray-50">9♠</span>
+            <span class="inline-flex items-center font-mono text-sm text-gray-50">8♣</span>
+          </span>
+          <span class="text-xs font-medium text-emerald-500 bg-emerald-500/10 rounded px-1.5 py-0.5 text-center">BB</span>
+          <div class="flex flex-col">
+            <span class="text-sm text-gray-300">Preflop</span>
+            <span class="text-xs text-gray-600">03/22 14:22</span>
+          </div>
+          <span class="text-sm text-right text-gray-500">0 BB</span>
+          <span class="flex justify-end"></span>
+        </div>
+
+        <!-- Row 5: Loss, no cards shown -->
+        <div class="grid grid-cols-[3rem_4rem_3.5rem_1fr_5rem_5rem] gap-2 items-center px-4 hover:bg-gray-900 border-l-2 border-l-transparent cursor-pointer" style="height: 72px;">
+          <span class="text-sm text-gray-400 font-mono">138</span>
+          <span class="flex gap-0.5">
+            <span class="text-gray-600 text-sm">--</span>
+          </span>
+          <span class="text-xs font-medium text-emerald-500 bg-emerald-500/10 rounded px-1.5 py-0.5 text-center">SB</span>
+          <div class="flex flex-col">
+            <span class="text-sm text-gray-300">Preflop</span>
+            <span class="text-xs text-gray-600">03/22 14:20</span>
+          </div>
+          <span class="text-sm text-right text-red-500 font-semibold">-1.0 BB</span>
+          <span class="flex justify-end"></span>
+        </div>
+
+        <!-- Row 6: Big win, severe deviation -->
+        <div class="grid grid-cols-[3rem_4rem_3.5rem_1fr_5rem_5rem] gap-2 items-center px-4 hover:bg-gray-900 border-l-2 border-l-red-400 cursor-pointer" style="height: 72px;">
+          <span class="text-sm text-gray-400 font-mono">137</span>
+          <span class="flex gap-0.5">
+            <span class="inline-flex items-center font-mono text-sm text-red-500">A♥</span>
+            <span class="inline-flex items-center font-mono text-sm text-red-500">A♦</span>
+          </span>
+          <span class="text-xs font-medium text-emerald-500 bg-emerald-500/10 rounded px-1.5 py-0.5 text-center">UTG</span>
+          <div class="flex flex-col">
+            <span class="text-sm text-gray-300">River</span>
+            <span class="text-xs text-gray-600">03/22 14:15</span>
+          </div>
+          <span class="text-sm text-right text-emerald-500 font-semibold">+48.0 BB</span>
+          <span class="flex justify-end"><span class="inline-block w-2 h-2 rounded-full bg-red-400"></span></span>
+        </div>
+
+        <!-- Row 7: Loss, moderate -->
+        <div class="grid grid-cols-[3rem_4rem_3.5rem_1fr_5rem_5rem] gap-2 items-center px-4 hover:bg-gray-900 border-l-2 border-l-yellow-400 cursor-pointer" style="height: 72px;">
+          <span class="text-sm text-gray-400 font-mono">136</span>
+          <span class="flex gap-0.5">
+            <span class="inline-flex items-center font-mono text-sm text-gray-50">K♠</span>
+            <span class="inline-flex items-center font-mono text-sm text-gray-50">Q♣</span>
+          </span>
+          <span class="text-xs font-medium text-emerald-500 bg-emerald-500/10 rounded px-1.5 py-0.5 text-center">BTN</span>
+          <div class="flex flex-col">
+            <span class="text-sm text-gray-300">Flop</span>
+            <span class="text-xs text-gray-600">03/22 14:10</span>
+          </div>
+          <span class="text-sm text-right text-red-500 font-semibold">-8.5 BB</span>
+          <span class="flex justify-end"><span class="inline-block w-2 h-2 rounded-full bg-yellow-400"></span></span>
+        </div>
+
+        <!-- Row 8: Small win -->
+        <div class="grid grid-cols-[3rem_4rem_3.5rem_1fr_5rem_5rem] gap-2 items-center px-4 hover:bg-gray-900 border-l-2 border-l-transparent cursor-pointer" style="height: 72px;">
+          <span class="text-sm text-gray-400 font-mono">135</span>
+          <span class="flex gap-0.5">
+            <span class="inline-flex items-center font-mono text-sm text-red-500">7♥</span>
+            <span class="inline-flex items-center font-mono text-sm text-red-500">6♦</span>
+          </span>
+          <span class="text-xs font-medium text-emerald-500 bg-emerald-500/10 rounded px-1.5 py-0.5 text-center">CO</span>
+          <div class="flex flex-col">
+            <span class="text-sm text-gray-300">Turn</span>
+            <span class="text-xs text-gray-600">03/22 14:05</span>
+          </div>
+          <span class="text-sm text-right text-emerald-500 font-semibold">+3.0 BB</span>
+          <span class="flex justify-end"></span>
+        </div>
+
+        <!-- Loading more indicator -->
+        <div class="flex items-center justify-center py-4 text-sm text-gray-500">
+          <svg class="animate-spin h-4 w-4 mr-2 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          </svg>
+          Loading more...
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

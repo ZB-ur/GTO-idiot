@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionComparison Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xl mx-auto space-y-6">
+
+    <!-- Severe example -->
+    <div class="rounded-xl border border-red-400/40 bg-red-400/10 p-5 space-y-4">
+      <!-- Header -->
+      <div class="flex items-center justify-between">
+        <h4 class="text-sm font-semibold text-gray-50 uppercase tracking-wider">行动对比</h4>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg border border-red-400/40 bg-red-400/10 text-red-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+          严重偏差
+        </span>
+      </div>
+
+      <!-- Side-by-side -->
+      <div class="grid grid-cols-2 gap-4">
+        <!-- Hero action -->
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-xs text-gray-500 uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            你的行动
+          </div>
+          <div class="bg-gray-800/60 rounded-lg p-3 text-center">
+            <div class="flex items-center justify-center gap-2">
+              <span class="w-3 h-3 rounded-sm bg-blue-500"></span>
+              <span class="text-lg font-bold text-gray-50">Fold</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-500">
+              GTO频率: <span class="font-medium text-red-400">5.0%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- GTO recommended -->
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-xs text-gray-500 uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            GTO建议
+          </div>
+          <div class="bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-3 text-center">
+            <div class="flex items-center justify-center gap-2">
+              <span class="w-3 h-3 rounded-sm bg-red-500"></span>
+              <span class="text-lg font-bold text-emerald-400">Raise</span>
+            </div>
+            <span class="text-sm text-gray-400 mt-0.5 block">66% pot</span>
+            <div class="mt-2 text-xs text-gray-500">
+              频率: <span class="font-medium text-emerald-400">60.0%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GTO frequency distribution -->
+      <div class="space-y-2">
+        <div class="text-xs text-gray-500 uppercase tracking-wider">GTO频率分布</div>
+        <!-- Stacked bar -->
+        <div class="flex w-full overflow-hidden rounded-lg h-5">
+          <div class="bg-red-500 opacity-40" style="width: 60%;"></div>
+          <div class="bg-emerald-500 opacity-40" style="width: 25%;"></div>
+          <div class="bg-blue-500 opacity-100" style="width: 10%;"></div>
+          <div class="bg-yellow-500 opacity-40" style="width: 5%;"></div>
+        </div>
+        <!-- Legend -->
+        <div class="space-y-1 text-sm">
+          <div class="flex items-center justify-between opacity-40">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-sm bg-red-500"></span>
+              <span class="text-gray-50 font-medium">Raise <span class="text-gray-500 font-normal ml-1">(66% pot)</span></span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-gray-400 tabular-nums">60.0%</span>
+              <span class="tabular-nums font-mono text-emerald-400">+1.85 BB</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between opacity-40">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-sm bg-emerald-500"></span>
+              <span class="text-gray-50 font-medium">Call</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-gray-400 tabular-nums">25.0%</span>
+              <span class="tabular-nums font-mono text-emerald-400">+0.62 BB</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-sm bg-blue-500"></span>
+              <span class="text-gray-50 font-medium">Fold</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-gray-400 tabular-nums">10.0%</span>
+              <span class="tabular-nums font-mono text-red-400">-0.50 BB</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between opacity-40">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-sm bg-yellow-500"></span>
+              <span class="text-gray-50 font-medium">All-in</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-gray-400 tabular-nums">5.0%</span>
+              <span class="tabular-nums font-mono text-red-400">-1.20 BB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Moderate example -->
+    <div class="rounded-xl border border-yellow-400/40 bg-yellow-400/10 p-5 space-y-4">
+      <!-- Header -->
+      <div class="flex items-center justify-between">
+        <h4 class="text-sm font-semibold text-gray-50 uppercase tracking-wider">行动对比</h4>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg border border-yellow-400/40 bg-yellow-400/10 text-yellow-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+          中等偏差
+        </span>
+      </div>
+
+      <!-- Side-by-side -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-xs text-gray-500 uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            你的行动
+          </div>
+          <div class="bg-gray-800/60 rounded-lg p-3 text-center">
+            <div class="flex items-center justify-center gap-2">
+              <span class="w-3 h-3 rounded-sm bg-emerald-500"></span>
+              <span class="text-lg font-bold text-gray-50">Call</span>
+            </div>
+            <span class="text-sm text-gray-400 mt-0.5 block">6 BB</span>
+            <div class="mt-2 text-xs text-gray-500">
+              GTO频率: <span class="font-medium text-gray-300">30.0%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-xs text-gray-500 uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            GTO建议
+          </div>
+          <div class="bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-3 text-center">
+            <div class="flex items-center justify-center gap-2">
+              <span class="w-3 h-3 rounded-sm bg-red-500"></span>
+              <span class="text-lg font-bold text-emerald-400">Raise</span>
+            </div>
+            <span class="text-sm text-gray-400 mt-0.5 block">33% pot</span>
+            <div class="mt-2 text-xs text-gray-500">
+              频率: <span class="font-medium text-emerald-400">55.0%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GTO frequency distribution -->
+      <div class="space-y-2">
+        <div class="text-xs text-gray-500 uppercase tracking-wider">GTO频率分布</div>
+        <div class="flex w-full overflow-hidden rounded-lg h-5">
+          <div class="bg-red-500 opacity-40" style="width: 55%;"></div>
+          <div class="bg-emerald-500 opacity-100" style="width: 30%;"></div>
+          <div class="bg-blue-500 opacity-40" style="width: 15%;"></div>
+        </div>
+        <div class="space-y-1 text-sm">
+          <div class="flex items-center justify-between opacity-40">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-sm bg-red-500"></span>
+              <span class="text-gray-50 font-medium">Raise <span class="text-gray-500 font-normal ml-1">(33% pot)</span></span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-gray-400 tabular-nums">55.0%</span>
+              <span class="tabular-nums font-mono text-emerald-400">+1.20 BB</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-sm bg-emerald-500"></span>
+              <span class="text-gray-50 font-medium">Call</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-gray-400 tabular-nums">30.0%</span>
+              <span class="tabular-nums font-mono text-emerald-400">+0.45 BB</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between opacity-40">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-sm bg-blue-500"></span>
+              <span class="text-gray-50 font-medium">Fold</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-gray-400 tabular-nums">15.0%</span>
+              <span class="tabular-nums font-mono text-red-400">-0.30 BB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Minor example -->
+    <div class="rounded-xl border border-green-400/40 bg-green-400/10 p-5 space-y-4">
+      <!-- Header -->
+      <div class="flex items-center justify-between">
+        <h4 class="text-sm font-semibold text-gray-50 uppercase tracking-wider">行动对比</h4>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg border border-green-400/40 bg-green-400/10 text-green-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+          轻微偏差
+        </span>
+      </div>
+
+      <!-- Side-by-side -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-xs text-gray-500 uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            你的行动
+          </div>
+          <div class="bg-gray-800/60 rounded-lg p-3 text-center">
+            <div class="flex items-center justify-center gap-2">
+              <span class="w-3 h-3 rounded-sm bg-emerald-500"></span>
+              <span class="text-lg font-bold text-gray-50">Call</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-500">
+              GTO频率: <span class="font-medium text-gray-300">40.0%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-xs text-gray-500 uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            GTO建议
+          </div>
+          <div class="bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-3 text-center">
+            <div class="flex items-center justify-center gap-2">
+              <span class="w-3 h-3 rounded-sm bg-green-500"></span>
+              <span class="text-lg font-bold text-emerald-400">Check</span>
+            </div>
+            <div class="mt-2 text-xs text-gray-500">
+              频率: <span class="font-medium text-emerald-400">50.0%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GTO frequency distribution -->
+      <div class="space-y-2">
+        <div class="text-xs text-gray-500 uppercase tracking-wider">GTO频率分布</div>
+        <div class="flex w-full overflow-hidden rounded-lg h-5">
+          <div class="bg-green-500 opacity-40" style="width: 50%;"></div>
+          <div class="bg-emerald-500 opacity-100" style="width: 40%;"></div>
+          <div class="bg-blue-500 opacity-40" style="width: 10%;"></div>
+        </div>
+        <div class="space-y-1 text-sm">
+          <div class="flex items-center justify-between opacity-40">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-sm bg-green-500"></span>
+              <span class="text-gray-50 font-medium">Check</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-gray-400 tabular-nums">50.0%</span>
+              <span class="tabular-nums font-mono text-emerald-400">+0.35 BB</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-sm bg-emerald-500"></span>
+              <span class="text-gray-50 font-medium">Call</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-gray-400 tabular-nums">40.0%</span>
+              <span class="tabular-nums font-mono text-emerald-400">+0.28 BB</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between opacity-40">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-sm bg-blue-500"></span>
+              <span class="text-gray-50 font-medium">Fold</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-gray-400 tabular-nums">10.0%</span>
+              <span class="tabular-nums font-mono text-red-400">-0.15 BB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

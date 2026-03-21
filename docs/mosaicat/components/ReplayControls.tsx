@@ -1,0 +1,167 @@
+import React, { useEffect, useCallback } from 'react';
+
+interface ReplayControlsProps {
+  currentStep: number;
+  totalSteps: number;
+  onPrev: () => void;
+  onNext: () => void;
+  onJump: (step: number) => void;
+  hasNextDeviation?: boolean;
+  onNextDeviation?: () => void;
+}
+
+const ReplayControls: React.FC<ReplayControlsProps> = ({
+  currentStep,
+  totalSteps,
+  onPrev,
+  onNext,
+  onJump,
+  hasNextDeviation,
+  onNextDeviation,
+}) => {
+  const isFirst = currentStep <= 0;
+  const isLast = currentStep >= totalSteps - 1;
+  const progress = totalSteps > 1 ? (currentStep / (totalSteps - 1)) * 100 : 0;
+
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft' && !isFirst) {
+        e.preventDefault();
+        onPrev();
+      } else if (e.key === 'ArrowRight' && !isLast) {
+        e.preventDefault();
+        onNext();
+      }
+    },
+    [isFirst, isLast, onPrev, onNext]
+  );
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown]);
+
+  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const ratio = x / rect.width;
+    const step = Math.round(ratio * (totalSteps - 1));
+    onJump(Math.max(0, Math.min(totalSteps - 1, step)));
+  };
+
+  return (
+    <div className="bg-gray-900 border border-gray-700 rounded-xl p-4 space-y-3">
+      {/* Progress bar */}
+      <div
+        className="relative w-full h-2 bg-gray-800 rounded-full cursor-pointer group"
+        onClick={handleProgressClick}
+        role="slider"
+        aria-valuemin={0}
+        aria-valuemax={totalSteps - 1}
+        aria-valuenow={currentStep}
+        aria-label="Replay progress"
+        tabIndex={0}
+      >
+        <div
+          className="absolute top-0 left-0 h-full bg-emerald-500 rounded-full transition-all duration-150"
+          style={{ width: `${progress}%` }}
+        />
+        <div
+          className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-emerald-400 border-2 border-gray-900 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
+          style={{ left: `calc(${progress}% - 8px)` }}
+        />
+      </div>
+
+      {/* Controls row */}
+      <div className="flex items-center justify-between">
+        {/* Left: step counter */}
+        <span className="text-sm text-gray-400 font-mono tabular-nums min-w-[80px]">
+          {currentStep + 1} / {totalSteps}
+        </span>
+
+        {/* Center: navigation buttons */}
+        <div className="flex items-center gap-2">
+          {/* Jump to start */}
+          <button
+            onClick={() => onJump(0)}
+            disabled={isFirst}
+            className="p-2 rounded-lg text-gray-400 hover:text-gray-50 hover:bg-gray-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            aria-label="Jump to start"
+            title="Jump to start"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="2" y1="3" x2="2" y2="13" />
+              <polyline points="10,3 4,8 10,13" />
+            </svg>
+          </button>
+
+          {/* Previous step */}
+          <button
+            onClick={onPrev}
+            disabled={isFirst}
+            className="p-2 rounded-lg text-gray-400 hover:text-gray-50 hover:bg-gray-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            aria-label="Previous step (←)"
+            title="Previous step (←)"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="13,4 7,10 13,16" />
+            </svg>
+          </button>
+
+          {/* Next step */}
+          <button
+            onClick={onNext}
+            disabled={isLast}
+            className="p-2 rounded-lg text-gray-400 hover:text-gray-50 hover:bg-gray-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            aria-label="Next step (→)"
+            title="Next step (→)"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="7,4 13,10 7,16" />
+            </svg>
+          </button>
+
+          {/* Jump to end */}
+          <button
+            onClick={() => onJump(totalSteps - 1)}
+            disabled={isLast}
+            className="p-2 rounded-lg text-gray-400 hover:text-gray-50 hover:bg-gray-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            aria-label="Jump to end"
+            title="Jump to end"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6,3 12,8 6,13" />
+              <line x1="14" y1="3" x2="14" y2="13" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Right: deviation jump button */}
+        <div className="min-w-[80px] flex justify-end">
+          {hasNextDeviation && onNextDeviation ? (
+            <button
+              onClick={onNextDeviation}
+              className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-yellow-400 bg-yellow-400/10 hover:bg-yellow-400/20 border border-yellow-400/30 rounded-lg transition-colors"
+              aria-label="Jump to next deviation"
+              title="Jump to next deviation"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 1L7 9" />
+                <polyline points="3,5 7,9 11,5" />
+                <line x1="3" y1="13" x2="11" y2="13" />
+              </svg>
+              Next Deviation
+            </button>
+          ) : (
+            <span className="text-sm text-gray-500">
+              {/* Keyboard hint */}
+              ← →
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ReplayControls;

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FrequencyBar Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <!-- Full variant with EV -->
+  <div class="max-w-sm mb-8">
+    <p class="text-gray-500 text-xs mb-2 uppercase tracking-wide">Full · showEV</p>
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 space-y-2.5">
+      <!-- Stacked bar -->
+      <div class="flex w-full overflow-hidden rounded-lg h-5">
+        <div class="bg-red-500" style="width:60%"></div>
+        <div class="bg-emerald-500" style="width:25%"></div>
+        <div class="bg-blue-500" style="width:15%"></div>
+      </div>
+      <!-- Legend -->
+      <div class="space-y-1 text-sm">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-sm bg-red-500"></span>
+            <span class="text-gray-50 font-medium">Raise <span class="text-gray-500 font-normal ml-1">(66% pot)</span></span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-gray-400 tabular-nums">60.0%</span>
+            <span class="tabular-nums font-mono text-emerald-400">+1.85 BB</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-sm bg-emerald-500"></span>
+            <span class="text-gray-50 font-medium">Call</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-gray-400 tabular-nums">25.0%</span>
+            <span class="tabular-nums font-mono text-emerald-400">+0.42 BB</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-sm bg-blue-500"></span>
+            <span class="text-gray-50 font-medium">Fold</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-gray-400 tabular-nums">15.0%</span>
+            <span class="tabular-nums font-mono text-red-400">-0.00 BB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compact variant -->
+  <div class="max-w-sm mb-8">
+    <p class="text-gray-500 text-xs mb-2 uppercase tracking-wide">Compact · no EV</p>
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-3 space-y-1.5">
+      <div class="flex w-full overflow-hidden rounded-lg h-3">
+        <div class="bg-emerald-500" style="width:45%"></div>
+        <div class="bg-red-500" style="width:35%"></div>
+        <div class="bg-blue-500" style="width:20%"></div>
+      </div>
+      <div class="space-y-1 text-xs">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-sm bg-emerald-500"></span>
+            <span class="text-gray-50 font-medium">Call</span>
+          </div>
+          <span class="text-gray-400 tabular-nums">45.0%</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-sm bg-red-500"></span>
+            <span class="text-gray-50 font-medium">Raise <span class="text-gray-500 font-normal ml-1">(33% pot)</span></span>
+          </div>
+          <span class="text-gray-400 tabular-nums">35.0%</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-sm bg-blue-500"></span>
+            <span class="text-gray-50 font-medium">Fold</span>
+          </div>
+          <span class="text-gray-400 tabular-nums">20.0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Highlight variant -->
+  <div class="max-w-sm">
+    <p class="text-gray-500 text-xs mb-2 uppercase tracking-wide">Highlight "raise"</p>
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 space-y-2.5">
+      <div class="flex w-full overflow-hidden rounded-lg h-5">
+        <div class="bg-red-500 opacity-100" style="width:60%"></div>
+        <div class="bg-emerald-500 opacity-40" style="width:25%"></div>
+        <div class="bg-blue-500 opacity-40" style="width:15%"></div>
+      </div>
+      <div class="space-y-1 text-sm">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-sm bg-red-500"></span>
+            <span class="text-gray-50 font-medium">Raise <span class="text-gray-500 font-normal ml-1">(66% pot)</span></span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-gray-400 tabular-nums">60.0%</span>
+            <span class="tabular-nums font-mono text-emerald-400">+1.85 BB</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between opacity-40">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-sm bg-emerald-500"></span>
+            <span class="text-gray-50 font-medium">Call</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-gray-400 tabular-nums">25.0%</span>
+            <span class="tabular-nums font-mono text-emerald-400">+0.42 BB</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between opacity-40">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-sm bg-blue-500"></span>
+            <span class="text-gray-50 font-medium">Fold</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-gray-400 tabular-nums">15.0%</span>
+            <span class="tabular-nums font-mono text-red-400">-0.00 BB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StatsSummaryCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #030712; font-family: system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-wrap gap-4">
+    <!-- Total Hands -->
+    <div class="flex-1 min-w-[200px] bg-gray-900 border border-gray-700 rounded-xl p-5 flex items-start gap-4">
+      <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-emerald-500">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="3" width="7" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5" />
+          <rect x="11" y="3" width="7" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5" transform="rotate(8 14.5 8)" />
+          <path d="M5 15v2M10 15v2M15 15v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </div>
+      <div class="flex flex-col gap-0.5">
+        <span class="text-sm text-gray-400">总手数</span>
+        <span class="text-2xl font-bold text-gray-400">2,847</span>
+      </div>
+    </div>
+
+    <!-- Win Rate -->
+    <div class="flex-1 min-w-[200px] bg-gray-900 border border-gray-700 rounded-xl p-5 flex items-start gap-4">
+      <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-emerald-500">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.5" />
+          <path d="M10 5v5l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <div class="flex flex-col gap-0.5">
+        <span class="text-sm text-gray-400">胜率</span>
+        <span class="text-2xl font-bold text-emerald-500">52.3%</span>
+      </div>
+    </div>
+
+    <!-- Net Profit -->
+    <div class="flex-1 min-w-[200px] bg-gray-900 border border-gray-700 rounded-xl p-5 flex items-start gap-4">
+      <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-emerald-500">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 14l4-4 3 3 7-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M13 5h4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <div class="flex flex-col gap-0.5">
+        <span class="text-sm text-gray-400">净盈亏</span>
+        <span class="text-2xl font-bold text-emerald-500">+156.5 BB</span>
+      </div>
+    </div>
+
+    <!-- BB/100 -->
+    <div class="flex-1 min-w-[200px] bg-gray-900 border border-gray-700 rounded-xl p-5 flex items-start gap-4">
+      <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-emerald-500">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="10" width="3" height="6" rx="0.5" fill="currentColor" opacity="0.4" />
+          <rect x="8.5" y="7" width="3" height="9" rx="0.5" fill="currentColor" opacity="0.6" />
+          <rect x="14" y="4" width="3" height="12" rx="0.5" fill="currentColor" />
+        </svg>
+      </div>
+      <div class="flex flex-col gap-0.5">
+        <span class="text-sm text-gray-400">BB/100</span>
+        <span class="text-2xl font-bold text-emerald-500">+5.50 BB/100</span>
+        <span class="text-xs text-gray-500">每100手盈亏率</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayerSeat Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  </style>
+</head>
+<body>
+  <div class="text-gray-400 text-xs mb-6 uppercase tracking-widest">PlayerSeat — All States</div>
+
+  <div class="flex flex-wrap gap-10 items-start">
+
+    <!-- 1. Current Actor (with visible cards, dealer) -->
+    <div class="flex flex-col items-center">
+      <div class="text-gray-500 text-[10px] mb-3 uppercase tracking-wider">Current Actor + Dealer</div>
+      <div class="relative flex flex-col items-center gap-1">
+        <!-- Dealer chip -->
+        <div class="absolute -top-2 -right-2 z-10 w-6 h-6 rounded-full bg-yellow-400 text-gray-900 text-xs font-black flex items-center justify-center shadow-lg border-2 border-yellow-300">D</div>
+        <!-- Cards (face up) -->
+        <div class="flex gap-1 mb-1">
+          <div class="w-10 h-14 rounded-lg bg-white border border-gray-300 shadow-md flex flex-col items-center justify-center gap-0">
+            <span class="text-sm font-bold leading-none text-gray-900">A</span>
+            <span class="text-base leading-none text-gray-900">♠</span>
+          </div>
+          <div class="w-10 h-14 rounded-lg bg-white border border-gray-300 shadow-md flex flex-col items-center justify-center gap-0">
+            <span class="text-sm font-bold leading-none text-red-500">K</span>
+            <span class="text-base leading-none text-red-500">♥</span>
+          </div>
+        </div>
+        <!-- Info box with ring -->
+        <div class="relative rounded-xl bg-gray-800 border border-gray-700 px-4 py-2 min-w-[100px] text-center shadow-lg ring-2 ring-emerald-400 ring-offset-2 ring-offset-gray-950">
+          <div class="flex items-center justify-center gap-1.5">
+            <span class="text-gray-50 text-sm font-semibold">Hero</span>
+            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded">BTN</span>
+          </div>
+          <div class="text-gray-400 text-xs mt-0.5 font-mono">1,250 BB</div>
+          <div class="text-gray-500 text-[10px] mt-0.5 uppercase tracking-wide">raise 6</div>
+          <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap bg-emerald-500 text-white animate-pulse">ACTING</div>
+        </div>
+        <!-- Current bet -->
+        <div class="mt-1 flex items-center gap-1">
+          <div class="w-3 h-3 rounded-full bg-emerald-500 shadow"></div>
+          <span class="text-yellow-400 text-xs font-mono font-bold">6</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Active player (face-down cards, has bet) -->
+    <div class="flex flex-col items-center">
+      <div class="text-gray-500 text-[10px] mb-3 uppercase tracking-wider">Active (Face Down)</div>
+      <div class="relative flex flex-col items-center gap-1">
+        <!-- Cards (face down) -->
+        <div class="flex gap-1 mb-1">
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-emerald-700 to-emerald-900 border border-emerald-600 shadow-md flex items-center justify-center">
+            <div class="w-6 h-8 rounded border border-emerald-500/40 bg-emerald-800"></div>
+          </div>
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-emerald-700 to-emerald-900 border border-emerald-600 shadow-md flex items-center justify-center">
+            <div class="w-6 h-8 rounded border border-emerald-500/40 bg-emerald-800"></div>
+          </div>
+        </div>
+        <!-- Info box -->
+        <div class="relative rounded-xl bg-gray-800 border border-gray-700 px-4 py-2 min-w-[100px] text-center shadow-lg">
+          <div class="flex items-center justify-center gap-1.5">
+            <span class="text-gray-50 text-sm font-semibold">BOT-1</span>
+            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded">CO</span>
+          </div>
+          <div class="text-gray-400 text-xs mt-0.5 font-mono">980 BB</div>
+          <div class="text-gray-500 text-[10px] mt-0.5 uppercase tracking-wide">call 6</div>
+        </div>
+        <div class="mt-1 flex items-center gap-1">
+          <div class="w-3 h-3 rounded-full bg-emerald-500 shadow"></div>
+          <span class="text-yellow-400 text-xs font-mono font-bold">6</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Folded player -->
+    <div class="flex flex-col items-center">
+      <div class="text-gray-500 text-[10px] mb-3 uppercase tracking-wider">Folded</div>
+      <div class="relative flex flex-col items-center gap-1 opacity-50">
+        <!-- No cards shown -->
+        <div class="flex gap-1 mb-1 h-14"></div>
+        <!-- Info box -->
+        <div class="relative rounded-xl bg-gray-800 border border-gray-700 px-4 py-2 min-w-[100px] text-center shadow-lg">
+          <div class="flex items-center justify-center gap-1.5">
+            <span class="text-gray-50 text-sm font-semibold">BOT-2</span>
+            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded">UTG</span>
+          </div>
+          <div class="text-gray-400 text-xs mt-0.5 font-mono">1,000 BB</div>
+          <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap bg-gray-600 text-gray-300">FOLD</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. All-In player -->
+    <div class="flex flex-col items-center">
+      <div class="text-gray-500 text-[10px] mb-3 uppercase tracking-wider">All-In</div>
+      <div class="relative flex flex-col items-center gap-1">
+        <!-- Cards face down -->
+        <div class="flex gap-1 mb-1">
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-emerald-700 to-emerald-900 border border-emerald-600 shadow-md flex items-center justify-center">
+            <div class="w-6 h-8 rounded border border-emerald-500/40 bg-emerald-800"></div>
+          </div>
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-emerald-700 to-emerald-900 border border-emerald-600 shadow-md flex items-center justify-center">
+            <div class="w-6 h-8 rounded border border-emerald-500/40 bg-emerald-800"></div>
+          </div>
+        </div>
+        <!-- Info box -->
+        <div class="relative rounded-xl bg-gray-800 border border-gray-700 px-4 py-2 min-w-[100px] text-center shadow-lg">
+          <div class="flex items-center justify-center gap-1.5">
+            <span class="text-gray-50 text-sm font-semibold">BOT-3</span>
+            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded">SB</span>
+          </div>
+          <div class="text-gray-400 text-xs mt-0.5 font-mono">0 BB</div>
+          <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap bg-yellow-500 text-gray-900">ALL IN</div>
+        </div>
+        <div class="mt-1 flex items-center gap-1">
+          <div class="w-3 h-3 rounded-full bg-emerald-500 shadow"></div>
+          <span class="text-yellow-400 text-xs font-mono font-bold">500</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Showdown (cards visible, no status) -->
+    <div class="flex flex-col items-center">
+      <div class="text-gray-500 text-[10px] mb-3 uppercase tracking-wider">Showdown</div>
+      <div class="relative flex flex-col items-center gap-1">
+        <!-- Cards face up -->
+        <div class="flex gap-1 mb-1">
+          <div class="w-10 h-14 rounded-lg bg-white border border-gray-300 shadow-md flex flex-col items-center justify-center gap-0">
+            <span class="text-sm font-bold leading-none text-red-500">Q</span>
+            <span class="text-base leading-none text-red-500">♦</span>
+          </div>
+          <div class="w-10 h-14 rounded-lg bg-white border border-gray-300 shadow-md flex flex-col items-center justify-center gap-0">
+            <span class="text-sm font-bold leading-none text-gray-900">Q</span>
+            <span class="text-base leading-none text-gray-900">♣</span>
+          </div>
+        </div>
+        <!-- Info box -->
+        <div class="relative rounded-xl bg-gray-800 border border-gray-700 px-4 py-2 min-w-[100px] text-center shadow-lg">
+          <div class="flex items-center justify-center gap-1.5">
+            <span class="text-gray-50 text-sm font-semibold">BOT-4</span>
+            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded">BB</span>
+          </div>
+          <div class="text-gray-400 text-xs mt-0.5 font-mono">1,120 BB</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

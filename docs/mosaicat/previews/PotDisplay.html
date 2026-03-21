@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PotDisplay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col items-center gap-12 py-8">
+
+    <!-- Variant 1: Main pot only (small) -->
+    <div class="flex flex-col items-center gap-2">
+      <span class="text-xs text-gray-500 uppercase tracking-wider mb-1">Main Pot Only</span>
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="flex items-center gap-2 bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-2 shadow-lg" style="backdrop-filter: blur(8px);">
+          <svg viewBox="0 0 20 20" fill="none" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="8" fill="#10b981" stroke="#059669" stroke-width="1.5"/>
+            <circle cx="10" cy="10" r="5" stroke="#059669" stroke-width="1" opacity="0.5"/>
+          </svg>
+          <span class="text-gray-50 font-bold text-lg" style="font-variant-numeric: tabular-nums;">120</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant 2: Main pot only (large) -->
+    <div class="flex flex-col items-center gap-2">
+      <span class="text-xs text-gray-500 uppercase tracking-wider mb-1">Large Main Pot</span>
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="flex items-center gap-2 bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-2 shadow-lg" style="backdrop-filter: blur(8px);">
+          <svg viewBox="0 0 20 20" fill="none" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="8" fill="#10b981" stroke="#059669" stroke-width="1.5"/>
+            <circle cx="10" cy="10" r="5" stroke="#059669" stroke-width="1" opacity="0.5"/>
+          </svg>
+          <span class="text-gray-50 font-bold text-lg" style="font-variant-numeric: tabular-nums;">2,450</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant 3: Main pot + 1 side pot -->
+    <div class="flex flex-col items-center gap-2">
+      <span class="text-xs text-gray-500 uppercase tracking-wider mb-1">Main + 1 Side Pot</span>
+      <div class="flex flex-col items-center gap-1.5">
+        <!-- Total -->
+        <div class="text-xs text-gray-400 font-medium tracking-wide uppercase">Total: 1,800</div>
+        <!-- Main pot -->
+        <div class="flex items-center gap-2 bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-2 shadow-lg" style="backdrop-filter: blur(8px);">
+          <svg viewBox="0 0 20 20" fill="none" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="8" fill="#10b981" stroke="#059669" stroke-width="1.5"/>
+            <circle cx="10" cy="10" r="5" stroke="#059669" stroke-width="1" opacity="0.5"/>
+          </svg>
+          <span class="text-gray-50 font-bold text-lg" style="font-variant-numeric: tabular-nums;">1,200</span>
+        </div>
+        <!-- Side pots -->
+        <div class="flex flex-wrap items-center justify-center gap-1.5">
+          <div class="flex items-center gap-1.5 bg-gray-800/70 border border-gray-700/60 rounded-lg px-3 py-1 shadow-md" style="backdrop-filter: blur(8px);">
+            <svg viewBox="0 0 20 20" fill="none" class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8" fill="#eab308" stroke="#ca8a04" stroke-width="1.5"/>
+              <circle cx="10" cy="10" r="5" stroke="#ca8a04" stroke-width="1" opacity="0.5"/>
+            </svg>
+            <span class="text-gray-50 font-semibold text-sm" style="font-variant-numeric: tabular-nums;">600</span>
+            <span class="text-gray-500 text-xs">(3p)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant 4: Main pot + 2 side pots -->
+    <div class="flex flex-col items-center gap-2">
+      <span class="text-xs text-gray-500 uppercase tracking-wider mb-1">Main + 2 Side Pots</span>
+      <div class="flex flex-col items-center gap-1.5">
+        <!-- Total -->
+        <div class="text-xs text-gray-400 font-medium tracking-wide uppercase">Total: 5.2K</div>
+        <!-- Main pot -->
+        <div class="flex items-center gap-2 bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-2 shadow-lg" style="backdrop-filter: blur(8px);">
+          <svg viewBox="0 0 20 20" fill="none" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="8" fill="#10b981" stroke="#059669" stroke-width="1.5"/>
+            <circle cx="10" cy="10" r="5" stroke="#059669" stroke-width="1" opacity="0.5"/>
+          </svg>
+          <span class="text-gray-50 font-bold text-lg" style="font-variant-numeric: tabular-nums;">3K</span>
+        </div>
+        <!-- Side pots -->
+        <div class="flex flex-wrap items-center justify-center gap-1.5">
+          <div class="flex items-center gap-1.5 bg-gray-800/70 border border-gray-700/60 rounded-lg px-3 py-1 shadow-md" style="backdrop-filter: blur(8px);">
+            <svg viewBox="0 0 20 20" fill="none" class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8" fill="#eab308" stroke="#ca8a04" stroke-width="1.5"/>
+              <circle cx="10" cy="10" r="5" stroke="#ca8a04" stroke-width="1" opacity="0.5"/>
+            </svg>
+            <span class="text-gray-50 font-semibold text-sm" style="font-variant-numeric: tabular-nums;">1,500</span>
+            <span class="text-gray-500 text-xs">(4p)</span>
+          </div>
+          <div class="flex items-center gap-1.5 bg-gray-800/70 border border-gray-700/60 rounded-lg px-3 py-1 shadow-md" style="backdrop-filter: blur(8px);">
+            <svg viewBox="0 0 20 20" fill="none" class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8" fill="#eab308" stroke="#ca8a04" stroke-width="1.5"/>
+              <circle cx="10" cy="10" r="5" stroke="#ca8a04" stroke-width="1" opacity="0.5"/>
+            </svg>
+            <span class="text-gray-50 font-semibold text-sm" style="font-variant-numeric: tabular-nums;">700</span>
+            <span class="text-gray-500 text-xs">(2p)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant 5: On felt green background (simulating table) -->
+    <div class="flex flex-col items-center gap-2">
+      <span class="text-xs text-gray-500 uppercase tracking-wider mb-1">On Table Felt</span>
+      <div class="bg-emerald-900 rounded-xl p-8 border border-emerald-800">
+        <div class="flex flex-col items-center gap-1.5">
+          <div class="text-xs text-gray-400 font-medium tracking-wide uppercase">Total: 4.5K</div>
+          <div class="flex items-center gap-2 bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-2 shadow-lg" style="backdrop-filter: blur(8px);">
+            <svg viewBox="0 0 20 20" fill="none" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8" fill="#10b981" stroke="#059669" stroke-width="1.5"/>
+              <circle cx="10" cy="10" r="5" stroke="#059669" stroke-width="1" opacity="0.5"/>
+            </svg>
+            <span class="text-gray-50 font-bold text-lg" style="font-variant-numeric: tabular-nums;">3K</span>
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-1.5">
+            <div class="flex items-center gap-1.5 bg-gray-800/70 border border-gray-700/60 rounded-lg px-3 py-1 shadow-md" style="backdrop-filter: blur(8px);">
+              <svg viewBox="0 0 20 20" fill="none" class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="8" fill="#eab308" stroke="#ca8a04" stroke-width="1.5"/>
+                <circle cx="10" cy="10" r="5" stroke="#ca8a04" stroke-width="1" opacity="0.5"/>
+              </svg>
+              <span class="text-gray-50 font-semibold text-sm" style="font-variant-numeric: tabular-nums;">1,000</span>
+              <span class="text-gray-500 text-xs">(3p)</span>
+            </div>
+            <div class="flex items-center gap-1.5 bg-gray-800/70 border border-gray-700/60 rounded-lg px-3 py-1 shadow-md" style="backdrop-filter: blur(8px);">
+              <svg viewBox="0 0 20 20" fill="none" class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="8" fill="#eab308" stroke="#ca8a04" stroke-width="1.5"/>
+                <circle cx="10" cy="10" r="5" stroke="#ca8a04" stroke-width="1" opacity="0.5"/>
+              </svg>
+              <span class="text-gray-50 font-semibold text-sm" style="font-variant-numeric: tabular-nums;">500</span>
+              <span class="text-gray-500 text-xs">(2p)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

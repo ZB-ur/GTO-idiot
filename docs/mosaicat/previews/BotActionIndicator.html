@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BotActionIndicator Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #030712;
+      font-family: system-ui, sans-serif;
+    }
+
+    @keyframes bounce-dot {
+      0%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-6px); }
+    }
+
+    .dot-1 { animation: bounce-dot 1s ease-in-out infinite; animation-delay: 0ms; }
+    .dot-2 { animation: bounce-dot 1s ease-in-out infinite; animation-delay: 150ms; }
+    .dot-3 { animation: bounce-dot 1s ease-in-out infinite; animation-delay: 300ms; }
+
+    @keyframes pulse-bg {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .thinking-pulse {
+      animation: pulse-bg 2s ease-in-out infinite;
+    }
+
+    @keyframes slide-up-in {
+      0% { opacity: 0; transform: translateY(6px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .action-appear {
+      animation: slide-up-in 0.3s ease-out forwards;
+    }
+  </style>
+</head>
+<body>
+  <div style="max-width: 480px; margin: 0 auto;">
+
+    <!-- Section Label -->
+    <div class="mb-6">
+      <h2 class="text-lg font-semibold text-gray-50 mb-1">BotActionIndicator</h2>
+      <p class="text-sm text-gray-500">BOT思考中动画 & 决策结果指示器</p>
+    </div>
+
+    <!-- Grid of variants -->
+    <div class="space-y-6">
+
+      <!-- Thinking State -->
+      <div>
+        <p class="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">Thinking</p>
+        <div class="flex items-center gap-4 p-4 rounded-xl bg-gray-900 border border-gray-700">
+          <!-- Bot avatar placeholder -->
+          <div class="w-10 h-10 rounded-full bg-gray-800 border-2 border-emerald-500/40 flex items-center justify-center">
+            <span class="text-xs font-bold text-emerald-400">B1</span>
+          </div>
+          <!-- Thinking indicator -->
+          <div class="thinking-pulse flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-800/80 border border-gray-700">
+            <div class="flex gap-1 items-end">
+              <span class="dot-1 w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+              <span class="dot-2 w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+              <span class="dot-3 w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+            </div>
+            <span class="text-xs font-medium text-gray-400">Thinking…</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Results -->
+      <div>
+        <p class="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">Action Results</p>
+        <div class="space-y-3">
+
+          <!-- Fold -->
+          <div class="flex items-center gap-4 p-4 rounded-xl bg-gray-900 border border-gray-700">
+            <div class="w-10 h-10 rounded-full bg-gray-800 border-2 border-gray-600 flex items-center justify-center">
+              <span class="text-xs font-bold text-gray-400">B1</span>
+            </div>
+            <div class="action-appear inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border bg-gray-800/80 border-gray-600">
+              <span class="text-xs font-bold uppercase tracking-wide text-gray-400">Fold</span>
+            </div>
+          </div>
+
+          <!-- Check -->
+          <div class="flex items-center gap-4 p-4 rounded-xl bg-gray-900 border border-gray-700">
+            <div class="w-10 h-10 rounded-full bg-gray-800 border-2 border-emerald-500/40 flex items-center justify-center">
+              <span class="text-xs font-bold text-emerald-400">B2</span>
+            </div>
+            <div class="action-appear inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border bg-emerald-900/60 border-emerald-700">
+              <span class="text-xs font-bold uppercase tracking-wide text-emerald-400">Check</span>
+            </div>
+          </div>
+
+          <!-- Call with amount -->
+          <div class="flex items-center gap-4 p-4 rounded-xl bg-gray-900 border border-gray-700">
+            <div class="w-10 h-10 rounded-full bg-gray-800 border-2 border-emerald-500/40 flex items-center justify-center">
+              <span class="text-xs font-bold text-emerald-400">B3</span>
+            </div>
+            <div class="action-appear inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border bg-emerald-900/60 border-emerald-700">
+              <span class="text-xs font-bold uppercase tracking-wide text-emerald-400">Call</span>
+              <span class="text-xs font-semibold text-emerald-400 opacity-80">6</span>
+            </div>
+          </div>
+
+          <!-- Raise with amount -->
+          <div class="flex items-center gap-4 p-4 rounded-xl bg-gray-900 border border-gray-700">
+            <div class="w-10 h-10 rounded-full bg-gray-800 border-2 border-yellow-500/40 flex items-center justify-center">
+              <span class="text-xs font-bold text-yellow-400">B1</span>
+            </div>
+            <div class="action-appear inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border bg-yellow-900/60 border-yellow-700">
+              <span class="text-xs font-bold uppercase tracking-wide text-yellow-400">Raise</span>
+              <span class="text-xs font-semibold text-yellow-400 opacity-80">18</span>
+            </div>
+          </div>
+
+          <!-- All-in with amount -->
+          <div class="flex items-center gap-4 p-4 rounded-xl bg-gray-900 border border-gray-700">
+            <div class="w-10 h-10 rounded-full bg-gray-800 border-2 border-red-500/40 flex items-center justify-center">
+              <span class="text-xs font-bold text-red-400">B2</span>
+            </div>
+            <div class="action-appear inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border bg-red-900/60 border-red-700">
+              <span class="text-xs font-bold uppercase tracking-wide text-red-400">All-in</span>
+              <span class="text-xs font-semibold text-red-400 opacity-80">200</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Inline Context (inside a mini player seat) -->
+      <div>
+        <p class="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">In-context (PlayerSeat)</p>
+        <div class="flex gap-4">
+          <!-- Seat with thinking -->
+          <div class="flex flex-col items-center gap-2 p-3 rounded-xl bg-gray-900/80 border border-gray-700 w-28">
+            <div class="w-12 h-12 rounded-full bg-gray-800 border-2 border-emerald-500/40 flex items-center justify-center">
+              <span class="text-sm font-bold text-emerald-400">B1</span>
+            </div>
+            <span class="text-xs text-gray-400 font-medium">BOT-1</span>
+            <span class="text-[10px] text-gray-500">98.5 BB</span>
+            <!-- Thinking bubble -->
+            <div class="thinking-pulse flex items-center gap-1.5 px-2 py-1 rounded-md bg-gray-800/80 border border-gray-700">
+              <div class="flex gap-0.5 items-end">
+                <span class="dot-1 w-1 h-1 rounded-full bg-emerald-400 inline-block"></span>
+                <span class="dot-2 w-1 h-1 rounded-full bg-emerald-400 inline-block"></span>
+                <span class="dot-3 w-1 h-1 rounded-full bg-emerald-400 inline-block"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seat with action result -->
+          <div class="flex flex-col items-center gap-2 p-3 rounded-xl bg-gray-900/80 border border-gray-700 w-28">
+            <div class="w-12 h-12 rounded-full bg-gray-800 border-2 border-yellow-500/40 flex items-center justify-center">
+              <span class="text-sm font-bold text-yellow-400">B2</span>
+            </div>
+            <span class="text-xs text-gray-400 font-medium">BOT-2</span>
+            <span class="text-[10px] text-gray-500">112 BB</span>
+            <!-- Action result -->
+            <div class="action-appear inline-flex items-center gap-1 px-2 py-1 rounded-md border bg-yellow-900/60 border-yellow-700">
+              <span class="text-[10px] font-bold uppercase tracking-wide text-yellow-400">Raise</span>
+              <span class="text-[10px] font-semibold text-yellow-400 opacity-80">6</span>
+            </div>
+          </div>
+
+          <!-- Seat folded -->
+          <div class="flex flex-col items-center gap-2 p-3 rounded-xl bg-gray-900/80 border border-gray-700 w-28 opacity-60">
+            <div class="w-12 h-12 rounded-full bg-gray-800 border-2 border-gray-600 flex items-center justify-center">
+              <span class="text-sm font-bold text-gray-500">B3</span>
+            </div>
+            <span class="text-xs text-gray-500 font-medium">BOT-3</span>
+            <span class="text-[10px] text-gray-600">95 BB</span>
+            <!-- Fold result -->
+            <div class="action-appear inline-flex items-center gap-1 px-2 py-1 rounded-md border bg-gray-800/80 border-gray-600">
+              <span class="text-[10px] font-bold uppercase tracking-wide text-gray-500">Fold</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

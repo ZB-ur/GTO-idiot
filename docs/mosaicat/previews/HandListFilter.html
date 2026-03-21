@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandListFilter Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    /* Fix date input color for dark theme */
+    input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.7); }
+  </style>
+</head>
+<body>
+  <div style="max-width: 540px; margin: 0 auto;">
+
+    <!-- === State 1: Collapsed, no active filters === -->
+    <div style="margin-bottom: 40px;">
+      <p style="color: #6b7280; font-size: 12px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Collapsed — No Active Filters</p>
+      <div class="w-full space-y-3">
+        <div class="flex items-center gap-3">
+          <!-- Sort dropdown -->
+          <select class="h-9 rounded-lg bg-gray-800 border border-gray-700 text-gray-50 text-sm px-3 pr-8 focus:outline-none appearance-none cursor-pointer" style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239ca3af' d='M6 8L1 3h10z'/%3E%3C/svg%3E&quot;); background-repeat: no-repeat; background-position: right 8px center;">
+            <option selected>最新优先</option>
+            <option>最早优先</option>
+            <option>最大盈利</option>
+            <option>最大亏损</option>
+          </select>
+          <!-- Filter toggle -->
+          <button class="h-9 px-3 rounded-lg border bg-gray-800 border-gray-700 text-gray-400 text-sm font-medium flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+            筛选
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- === State 2: Expanded, with active filters === -->
+    <div>
+      <p style="color: #6b7280; font-size: 12px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Expanded — Active Filters (BTN + 盈利)</p>
+      <div class="w-full space-y-3">
+        <div class="flex items-center gap-3">
+          <!-- Sort dropdown -->
+          <select class="h-9 rounded-lg bg-gray-800 border border-gray-700 text-gray-50 text-sm px-3 pr-8 focus:outline-none appearance-none cursor-pointer" style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239ca3af' d='M6 8L1 3h10z'/%3E%3C/svg%3E&quot;); background-repeat: no-repeat; background-position: right 8px center;">
+            <option>最新优先</option>
+            <option>最早优先</option>
+            <option selected>最大盈利</option>
+            <option>最大亏损</option>
+          </select>
+          <!-- Filter toggle - active state -->
+          <button class="h-9 px-3 rounded-lg border bg-emerald-500/10 border-emerald-500/30 text-emerald-400 text-sm font-medium flex items-center gap-1.5" style="background-color: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+            筛选
+            <span class="ml-0.5 w-5 h-5 rounded-full bg-emerald-500 text-gray-950 text-xs font-bold flex items-center justify-center">2</span>
+          </button>
+          <!-- Reset -->
+          <button class="h-9 px-3 rounded-lg text-sm text-gray-500 hover:text-gray-300">
+            重置
+          </button>
+        </div>
+
+        <!-- Expanded panel -->
+        <div class="rounded-xl bg-gray-900 border border-gray-700 p-4 space-y-4">
+          <!-- Position -->
+          <div class="space-y-2">
+            <label class="text-xs font-medium text-gray-500 uppercase tracking-wider">位置</label>
+            <div class="flex flex-wrap gap-2">
+              <button class="h-8 px-3 rounded-lg text-sm font-medium bg-gray-800 text-gray-400">UTG</button>
+              <button class="h-8 px-3 rounded-lg text-sm font-medium bg-gray-800 text-gray-400">HJ</button>
+              <button class="h-8 px-3 rounded-lg text-sm font-medium bg-gray-800 text-gray-400">CO</button>
+              <button class="h-8 px-3 rounded-lg text-sm font-medium bg-emerald-500 text-gray-950">BTN</button>
+              <button class="h-8 px-3 rounded-lg text-sm font-medium bg-gray-800 text-gray-400">SB</button>
+              <button class="h-8 px-3 rounded-lg text-sm font-medium bg-gray-800 text-gray-400">BB</button>
+            </div>
+          </div>
+
+          <!-- Result -->
+          <div class="space-y-2">
+            <label class="text-xs font-medium text-gray-500 uppercase tracking-wider">结果</label>
+            <div class="flex flex-wrap gap-2">
+              <button class="h-8 px-3 rounded-lg text-sm font-medium bg-emerald-500 text-gray-950">盈利</button>
+              <button class="h-8 px-3 rounded-lg text-sm font-medium bg-gray-800 text-gray-400">亏损</button>
+              <button class="h-8 px-3 rounded-lg text-sm font-medium bg-gray-800 text-gray-400">持平</button>
+            </div>
+          </div>
+
+          <!-- Date range -->
+          <div class="space-y-2">
+            <label class="text-xs font-medium text-gray-500 uppercase tracking-wider">时间范围</label>
+            <div class="flex items-center gap-2">
+              <input type="date" value="2026-03-01" class="h-9 flex-1 rounded-lg bg-gray-800 border border-gray-700 text-gray-50 text-sm px-3 focus:outline-none" style="color-scheme: dark;" />
+              <span class="text-gray-500 text-sm">至</span>
+              <input type="date" value="2026-03-22" class="h-9 flex-1 rounded-lg bg-gray-800 border border-gray-700 text-gray-50 text-sm px-3 focus:outline-none" style="color-scheme: dark;" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

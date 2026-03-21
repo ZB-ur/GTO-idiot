@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayPage Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, -apple-system, sans-serif; color: #f9fafb; }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="border-b border-gray-700 bg-gray-900/80 sticky top-0 z-20" style="backdrop-filter:blur(8px)">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <button class="text-gray-400 hover:text-gray-50">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <h1 class="text-lg font-semibold text-gray-50">手牌回放</h1>
+        <span class="text-sm text-gray-500 font-mono">#h_20260322_0042</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-sm text-gray-400">翻牌</span>
+        <span class="px-2 py-0.5 bg-gray-800 rounded-lg text-xs text-gray-400">步骤 8 / 16</span>
+        <span class="px-2 py-0.5 rounded-lg text-xs font-medium bg-yellow-400/10 text-yellow-400">偏差: 中等</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-6 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Main replay area -->
+      <div class="lg:col-span-2 space-y-4">
+        <!-- Table -->
+        <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 relative overflow-hidden">
+          <div class="border-2 border-emerald-700/30 rounded-[100px] p-8 relative flex flex-col items-center justify-center" style="background:rgba(6,78,59,0.4);min-height:340px">
+            <!-- Pot -->
+            <div class="text-center mb-4">
+              <span class="text-gray-400 text-xs uppercase tracking-wider">底池</span>
+              <p class="text-2xl font-bold text-emerald-400">18.5 BB</p>
+            </div>
+
+            <!-- Community cards -->
+            <div class="flex gap-2 mb-6">
+              <span class="inline-flex items-center justify-center w-10 h-14 bg-white rounded-lg text-sm font-bold shadow-md border border-gray-200"><span class="text-gray-900">K</span><span class="text-red-500">♥</span></span>
+              <span class="inline-flex items-center justify-center w-10 h-14 bg-white rounded-lg text-sm font-bold shadow-md border border-gray-200"><span class="text-gray-900">9</span><span class="text-gray-900">♠</span></span>
+              <span class="inline-flex items-center justify-center w-10 h-14 bg-white rounded-lg text-sm font-bold shadow-md border border-gray-200"><span class="text-gray-900">7</span><span class="text-red-500">♦</span></span>
+              <span class="inline-flex w-10 h-14 bg-gray-800/50 rounded-lg border border-gray-700/50"></span>
+              <span class="inline-flex w-10 h-14 bg-gray-800/50 rounded-lg border border-gray-700/50"></span>
+            </div>
+
+            <!-- Players -->
+            <div class="w-full grid grid-cols-3 gap-4 px-4">
+              <!-- Player: Hero (BTN) -->
+              <div class="flex flex-col items-center p-3 rounded-xl border bg-gray-800 border-emerald-500/50">
+                <div class="flex items-center gap-1.5 mb-1">
+                  <span class="text-xs font-medium text-gray-400">BTN</span>
+                  <span class="text-sm font-semibold">You</span>
+                </div>
+                <span class="text-xs text-gray-500">87.5 BB</span>
+                <div class="flex gap-1 mt-1.5">
+                  <span class="inline-flex items-center justify-center w-8 h-11 bg-white rounded-lg text-xs font-bold shadow-md border border-gray-200"><span class="text-gray-900">A</span><span class="text-gray-900">♠</span></span>
+                  <span class="inline-flex items-center justify-center w-8 h-11 bg-white rounded-lg text-xs font-bold shadow-md border border-gray-200"><span class="text-gray-900">K</span><span class="text-red-500">♦</span></span>
+                </div>
+                <span class="mt-1 text-xs text-yellow-400">跟注 6BB</span>
+              </div>
+
+              <!-- Bot 1 (SB) -->
+              <div class="flex flex-col items-center p-3 rounded-xl border bg-gray-800/80 border-gray-600">
+                <div class="flex items-center gap-1.5 mb-1">
+                  <span class="text-xs font-medium text-gray-400">SB</span>
+                  <span class="text-sm font-semibold">BOT-1</span>
+                </div>
+                <span class="text-xs text-gray-500">94.0 BB</span>
+                <span class="mt-1 text-xs text-yellow-400">过牌</span>
+              </div>
+
+              <!-- Bot 2 (BB) -->
+              <div class="flex flex-col items-center p-3 rounded-xl border bg-gray-800/80 border-gray-600">
+                <div class="flex items-center gap-1.5 mb-1">
+                  <span class="text-xs font-medium text-gray-400">BB</span>
+                  <span class="text-sm font-semibold">BOT-2</span>
+                </div>
+                <span class="text-xs text-gray-500">78.5 BB</span>
+                <span class="mt-1 text-xs text-yellow-400">加注 12BB</span>
+              </div>
+
+              <!-- Bot 3 (UTG) - folded -->
+              <div class="flex flex-col items-center p-3 rounded-xl border bg-gray-800/40 border-gray-700/50 opacity-50">
+                <div class="flex items-center gap-1.5 mb-1">
+                  <span class="text-xs font-medium text-gray-400">UTG</span>
+                  <span class="text-sm font-semibold">BOT-3</span>
+                </div>
+                <span class="text-xs text-gray-500">100.0 BB</span>
+                <span class="mt-1 text-xs text-yellow-400">弃牌</span>
+              </div>
+
+              <!-- Bot 4 (HJ) - folded -->
+              <div class="flex flex-col items-center p-3 rounded-xl border bg-gray-800/40 border-gray-700/50 opacity-50">
+                <div class="flex items-center gap-1.5 mb-1">
+                  <span class="text-xs font-medium text-gray-400">HJ</span>
+                  <span class="text-sm font-semibold">BOT-4</span>
+                </div>
+                <span class="text-xs text-gray-500">100.0 BB</span>
+                <span class="mt-1 text-xs text-yellow-400">弃牌</span>
+              </div>
+
+              <!-- Bot 5 (CO) -->
+              <div class="flex flex-col items-center p-3 rounded-xl border bg-gray-800/80 border-gray-600">
+                <div class="flex items-center gap-1.5 mb-1">
+                  <span class="text-xs font-medium text-gray-400">CO</span>
+                  <span class="text-sm font-semibold">BOT-5</span>
+                </div>
+                <span class="text-xs text-gray-500">91.0 BB</span>
+                <span class="mt-1 text-xs text-yellow-400">跟注</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Current action overlay -->
+          <div class="absolute top-4 right-4 bg-gray-800/90 border border-gray-700 rounded-xl px-4 py-2" style="backdrop-filter:blur(4px)">
+            <span class="text-sm text-gray-400">You</span>
+            <span class="ml-2 text-sm font-semibold text-emerald-400">跟注 6 BB</span>
+          </div>
+        </div>
+
+        <!-- Playback controls -->
+        <div class="bg-gray-900 border border-gray-700 rounded-xl p-4">
+          <!-- Street nav -->
+          <div class="flex items-center gap-2 mb-3">
+            <button class="px-3 py-1 rounded-lg text-sm font-medium bg-gray-800 text-gray-400 border border-gray-700">翻前</button>
+            <button class="px-3 py-1 rounded-lg text-sm font-medium bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">翻牌</button>
+            <button class="px-3 py-1 rounded-lg text-sm font-medium bg-gray-800 text-gray-400 border border-gray-700">转牌</button>
+            <button class="px-3 py-1 rounded-lg text-sm font-medium bg-gray-800/50 text-gray-600 border border-gray-700/50 cursor-not-allowed">河牌</button>
+          </div>
+
+          <!-- Progress bar -->
+          <div class="relative mb-3">
+            <div class="h-1.5 bg-gray-800 rounded-full overflow-hidden">
+              <div class="h-full bg-emerald-500 rounded-full" style="width:50%"></div>
+            </div>
+            <!-- Deviation markers -->
+            <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 border-gray-900 bg-green-400" style="left:25%"></div>
+            <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 border-gray-900 bg-yellow-400" style="left:50%"></div>
+            <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 border-gray-900 bg-red-400" style="left:81%"></div>
+          </div>
+
+          <!-- Transport controls -->
+          <div class="flex items-center justify-center gap-3">
+            <button class="p-2 text-gray-400 hover:text-gray-50">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+            </button>
+            <button class="p-2 text-gray-400 hover:text-gray-50">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+            </button>
+            <button class="w-12 h-12 rounded-full bg-emerald-500 hover:bg-emerald-400 text-gray-950 flex items-center justify-center">
+              <svg class="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <button class="p-2 text-gray-400 hover:text-gray-50">
+              <svg class="w-5 h-5 rotate-180" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+            </button>
+            <button class="p-2 text-gray-400 hover:text-gray-50">
+              <svg class="w-5 h-5 rotate-180" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+            </button>
+
+            <div class="ml-4 flex items-center gap-1.5">
+              <span class="text-xs text-gray-500">速度</span>
+              <button class="px-2 py-0.5 rounded text-xs bg-gray-800 text-gray-500">0.5x</button>
+              <button class="px-2 py-0.5 rounded text-xs bg-emerald-500/20 text-emerald-400">1x</button>
+              <button class="px-2 py-0.5 rounded text-xs bg-gray-800 text-gray-500">1.5x</button>
+              <button class="px-2 py-0.5 rounded text-xs bg-gray-800 text-gray-500">2x</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deviation panel -->
+      <div class="space-y-4">
+        <!-- Current step deviation -->
+        <div class="border rounded-xl p-4 bg-yellow-400/10 border-yellow-400/30">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-sm font-semibold text-gray-50">当前偏差</h3>
+            <span class="px-2 py-0.5 rounded-lg text-xs font-medium text-yellow-400">中等</span>
+          </div>
+          <p class="text-sm text-gray-300 mb-3">GTO建议加注66%pot频率为60%，你选择了跟注</p>
+
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-gray-500 w-16">你的行动</span>
+              <span class="px-2 py-0.5 bg-gray-800 rounded text-sm text-gray-200">跟注 6 BB</span>
+            </div>
+            <div>
+              <span class="text-xs text-gray-500">GTO建议</span>
+              <div class="mt-1 space-y-1">
+                <!-- Raise -->
+                <div class="flex items-center gap-2">
+                  <div class="flex-1 bg-gray-800 rounded-full h-2 overflow-hidden">
+                    <div class="h-full bg-emerald-500 rounded-full" style="width:60%"></div>
+                  </div>
+                  <span class="text-xs text-gray-300 w-12 text-right">加注</span>
+                  <span class="text-xs text-gray-500 w-10 text-right">60%</span>
+                  <span class="text-xs text-gray-500 w-14 text-right">EV: +2.35</span>
+                </div>
+                <!-- Call -->
+                <div class="flex items-center gap-2">
+                  <div class="flex-1 bg-gray-800 rounded-full h-2 overflow-hidden">
+                    <div class="h-full bg-emerald-500 rounded-full" style="width:30%"></div>
+                  </div>
+                  <span class="text-xs text-gray-300 w-12 text-right">跟注</span>
+                  <span class="text-xs text-gray-500 w-10 text-right">30%</span>
+                  <span class="text-xs text-gray-500 w-14 text-right">EV: +1.20</span>
+                </div>
+                <!-- Fold -->
+                <div class="flex items-center gap-2">
+                  <div class="flex-1 bg-gray-800 rounded-full h-2 overflow-hidden">
+                    <div class="h-full bg-emerald-500 rounded-full" style="width:10%"></div>
+                  </div>
+                  <span class="text-xs text-gray-300 w-12 text-right">弃牌</span>
+                  <span class="text-xs text-gray-500 w-10 text-right">10%</span>
+                  <span class="text-xs text-gray-500 w-14 text-right">EV: -0.50</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-2 border-t border-gray-700/50">
+              <span class="text-xs text-gray-500">EV损失: </span>
+              <span class="text-sm font-semibold text-red-400">-1.15 BB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deviation summary -->
+        <div class="bg-gray-900 border border-gray-700 rounded-xl p-4">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-sm font-semibold text-gray-50">偏差分析总览</h3>
+            <button class="text-xs text-gray-500 hover:text-gray-300">收起</button>
+          </div>
+
+          <!-- Summary stats -->
+          <div class="grid grid-cols-3 gap-2 mb-3">
+            <div class="bg-gray-800 rounded-lg p-2 text-center">
+              <p class="text-lg font-bold text-red-400">-3.8</p>
+              <p class="text-xs text-gray-500">总EV损失</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-2 text-center">
+              <p class="text-lg font-bold text-gray-50">3</p>
+              <p class="text-xs text-gray-500">偏差数</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-2 text-center">
+              <p class="text-lg font-bold text-red-400">1</p>
+              <p class="text-xs text-gray-500">严重偏差</p>
+            </div>
+          </div>
+
+          <!-- Deviation list -->
+          <div class="space-y-2">
+            <!-- Minor -->
+            <button class="w-full text-left p-3 rounded-lg border bg-gray-800/40 border-gray-700/50 hover:bg-gray-800/80">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs text-gray-400">翻前 · 决策点 #1</span>
+                <span class="text-xs font-medium text-green-400">轻微</span>
+              </div>
+              <p class="text-sm text-gray-300 line-clamp-2">翻前3Bet尺寸偏小，GTO建议3x open而非2.5x</p>
+              <span class="text-xs text-red-400 mt-1 inline-block">EV损失: -0.35 BB</span>
+            </button>
+
+            <!-- Moderate (active) -->
+            <button class="w-full text-left p-3 rounded-lg border bg-yellow-400/10 border-yellow-400/30">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs text-gray-400">翻牌 · 决策点 #2</span>
+                <span class="text-xs font-medium text-yellow-400">中等</span>
+              </div>
+              <p class="text-sm text-gray-300 line-clamp-2">GTO建议加注66%pot频率为60%，你选择了跟注</p>
+              <span class="text-xs text-red-400 mt-1 inline-block">EV损失: -1.15 BB</span>
+            </button>
+
+            <!-- Severe -->
+            <button class="w-full text-left p-3 rounded-lg border bg-gray-800/40 border-gray-700/50 hover:bg-gray-800/80">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs text-gray-400">转牌 · 决策点 #3</span>
+                <span class="text-xs font-medium text-red-400">严重</span>
+              </div>
+              <p class="text-sm text-gray-300 line-clamp-2">面对check-raise应该跟注，弃牌频率过高导致严重EV损失</p>
+              <span class="text-xs text-red-400 mt-1 inline-block">EV损失: -2.30 BB</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Action log -->
+        <div class="bg-gray-900 border border-gray-700 rounded-xl p-4">
+          <h3 class="text-sm font-semibold text-gray-50 mb-3">行动记录</h3>
+          <div class="space-y-1 max-h-48 overflow-y-auto">
+            <div class="flex items-center gap-2 text-xs py-1 px-2 rounded">
+              <span class="text-gray-500 w-8">SB</span>
+              <span class="text-gray-300">BOT-1</span>
+              <span class="text-gray-400">小盲 1</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs py-1 px-2 rounded">
+              <span class="text-gray-500 w-8">BB</span>
+              <span class="text-gray-300">BOT-2</span>
+              <span class="text-gray-400">大盲 2</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs py-1 px-2 rounded">
+              <span class="text-gray-500 w-8">UTG</span>
+              <span class="text-gray-300">BOT-3</span>
+              <span class="text-gray-400">弃牌</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs py-1 px-2 rounded">
+              <span class="text-gray-500 w-8">HJ</span>
+              <span class="text-gray-300">BOT-4</span>
+              <span class="text-gray-400">弃牌</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs py-1 px-2 rounded">
+              <span class="text-gray-500 w-8">CO</span>
+              <span class="text-gray-300">BOT-5</span>
+              <span class="text-gray-400">加注 6</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs py-1 px-2 rounded">
+              <span class="text-gray-500 w-8">BTN</span>
+              <span class="text-emerald-400">You</span>
+              <span class="text-gray-400">跟注 6</span>
+              <span class="ml-auto text-green-400">●</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs py-1 px-2 rounded">
+              <span class="text-gray-500 w-8">SB</span>
+              <span class="text-gray-300">BOT-1</span>
+              <span class="text-gray-400">弃牌</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs py-1 px-2 rounded bg-gray-800">
+              <span class="text-gray-500 w-8">BTN</span>
+              <span class="text-emerald-400">You</span>
+              <span class="text-gray-400">跟注 6</span>
+              <span class="ml-auto text-yellow-400">●</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
