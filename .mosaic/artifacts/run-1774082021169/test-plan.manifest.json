@@ -1,0 +1,1610 @@
+{
+  "test_framework": "vitest",
+  "commands": {
+    "setupCommand": "cd code && npm install -D vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom fake-indexeddb",
+    "runCommand": "cd code && npx vitest run"
+  },
+  "test_suites": [
+    {
+      "module": "core-engine",
+      "test_file": "tests/engine/deck.test.ts",
+      "test_cases": [
+        {
+          "name": "should create a standard 52-card deck with no duplicates",
+          "covers_tasks": [
+            "T-003"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should shuffle deck producing different order (Fisher-Yates)",
+          "covers_tasks": [
+            "T-003"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should deal correct number of cards and remove from deck",
+          "covers_tasks": [
+            "T-003"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should throw when dealing from empty/insufficient deck",
+          "covers_tasks": [
+            "T-003"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "core-engine",
+      "test_file": "tests/engine/types.test.ts",
+      "test_cases": [
+        {
+          "name": "should define all 13 ranks and 4 suits",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should define all 6 positions for 6-max table",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should define all action types",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should define all hand phases",
+          "covers_tasks": [
+            "T-002"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "core-engine",
+      "test_file": "tests/engine/hand-evaluator.test.ts",
+      "test_cases": [
+        {
+          "name": "should evaluate royal flush as highest rank",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should evaluate straight flush correctly",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should evaluate four of a kind",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should evaluate full house",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should evaluate flush",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should evaluate straight",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should evaluate three of a kind",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should evaluate two pair",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should evaluate one pair",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should evaluate high card",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should handle ace-low straight (wheel)",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should pick best 5 from 7 cards",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should compare hands correctly",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should compare same-rank hands by kicker",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should determine single winner at showdown",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should determine split pot (tied hands)",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should return human-readable hand description",
+          "covers_tasks": [
+            "T-004"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "core-engine",
+      "test_file": "tests/engine/game-state.test.ts",
+      "test_cases": [
+        {
+          "name": "should initialize game with correct blinds posted",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should advance from preflop to flop when action completes",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should advance through flop → turn → river → showdown",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should calculate main pot correctly after calls",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should calculate side pots when player is all-in",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should end hand when all but one player folds",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should handle heads-up street progression",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should rotate dealer button between hands",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "core-engine",
+      "test_file": "tests/engine/action-validator.test.ts",
+      "test_cases": [
+        {
+          "name": "should allow fold at any decision point",
+          "covers_tasks": [
+            "T-006"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should allow check only when no bet to call",
+          "covers_tasks": [
+            "T-006"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should allow call when facing a bet",
+          "covers_tasks": [
+            "T-006"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should enforce minimum raise size",
+          "covers_tasks": [
+            "T-006"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should enforce maximum raise (all-in)",
+          "covers_tasks": [
+            "T-006"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should reject action from wrong player",
+          "covers_tasks": [
+            "T-006"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should reject action when hand is complete",
+          "covers_tasks": [
+            "T-006"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should return correct available actions with raise range",
+          "covers_tasks": [
+            "T-006"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should handle all-in for less than min raise",
+          "covers_tasks": [
+            "T-006"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "core-engine",
+      "test_file": "tests/engine/pot-calculator.test.ts",
+      "test_cases": [
+        {
+          "name": "should calculate simple pot with equal bets",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should create side pot with one all-in player",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should create multiple side pots with multiple all-ins",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should award pot to last player standing",
+          "covers_tasks": [
+            "T-005"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "bot-engine",
+      "test_file": "tests/engine/bot-profiles.test.ts",
+      "test_cases": [
+        {
+          "name": "should define 5 distinct bot profiles",
+          "covers_tasks": [
+            "T-007"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should have valid VPIP/PFR ranges for each profile",
+          "covers_tasks": [
+            "T-007"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "TAG profile should have VPIP 22-28%, PFR 18-24%",
+          "covers_tasks": [
+            "T-007"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "NIT profile should have lowest VPIP",
+          "covers_tasks": [
+            "T-007"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Maniac profile should have highest aggression factor",
+          "covers_tasks": [
+            "T-007"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "bot-engine",
+      "test_file": "tests/engine/bot-decision.test.ts",
+      "test_cases": [
+        {
+          "name": "should fold weak hands out of position (NIT profile)",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should raise premium hands from any position",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should respect position-aware preflop ranges",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should make postflop decisions based on board texture",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should apply randomization to borderline decisions",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should return valid action type and sizing",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should handle facing a 3-bet appropriately by profile",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "bot-engine",
+      "test_file": "tests/engine/bot-sizing.test.ts",
+      "test_cases": [
+        {
+          "name": "should size preflop raise correctly (2.5-3x BB)",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should size postflop bet as fraction of pot",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should go all-in when stack < min raise",
+          "covers_tasks": [
+            "T-008"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "gto-engine",
+      "test_file": "tests/engine/gto-preflop.test.ts",
+      "test_cases": [
+        {
+          "name": "should have range data for all 6 positions",
+          "covers_tasks": [
+            "T-013"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should cover RFI/3bet/call/4bet scenarios",
+          "covers_tasks": [
+            "T-013"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should recommend raise for AA from any position",
+          "covers_tasks": [
+            "T-014"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should recommend fold for 72o from EP",
+          "covers_tasks": [
+            "T-014"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should return mixed strategy for borderline hands",
+          "covers_tasks": [
+            "T-014"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should adjust recommendation based on facing action",
+          "covers_tasks": [
+            "T-014"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "gto-engine",
+      "test_file": "tests/engine/gto-board-texture.test.ts",
+      "test_cases": [
+        {
+          "name": "should classify rainbow disconnected board as dry",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should classify monotone board correctly",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should classify connected board as wet",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should classify paired board",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should handle turn and river texture changes",
+          "covers_tasks": [
+            "T-015"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "gto-engine",
+      "test_file": "tests/engine/gto-equity.test.ts",
+      "test_cases": [
+        {
+          "name": "should calculate ~80% equity for AA vs random hand preflop",
+          "covers_tasks": [
+            "T-016"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should calculate ~50% equity for coinflip scenario",
+          "covers_tasks": [
+            "T-016"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should return equity between 0 and 1",
+          "covers_tasks": [
+            "T-016"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should handle equity calculation with community cards",
+          "covers_tasks": [
+            "T-016"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should complete within 500ms for 10000 iterations",
+          "covers_tasks": [
+            "T-016"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "gto-engine",
+      "test_file": "tests/engine/gto-postflop.test.ts",
+      "test_cases": [
+        {
+          "name": "should recommend bet with strong hand on dry board",
+          "covers_tasks": [
+            "T-017"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should recommend check with marginal hand on wet board",
+          "covers_tasks": [
+            "T-017"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should factor pot odds into call/fold recommendation",
+          "covers_tasks": [
+            "T-017"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should classify equity buckets correctly",
+          "covers_tasks": [
+            "T-017"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should return action frequencies",
+          "covers_tasks": [
+            "T-017"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "storage",
+      "test_file": "tests/services/db.test.ts",
+      "test_cases": [
+        {
+          "name": "should create database with hands and settings tables",
+          "covers_tasks": [
+            "T-009"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should have correct indexes on hands table",
+          "covers_tasks": [
+            "T-009"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should handle database versioning/migrations",
+          "covers_tasks": [
+            "T-009"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "storage",
+      "test_file": "tests/services/storage-service.test.ts",
+      "test_cases": [
+        {
+          "name": "should save and retrieve user settings",
+          "covers_tasks": [
+            "T-010"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should return default settings when none saved",
+          "covers_tasks": [
+            "T-010"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should report storage usage info",
+          "covers_tasks": [
+            "T-010"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should clear hands older than specified date",
+          "covers_tasks": [
+            "T-010"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should not delete hands newer than cutoff date",
+          "covers_tasks": [
+            "T-010"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "game-service",
+      "test_file": "tests/services/game-service.test.ts",
+      "test_cases": [
+        {
+          "name": "should create a new game session with 6 players",
+          "covers_tasks": [
+            "T-011"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should deal a new hand and return valid hand state",
+          "covers_tasks": [
+            "T-011"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should process user action and advance game state",
+          "covers_tasks": [
+            "T-011"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should process BOT actions after user acts",
+          "covers_tasks": [
+            "T-011",
+            "T-044"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should complete hand at showdown and determine winner",
+          "covers_tasks": [
+            "T-011"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should complete hand when all but one player folds",
+          "covers_tasks": [
+            "T-011"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should record completed hand to storage",
+          "covers_tasks": [
+            "T-012"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should persist hand record with all action history",
+          "covers_tasks": [
+            "T-012"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should apply configurable BOT action delay",
+          "covers_tasks": [
+            "T-044"
+          ],
+          "type": "integration"
+        }
+      ]
+    },
+    {
+      "module": "history-service",
+      "test_file": "tests/services/history-service.test.ts",
+      "test_cases": [
+        {
+          "name": "should list hands with pagination",
+          "covers_tasks": [
+            "T-030"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should filter hands by date range",
+          "covers_tasks": [
+            "T-030"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should filter hands by position",
+          "covers_tasks": [
+            "T-030"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should filter hands by result (win/loss)",
+          "covers_tasks": [
+            "T-030"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should return empty list when no hands match",
+          "covers_tasks": [
+            "T-030"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should calculate total hands and win rate",
+          "covers_tasks": [
+            "T-031"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should calculate VPIP percentage",
+          "covers_tasks": [
+            "T-031"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should calculate PFR percentage",
+          "covers_tasks": [
+            "T-031"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should calculate 3-bet percentage",
+          "covers_tasks": [
+            "T-031"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should return zero stats for empty history",
+          "covers_tasks": [
+            "T-031"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should generate cumulative profit data by hand",
+          "covers_tasks": [
+            "T-032"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should generate profit data grouped by session",
+          "covers_tasks": [
+            "T-032"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should generate profit data grouped by day",
+          "covers_tasks": [
+            "T-032"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "replay-service",
+      "test_file": "tests/services/replay-service.test.ts",
+      "test_cases": [
+        {
+          "name": "should generate replay frames from hand record",
+          "covers_tasks": [
+            "T-035"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should mark user decision points in frames",
+          "covers_tasks": [
+            "T-035"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should include community card reveals at correct frames",
+          "covers_tasks": [
+            "T-035"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should handle hand that ends before showdown",
+          "covers_tasks": [
+            "T-035"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should order frames chronologically",
+          "covers_tasks": [
+            "T-035"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "analysis-service",
+      "test_file": "tests/services/analysis-service.test.ts",
+      "test_cases": [
+        {
+          "name": "should analyze each user decision point in a hand",
+          "covers_tasks": [
+            "T-038"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should calculate EV difference between user action and GTO",
+          "covers_tasks": [
+            "T-038"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should classify decision quality",
+          "covers_tasks": [
+            "T-038"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should compare user frequencies to GTO frequencies",
+          "covers_tasks": [
+            "T-038"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should identify top 5 leaks by EV loss",
+          "covers_tasks": [
+            "T-039"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should classify leak types",
+          "covers_tasks": [
+            "T-039"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should generate improvement suggestions per leak",
+          "covers_tasks": [
+            "T-039"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should handle hand with no mistakes (no leaks)",
+          "covers_tasks": [
+            "T-039"
+          ],
+          "type": "integration"
+        }
+      ]
+    },
+    {
+      "module": "ui-shell",
+      "test_file": "tests/ui/shared-primitives.test.tsx",
+      "test_cases": [
+        {
+          "name": "Modal should render children when open",
+          "covers_tasks": [
+            "T-018"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Modal should call onClose when backdrop clicked",
+          "covers_tasks": [
+            "T-018"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Toast should display message and auto-dismiss",
+          "covers_tasks": [
+            "T-018"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "Spinner should render with correct size",
+          "covers_tasks": [
+            "T-018"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SkeletonLoader should render placeholder elements",
+          "covers_tasks": [
+            "T-018"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "ui-shell",
+      "test_file": "tests/ui/app-shell.test.tsx",
+      "test_cases": [
+        {
+          "name": "should render header with navigation links",
+          "covers_tasks": [
+            "T-019"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should navigate to Play page",
+          "covers_tasks": [
+            "T-019"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should navigate to History page",
+          "covers_tasks": [
+            "T-019"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should navigate to Settings page",
+          "covers_tasks": [
+            "T-019"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should render Home as default route",
+          "covers_tasks": [
+            "T-019"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "ui-shell",
+      "test_file": "tests/ui/home-screen.test.tsx",
+      "test_cases": [
+        {
+          "name": "should render Start Practice CTA",
+          "covers_tasks": [
+            "T-020"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should render History CTA",
+          "covers_tasks": [
+            "T-020"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should display quick stats summary",
+          "covers_tasks": [
+            "T-020"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "ui-shell",
+      "test_file": "tests/ui/seat-selector.test.tsx",
+      "test_cases": [
+        {
+          "name": "should render 6 seat positions",
+          "covers_tasks": [
+            "T-021"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should allow selecting a seat position",
+          "covers_tasks": [
+            "T-021"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should allow configuring starting stack",
+          "covers_tasks": [
+            "T-021"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should emit selection on confirm",
+          "covers_tasks": [
+            "T-021"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "ui-table",
+      "test_file": "tests/ui/card-component.test.tsx",
+      "test_cases": [
+        {
+          "name": "should render card face-up with rank and suit",
+          "covers_tasks": [
+            "T-022"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should render card face-down",
+          "covers_tasks": [
+            "T-022"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should display correct suit color",
+          "covers_tasks": [
+            "T-022"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "ui-table",
+      "test_file": "tests/ui/poker-table.test.tsx",
+      "test_cases": [
+        {
+          "name": "should render 6 player seats in oval layout",
+          "covers_tasks": [
+            "T-023"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should render community card area",
+          "covers_tasks": [
+            "T-023"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should render pot display",
+          "covers_tasks": [
+            "T-023"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "PlayerSeat should show player name and stack",
+          "covers_tasks": [
+            "T-024"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "PlayerSeat should highlight active player",
+          "covers_tasks": [
+            "T-024"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "PlayerSeat should show hole cards when visible",
+          "covers_tasks": [
+            "T-024"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "PlayerSeat should show current bet amount",
+          "covers_tasks": [
+            "T-024"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "CommunityCards should render flop (3 cards)",
+          "covers_tasks": [
+            "T-025"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "CommunityCards should render turn (4 cards)",
+          "covers_tasks": [
+            "T-025"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "CommunityCards should render river (5 cards)",
+          "covers_tasks": [
+            "T-025"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "PotDisplay should show pot amount",
+          "covers_tasks": [
+            "T-025"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "ui-action",
+      "test_file": "tests/ui/action-panel.test.tsx",
+      "test_cases": [
+        {
+          "name": "should render fold/check/call/raise buttons",
+          "covers_tasks": [
+            "T-026"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should disable buttons based on available actions",
+          "covers_tasks": [
+            "T-026"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should show call amount on call button",
+          "covers_tasks": [
+            "T-026"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "should emit action on button click",
+          "covers_tasks": [
+            "T-026"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "RaiseSlider should enforce min/max raise range",
+          "covers_tasks": [
+            "T-027"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "RaiseSlider should have preset buttons",
+          "covers_tasks": [
+            "T-027"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "RaiseSlider should update numeric input on slide",
+          "covers_tasks": [
+            "T-027"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "AllInConfirmDialog should show confirmation before all-in",
+          "covers_tasks": [
+            "T-028"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "AllInConfirmDialog should cancel without action",
+          "covers_tasks": [
+            "T-028"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "ui-history",
+      "test_file": "tests/ui/history.test.tsx",
+      "test_cases": [
+        {
+          "name": "HandHistoryList should render hand rows",
+          "covers_tasks": [
+            "T-033"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "HandHistoryList should show empty state",
+          "covers_tasks": [
+            "T-033"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "HistoryFilter should filter by date range",
+          "covers_tasks": [
+            "T-033"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "HistoryFilter should filter by position",
+          "covers_tasks": [
+            "T-033"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "StatsDashboard should render stat cards",
+          "covers_tasks": [
+            "T-034"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "ProfitChart should render line chart",
+          "covers_tasks": [
+            "T-034"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "SettingsPanel should render settings form",
+          "covers_tasks": [
+            "T-042"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "StorageInfo should display storage usage",
+          "covers_tasks": [
+            "T-042"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "DataCleanupDialog should confirm before cleanup",
+          "covers_tasks": [
+            "T-042"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "ui-replay",
+      "test_file": "tests/ui/replay.test.tsx",
+      "test_cases": [
+        {
+          "name": "HandReplayer should render table in read-only mode",
+          "covers_tasks": [
+            "T-036"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "ReplayControls should have prev/next/start/end buttons",
+          "covers_tasks": [
+            "T-036"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "ReplayControls should support keyboard shortcuts",
+          "covers_tasks": [
+            "T-036"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "ActionTimeline should render action markers",
+          "covers_tasks": [
+            "T-037"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "ActionTimeline should highlight decision points",
+          "covers_tasks": [
+            "T-037"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "ActionTimeline should navigate to frame on click",
+          "covers_tasks": [
+            "T-037"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "ui-analysis",
+      "test_file": "tests/ui/analysis.test.tsx",
+      "test_cases": [
+        {
+          "name": "GTOPanel should display GTO recommendation",
+          "covers_tasks": [
+            "T-040"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "GTOActionComparison should show user vs GTO action",
+          "covers_tasks": [
+            "T-040"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "EVDifferenceBadge should show EV diff with color coding",
+          "covers_tasks": [
+            "T-040"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "GTOFrequencyBar should render action frequencies",
+          "covers_tasks": [
+            "T-040"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "ReviewSummary should show overall hand score",
+          "covers_tasks": [
+            "T-041"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "LeakCard should display leak type and EV loss",
+          "covers_tasks": [
+            "T-041"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "LeakCard should link to replay decision point",
+          "covers_tasks": [
+            "T-041"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "ui-table",
+      "test_file": "tests/ui/animations.test.tsx",
+      "test_cases": [
+        {
+          "name": "useCardDeal hook should trigger deal animation sequence",
+          "covers_tasks": [
+            "T-043"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "useChipMove hook should animate chip movement",
+          "covers_tasks": [
+            "T-043"
+          ],
+          "type": "unit"
+        },
+        {
+          "name": "card flip animation should complete within 200ms",
+          "covers_tasks": [
+            "T-043"
+          ],
+          "type": "unit"
+        }
+      ]
+    },
+    {
+      "module": "game-service",
+      "test_file": "tests/integration/game-loop.test.ts",
+      "test_cases": [
+        {
+          "name": "should play a complete hand from deal to showdown",
+          "covers_tasks": [
+            "T-029"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should process alternating user and BOT actions",
+          "covers_tasks": [
+            "T-029"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should update UI state after each action",
+          "covers_tasks": [
+            "T-029"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should handle user fold and award pot",
+          "covers_tasks": [
+            "T-029"
+          ],
+          "type": "integration"
+        },
+        {
+          "name": "should deal next hand after completion",
+          "covers_tasks": [
+            "T-029"
+          ],
+          "type": "integration"
+        }
+      ]
+    },
+    {
+      "module": "scaffold",
+      "test_file": "tests/e2e/full-flow.test.ts",
+      "test_cases": [
+        {
+          "name": "should complete a full game session (create → play → record)",
+          "covers_tasks": [
+            "T-045",
+            "T-001"
+          ],
+          "type": "e2e"
+        },
+        {
+          "name": "should view hand in history after completion",
+          "covers_tasks": [
+            "T-045"
+          ],
+          "type": "e2e"
+        },
+        {
+          "name": "should replay a completed hand with navigation",
+          "covers_tasks": [
+            "T-045"
+          ],
+          "type": "e2e"
+        },
+        {
+          "name": "should display GTO analysis for a completed hand",
+          "covers_tasks": [
+            "T-045"
+          ],
+          "type": "e2e"
+        },
+        {
+          "name": "should show accurate stats after multiple hands",
+          "covers_tasks": [
+            "T-045"
+          ],
+          "type": "e2e"
+        },
+        {
+          "name": "should persist data across page reloads",
+          "covers_tasks": [
+            "T-045"
+          ],
+          "type": "e2e"
+        }
+      ]
+    }
+  ]
+}
