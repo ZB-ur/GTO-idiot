@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-lg mx-auto">
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+      <h4 class="text-gray-200 text-sm font-semibold mb-3">Profit / Loss (BB)</h4>
+      <svg viewBox="0 0 400 160" class="w-full h-40" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3b82f6"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+        </defs>
+        <line x1="0" y1="100" x2="400" y2="100" stroke="#4b5563" stroke-width="1" stroke-dasharray="4 4"/>
+        <path d="M0,100L40,90L80,95L120,70L160,80L200,50L240,60L280,30L320,45L360,20L400,35L400,160L0,160Z" fill="url(#pg)" opacity="0.3"/>
+        <path d="M0,100L40,90L80,95L120,70L160,80L200,50L240,60L280,30L320,45L360,20L400,35" fill="none" stroke="#3b82f6" stroke-width="2"/>
+      </svg>
+      <div class="flex justify-between mt-1">
+        <span class="text-gray-500 text-[10px] font-mono">Hand 1</span>
+        <span class="text-gray-500 text-[10px] font-mono">Hand 50</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

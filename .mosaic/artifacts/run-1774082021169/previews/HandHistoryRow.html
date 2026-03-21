@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-lg mx-auto space-y-2">
+    <!-- Win row -->
+    <button class="w-full flex items-center gap-3 p-3 bg-gray-800 rounded-xl border border-gray-700 text-left">
+      <div class="text-gray-500 text-xs font-mono w-16 flex-shrink-0">Mar 21</div>
+      <span class="bg-gray-700 text-gray-300 text-[10px] font-bold px-1.5 py-0.5 rounded uppercase">BTN</span>
+      <div class="flex gap-1 bg-white rounded px-1.5 py-0.5">
+        <span class="font-bold text-xs text-red-600">A♥</span>
+        <span class="font-bold text-xs text-gray-900">K♠</span>
+      </div>
+      <span class="bg-gray-700/50 text-gray-400 text-[10px] px-1.5 py-0.5 rounded">3-bet pot</span>
+      <div class="flex-1"></div>
+      <span class="font-mono font-bold text-sm text-green-400">+24.5 BB</span>
+      <svg class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+    </button>
+
+    <!-- Loss row -->
+    <button class="w-full flex items-center gap-3 p-3 bg-gray-800 rounded-xl border border-gray-700 text-left">
+      <div class="text-gray-500 text-xs font-mono w-16 flex-shrink-0">Mar 21</div>
+      <span class="bg-gray-700 text-gray-300 text-[10px] font-bold px-1.5 py-0.5 rounded uppercase">BB</span>
+      <div class="flex gap-1 bg-white rounded px-1.5 py-0.5">
+        <span class="font-bold text-xs text-gray-900">9♣</span>
+        <span class="font-bold text-xs text-gray-900">8♠</span>
+      </div>
+      <span class="bg-gray-700/50 text-gray-400 text-[10px] px-1.5 py-0.5 rounded">Bluff</span>
+      <div class="flex-1"></div>
+      <span class="font-mono font-bold text-sm text-red-400">-15.0 BB</span>
+      <svg class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+    </button>
+
+    <!-- Break-even row -->
+    <button class="w-full flex items-center gap-3 p-3 bg-gray-800 rounded-xl border border-gray-700 text-left">
+      <div class="text-gray-500 text-xs font-mono w-16 flex-shrink-0">Mar 20</div>
+      <span class="bg-gray-700 text-gray-300 text-[10px] font-bold px-1.5 py-0.5 rounded uppercase">CO</span>
+      <div class="flex gap-1 bg-white rounded px-1.5 py-0.5">
+        <span class="font-bold text-xs text-red-600">Q♥</span>
+        <span class="font-bold text-xs text-red-600">J♦</span>
+      </div>
+      <div class="flex-1"></div>
+      <span class="font-mono font-bold text-sm text-gray-400">0.0 BB</span>
+      <svg class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+    </button>
+  </div>
+</body>
+</html>

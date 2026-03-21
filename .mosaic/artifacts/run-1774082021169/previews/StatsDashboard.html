@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-4xl mx-auto space-y-6">
+    <h2 class="text-lg font-semibold text-gray-200">Session Statistics</h2>
+
+    <!-- Stat cards -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+      <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+        <div class="text-gray-400 text-xs uppercase tracking-wide mb-1">Hands Played</div>
+        <div class="text-2xl font-bold font-mono text-white">2,450</div>
+      </div>
+      <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+        <div class="text-gray-400 text-xs uppercase tracking-wide mb-1">Win Rate</div>
+        <div class="text-2xl font-bold font-mono text-green-400">56.3%</div>
+      </div>
+      <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+        <div class="text-gray-400 text-xs uppercase tracking-wide mb-1">VPIP</div>
+        <div class="text-2xl font-bold font-mono text-white">24.1%</div>
+        <div class="text-gray-500 text-xs mt-0.5">Voluntarily put in pot</div>
+      </div>
+      <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+        <div class="text-gray-400 text-xs uppercase tracking-wide mb-1">PFR</div>
+        <div class="text-2xl font-bold font-mono text-white">18.7%</div>
+        <div class="text-gray-500 text-xs mt-0.5">Preflop raise</div>
+      </div>
+      <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+        <div class="text-gray-400 text-xs uppercase tracking-wide mb-1">3-Bet %</div>
+        <div class="text-2xl font-bold font-mono text-white">8.2%</div>
+      </div>
+    </div>
+
+    <!-- Profit chart -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+      <h4 class="text-gray-200 text-sm font-semibold mb-3">Profit / Loss (BB)</h4>
+      <svg viewBox="0 0 400 160" class="w-full h-40" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3b82f6"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+        </defs>
+        <line x1="0" y1="100" x2="400" y2="100" stroke="#4b5563" stroke-width="1" stroke-dasharray="4 4"/>
+        <path d="M0,100L20,95L40,90L60,95L80,85L100,88L120,70L140,75L160,65L180,68L200,50L220,55L240,45L260,48L280,35L300,40L320,30L340,35L360,25L380,20L400,28L400,160L0,160Z" fill="url(#pg)" opacity="0.3"/>
+        <path d="M0,100L20,95L40,90L60,95L80,85L100,88L120,70L140,75L160,65L180,68L200,50L220,55L240,45L260,48L280,35L300,40L320,30L340,35L360,25L380,20L400,28" fill="none" stroke="#3b82f6" stroke-width="2"/>
+      </svg>
+      <div class="flex justify-between mt-1">
+        <span class="text-gray-500 text-[10px] font-mono">Hand 1</span>
+        <span class="text-gray-500 text-[10px] font-mono">Hand 2,450</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

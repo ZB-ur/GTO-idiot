@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex gap-8 items-start flex-wrap">
+    <!-- Active user with cards, current actor -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="flex gap-0.5 mb-1">
+        <div class="w-10 h-14 rounded-lg border border-gray-300 bg-white shadow-md flex flex-col justify-between p-1">
+          <div class="text-red-600 font-bold text-xs leading-none"><div>A</div><div>♥</div></div>
+          <div class="text-red-600 text-center text-lg leading-none">♥</div>
+        </div>
+        <div class="w-10 h-14 rounded-lg border border-gray-300 bg-white shadow-md flex flex-col justify-between p-1">
+          <div class="text-gray-900 font-bold text-xs leading-none"><div>K</div><div>♠</div></div>
+          <div class="text-gray-900 text-center text-lg leading-none">♠</div>
+        </div>
+      </div>
+      <div class="relative rounded-xl px-3 py-1.5 min-w-[90px] text-center bg-gray-800 ring-2 ring-yellow-400 shadow-lg shadow-yellow-400/20">
+        <div class="text-[10px] text-gray-400 font-medium uppercase tracking-wide">BTN</div>
+        <div class="text-white text-sm font-semibold">Hero <span class="ml-1 text-[9px] text-blue-400 font-normal">(You)</span></div>
+        <div class="text-gray-300 text-xs font-mono">1,500 BB</div>
+        <div class="text-yellow-300 text-[11px] font-mono mt-0.5">Bet: 120</div>
+      </div>
+    </div>
+
+    <!-- Bot player with style badge -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="flex gap-0.5 mb-1">
+        <div class="w-10 h-14 rounded-lg border border-gray-600 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 shadow-md"></div>
+        <div class="w-10 h-14 rounded-lg border border-gray-600 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 shadow-md"></div>
+      </div>
+      <div class="relative rounded-xl px-3 py-1.5 min-w-[90px] text-center bg-gray-800/90">
+        <div class="text-[10px] text-gray-400 font-medium uppercase tracking-wide">CO</div>
+        <div class="text-white text-sm font-semibold">BotAlpha</div>
+        <div class="text-gray-300 text-xs font-mono">980 BB</div>
+        <span class="inline-block mt-0.5 px-1.5 py-0 rounded text-[9px] font-bold text-white bg-blue-600">TAG</span>
+        <div class="text-blue-400 text-[11px] font-semibold mt-0.5">Call</div>
+      </div>
+    </div>
+
+    <!-- Folded player -->
+    <div class="flex flex-col items-center gap-1 opacity-40">
+      <div class="relative rounded-xl px-3 py-1.5 min-w-[90px] text-center bg-gray-800/90">
+        <div class="text-[10px] text-gray-400 font-medium uppercase tracking-wide">UTG</div>
+        <div class="text-white text-sm font-semibold">FishBoy</div>
+        <div class="text-gray-300 text-xs font-mono">750 BB</div>
+        <span class="inline-block mt-0.5 px-1.5 py-0 rounded text-[9px] font-bold text-white bg-green-500">Fish</span>
+        <div class="text-red-400 text-[10px] font-bold mt-0.5">FOLDED</div>
+      </div>
+    </div>
+
+    <!-- Bot thinking -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="flex gap-0.5 mb-1">
+        <div class="w-10 h-14 rounded-lg border border-gray-600 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 shadow-md"></div>
+        <div class="w-10 h-14 rounded-lg border border-gray-600 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 shadow-md"></div>
+      </div>
+      <div class="relative rounded-xl px-3 py-1.5 min-w-[90px] text-center bg-gray-800 ring-2 ring-yellow-400 shadow-lg shadow-yellow-400/20">
+        <div class="text-[10px] text-gray-400 font-medium uppercase tracking-wide">SB</div>
+        <div class="text-white text-sm font-semibold">NitKing</div>
+        <div class="text-gray-300 text-xs font-mono">1,200 BB</div>
+        <span class="inline-block mt-0.5 px-1.5 py-0 rounded text-[9px] font-bold text-white bg-gray-500">Nit</span>
+        <div class="flex items-center gap-1 mt-1 justify-center">
+          <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

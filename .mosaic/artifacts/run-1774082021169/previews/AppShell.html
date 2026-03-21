@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AppShell Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen bg-slate-50 flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-14">
+          <!-- Logo -->
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">🃏</span>
+            <span class="text-lg font-bold text-gray-900 tracking-tight">GTO Idiot</span>
+            <span class="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">Trainer</span>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="flex items-center gap-1">
+            <!-- Home (active) -->
+            <button class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium bg-blue-50 text-blue-600">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z" />
+              </svg>
+              Home
+            </button>
+            <!-- Play -->
+            <button class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Play
+            </button>
+            <!-- History -->
+            <button class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              History
+            </button>
+            <!-- Settings -->
+            <button class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              Settings
+            </button>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Mock Home Screen content -->
+        <div class="space-y-6">
+          <!-- Welcome Card -->
+          <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+            <h1 class="text-2xl font-bold text-gray-900 mb-2">Welcome back!</h1>
+            <p class="text-gray-600">Ready to sharpen your GTO game? Pick up where you left off or start a new session.</p>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 flex flex-col items-center gap-3 hover:border-blue-300 cursor-pointer transition-colors">
+              <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <span class="text-sm font-semibold text-gray-900">New Session</span>
+              <span class="text-xs text-gray-400">6-max cash game</span>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 flex flex-col items-center gap-3 hover:border-blue-300 cursor-pointer transition-colors">
+              <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <span class="text-sm font-semibold text-gray-900">View Stats</span>
+              <span class="text-xs text-gray-400">+2.5 BB/100</span>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 flex flex-col items-center gap-3 hover:border-blue-300 cursor-pointer transition-colors">
+              <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <span class="text-sm font-semibold text-gray-900">Recent Hands</span>
+              <span class="text-xs text-gray-400">142 hands played</span>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h2>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between py-2 border-b border-gray-100">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-mono bg-gray-100 text-gray-600 px-2 py-1 rounded">BTN</span>
+                  <span class="text-sm text-gray-900">A♠ K♥</span>
+                  <span class="text-xs text-gray-400">3-bet pot</span>
+                </div>
+                <span class="text-sm font-semibold text-green-600">+12.5 BB</span>
+              </div>
+              <div class="flex items-center justify-between py-2 border-b border-gray-100">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-mono bg-gray-100 text-gray-600 px-2 py-1 rounded">CO</span>
+                  <span class="text-sm text-gray-900">J♦ T♦</span>
+                  <span class="text-xs text-gray-400">river bluff</span>
+                </div>
+                <span class="text-sm font-semibold text-rose-500">-8.0 BB</span>
+              </div>
+              <div class="flex items-center justify-between py-2">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-mono bg-gray-100 text-gray-600 px-2 py-1 rounded">BB</span>
+                  <span class="text-sm text-gray-900">Q♣ Q♠</span>
+                  <span class="text-xs text-gray-400">set mining</span>
+                </div>
+                <span class="text-sm font-semibold text-green-600">+24.0 BB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-4">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-xs text-gray-400">
+          GTO Idiot &mdash; Texas Hold'em GTO Strategy Trainer &middot; All data stored locally
+        </p>
+      </div>
+    </footer>
+
+    <!-- Toast (sample) -->
+    <div class="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
+      <div class="flex items-center gap-2 px-4 py-3 rounded-xl shadow-md text-sm font-medium text-white bg-green-500">
+        <span>Hand saved successfully!</span>
+        <button class="ml-2 opacity-70 hover:opacity-100">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

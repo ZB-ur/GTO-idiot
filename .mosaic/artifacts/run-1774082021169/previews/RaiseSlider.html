@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md mx-auto bg-gray-800/90 rounded-xl p-4 border border-gray-700">
+    <div class="flex flex-col gap-2 w-full">
+      <!-- Preset buttons -->
+      <div class="flex gap-1 flex-wrap justify-center">
+        <button class="px-2 py-1 rounded text-xs font-medium bg-gray-700 text-gray-300">Min</button>
+        <button class="px-2 py-1 rounded text-xs font-medium bg-yellow-500 text-black">1/2 Pot</button>
+        <button class="px-2 py-1 rounded text-xs font-medium bg-gray-700 text-gray-300">2/3 Pot</button>
+        <button class="px-2 py-1 rounded text-xs font-medium bg-gray-700 text-gray-300">Pot</button>
+        <button class="px-2 py-1 rounded text-xs font-medium bg-gray-700 text-gray-300">All-In</button>
+      </div>
+
+      <!-- Slider -->
+      <div class="relative flex items-center gap-3">
+        <span class="text-gray-400 text-xs font-mono w-12 text-right">4</span>
+        <div class="relative flex-1 h-6 flex items-center">
+          <div class="absolute w-full h-2 rounded-full bg-gray-700"></div>
+          <div class="absolute h-2 rounded-full bg-yellow-500" style="width: 35%"></div>
+          <input type="range" min="4" max="200" value="72" class="absolute w-full h-2 appearance-none bg-transparent cursor-pointer" />
+        </div>
+        <span class="text-gray-400 text-xs font-mono w-12">200</span>
+      </div>
+
+      <!-- Numeric input -->
+      <div class="flex items-center justify-center gap-2">
+        <input type="number" value="72" class="w-24 bg-gray-700 border border-gray-600 rounded-lg px-2 py-1 text-center text-yellow-400 font-mono text-lg font-bold" />
+        <span class="text-gray-400 text-sm">BB</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

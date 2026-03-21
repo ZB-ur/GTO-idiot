@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVDifferenceBadge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="space-y-4">
+    <p class="text-sm font-medium text-gray-600">EV Difference Badges</p>
+
+    <div class="flex flex-wrap items-center gap-3">
+      <!-- Good: small positive or zero -->
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg border text-sm font-semibold bg-green-50 text-green-700 border-green-200">
+        <span class="text-xs font-normal opacity-75">EV</span>
+        <span>+0.00 BB</span>
+      </span>
+
+      <!-- Good: small loss -->
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg border text-sm font-semibold bg-green-50 text-green-700 border-green-200">
+        <span class="text-xs font-normal opacity-75">EV</span>
+        <span>-0.05 BB</span>
+      </span>
+
+      <!-- Minor deviation -->
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg border text-sm font-semibold bg-amber-50 text-amber-700 border-amber-200">
+        <span class="text-xs font-normal opacity-75">EV</span>
+        <span>-0.38 BB</span>
+      </span>
+
+      <!-- Major deviation -->
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg border text-sm font-semibold bg-rose-50 text-rose-700 border-rose-200">
+        <span class="text-xs font-normal opacity-75">EV</span>
+        <span>-1.52 BB</span>
+      </span>
+
+      <!-- Major deviation large -->
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg border text-sm font-semibold bg-rose-50 text-rose-700 border-rose-200">
+        <span class="text-xs font-normal opacity-75">EV</span>
+        <span>-4.20 BB</span>
+      </span>
+    </div>
+  </div>
+</body>
+</html>

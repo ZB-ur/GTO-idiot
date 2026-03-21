@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-sm mx-auto space-y-4">
+    <!-- Loading state -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-6">
+      <div class="flex items-center gap-3">
+        <div class="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        <span class="text-gray-400 text-sm">Analyzing decision...</span>
+      </div>
+    </div>
+
+    <!-- Full panel -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-4 space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-gray-200 text-sm font-semibold">GTO Analysis</h3>
+        <span class="text-gray-400 text-xs capitalize bg-gray-700 px-2 py-0.5 rounded">flop</span>
+      </div>
+
+      <!-- Action comparison -->
+      <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold px-2 py-0.5 rounded bg-yellow-500/20 text-yellow-400">Minor Mistake</span>
+          <span class="text-xs font-mono font-bold text-red-400">-1.20 BB EV</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-gray-700/50 rounded-lg p-3 text-center">
+            <div class="text-gray-400 text-[10px] uppercase tracking-wide mb-1">Your Action</div>
+            <div class="text-white font-bold text-sm">Call</div>
+            <div class="text-gray-400 text-xs mt-1">GTO freq: 30%</div>
+          </div>
+          <div class="bg-gray-700/50 rounded-lg p-3 text-center">
+            <div class="text-gray-400 text-[10px] uppercase tracking-wide mb-1">GTO Optimal</div>
+            <div class="text-white font-bold text-sm">Raise <span class="text-blue-400 ml-1 text-xs">75% pot</span></div>
+            <div class="text-gray-400 text-xs mt-1">Freq: 55%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frequency bar -->
+      <div>
+        <h4 class="text-gray-400 text-xs font-medium mb-2">GTO Frequencies</h4>
+        <div class="w-full h-6 rounded-lg overflow-hidden flex">
+          <div style="width:55%;background:#eab308;opacity:0.4" class="relative"><span class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white drop-shadow">55%</span></div>
+          <div style="width:30%;background:#3b82f6" class="relative ring-2 ring-white ring-inset"><span class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white drop-shadow">30%</span></div>
+          <div style="width:15%;background:#6b7280;opacity:0.4" class="relative"><span class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white drop-shadow">15%</span></div>
+        </div>
+        <div class="flex flex-wrap gap-3 mt-2">
+          <div class="flex items-center gap-1 opacity-50"><div class="w-2.5 h-2.5 rounded-sm" style="background:#eab308"></div><span class="text-gray-300 text-xs">Raise 55%</span></div>
+          <div class="flex items-center gap-1"><div class="w-2.5 h-2.5 rounded-sm" style="background:#3b82f6"></div><span class="text-gray-300 text-xs">Call 30%</span></div>
+          <div class="flex items-center gap-1 opacity-50"><div class="w-2.5 h-2.5 rounded-sm" style="background:#6b7280"></div><span class="text-gray-300 text-xs">Fold 15%</span></div>
+        </div>
+      </div>
+
+      <!-- EV -->
+      <div class="flex items-center justify-center gap-2 pt-2 border-t border-gray-700">
+        <span class="text-gray-400 text-xs">EV Difference:</span>
+        <span class="text-sm font-mono font-bold text-red-400">-1.20 BB</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

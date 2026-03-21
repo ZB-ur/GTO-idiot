@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-6">
+    <!-- Example 1: Raise-heavy -->
+    <div class="space-y-2">
+      <p class="text-gray-400 text-xs mb-1">Raise-heavy spot</p>
+      <div class="w-full h-6 rounded-lg overflow-hidden flex">
+        <div style="width:65%;background:#eab308" class="relative">
+          <span class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white drop-shadow">65%</span>
+        </div>
+        <div style="width:23%;background:#3b82f6" class="relative">
+          <span class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white drop-shadow">23%</span>
+        </div>
+        <div style="width:12%;background:#6b7280" class="relative">
+          <span class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white drop-shadow">12%</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <div class="flex items-center gap-1"><div class="w-2.5 h-2.5 rounded-sm" style="background:#eab308"></div><span class="text-gray-300 text-xs">Raise 65%</span></div>
+        <div class="flex items-center gap-1"><div class="w-2.5 h-2.5 rounded-sm" style="background:#3b82f6"></div><span class="text-gray-300 text-xs">Call 23%</span></div>
+        <div class="flex items-center gap-1"><div class="w-2.5 h-2.5 rounded-sm" style="background:#6b7280"></div><span class="text-gray-300 text-xs">Fold 12%</span></div>
+      </div>
+    </div>
+
+    <!-- Example 2: Check/Bet with highlight -->
+    <div class="space-y-2">
+      <p class="text-gray-400 text-xs mb-1">Check/Bet spot (Check highlighted)</p>
+      <div class="w-full h-6 rounded-lg overflow-hidden flex">
+        <div style="width:55%;background:#22c55e" class="relative ring-2 ring-white ring-inset">
+          <span class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white drop-shadow">55%</span>
+        </div>
+        <div style="width:45%;background:#eab308;opacity:0.4" class="relative">
+          <span class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white drop-shadow">45%</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <div class="flex items-center gap-1"><div class="w-2.5 h-2.5 rounded-sm" style="background:#22c55e"></div><span class="text-gray-300 text-xs">Check 55%</span></div>
+        <div class="flex items-center gap-1 opacity-50"><div class="w-2.5 h-2.5 rounded-sm" style="background:#eab308"></div><span class="text-gray-300 text-xs">Raise 45%</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
