@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- Section: Active States -->
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold text-gray-900 mb-3">Active Buttons</h2>
+    <div class="flex flex-wrap gap-3 items-start">
+
+      <!-- Fold -->
+      <button class="inline-flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg text-white font-semibold text-base bg-gray-500 hover:bg-gray-600 active:bg-gray-700 shadow-md hover:shadow-lg transition-all duration-150 ease-in-out cursor-pointer active:scale-95">
+        <span class="leading-tight">Fold</span>
+      </button>
+
+      <!-- Check -->
+      <button class="inline-flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg text-white font-semibold text-base bg-blue-600 hover:bg-blue-700 active:bg-blue-800 shadow-md hover:shadow-lg transition-all duration-150 ease-in-out cursor-pointer active:scale-95">
+        <span class="leading-tight">Check</span>
+      </button>
+
+      <!-- Call with amount -->
+      <button class="inline-flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg text-white font-semibold text-base bg-green-500 hover:bg-green-600 active:bg-green-700 shadow-md hover:shadow-lg transition-all duration-150 ease-in-out cursor-pointer active:scale-95">
+        <span class="leading-tight">Call</span>
+        <span class="text-xs font-normal opacity-90 mt-0.5">3 BB</span>
+      </button>
+
+      <!-- Bet with amount -->
+      <button class="inline-flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg text-white font-semibold text-base bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 shadow-md hover:shadow-lg transition-all duration-150 ease-in-out cursor-pointer active:scale-95">
+        <span class="leading-tight">Bet</span>
+        <span class="text-xs font-normal opacity-90 mt-0.5">6.5 BB</span>
+      </button>
+
+      <!-- Raise with amount -->
+      <button class="inline-flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg text-white font-semibold text-base bg-orange-500 hover:bg-orange-600 active:bg-orange-700 shadow-md hover:shadow-lg transition-all duration-150 ease-in-out cursor-pointer active:scale-95">
+        <span class="leading-tight">Raise</span>
+        <span class="text-xs font-normal opacity-90 mt-0.5">12 BB</span>
+      </button>
+
+      <!-- All In with amount -->
+      <button class="inline-flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg text-white font-semibold text-base bg-red-600 hover:bg-red-700 active:bg-red-800 shadow-md hover:shadow-lg transition-all duration-150 ease-in-out cursor-pointer active:scale-95">
+        <span class="leading-tight">All In</span>
+        <span class="text-xs font-normal opacity-90 mt-0.5">100 BB</span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Section: Disabled States -->
+  <div>
+    <h2 class="text-lg font-semibold text-gray-900 mb-3">Disabled Buttons</h2>
+    <div class="flex flex-wrap gap-3 items-start">
+
+      <button disabled class="inline-flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base bg-gray-300 text-gray-400 cursor-not-allowed opacity-60 shadow-none">
+        <span class="leading-tight">Fold</span>
+      </button>
+
+      <button disabled class="inline-flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base bg-gray-300 text-gray-400 cursor-not-allowed opacity-60 shadow-none">
+        <span class="leading-tight">Call</span>
+        <span class="text-xs font-normal opacity-90 mt-0.5">3 BB</span>
+      </button>
+
+      <button disabled class="inline-flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base bg-gray-300 text-gray-400 cursor-not-allowed opacity-60 shadow-none">
+        <span class="leading-tight">Raise</span>
+        <span class="text-xs font-normal opacity-90 mt-0.5">12 BB</span>
+      </button>
+
+      <button disabled class="inline-flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base bg-gray-300 text-gray-400 cursor-not-allowed opacity-60 shadow-none">
+        <span class="leading-tight">All In</span>
+        <span class="text-xs font-normal opacity-90 mt-0.5">100 BB</span>
+      </button>
+
+    </div>
+  </div>
+
+</body>
+</html>

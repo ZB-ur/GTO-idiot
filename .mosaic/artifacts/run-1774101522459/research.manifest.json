@@ -1,0 +1,33 @@
+{
+  "competitors": [
+    "GTO Wizard",
+    "DTO Poker",
+    "Deepsolver",
+    "GTOBase",
+    "LibreGTO",
+    "Poker Trainer",
+    "PokerSnowie",
+    "PeakGTO",
+    "InstaGTO",
+    "GTO Hero"
+  ],
+  "key_insights": [
+    "GTO精度vs用户体验的权衡是核心决策：~5-10% Nash Distance对练习目的已足够，无需追求专业solver精度",
+    "完整牌局对练是市场未被满足的需求，现有工具多为场景跳转式训练",
+    "Preflop GTO范围可直接复用开源预计算数据，大幅降低开发难度",
+    "Postflop GTO建议MVP阶段采用启发式算法（底池赔率+手牌强度+SPR），后续引入CFR近似求解",
+    "免费+浏览器端运行对入门-中级玩家有明显吸引力，市场领导者GTO Wizard起步价$35/月",
+    "多风格BOT（TAG/LAG/TP/LP/GTO）本身就是教学工具，帮助用户直观理解不同策略风格",
+    "EV差值可视化是复盘核心价值，量化决策质量比定性建议更有效",
+    "JS生态有成熟的手牌评估库（pokersolver/phe），可直接使用"
+  ],
+  "feasibility": "medium",
+  "risks": [
+    "浏览器端GTO solver精度有限，可能无法提供足够准确的GTO建议，影响产品可信度",
+    "6人桌多人底池的GTO求解复杂度远高于单挑，简化算法可能产生明显偏差",
+    "CFR算法从Python/C移植到TypeScript的工作量和性能损失可能超出预期",
+    "与GTO Wizard等成熟产品的精度差距可能导致进阶用户流失",
+    "纯浏览器端IndexedDB存储有容量限制，长期大量牌局数据可能遇到性能瓶颈",
+    "Postflop EV计算需要大量Monte Carlo模拟，可能在低端设备上造成卡顿"
+  ]
+}

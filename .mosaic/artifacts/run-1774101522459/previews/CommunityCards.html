@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommunityCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-8">
+
+    <!-- Flop (3 cards) -->
+    <div>
+      <p class="text-sm font-semibold text-gray-600 mb-2">Flop</p>
+      <div class="inline-flex items-center gap-2 bg-emerald-800 rounded-xl p-4">
+        <!-- A♠ -->
+        <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm bg-white inline-flex flex-col items-center justify-between overflow-hidden select-none">
+          <div class="self-start pl-1 pt-0.5 leading-none text-gray-900"><div class="text-sm font-bold">A</div><div class="text-sm -mt-0.5">&#9824;</div></div>
+          <div class="text-2xl text-gray-900 -mt-2">&#9824;</div>
+          <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-gray-900"><div class="text-sm font-bold">A</div><div class="text-sm -mt-0.5">&#9824;</div></div>
+        </div>
+        <!-- K♥ -->
+        <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm bg-white inline-flex flex-col items-center justify-between overflow-hidden select-none">
+          <div class="self-start pl-1 pt-0.5 leading-none text-red-500"><div class="text-sm font-bold">K</div><div class="text-sm -mt-0.5">&#9829;</div></div>
+          <div class="text-2xl text-red-500 -mt-2">&#9829;</div>
+          <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-red-500"><div class="text-sm font-bold">K</div><div class="text-sm -mt-0.5">&#9829;</div></div>
+        </div>
+        <!-- 7♦ -->
+        <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm bg-white inline-flex flex-col items-center justify-between overflow-hidden select-none">
+          <div class="self-start pl-1 pt-0.5 leading-none text-blue-500"><div class="text-sm font-bold">7</div><div class="text-sm -mt-0.5">&#9830;</div></div>
+          <div class="text-2xl text-blue-500 -mt-2">&#9830;</div>
+          <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-blue-500"><div class="text-sm font-bold">7</div><div class="text-sm -mt-0.5">&#9830;</div></div>
+        </div>
+        <!-- empty slot -->
+        <div class="w-16 h-22 rounded-lg border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+        <div class="w-16 h-22 rounded-lg border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+      </div>
+    </div>
+
+    <!-- River (5 cards) -->
+    <div>
+      <p class="text-sm font-semibold text-gray-600 mb-2">River</p>
+      <div class="inline-flex items-center gap-2 bg-emerald-800 rounded-xl p-4">
+        <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm bg-white inline-flex flex-col items-center justify-between overflow-hidden select-none">
+          <div class="self-start pl-1 pt-0.5 leading-none text-gray-900"><div class="text-sm font-bold">A</div><div class="text-sm -mt-0.5">&#9824;</div></div>
+          <div class="text-2xl text-gray-900 -mt-2">&#9824;</div>
+          <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-gray-900"><div class="text-sm font-bold">A</div><div class="text-sm -mt-0.5">&#9824;</div></div>
+        </div>
+        <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm bg-white inline-flex flex-col items-center justify-between overflow-hidden select-none">
+          <div class="self-start pl-1 pt-0.5 leading-none text-red-500"><div class="text-sm font-bold">K</div><div class="text-sm -mt-0.5">&#9829;</div></div>
+          <div class="text-2xl text-red-500 -mt-2">&#9829;</div>
+          <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-red-500"><div class="text-sm font-bold">K</div><div class="text-sm -mt-0.5">&#9829;</div></div>
+        </div>
+        <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm bg-white inline-flex flex-col items-center justify-between overflow-hidden select-none">
+          <div class="self-start pl-1 pt-0.5 leading-none text-blue-500"><div class="text-sm font-bold">7</div><div class="text-sm -mt-0.5">&#9830;</div></div>
+          <div class="text-2xl text-blue-500 -mt-2">&#9830;</div>
+          <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-blue-500"><div class="text-sm font-bold">7</div><div class="text-sm -mt-0.5">&#9830;</div></div>
+        </div>
+        <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm bg-white inline-flex flex-col items-center justify-between overflow-hidden select-none">
+          <div class="self-start pl-1 pt-0.5 leading-none text-emerald-600"><div class="text-sm font-bold">T</div><div class="text-sm -mt-0.5">&#9827;</div></div>
+          <div class="text-2xl text-emerald-600 -mt-2">&#9827;</div>
+          <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-emerald-600"><div class="text-sm font-bold">T</div><div class="text-sm -mt-0.5">&#9827;</div></div>
+        </div>
+        <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm bg-white inline-flex flex-col items-center justify-between overflow-hidden select-none">
+          <div class="self-start pl-1 pt-0.5 leading-none text-red-500"><div class="text-sm font-bold">3</div><div class="text-sm -mt-0.5">&#9829;</div></div>
+          <div class="text-2xl text-red-500 -mt-2">&#9829;</div>
+          <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-red-500"><div class="text-sm font-bold">3</div><div class="text-sm -mt-0.5">&#9829;</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,375 @@
+{
+  "modules": [
+    {
+      "name": "game-engine",
+      "description": "6-max poker game state machine: deck, dealing, blinds, betting rounds, pot calculation, hand evaluation, settlement",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "name": "bot-ai",
+      "description": "5-style BOT AI decision system (TAG/LAG/TP/LP/GTO) with hand strength, position, and pot odds awareness",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "name": "gto-solver",
+      "description": "Simplified GTO strategy engine: preflop range tables + postflop heuristic EV + Monte Carlo, running in Web Worker",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "name": "game-ui",
+      "description": "Poker table visual components: SVG table/cards, action panel, raise slider, animations",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "persistence",
+      "description": "IndexedDB data layer via Dexie.js for sessions and hand history storage",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "hand-replay",
+      "description": "Post-game replay engine with timeline navigation and GTO decision analysis",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "name": "stats",
+      "description": "Statistics aggregation engine for overview, position/street breakdowns, and profit trends",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "session-mgmt",
+      "description": "Session lifecycle management: create, pause, resume, end, seat assignment",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "app-shell",
+      "description": "Top-level layout, routing, navigation, global UI state, error handling",
+      "covers_features": [
+        "F-004",
+        "F-008"
+      ]
+    }
+  ],
+  "tech_stack": [
+    "TypeScript",
+    "React 18",
+    "Tailwind CSS 3",
+    "Vite",
+    "Zustand",
+    "React Router v6",
+    "Dexie.js 4",
+    "pokersolver",
+    "Recharts",
+    "Vitest",
+    "React Testing Library",
+    "Web Workers"
+  ],
+  "implementation_tasks": [
+    {
+      "id": "T-001",
+      "name": "Project scaffold: Vite + React + TS + Tailwind + Vitest setup",
+      "module": "app-shell",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-002",
+      "name": "Dexie.js database schema, migrations, repository classes",
+      "module": "persistence",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "id": "T-003",
+      "name": "Core game engine: deck, dealing, blind posting, hand state machine",
+      "module": "game-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-004",
+      "name": "Betting round logic: action validation and processing",
+      "module": "game-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-005",
+      "name": "Pot manager: main pot and side pot calculation",
+      "module": "game-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-006",
+      "name": "Hand evaluator: integrate pokersolver for hand ranking",
+      "module": "game-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-007",
+      "name": "Settlement engine: winners, pot distribution, chip movements",
+      "module": "game-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-008",
+      "name": "BOT style profiles: VPIP/PFR/AF/3Bet% for 5 styles",
+      "module": "bot-ai",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "id": "T-009",
+      "name": "BOT decision engine: position-aware, style-weighted action selection",
+      "module": "bot-ai",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "id": "T-010",
+      "name": "Preflop GTO range tables: import 6-max ranges as JSON",
+      "module": "gto-solver",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-011",
+      "name": "Postflop GTO heuristic: pot odds, hand strength, SPR-based EV",
+      "module": "gto-solver",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-012",
+      "name": "Monte Carlo simulation for equity estimation",
+      "module": "gto-solver",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-013",
+      "name": "Web Worker setup: GTO worker with timeout and degraded fallback",
+      "module": "gto-solver",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-014",
+      "name": "Service layer: API operations wiring engine + persistence",
+      "module": "game-engine",
+      "covers_features": [
+        "F-001",
+        "F-005",
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-015",
+      "name": "Session manager: lifecycle, seat assignment, BOT allocation",
+      "module": "session-mgmt",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-016",
+      "name": "Zustand stores: game, session, and UI state",
+      "module": "app-shell",
+      "covers_features": [
+        "F-001",
+        "F-004",
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-017",
+      "name": "App shell, routing, TopNav with tab navigation",
+      "module": "app-shell",
+      "covers_features": [
+        "F-004",
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-018",
+      "name": "Card and table SVG components",
+      "module": "game-ui",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-019",
+      "name": "Action panel: buttons, raise slider, confirm dialog",
+      "module": "game-ui",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-020",
+      "name": "Game loop: user action → engine → BOT → UI update cycle",
+      "module": "game-ui",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-021",
+      "name": "Animations: deal, flip, chip scroll, page transitions",
+      "module": "game-ui",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-022",
+      "name": "Hand history list with infinite scroll and delete",
+      "module": "persistence",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "id": "T-023",
+      "name": "Hand history detail view",
+      "module": "persistence",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "id": "T-024",
+      "name": "Replay engine: timeline, step navigation, keyboard shortcuts",
+      "module": "hand-replay",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "id": "T-025",
+      "name": "GTO decision analysis panel with quality color coding",
+      "module": "hand-replay",
+      "covers_features": [
+        "F-003",
+        "F-006"
+      ]
+    },
+    {
+      "id": "T-026",
+      "name": "Batch GTO evaluation for all decision points in a hand",
+      "module": "gto-solver",
+      "covers_features": [
+        "F-003",
+        "F-006"
+      ]
+    },
+    {
+      "id": "T-027",
+      "name": "Stats overview page with aggregation",
+      "module": "stats",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-028",
+      "name": "Position and street stats with charts",
+      "module": "stats",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-029",
+      "name": "Profit trend line chart with grouping toggle",
+      "module": "stats",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-030",
+      "name": "Session status UI: status bar, new session dialog, summary modal",
+      "module": "session-mgmt",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-031",
+      "name": "Error handling: IDB unavailable, Worker timeout, data corruption",
+      "module": "app-shell",
+      "covers_features": [
+        "F-003",
+        "F-005"
+      ]
+    },
+    {
+      "id": "T-032",
+      "name": "Empty states, skeleton loading, GTO calculation indicators",
+      "module": "app-shell",
+      "covers_features": [
+        "F-004",
+        "F-006",
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-033",
+      "name": "Integration tests: engine, bot, GTO, service layer",
+      "module": "game-engine",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-034",
+      "name": "E2E smoke tests: full hand lifecycle, session, replay, stats",
+      "module": "app-shell",
+      "covers_features": [
+        "F-001",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008"
+      ]
+    }
+  ]
+}

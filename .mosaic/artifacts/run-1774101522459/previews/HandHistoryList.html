@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandHistoryList Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    .group:hover .group-hover-visible { opacity: 1; }
+    .group .group-hover-visible { opacity: 0; transition: opacity 150ms; }
+  </style>
+</head>
+<body>
+  <div class="max-w-4xl mx-auto px-4 py-8 space-y-6">
+
+    <!-- Page Header -->
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-900">Hand History</h1>
+        <p class="text-sm text-gray-600 mt-1">47 hands loaded (scroll for more)</p>
+      </div>
+    </div>
+
+    <!-- Date Group: Today -->
+    <div class="space-y-8">
+      <div class="space-y-2">
+        <div class="flex items-center justify-between px-1">
+          <div class="flex items-center gap-2">
+            <h2 class="text-sm font-semibold text-gray-700">Today</h2>
+            <span class="text-xs text-gray-400">5 hands</span>
+          </div>
+          <span class="text-sm font-semibold text-emerald-600">+18.5 BB</span>
+        </div>
+
+        <!-- Hand 1: Won -->
+        <div class="group relative">
+          <div class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl shadow-sm hover:border-blue-300 hover:shadow-md cursor-pointer transition-all">
+            <div class="flex items-center gap-4">
+              <span class="text-xs text-gray-400 font-medium w-12">14:32</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-blue-50 text-blue-700">BTN</span>
+              <!-- Hole cards: Ah Kh -->
+              <div class="flex gap-1">
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-red-600">A</span>
+                  <span class="text-red-600 text-[8px]">&hearts;</span>
+                </div>
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-red-600">K</span>
+                  <span class="text-red-600 text-[8px]">&hearts;</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-lg bg-emerald-50 text-emerald-700">Won</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-sm font-bold text-emerald-600">+12.5 BB</span>
+              <button class="p-1 rounded-lg text-gray-300 hover:text-red-500 hover:bg-red-50 transition-colors">
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <!-- Replay button (shown on hover via CSS) -->
+          <button class="group-hover-visible absolute right-14 top-1/2 -translate-y-1/2 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Replay
+          </button>
+        </div>
+
+        <!-- Hand 2: Lost -->
+        <div class="group relative">
+          <div class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl shadow-sm hover:border-blue-300 hover:shadow-md cursor-pointer transition-all">
+            <div class="flex items-center gap-4">
+              <span class="text-xs text-gray-400 font-medium w-12">14:28</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-blue-50 text-blue-700">CO</span>
+              <div class="flex gap-1">
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-gray-900">Q</span>
+                  <span class="text-gray-900 text-[8px]">&spades;</span>
+                </div>
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-gray-900">J</span>
+                  <span class="text-gray-900 text-[8px]">&spades;</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-lg bg-red-50 text-red-700">Lost</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-sm font-bold text-red-500">-3.0 BB</span>
+              <button class="p-1 rounded-lg text-gray-300 hover:text-red-500 hover:bg-red-50 transition-colors">
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button class="group-hover-visible absolute right-14 top-1/2 -translate-y-1/2 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Replay
+          </button>
+        </div>
+
+        <!-- Hand 3: Won -->
+        <div class="group relative">
+          <div class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl shadow-sm hover:border-blue-300 hover:shadow-md cursor-pointer transition-all">
+            <div class="flex items-center gap-4">
+              <span class="text-xs text-gray-400 font-medium w-12">14:21</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-blue-50 text-blue-700">BB</span>
+              <div class="flex gap-1">
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-gray-900">T</span>
+                  <span class="text-gray-900 text-[8px]">&clubs;</span>
+                </div>
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-gray-900">T</span>
+                  <span class="text-gray-900 text-[8px]">&spades;</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-lg bg-emerald-50 text-emerald-700">Won</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-sm font-bold text-emerald-600">+8.0 BB</span>
+              <button class="p-1 rounded-lg text-gray-300 hover:text-red-500 hover:bg-red-50 transition-colors">
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button class="group-hover-visible absolute right-14 top-1/2 -translate-y-1/2 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Replay
+          </button>
+        </div>
+
+        <!-- Hand 4: Folded -->
+        <div class="group relative">
+          <div class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl shadow-sm hover:border-blue-300 hover:shadow-md cursor-pointer transition-all">
+            <div class="flex items-center gap-4">
+              <span class="text-xs text-gray-400 font-medium w-12">14:15</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-blue-50 text-blue-700">SB</span>
+              <div class="flex gap-1">
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-red-600">7</span>
+                  <span class="text-red-600 text-[8px]">&diams;</span>
+                </div>
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-gray-900">2</span>
+                  <span class="text-gray-900 text-[8px]">&clubs;</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-lg bg-gray-50 text-gray-600">Folded</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-sm font-bold text-red-500">-0.5 BB</span>
+              <button class="p-1 rounded-lg text-gray-300 hover:text-red-500 hover:bg-red-50 transition-colors">
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button class="group-hover-visible absolute right-14 top-1/2 -translate-y-1/2 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Replay
+          </button>
+        </div>
+
+        <!-- Hand 5: Won -->
+        <div class="group relative">
+          <div class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl shadow-sm hover:border-blue-300 hover:shadow-md cursor-pointer transition-all">
+            <div class="flex items-center gap-4">
+              <span class="text-xs text-gray-400 font-medium w-12">14:08</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-blue-50 text-blue-700">UTG</span>
+              <div class="flex gap-1">
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-red-600">A</span>
+                  <span class="text-red-600 text-[8px]">&diams;</span>
+                </div>
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-red-600">A</span>
+                  <span class="text-red-600 text-[8px]">&hearts;</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-lg bg-emerald-50 text-emerald-700">Won</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-sm font-bold text-emerald-600">+1.5 BB</span>
+              <button class="p-1 rounded-lg text-gray-300 hover:text-red-500 hover:bg-red-50 transition-colors">
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button class="group-hover-visible absolute right-14 top-1/2 -translate-y-1/2 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Replay
+          </button>
+        </div>
+      </div>
+
+      <!-- Date Group: Yesterday -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between px-1">
+          <div class="flex items-center gap-2">
+            <h2 class="text-sm font-semibold text-gray-700">Yesterday</h2>
+            <span class="text-xs text-gray-400">3 hands</span>
+          </div>
+          <span class="text-sm font-semibold text-red-500">-4.5 BB</span>
+        </div>
+
+        <!-- Hand 6: Lost -->
+        <div class="group relative">
+          <div class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl shadow-sm hover:border-blue-300 hover:shadow-md cursor-pointer transition-all">
+            <div class="flex items-center gap-4">
+              <span class="text-xs text-gray-400 font-medium w-12">22:15</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-blue-50 text-blue-700">MP</span>
+              <div class="flex gap-1">
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-gray-900">K</span>
+                  <span class="text-gray-900 text-[8px]">&spades;</span>
+                </div>
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-gray-900">Q</span>
+                  <span class="text-gray-900 text-[8px]">&clubs;</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-lg bg-red-50 text-red-700">Lost</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-sm font-bold text-red-500">-8.0 BB</span>
+              <button class="p-1 rounded-lg text-gray-300 hover:text-red-500 hover:bg-red-50 transition-colors">
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button class="group-hover-visible absolute right-14 top-1/2 -translate-y-1/2 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Replay
+          </button>
+        </div>
+
+        <!-- Hand 7: Won -->
+        <div class="group relative">
+          <div class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl shadow-sm hover:border-blue-300 hover:shadow-md cursor-pointer transition-all">
+            <div class="flex items-center gap-4">
+              <span class="text-xs text-gray-400 font-medium w-12">22:08</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-blue-50 text-blue-700">BTN</span>
+              <div class="flex gap-1">
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-gray-900">9</span>
+                  <span class="text-gray-900 text-[8px]">&spades;</span>
+                </div>
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-gray-900">8</span>
+                  <span class="text-gray-900 text-[8px]">&spades;</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-lg bg-emerald-50 text-emerald-700">Won</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-sm font-bold text-emerald-600">+2.5 BB</span>
+              <button class="p-1 rounded-lg text-gray-300 hover:text-red-500 hover:bg-red-50 transition-colors">
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button class="group-hover-visible absolute right-14 top-1/2 -translate-y-1/2 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Replay
+          </button>
+        </div>
+
+        <!-- Hand 8: Folded -->
+        <div class="group relative">
+          <div class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl shadow-sm hover:border-blue-300 hover:shadow-md cursor-pointer transition-all">
+            <div class="flex items-center gap-4">
+              <span class="text-xs text-gray-400 font-medium w-12">22:01</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-blue-50 text-blue-700">CO</span>
+              <div class="flex gap-1">
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-gray-900">J</span>
+                  <span class="text-gray-900 text-[8px]">&clubs;</span>
+                </div>
+                <div class="w-7 h-10 bg-white border border-gray-200 rounded-md flex flex-col items-center justify-center text-[10px] font-bold shadow-sm">
+                  <span class="text-red-600">4</span>
+                  <span class="text-red-600 text-[8px]">&hearts;</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-lg bg-gray-50 text-gray-600">Folded</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-sm font-bold text-red-500">-1.0 BB</span>
+              <button class="p-1 rounded-lg text-gray-300 hover:text-red-500 hover:bg-red-50 transition-colors">
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button class="group-hover-visible absolute right-14 top-1/2 -translate-y-1/2 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Replay
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Infinite scroll loading indicator -->
+    <div class="flex justify-center py-6">
+      <div class="flex items-center gap-2 text-sm text-gray-400">
+        <svg class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
+        Loading more...
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Delete Confirmation Dialog (overlay - visible for preview) -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center" style="display: none;">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    <div class="relative max-w-sm w-full mx-4 bg-white rounded-xl shadow-md border border-gray-200 p-6">
+      <div class="flex gap-4">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-50 flex items-center justify-center">
+          <svg class="w-5 h-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.72-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg font-semibold text-gray-900">Delete Hand Record</h3>
+          <p class="mt-1 text-sm text-gray-600">This will permanently delete this hand history record. This action cannot be undone.</p>
+        </div>
+      </div>
+      <div class="flex justify-end gap-3 mt-6">
+        <button class="px-4 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50">Cancel</button>
+        <button class="px-4 py-2 text-sm font-semibold text-white bg-red-500 rounded-lg hover:bg-red-600 shadow-sm">Delete</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

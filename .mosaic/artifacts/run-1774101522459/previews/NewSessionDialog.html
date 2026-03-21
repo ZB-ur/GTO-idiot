@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NewSessionDialog Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <!-- Backdrop -->
+  <div class="fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+  <!-- Dialog -->
+  <div class="fixed inset-0 flex items-center justify-center">
+    <div class="max-w-md w-full mx-4 bg-white rounded-xl shadow-md border border-gray-200">
+      <!-- Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+        <h2 class="text-lg font-semibold text-gray-900">New Session</h2>
+        <button class="flex items-center justify-center w-8 h-8 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-slate-100">
+          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="px-6 py-5 space-y-5">
+        <div>
+          <label class="text-sm font-semibold text-gray-700 mb-2 block">Seat Selection</label>
+          <div class="flex gap-3">
+            <button class="flex-1 px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-600 text-sm font-semibold">
+              <div class="font-bold">Auto</div>
+              <div class="text-xs font-normal mt-0.5 opacity-70">Random seat assignment</div>
+            </button>
+            <button class="flex-1 px-4 py-3 rounded-lg border border-blue-500 bg-blue-50 text-blue-700 text-sm font-semibold">
+              <div class="font-bold">Manual</div>
+              <div class="text-xs font-normal mt-0.5 opacity-70">Choose your seat</div>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="text-sm font-semibold text-gray-700 mb-2 block">Choose Seat (1-6)</label>
+          <div class="grid grid-cols-6 gap-2">
+            <button class="aspect-square rounded-lg border border-gray-200 bg-white text-gray-600 text-sm font-bold flex items-center justify-center">1</button>
+            <button class="aspect-square rounded-lg border border-gray-200 bg-white text-gray-600 text-sm font-bold flex items-center justify-center">2</button>
+            <button class="aspect-square rounded-lg border border-blue-500 bg-blue-600 text-white text-sm font-bold flex items-center justify-center">3</button>
+            <button class="aspect-square rounded-lg border border-gray-200 bg-white text-gray-600 text-sm font-bold flex items-center justify-center">4</button>
+            <button class="aspect-square rounded-lg border border-gray-200 bg-white text-gray-600 text-sm font-bold flex items-center justify-center">5</button>
+            <button class="aspect-square rounded-lg border border-gray-200 bg-white text-gray-600 text-sm font-bold flex items-center justify-center">6</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex justify-end gap-3 px-6 py-4 border-t border-gray-200 bg-slate-50 rounded-b-xl">
+        <button class="px-4 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-lg">Cancel</button>
+        <button class="px-5 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg shadow-sm">Start Session</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

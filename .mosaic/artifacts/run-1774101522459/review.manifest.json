@@ -1,0 +1,100 @@
+{
+  "issues": [
+    {
+      "severity": "critical",
+      "file": "code/src/main.tsx",
+      "description": "App entry renders placeholder <Root> instead of actual <App /> — entire application will not render"
+    },
+    {
+      "severity": "major",
+      "file": "code/src/gto/batch-evaluator.ts",
+      "description": "EV approximation treats GTO frequency as EV multiplier (freq.call * 2) — produces meaningless EV values for decision analysis"
+    },
+    {
+      "severity": "major",
+      "file": "code/src/gto/monte-carlo.ts",
+      "description": "Multi-way pot tie handling incorrect — totalWins += 0.5 regardless of opponent count, overestimates equity"
+    },
+    {
+      "severity": "major",
+      "file": "code/src/gto/monte-carlo.ts",
+      "description": "Hardcoded fold probability (0.6/0.7) for all bet/raise sizes regardless of context — unreliable EV estimates"
+    },
+    {
+      "severity": "major",
+      "file": "code/src/persistence/hand-history-repository.ts",
+      "description": "Cursor pagination loads ALL records via toArray() then filters in JS — O(n) memory with 5000+ records target"
+    },
+    {
+      "severity": "major",
+      "file": "code/src/services/hand-service.ts",
+      "description": "In-memory engine registry loses all hand state on page reload — no persistence or recovery mechanism"
+    },
+    {
+      "severity": "major",
+      "file": "code/src/engine/settlement.ts",
+      "description": "Chip movements record 0 for losing players instead of actual loss — incomplete settlement tracking"
+    },
+    {
+      "severity": "major",
+      "file": "code/src/gto/gto-client.ts",
+      "description": "Worker error rejects all pending requests instead of falling back to heuristic — violates degraded fallback spec"
+    },
+    {
+      "severity": "minor",
+      "file": "code/src/engine/hand-state-machine.ts",
+      "description": "Missing PotManager.markAllIn() call when blind posting causes all-in — may miscalculate side pots"
+    },
+    {
+      "severity": "minor",
+      "file": "code/src/engine/game-engine.ts",
+      "description": "Unsafe type cast (hand as any).bettingState — should expose via public getter"
+    },
+    {
+      "severity": "minor",
+      "file": "code/src/stores/game-store.ts",
+      "description": "Bot detection uses fragile name.startsWith('BOT') but bots are named TAG-42, LAG-73 etc."
+    },
+    {
+      "severity": "minor",
+      "file": "code/src/services/session-service.ts",
+      "description": "totalEvLoss never incremented — avgEvLossPerHand always returns 0"
+    },
+    {
+      "severity": "minor",
+      "file": "code/src/gto/gto-client.ts",
+      "description": "Worker URL hardcodes .ts extension — may break in production builds"
+    },
+    {
+      "severity": "minor",
+      "file": "code/package.json",
+      "description": "Missing ESLint/Prettier config files specified in T-001"
+    },
+    {
+      "severity": "minor",
+      "file": "code/src/components/replay/ReplayPage.tsx",
+      "description": "Keyboard shortcuts (←/→) for replay navigation not implemented per T-024"
+    },
+    {
+      "severity": "minor",
+      "file": "code/src/components/game/PokerTable.tsx",
+      "description": "Phase naming inconsistency with useGameLoop — may hide action panel during dealing/settling"
+    },
+    {
+      "severity": "minor",
+      "file": "code/vite.config.ts",
+      "description": "Duplicate test configuration in both vite.config.ts and vitest.config.ts"
+    },
+    {
+      "severity": "suggestion",
+      "file": "code/src/gto/postflop-heuristic.ts",
+      "description": "Fold equity formula caps at 70% for any bet size — consider street-aware adjustments"
+    }
+  ],
+  "spec_coverage": {
+    "total_tasks": 34,
+    "covered_tasks": 34,
+    "missing_tasks": []
+  },
+  "verdict": "fail"
+}

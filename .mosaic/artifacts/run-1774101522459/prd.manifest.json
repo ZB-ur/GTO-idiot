@@ -1,0 +1,58 @@
+{
+  "features": [
+    {
+      "id": "F-001",
+      "name": "game-engine"
+    },
+    {
+      "id": "F-002",
+      "name": "bot-ai"
+    },
+    {
+      "id": "F-003",
+      "name": "gto-solver"
+    },
+    {
+      "id": "F-004",
+      "name": "game-ui"
+    },
+    {
+      "id": "F-005",
+      "name": "hand-history"
+    },
+    {
+      "id": "F-006",
+      "name": "hand-replay"
+    },
+    {
+      "id": "F-007",
+      "name": "stats-dashboard"
+    },
+    {
+      "id": "F-008",
+      "name": "session-management"
+    }
+  ],
+  "constraints": [
+    "纯浏览器端运行（React + TypeScript + Tailwind CSS），无后端服务器依赖，所有数据使用 IndexedDB/LocalStorage 存储",
+    "固定 6 人桌（6-max）现金桌结构，100BB 深筹码，固定盲注，不支持其他桌型或结构",
+    "GTO solver 为简化版启发式算法 + 预计算范围表，精度目标 ~5-10% Nash Distance",
+    "GTO 计算和 EV 估算必须在 Web Worker 中异步执行，避免阻塞 UI 线程",
+    "手牌评估优先使用现有 npm 库（pokersolver/phe）",
+    "Preflop GTO 范围使用开源预计算数据",
+    "IndexedDB 应能支撑至少 5000 局历史记录"
+  ],
+  "out_of_scope": [
+    "多桌同时游戏",
+    "锦标赛模式（MTT/SNG/ICM）",
+    "用户自定义 BOT 风格",
+    "高级 HUD 统计",
+    "多设备数据同步或云端存储",
+    "社交功能、排行榜、多人在线对战",
+    "精确 GTO solver（PioSolver 级别精度）",
+    "移动端适配",
+    "Hand History 文件导入/导出",
+    "多语言支持",
+    "音效和动画特效"
+  ]
+}

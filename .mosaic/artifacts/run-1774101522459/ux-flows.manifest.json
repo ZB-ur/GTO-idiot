@@ -1,0 +1,87 @@
+{
+  "flows": [
+    {
+      "name": "game-session-flow",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-004",
+        "F-008"
+      ]
+    },
+    {
+      "name": "hand-history-flow",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "hand-replay-flow",
+      "covers_features": [
+        "F-003",
+        "F-006"
+      ]
+    },
+    {
+      "name": "stats-dashboard-flow",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "session-mgmt-flow",
+      "covers_features": [
+        "F-008"
+      ]
+    }
+  ],
+  "components": [
+    "AppShell",
+    "TopNav",
+    "PokerTable",
+    "PlayerSeat",
+    "CommunityCards",
+    "PotDisplay",
+    "Card",
+    "ActionPanel",
+    "ActionButton",
+    "RaiseSlider",
+    "ConfirmDialog",
+    "HandHistoryList",
+    "HandHistoryItem",
+    "HandReplayViewer",
+    "ReplayTimeline",
+    "ReplayControls",
+    "DecisionAnalysis",
+    "StatsOverview",
+    "StatCard",
+    "PositionStatsTable",
+    "StreetEVChart",
+    "ProfitTrendChart",
+    "NewSessionDialog",
+    "SessionStatusBar",
+    "SessionSummaryModal",
+    "Toast",
+    "Skeleton",
+    "EmptyState",
+    "Tooltip",
+    "Badge"
+  ],
+  "interaction_rules": [
+    "Action buttons disabled when not user's turn; only legal actions shown",
+    "Raise slider with min/max bounds, 0.5BB step, manual input with blur validation",
+    "All-in requires secondary confirmation dialog",
+    "GTO calculation loading shows skeleton placeholder, fallback on timeout >5s",
+    "Hand history auto-saves to IndexedDB after each hand completion",
+    "Delete history record requires confirmation dialog, irreversible",
+    "Replay navigation via forward/back buttons and keyboard arrows",
+    "Decision quality color coding: green (<0.5BB diff), yellow (0.5-2BB), red (>2BB)",
+    "EV detail tooltip on hover in replay mode",
+    "Card deal animation 200ms, flip animation 150ms, chip count animation 300ms",
+    "Page transitions use fade in/out 200ms",
+    "IndexedDB unavailable shows warning toast, game continues without persistence",
+    "Seat selection: click empty seat or auto-assign; occupied seats not selectable",
+    "Stats aggregated from IndexedDB in real-time, no separate cache",
+    "Resume unfinished session prompt on dashboard load"
+  ]
+}

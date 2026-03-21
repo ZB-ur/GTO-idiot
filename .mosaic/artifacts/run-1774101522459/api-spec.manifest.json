@@ -1,0 +1,224 @@
+{
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/sessions",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions",
+      "covers_features": [
+        "F-001",
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions/active",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions/{sessionId}",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/pause",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/resume",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/end",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/hands",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}/actions",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/hands/{handId}/actions",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/hands/{handId}/bot-action",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/hands/{handId}/settle",
+      "covers_features": [
+        "F-001",
+        "F-005"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/gto/preflop-range",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/gto/evaluate",
+      "covers_features": [
+        "F-003",
+        "F-006"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/gto/batch-evaluate",
+      "covers_features": [
+        "F-003",
+        "F-006"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/history/hands",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/history/hands/{handId}",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/history/hands/{handId}",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/history/hands/{handId}/replay",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/overview",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/by-position",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/by-street",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/profit-trend",
+      "covers_features": [
+        "F-007"
+      ]
+    }
+  ],
+  "models": [
+    "Card",
+    "Position",
+    "Street",
+    "ActionType",
+    "BotStyle",
+    "SessionStatus",
+    "HandPhase",
+    "DecisionQuality",
+    "BlindStructure",
+    "Player",
+    "Session",
+    "SessionSummary",
+    "SessionEndSummary",
+    "CreateSessionRequest",
+    "HandState",
+    "HandPlayer",
+    "Pot",
+    "AvailableActions",
+    "LegalAction",
+    "PlayerAction",
+    "ActionResult",
+    "BotActionResult",
+    "ActionLogEntry",
+    "HandSettlement",
+    "Winner",
+    "PreflopRange",
+    "GTOEvaluationRequest",
+    "GTOEvaluationResult",
+    "GTOActionEV",
+    "GTOBatchRequest",
+    "GTOBatchResult",
+    "DecisionPointAnalysis",
+    "GameSnapshot",
+    "HandHistoryList",
+    "HandHistorySummary",
+    "HandHistory",
+    "SeatRecord",
+    "HandReplayData",
+    "StatsOverview",
+    "PositionStats",
+    "StreetStats",
+    "ProfitTrend",
+    "Error"
+  ]
+}

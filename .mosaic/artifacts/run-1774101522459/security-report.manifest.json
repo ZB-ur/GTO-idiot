@@ -1,0 +1,40 @@
+{
+  "scan_results": {
+    "dependency_vulnerabilities": 10,
+    "code_issues": 0,
+    "secrets_found": 0
+  },
+  "llm_findings": [
+    {
+      "severity": "high",
+      "category": "Insecure Cryptography",
+      "file": "src/session/seat-assigner.ts",
+      "description": "Math.random() is used for shuffling bot styles and assigning the human seat (lines in pickBotStyles and assignSeats). In a poker application, predictable randomness is a critical fairness issue — Math.random() is not cryptographically secure and its output can be predicted/reproduced. Use crypto.getRandomValues() or a CSPRNG wrapper for all game-critical randomness (seat assignment, dealer selection, shuffling)."
+    },
+    {
+      "severity": "high",
+      "category": "Insecure Cryptography",
+      "file": "src/services/session-service.ts",
+      "description": "Same Math.random() issue duplicated in session-service.ts for pickBotStyles shuffle, humanSeat selection, and dealerSeat selection. This is duplicated logic from seat-assigner.ts — both the duplication and the weak RNG should be addressed. Centralize randomness in seat-assigner.ts and use crypto.getRandomValues()."
+    },
+    {
+      "severity": "medium",
+      "category": "Missing Input Validation",
+      "file": "src/services/session-service.ts",
+      "description": "selectedSeat is silently clamped via Math.max/Math.min instead of rejecting invalid values. Compare with seat-assigner.ts which correctly throws on out-of-range input. The service should throw an error on invalid seat numbers rather than silently accepting them, as silent clamping can mask bugs or manipulation attempts."
+    },
+    {
+      "severity": "low",
+      "category": "Missing Input Validation",
+      "file": "src/components/session/SessionStatusBar.tsx",
+      "description": "getElapsedTime() parses session.startedAt with `new Date(startedAt)` without validating the date string. A malformed or future date from a corrupted IndexedDB record could produce negative values (clamped to 0) or NaN. Consider adding a validity check on the parsed date."
+    },
+    {
+      "severity": "low",
+      "category": "Configuration Issues",
+      "file": "src/persistence/database.ts",
+      "description": "IndexedDB database name 'gto-idiot-db' is hardcoded and accessible to any script running on the same origin. While this is inherent to IndexedDB, be aware that any XSS on the domain could read/modify all session and hand history data. Ensure strong CSP headers are configured to mitigate XSS risk at the application hosting level."
+    }
+  ],
+  "verdict": "warn"
+}

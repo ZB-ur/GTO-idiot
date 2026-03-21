@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandReplayViewer Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-6xl mx-auto space-y-4">
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <button class="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
+          ← Back
+        </button>
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">Hand Replay</h1>
+          <p class="text-sm text-gray-500 mt-0.5">
+            Hand #42
+            · 4 decisions
+            · <span class="text-red-500 font-medium">-3.25 BB total</span>
+          </p>
+        </div>
+      </div>
+      <div class="text-xs text-gray-400">
+        ← → to navigate · Home/End to jump
+      </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="grid grid-cols-12 gap-4">
+      <!-- LEFT: Table + Timeline (8 cols) -->
+      <div class="col-span-8 space-y-4">
+        <!-- Table Snapshot -->
+        <div class="bg-emerald-800 rounded-xl border border-emerald-900 shadow-sm relative overflow-hidden" style="min-height: 320px;">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-700 to-emerald-900 opacity-50"></div>
+          <div class="relative p-6">
+            <!-- Community Cards -->
+            <div class="flex justify-center gap-2 mt-8 mb-4">
+              <span class="inline-flex items-center px-2.5 py-1 text-sm bg-white border border-gray-200 rounded-lg font-mono font-bold shadow-sm">
+                <span class="text-gray-900">A</span><span class="text-red-600">♥</span>
+              </span>
+              <span class="inline-flex items-center px-2.5 py-1 text-sm bg-white border border-gray-200 rounded-lg font-mono font-bold shadow-sm">
+                <span class="text-gray-900">K</span><span class="text-gray-900">♠</span>
+              </span>
+              <span class="inline-flex items-center px-2.5 py-1 text-sm bg-white border border-gray-200 rounded-lg font-mono font-bold shadow-sm">
+                <span class="text-gray-900">7</span><span class="text-red-600">♦</span>
+              </span>
+              <span class="inline-flex items-center px-2.5 py-1 text-sm bg-white border border-gray-200 rounded-lg font-mono font-bold shadow-sm">
+                <span class="text-gray-900">2</span><span class="text-gray-900">♣</span>
+              </span>
+              <span class="inline-flex items-center px-2.5 py-1 text-sm bg-white border border-gray-200 rounded-lg font-mono font-bold shadow-sm">
+                <span class="text-gray-900">9</span><span class="text-red-600">♥</span>
+              </span>
+            </div>
+
+            <!-- Pot -->
+            <div class="text-center mb-6">
+              <span class="bg-emerald-900/70 text-emerald-200 text-sm font-semibold px-4 py-1.5 rounded-full">
+                Pot: 18.5 BB
+              </span>
+            </div>
+
+            <!-- Player seats -->
+            <div class="relative" style="height: 160px;">
+              <!-- Seat 0 — bottom-left (human) -->
+              <div class="absolute" style="top: 85%; left: 20%; transform: translate(-50%, -50%);">
+                <div class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg text-xs bg-emerald-800/80 ring-1 ring-blue-400">
+                  <div class="flex items-center gap-1">
+                    <span class="bg-yellow-400 text-yellow-900 text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">D</span>
+                    <span class="font-medium text-white">You</span>
+                  </div>
+                  <span class="text-emerald-400 text-[10px]">BTN · 94.5 BB</span>
+                </div>
+              </div>
+              <!-- Seat 1 — mid-left -->
+              <div class="absolute" style="top: 50%; left: 2%; transform: translate(-50%, -50%);">
+                <div class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg text-xs bg-emerald-800/80">
+                  <span class="font-medium text-white">BOT-TAG</span>
+                  <span class="text-emerald-400 text-[10px]">SB · 98.0 BB</span>
+                </div>
+              </div>
+              <!-- Seat 2 — top-left -->
+              <div class="absolute" style="top: 12%; left: 20%; transform: translate(-50%, -50%);">
+                <div class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg text-xs bg-emerald-800/80">
+                  <span class="font-medium text-white">BOT-LAG</span>
+                  <span class="text-emerald-400 text-[10px]">BB · 112.0 BB</span>
+                </div>
+              </div>
+              <!-- Seat 3 — top-right (folded) -->
+              <div class="absolute" style="top: 12%; left: 80%; transform: translate(-50%, -50%);">
+                <div class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg text-xs bg-emerald-900/60 opacity-50">
+                  <span class="font-medium text-white">BOT-TP</span>
+                  <span class="text-emerald-400 text-[10px]">UTG · 100.0 BB</span>
+                  <span class="text-emerald-500 text-[10px] font-medium">Folded</span>
+                </div>
+              </div>
+              <!-- Seat 4 — mid-right (folded) -->
+              <div class="absolute" style="top: 50%; left: 98%; transform: translate(-50%, -50%);">
+                <div class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg text-xs bg-emerald-900/60 opacity-50">
+                  <span class="font-medium text-white">BOT-GTO</span>
+                  <span class="text-emerald-400 text-[10px]">MP · 100.0 BB</span>
+                  <span class="text-emerald-500 text-[10px] font-medium">Folded</span>
+                </div>
+              </div>
+              <!-- Seat 5 — bottom-right (folded) -->
+              <div class="absolute" style="top: 85%; left: 80%; transform: translate(-50%, -50%);">
+                <div class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg text-xs bg-emerald-900/60 opacity-50">
+                  <span class="font-medium text-white">BOT-LP</span>
+                  <span class="text-emerald-400 text-[10px]">CO · 100.0 BB</span>
+                  <span class="text-emerald-500 text-[10px] font-medium">Folded</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- User hole cards -->
+            <div class="flex justify-center gap-1 mt-2">
+              <span class="inline-flex items-center px-1.5 py-0.5 text-xs bg-white border border-gray-200 rounded-lg font-mono font-bold shadow-sm">
+                <span class="text-gray-900">A</span><span class="text-gray-900">♠</span>
+              </span>
+              <span class="inline-flex items-center px-1.5 py-0.5 text-xs bg-white border border-gray-200 rounded-lg font-mono font-bold shadow-sm">
+                <span class="text-gray-900">Q</span><span class="text-gray-900">♠</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decision Timeline -->
+        <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
+          <h3 class="text-sm font-semibold text-gray-900 mb-3">Decision Timeline</h3>
+          <!-- Street labels -->
+          <div class="flex items-center gap-1 mb-2">
+            <button class="px-2.5 py-0.5 text-xs font-medium rounded-md bg-gray-100 text-gray-600">Preflop (1)</button>
+            <button class="px-2.5 py-0.5 text-xs font-medium rounded-md bg-gray-100 text-gray-600">Flop (1)</button>
+            <button class="px-2.5 py-0.5 text-xs font-medium rounded-md bg-gray-100 text-gray-600">Turn (1)</button>
+            <button class="px-2.5 py-0.5 text-xs font-medium rounded-md bg-blue-600 text-white">River (1)</button>
+          </div>
+          <!-- Decision dots -->
+          <div class="flex items-center gap-1.5 overflow-x-auto pb-1">
+            <!-- Decision 1: Preflop - Raise - Good -->
+            <button class="flex-shrink-0 flex flex-col items-center gap-1 px-2.5 py-1.5 rounded-lg hover:bg-gray-50">
+              <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+              <span class="text-[10px] text-gray-400">PF</span>
+              <span class="text-xs font-medium text-gray-700">Raise</span>
+            </button>
+            <!-- Decision 2: Flop - Bet - Minor -->
+            <button class="flex-shrink-0 flex flex-col items-center gap-1 px-2.5 py-1.5 rounded-lg hover:bg-gray-50">
+              <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+              <span class="text-[10px] text-gray-400">F</span>
+              <span class="text-xs font-medium text-gray-700">Bet</span>
+            </button>
+            <!-- Decision 3: Turn - Check - Good -->
+            <button class="flex-shrink-0 flex flex-col items-center gap-1 px-2.5 py-1.5 rounded-lg hover:bg-gray-50">
+              <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+              <span class="text-[10px] text-gray-400">T</span>
+              <span class="text-xs font-medium text-gray-700">Check</span>
+            </button>
+            <!-- Decision 4: River - Call - Major (active) -->
+            <button class="flex-shrink-0 flex flex-col items-center gap-1 px-2.5 py-1.5 rounded-lg bg-gray-100 ring-2 ring-blue-500">
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <span class="text-[10px] text-gray-400">R</span>
+              <span class="text-xs font-medium text-gray-700">Call</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Decision Analysis (4 cols) -->
+      <div class="col-span-4 space-y-4">
+        <!-- Your Action -->
+        <div class="rounded-xl border p-4 shadow-sm bg-red-50 border-red-200">
+          <div class="text-xs font-medium text-gray-500 mb-1">Your Action</div>
+          <div class="flex items-center justify-between">
+            <span class="text-lg font-bold text-gray-900">Call 8.5 BB</span>
+            <span class="text-sm font-semibold text-red-600">✗ Major</span>
+          </div>
+          <div class="mt-2 flex items-center gap-4 text-sm">
+            <span class="text-gray-500">
+              EV Loss: <span class="font-semibold text-red-500">-2.15 BB</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- GTO Strategy Distribution -->
+        <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
+          <div class="text-xs font-medium text-gray-500 mb-3">GTO Strategy</div>
+          <div class="space-y-2.5">
+            <!-- Fold (recommended) -->
+            <div class="space-y-1">
+              <div class="flex items-center justify-between text-sm">
+                <span class="font-medium text-blue-600">
+                  Fold <span class="ml-1 text-xs text-blue-400">★ GTO</span>
+                </span>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-gray-400">+0.00 BB</span>
+                  <span class="text-gray-500 w-10 text-right">68%</span>
+                </div>
+              </div>
+              <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full rounded-full bg-blue-500" style="width: 68%;"></div>
+              </div>
+            </div>
+            <!-- Call (user chose) -->
+            <div class="space-y-1">
+              <div class="flex items-center justify-between text-sm">
+                <span class="font-medium text-gray-700">
+                  Call <span class="ml-1 text-xs text-gray-400">← you</span>
+                </span>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-gray-400">-2.15 BB</span>
+                  <span class="text-gray-500 w-10 text-right">22%</span>
+                </div>
+              </div>
+              <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full rounded-full bg-gray-300" style="width: 22%;"></div>
+              </div>
+            </div>
+            <!-- Raise -->
+            <div class="space-y-1">
+              <div class="flex items-center justify-between text-sm">
+                <span class="font-medium text-gray-700">Raise (22BB)</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-gray-400">-1.80 BB</span>
+                  <span class="text-gray-500 w-10 text-right">10%</span>
+                </div>
+              </div>
+              <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full rounded-full bg-gray-300" style="width: 10%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hand Metrics -->
+        <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
+          <div class="text-xs font-medium text-gray-500 mb-3">Hand Metrics</div>
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <div class="text-xs text-gray-400">Strength</div>
+              <div class="text-base font-bold text-gray-900">42%</div>
+            </div>
+            <div>
+              <div class="text-xs text-gray-400">Pot Odds</div>
+              <div class="text-base font-bold text-gray-900">31%</div>
+            </div>
+            <div>
+              <div class="text-xs text-gray-400">SPR</div>
+              <div class="text-base font-bold text-gray-900">4.2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <button class="px-2 py-2 rounded-lg text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200">⏮</button>
+        <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200">← Prev</button>
+      </div>
+      <span class="text-sm text-gray-500">
+        Decision <span class="font-semibold text-gray-900">4</span> of 4
+      </span>
+      <div class="flex items-center gap-2">
+        <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-50 text-gray-300 cursor-not-allowed">Next →</button>
+        <button class="px-2 py-2 rounded-lg text-sm font-medium bg-gray-50 text-gray-300 cursor-not-allowed">⏭</button>
+      </div>
+    </div>
+
+    <!-- Hand EV Summary Footer -->
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-gray-900">Hand EV Summary</h3>
+        <span class="text-sm font-bold text-red-500">Total: -3.25 BB</span>
+      </div>
+
+      <!-- Per-street breakdown -->
+      <div class="grid grid-cols-4 gap-3 mb-4">
+        <div class="bg-slate-50 rounded-lg p-3 text-center">
+          <div class="text-xs text-gray-400">Preflop</div>
+          <div class="text-sm font-bold mt-0.5 text-emerald-500">+0.00 BB</div>
+          <div class="text-[10px] text-gray-400 mt-0.5">1 decision</div>
+        </div>
+        <div class="bg-slate-50 rounded-lg p-3 text-center">
+          <div class="text-xs text-gray-400">Flop</div>
+          <div class="text-sm font-bold mt-0.5 text-red-500">-1.10 BB</div>
+          <div class="text-[10px] text-gray-400 mt-0.5">1 decision</div>
+        </div>
+        <div class="bg-slate-50 rounded-lg p-3 text-center">
+          <div class="text-xs text-gray-400">Turn</div>
+          <div class="text-sm font-bold mt-0.5 text-emerald-500">+0.00 BB</div>
+          <div class="text-[10px] text-gray-400 mt-0.5">1 decision</div>
+        </div>
+        <div class="bg-slate-50 rounded-lg p-3 text-center">
+          <div class="text-xs text-gray-400">River</div>
+          <div class="text-sm font-bold mt-0.5 text-red-500">-2.15 BB</div>
+          <div class="text-[10px] text-gray-400 mt-0.5">1 decision</div>
+        </div>
+      </div>
+
+      <!-- Key deviations -->
+      <div class="space-y-2">
+        <div class="text-xs font-medium text-gray-500">Key Deviations</div>
+        <button class="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 text-left transition-colors">
+          <div class="w-2.5 h-2.5 rounded-full flex-shrink-0 bg-red-500"></div>
+          <div class="flex-1 min-w-0">
+            <span class="text-sm font-medium text-gray-700">#4 River</span>
+            <span class="text-sm text-gray-500 ml-2">Call 8.5BB</span>
+          </div>
+          <span class="text-sm font-semibold text-red-500 flex-shrink-0">-2.15 BB</span>
+        </button>
+        <button class="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 text-left transition-colors">
+          <div class="w-2.5 h-2.5 rounded-full flex-shrink-0 bg-amber-500"></div>
+          <div class="flex-1 min-w-0">
+            <span class="text-sm font-medium text-gray-700">#2 Flop</span>
+            <span class="text-sm text-gray-500 ml-2">Bet 4.5BB</span>
+          </div>
+          <span class="text-sm font-semibold text-red-500 flex-shrink-0">-1.10 BB</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

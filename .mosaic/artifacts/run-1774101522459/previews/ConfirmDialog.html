@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConfirmDialog Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <!-- Backdrop -->
+  <div class="fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+  <!-- Dialog: danger variant (All-in confirm) -->
+  <div class="fixed inset-0 flex items-center justify-center">
+    <div class="max-w-sm w-full mx-4 bg-white rounded-xl shadow-md border border-gray-200 p-6">
+      <div class="flex gap-4">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-50 flex items-center justify-center">
+          <svg class="w-5 h-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.72-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg font-semibold text-gray-900">Confirm All-in</h3>
+          <p class="mt-1 text-sm text-gray-600">Are you sure you want to go all-in with 98.5 BB? This action cannot be undone.</p>
+        </div>
+      </div>
+      <div class="flex justify-end gap-3 mt-6">
+        <button class="px-4 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50">Cancel</button>
+        <button class="px-4 py-2 text-sm font-semibold rounded-lg bg-red-500 text-white hover:bg-red-600 shadow-sm">All-in</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,340 @@
+{
+  "project_name": "gto-idiot",
+  "tech_stack": {
+    "language": "TypeScript",
+    "framework": "React 18 + Vite",
+    "build_tool": "npm"
+  },
+  "commands": {
+    "setupCommand": "npm install",
+    "verifyCommand": "npx tsc --noEmit",
+    "buildCommand": "npm run build"
+  },
+  "modules": [
+    {
+      "name": "scaffold",
+      "description": "Vite + React + TS + Tailwind project setup, shared types, ESLint config, folder structure",
+      "files": [
+        "package.json",
+        "tsconfig.json",
+        "tsconfig.node.json",
+        "vite.config.ts",
+        "tailwind.config.js",
+        "postcss.config.js",
+        "index.html",
+        "src/main.tsx",
+        "src/types/index.ts",
+        "src/types/cards.ts",
+        "src/types/game.ts",
+        "src/types/session.ts",
+        "src/types/gto.ts",
+        "src/types/stats.ts",
+        "src/index.css"
+      ],
+      "dependencies": [],
+      "covers_tasks": [
+        "T-001"
+      ],
+      "covers_features": [
+        "F-004"
+      ],
+      "priority": 0
+    },
+    {
+      "name": "persistence",
+      "description": "Dexie.js IndexedDB schema, migrations, session and hand history repositories",
+      "files": [
+        "src/persistence/database.ts",
+        "src/persistence/session-repository.ts",
+        "src/persistence/hand-history-repository.ts",
+        "src/persistence/index.ts"
+      ],
+      "dependencies": [
+        "scaffold"
+      ],
+      "covers_tasks": [
+        "T-002"
+      ],
+      "covers_features": [
+        "F-005"
+      ],
+      "priority": 1
+    },
+    {
+      "name": "game-engine",
+      "description": "Core poker engine: deck, dealing, blinds, hand state machine, betting rounds, pot manager, hand evaluator, settlement",
+      "files": [
+        "src/engine/deck-manager.ts",
+        "src/engine/hand-state-machine.ts",
+        "src/engine/betting-round.ts",
+        "src/engine/pot-manager.ts",
+        "src/engine/hand-evaluator.ts",
+        "src/engine/settlement.ts",
+        "src/engine/game-engine.ts",
+        "src/engine/index.ts"
+      ],
+      "dependencies": [
+        "scaffold"
+      ],
+      "covers_tasks": [
+        "T-003",
+        "T-004",
+        "T-005",
+        "T-006",
+        "T-007"
+      ],
+      "covers_features": [
+        "F-001"
+      ],
+      "priority": 2
+    },
+    {
+      "name": "bot-ai",
+      "description": "BOT style profiles (TAG/LAG/TP/LP/GTO), hand strength calculator, position-aware decision engine",
+      "files": [
+        "src/bot/bot-profiles.ts",
+        "src/bot/hand-strength.ts",
+        "src/bot/decision-engine.ts",
+        "src/bot/index.ts"
+      ],
+      "dependencies": [
+        "scaffold",
+        "game-engine"
+      ],
+      "covers_tasks": [
+        "T-008",
+        "T-009"
+      ],
+      "covers_features": [
+        "F-002"
+      ],
+      "priority": 3
+    },
+    {
+      "name": "gto-solver",
+      "description": "Preflop GTO range tables, postflop heuristic EV engine, Monte Carlo simulation, Web Worker with timeout/fallback",
+      "files": [
+        "src/gto/preflop-ranges.ts",
+        "src/gto/preflop-range-data.ts",
+        "src/gto/postflop-heuristic.ts",
+        "src/gto/monte-carlo.ts",
+        "src/gto/gto-worker.ts",
+        "src/gto/gto-client.ts",
+        "src/gto/batch-evaluator.ts",
+        "src/gto/index.ts"
+      ],
+      "dependencies": [
+        "scaffold",
+        "game-engine"
+      ],
+      "covers_tasks": [
+        "T-010",
+        "T-011",
+        "T-012",
+        "T-013",
+        "T-026"
+      ],
+      "covers_features": [
+        "F-003"
+      ],
+      "priority": 3
+    },
+    {
+      "name": "services",
+      "description": "Service layer implementing API operations, session manager, seat assignment, Zustand stores (game/session/ui)",
+      "files": [
+        "src/services/session-service.ts",
+        "src/services/hand-service.ts",
+        "src/services/history-service.ts",
+        "src/services/stats-service.ts",
+        "src/services/replay-service.ts",
+        "src/services/gto-service.ts",
+        "src/services/index.ts",
+        "src/session/session-manager.ts",
+        "src/session/seat-assigner.ts",
+        "src/stores/game-store.ts",
+        "src/stores/session-store.ts",
+        "src/stores/ui-store.ts",
+        "src/stores/index.ts"
+      ],
+      "dependencies": [
+        "scaffold",
+        "persistence",
+        "game-engine",
+        "bot-ai",
+        "gto-solver"
+      ],
+      "covers_tasks": [
+        "T-014",
+        "T-015",
+        "T-016"
+      ],
+      "covers_features": [
+        "F-001",
+        "F-005",
+        "F-008"
+      ],
+      "priority": 4
+    },
+    {
+      "name": "game-ui",
+      "description": "Poker table layout, card SVGs, player seats, community cards, pot display, action panel, raise slider, animations, game loop integration",
+      "files": [
+        "src/components/game/PokerTable.tsx",
+        "src/components/game/PlayerSeat.tsx",
+        "src/components/game/Card.tsx",
+        "src/components/game/CommunityCards.tsx",
+        "src/components/game/PotDisplay.tsx",
+        "src/components/game/ActionPanel.tsx",
+        "src/components/game/RaiseSlider.tsx",
+        "src/components/game/ConfirmDialog.tsx",
+        "src/components/game/GamePage.tsx",
+        "src/components/game/useGameLoop.ts",
+        "src/components/game/animations.ts"
+      ],
+      "dependencies": [
+        "scaffold",
+        "services"
+      ],
+      "covers_tasks": [
+        "T-018",
+        "T-019",
+        "T-020",
+        "T-021"
+      ],
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-004"
+      ],
+      "priority": 5
+    },
+    {
+      "name": "app-shell",
+      "description": "App layout, routing (4 pages), navigation, toast/loading/empty states, error handling, lazy loading for replay/stats",
+      "files": [
+        "src/components/layout/AppShell.tsx",
+        "src/components/layout/TopNav.tsx",
+        "src/components/common/Toast.tsx",
+        "src/components/common/Skeleton.tsx",
+        "src/components/common/EmptyState.tsx",
+        "src/components/session/SessionStatusBar.tsx",
+        "src/components/session/NewSessionDialog.tsx",
+        "src/components/session/SessionSummaryModal.tsx",
+        "src/App.tsx",
+        "src/routes.tsx"
+      ],
+      "dependencies": [
+        "scaffold",
+        "services",
+        "game-ui"
+      ],
+      "covers_tasks": [
+        "T-017",
+        "T-030",
+        "T-031",
+        "T-032"
+      ],
+      "covers_features": [
+        "F-004",
+        "F-008"
+      ],
+      "priority": 5
+    },
+    {
+      "name": "history-replay",
+      "description": "Hand history list with infinite scroll, detail view, replay engine with timeline/step navigation, GTO decision analysis panel",
+      "files": [
+        "src/components/history/HandHistoryList.tsx",
+        "src/components/history/HandHistoryItem.tsx",
+        "src/components/history/HandHistoryDetail.tsx",
+        "src/components/history/HistoryPage.tsx",
+        "src/replay/replay-engine.ts",
+        "src/replay/timeline.ts",
+        "src/components/replay/HandReplayViewer.tsx",
+        "src/components/replay/ReplayTimeline.tsx",
+        "src/components/replay/DecisionAnalysis.tsx",
+        "src/components/replay/ReplayPage.tsx"
+      ],
+      "dependencies": [
+        "scaffold",
+        "services",
+        "gto-solver"
+      ],
+      "covers_tasks": [
+        "T-022",
+        "T-023",
+        "T-024",
+        "T-025"
+      ],
+      "covers_features": [
+        "F-005",
+        "F-006"
+      ],
+      "priority": 6
+    },
+    {
+      "name": "stats",
+      "description": "Stats aggregation engine, overview cards, position table, street EV chart, profit trend chart (Recharts)",
+      "files": [
+        "src/stats/stats-aggregator.ts",
+        "src/components/stats/StatsOverview.tsx",
+        "src/components/stats/StatCard.tsx",
+        "src/components/stats/PositionStatsTable.tsx",
+        "src/components/stats/StreetEVChart.tsx",
+        "src/components/stats/ProfitTrendChart.tsx",
+        "src/components/stats/StatsPage.tsx"
+      ],
+      "dependencies": [
+        "scaffold",
+        "services",
+        "persistence"
+      ],
+      "covers_tasks": [
+        "T-027",
+        "T-028",
+        "T-029"
+      ],
+      "covers_features": [
+        "F-007"
+      ],
+      "priority": 6
+    },
+    {
+      "name": "testing",
+      "description": "Integration tests for game engine state machine, bot decisions, GTO evaluation, service layer; E2E smoke tests",
+      "files": [
+        "src/__tests__/engine/game-engine.test.ts",
+        "src/__tests__/engine/pot-manager.test.ts",
+        "src/__tests__/engine/betting-round.test.ts",
+        "src/__tests__/bot/decision-engine.test.ts",
+        "src/__tests__/gto/gto-evaluation.test.ts",
+        "src/__tests__/services/hand-service.test.ts",
+        "src/__tests__/e2e/hand-lifecycle.test.ts",
+        "src/__tests__/e2e/session-flow.test.ts"
+      ],
+      "dependencies": [
+        "scaffold",
+        "services",
+        "game-engine",
+        "bot-ai",
+        "gto-solver"
+      ],
+      "covers_tasks": [
+        "T-033",
+        "T-034"
+      ],
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008"
+      ],
+      "priority": 7
+    }
+  ]
+}

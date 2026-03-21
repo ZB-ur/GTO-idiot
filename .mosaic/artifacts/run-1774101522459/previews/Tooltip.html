@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tooltip Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-6">Tooltip Component</h2>
+
+  <!-- Tooltips shown statically in all positions -->
+  <div class="flex flex-wrap gap-16 items-center justify-center py-16">
+
+    <!-- Top tooltip -->
+    <div class="relative inline-flex">
+      <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 pointer-events-none">
+        <div class="bg-gray-900 text-white text-xs rounded-lg px-3 py-2 shadow-md max-w-xs whitespace-normal">
+          EV: +2.3 BB (Raise is GTO optimal)
+          <div class="absolute top-full left-1/2 -translate-x-1/2 border-t-gray-900 border-x-transparent border-b-transparent border-4"></div>
+        </div>
+      </div>
+      <button class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700">Top</button>
+    </div>
+
+    <!-- Bottom tooltip -->
+    <div class="relative inline-flex">
+      <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 pointer-events-none">
+        <div class="bg-gray-900 text-white text-xs rounded-lg px-3 py-2 shadow-md max-w-xs whitespace-normal">
+          TAG: Tight-Aggressive player
+          <div class="absolute bottom-full left-1/2 -translate-x-1/2 border-b-gray-900 border-x-transparent border-t-transparent border-4"></div>
+        </div>
+      </div>
+      <button class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700">Bottom</button>
+    </div>
+
+    <!-- Left tooltip -->
+    <div class="relative inline-flex">
+      <div class="absolute right-full top-1/2 -translate-y-1/2 mr-2 pointer-events-none">
+        <div class="bg-gray-900 text-white text-xs rounded-lg px-3 py-2 shadow-md max-w-xs whitespace-nowrap">
+          Pot odds: 33%
+          <div class="absolute left-full top-1/2 -translate-y-1/2 border-l-gray-900 border-y-transparent border-r-transparent border-4"></div>
+        </div>
+      </div>
+      <button class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700">Left</button>
+    </div>
+
+    <!-- Right tooltip -->
+    <div class="relative inline-flex">
+      <div class="absolute left-full top-1/2 -translate-y-1/2 ml-2 pointer-events-none">
+        <div class="bg-gray-900 text-white text-xs rounded-lg px-3 py-2 shadow-md max-w-xs whitespace-nowrap">
+          SPR: 4.2
+          <div class="absolute right-full top-1/2 -translate-y-1/2 border-r-gray-900 border-y-transparent border-l-transparent border-4"></div>
+        </div>
+      </div>
+      <button class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700">Right</button>
+    </div>
+  </div>
+
+  <!-- Multiline content example -->
+  <p class="text-sm text-gray-600 mb-2 mt-4">Multiline Content</p>
+  <div class="flex justify-center py-10">
+    <div class="relative inline-flex">
+      <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 pointer-events-none">
+        <div class="bg-gray-900 text-white text-xs rounded-lg px-3 py-2 shadow-md max-w-xs whitespace-normal">
+          <div class="font-semibold mb-1">EV Breakdown</div>
+          <div>Fold: -1.0 BB</div>
+          <div>Call: +0.5 BB</div>
+          <div class="text-green-400">Raise: +2.3 BB ✓</div>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 border-t-gray-900 border-x-transparent border-b-transparent border-4"></div>
+        </div>
+      </div>
+      <button class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700">Hover for EV Details</button>
+    </div>
+  </div>
+</body>
+</html>

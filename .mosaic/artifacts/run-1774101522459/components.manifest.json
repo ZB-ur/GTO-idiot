@@ -1,0 +1,308 @@
+{
+  "components": [
+    {
+      "name": "Card",
+      "file": "components/Card.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "Badge",
+      "file": "components/Badge.tsx",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-006"
+      ]
+    },
+    {
+      "name": "Tooltip",
+      "file": "components/Tooltip.tsx",
+      "covers_features": [
+        "F-006",
+        "F-007"
+      ]
+    },
+    {
+      "name": "Skeleton",
+      "file": "components/Skeleton.tsx",
+      "covers_features": [
+        "F-003",
+        "F-005"
+      ]
+    },
+    {
+      "name": "EmptyState",
+      "file": "components/EmptyState.tsx",
+      "covers_features": [
+        "F-005",
+        "F-007"
+      ]
+    },
+    {
+      "name": "Toast",
+      "file": "components/Toast.tsx",
+      "covers_features": [
+        "F-005",
+        "F-008"
+      ]
+    },
+    {
+      "name": "ActionButton",
+      "file": "components/ActionButton.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "StatCard",
+      "file": "components/StatCard.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "PlayerSeat",
+      "file": "components/PlayerSeat.tsx",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-004"
+      ]
+    },
+    {
+      "name": "CommunityCards",
+      "file": "components/CommunityCards.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "PotDisplay",
+      "file": "components/PotDisplay.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "RaiseSlider",
+      "file": "components/RaiseSlider.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "ConfirmDialog",
+      "file": "components/ConfirmDialog.tsx",
+      "covers_features": [
+        "F-001",
+        "F-005"
+      ]
+    },
+    {
+      "name": "ActionPanel",
+      "file": "components/ActionPanel.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "SessionStatusBar",
+      "file": "components/SessionStatusBar.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "HandHistoryItem",
+      "file": "components/HandHistoryItem.tsx",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "ReplayControls",
+      "file": "components/ReplayControls.tsx",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "name": "ReplayTimeline",
+      "file": "components/ReplayTimeline.tsx",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "name": "DecisionAnalysis",
+      "file": "components/DecisionAnalysis.tsx",
+      "covers_features": [
+        "F-003",
+        "F-006"
+      ]
+    },
+    {
+      "name": "PositionStatsTable",
+      "file": "components/PositionStatsTable.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "StreetEVChart",
+      "file": "components/StreetEVChart.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "ProfitTrendChart",
+      "file": "components/ProfitTrendChart.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "StatsOverview",
+      "file": "components/StatsOverview.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "NewSessionDialog",
+      "file": "components/NewSessionDialog.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "SessionSummaryModal",
+      "file": "components/SessionSummaryModal.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "TopNav",
+      "file": "components/TopNav.tsx",
+      "covers_features": [
+        "F-004",
+        "F-005",
+        "F-007",
+        "F-008"
+      ]
+    },
+    {
+      "name": "PokerTable",
+      "file": "components/PokerTable.tsx",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-004",
+        "F-008"
+      ]
+    },
+    {
+      "name": "HandHistoryList",
+      "file": "components/HandHistoryList.tsx",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "HandReplayViewer",
+      "file": "components/HandReplayViewer.tsx",
+      "covers_features": [
+        "F-003",
+        "F-006"
+      ]
+    },
+    {
+      "name": "AppShell",
+      "file": "components/AppShell.tsx",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008"
+      ]
+    }
+  ],
+  "screenshots": [
+    "screenshots/Card.png",
+    "screenshots/Badge.png",
+    "screenshots/Tooltip.png",
+    "screenshots/Skeleton.png",
+    "screenshots/EmptyState.png",
+    "screenshots/Toast.png",
+    "screenshots/ActionButton.png",
+    "screenshots/StatCard.png",
+    "screenshots/PlayerSeat.png",
+    "screenshots/CommunityCards.png",
+    "screenshots/PotDisplay.png",
+    "screenshots/RaiseSlider.png",
+    "screenshots/ConfirmDialog.png",
+    "screenshots/ActionPanel.png",
+    "screenshots/SessionStatusBar.png",
+    "screenshots/HandHistoryItem.png",
+    "screenshots/ReplayControls.png",
+    "screenshots/ReplayTimeline.png",
+    "screenshots/DecisionAnalysis.png",
+    "screenshots/PositionStatsTable.png",
+    "screenshots/StreetEVChart.png",
+    "screenshots/ProfitTrendChart.png",
+    "screenshots/StatsOverview.png",
+    "screenshots/NewSessionDialog.png",
+    "screenshots/SessionSummaryModal.png",
+    "screenshots/TopNav.png",
+    "screenshots/PokerTable.png",
+    "screenshots/HandHistoryList.png",
+    "screenshots/HandReplayViewer.png",
+    "screenshots/AppShell.png"
+  ],
+  "previews": [
+    "previews/Card.html",
+    "previews/Badge.html",
+    "previews/Tooltip.html",
+    "previews/Skeleton.html",
+    "previews/EmptyState.html",
+    "previews/Toast.html",
+    "previews/ActionButton.html",
+    "previews/StatCard.html",
+    "previews/PlayerSeat.html",
+    "previews/CommunityCards.html",
+    "previews/PotDisplay.html",
+    "previews/RaiseSlider.html",
+    "previews/ConfirmDialog.html",
+    "previews/SessionStatusBar.html",
+    "previews/HandHistoryItem.html",
+    "previews/ReplayControls.html",
+    "previews/ReplayTimeline.html",
+    "previews/DecisionAnalysis.html",
+    "previews/PositionStatsTable.html",
+    "previews/StreetEVChart.html",
+    "previews/ProfitTrendChart.html",
+    "previews/ActionPanel.html",
+    "previews/StatsOverview.html",
+    "previews/NewSessionDialog.html",
+    "previews/SessionSummaryModal.html",
+    "previews/TopNav.html",
+    "previews/PokerTable.html",
+    "previews/HandHistoryList.html",
+    "previews/HandReplayViewer.html",
+    "previews/AppShell.html"
+  ]
+}

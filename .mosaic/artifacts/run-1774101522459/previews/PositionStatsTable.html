@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PositionStatsTable Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+    <div class="px-6 py-4 border-b border-gray-200">
+      <h3 class="text-lg font-semibold text-gray-900">Performance by Position</h3>
+    </div>
+    <table class="w-full">
+      <thead>
+        <tr class="border-b border-gray-100">
+          <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Position</th>
+          <th class="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">Hands</th>
+          <th class="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">Win Rate</th>
+          <th class="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">Total EV Loss</th>
+          <th class="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">Avg EV/Hand</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-gray-50 hover:bg-blue-50 cursor-pointer">
+          <td class="px-6 py-3"><span class="inline-flex items-center px-2.5 py-1 text-xs font-bold rounded-lg bg-blue-50 text-blue-700">BTN</span></td>
+          <td class="px-6 py-3 text-right text-sm font-semibold text-gray-900">156</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-emerald-600">52.3%</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-emerald-600">-12.4 BB</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-emerald-600">-0.08 BB</td>
+        </tr>
+        <tr class="border-b border-gray-50 hover:bg-blue-50 cursor-pointer">
+          <td class="px-6 py-3"><span class="inline-flex items-center px-2.5 py-1 text-xs font-bold rounded-lg bg-blue-50 text-blue-700">CO</span></td>
+          <td class="px-6 py-3 text-right text-sm font-semibold text-gray-900">148</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-emerald-600">48.6%</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-amber-600">-28.6 BB</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-emerald-600">-0.19 BB</td>
+        </tr>
+        <tr class="border-b border-gray-50 hover:bg-blue-50 cursor-pointer">
+          <td class="px-6 py-3"><span class="inline-flex items-center px-2.5 py-1 text-xs font-bold rounded-lg bg-blue-50 text-blue-700">MP</span></td>
+          <td class="px-6 py-3 text-right text-sm font-semibold text-gray-900">142</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-amber-600">41.5%</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-amber-600">-45.2 BB</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-emerald-600">-0.32 BB</td>
+        </tr>
+        <tr class="border-b border-gray-50 hover:bg-blue-50 cursor-pointer">
+          <td class="px-6 py-3"><span class="inline-flex items-center px-2.5 py-1 text-xs font-bold rounded-lg bg-blue-50 text-blue-700">UTG</span></td>
+          <td class="px-6 py-3 text-right text-sm font-semibold text-gray-900">138</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-amber-600">38.2%</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-amber-600">-52.8 BB</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-emerald-600">-0.38 BB</td>
+        </tr>
+        <tr class="border-b border-gray-50 hover:bg-blue-50 cursor-pointer">
+          <td class="px-6 py-3"><span class="inline-flex items-center px-2.5 py-1 text-xs font-bold rounded-lg bg-blue-50 text-blue-700">SB</span></td>
+          <td class="px-6 py-3 text-right text-sm font-semibold text-gray-900">152</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-red-500">32.1%</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-red-500">-89.4 BB</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-amber-600">-0.59 BB</td>
+        </tr>
+        <tr class="hover:bg-blue-50 cursor-pointer">
+          <td class="px-6 py-3"><span class="inline-flex items-center px-2.5 py-1 text-xs font-bold rounded-lg bg-blue-50 text-blue-700">BB</span></td>
+          <td class="px-6 py-3 text-right text-sm font-semibold text-gray-900">154</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-red-500">29.8%</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-red-500">-102.6 BB</td>
+          <td class="px-6 py-3 text-right text-sm font-bold text-amber-600">-0.67 BB</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

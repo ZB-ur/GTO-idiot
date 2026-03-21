@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayTimeline Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xl mx-auto bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+    <p class="text-sm font-semibold text-gray-600 mb-4">Hand Replay Timeline</p>
+
+    <div class="flex flex-col gap-3">
+      <!-- Street sections -->
+      <div class="flex gap-1">
+        <!-- Preflop -->
+        <div class="flex-1 flex flex-col gap-1">
+          <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider text-center">Preflop</span>
+          <div class="flex items-center justify-center gap-1.5">
+            <button class="w-4 h-4 rounded-full bg-emerald-500 hover:scale-110 transition-all"></button>
+            <button class="w-4 h-4 rounded-full bg-emerald-500 hover:scale-110 transition-all"></button>
+          </div>
+        </div>
+        <!-- Flop -->
+        <div class="flex-1 flex flex-col gap-1">
+          <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider text-center">Flop</span>
+          <div class="flex items-center justify-center gap-1.5">
+            <button class="w-4 h-4 rounded-full bg-amber-500 ring-2 ring-offset-1 ring-amber-300 scale-125 transition-all"></button>
+            <button class="w-4 h-4 rounded-full bg-emerald-500 hover:scale-110 transition-all"></button>
+          </div>
+        </div>
+        <!-- Turn -->
+        <div class="flex-1 flex flex-col gap-1">
+          <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider text-center">Turn</span>
+          <div class="flex items-center justify-center gap-1.5">
+            <button class="w-4 h-4 rounded-full bg-red-500 hover:scale-110 transition-all"></button>
+          </div>
+        </div>
+        <!-- River -->
+        <div class="flex-1 flex flex-col gap-1">
+          <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider text-center">River</span>
+          <div class="flex items-center justify-center gap-1.5">
+            <button class="w-4 h-4 rounded-full bg-emerald-500 hover:scale-110 transition-all"></button>
+            <button class="w-4 h-4 rounded-full bg-gray-300 hover:scale-110 transition-all"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="relative h-1.5 bg-gray-200 rounded-full overflow-hidden">
+        <div class="absolute h-full bg-blue-600 rounded-full" style="width: 42%"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
