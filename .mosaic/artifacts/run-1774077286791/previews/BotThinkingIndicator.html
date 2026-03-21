@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BotThinkingIndicator Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes dotBounce {
+      0%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-4px); }
+    }
+    .dot1 { animation: dotBounce 1s ease-in-out infinite; animation-delay: 0ms; }
+    .dot2 { animation: dotBounce 1s ease-in-out infinite; animation-delay: 150ms; }
+    .dot3 { animation: dotBounce 1s ease-in-out infinite; animation-delay: 300ms; }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">BotThinkingIndicator</h2>
+
+  <!-- Standalone -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-600 mb-2">Standalone</p>
+    <div class="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-gray-800 text-gray-300 text-xs">
+      <span>Thinking</span>
+      <span class="flex gap-0.5 items-end">
+        <span class="w-1 h-1 rounded-full bg-gray-400 dot1"></span>
+        <span class="w-1 h-1 rounded-full bg-gray-400 dot2"></span>
+        <span class="w-1 h-1 rounded-full bg-gray-400 dot3"></span>
+      </span>
+    </div>
+  </div>
+
+  <!-- On table felt with player seat -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-600 mb-2">In context — BOT player seat</p>
+    <div class="bg-emerald-800 p-8 rounded-xl">
+      <div class="bg-gray-900/80 rounded-xl px-4 py-3 text-white inline-block">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-sm font-semibold">BOT-3 (CO)</span>
+          <span class="text-[10px] bg-gray-700 text-gray-400 px-1.5 py-0.5 rounded">BOT</span>
+        </div>
+        <div class="text-xs text-gray-400 mb-2">Stack: 1,850</div>
+        <div class="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-gray-700/80 text-gray-300 text-xs">
+          <span>Thinking</span>
+          <span class="flex gap-0.5 items-end">
+            <span class="w-1 h-1 rounded-full bg-gray-400 dot1"></span>
+            <span class="w-1 h-1 rounded-full bg-gray-400 dot2"></span>
+            <span class="w-1 h-1 rounded-full bg-gray-400 dot3"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden state -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-600 mb-2">isThinking=false (renders nothing)</p>
+    <div class="border border-dashed border-gray-300 rounded-lg p-4 text-gray-400 text-sm italic">
+      (Component renders null when isThinking is false)
+    </div>
+  </div>
+</body>
+</html>

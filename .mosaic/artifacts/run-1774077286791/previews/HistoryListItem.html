@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HistoryListItem Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 8px; max-width: 520px;">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2">History List Items</p>
+
+    <!-- Win -->
+    <div class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 flex items-center gap-3">
+      <div class="flex flex-col items-center shrink-0 w-10">
+        <span class="text-gray-500 text-[10px] uppercase">Hand</span>
+        <span class="text-white text-sm font-bold" style="font-variant-numeric: tabular-nums;">#42</span>
+      </div>
+      <div class="w-px h-8 bg-gray-700"></div>
+      <div class="flex-1 min-w-0 space-y-0.5">
+        <div class="flex items-center gap-2">
+          <span class="text-white text-sm font-medium">Full House, Aces full of Kings</span>
+          <span class="text-gray-400 text-xs bg-gray-700 px-1.5 py-0.5 rounded font-mono">AKs</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs text-gray-500">
+          <span>2026-03-21</span><span>·</span><span>BTN</span><span>·</span><span>4 决策</span>
+        </div>
+      </div>
+      <div class="shrink-0 text-right">
+        <span class="text-sm font-bold text-emerald-400" style="font-variant-numeric: tabular-nums;">+24.5 BB</span>
+      </div>
+      <svg class="w-4 h-4 text-gray-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+    </div>
+
+    <!-- Loss -->
+    <div class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 flex items-center gap-3">
+      <div class="flex flex-col items-center shrink-0 w-10">
+        <span class="text-gray-500 text-[10px] uppercase">Hand</span>
+        <span class="text-white text-sm font-bold" style="font-variant-numeric: tabular-nums;">#41</span>
+      </div>
+      <div class="w-px h-8 bg-gray-700"></div>
+      <div class="flex-1 min-w-0 space-y-0.5">
+        <div class="flex items-center gap-2">
+          <span class="text-white text-sm font-medium">Top Pair, folded turn</span>
+          <span class="text-gray-400 text-xs bg-gray-700 px-1.5 py-0.5 rounded font-mono">QJo</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs text-gray-500">
+          <span>2026-03-21</span><span>·</span><span>CO</span><span>·</span><span>3 决策</span>
+        </div>
+      </div>
+      <div class="shrink-0 text-right">
+        <span class="text-sm font-bold text-red-400" style="font-variant-numeric: tabular-nums;">-8.0 BB</span>
+      </div>
+      <svg class="w-4 h-4 text-gray-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+    </div>
+
+    <!-- Breakeven -->
+    <div class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 flex items-center gap-3">
+      <div class="flex flex-col items-center shrink-0 w-10">
+        <span class="text-gray-500 text-[10px] uppercase">Hand</span>
+        <span class="text-white text-sm font-bold" style="font-variant-numeric: tabular-nums;">#40</span>
+      </div>
+      <div class="w-px h-8 bg-gray-700"></div>
+      <div class="flex-1 min-w-0 space-y-0.5">
+        <div class="flex items-center gap-2">
+          <span class="text-white text-sm font-medium">Folded preflop</span>
+          <span class="text-gray-400 text-xs bg-gray-700 px-1.5 py-0.5 rounded font-mono">72o</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs text-gray-500">
+          <span>2026-03-21</span><span>·</span><span>UTG</span><span>·</span><span>1 决策</span>
+        </div>
+      </div>
+      <div class="shrink-0 text-right">
+        <span class="text-sm font-bold text-emerald-400" style="font-variant-numeric: tabular-nums;">+0.0 BB</span>
+      </div>
+      <svg class="w-4 h-4 text-gray-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+    </div>
+  </div>
+</body>
+</html>

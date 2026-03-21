@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HandSummaryCard Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 24px; max-width: 400px;">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">Hand Summary Card</p>
+
+    <!-- Good score -->
+    <div class="bg-gray-800 border border-gray-700 rounded-xl p-5 space-y-4">
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 rounded-full border-[3px] border-emerald-500 flex items-center justify-center shrink-0">
+          <span class="text-xl font-bold text-emerald-400" style="font-variant-numeric: tabular-nums;">87</span>
+        </div>
+        <div class="flex-1 space-y-1">
+          <div class="text-white text-sm font-semibold">决策质量评分</div>
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-1">
+              <span class="text-gray-500 text-xs">总 EV 损失</span>
+              <span class="text-red-400 text-xs font-semibold" style="font-variant-numeric: tabular-nums;">-1.25 BB</span>
+            </div>
+            <div class="w-px h-3 bg-gray-600"></div>
+            <div class="flex items-center gap-1">
+              <span class="text-gray-500 text-xs">决策数</span>
+              <span class="text-white text-xs font-semibold" style="font-variant-numeric: tabular-nums;">4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-1.5">
+        <div class="text-gray-400 text-xs font-medium">决策详情</div>
+        <div class="space-y-1">
+          <div class="flex items-center gap-2 bg-gray-900/50 rounded-lg px-3 py-2">
+            <span class="w-2 h-2 rounded-full shrink-0 bg-emerald-400"></span>
+            <span class="text-gray-400 text-xs font-medium w-6">PF</span>
+            <span class="text-white text-xs flex-1">raise</span>
+            <span class="text-xs font-semibold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400" style="font-variant-numeric: tabular-nums;">0 BB</span>
+          </div>
+          <div class="flex items-center gap-2 bg-gray-900/50 rounded-lg px-3 py-2">
+            <span class="w-2 h-2 rounded-full shrink-0 bg-emerald-400"></span>
+            <span class="text-gray-400 text-xs font-medium w-6">F</span>
+            <span class="text-white text-xs flex-1">bet</span>
+            <span class="text-xs font-semibold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400" style="font-variant-numeric: tabular-nums;">-0.15 BB</span>
+          </div>
+          <div class="flex items-center gap-2 bg-gray-900/50 rounded-lg px-3 py-2">
+            <span class="w-2 h-2 rounded-full shrink-0 bg-amber-400"></span>
+            <span class="text-gray-400 text-xs font-medium w-6">T</span>
+            <span class="text-white text-xs flex-1">check</span>
+            <span class="text-xs font-semibold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400" style="font-variant-numeric: tabular-nums;">-0.80 BB</span>
+          </div>
+          <div class="flex items-center gap-2 bg-gray-900/50 rounded-lg px-3 py-2">
+            <span class="w-2 h-2 rounded-full shrink-0 bg-emerald-400"></span>
+            <span class="text-gray-400 text-xs font-medium w-6">R</span>
+            <span class="text-white text-xs flex-1">call</span>
+            <span class="text-xs font-semibold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400" style="font-variant-numeric: tabular-nums;">-0.30 BB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Poor score -->
+    <div class="bg-gray-800 border border-gray-700 rounded-xl p-5 space-y-4">
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 rounded-full border-[3px] border-red-500 flex items-center justify-center shrink-0">
+          <span class="text-xl font-bold text-red-400" style="font-variant-numeric: tabular-nums;">38</span>
+        </div>
+        <div class="flex-1 space-y-1">
+          <div class="text-white text-sm font-semibold">决策质量评分</div>
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-1">
+              <span class="text-gray-500 text-xs">总 EV 损失</span>
+              <span class="text-red-400 text-xs font-semibold" style="font-variant-numeric: tabular-nums;">-8.50 BB</span>
+            </div>
+            <div class="w-px h-3 bg-gray-600"></div>
+            <div class="flex items-center gap-1">
+              <span class="text-gray-500 text-xs">决策数</span>
+              <span class="text-white text-xs font-semibold" style="font-variant-numeric: tabular-nums;">3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-1.5">
+        <div class="text-gray-400 text-xs font-medium">决策详情</div>
+        <div class="space-y-1">
+          <div class="flex items-center gap-2 bg-gray-900/50 rounded-lg px-3 py-2">
+            <span class="w-2 h-2 rounded-full shrink-0 bg-red-400"></span>
+            <span class="text-gray-400 text-xs font-medium w-6">PF</span>
+            <span class="text-white text-xs flex-1">call</span>
+            <span class="text-xs font-semibold px-1.5 py-0.5 rounded bg-red-500/20 text-red-400" style="font-variant-numeric: tabular-nums;">-3.20 BB</span>
+          </div>
+          <div class="flex items-center gap-2 bg-gray-900/50 rounded-lg px-3 py-2">
+            <span class="w-2 h-2 rounded-full shrink-0 bg-red-400"></span>
+            <span class="text-gray-400 text-xs font-medium w-6">F</span>
+            <span class="text-white text-xs flex-1">call</span>
+            <span class="text-xs font-semibold px-1.5 py-0.5 rounded bg-red-500/20 text-red-400" style="font-variant-numeric: tabular-nums;">-5.30 BB</span>
+          </div>
+          <div class="flex items-center gap-2 bg-gray-900/50 rounded-lg px-3 py-2">
+            <span class="w-2 h-2 rounded-full shrink-0 bg-emerald-400"></span>
+            <span class="text-gray-400 text-xs font-medium w-6">T</span>
+            <span class="text-white text-xs flex-1">fold</span>
+            <span class="text-xs font-semibold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400" style="font-variant-numeric: tabular-nums;">0 BB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

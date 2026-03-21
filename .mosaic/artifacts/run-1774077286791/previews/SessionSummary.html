@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SessionSummary Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 24px; align-items: center;">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider self-start">Session Summary</p>
+
+    <!-- Winning session -->
+    <div class="bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden max-w-md w-full">
+      <div class="bg-gradient-to-r from-emerald-600/10 to-blue-600/10 border-b border-gray-700 px-6 py-5 text-center">
+        <div class="text-gray-400 text-xs uppercase tracking-wider font-medium">Session 结束</div>
+        <div class="text-3xl font-bold mt-2 text-emerald-400" style="font-variant-numeric: tabular-nums;">+42.5 BB</div>
+        <div class="text-gray-400 text-sm mt-1">50 局 · 1h 23m</div>
+      </div>
+      <div class="grid grid-cols-2 gap-px bg-gray-700">
+        <div class="bg-gray-800 px-4 py-3">
+          <div class="text-gray-500 text-xs">胜率</div>
+          <div class="text-white text-lg font-bold" style="font-variant-numeric: tabular-nums;">58%</div>
+        </div>
+        <div class="bg-gray-800 px-4 py-3">
+          <div class="text-gray-500 text-xs">决策质量</div>
+          <div class="text-emerald-400 text-lg font-bold" style="font-variant-numeric: tabular-nums;">82</div>
+        </div>
+        <div class="bg-gray-800 px-4 py-3">
+          <div class="text-gray-500 text-xs">最大赢利</div>
+          <div class="text-emerald-400 text-lg font-bold" style="font-variant-numeric: tabular-nums;">+65.0</div>
+        </div>
+        <div class="bg-gray-800 px-4 py-3">
+          <div class="text-gray-500 text-xs">最大亏损</div>
+          <div class="text-red-400 text-lg font-bold" style="font-variant-numeric: tabular-nums;">-28.5</div>
+        </div>
+        <div class="bg-gray-800 px-4 py-3">
+          <div class="text-gray-500 text-xs">VPIP</div>
+          <div class="text-white text-lg font-bold" style="font-variant-numeric: tabular-nums;">24%</div>
+        </div>
+        <div class="bg-gray-800 px-4 py-3">
+          <div class="text-gray-500 text-xs">PFR</div>
+          <div class="text-white text-lg font-bold" style="font-variant-numeric: tabular-nums;">18%</div>
+        </div>
+      </div>
+      <div class="px-6 py-4 border-t border-gray-700">
+        <button class="w-full py-3 rounded-xl bg-emerald-600 text-white text-sm font-semibold shadow-lg shadow-emerald-600/20">返回大厅</button>
+      </div>
+    </div>
+
+    <!-- Losing session -->
+    <div class="bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden max-w-md w-full">
+      <div class="bg-gradient-to-r from-emerald-600/10 to-blue-600/10 border-b border-gray-700 px-6 py-5 text-center">
+        <div class="text-gray-400 text-xs uppercase tracking-wider font-medium">Session 结束</div>
+        <div class="text-3xl font-bold mt-2 text-red-400" style="font-variant-numeric: tabular-nums;">-18.0 BB</div>
+        <div class="text-gray-400 text-sm mt-1">25 局 · 32m</div>
+      </div>
+      <div class="grid grid-cols-2 gap-px bg-gray-700">
+        <div class="bg-gray-800 px-4 py-3">
+          <div class="text-gray-500 text-xs">胜率</div>
+          <div class="text-white text-lg font-bold" style="font-variant-numeric: tabular-nums;">36%</div>
+        </div>
+        <div class="bg-gray-800 px-4 py-3">
+          <div class="text-gray-500 text-xs">决策质量</div>
+          <div class="text-amber-400 text-lg font-bold" style="font-variant-numeric: tabular-nums;">61</div>
+        </div>
+        <div class="bg-gray-800 px-4 py-3">
+          <div class="text-gray-500 text-xs">最大赢利</div>
+          <div class="text-emerald-400 text-lg font-bold" style="font-variant-numeric: tabular-nums;">+12.0</div>
+        </div>
+        <div class="bg-gray-800 px-4 py-3">
+          <div class="text-gray-500 text-xs">最大亏损</div>
+          <div class="text-red-400 text-lg font-bold" style="font-variant-numeric: tabular-nums;">-45.0</div>
+        </div>
+        <div class="bg-gray-800 px-4 py-3">
+          <div class="text-gray-500 text-xs">VPIP</div>
+          <div class="text-white text-lg font-bold" style="font-variant-numeric: tabular-nums;">32%</div>
+        </div>
+        <div class="bg-gray-800 px-4 py-3">
+          <div class="text-gray-500 text-xs">PFR</div>
+          <div class="text-white text-lg font-bold" style="font-variant-numeric: tabular-nums;">12%</div>
+        </div>
+      </div>
+      <div class="px-6 py-4 border-t border-gray-700">
+        <button class="w-full py-3 rounded-xl bg-emerald-600 text-white text-sm font-semibold shadow-lg shadow-emerald-600/20">返回大厅</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

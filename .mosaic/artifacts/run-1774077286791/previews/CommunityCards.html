@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CommunityCards Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 32px;">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">Community Cards — Street States</p>
+
+    <!-- Preflop: no cards -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2">Preflop (no cards)</p>
+      <div class="flex flex-col items-center gap-2">
+        <div class="text-gray-400 text-xs font-semibold uppercase tracking-wider">Pre-Flop</div>
+        <div class="flex items-center justify-center gap-2">
+          <div class="w-16 h-[88px] rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+          <div class="w-16 h-[88px] rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+          <div class="w-16 h-[88px] rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+          <div class="w-16 h-[88px] rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+          <div class="w-16 h-[88px] rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flop: 3 cards -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2">Flop (3 cards)</p>
+      <div class="flex flex-col items-center gap-2">
+        <div class="text-gray-400 text-xs font-semibold uppercase tracking-wider">Flop</div>
+        <div class="flex items-center justify-center gap-2">
+          <div class="w-16 h-[88px] rounded-md bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center text-gray-900">
+            <span class="text-lg font-bold leading-none">A</span>
+            <span class="text-xl leading-none mt-0.5">♠</span>
+          </div>
+          <div class="w-16 h-[88px] rounded-md bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center text-red-600">
+            <span class="text-lg font-bold leading-none">K</span>
+            <span class="text-xl leading-none mt-0.5">♥</span>
+          </div>
+          <div class="w-16 h-[88px] rounded-md bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center text-red-600">
+            <span class="text-lg font-bold leading-none">7</span>
+            <span class="text-xl leading-none mt-0.5">♦</span>
+          </div>
+          <div class="w-16 h-[88px] rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+          <div class="w-16 h-[88px] rounded-md border-2 border-dashed border-emerald-600/30 bg-emerald-900/20"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- River: 5 cards -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2">River (5 cards)</p>
+      <div class="flex flex-col items-center gap-2">
+        <div class="text-gray-400 text-xs font-semibold uppercase tracking-wider">River</div>
+        <div class="flex items-center justify-center gap-2">
+          <div class="w-16 h-[88px] rounded-md bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center text-gray-900">
+            <span class="text-lg font-bold leading-none">A</span>
+            <span class="text-xl leading-none mt-0.5">♠</span>
+          </div>
+          <div class="w-16 h-[88px] rounded-md bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center text-red-600">
+            <span class="text-lg font-bold leading-none">K</span>
+            <span class="text-xl leading-none mt-0.5">♥</span>
+          </div>
+          <div class="w-16 h-[88px] rounded-md bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center text-red-600">
+            <span class="text-lg font-bold leading-none">7</span>
+            <span class="text-xl leading-none mt-0.5">♦</span>
+          </div>
+          <div class="w-16 h-[88px] rounded-md bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center text-gray-900">
+            <span class="text-lg font-bold leading-none">J</span>
+            <span class="text-xl leading-none mt-0.5">♣</span>
+          </div>
+          <div class="w-16 h-[88px] rounded-md bg-white shadow-md border border-gray-200 flex flex-col items-center justify-center text-red-600">
+            <span class="text-lg font-bold leading-none">2</span>
+            <span class="text-xl leading-none mt-0.5">♥</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

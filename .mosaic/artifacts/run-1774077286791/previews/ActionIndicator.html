@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionIndicator Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 8px rgba(96, 165, 250, 0.4), inset 0 0 0 2px rgba(96, 165, 250, 0.6); }
+      50% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.7), inset 0 0 0 2px rgba(96, 165, 250, 0.9); }
+    }
+    .pulse-glow {
+      animation: pulseGlow 1.5s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">ActionIndicator</h2>
+
+  <div class="bg-emerald-800 p-8 rounded-xl space-y-6">
+    <!-- Active player -->
+    <div>
+      <p class="text-sm text-emerald-200 mb-2">Active player (pulsing glow)</p>
+      <div class="inline-block rounded-xl pulse-glow">
+        <div class="bg-gray-900/80 rounded-xl px-4 py-3 text-white">
+          <div class="text-sm font-semibold">Player 1</div>
+          <div class="text-xs text-gray-400">Stack: 1,500</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inactive player -->
+    <div>
+      <p class="text-sm text-emerald-200 mb-2">Inactive player (no glow)</p>
+      <div class="inline-block rounded-xl">
+        <div class="bg-gray-900/80 rounded-xl px-4 py-3 text-white">
+          <div class="text-sm font-semibold">Player 2</div>
+          <div class="text-xs text-gray-400">Stack: 2,000</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Side by side comparison -->
+    <div>
+      <p class="text-sm text-emerald-200 mb-2">Side by side</p>
+      <div class="flex gap-6">
+        <div class="rounded-xl pulse-glow">
+          <div class="bg-gray-900/80 rounded-xl px-4 py-3 text-white">
+            <div class="text-sm font-semibold">🟢 Active</div>
+            <div class="text-xs text-gray-400">Your turn</div>
+          </div>
+        </div>
+        <div class="rounded-xl">
+          <div class="bg-gray-900/80 rounded-xl px-4 py-3 text-white">
+            <div class="text-sm font-semibold">Waiting</div>
+            <div class="text-xs text-gray-400">Not your turn</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

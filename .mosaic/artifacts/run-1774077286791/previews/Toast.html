@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">Toast</h2>
+
+  <div class="space-y-4 max-w-md">
+    <!-- Success toast -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-green-50 border-green-200" role="alert">
+      <span class="text-lg font-bold text-green-800">✓</span>
+      <span class="text-sm font-medium text-green-800">Hand completed successfully!</span>
+      <button class="ml-2 text-sm text-green-800 opacity-60 hover:opacity-100">✕</button>
+    </div>
+
+    <!-- Warning toast -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-amber-50 border-amber-200" role="alert">
+      <span class="text-lg font-bold text-amber-800">⚠</span>
+      <span class="text-sm font-medium text-amber-800">Your stack is running low (< 10 BB)</span>
+      <button class="ml-2 text-sm text-amber-800 opacity-60 hover:opacity-100">✕</button>
+    </div>
+
+    <!-- Error toast -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-red-50 border-red-200" role="alert">
+      <span class="text-lg font-bold text-red-800">✕</span>
+      <span class="text-sm font-medium text-red-800">Invalid action: cannot check when facing a raise</span>
+      <button class="ml-2 text-sm text-red-800 opacity-60 hover:opacity-100">✕</button>
+    </div>
+  </div>
+
+  <!-- Positioned toast (simulated) -->
+  <div class="mt-8">
+    <p class="text-sm text-gray-600 mb-2">Positioned (top-right, as rendered on screen)</p>
+    <div class="relative bg-gray-100 rounded-xl h-40 overflow-hidden">
+      <div class="absolute top-4 right-4 flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-green-50 border-green-200" role="alert">
+        <span class="text-lg font-bold text-green-800">✓</span>
+        <span class="text-sm font-medium text-green-800">Session saved</span>
+        <button class="ml-2 text-sm text-green-800 opacity-60 hover:opacity-100">✕</button>
+      </div>
+      <div class="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">
+        Page content area
+      </div>
+    </div>
+  </div>
+</body>
+</html>

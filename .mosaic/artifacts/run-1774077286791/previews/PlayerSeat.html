@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PlayerSeat Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 32px;">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">Player Seat — States</p>
+
+    <div style="display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-start;">
+
+      <!-- Active (action on, with cards shown, dealer) -->
+      <div class="relative flex flex-col items-center gap-1">
+        <div class="absolute -top-1 -right-1 w-5 h-5 bg-amber-400 rounded-full flex items-center justify-center text-gray-900 text-[10px] font-bold shadow-md z-10">D</div>
+        <div class="w-14 h-14 rounded-full flex items-center justify-center border-2 border-emerald-400 shadow-lg shadow-emerald-400/30 bg-gray-700">
+          <span class="text-white text-lg font-bold">Y</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span class="text-white text-xs font-medium">You</span>
+          <span class="text-gray-400 text-[10px] bg-gray-700 px-1 py-0.5 rounded font-medium">BTN</span>
+        </div>
+        <span class="text-gray-300 text-xs font-semibold" style="font-variant-numeric: tabular-nums;">98.5 BB</span>
+        <div class="flex items-center gap-0.5 mt-0.5">
+          <div class="w-10 h-[56px] rounded-md bg-white border border-gray-300 shadow-sm flex flex-col items-center justify-center text-gray-900">
+            <span class="text-xs font-bold leading-none">A</span>
+            <span class="text-sm leading-none">♠</span>
+          </div>
+          <div class="w-10 h-[56px] rounded-md bg-white border border-gray-300 shadow-sm flex flex-col items-center justify-center text-red-600">
+            <span class="text-xs font-bold leading-none">K</span>
+            <span class="text-sm leading-none">♥</span>
+          </div>
+        </div>
+        <p class="text-gray-500 text-[10px] mt-1">Active + Dealer + Cards</p>
+      </div>
+
+      <!-- Bot thinking -->
+      <div class="relative flex flex-col items-center gap-1">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center border-2 border-emerald-400 shadow-lg shadow-emerald-400/30 bg-gray-700">
+          <div class="flex items-center gap-0.5">
+            <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce" style="animation-delay: 0ms;"></div>
+            <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce" style="animation-delay: 150ms;"></div>
+            <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce" style="animation-delay: 300ms;"></div>
+          </div>
+        </div>
+        <div class="flex items-center gap-1">
+          <span class="text-white text-xs font-medium">Bot-A</span>
+          <span class="text-gray-400 text-[10px] bg-gray-700 px-1 py-0.5 rounded font-medium">CO</span>
+        </div>
+        <span class="text-gray-300 text-xs font-semibold" style="font-variant-numeric: tabular-nums;">75.0 BB</span>
+        <div class="flex items-center gap-0.5 mt-0.5">
+          <div class="w-10 h-[56px] rounded-md bg-gradient-to-br from-emerald-700 to-emerald-900 border-2 border-emerald-600 flex items-center justify-center">
+            <div class="w-6 h-8 rounded-sm border border-emerald-500/40 bg-emerald-800/50"></div>
+          </div>
+          <div class="w-10 h-[56px] rounded-md bg-gradient-to-br from-emerald-700 to-emerald-900 border-2 border-emerald-600 flex items-center justify-center -ml-2">
+            <div class="w-6 h-8 rounded-sm border border-emerald-500/40 bg-emerald-800/50"></div>
+          </div>
+        </div>
+        <p class="text-gray-500 text-[10px] mt-1">Bot Thinking</p>
+      </div>
+
+      <!-- Folded -->
+      <div class="relative flex flex-col items-center gap-1 opacity-40">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center border-2 border-gray-600 bg-gray-700">
+          <span class="text-white text-lg font-bold">B</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span class="text-white text-xs font-medium">Bot-B</span>
+          <span class="text-gray-400 text-[10px] bg-gray-700 px-1 py-0.5 rounded font-medium">SB</span>
+        </div>
+        <span class="text-gray-300 text-xs font-semibold" style="font-variant-numeric: tabular-nums;">45.0 BB</span>
+        <span class="text-gray-500 text-[10px] font-medium uppercase">Folded</span>
+        <p class="text-gray-500 text-[10px] mt-1">Folded</p>
+      </div>
+
+      <!-- All-in -->
+      <div class="relative flex flex-col items-center gap-1">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center border-2 border-red-500 bg-red-500/10">
+          <span class="text-white text-lg font-bold">C</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span class="text-white text-xs font-medium">Bot-C</span>
+          <span class="text-gray-400 text-[10px] bg-gray-700 px-1 py-0.5 rounded font-medium">BB</span>
+        </div>
+        <span class="text-red-400 text-xs font-bold uppercase">All-In</span>
+        <p class="text-gray-500 text-[10px] mt-1">All-In</p>
+      </div>
+
+      <!-- Waiting (idle) -->
+      <div class="relative flex flex-col items-center gap-1">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center border-2 border-gray-600 bg-gray-700">
+          <span class="text-white text-lg font-bold">D</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span class="text-white text-xs font-medium">Bot-D</span>
+          <span class="text-gray-400 text-[10px] bg-gray-700 px-1 py-0.5 rounded font-medium">UTG</span>
+        </div>
+        <span class="text-gray-300 text-xs font-semibold" style="font-variant-numeric: tabular-nums;">100.0 BB</span>
+        <p class="text-gray-500 text-[10px] mt-1">Waiting</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

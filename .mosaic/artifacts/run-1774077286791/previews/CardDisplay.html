@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardDisplay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes cardFlip {
+      0% { transform: rotateY(0deg); }
+      50% { transform: rotateY(90deg); }
+      100% { transform: rotateY(0deg); }
+    }
+    @keyframes cardDeal {
+      0% { transform: translateY(-40px) scale(0.8); opacity: 0; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+    .animate-flip { animation: cardFlip 0.6s ease-in-out; }
+    .animate-deal { animation: cardDeal 0.4s ease-out; }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">CardDisplay</h2>
+
+  <!-- Row 1: Face-up cards various suits -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-600 mb-2">Face-up cards (md)</p>
+    <div class="flex gap-3 items-end">
+      <!-- Ace of Spades -->
+      <svg width="64" height="90" viewBox="0 0 64 90" class="drop-shadow-md">
+        <rect x="1" y="1" width="62" height="88" rx="6" ry="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+        <text x="6" y="22" font-size="18" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">A</text>
+        <text x="6" y="40" font-size="17.6" fill="#1e293b" font-family="system-ui, sans-serif">♠</text>
+        <text x="32" y="52" font-size="33" fill="#1e293b" text-anchor="middle" font-family="system-ui, sans-serif">♠</text>
+      </svg>
+      <!-- King of Hearts -->
+      <svg width="64" height="90" viewBox="0 0 64 90" class="drop-shadow-md">
+        <rect x="1" y="1" width="62" height="88" rx="6" ry="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+        <text x="6" y="22" font-size="18" font-weight="bold" fill="#ef4444" font-family="system-ui, sans-serif">K</text>
+        <text x="6" y="40" font-size="17.6" fill="#ef4444" font-family="system-ui, sans-serif">♥</text>
+        <text x="32" y="52" font-size="33" fill="#ef4444" text-anchor="middle" font-family="system-ui, sans-serif">♥</text>
+      </svg>
+      <!-- Queen of Diamonds -->
+      <svg width="64" height="90" viewBox="0 0 64 90" class="drop-shadow-md">
+        <rect x="1" y="1" width="62" height="88" rx="6" ry="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+        <text x="6" y="22" font-size="18" font-weight="bold" fill="#ef4444" font-family="system-ui, sans-serif">Q</text>
+        <text x="6" y="40" font-size="17.6" fill="#ef4444" font-family="system-ui, sans-serif">♦</text>
+        <text x="32" y="52" font-size="33" fill="#ef4444" text-anchor="middle" font-family="system-ui, sans-serif">♦</text>
+      </svg>
+      <!-- 10 of Clubs -->
+      <svg width="64" height="90" viewBox="0 0 64 90" class="drop-shadow-md">
+        <rect x="1" y="1" width="62" height="88" rx="6" ry="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+        <text x="6" y="22" font-size="18" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">10</text>
+        <text x="6" y="40" font-size="17.6" fill="#1e293b" font-family="system-ui, sans-serif">♣</text>
+        <text x="32" y="52" font-size="33" fill="#1e293b" text-anchor="middle" font-family="system-ui, sans-serif">♣</text>
+      </svg>
+      <!-- 7 of Hearts -->
+      <svg width="64" height="90" viewBox="0 0 64 90" class="drop-shadow-md">
+        <rect x="1" y="1" width="62" height="88" rx="6" ry="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+        <text x="6" y="22" font-size="18" font-weight="bold" fill="#ef4444" font-family="system-ui, sans-serif">7</text>
+        <text x="6" y="40" font-size="17.6" fill="#ef4444" font-family="system-ui, sans-serif">♥</text>
+        <text x="32" y="52" font-size="33" fill="#ef4444" text-anchor="middle" font-family="system-ui, sans-serif">♥</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Row 2: Face-down cards -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-600 mb-2">Face-down cards (md)</p>
+    <div class="flex gap-3 items-end">
+      <svg width="64" height="90" viewBox="0 0 64 90" class="drop-shadow-md">
+        <rect x="1" y="1" width="62" height="88" rx="6" ry="6" fill="#1e40af" stroke="#d1d5db" stroke-width="1"/>
+        <rect x="5" y="5" width="54" height="80" rx="3" ry="3" fill="none" stroke="#3b82f6" stroke-width="1"/>
+        <line x1="5" y1="5" x2="59" y2="85" stroke="#3b82f6" stroke-width="0.5" opacity="0.4"/>
+        <line x1="59" y1="5" x2="5" y2="85" stroke="#3b82f6" stroke-width="0.5" opacity="0.4"/>
+      </svg>
+      <svg width="64" height="90" viewBox="0 0 64 90" class="drop-shadow-md">
+        <rect x="1" y="1" width="62" height="88" rx="6" ry="6" fill="#1e40af" stroke="#d1d5db" stroke-width="1"/>
+        <rect x="5" y="5" width="54" height="80" rx="3" ry="3" fill="none" stroke="#3b82f6" stroke-width="1"/>
+        <line x1="5" y1="5" x2="59" y2="85" stroke="#3b82f6" stroke-width="0.5" opacity="0.4"/>
+        <line x1="59" y1="5" x2="5" y2="85" stroke="#3b82f6" stroke-width="0.5" opacity="0.4"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Row 3: Size variants -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-600 mb-2">Size variants: sm / md / lg</p>
+    <div class="flex gap-3 items-end">
+      <!-- Small -->
+      <svg width="48" height="68" viewBox="0 0 48 68" class="drop-shadow-md">
+        <rect x="1" y="1" width="46" height="66" rx="6" ry="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+        <text x="6" y="18" font-size="14" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">J</text>
+        <text x="6" y="31" font-size="12.8" fill="#1e293b" font-family="system-ui, sans-serif">♠</text>
+        <text x="24" y="41" font-size="24" fill="#1e293b" text-anchor="middle" font-family="system-ui, sans-serif">♠</text>
+      </svg>
+      <!-- Medium -->
+      <svg width="64" height="90" viewBox="0 0 64 90" class="drop-shadow-md">
+        <rect x="1" y="1" width="62" height="88" rx="6" ry="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+        <text x="6" y="22" font-size="18" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">J</text>
+        <text x="6" y="40" font-size="17.6" fill="#1e293b" font-family="system-ui, sans-serif">♠</text>
+        <text x="32" y="52" font-size="33" fill="#1e293b" text-anchor="middle" font-family="system-ui, sans-serif">♠</text>
+      </svg>
+      <!-- Large -->
+      <svg width="80" height="112" viewBox="0 0 80 112" class="drop-shadow-md">
+        <rect x="1" y="1" width="78" height="110" rx="6" ry="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+        <text x="6" y="26" font-size="22" font-weight="bold" fill="#1e293b" font-family="system-ui, sans-serif">J</text>
+        <text x="6" y="48" font-size="22.4" fill="#1e293b" font-family="system-ui, sans-serif">♠</text>
+        <text x="40" y="65" font-size="42" fill="#1e293b" text-anchor="middle" font-family="system-ui, sans-serif">♠</text>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

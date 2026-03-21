@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">DealerButton</h2>
+
+  <!-- On light background -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-600 mb-2">On light background</p>
+    <div class="flex items-center gap-4">
+      <div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-yellow-400 border-2 border-yellow-500 shadow-md">
+        <span class="text-sm font-bold text-yellow-900 select-none">D</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- On felt (table) background -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-600 mb-2">On table felt background</p>
+    <div class="flex items-center gap-4 bg-emerald-800 p-6 rounded-xl">
+      <div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-yellow-400 border-2 border-yellow-500 shadow-md">
+        <span class="text-sm font-bold text-yellow-900 select-none">D</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Next to a player name -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-600 mb-2">Next to a player seat</p>
+    <div class="flex items-center gap-2 bg-emerald-800 p-6 rounded-xl">
+      <div class="bg-gray-900/80 rounded-lg px-3 py-2 text-white text-sm font-medium">
+        Player 1 — 1,500
+      </div>
+      <div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-yellow-400 border-2 border-yellow-500 shadow-md">
+        <span class="text-sm font-bold text-yellow-900 select-none">D</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
