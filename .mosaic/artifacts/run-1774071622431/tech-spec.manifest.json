@@ -1,0 +1,505 @@
+{
+  "modules": [
+    {
+      "name": "shared-types",
+      "description": "Shared TypeScript type definitions for client and server",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008",
+        "F-009",
+        "F-010"
+      ]
+    },
+    {
+      "name": "core-engine",
+      "description": "6-max NLHE game engine with deck, dealing, pot management, action validation, and showdown",
+      "covers_features": [
+        "F-001",
+        "F-002"
+      ]
+    },
+    {
+      "name": "bot-ai",
+      "description": "Five BOT AI personality styles (TAG/LAG/Fish/Nit/Maniac) with differentiated decision-making",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "name": "session-manager",
+      "description": "Session lifecycle management — create, track, end, resume sessions",
+      "covers_features": [
+        "F-001",
+        "F-003"
+      ]
+    },
+    {
+      "name": "preflop-solver",
+      "description": "Static preflop GTO strategy lookup from pre-computed 169×6×action-sequence tables",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "postflop-solver",
+      "description": "Postflop GTO solving — precomputed cache + real-time DCFR WASM solver with precision metadata",
+      "covers_features": [
+        "F-006",
+        "F-010"
+      ]
+    },
+    {
+      "name": "review-engine",
+      "description": "Hand review analysis — GTO comparison, deviation classification, EV loss estimation",
+      "covers_features": [
+        "F-008",
+        "F-010"
+      ]
+    },
+    {
+      "name": "stats-engine",
+      "description": "Session statistics computation — profit curve, win rate, GTO conformance score",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "api-layer",
+      "description": "Express REST API implementing OpenAPI spec routes",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008",
+        "F-009",
+        "F-010"
+      ]
+    },
+    {
+      "name": "table-ui",
+      "description": "React poker table UI — table layout, seats, cards, action bar, game loop interaction",
+      "covers_features": [
+        "F-002",
+        "F-003",
+        "F-004"
+      ]
+    },
+    {
+      "name": "history-ui",
+      "description": "Hand history browsing UI with filtering and IndexedDB integration",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "review-ui",
+      "description": "Hand replay and GTO comparison UI with deviation badges and precision disclaimers",
+      "covers_features": [
+        "F-008",
+        "F-010"
+      ]
+    },
+    {
+      "name": "summary-ui",
+      "description": "Session summary dashboard with charts, stats, and GTO score",
+      "covers_features": [
+        "F-009",
+        "F-010"
+      ]
+    },
+    {
+      "name": "client-storage",
+      "description": "IndexedDB abstraction for hand records and session checkpoint persistence",
+      "covers_features": [
+        "F-007"
+      ]
+    }
+  ],
+  "tech_stack": [
+    "TypeScript",
+    "React",
+    "Vite",
+    "Tailwind CSS",
+    "Zustand",
+    "Recharts",
+    "Express.js",
+    "Rust (WASM)",
+    "IndexedDB (idb)",
+    "pokersolver",
+    "Turborepo",
+    "Vitest"
+  ],
+  "implementation_tasks": [
+    {
+      "id": "T-001",
+      "name": "Initialize monorepo with Turborepo, shared-types package, TypeScript strict mode",
+      "module": "shared-types",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008",
+        "F-009",
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-002",
+      "name": "Define shared TypeScript types/enums from OpenAPI spec",
+      "module": "shared-types",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008",
+        "F-009"
+      ]
+    },
+    {
+      "id": "T-003",
+      "name": "Implement Deck, Card utilities, and hand evaluation integration",
+      "module": "core-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-004",
+      "name": "Implement pot manager with main pot and side pot calculation",
+      "module": "core-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-005",
+      "name": "Implement action validator with min-raise, stack constraints, all-in handling",
+      "module": "core-engine",
+      "covers_features": [
+        "F-001",
+        "F-002"
+      ]
+    },
+    {
+      "id": "T-006",
+      "name": "Implement GameEngine — blinds, street progression, showdown, hand state",
+      "module": "core-engine",
+      "covers_features": [
+        "F-001",
+        "F-002"
+      ]
+    },
+    {
+      "id": "T-007",
+      "name": "Implement BOT AI with 5 style profiles and name generator",
+      "module": "bot-ai",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-008",
+      "name": "Implement session manager — create/get/end/resume, dealer rotation",
+      "module": "session-manager",
+      "covers_features": [
+        "F-001",
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-009",
+      "name": "Set up Express server with session and hand API routes",
+      "module": "api-layer",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-010",
+      "name": "Implement action submission endpoint with BOT turn processing",
+      "module": "api-layer",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-011",
+      "name": "Build preflop GTO strategy data and lookup module",
+      "module": "preflop-solver",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "id": "T-012",
+      "name": "Fork postflop-solver Rust crate, compile to WASM with simplified params",
+      "module": "postflop-solver",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "id": "T-013",
+      "name": "Build postflop precomputed scenario cache and lookup layer",
+      "module": "postflop-solver",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "id": "T-014",
+      "name": "Integrate WASM solver into Node.js with timeout and pseudo-HU degradation",
+      "module": "postflop-solver",
+      "covers_features": [
+        "F-006",
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-015",
+      "name": "Implement solver API routes with precision metadata",
+      "module": "api-layer",
+      "covers_features": [
+        "F-005",
+        "F-006",
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-016",
+      "name": "Set up React app with Vite, Tailwind, routing, and Zustand store",
+      "module": "table-ui",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-017",
+      "name": "Build PlayingCard, DealerButton, and CommunityCards components",
+      "module": "table-ui",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-018",
+      "name": "Build PokerTable layout with 6-seat positioning and DesktopOnlyGuard",
+      "module": "table-ui",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-019",
+      "name": "Build PlayerSeat component with all indicators and BotThinkingIndicator",
+      "module": "table-ui",
+      "covers_features": [
+        "F-004",
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-020",
+      "name": "Build ActionBar with BetSlider, pot presets, and all-in confirmation",
+      "module": "table-ui",
+      "covers_features": [
+        "F-002",
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-021",
+      "name": "Build LobbyScreen with session start and last session stats",
+      "module": "table-ui",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-022",
+      "name": "Implement useGameSession hook for full game loop interaction",
+      "module": "table-ui",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-023",
+      "name": "Build HandResultOverlay and auto-next-hand flow",
+      "module": "table-ui",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-024",
+      "name": "Implement IndexedDB storage layer with idb for hands and checkpoints",
+      "module": "client-storage",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-025",
+      "name": "Auto-save hand records and session checkpoints to IndexedDB",
+      "module": "client-storage",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-026",
+      "name": "Build HandHistoryList, HandHistoryRow, and filter components",
+      "module": "history-ui",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-027",
+      "name": "Implement review engine with deviation classification and EV loss estimation",
+      "module": "review-engine",
+      "covers_features": [
+        "F-008",
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-028",
+      "name": "Implement review API routes for single and batch analysis",
+      "module": "api-layer",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-029",
+      "name": "Build HandReplayViewer with decision point navigation",
+      "module": "review-ui",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-030",
+      "name": "Build GtoComparisonPanel with frequency bars and DeviationBadge",
+      "module": "review-ui",
+      "covers_features": [
+        "F-008",
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-031",
+      "name": "Build PrecisionDisclaimer component and integrate across GTO surfaces",
+      "module": "review-ui",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-032",
+      "name": "Implement stats engine with all metrics and GTO conformance score",
+      "module": "stats-engine",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "id": "T-033",
+      "name": "Implement stats API route",
+      "module": "api-layer",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "id": "T-034",
+      "name": "Build SessionSummaryScreen with charts, score gauge, and worst hands",
+      "module": "summary-ui",
+      "covers_features": [
+        "F-009",
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-035",
+      "name": "Implement Toast, ConfirmationModal, and error display patterns",
+      "module": "table-ui",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-036",
+      "name": "Implement session persistence with browser refresh recovery",
+      "module": "client-storage",
+      "covers_features": [
+        "F-007",
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-037",
+      "name": "Add AppHeader, GlobalDisclaimerFooter, and SkeletonLoader components",
+      "module": "table-ui",
+      "covers_features": [
+        "F-004",
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-038",
+      "name": "End-to-end integration testing of full game loop",
+      "module": "core-engine",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008",
+        "F-009",
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-039",
+      "name": "Performance optimization — WASM preload, IndexedDB queries, code splitting",
+      "module": "postflop-solver",
+      "covers_features": [
+        "F-006",
+        "F-004"
+      ]
+    }
+  ]
+}
