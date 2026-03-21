@@ -21,12 +21,29 @@ const SUIT_CHAR: Record<Suit, string> = {
   hearts: 'h', diamonds: 'd', clubs: 'c', spades: 's',
 };
 
+const CHAR_TO_SUIT: Record<string, Suit> = {
+  h: 'hearts', d: 'diamonds', c: 'clubs', s: 'spades',
+};
+
 export function cardToString(card: Card): string {
   return `${card.rank}${SUIT_CHAR[card.suit]}`;
 }
 
 export function cardsToString(cards: Card[]): string {
   return cards.map(cardToString).join(' ');
+}
+
+/** Parse a short notation string like "As" back to a Card */
+export function parseCard(notation: string): Card {
+  if (notation.length !== 2) {
+    throw new Error(`Invalid card notation: "${notation}"`);
+  }
+  const rank = notation[0] as Rank;
+  const suit = CHAR_TO_SUIT[notation[1]];
+  if (!suit || !RANKS.includes(rank)) {
+    throw new Error(`Invalid card notation: "${notation}"`);
+  }
+  return { rank, suit };
 }
 
 /** Compare two cards for equality */

@@ -68,6 +68,13 @@ export class BotManager {
   }
 
   /**
+   * Remove a single bot from the given seat.
+   */
+  unregisterBot(seat: number): void {
+    this.bots.delete(seat);
+  }
+
+  /**
    * Remove all registered bots (called between hands or sessions).
    */
   clearBots(): void {
@@ -89,6 +96,13 @@ export class BotManager {
   }
 
   /**
+   * Get the full action log (read-only copy).
+   */
+  getActionLog(): ReadonlyArray<ActionRecord> {
+    return [...this.actionLog];
+  }
+
+  /**
    * Check if the given seat is a registered bot.
    */
   isBot(seat: number): boolean {
@@ -103,10 +117,24 @@ export class BotManager {
   }
 
   /**
+   * Get the difficulty of the bot at a given seat, or undefined if not a bot.
+   */
+  getBotDifficulty(seat: number): BotDifficulty | undefined {
+    return this.bots.get(seat)?.difficulty;
+  }
+
+  /**
    * Get all registered bot seats.
    */
   getBotSeats(): number[] {
     return [...this.bots.keys()];
+  }
+
+  /**
+   * Get the number of registered bots.
+   */
+  getBotCount(): number {
+    return this.bots.size;
   }
 
   /**
@@ -130,8 +158,8 @@ export class BotManager {
     }
 
     const handState = engine.getVisibleState();
-    const _player = handState.players.find((p) => p.seat === seat);
-    if (!_player) {
+    const player = handState.players.find((p) => p.seat === seat);
+    if (!player) {
       return { action: 'fold' };
     }
 
@@ -146,7 +174,7 @@ export class BotManager {
     const action = bot.strategy.decide(context);
 
     // Validate the action — ensure it's legal
-    return this.sanitizeAction(action, _player, handState);
+    return this.sanitizeAction(action, player, handState);
   }
 
   /**
@@ -155,7 +183,7 @@ export class BotManager {
    */
   private sanitizeAction(
     action: PlayerActionRequest,
-    _player: PlayerState,
+    player: PlayerState,
     state: HandState,
   ): PlayerActionRequest {
     const availableTypes = new Set(state.available_actions.map((a) => a.type));
@@ -184,7 +212,18 @@ export class BotManager {
       let amount = action.amount ?? minRaise;
       amount = Math.max(minRaise, Math.min(amount, maxRaise));
 
+      // If raise amount equals max, treat as all-in if available
+      if (amount >= player.stack + player.current_bet && availableTypes.has('all_in')) {
+        return { action: 'all_in' };
+      }
+
       return { action: 'raise', amount };
+    }
+
+    // For all_in, validate it's meaningful
+    if (action.action === 'all_in' && player.stack <= 0) {
+      if (availableTypes.has('check')) return { action: 'check' };
+      return { action: 'fold' };
     }
 
     return action;

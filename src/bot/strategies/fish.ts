@@ -107,16 +107,16 @@ export class FishStrategy implements BotStrategy {
 
     // Determine what we're facing
     const highestBet = this.getHighestBet(handState);
-    const _toCall = highestBet - player.current_bet;
-    const hasBetToCall = _toCall > 0;
+    const toCall = highestBet - player.current_bet;
+    const hasBetToCall = toCall > 0;
 
     // Preflop decisions
     if (street === 'preflop') {
-      return this.decidePreflopFish(strength, hasBetToCall, _toCall, player, handState);
+      return this.decidePreflopFish(strength, hasBetToCall, toCall, player, handState);
     }
 
     // Postflop decisions
-    return this.decidePostflopFish(strength, hasBetToCall, _toCall, player, handState);
+    return this.decidePostflopFish(strength, hasBetToCall, toCall, player, handState);
   }
 
   private decidePreflopFish(

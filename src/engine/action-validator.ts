@@ -94,22 +94,21 @@ export function computeMaxRaise(
 
 /**
  * Get the last raise size from the action history in the current street.
+ * Approximated by looking at the difference between the two largest bets.
  */
 function getLastRaiseSize(state: HandState, bigBlind: number): number {
-  // Look through players for the largest raise increment this street
-  // In a simplified model, the last raise size is tracked by comparing bets
-  // Default to big blind if no raises yet
-  let maxBet = 0;
-  let prevMaxBet = 0;
+  // Collect all non-zero current bets, sorted descending
+  const bets = state.players
+    .map((p) => p.current_bet)
+    .filter((b) => b > 0)
+    .sort((a, b) => b - a);
 
-  for (const p of state.players) {
-    if (p.current_bet > maxBet) {
-      prevMaxBet = maxBet;
-      maxBet = p.current_bet;
-    }
+  if (bets.length < 2) {
+    return bigBlind;
   }
 
-  const raiseSize = maxBet - prevMaxBet;
+  // The raise size is the difference between the highest and second highest bet
+  const raiseSize = bets[0] - bets[1];
   return Math.max(raiseSize, bigBlind);
 }
 
@@ -141,8 +140,6 @@ export function validateAction(
   }
 
   const toCall = highestBet - player.current_bet;
-  const availableActions = getAvailableActions(state, player, highestBet, bigBlind);
-  const actionTypes = availableActions.map((a) => a.type);
 
   switch (action.action) {
     case 'fold':
@@ -164,6 +161,9 @@ export function validateAction(
       return { valid: true };
 
     case 'raise': {
+      const availableActions = getAvailableActions(state, player, highestBet, bigBlind);
+      const actionTypes = availableActions.map((a) => a.type);
+
       if (!actionTypes.includes('raise')) {
         return { valid: false, error: 'Raise is not available' };
       }
@@ -176,17 +176,17 @@ export function validateAction(
       const minRaise = computeMinRaise(state, player, highestBet, bigBlind);
       const maxRaise = computeMaxRaise(player);
 
+      // If raise equals all-in, it's valid even if below min raise
+      if (amount === maxRaise) {
+        return { valid: true };
+      }
+
       if (minRaise !== null && amount < minRaise) {
         return { valid: false, error: `Raise must be at least ${minRaise}` };
       }
 
       if (amount > maxRaise) {
         return { valid: false, error: `Raise cannot exceed ${maxRaise} (all-in)` };
-      }
-
-      // If raise equals all-in, it's valid even if below min raise
-      if (amount === maxRaise) {
-        return { valid: true };
       }
 
       return { valid: true };

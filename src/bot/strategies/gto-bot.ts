@@ -24,6 +24,9 @@ const NOISE_FACTOR = 0.05;
 /** Max time budget for postflop solver when used by bot (faster than user hints) */
 const BOT_SOLVE_TIME_MS = 150;
 
+/** Max CFR iterations for bot (lower than user hints for speed) */
+const BOT_MAX_ITERATIONS = 500;
+
 // ---------- GTO Bot Strategy ----------
 
 export class GTOBotStrategy implements BotStrategy {
@@ -79,7 +82,7 @@ export class GTOBotStrategy implements BotStrategy {
         action_history: actionHistory,
       },
       {
-        maxIterations: 500,
+        maxIterations: BOT_MAX_ITERATIONS,
         timeBudgetMs: BOT_SOLVE_TIME_MS,
       },
     );

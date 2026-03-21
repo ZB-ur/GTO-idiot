@@ -130,10 +130,48 @@ code/
 │   ├── App.tsx
 │   ├── index.css
 │   └── main.tsx
+├── tests/
+│   ├── bot/
+│   │   ├── bot-manager.test.ts
+│   │   ├── fish-strategy.test.ts
+│   │   ├── gto-bot-strategy.test.ts
+│   │   └── regular-strategy.test.ts
+│   ├── components/
+│   │   ├── common/
+│   │   ├── game/
+│   │   ├── history/
+│   │   ├── replay/
+│   │   ├── session/
+│   │   ├── shell/
+│   │   └── stats/
+│   ├── engine/
+│   │   ├── action-validator.test.ts
+│   │   ├── deck.test.ts
+│   │   ├── game-engine.test.ts
+│   │   ├── hand-evaluator.test.ts
+│   │   └── pot-calculator.test.ts
+│   ├── gto/
+│   │   ├── cfr-worker.test.ts
+│   │   ├── game-tree.test.ts
+│   │   ├── postflop-solver.test.ts
+│   │   ├── preflop-advisor.test.ts
+│   │   └── preflop-ranges.test.ts
+│   ├── integration/
+│   │   └── game-loop.test.ts
+│   ├── services/
+│   │   ├── deviation-analyzer.test.ts
+│   │   ├── metrics-calculator.test.ts
+│   │   └── replay-service.test.ts
+│   ├── storage/
+│   ├── stores/
+│   ├── types/
+│   │   └── index.test.ts
+│   └── setup.ts
 ├── index.html
 ├── package-lock.json
 ├── package.json
 ├── postcss.config.js
+├── README.md
 ├── tailwind.config.ts
 ├── tsconfig.json
 ├── tsconfig.node.json

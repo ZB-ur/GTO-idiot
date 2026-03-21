@@ -27,6 +27,15 @@ import { collectBets, distributePots, distributeToLastStanding } from './pot-cal
 
 const STREET_ORDER: Street[] = ['preflop', 'flop', 'turn', 'river'];
 
+/** Position assignments by table size. Index 0 = dealer offset. */
+const POSITION_ORDERS: Record<number, Position[]> = {
+  2: ['BTN', 'BB'],
+  3: ['BTN', 'SB', 'BB'],
+  4: ['BTN', 'SB', 'BB', 'UTG'],
+  5: ['BTN', 'SB', 'BB', 'UTG', 'HJ'],
+  6: ['BTN', 'SB', 'BB', 'UTG', 'HJ', 'CO'],
+};
+
 // ============================================================
 // Types
 // ============================================================
@@ -62,10 +71,12 @@ export class GameEngine {
   private highestBet: number;
   private _lastAggressor: number | null;
   private actedThisRound: Set<number>;
+  /** Tracks the last raise increment size for min-raise calculation */
+  private lastRaiseIncrement: number;
   /** All hole cards (including bot cards hidden from UI) */
   private allHoleCards: Map<number, Card[]>;
 
-  /** Seat of the last player who raised or bet (useful for determining action order) */
+  /** Seat of the last player who raised or bet */
   get lastAggressor(): number | null {
     return this._lastAggressor;
   }
@@ -75,12 +86,20 @@ export class GameEngine {
     handNumber: number,
     config: GameConfig,
   ) {
+    if (config.playerCount < 2 || config.playerCount > 6) {
+      throw new Error(`Player count must be 2-6, got ${config.playerCount}`);
+    }
+    if (config.startingStacks.length !== config.playerCount) {
+      throw new Error('startingStacks length must match playerCount');
+    }
+
     this.sessionId = sessionId;
     this.handNumber = handNumber;
     this.config = config;
     this.handId = `${sessionId}-h${handNumber}`;
     this.deck = new Deck();
     this.highestBet = 0;
+    this.lastRaiseIncrement = config.blinds.big_blind;
     this._lastAggressor = null;
     this.actedThisRound = new Set();
     this.allHoleCards = new Map();
@@ -139,43 +158,17 @@ export class GameEngine {
 
   /**
    * Assign positions based on dealer seat and player count.
-   * For 6-max: BTN, SB, BB, UTG, HJ, CO
+   * For 6-max: BTN, SB, BB, UTG, HJ, CO (clockwise from dealer).
+   * For heads-up: BTN/SB, BB.
    */
   private assignPositions(): Position[] {
     const n = this.config.playerCount;
-    // Positions for fewer than 6 players (trim from UTG side)
+    const order = POSITION_ORDERS[n];
     const positions: Position[] = new Array(n);
 
     for (let i = 0; i < n; i++) {
       const offset = (i - this.config.dealerSeat + n) % n;
-      // BTN=0, SB=1, BB=2, UTG=3, HJ=4, CO=5
-      // For smaller tables, positions are shifted
-      // Map offset to position name
-      if (n >= 3) {
-        const posMap: Record<number, Position> = {};
-        if (n === 2) {
-          // Heads-up: BTN=SB, other=BB
-          posMap[0] = 'BTN';
-          posMap[1] = 'BB';
-        } else {
-          // 3-6 players: assign from BTN
-          // Remap: 0=BTN position, 1=SB, 2=BB, etc.
-          // For 6max: BTN(offset0), SB(1), BB(2), UTG(3), HJ(4), CO(5)
-          const order: Position[] = n === 6
-            ? ['BTN', 'SB', 'BB', 'UTG', 'HJ', 'CO']
-            : n === 5
-            ? ['BTN', 'SB', 'BB', 'UTG', 'HJ']
-            : n === 4
-            ? ['BTN', 'SB', 'BB', 'UTG']
-            : ['BTN', 'SB', 'BB'];
-          for (let j = 0; j < order.length; j++) {
-            posMap[j] = order[j];
-          }
-        }
-        positions[i] = posMap[offset] ?? 'UTG';
-      } else {
-        positions[i] = offset === 0 ? 'BTN' : 'BB';
-      }
+      positions[i] = order[offset];
     }
 
     return positions;
@@ -215,6 +208,7 @@ export class GameEngine {
     this.placeBet(bbSeat, Math.min(big_blind, this.state.players[bbSeat].stack));
 
     this.highestBet = big_blind;
+    this.lastRaiseIncrement = big_blind;
   }
 
   private dealHoleCards(): void {
@@ -274,12 +268,37 @@ export class GameEngine {
     }
 
     const actionTaken = this.applyAction(seat, request);
-    const handComplete = this.checkHandComplete();
 
-    let showdown: ShowdownResult | null = null;
-    if (handComplete) {
-      showdown = this.resolveHand();
-    } else if (this.isRoundComplete()) {
+    // Check if only one player remains (everyone else folded)
+    const activePlayers = this.state.players.filter((p) => p.is_active);
+    if (activePlayers.length === 1) {
+      const showdown = this.resolveHand();
+      this.updateAvailableActions();
+      return {
+        handState: this.getVisibleState(),
+        actionTaken,
+        handComplete: true,
+        showdown,
+      };
+    }
+
+    // Check if the betting round is complete
+    if (this.isRoundComplete()) {
+      // Check if we need to go to showdown (all-in scenario or river complete)
+      if (this.shouldGoToShowdown()) {
+        // Run out remaining community cards and resolve
+        this.runOutRemainingBoard();
+        const showdown = this.resolveHand();
+        this.updateAvailableActions();
+        return {
+          handState: this.getVisibleState(),
+          actionTaken,
+          handComplete: true,
+          showdown,
+        };
+      }
+
+      // Advance to next street
       this.advanceStreet();
     } else {
       this.advanceToNextPlayer();
@@ -290,9 +309,28 @@ export class GameEngine {
     return {
       handState: this.getVisibleState(),
       actionTaken,
-      handComplete,
-      showdown,
+      handComplete: false,
+      showdown: null,
     };
+  }
+
+  /**
+   * Determine if the hand should go to showdown after the round is complete.
+   */
+  private shouldGoToShowdown(): boolean {
+    const activePlayers = this.state.players.filter((p) => p.is_active);
+    const activeNonAllIn = activePlayers.filter((p) => !p.is_all_in);
+
+    // On the river, always go to showdown
+    if (this.state.street === 'river') return true;
+
+    // All active players are all-in
+    if (activeNonAllIn.length === 0) return true;
+
+    // Only one non-all-in player left with at least one all-in opponent
+    if (activeNonAllIn.length === 1 && activePlayers.length > 1) return true;
+
+    return false;
   }
 
   private applyAction(seat: number, request: PlayerActionRequest): ActionTaken {
@@ -323,8 +361,10 @@ export class GameEngine {
       case 'raise': {
         const raiseTotal = request.amount!;
         const raiseAmount = raiseTotal - player.current_bet;
+        const raiseIncrement = raiseTotal - this.highestBet;
         this.placeBet(seat, raiseAmount);
         actionAmount = raiseTotal;
+        this.lastRaiseIncrement = Math.max(raiseIncrement, this.lastRaiseIncrement);
         this.highestBet = raiseTotal;
         this._lastAggressor = seat;
         player.last_action = `raise to ${raiseTotal}`;
@@ -345,6 +385,8 @@ export class GameEngine {
         player.last_action = `all-in ${newBet}`;
 
         if (newBet > this.highestBet) {
+          const raiseIncrement = newBet - this.highestBet;
+          this.lastRaiseIncrement = Math.max(raiseIncrement, this.lastRaiseIncrement);
           this.highestBet = newBet;
           this._lastAggressor = seat;
           this.actedThisRound.clear();
@@ -390,36 +432,13 @@ export class GameEngine {
     );
   }
 
-  private checkHandComplete(): boolean {
-    const activePlayers = this.state.players.filter((p) => p.is_active);
-
-    // Only one player left (everyone else folded)
-    if (activePlayers.length === 1) return true;
-
-    // All remaining are all-in (or only one is not all-in and round is complete)
-    const activeNonAllIn = activePlayers.filter((p) => !p.is_all_in);
-    if (activeNonAllIn.length === 0) return true;
-    if (activeNonAllIn.length === 1 && this.isRoundComplete()) {
-      // One player left with chips, but round complete — check if we're on the river
-      // or if everyone else is all-in
-      const allInCount = activePlayers.filter((p) => p.is_all_in).length;
-      if (allInCount > 0 && this.isRoundComplete()) {
-        return true;
-      }
-    }
-
-    // On the river and round is complete
-    if (this.state.street === 'river' && this.isRoundComplete()) return true;
-
-    return false;
-  }
-
   private advanceStreet(): void {
     // Collect bets into pot
     const { newPot, players } = collectBets(this.state.pot, this.state.players);
     this.state.pot = newPot;
     this.state.players = players;
     this.highestBet = 0;
+    this.lastRaiseIncrement = this.config.blinds.big_blind;
     this._lastAggressor = null;
     this.actedThisRound.clear();
 
@@ -448,37 +467,53 @@ export class GameEngine {
 
     // Set first actor post-flop: first active player after dealer
     this.setPostflopFirstActor();
-
-    // Check if all remaining active players are all-in
-    const activeNonAllIn = this.state.players.filter(
-      (p) => p.is_active && !p.is_all_in,
-    );
-    if (activeNonAllIn.length <= 1) {
-      // Run out remaining streets
-      this.runOutBoard();
-    }
   }
 
   /**
-   * Deal remaining community cards when no more action is possible.
+   * Deal remaining community cards when no more action is possible (all-in runout).
    */
-  private runOutBoard(): void {
+  private runOutRemainingBoard(): void {
+    // Collect any outstanding bets first
+    const { newPot, players } = collectBets(this.state.pot, this.state.players);
+    this.state.pot = newPot;
+    this.state.players = players;
+
+    // Deal remaining community cards
+    if (this.state.community_cards.length === 0) {
+      this.state.community_cards = this.deck.deal(3);
+      this.state.street = 'flop';
+    }
     while (this.state.community_cards.length < 5) {
-      if (this.state.community_cards.length === 0) {
-        this.state.community_cards = this.deck.deal(3);
-        this.state.street = 'flop';
-      } else {
-        this.state.community_cards.push(this.deck.dealOne());
-        this.state.street = this.state.community_cards.length === 4 ? 'turn' : 'river';
+      this.state.community_cards.push(this.deck.dealOne());
+      if (this.state.community_cards.length === 4) {
+        this.state.street = 'turn';
+      } else if (this.state.community_cards.length === 5) {
+        this.state.street = 'river';
       }
     }
+
     this.state.current_player_seat = null;
   }
 
   private setPostflopFirstActor(): void {
-    // First active player after dealer (clockwise)
-    const firstSeat = this.findNextActiveSeat(this.config.dealerSeat);
-    this.state.current_player_seat = firstSeat;
+    const n = this.config.playerCount;
+    let startSeat: number;
+
+    if (n === 2) {
+      // Heads-up: BB acts first postflop (non-dealer)
+      startSeat = (this.config.dealerSeat + 1) % n;
+      const player = this.state.players[startSeat];
+      if (player.is_active && !player.is_all_in) {
+        this.state.current_player_seat = startSeat;
+        return;
+      }
+      // If BB is out, dealer acts
+      this.state.current_player_seat = this.findNextActiveSeat(startSeat);
+    } else {
+      // First active non-all-in player after dealer (clockwise)
+      startSeat = this.config.dealerSeat;
+      this.state.current_player_seat = this.findNextActiveSeat(startSeat);
+    }
   }
 
   private advanceToNextPlayer(): void {
@@ -507,7 +542,7 @@ export class GameEngine {
         return seat;
       }
     }
-    // No active player found; return afterSeat
+    // No active non-all-in player found; return afterSeat as fallback
     return afterSeat;
   }
 
@@ -526,6 +561,7 @@ export class GameEngine {
     // If only one player left (all others folded)
     if (activePlayers.length === 1) {
       this.state.status = 'completed';
+      this.state.current_player_seat = null;
       const dist = distributeToLastStanding(this.state.players);
 
       // Update stacks
@@ -572,6 +608,7 @@ export class GameEngine {
 
     this.state.status = 'completed';
     this.state.current_player_seat = null;
+    this.state.pot = 0;
 
     const playersShown = this.state.players
       .filter((p) => (p.is_active || p.is_all_in) && p.hole_cards)
@@ -663,5 +700,25 @@ export class GameEngine {
   /** Get all player states (internal) */
   getPlayers(): PlayerState[] {
     return this.state.players;
+  }
+
+  /** Get big blind amount */
+  getBigBlind(): number {
+    return this.config.blinds.big_blind;
+  }
+
+  /** Get community cards */
+  getCommunityCards(): Card[] {
+    return this.state.community_cards;
+  }
+
+  /** Get current pot */
+  getPot(): number {
+    return this.state.pot;
+  }
+
+  /** Get hero seat */
+  getHeroSeat(): number {
+    return this.config.heroSeat;
   }
 }

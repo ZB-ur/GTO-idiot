@@ -29,63 +29,39 @@ export interface PotDistribution {
  * Called when at least one player is all-in.
  */
 export function calculateSidePots(players: PlayerState[]): SidePot[] {
-  // Get all-in amounts (sorted ascending), these are the tier boundaries
+  // Get all active/all-in players
   const activePlayers = players.filter((p) => p.is_active || p.is_all_in);
-  const allInAmounts = [...new Set(
-    activePlayers
-      .filter((p) => p.is_all_in)
-      .map((p) => p.total_invested)
-  )].sort((a, b) => a - b);
 
-  // If no all-ins, single main pot
-  if (allInAmounts.length === 0) {
-    const totalPot = activePlayers.reduce((sum, p) => sum + p.total_invested, 0);
-    return [{
-      amount: totalPot,
-      eligible_seats: activePlayers.map((p) => p.seat),
-    }];
+  if (activePlayers.length === 0) {
+    return [];
   }
+
+  // Get unique investment levels sorted ascending
+  const investLevels = [...new Set(
+    activePlayers.map((p) => p.total_invested),
+  )].sort((a, b) => a - b);
 
   const pots: SidePot[] = [];
   let prevLevel = 0;
 
-  for (const level of allInAmounts) {
+  for (const level of investLevels) {
     const increment = level - prevLevel;
     if (increment <= 0) continue;
 
-    // All players who invested at least this level contribute
+    // Players who invested at least this level contribute to this pot tier
     const contributors = activePlayers.filter((p) => p.total_invested >= level);
-    // Eligible = those who invested at least this level AND are still active (or all-in at this level)
-    const eligible = contributors.filter(
-      (p) => p.is_active || p.total_invested >= level,
-    );
+    // Eligible to win = those who invested at least this level
+    const eligible = contributors;
 
     const potAmount = increment * contributors.length;
-    pots.push({
-      amount: potAmount,
-      eligible_seats: eligible.map((p) => p.seat),
-    });
-
-    prevLevel = level;
-  }
-
-  // Remaining pot for players who invested more than the highest all-in
-  const maxAllIn = allInAmounts[allInAmounts.length - 1];
-  const remainingPlayers = activePlayers.filter(
-    (p) => p.total_invested > maxAllIn && p.is_active,
-  );
-
-  if (remainingPlayers.length > 0) {
-    const extraAmount = remainingPlayers.reduce(
-      (sum, p) => sum + (p.total_invested - maxAllIn),
-      0,
-    );
-    if (extraAmount > 0) {
+    if (potAmount > 0) {
       pots.push({
-        amount: extraAmount,
-        eligible_seats: remainingPlayers.map((p) => p.seat),
+        amount: potAmount,
+        eligible_seats: eligible.map((p) => p.seat),
       });
     }
+
+    prevLevel = level;
   }
 
   return pots;
