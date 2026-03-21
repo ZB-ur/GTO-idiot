@@ -1,0 +1,348 @@
+{
+  "files": [
+    {
+      "path": "code/dist/assets/index-B2ZWijIV.css",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/dist/assets/index-CWAjFGWP.js",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/dist/index.html",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/index.html",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/package-lock.json",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/package.json",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/postcss.config.js",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/App.tsx",
+      "module": "app-shell",
+      "description": ""
+    },
+    {
+      "path": "code/src/bot/bot-profiles.ts",
+      "module": "bot-ai",
+      "description": ""
+    },
+    {
+      "path": "code/src/bot/decision-engine.ts",
+      "module": "bot-ai",
+      "description": ""
+    },
+    {
+      "path": "code/src/bot/hand-strength.ts",
+      "module": "bot-ai",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/common/EmptyState.tsx",
+      "module": "app-shell",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/common/Skeleton.tsx",
+      "module": "app-shell",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/common/Toast.tsx",
+      "module": "app-shell",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/game/Card.tsx",
+      "module": "game-ui",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/game/CommunityCards.tsx",
+      "module": "game-ui",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/game/animations.ts",
+      "module": "game-ui",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/layout/AppShell.tsx",
+      "module": "app-shell",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/layout/TopNav.tsx",
+      "module": "app-shell",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/session/NewSessionDialog.tsx",
+      "module": "app-shell",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/session/SessionStatusBar.tsx",
+      "module": "app-shell",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/session/SessionSummaryModal.tsx",
+      "module": "app-shell",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/stats/PositionStatsTable.tsx",
+      "module": "stats",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/stats/ProfitTrendChart.tsx",
+      "module": "stats",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/stats/StatCard.tsx",
+      "module": "stats",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/stats/StatsOverview.tsx",
+      "module": "stats",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/stats/StatsPage.tsx",
+      "module": "stats",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/stats/StreetEVChart.tsx",
+      "module": "stats",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/betting-round.ts",
+      "module": "game-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/deck-manager.ts",
+      "module": "game-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/hand-evaluator.ts",
+      "module": "game-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/pot-manager.ts",
+      "module": "game-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/gto/preflop-range-data.ts",
+      "module": "gto-solver",
+      "description": ""
+    },
+    {
+      "path": "code/src/index.css",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/main.tsx",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/pages/DashboardPage.tsx",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/src/pages/GamePage.tsx",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/src/pages/HistoryPage.tsx",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/src/pages/StatsPage.tsx",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/src/persistence/database.ts",
+      "module": "persistence",
+      "description": ""
+    },
+    {
+      "path": "code/src/persistence/hand-history-repository.ts",
+      "module": "persistence",
+      "description": ""
+    },
+    {
+      "path": "code/src/persistence/index.ts",
+      "module": "persistence",
+      "description": ""
+    },
+    {
+      "path": "code/src/persistence/session-repository.ts",
+      "module": "persistence",
+      "description": ""
+    },
+    {
+      "path": "code/src/replay/replay-engine.ts",
+      "module": "history-replay",
+      "description": ""
+    },
+    {
+      "path": "code/src/replay/timeline.ts",
+      "module": "history-replay",
+      "description": ""
+    },
+    {
+      "path": "code/src/routes.tsx",
+      "module": "app-shell",
+      "description": ""
+    },
+    {
+      "path": "code/src/stats/stats-aggregator.ts",
+      "module": "stats",
+      "description": ""
+    },
+    {
+      "path": "code/src/types/cards.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/types/game.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/types/gto.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/types/index.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/types/session.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/types/stats.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/tailwind.config.js",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/tsconfig.json",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/tsconfig.node.json",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/vite.config.ts",
+      "module": "scaffold",
+      "description": ""
+    }
+  ],
+  "modules": [
+    "scaffold",
+    "persistence",
+    "game-engine",
+    "bot-ai",
+    "gto-solver",
+    "services",
+    "game-ui",
+    "app-shell",
+    "history-replay",
+    "stats",
+    "testing"
+  ],
+  "covers_tasks": [
+    "T-001",
+    "T-002",
+    "T-003",
+    "T-004",
+    "T-005",
+    "T-006",
+    "T-007",
+    "T-008",
+    "T-009",
+    "T-010",
+    "T-011",
+    "T-012",
+    "T-013",
+    "T-026",
+    "T-014",
+    "T-015",
+    "T-016",
+    "T-018",
+    "T-019",
+    "T-020",
+    "T-021",
+    "T-017",
+    "T-030",
+    "T-031",
+    "T-032",
+    "T-022",
+    "T-023",
+    "T-024",
+    "T-025",
+    "T-027",
+    "T-028",
+    "T-029",
+    "T-033",
+    "T-034"
+  ],
+  "covers_features": [
+    "F-004",
+    "F-005",
+    "F-001",
+    "F-002",
+    "F-003",
+    "F-008",
+    "F-006",
+    "F-007"
+  ]
+}
