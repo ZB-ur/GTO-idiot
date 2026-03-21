@@ -1,0 +1,28 @@
+{
+  "competitors": [
+    "GTO Wizard",
+    "PioSOLVER",
+    "Simple Postflop",
+    "GTO+",
+    "PokerSnowie",
+    "WASM Postflop (开源)"
+  ],
+  "key_insights": [
+    "纯 JS/TS 实现 CFR 不可行，必须走 Rust→WASM 路线",
+    "预计算 + 实时求解混合策略是 MVP 最务实路径",
+    "6-max 多人翻后精确 GTO 求解不可行，需简化为伪单挑模型",
+    "BOT 风格差异化比求解器精度更影响用户留存",
+    "市场定位应聚焦免费实战练习 + 即时偏差反馈的体验闭环",
+    "postflop-solver (Rust/MIT) 是最佳技术起点",
+    "复盘核心价值在于偏差可视化和 EV 损失量化"
+  ],
+  "feasibility": "medium",
+  "risks": [
+    "CFR 求解器性能：纯前端 WASM 求解可能无法在复杂 6-max 场景下秒级响应",
+    "6-max GTO 精度：多人场景无法精确求解，简化模型的偏差可能影响用户信任",
+    "Rust/WASM 技术栈引入：团队需具备 Rust 能力或 fork 维护开源项目的能力",
+    "预计算数据规模：翻后预计算数据可能达到 50-200MB，影响首次加载体验",
+    "开源项目依赖风险：postflop-solver 已暂停开发，后续维护需自行承担",
+    "GTO Wizard 竞争壁垒：其预计算库深度和 AI 能力难以短期追赶"
+  ]
+}
