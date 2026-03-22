@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConformanceTrendChart Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto">
+    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">GTO Conformance Trend</h3>
+      <svg viewBox="0 0 500 200" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+        <!-- Gradient -->
+        <defs>
+          <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2563eb" stop-opacity="0.2" />
+            <stop offset="100%" stop-color="#2563eb" stop-opacity="0.02" />
+          </linearGradient>
+        </defs>
+
+        <!-- Y-axis grid: 0, 25, 50, 75, 100 mapped to y: 176, 138, 100, 62, 24 -->
+        <line x1="40" y1="176" x2="460" y2="176" stroke="#e5e7eb" stroke-width="1" />
+        <line x1="40" y1="138" x2="460" y2="138" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 2" />
+        <line x1="40" y1="100" x2="460" y2="100" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 2" />
+        <line x1="40" y1="62" x2="460" y2="62" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 2" />
+        <line x1="40" y1="24" x2="460" y2="24" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 2" />
+
+        <!-- Y labels -->
+        <text x="34" y="179" text-anchor="end" fill="#9ca3af" font-size="10">0%</text>
+        <text x="34" y="141" text-anchor="end" fill="#9ca3af" font-size="10">25%</text>
+        <text x="34" y="103" text-anchor="end" fill="#9ca3af" font-size="10">50%</text>
+        <text x="34" y="65" text-anchor="end" fill="#9ca3af" font-size="10">75%</text>
+        <text x="34" y="27" text-anchor="end" fill="#9ca3af" font-size="10">100%</text>
+
+        <!-- Data: 8 sessions with conformance: 52, 58, 55, 63, 68, 72, 65, 78 -->
+        <!-- x positions: 40, 100, 160, 220, 280, 340, 400, 460 -->
+        <!-- y = 176 - (val/100)*152 -->
+        <!-- 52->96.96, 58->87.84, 55->92.4, 63->80.24, 68->72.64, 72->66.56, 65->77.2, 78->57.44 -->
+
+        <!-- Area -->
+        <path d="M 40 97 L 100 88 L 160 92 L 220 80 L 280 73 L 340 67 L 400 77 L 460 57 L 460 176 L 40 176 Z" fill="url(#cg)" />
+
+        <!-- Line -->
+        <path d="M 40 97 L 100 88 L 160 92 L 220 80 L 280 73 L 340 67 L 400 77 L 460 57" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+        <!-- Points -->
+        <circle cx="40" cy="97" r="4" fill="white" stroke="#2563eb" stroke-width="2" />
+        <circle cx="100" cy="88" r="4" fill="white" stroke="#2563eb" stroke-width="2" />
+        <circle cx="160" cy="92" r="4" fill="white" stroke="#2563eb" stroke-width="2" />
+        <circle cx="220" cy="80" r="4" fill="white" stroke="#2563eb" stroke-width="2" />
+        <circle cx="280" cy="73" r="4" fill="white" stroke="#2563eb" stroke-width="2" />
+        <circle cx="340" cy="67" r="4" fill="white" stroke="#2563eb" stroke-width="2" />
+        <circle cx="400" cy="77" r="4" fill="white" stroke="#2563eb" stroke-width="2" />
+        <circle cx="460" cy="57" r="4" fill="white" stroke="#2563eb" stroke-width="2" />
+
+        <!-- X labels -->
+        <text x="40" y="194" text-anchor="middle" fill="#9ca3af" font-size="9">Mar 1</text>
+        <text x="220" y="194" text-anchor="middle" fill="#9ca3af" font-size="9">Mar 10</text>
+        <text x="460" y="194" text-anchor="middle" fill="#9ca3af" font-size="9">Mar 22</text>
+      </svg>
+      <p class="text-sm text-gray-400 mt-2 text-center">8 sessions tracked</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">Card Component</h2>
+
+  <!-- Size Variants -->
+  <p class="text-sm text-gray-600 mb-2">Sizes: sm / md / lg</p>
+  <div class="flex items-end gap-3 mb-6">
+    <!-- Small Ace of Spades -->
+    <div class="w-12 h-[4.2rem] rounded-lg border border-gray-200 shadow-sm bg-white flex flex-col justify-between p-1 select-none">
+      <div class="flex flex-col items-start leading-none text-gray-900">
+        <span class="text-xs font-bold">A</span>
+        <span class="text-[0.6rem]">♠</span>
+      </div>
+      <div class="flex items-center justify-center text-gray-900 text-lg">♠</div>
+      <div class="flex flex-col items-end leading-none rotate-180 text-gray-900">
+        <span class="text-xs font-bold">A</span>
+        <span class="text-[0.6rem]">♠</span>
+      </div>
+    </div>
+
+    <!-- Medium King of Hearts -->
+    <div class="w-16 h-[5.6rem] rounded-lg border border-gray-200 shadow-sm bg-white flex flex-col justify-between p-1 select-none">
+      <div class="flex flex-col items-start leading-none text-red-500">
+        <span class="text-sm font-bold">K</span>
+        <span class="text-xs">♥</span>
+      </div>
+      <div class="flex items-center justify-center text-red-500 text-2xl">♥</div>
+      <div class="flex flex-col items-end leading-none rotate-180 text-red-500">
+        <span class="text-sm font-bold">K</span>
+        <span class="text-xs">♥</span>
+      </div>
+    </div>
+
+    <!-- Large Queen of Diamonds -->
+    <div class="w-24 h-[8.4rem] rounded-lg border border-gray-200 shadow-sm bg-white flex flex-col justify-between p-1 select-none">
+      <div class="flex flex-col items-start leading-none text-red-500">
+        <span class="text-lg font-bold">Q</span>
+        <span class="text-sm">♦</span>
+      </div>
+      <div class="flex items-center justify-center text-red-500 text-4xl">♦</div>
+      <div class="flex flex-col items-end leading-none rotate-180 text-red-500">
+        <span class="text-lg font-bold">Q</span>
+        <span class="text-sm">♦</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- All Suits -->
+  <p class="text-sm text-gray-600 mb-2">All Suits (medium)</p>
+  <div class="flex gap-3 mb-6">
+    <!-- Hearts -->
+    <div class="w-16 h-[5.6rem] rounded-lg border border-gray-200 shadow-sm bg-white flex flex-col justify-between p-1 select-none">
+      <div class="flex flex-col items-start leading-none text-red-500">
+        <span class="text-sm font-bold">A</span>
+        <span class="text-xs">♥</span>
+      </div>
+      <div class="flex items-center justify-center text-red-500 text-2xl">♥</div>
+      <div class="flex flex-col items-end leading-none rotate-180 text-red-500">
+        <span class="text-sm font-bold">A</span>
+        <span class="text-xs">♥</span>
+      </div>
+    </div>
+    <!-- Diamonds -->
+    <div class="w-16 h-[5.6rem] rounded-lg border border-gray-200 shadow-sm bg-white flex flex-col justify-between p-1 select-none">
+      <div class="flex flex-col items-start leading-none text-red-500">
+        <span class="text-sm font-bold">K</span>
+        <span class="text-xs">♦</span>
+      </div>
+      <div class="flex items-center justify-center text-red-500 text-2xl">♦</div>
+      <div class="flex flex-col items-end leading-none rotate-180 text-red-500">
+        <span class="text-sm font-bold">K</span>
+        <span class="text-xs">♦</span>
+      </div>
+    </div>
+    <!-- Clubs -->
+    <div class="w-16 h-[5.6rem] rounded-lg border border-gray-200 shadow-sm bg-white flex flex-col justify-between p-1 select-none">
+      <div class="flex flex-col items-start leading-none text-gray-900">
+        <span class="text-sm font-bold">J</span>
+        <span class="text-xs">♣</span>
+      </div>
+      <div class="flex items-center justify-center text-gray-900 text-2xl">♣</div>
+      <div class="flex flex-col items-end leading-none rotate-180 text-gray-900">
+        <span class="text-sm font-bold">J</span>
+        <span class="text-xs">♣</span>
+      </div>
+    </div>
+    <!-- Spades -->
+    <div class="w-16 h-[5.6rem] rounded-lg border border-gray-200 shadow-sm bg-white flex flex-col justify-between p-1 select-none">
+      <div class="flex flex-col items-start leading-none text-gray-900">
+        <span class="text-sm font-bold">T</span>
+        <span class="text-xs">♠</span>
+      </div>
+      <div class="flex items-center justify-center text-gray-900 text-2xl">♠</div>
+      <div class="flex flex-col items-end leading-none rotate-180 text-gray-900">
+        <span class="text-sm font-bold">T</span>
+        <span class="text-xs">♠</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Face Down -->
+  <p class="text-sm text-gray-600 mb-2">Face Down</p>
+  <div class="flex gap-3">
+    <div class="w-12 h-[4.2rem] rounded-lg border border-gray-200 shadow-sm flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 select-none">
+      <div class="w-3/4 h-3/4 rounded border border-blue-400/30 bg-blue-700/50 flex items-center justify-center">
+        <span class="text-blue-300/60 text-xs font-bold">★</span>
+      </div>
+    </div>
+    <div class="w-16 h-[5.6rem] rounded-lg border border-gray-200 shadow-sm flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 select-none">
+      <div class="w-3/4 h-3/4 rounded border border-blue-400/30 bg-blue-700/50 flex items-center justify-center">
+        <span class="text-blue-300/60 text-xs font-bold">★</span>
+      </div>
+    </div>
+    <div class="w-24 h-[8.4rem] rounded-lg border border-gray-200 shadow-sm flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 select-none">
+      <div class="w-3/4 h-3/4 rounded border border-blue-400/30 bg-blue-700/50 flex items-center justify-center">
+        <span class="text-blue-300/60 text-xs font-bold">★</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

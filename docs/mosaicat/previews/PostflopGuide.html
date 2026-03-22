@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PostflopGuide Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-6">
+
+    <!-- Card 1: Nuts on Flop, In Position -->
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 space-y-4">
+      <!-- Header Tags -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium bg-blue-100 text-blue-700">Flop</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium bg-green-100 text-green-700">In Position</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-700">High Rainbow Disconnected</span>
+      </div>
+      <!-- Hand Strength -->
+      <div class="flex items-center gap-2">
+        <span class="text-xl">💎</span>
+        <span class="text-lg font-semibold text-purple-600">Nuts</span>
+      </div>
+      <!-- Primary Recommendation -->
+      <div class="bg-slate-50 rounded-lg p-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-bold text-red-600">Bet Big</span>
+            <span class="text-sm text-gray-500">(66% pot)</span>
+          </div>
+          <span class="text-sm font-medium text-gray-600">70%</span>
+        </div>
+        <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div class="h-full bg-blue-600 rounded-full" style="width: 70%"></div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-gray-200">
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-gray-500">or</span>
+            <span class="text-sm font-semibold text-red-800">All-in</span>
+          </div>
+          <span class="text-xs text-gray-500">30%</span>
+        </div>
+      </div>
+      <!-- Explanation -->
+      <p class="text-sm text-gray-600 leading-relaxed">在干燥的高牌面持有坚果牌时，通过大注下注来建立底池。对手的跟注范围较宽，可以获得最大价值。</p>
+      <!-- Disclaimer -->
+      <p class="text-xs text-gray-400 border-t border-gray-100 pt-3">基于简化 GTO 模型，仅供参考</p>
+    </div>
+
+    <!-- Card 2: Medium on Turn, Out of Position -->
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 space-y-4">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium bg-blue-100 text-blue-700">Turn</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium bg-yellow-100 text-yellow-700">Out of Position</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-700">Mixed Twotone</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🤔</span>
+        <span class="text-lg font-semibold text-yellow-600">Medium</span>
+      </div>
+      <div class="bg-slate-50 rounded-lg p-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-bold text-blue-600">Check</span>
+          </div>
+          <span class="text-sm font-medium text-gray-600">65%</span>
+        </div>
+        <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div class="h-full bg-blue-600 rounded-full" style="width: 65%"></div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-gray-200">
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-gray-500">or</span>
+            <span class="text-sm font-semibold text-yellow-600">Bet Small</span>
+          </div>
+          <span class="text-xs text-gray-500">35%</span>
+        </div>
+      </div>
+      <p class="text-sm text-gray-600 leading-relaxed">中等牌力在不利位置时，过牌让对手暴露信息。偶尔小注下注作为阻隔注，防止对手免费看牌。</p>
+      <p class="text-xs text-gray-400 border-t border-gray-100 pt-3">基于简化 GTO 模型，仅供参考</p>
+    </div>
+
+    <!-- Card 3: Air on River, In Position -->
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 space-y-4">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium bg-blue-100 text-blue-700">River</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium bg-green-100 text-green-700">In Position</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-700">Low Monotone</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-xl">💨</span>
+        <span class="text-lg font-semibold text-gray-400">Air</span>
+      </div>
+      <div class="bg-slate-50 rounded-lg p-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-bold text-gray-500">Fold</span>
+          </div>
+          <span class="text-sm font-medium text-gray-600">75%</span>
+        </div>
+        <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div class="h-full bg-blue-600 rounded-full" style="width: 75%"></div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-gray-200">
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-gray-500">or</span>
+            <span class="text-sm font-semibold text-red-600">Bet Big</span>
+          </div>
+          <span class="text-xs text-gray-500">25%</span>
+        </div>
+      </div>
+      <p class="text-sm text-gray-600 leading-relaxed">河牌圈持有空气牌时，大部分时候应该放弃。但需要保持一定频率的诈唬（大注），以平衡你的价值下注范围。</p>
+      <p class="text-xs text-gray-400 border-t border-gray-100 pt-3">基于简化 GTO 模型，仅供参考</p>
+    </div>
+
+  </div>
+</body>
+</html>

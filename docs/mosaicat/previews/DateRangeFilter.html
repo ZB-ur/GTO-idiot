@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DateRangeFilter Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto space-y-8">
+    <h2 class="text-lg font-semibold text-gray-900 mb-2">DateRangeFilter</h2>
+
+    <!-- Empty state -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-500">Default (no dates selected)</p>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1">
+          <button class="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">近7天</button>
+          <button class="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">近30天</button>
+          <button class="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">近90天</button>
+        </div>
+        <div class="w-px h-6 bg-gray-200"></div>
+        <div class="flex items-center gap-2">
+          <input type="date" class="px-3 py-1.5 rounded-lg border border-gray-200 text-sm text-gray-700 focus:outline-none" />
+          <span class="text-gray-400 text-sm">至</span>
+          <input type="date" class="px-3 py-1.5 rounded-lg border border-gray-200 text-sm text-gray-700 focus:outline-none" />
+        </div>
+      </div>
+    </div>
+
+    <!-- With dates selected -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-500">With date range selected</p>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1">
+          <button class="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">近7天</button>
+          <button class="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">近30天</button>
+          <button class="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">近90天</button>
+        </div>
+        <div class="w-px h-6 bg-gray-200"></div>
+        <div class="flex items-center gap-2">
+          <input type="date" value="2026-02-20" class="px-3 py-1.5 rounded-lg border border-gray-200 text-sm text-gray-700 focus:outline-none" />
+          <span class="text-gray-400 text-sm">至</span>
+          <input type="date" value="2026-03-22" class="px-3 py-1.5 rounded-lg border border-gray-200 text-sm text-gray-700 focus:outline-none" />
+        </div>
+        <button class="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 text-sm" title="清除筛选">✕</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

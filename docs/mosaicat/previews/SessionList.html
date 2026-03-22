@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SessionList Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto space-y-3">
+    <!-- Sort controls -->
+    <div class="flex items-center gap-2 px-1">
+      <span class="text-xs text-gray-500 mr-1">Sort by:</span>
+      <button class="px-2.5 py-1 text-xs rounded-lg bg-blue-600/20 text-blue-400 font-medium">
+        Date <span class="ml-1">↓</span>
+      </button>
+      <button class="px-2.5 py-1 text-xs rounded-lg text-gray-400 hover:text-gray-300">
+        Hands
+      </button>
+      <button class="px-2.5 py-1 text-xs rounded-lg text-gray-400 hover:text-gray-300">
+        P/L
+      </button>
+      <button class="px-2.5 py-1 text-xs rounded-lg text-gray-400 hover:text-gray-300">
+        GTO %
+      </button>
+    </div>
+
+    <!-- Session Row 1 — profit, high GTO -->
+    <div class="w-full text-left bg-gray-800/80 border border-gray-700 rounded-xl p-4 hover:border-gray-600 cursor-pointer group">
+      <div class="flex items-center justify-between">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="text-sm font-medium text-gray-200">Mar 22, 2026</span>
+            <span class="text-xs text-gray-500">1h 24m</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs text-gray-400">47 hands</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-900/50 text-emerald-400">
+              GTO 87%
+            </span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 ml-4">
+          <div class="text-right">
+            <span class="text-lg font-bold text-emerald-400">+23.5<span class="text-xs font-normal text-gray-500 ml-1">BB</span></span>
+          </div>
+          <button class="p-1.5 rounded-lg text-gray-500 hover:text-red-400" title="Delete session">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Session Row 2 — loss, medium GTO -->
+    <div class="w-full text-left bg-gray-800/80 border border-gray-700 rounded-xl p-4 hover:border-gray-600 cursor-pointer group">
+      <div class="flex items-center justify-between">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="text-sm font-medium text-gray-200">Mar 20, 2026</span>
+            <span class="text-xs text-gray-500">52m</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs text-gray-400">31 hands</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-900/50 text-yellow-400">
+              GTO 68%
+            </span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 ml-4">
+          <div class="text-right">
+            <span class="text-lg font-bold text-red-400">-14.2<span class="text-xs font-normal text-gray-500 ml-1">BB</span></span>
+          </div>
+          <button class="p-1.5 rounded-lg text-gray-500 hover:text-red-400" title="Delete session">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Session Row 3 — small profit, high GTO -->
+    <div class="w-full text-left bg-gray-800/80 border border-gray-700 rounded-xl p-4 hover:border-gray-600 cursor-pointer group">
+      <div class="flex items-center justify-between">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="text-sm font-medium text-gray-200">Mar 18, 2026</span>
+            <span class="text-xs text-gray-500">2h 10m</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs text-gray-400">82 hands</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-900/50 text-emerald-400">
+              GTO 91%
+            </span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 ml-4">
+          <div class="text-right">
+            <span class="text-lg font-bold text-emerald-400">+5.0<span class="text-xs font-normal text-gray-500 ml-1">BB</span></span>
+          </div>
+          <button class="p-1.5 rounded-lg text-gray-500 hover:text-red-400" title="Delete session">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Session Row 4 — big loss, low GTO -->
+    <div class="w-full text-left bg-gray-800/80 border border-gray-700 rounded-xl p-4 hover:border-gray-600 cursor-pointer group">
+      <div class="flex items-center justify-between">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="text-sm font-medium text-gray-200">Mar 15, 2026</span>
+            <span class="text-xs text-gray-500">38m</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs text-gray-400">22 hands</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-900/50 text-red-400">
+              GTO 45%
+            </span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 ml-4">
+          <div class="text-right">
+            <span class="text-lg font-bold text-red-400">-38.7<span class="text-xs font-normal text-gray-500 ml-1">BB</span></span>
+          </div>
+          <button class="p-1.5 rounded-lg text-gray-500 hover:text-red-400" title="Delete session">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Session Row 5 — breakeven, ok GTO -->
+    <div class="w-full text-left bg-gray-800/80 border border-gray-700 rounded-xl p-4 hover:border-gray-600 cursor-pointer group">
+      <div class="flex items-center justify-between">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="text-sm font-medium text-gray-200">Mar 12, 2026</span>
+            <span class="text-xs text-gray-500">1h 5m</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs text-gray-400">55 hands</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-900/50 text-emerald-400">
+              GTO 82%
+            </span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 ml-4">
+          <div class="text-right">
+            <span class="text-lg font-bold text-emerald-400">+1.2<span class="text-xs font-normal text-gray-500 ml-1">BB</span></span>
+          </div>
+          <button class="p-1.5 rounded-lg text-gray-500 hover:text-red-400" title="Delete session">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

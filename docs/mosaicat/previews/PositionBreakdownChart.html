@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PositionBreakdownChart Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xl mx-auto">
+    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">Conformance by Position</h3>
+      <svg viewBox="0 0 400 200" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+        <!-- Y grid -->
+        <line x1="40" y1="164" x2="360" y2="164" stroke="#e5e7eb" stroke-width="1" />
+        <line x1="40" y1="127" x2="360" y2="127" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 2" />
+        <line x1="40" y1="90" x2="360" y2="90" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 2" />
+        <line x1="40" y1="53" x2="360" y2="53" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 2" />
+        <line x1="40" y1="16" x2="360" y2="16" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 2" />
+
+        <text x="34" y="167" text-anchor="end" fill="#9ca3af" font-size="9">0%</text>
+        <text x="34" y="130" text-anchor="end" fill="#9ca3af" font-size="9">25%</text>
+        <text x="34" y="93" text-anchor="end" fill="#9ca3af" font-size="9">50%</text>
+        <text x="34" y="56" text-anchor="end" fill="#9ca3af" font-size="9">75%</text>
+        <text x="34" y="19" text-anchor="end" fill="#9ca3af" font-size="9">100%</text>
+
+        <!-- Bars: UTG=62, HJ=71, CO=78, BTN=85, SB=55, BB=48 -->
+        <!-- plotH=148, barWidth=~41, gap=12 -->
+        <!-- x starts: 40, 93, 146, 199, 252, 305 -->
+
+        <!-- UTG: 62% -> barH=91.76, y=72.24 -> blue -->
+        <rect x="40" y="72" width="41" height="92" rx="4" fill="#2563eb" />
+        <text x="60" y="68" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">62%</text>
+        <text x="60" y="180" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="500">UTG</text>
+        <text x="60" y="192" text-anchor="middle" fill="#9ca3af" font-size="8">42h</text>
+
+        <!-- HJ: 71% -> barH=105, y=59 -> blue -->
+        <rect x="93" y="59" width="41" height="105" rx="4" fill="#2563eb" />
+        <text x="113" y="55" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">71%</text>
+        <text x="113" y="180" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="500">HJ</text>
+        <text x="113" y="192" text-anchor="middle" fill="#9ca3af" font-size="8">38h</text>
+
+        <!-- CO: 78% -> barH=115.44, y=48.56 -> green -->
+        <rect x="146" y="49" width="41" height="115" rx="4" fill="#22c55e" />
+        <text x="166" y="45" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">78%</text>
+        <text x="166" y="180" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="500">CO</text>
+        <text x="166" y="192" text-anchor="middle" fill="#9ca3af" font-size="8">51h</text>
+
+        <!-- BTN: 85% -> barH=125.8, y=38.2 -> green -->
+        <rect x="199" y="38" width="41" height="126" rx="4" fill="#22c55e" />
+        <text x="219" y="34" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">85%</text>
+        <text x="219" y="180" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="500">BTN</text>
+        <text x="219" y="192" text-anchor="middle" fill="#9ca3af" font-size="8">63h</text>
+
+        <!-- SB: 55% -> barH=81.4, y=82.6 -> blue -->
+        <rect x="252" y="83" width="41" height="81" rx="4" fill="#2563eb" />
+        <text x="272" y="79" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">55%</text>
+        <text x="272" y="180" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="500">SB</text>
+        <text x="272" y="192" text-anchor="middle" fill="#9ca3af" font-size="8">45h</text>
+
+        <!-- BB: 48% -> barH=71, y=93 -> yellow -->
+        <rect x="305" y="93" width="41" height="71" rx="4" fill="#eab308" />
+        <text x="325" y="89" text-anchor="middle" fill="#374151" font-size="10" font-weight="600">48%</text>
+        <text x="325" y="180" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="500">BB</text>
+        <text x="325" y="192" text-anchor="middle" fill="#9ca3af" font-size="8">58h</text>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

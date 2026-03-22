@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTODisclaimerBanner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto space-y-8">
+    <h2 class="text-lg font-semibold text-gray-900 mb-2">GTODisclaimerBanner</h2>
+
+    <!-- Default -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-500">Default</p>
+      <div class="flex items-center gap-2 px-4 py-2.5 bg-yellow-50 border border-yellow-200 rounded-xl text-sm text-yellow-800" role="alert">
+        <span class="text-base flex-shrink-0">⚠</span>
+        <span>简化 GTO 参考，非精确纳什均衡解。仅供学习参考，实际决策请结合对手特征和牌桌动态。</span>
+      </div>
+    </div>
+
+    <!-- In context (simulated card container) -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-500">Inside a card context</p>
+      <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-4">
+        <h3 class="text-lg font-semibold text-gray-900">Preflop GTO 图表 — BTN Open</h3>
+        <div class="flex items-center gap-2 px-4 py-2.5 bg-yellow-50 border border-yellow-200 rounded-xl text-sm text-yellow-800" role="alert">
+          <span class="text-base flex-shrink-0">⚠</span>
+          <span>简化 GTO 参考，非精确纳什均衡解。仅供学习参考，实际决策请结合对手特征和牌桌动态。</span>
+        </div>
+        <div class="grid grid-cols-4 gap-1">
+          <div class="bg-green-100 text-green-800 text-xs text-center py-1 rounded">AA</div>
+          <div class="bg-green-100 text-green-800 text-xs text-center py-1 rounded">AKs</div>
+          <div class="bg-green-100 text-green-800 text-xs text-center py-1 rounded">AQs</div>
+          <div class="bg-green-100 text-green-800 text-xs text-center py-1 rounded">AJs</div>
+          <div class="bg-green-100 text-green-800 text-xs text-center py-1 rounded">AKo</div>
+          <div class="bg-green-100 text-green-800 text-xs text-center py-1 rounded">KK</div>
+          <div class="bg-green-100 text-green-800 text-xs text-center py-1 rounded">KQs</div>
+          <div class="bg-yellow-100 text-yellow-800 text-xs text-center py-1 rounded">KJs</div>
+          <div class="bg-green-100 text-green-800 text-xs text-center py-1 rounded">AQo</div>
+          <div class="bg-green-100 text-green-800 text-xs text-center py-1 rounded">KQo</div>
+          <div class="bg-green-100 text-green-800 text-xs text-center py-1 rounded">QQ</div>
+          <div class="bg-yellow-100 text-yellow-800 text-xs text-center py-1 rounded">QJs</div>
+          <div class="bg-yellow-100 text-yellow-800 text-xs text-center py-1 rounded">AJo</div>
+          <div class="bg-yellow-100 text-yellow-800 text-xs text-center py-1 rounded">KJo</div>
+          <div class="bg-yellow-100 text-yellow-800 text-xs text-center py-1 rounded">QJo</div>
+          <div class="bg-green-100 text-green-800 text-xs text-center py-1 rounded">JJ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

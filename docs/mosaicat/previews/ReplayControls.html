@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayControls Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto space-y-8">
+    <h2 class="text-lg font-semibold text-gray-900 mb-2">ReplayControls</h2>
+
+    <!-- State: paused, speed=1x, both hands available -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-500">Paused, speed 1x</p>
+      <div class="flex items-center justify-between bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-sm">
+        <!-- Hand nav -->
+        <div class="flex items-center gap-2">
+          <button class="p-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">⏮</button>
+          <span class="text-xs text-gray-400 font-medium">手牌</span>
+          <button class="p-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">⏭</button>
+        </div>
+        <!-- Street nav + play -->
+        <div class="flex items-center gap-3">
+          <button class="p-2 rounded-lg text-gray-600 hover:bg-gray-100">◀</button>
+          <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200">▶ 播放</button>
+          <button class="p-2 rounded-lg text-gray-600 hover:bg-gray-100">▶</button>
+        </div>
+        <!-- Speed -->
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-gray-400 font-medium">速度</span>
+          <div class="flex items-center gap-1 bg-gray-100 rounded-lg p-0.5">
+            <button class="px-2 py-1 rounded-md text-xs font-medium text-gray-500">0.5x</button>
+            <button class="px-2 py-1 rounded-md text-xs font-medium bg-white text-blue-600 shadow-sm">1x</button>
+            <button class="px-2 py-1 rounded-md text-xs font-medium text-gray-500">1.5x</button>
+            <button class="px-2 py-1 rounded-md text-xs font-medium text-gray-500">2x</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- State: playing, speed=2x, no prev hand -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-500">Playing, speed 2x, first hand</p>
+      <div class="flex items-center justify-between bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-sm">
+        <div class="flex items-center gap-2">
+          <button class="p-2 rounded-lg text-sm font-medium text-gray-300 cursor-not-allowed" disabled>⏮</button>
+          <span class="text-xs text-gray-400 font-medium">手牌</span>
+          <button class="p-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">⏭</button>
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="p-2 rounded-lg text-gray-600 hover:bg-gray-100">◀</button>
+          <button class="px-4 py-2 rounded-lg text-sm font-medium bg-blue-600 text-white hover:bg-blue-700">⏸ 暂停</button>
+          <button class="p-2 rounded-lg text-gray-600 hover:bg-gray-100">▶</button>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-gray-400 font-medium">速度</span>
+          <div class="flex items-center gap-1 bg-gray-100 rounded-lg p-0.5">
+            <button class="px-2 py-1 rounded-md text-xs font-medium text-gray-500">0.5x</button>
+            <button class="px-2 py-1 rounded-md text-xs font-medium text-gray-500">1x</button>
+            <button class="px-2 py-1 rounded-md text-xs font-medium text-gray-500">1.5x</button>
+            <button class="px-2 py-1 rounded-md text-xs font-medium bg-white text-blue-600 shadow-sm">2x</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modal Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <!-- Backdrop -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    <!-- Dialog -->
+    <div class="relative z-10 w-full max-w-md mx-4 bg-white rounded-xl shadow-md border border-gray-200 p-6">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Go All-In?</h2>
+      <div class="text-base text-gray-600 mb-6">
+        You are about to go all-in with 1,250 chips. This action cannot be undone. Are you sure?
+      </div>
+      <div class="flex items-center justify-end gap-3">
+        <button class="px-4 py-2 text-sm font-medium text-gray-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
+          Cancel
+        </button>
+        <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
+          Confirm All-In
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
