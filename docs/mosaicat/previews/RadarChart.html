@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+<div class="max-w-sm mx-auto">
+  <p class="text-sm text-gray-500 mb-4">Decision Type Compliance</p>
+  <div class="bg-white border border-gray-200 rounded-xl p-6 flex justify-center">
+    <svg width="240" height="240">
+      <!-- Grid rings (4 levels, 6 axes) -->
+      <!-- Level 1 (25%) -->
+      <polygon points="120,97.5 139.49,108.75 139.49,131.25 120,142.5 100.51,131.25 100.51,108.75" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+      <!-- Level 2 (50%) -->
+      <polygon points="120,75 158.97,97.5 158.97,142.5 120,165 81.03,142.5 81.03,97.5" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+      <!-- Level 3 (75%) -->
+      <polygon points="120,52.5 178.46,86.25 178.46,153.75 120,187.5 61.54,153.75 61.54,86.25" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+      <!-- Level 4 (100%) -->
+      <polygon points="120,30 197.94,75 197.94,165 120,210 42.06,165 42.06,75" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+      <!-- Axes -->
+      <line x1="120" y1="120" x2="120" y2="30" stroke="#e5e7eb" stroke-width="1"/>
+      <line x1="120" y1="120" x2="197.94" y2="75" stroke="#e5e7eb" stroke-width="1"/>
+      <line x1="120" y1="120" x2="197.94" y2="165" stroke="#e5e7eb" stroke-width="1"/>
+      <line x1="120" y1="120" x2="120" y2="210" stroke="#e5e7eb" stroke-width="1"/>
+      <line x1="120" y1="120" x2="42.06" y2="165" stroke="#e5e7eb" stroke-width="1"/>
+      <line x1="120" y1="120" x2="42.06" y2="75" stroke="#e5e7eb" stroke-width="1"/>
+      <!-- Data polygon: Bet(80) Call(65) Raise(72) Fold(90) Check(55) 3-Bet(48) -->
+      <polygon points="120,48 173.41,88.75 166.74,159 120,147 62.36,150.75 60.18,86.25" fill="rgba(37, 99, 235, 0.15)" stroke="#2563eb" stroke-width="2"/>
+      <circle cx="120" cy="48" r="4" fill="#2563eb"/>
+      <circle cx="173.41" cy="88.75" r="4" fill="#2563eb"/>
+      <circle cx="166.74" cy="159" r="4" fill="#2563eb"/>
+      <circle cx="120" cy="147" r="4" fill="#2563eb"/>
+      <circle cx="62.36" cy="150.75" r="4" fill="#2563eb"/>
+      <circle cx="60.18" cy="86.25" r="4" fill="#2563eb"/>
+      <!-- Labels -->
+      <text x="120" y="18" text-anchor="middle" class="fill-gray-500 text-[11px] font-medium">Bet</text>
+      <text x="210" y="72" text-anchor="middle" class="fill-gray-500 text-[11px] font-medium">Call</text>
+      <text x="210" y="170" text-anchor="middle" class="fill-gray-500 text-[11px] font-medium">Raise</text>
+      <text x="120" y="225" text-anchor="middle" class="fill-gray-500 text-[11px] font-medium">Fold</text>
+      <text x="30" y="170" text-anchor="middle" class="fill-gray-500 text-[11px] font-medium">Check</text>
+      <text x="30" y="72" text-anchor="middle" class="fill-gray-500 text-[11px] font-medium">3-Bet</text>
+    </svg>
+  </div>
+</div>
+</body>
+</html>

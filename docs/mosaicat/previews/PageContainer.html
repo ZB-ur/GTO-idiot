@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PageContainer Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <!-- Simulated AppShell header -->
+  <header class="bg-white border-b border-gray-200 px-6 py-3">
+    <span class="text-lg font-semibold text-gray-900">GTO Idiot</span>
+  </header>
+
+  <!-- PageContainer -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <!-- Sample child content to demonstrate the container -->
+    <div class="space-y-6">
+      <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Page Title</h2>
+        <p class="text-base text-gray-500">This card sits inside the PageContainer, which provides consistent max-width and padding across all pages.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">Session Stats</h3>
+          <p class="text-sm text-gray-500">Hands Played: 142</p>
+          <p class="text-sm text-emerald-500 font-medium mt-1">+$320.00</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">GTO Compliance</h3>
+          <p class="text-sm text-gray-500">Last 100 hands</p>
+          <p class="text-sm text-blue-600 font-medium mt-1">72%</p>
+        </div>
+      </div>
+
+      <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Recent Hands</h3>
+        <ul class="space-y-2 text-sm text-gray-500">
+          <li class="flex justify-between"><span>Hand #47 — BTN — A♠ K♠</span><span class="text-emerald-500">+$24</span></li>
+          <li class="flex justify-between"><span>Hand #46 — CO — Q♥ J♦</span><span class="text-red-500">-$12</span></li>
+          <li class="flex justify-between"><span>Hand #45 — BB — 8♣ 8♠</span><span class="text-emerald-500">+$56</span></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

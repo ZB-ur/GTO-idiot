@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+<div class="max-w-lg mx-auto space-y-2">
+  <p class="text-sm text-gray-500 mb-2">Hand History Items</p>
+
+  <!-- Won hand -->
+  <div class="w-full flex items-center gap-4 px-4 py-3 bg-white border border-gray-200 rounded-xl">
+    <div class="flex gap-1">
+      <div class="w-8 h-11 rounded-md bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center">
+        <span class="text-[10px] font-bold text-gray-900">A</span>
+        <span class="text-[10px] text-gray-900">♠</span>
+      </div>
+      <div class="w-8 h-11 rounded-md bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center">
+        <span class="text-[10px] font-bold text-red-600">K</span>
+        <span class="text-[10px] text-red-600">♥</span>
+      </div>
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-semibold text-gray-900">1/2</span>
+        <span class="text-xs font-medium text-gray-400 uppercase">BTN</span>
+        <span class="text-xs font-semibold px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Won</span>
+      </div>
+      <span class="text-xs text-gray-400 mt-0.5 block">Mar 22, 10:34 AM</span>
+    </div>
+    <span class="text-sm font-bold text-emerald-600 tabular-nums">+$245</span>
+  </div>
+
+  <!-- Lost hand -->
+  <div class="w-full flex items-center gap-4 px-4 py-3 bg-white border border-gray-200 rounded-xl">
+    <div class="flex gap-1">
+      <div class="w-8 h-11 rounded-md bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center">
+        <span class="text-[10px] font-bold text-red-600">Q</span>
+        <span class="text-[10px] text-red-600">♦</span>
+      </div>
+      <div class="w-8 h-11 rounded-md bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center">
+        <span class="text-[10px] font-bold text-red-600">J</span>
+        <span class="text-[10px] text-red-600">♥</span>
+      </div>
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-semibold text-gray-900">2/5</span>
+        <span class="text-xs font-medium text-gray-400 uppercase">CO</span>
+        <span class="text-xs font-semibold px-1.5 py-0.5 rounded-full bg-red-100 text-red-700">Lost</span>
+      </div>
+      <span class="text-xs text-gray-400 mt-0.5 block">Mar 22, 10:28 AM</span>
+    </div>
+    <span class="text-sm font-bold text-red-500 tabular-nums">-$120</span>
+  </div>
+
+  <!-- Folded hand -->
+  <div class="w-full flex items-center gap-4 px-4 py-3 bg-white border border-gray-200 rounded-xl">
+    <div class="flex gap-1">
+      <div class="w-8 h-11 rounded-md bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center">
+        <span class="text-[10px] font-bold text-gray-900">7</span>
+        <span class="text-[10px] text-gray-900">♣</span>
+      </div>
+      <div class="w-8 h-11 rounded-md bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center">
+        <span class="text-[10px] font-bold text-gray-900">2</span>
+        <span class="text-[10px] text-gray-900">♠</span>
+      </div>
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-semibold text-gray-900">1/2</span>
+        <span class="text-xs font-medium text-gray-400 uppercase">UTG</span>
+        <span class="text-xs font-semibold px-1.5 py-0.5 rounded-full bg-gray-100 text-gray-500">Folded</span>
+      </div>
+      <span class="text-xs text-gray-400 mt-0.5 block">Mar 22, 10:22 AM</span>
+    </div>
+    <span class="text-sm font-bold text-gray-500 tabular-nums">-$3</span>
+  </div>
+</div>
+</body>
+</html>
