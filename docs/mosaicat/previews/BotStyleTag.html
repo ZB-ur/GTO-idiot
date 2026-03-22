@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-8">
+    <!-- All styles -->
+    <div>
+      <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Bot Style Tags</p>
+      <div class="flex items-center gap-3 flex-wrap">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold border bg-blue-100 border-blue-200 text-blue-700 cursor-help">TAG</span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold border bg-purple-100 border-purple-200 text-purple-700 cursor-help">LAG</span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold border bg-emerald-100 border-emerald-200 text-emerald-700 cursor-help">Fish</span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold border bg-gray-100 border-gray-300 text-gray-700 cursor-help">Nit</span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold border bg-red-100 border-red-200 text-red-700 cursor-help">Maniac</span>
+      </div>
+    </div>
+
+    <!-- With tooltip visible (TAG) -->
+    <div>
+      <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">With Tooltip (hover state)</p>
+      <div class="relative inline-flex">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold border bg-blue-100 border-blue-200 text-blue-700 cursor-help">TAG</span>
+        <div class="absolute z-50 px-3 py-1.5 text-sm text-white bg-gray-900 rounded-lg whitespace-nowrap pointer-events-none bottom-full left-1/2 -translate-x-1/2 mb-2">
+          Tight-Aggressive: Plays few hands but bets/raises aggressively
+          <div class="absolute w-0 h-0 border-4 border-transparent top-full left-1/2 -translate-x-1/2 border-t-gray-900"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- In replay context -->
+    <div>
+      <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">In Replay Context</p>
+      <div class="bg-white border border-gray-200 rounded-xl p-4 max-w-xs">
+        <div class="flex items-center gap-2 mb-2">
+          <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-gray-600">B2</div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900">Bot_Alpha</span>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold border bg-blue-100 border-blue-200 text-blue-700 cursor-help">TAG</span>
+            </div>
+            <span class="text-xs text-gray-500">BTN · $485</span>
+          </div>
+        </div>
+        <div class="text-sm text-gray-600">Raised to $15</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

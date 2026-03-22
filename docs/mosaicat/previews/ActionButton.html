@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-6 items-start">
+    <!-- Active buttons row -->
+    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Active States</p>
+    <div class="flex gap-3 flex-wrap">
+      <!-- Fold -->
+      <button class="relative flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base transition-all duration-150 select-none bg-gray-500 text-white cursor-pointer shadow-md hover:bg-gray-600 active:bg-gray-700">
+        <span>Fold</span>
+        <span class="mt-0.5 text-[10px] font-normal opacity-70 uppercase tracking-wider">F</span>
+      </button>
+      <!-- Check -->
+      <button class="relative flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base transition-all duration-150 select-none bg-emerald-500 text-white cursor-pointer shadow-md hover:bg-emerald-600 active:bg-emerald-700">
+        <span>Check</span>
+        <span class="mt-0.5 text-[10px] font-normal opacity-70 uppercase tracking-wider">K</span>
+      </button>
+      <!-- Call -->
+      <button class="relative flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base transition-all duration-150 select-none bg-blue-600 text-white cursor-pointer shadow-md hover:bg-blue-700 active:bg-blue-800">
+        <span>Call</span>
+        <span class="mt-0.5 text-[10px] font-normal opacity-70 uppercase tracking-wider">C</span>
+      </button>
+      <!-- Raise -->
+      <button class="relative flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base transition-all duration-150 select-none bg-amber-500 text-white cursor-pointer shadow-md hover:bg-amber-600 active:bg-amber-700">
+        <span>Raise</span>
+        <span class="mt-0.5 text-[10px] font-normal opacity-70 uppercase tracking-wider">R</span>
+      </button>
+      <!-- All-in -->
+      <button class="relative flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base transition-all duration-150 select-none bg-red-500 text-white cursor-pointer shadow-md hover:bg-red-600 active:bg-red-700">
+        <span>All In</span>
+        <span class="mt-0.5 text-[10px] font-normal opacity-70 uppercase tracking-wider">A</span>
+      </button>
+    </div>
+
+    <!-- Disabled buttons row -->
+    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mt-4">Disabled States</p>
+    <div class="flex gap-3 flex-wrap">
+      <button disabled class="relative flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base select-none bg-gray-500 text-white opacity-40 cursor-not-allowed">
+        <span>Fold</span>
+        <span class="mt-0.5 text-[10px] font-normal opacity-70 uppercase tracking-wider">F</span>
+      </button>
+      <button disabled class="relative flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base select-none bg-emerald-500 text-white opacity-40 cursor-not-allowed">
+        <span>Check</span>
+        <span class="mt-0.5 text-[10px] font-normal opacity-70 uppercase tracking-wider">K</span>
+      </button>
+      <button disabled class="relative flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base select-none bg-blue-600 text-white opacity-40 cursor-not-allowed">
+        <span>Call</span>
+        <span class="mt-0.5 text-[10px] font-normal opacity-70 uppercase tracking-wider">C</span>
+      </button>
+      <button disabled class="relative flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base select-none bg-amber-500 text-white opacity-40 cursor-not-allowed">
+        <span>Raise</span>
+        <span class="mt-0.5 text-[10px] font-normal opacity-70 uppercase tracking-wider">R</span>
+      </button>
+      <button disabled class="relative flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base select-none bg-red-500 text-white opacity-40 cursor-not-allowed">
+        <span>All In</span>
+        <span class="mt-0.5 text-[10px] font-normal opacity-70 uppercase tracking-wider">A</span>
+      </button>
+    </div>
+
+    <!-- No shortcut -->
+    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mt-4">Without Shortcut</p>
+    <div class="flex gap-3">
+      <button class="relative flex flex-col items-center justify-center min-w-[80px] px-5 py-3 rounded-lg font-semibold text-base transition-all duration-150 select-none bg-blue-600 text-white cursor-pointer shadow-md hover:bg-blue-700">
+        <span>Call $50</span>
+      </button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConfirmDialog Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <!-- Backdrop -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+    <!-- Warning variant -->
+    <div class="w-full max-w-sm mx-4 bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden" style="position: absolute; top: 40px; left: 50%; transform: translateX(-70%);">
+      <div class="p-6 flex flex-col items-center text-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center">
+          <svg class="w-6 h-6 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900">Fold Hand?</h3>
+          <p class="mt-1 text-sm text-gray-500">Are you sure you want to fold? You will forfeit your current bet of $24.</p>
+        </div>
+      </div>
+      <div class="flex gap-3 px-6 pb-6">
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-slate-50">Cancel</button>
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium text-white bg-amber-500 rounded-lg hover:bg-amber-600">Fold</button>
+      </div>
+    </div>
+
+    <!-- Danger variant -->
+    <div class="w-full max-w-sm mx-4 bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden" style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-30%);">
+      <div class="p-6 flex flex-col items-center text-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center">
+          <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900">Clear All Data?</h3>
+          <p class="mt-1 text-sm text-gray-500">This will permanently delete all hand history and statistics. This action cannot be undone.</p>
+        </div>
+      </div>
+      <div class="flex gap-3 px-6 pb-6">
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-slate-50">Cancel</button>
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium text-white bg-red-500 rounded-lg hover:bg-red-600">Delete All</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

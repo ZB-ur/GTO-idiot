@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-8">
+    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Toggle Switch States</p>
+
+    <!-- States grid -->
+    <div class="flex flex-col gap-5">
+      <!-- On with label -->
+      <label class="inline-flex items-center gap-3 cursor-pointer">
+        <div class="relative w-11 h-6 rounded-full bg-blue-600 transition-colors duration-200">
+          <span class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-sm translate-x-5 transition-transform duration-200"></span>
+        </div>
+        <span class="text-sm font-medium text-gray-900">Sound Effects</span>
+      </label>
+
+      <!-- Off with label -->
+      <label class="inline-flex items-center gap-3 cursor-pointer">
+        <div class="relative w-11 h-6 rounded-full bg-gray-300 transition-colors duration-200">
+          <span class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-sm translate-x-0 transition-transform duration-200"></span>
+        </div>
+        <span class="text-sm font-medium text-gray-900">Animations</span>
+      </label>
+
+      <!-- Disabled on -->
+      <label class="inline-flex items-center gap-3 opacity-40 cursor-not-allowed">
+        <div class="relative w-11 h-6 rounded-full bg-blue-600 transition-colors duration-200">
+          <span class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-sm translate-x-5 transition-transform duration-200"></span>
+        </div>
+        <span class="text-sm font-medium text-gray-400">Disabled On</span>
+      </label>
+
+      <!-- Disabled off -->
+      <label class="inline-flex items-center gap-3 opacity-40 cursor-not-allowed">
+        <div class="relative w-11 h-6 rounded-full bg-gray-300 transition-colors duration-200">
+          <span class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-sm translate-x-0 transition-transform duration-200"></span>
+        </div>
+        <span class="text-sm font-medium text-gray-400">Disabled Off</span>
+      </label>
+
+      <!-- No label -->
+      <div class="flex items-center gap-4">
+        <div class="relative w-11 h-6 rounded-full bg-blue-600 transition-colors duration-200 cursor-pointer">
+          <span class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-sm translate-x-5 transition-transform duration-200"></span>
+        </div>
+        <span class="text-xs text-gray-500">(no label)</span>
+      </div>
+    </div>
+
+    <!-- In settings context -->
+    <div class="mt-4">
+      <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">In Settings Context</p>
+      <div class="bg-white border border-gray-200 rounded-xl p-6 max-w-sm flex flex-col gap-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-gray-900">Sound Effects</p>
+            <p class="text-xs text-gray-500">Play sounds for actions and events</p>
+          </div>
+          <div class="relative w-11 h-6 rounded-full bg-blue-600 transition-colors duration-200 cursor-pointer">
+            <span class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-sm translate-x-5 transition-transform duration-200"></span>
+          </div>
+        </div>
+        <div class="border-t border-gray-100"></div>
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-gray-900">Auto Next Hand</p>
+            <p class="text-xs text-gray-500">Automatically deal next hand</p>
+          </div>
+          <div class="relative w-11 h-6 rounded-full bg-gray-300 transition-colors duration-200 cursor-pointer">
+            <span class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-sm translate-x-0 transition-transform duration-200"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

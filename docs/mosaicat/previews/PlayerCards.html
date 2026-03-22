@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+<div class="space-y-6">
+  <div>
+    <p class="text-sm text-gray-500 mb-2">Face Up Cards (A♠ K♥)</p>
+    <div class="flex gap-1">
+      <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center">
+        <span class="text-xs font-bold text-gray-900">A</span>
+        <span class="text-xs text-gray-900">♠</span>
+      </div>
+      <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center -ml-2 rotate-3">
+        <span class="text-xs font-bold text-red-600">K</span>
+        <span class="text-xs text-red-600">♥</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <p class="text-sm text-gray-500 mb-2">Face Down Cards</p>
+    <div class="flex gap-1">
+      <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 border border-blue-900 shadow-sm"></div>
+      <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 border border-blue-900 shadow-sm -ml-2 rotate-3"></div>
+    </div>
+  </div>
+
+  <div>
+    <p class="text-sm text-gray-500 mb-2">Folded Cards</p>
+    <div class="flex gap-1 opacity-40 grayscale">
+      <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center">
+        <span class="text-xs font-bold text-gray-900">Q</span>
+        <span class="text-xs text-gray-900">♣</span>
+      </div>
+      <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center -ml-2 rotate-3">
+        <span class="text-xs font-bold text-red-600">J</span>
+        <span class="text-xs text-red-600">♦</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

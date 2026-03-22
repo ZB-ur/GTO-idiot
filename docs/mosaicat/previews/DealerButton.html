@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="space-y-6">
+    <p class="text-sm font-semibold text-gray-500 mb-3">Dealer Button</p>
+    <div class="flex items-center gap-6">
+      <!-- On light background -->
+      <div class="p-6 bg-white rounded-xl border border-gray-200 flex items-center justify-center">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-b from-white to-gray-100 border-2 border-gray-300 shadow-md flex items-center justify-center select-none">
+          <span class="text-xs font-extrabold text-gray-900 tracking-tight">D</span>
+        </div>
+      </div>
+      <!-- On felt green background -->
+      <div class="p-6 bg-emerald-800 rounded-xl border border-emerald-900 flex items-center justify-center">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-b from-white to-gray-100 border-2 border-gray-300 shadow-md flex items-center justify-center select-none">
+          <span class="text-xs font-extrabold text-gray-900 tracking-tight">D</span>
+        </div>
+      </div>
+      <!-- Context: next to a card -->
+      <div class="p-6 bg-emerald-800 rounded-xl border border-emerald-900 flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-b from-white to-gray-100 border-2 border-gray-300 shadow-md flex items-center justify-center select-none">
+          <span class="text-xs font-extrabold text-gray-900 tracking-tight">D</span>
+        </div>
+        <div class="w-12 rounded-md border border-gray-200 shadow-sm bg-white relative inline-flex flex-col items-center justify-center" style="height:64px;">
+          <span class="absolute top-0.5 left-1 font-bold text-xs text-gray-900 leading-none">A</span>
+          <span class="text-base text-gray-900">♠</span>
+          <span class="absolute bottom-0.5 right-1 font-bold text-xs text-gray-900 leading-none rotate-180">A</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

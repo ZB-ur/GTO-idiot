@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayingCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="space-y-6">
+    <!-- Section: Sizes -->
+    <div>
+      <p class="text-sm font-semibold text-gray-500 mb-3">Sizes</p>
+      <div class="flex items-end gap-4">
+        <!-- Small -->
+        <div class="w-10 h-14 rounded-md border border-gray-200 shadow-sm bg-white relative inline-flex flex-col items-center justify-center">
+          <span class="absolute top-0.5 left-1 font-bold text-xs text-red-600 leading-none">A</span>
+          <span class="text-sm text-red-600">♥</span>
+          <span class="absolute bottom-0.5 right-1 font-bold text-xs text-red-600 leading-none rotate-180">A</span>
+        </div>
+        <!-- Medium -->
+        <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm bg-white relative inline-flex flex-col items-center justify-center" style="height:88px;">
+          <span class="absolute top-1 left-1.5 font-bold text-sm text-gray-900 leading-none">K</span>
+          <span class="text-xl text-gray-900">♠</span>
+          <span class="absolute bottom-1 right-1.5 font-bold text-sm text-gray-900 leading-none rotate-180">K</span>
+        </div>
+        <!-- Large -->
+        <div class="w-24 rounded-xl border border-gray-200 shadow-sm bg-white relative inline-flex flex-col items-center justify-center" style="height:136px;">
+          <span class="absolute top-1.5 left-2 font-bold text-lg text-red-600 leading-none">Q</span>
+          <span class="text-3xl text-red-600">♦</span>
+          <span class="absolute bottom-1.5 right-2 font-bold text-lg text-red-600 leading-none rotate-180">Q</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: All Suits -->
+    <div>
+      <p class="text-sm font-semibold text-gray-500 mb-3">Suits</p>
+      <div class="flex items-center gap-3">
+        <!-- Spade -->
+        <div class="w-16 rounded-lg border border-gray-200 shadow-sm bg-white relative inline-flex flex-col items-center justify-center" style="height:88px;">
+          <span class="absolute top-1 left-1.5 font-bold text-sm text-gray-900 leading-none">A</span>
+          <span class="text-xl text-gray-900">♠</span>
+          <span class="absolute bottom-1 right-1.5 font-bold text-sm text-gray-900 leading-none rotate-180">A</span>
+        </div>
+        <!-- Heart -->
+        <div class="w-16 rounded-lg border border-gray-200 shadow-sm bg-white relative inline-flex flex-col items-center justify-center" style="height:88px;">
+          <span class="absolute top-1 left-1.5 font-bold text-sm text-red-600 leading-none">K</span>
+          <span class="text-xl text-red-600">♥</span>
+          <span class="absolute bottom-1 right-1.5 font-bold text-sm text-red-600 leading-none rotate-180">K</span>
+        </div>
+        <!-- Diamond -->
+        <div class="w-16 rounded-lg border border-gray-200 shadow-sm bg-white relative inline-flex flex-col items-center justify-center" style="height:88px;">
+          <span class="absolute top-1 left-1.5 font-bold text-sm text-red-600 leading-none">J</span>
+          <span class="text-xl text-red-600">♦</span>
+          <span class="absolute bottom-1 right-1.5 font-bold text-sm text-red-600 leading-none rotate-180">J</span>
+        </div>
+        <!-- Club -->
+        <div class="w-16 rounded-lg border border-gray-200 shadow-sm bg-white relative inline-flex flex-col items-center justify-center" style="height:88px;">
+          <span class="absolute top-1 left-1.5 font-bold text-sm text-gray-900 leading-none">T</span>
+          <span class="text-xl text-gray-900">♣</span>
+          <span class="absolute bottom-1 right-1.5 font-bold text-sm text-gray-900 leading-none rotate-180">T</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Face Down -->
+    <div>
+      <p class="text-sm font-semibold text-gray-500 mb-3">Face Down</p>
+      <div class="flex items-center gap-3">
+        <div class="w-16 rounded-lg border border-gray-200 shadow-sm bg-gradient-to-br from-blue-600 to-blue-800 relative inline-flex flex-col items-center justify-center" style="height:88px;">
+          <div class="w-3/4 h-3/4 rounded border border-blue-400/40 bg-blue-700/30 flex items-center justify-center">
+            <span class="text-blue-300/60 text-lg font-bold">♠</span>
+          </div>
+        </div>
+        <div class="w-16 rounded-lg border border-gray-200 shadow-sm bg-gradient-to-br from-blue-600 to-blue-800 relative inline-flex flex-col items-center justify-center" style="height:88px;">
+          <div class="w-3/4 h-3/4 rounded border border-blue-400/40 bg-blue-700/30 flex items-center justify-center">
+            <span class="text-blue-300/60 text-lg font-bold">♠</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

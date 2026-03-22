@@ -1,0 +1,42 @@
+/* App-level animation and transition styles */
+
+/* Page transition wrapper */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+
+/* Poker table felt gradient overlay */
+.felt-gradient {
+  background: radial-gradient(
+    ellipse at center,
+    theme('colors.felt.800') 0%,
+    theme('colors.felt.900') 50%,
+    theme('colors.felt.950') 100%
+  );
+}
+
+/* Active player turn indicator glow */
+.turn-indicator {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Sound effect visual feedback flash */
+.action-flash {
+  animation: actionFlash 0.15s ease-out;
+}
+
+@keyframes actionFlash {
+  0% {
+    filter: brightness(1.3);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}

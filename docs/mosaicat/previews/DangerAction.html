@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+<div class="space-y-8">
+  <!-- Button state -->
+  <div>
+    <p class="text-sm text-gray-500 mb-2">Danger Button</p>
+    <button class="px-4 py-2.5 text-sm font-semibold text-red-600 bg-red-50 border border-red-200 rounded-lg">
+      Clear All Data
+    </button>
+  </div>
+
+  <!-- Confirm dialog -->
+  <div>
+    <p class="text-sm text-gray-500 mb-2">Confirm Dialog</p>
+    <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-6 max-w-sm space-y-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-base font-semibold text-gray-900">Are you sure?</h3>
+          <p class="text-sm text-gray-500 mt-0.5">This will permanently delete all your hand history and statistics. This action cannot be undone.</p>
+        </div>
+      </div>
+      <div class="flex gap-3 justify-end">
+        <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg">Cancel</button>
+        <button class="px-4 py-2 text-sm font-semibold text-white bg-red-500 rounded-lg">Clear All Data</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

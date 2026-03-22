@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandHistoryList Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Hand History</h2>
+
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+      <!-- Header -->
+      <div class="flex items-center gap-4 px-4 py-3 border-b border-gray-100 bg-slate-50 text-xs font-medium text-gray-500 uppercase tracking-wider">
+        <span class="w-16">Time</span>
+        <span class="w-20">Cards</span>
+        <span class="w-10">Pos</span>
+        <span class="w-12">Blinds</span>
+        <span class="flex-1">Result</span>
+        <span class="w-20 text-right">Profit</span>
+      </div>
+
+      <!-- Row 1: Won -->
+      <div class="flex items-center gap-4 px-4 py-3 border-b border-gray-50 hover:bg-slate-50 cursor-pointer transition-colors">
+        <span class="w-16 text-xs text-gray-400">14:23</span>
+        <div class="w-20 flex gap-1">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">A♠</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">K♥</span>
+        </div>
+        <span class="w-10 text-xs font-medium text-gray-600">BTN</span>
+        <span class="w-12 text-xs text-gray-500">2/5</span>
+        <span class="flex-1 text-sm font-medium text-emerald-600">Won <span class="text-xs text-gray-400 ml-1">(river)</span></span>
+        <span class="w-20 text-right text-sm font-bold font-mono text-emerald-600">+145</span>
+      </div>
+
+      <!-- Row 2: Lost -->
+      <div class="flex items-center gap-4 px-4 py-3 border-b border-gray-50 hover:bg-slate-50 cursor-pointer transition-colors">
+        <span class="w-16 text-xs text-gray-400">14:19</span>
+        <div class="w-20 flex gap-1">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">Q♥</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">J♦</span>
+        </div>
+        <span class="w-10 text-xs font-medium text-gray-600">CO</span>
+        <span class="w-12 text-xs text-gray-500">2/5</span>
+        <span class="flex-1 text-sm font-medium text-red-500">Lost <span class="text-xs text-gray-400 ml-1">(showdown)</span></span>
+        <span class="w-20 text-right text-sm font-bold font-mono text-red-500">-80</span>
+      </div>
+
+      <!-- Row 3: Folded -->
+      <div class="flex items-center gap-4 px-4 py-3 border-b border-gray-50 hover:bg-slate-50 cursor-pointer transition-colors">
+        <span class="w-16 text-xs text-gray-400">14:15</span>
+        <div class="w-20 flex gap-1">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">7♣</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">2♠</span>
+        </div>
+        <span class="w-10 text-xs font-medium text-gray-600">UTG</span>
+        <span class="w-12 text-xs text-gray-500">2/5</span>
+        <span class="flex-1 text-sm font-medium text-gray-400">Folded <span class="text-xs text-gray-400 ml-1">(preflop)</span></span>
+        <span class="w-20 text-right text-sm font-bold font-mono text-red-500">-5</span>
+      </div>
+
+      <!-- Row 4: Won -->
+      <div class="flex items-center gap-4 px-4 py-3 border-b border-gray-50 hover:bg-slate-50 cursor-pointer transition-colors">
+        <span class="w-16 text-xs text-gray-400">14:11</span>
+        <div class="w-20 flex gap-1">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">T♠</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">T♣</span>
+        </div>
+        <span class="w-10 text-xs font-medium text-gray-600">HJ</span>
+        <span class="w-12 text-xs text-gray-500">2/5</span>
+        <span class="flex-1 text-sm font-medium text-emerald-600">Won <span class="text-xs text-gray-400 ml-1">(turn)</span></span>
+        <span class="w-20 text-right text-sm font-bold font-mono text-emerald-600">+65</span>
+      </div>
+
+      <!-- Row 5: Split -->
+      <div class="flex items-center gap-4 px-4 py-3 border-b border-gray-50 hover:bg-slate-50 cursor-pointer transition-colors">
+        <span class="w-16 text-xs text-gray-400">14:06</span>
+        <div class="w-20 flex gap-1">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">A♣</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">A♥</span>
+        </div>
+        <span class="w-10 text-xs font-medium text-gray-600">SB</span>
+        <span class="w-12 text-xs text-gray-500">2/5</span>
+        <span class="flex-1 text-sm font-medium text-amber-500">Split <span class="text-xs text-gray-400 ml-1">(river)</span></span>
+        <span class="w-20 text-right text-sm font-bold font-mono text-emerald-600">+0</span>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex items-center justify-between px-4 py-3 bg-slate-50 border-t border-gray-100">
+        <span class="text-xs text-gray-500">1–5 of 42</span>
+        <div class="flex items-center gap-1">
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-600 opacity-40 cursor-not-allowed">Prev</button>
+          <button class="w-8 h-8 text-xs font-medium rounded-lg bg-blue-600 text-white">1</button>
+          <button class="w-8 h-8 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50">2</button>
+          <button class="w-8 h-8 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50">3</button>
+          <button class="w-8 h-8 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50">4</button>
+          <button class="w-8 h-8 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50">5</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

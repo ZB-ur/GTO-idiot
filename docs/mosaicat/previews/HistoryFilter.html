@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+<div class="max-w-2xl mx-auto space-y-6">
+  <p class="text-sm text-gray-500 mb-2">History Filter Toolbar</p>
+  <div class="flex flex-wrap items-center gap-3 bg-white border border-gray-200 rounded-xl p-4">
+    <div class="flex items-center gap-2">
+      <label class="text-xs font-medium text-gray-500 uppercase">From</label>
+      <input type="date" value="2025-03-01" class="text-sm border border-gray-200 rounded-lg px-2 py-1.5" />
+    </div>
+    <div class="flex items-center gap-2">
+      <label class="text-xs font-medium text-gray-500 uppercase">To</label>
+      <input type="date" value="2025-03-23" class="text-sm border border-gray-200 rounded-lg px-2 py-1.5" />
+    </div>
+    <select class="text-sm border border-gray-200 rounded-lg px-2 py-1.5">
+      <option>All Blinds</option>
+      <option>1/2</option>
+      <option selected>2/5</option>
+      <option>5/10</option>
+    </select>
+    <div class="flex rounded-lg border border-gray-200 overflow-hidden">
+      <button class="px-3 py-1.5 text-xs font-semibold bg-blue-600 text-white">All</button>
+      <button class="px-3 py-1.5 text-xs font-semibold bg-white text-gray-600">Profit</button>
+      <button class="px-3 py-1.5 text-xs font-semibold bg-white text-gray-600">Loss</button>
+    </div>
+    <button class="text-xs font-medium text-gray-400 hover:text-gray-600 ml-auto">Reset</button>
+  </div>
+</div>
+</body>
+</html>

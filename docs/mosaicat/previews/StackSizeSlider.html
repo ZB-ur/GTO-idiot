@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+input[type="range"] { -webkit-appearance: none; height: 8px; border-radius: 9999px; background: #e5e7eb; width: 100%; }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #2563eb; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="max-w-xs mx-auto space-y-2">
+  <div class="flex items-center justify-between">
+    <label class="text-sm font-semibold text-gray-900">Starting Stack</label>
+    <span class="text-sm font-bold text-blue-600">100 BB</span>
+  </div>
+  <input type="range" min="50" max="200" step="10" value="100" />
+  <div class="flex justify-between text-xs text-gray-400">
+    <span>50 BB</span>
+    <span>100 BB</span>
+    <span>200 BB</span>
+  </div>
+</div>
+</body>
+</html>

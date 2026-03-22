@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayView Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-4xl mx-auto space-y-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <button class="p-2 rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <div>
+          <h2 class="text-xl font-bold text-gray-900">Hand Replay</h2>
+          <p class="text-sm text-gray-500">2/5 &middot; Mar 23, 2026, 2:23 PM</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button class="px-3 py-1.5 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50">&larr; Prev</button>
+        <button class="px-3 py-1.5 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50">Next &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Compliance + Result -->
+    <div class="grid grid-cols-3 gap-4">
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-4 text-center">
+        <div class="text-3xl font-bold text-emerald-600">72%</div>
+        <div class="text-xs text-gray-500 mt-1">GTO Compliance</div>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-4 text-center">
+        <div class="text-3xl font-bold text-emerald-600">+145</div>
+        <div class="text-xs text-gray-500 mt-1">Profit / Loss</div>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-4 text-center">
+        <div class="text-3xl font-bold text-gray-900">3</div>
+        <div class="text-xs text-gray-500 mt-1">Decisions Analyzed</div>
+      </div>
+    </div>
+
+    <!-- Players row -->
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
+      <div class="flex gap-3 overflow-x-auto pb-1">
+        <!-- Human -->
+        <div class="flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg border bg-blue-50 border-blue-200">
+          <div class="flex gap-0.5">
+            <span class="text-xs font-bold text-red-600">Q&hearts;</span>
+            <span class="text-xs font-bold text-red-600">Q&diams;</span>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-gray-900">You</div>
+            <span class="text-[10px] text-gray-400">BTN</span>
+          </div>
+        </div>
+        <!-- Bots -->
+        <div class="flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg border bg-gray-50 border-gray-200">
+          <div class="flex gap-0.5">
+            <span class="text-xs font-bold text-gray-900">A&spades;</span>
+            <span class="text-xs font-bold text-gray-900">K&clubs;</span>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-gray-900">Bot_TAG</div>
+            <div class="flex items-center gap-1">
+              <span class="text-[10px] text-gray-400">SB</span>
+              <span class="text-[10px] px-1 py-0.5 rounded bg-slate-200 text-slate-600 font-medium">TAG</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg border bg-gray-50 border-gray-200">
+          <div class="flex gap-0.5">
+            <span class="text-xs font-bold text-red-600">9&hearts;</span>
+            <span class="text-xs font-bold text-gray-900">8&spades;</span>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-gray-900">Bot_LAG</div>
+            <div class="flex items-center gap-1">
+              <span class="text-[10px] text-gray-400">BB</span>
+              <span class="text-[10px] px-1 py-0.5 rounded bg-slate-200 text-slate-600 font-medium">LAG</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg border bg-gray-50 border-gray-200">
+          <div class="flex gap-0.5">
+            <span class="text-xs font-bold text-gray-900">7&clubs;</span>
+            <span class="text-xs font-bold text-gray-900">2&spades;</span>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-gray-900">Bot_Fish</div>
+            <div class="flex items-center gap-1">
+              <span class="text-[10px] text-gray-400">HJ</span>
+              <span class="text-[10px] px-1 py-0.5 rounded bg-slate-200 text-slate-600 font-medium">Fish</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Street Navigator -->
+    <div class="flex gap-2">
+      <button class="flex-1 py-2.5 text-sm font-medium rounded-lg border bg-white border-gray-200 text-gray-600 hover:bg-gray-50">Preflop</button>
+      <button class="flex-1 py-2.5 text-sm font-medium rounded-lg border bg-blue-600 border-blue-600 text-white">Flop</button>
+      <button class="flex-1 py-2.5 text-sm font-medium rounded-lg border bg-white border-gray-200 text-gray-600 hover:bg-gray-50">Turn <span class="ml-1 inline-block w-1.5 h-1.5 rounded-full bg-amber-400"></span></button>
+      <button class="flex-1 py-2.5 text-sm font-medium rounded-lg border bg-white border-gray-200 text-gray-600 hover:bg-gray-50">River</button>
+    </div>
+
+    <!-- Board cards -->
+    <div class="flex items-center gap-2">
+      <span class="text-xs text-gray-400 uppercase tracking-wider">Board:</span>
+      <div class="flex gap-1">
+        <span class="inline-flex items-center justify-center w-9 h-12 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">A&hearts;</span>
+        <span class="inline-flex items-center justify-center w-9 h-12 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">K&spades;</span>
+        <span class="inline-flex items-center justify-center w-9 h-12 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">7&diams;</span>
+      </div>
+      <span class="ml-auto text-sm text-gray-500">Pot: <span class="font-bold text-gray-900">$45</span></span>
+    </div>
+
+    <!-- Action Timeline -->
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+      <h3 class="text-sm font-semibold text-gray-900 mb-4">Flop Actions</h3>
+      <div class="relative pl-6">
+        <div class="absolute left-[11px] top-2 bottom-2 w-0.5 bg-gray-200"></div>
+        <div class="space-y-3">
+          <!-- Bot check -->
+          <div class="relative flex items-start gap-3">
+            <div class="absolute -left-6 top-2.5 w-3 h-3 rounded-full border-2 border-white shadow-sm bg-gray-300"></div>
+            <div class="flex-1 rounded-lg border p-3 bg-white border-gray-200">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-medium text-gray-400 w-8">SB</span>
+                  <span class="text-sm font-semibold text-gray-600">Bot_TAG</span>
+                </div>
+                <span class="text-sm font-bold text-gray-600">Check</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Player raise - GTO match -->
+          <div class="relative flex items-start gap-3">
+            <div class="absolute -left-6 top-2.5 w-3 h-3 rounded-full border-2 border-white shadow-sm bg-emerald-500"></div>
+            <div class="flex-1 rounded-lg border p-3 bg-emerald-50 border-emerald-300">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-medium text-gray-400 w-8">BTN</span>
+                  <span class="text-sm font-semibold text-gray-900">You</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-bold text-red-600">Raise</span>
+                  <span class="text-sm font-mono text-gray-500">$30</span>
+                </div>
+              </div>
+              <div class="mt-2 pt-2 border-t border-gray-200/60">
+                <span class="text-xs font-semibold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700">&check; GTO Match</span>
+                <p class="text-xs text-gray-500 mt-1">C-betting 2/3 pot on dry A-high board is the preferred line.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bot call -->
+          <div class="relative flex items-start gap-3">
+            <div class="absolute -left-6 top-2.5 w-3 h-3 rounded-full border-2 border-white shadow-sm bg-gray-300"></div>
+            <div class="flex-1 rounded-lg border p-3 bg-white border-gray-200">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-medium text-gray-400 w-8">BB</span>
+                  <span class="text-sm font-semibold text-gray-600">Bot_LAG</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-bold text-blue-600">Call</span>
+                  <span class="text-sm font-mono text-gray-500">$30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GTO Comparison Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm font-semibold text-gray-900">BTN — Raise $30</span>
+          <span class="text-xs font-semibold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700">GTO Match</span>
+        </div>
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <div class="flex-1 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full rounded-full bg-emerald-400" style="width: 65%"></div></div>
+            <span class="text-xs text-gray-600 w-16">bet_66</span>
+            <span class="text-xs font-mono text-gray-400 w-10 text-right">65%</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="flex-1 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full rounded-full bg-emerald-400" style="width: 25%"></div></div>
+            <span class="text-xs text-gray-600 w-16">check</span>
+            <span class="text-xs font-mono text-gray-400 w-10 text-right">25%</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="flex-1 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full rounded-full bg-emerald-400" style="width: 10%"></div></div>
+            <span class="text-xs text-gray-600 w-16">bet_33</span>
+            <span class="text-xs font-mono text-gray-400 w-10 text-right">10%</span>
+          </div>
+        </div>
+        <p class="text-xs text-gray-500 mt-2">C-betting 2/3 pot on dry A-high board is the preferred line.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm font-semibold text-gray-900">BTN — Call $60</span>
+          <span class="text-xs font-semibold px-1.5 py-0.5 rounded bg-amber-100 text-amber-700">Minor Deviation</span>
+        </div>
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <div class="flex-1 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full rounded-full bg-amber-400" style="width: 55%"></div></div>
+            <span class="text-xs text-gray-600 w-16">raise_3x</span>
+            <span class="text-xs font-mono text-gray-400 w-10 text-right">55%</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="flex-1 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full rounded-full bg-amber-400" style="width: 30%"></div></div>
+            <span class="text-xs text-gray-600 w-16">call</span>
+            <span class="text-xs font-mono text-gray-400 w-10 text-right">30%</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="flex-1 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full rounded-full bg-amber-400" style="width: 15%"></div></div>
+            <span class="text-xs text-gray-600 w-16">fold</span>
+            <span class="text-xs font-mono text-gray-400 w-10 text-right">15%</span>
+          </div>
+        </div>
+        <p class="text-xs text-gray-500 mt-2">GTO prefers 3-betting with QQ facing a turn bet. Calling is viable but suboptimal.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

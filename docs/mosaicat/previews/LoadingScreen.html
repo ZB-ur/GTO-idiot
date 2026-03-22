@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LoadingScreen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .animate-spin-slow { animation: spin 2s linear infinite; }
+  </style>
+</head>
+<body>
+  <div class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-50">
+    <!-- Logo area -->
+    <div class="flex flex-col items-center gap-6">
+      <!-- Logo with spinner -->
+      <div class="relative">
+        <div class="w-20 h-20 rounded-2xl bg-emerald-800 border-2 border-emerald-900 shadow-md flex items-center justify-center">
+          <svg class="w-10 h-10 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="1" />
+            <circle cx="12" cy="12" r="3.5" />
+            <line x1="12" y1="2" x2="12" y2="5" stroke="currentColor" stroke-width="1.5" />
+            <line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-width="1.5" />
+            <line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="1.5" />
+            <line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.5" />
+          </svg>
+        </div>
+        <!-- Spinner ring -->
+        <div class="absolute inset-0 w-20 h-20">
+          <svg class="w-full h-full animate-spin-slow" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="38" fill="none" stroke="#d1d5db" stroke-width="3" stroke-dasharray="239" stroke-dashoffset="0" stroke-linecap="round" />
+            <circle cx="40" cy="40" r="38" fill="none" stroke="#059669" stroke-width="3" stroke-dasharray="239" stroke-dashoffset="180" stroke-linecap="round" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Brand name -->
+      <h1 class="text-2xl font-bold text-gray-900 tracking-tight">GTO Idiot</h1>
+
+      <!-- Progress bar at 68% -->
+      <div class="w-64 flex flex-col items-center gap-3">
+        <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div class="h-full bg-emerald-500 rounded-full" style="width: 68%; transition: width 0.3s ease-out;"></div>
+        </div>
+        <div class="flex items-center justify-between w-full">
+          <p class="text-sm text-gray-500">Loading GTO strategy data…</p>
+          <span class="text-sm font-medium text-gray-900" style="font-variant-numeric: tabular-nums;">68%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

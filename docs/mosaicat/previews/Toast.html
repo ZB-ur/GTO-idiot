@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="space-y-4 max-w-md mx-auto pt-4">
+    <p class="text-sm font-semibold text-gray-500 mb-3">Toast Types</p>
+
+    <!-- Info -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-lg border shadow-md bg-blue-50 border-blue-200 w-full">
+      <span class="text-blue-600 text-lg flex-shrink-0">ℹ</span>
+      <p class="text-sm text-gray-900 flex-1">New hand starting — you are on the Button.</p>
+      <button class="text-gray-400 hover:text-gray-600 text-sm flex-shrink-0 ml-2">✕</button>
+    </div>
+
+    <!-- Warning -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-lg border shadow-md bg-amber-50 border-amber-200 w-full">
+      <span class="text-amber-500 text-lg flex-shrink-0">⚠</span>
+      <p class="text-sm text-gray-900 flex-1">Your stack is below 20 big blinds. Consider adjusting strategy.</p>
+      <button class="text-gray-400 hover:text-gray-600 text-sm flex-shrink-0 ml-2">✕</button>
+    </div>
+
+    <!-- Error -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-lg border shadow-md bg-red-50 border-red-200 w-full">
+      <span class="text-red-500 text-lg flex-shrink-0">✕</span>
+      <p class="text-sm text-gray-900 flex-1">Failed to save hand history. Please try again.</p>
+      <button class="text-gray-400 hover:text-gray-600 text-sm flex-shrink-0 ml-2">✕</button>
+    </div>
+  </div>
+</body>
+</html>
