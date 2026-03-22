@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommunityCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #065f46; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-8 items-center">
+
+    <!-- Label -->
+    <span class="text-emerald-200 text-sm font-medium">Preflop (no cards)</span>
+    <!-- Preflop: all placeholders -->
+    <div class="flex items-center justify-center">
+      <div class="flex gap-2 p-4 rounded-2xl bg-emerald-900/40">
+        <div class="w-16 h-[88px] rounded-xl border-2 border-dashed border-emerald-600/40 flex items-center justify-center"><span class="text-emerald-600/30 text-2xl">?</span></div>
+        <div class="w-16 h-[88px] rounded-xl border-2 border-dashed border-emerald-600/40 flex items-center justify-center"><span class="text-emerald-600/30 text-2xl">?</span></div>
+        <div class="w-16 h-[88px] rounded-xl border-2 border-dashed border-emerald-600/40 flex items-center justify-center"><span class="text-emerald-600/30 text-2xl">?</span></div>
+        <div class="w-16 h-[88px] rounded-xl border-2 border-dashed border-emerald-600/40 flex items-center justify-center"><span class="text-emerald-600/30 text-2xl">?</span></div>
+        <div class="w-16 h-[88px] rounded-xl border-2 border-dashed border-emerald-600/40 flex items-center justify-center"><span class="text-emerald-600/30 text-2xl">?</span></div>
+      </div>
+    </div>
+
+    <!-- Label -->
+    <span class="text-emerald-200 text-sm font-medium">Flop (3 cards revealed)</span>
+    <!-- Flop: 3 revealed + 2 placeholders -->
+    <div class="flex items-center justify-center">
+      <div class="flex gap-2 p-4 rounded-2xl bg-emerald-900/40">
+        <div class="w-16 h-[88px] rounded-xl bg-white border-2 border-gray-200 shadow-md flex flex-col items-center justify-center gap-0.5">
+          <span class="text-lg font-bold text-red-500">A</span>
+          <span class="text-2xl leading-none text-red-500">♥</span>
+        </div>
+        <div class="w-16 h-[88px] rounded-xl bg-white border-2 border-gray-200 shadow-md flex flex-col items-center justify-center gap-0.5">
+          <span class="text-lg font-bold text-emerald-700">K</span>
+          <span class="text-2xl leading-none text-emerald-700">♣</span>
+        </div>
+        <div class="w-16 h-[88px] rounded-xl bg-white border-2 border-gray-200 shadow-md flex flex-col items-center justify-center gap-0.5">
+          <span class="text-lg font-bold text-blue-500">7</span>
+          <span class="text-2xl leading-none text-blue-500">♦</span>
+        </div>
+        <div class="w-16 h-[88px] rounded-xl border-2 border-dashed border-emerald-600/40 flex items-center justify-center"><span class="text-emerald-600/30 text-2xl">?</span></div>
+        <div class="w-16 h-[88px] rounded-xl border-2 border-dashed border-emerald-600/40 flex items-center justify-center"><span class="text-emerald-600/30 text-2xl">?</span></div>
+      </div>
+    </div>
+
+    <!-- Label -->
+    <span class="text-emerald-200 text-sm font-medium">Turn (4 cards revealed)</span>
+    <!-- Turn: 4 revealed + 1 placeholder -->
+    <div class="flex items-center justify-center">
+      <div class="flex gap-2 p-4 rounded-2xl bg-emerald-900/40">
+        <div class="w-16 h-[88px] rounded-xl bg-white border-2 border-gray-200 shadow-md flex flex-col items-center justify-center gap-0.5">
+          <span class="text-lg font-bold text-red-500">A</span>
+          <span class="text-2xl leading-none text-red-500">♥</span>
+        </div>
+        <div class="w-16 h-[88px] rounded-xl bg-white border-2 border-gray-200 shadow-md flex flex-col items-center justify-center gap-0.5">
+          <span class="text-lg font-bold text-emerald-700">K</span>
+          <span class="text-2xl leading-none text-emerald-700">♣</span>
+        </div>
+        <div class="w-16 h-[88px] rounded-xl bg-white border-2 border-gray-200 shadow-md flex flex-col items-center justify-center gap-0.5">
+          <span class="text-lg font-bold text-blue-500">7</span>
+          <span class="text-2xl leading-none text-blue-500">♦</span>
+        </div>
+        <div class="w-16 h-[88px] rounded-xl bg-white border-2 border-gray-200 shadow-md flex flex-col items-center justify-center gap-0.5">
+          <span class="text-lg font-bold text-gray-900">T</span>
+          <span class="text-2xl leading-none text-gray-900">♠</span>
+        </div>
+        <div class="w-16 h-[88px] rounded-xl border-2 border-dashed border-emerald-600/40 flex items-center justify-center"><span class="text-emerald-600/30 text-2xl">?</span></div>
+      </div>
+    </div>
+
+    <!-- Label -->
+    <span class="text-emerald-200 text-sm font-medium">River (all 5 cards revealed)</span>
+    <!-- River: all 5 revealed -->
+    <div class="flex items-center justify-center">
+      <div class="flex gap-2 p-4 rounded-2xl bg-emerald-900/40">
+        <div class="w-16 h-[88px] rounded-xl bg-white border-2 border-gray-200 shadow-md flex flex-col items-center justify-center gap-0.5">
+          <span class="text-lg font-bold text-red-500">A</span>
+          <span class="text-2xl leading-none text-red-500">♥</span>
+        </div>
+        <div class="w-16 h-[88px] rounded-xl bg-white border-2 border-gray-200 shadow-md flex flex-col items-center justify-center gap-0.5">
+          <span class="text-lg font-bold text-emerald-700">K</span>
+          <span class="text-2xl leading-none text-emerald-700">♣</span>
+        </div>
+        <div class="w-16 h-[88px] rounded-xl bg-white border-2 border-gray-200 shadow-md flex flex-col items-center justify-center gap-0.5">
+          <span class="text-lg font-bold text-blue-500">7</span>
+          <span class="text-2xl leading-none text-blue-500">♦</span>
+        </div>
+        <div class="w-16 h-[88px] rounded-xl bg-white border-2 border-gray-200 shadow-md flex flex-col items-center justify-center gap-0.5">
+          <span class="text-lg font-bold text-gray-900">T</span>
+          <span class="text-2xl leading-none text-gray-900">♠</span>
+        </div>
+        <div class="w-16 h-[88px] rounded-xl bg-white border-2 border-gray-200 shadow-md flex flex-col items-center justify-center gap-0.5">
+          <span class="text-lg font-bold text-red-500">3</span>
+          <span class="text-2xl leading-none text-red-500">♥</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreetBreakdownChart Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xl mx-auto">
+    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">Conformance by Street</h3>
+      <div class="space-y-4">
+
+        <!-- Preflop: 82% -->
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm font-medium text-gray-700">Preflop</span>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900">82.0%</span>
+              <span class="text-xs text-gray-400">312 decisions</span>
+            </div>
+          </div>
+          <div class="w-full h-3 rounded-full bg-green-100">
+            <div class="h-3 rounded-full bg-green-500" style="width: 82%"></div>
+          </div>
+        </div>
+
+        <!-- Flop: 68% -->
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm font-medium text-gray-700">Flop</span>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900">68.0%</span>
+              <span class="text-xs text-gray-400">245 decisions</span>
+            </div>
+          </div>
+          <div class="w-full h-3 rounded-full bg-blue-100">
+            <div class="h-3 rounded-full bg-blue-600" style="width: 68%"></div>
+          </div>
+        </div>
+
+        <!-- Turn: 54% -->
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm font-medium text-gray-700">Turn</span>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900">54.0%</span>
+              <span class="text-xs text-gray-400">178 decisions</span>
+            </div>
+          </div>
+          <div class="w-full h-3 rounded-full bg-blue-100">
+            <div class="h-3 rounded-full bg-blue-600" style="width: 54%"></div>
+          </div>
+        </div>
+
+        <!-- River: 42% -->
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm font-medium text-gray-700">River</span>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900">42.0%</span>
+              <span class="text-xs text-gray-400">134 decisions</span>
+            </div>
+          </div>
+          <div class="w-full h-3 rounded-full bg-yellow-100">
+            <div class="h-3 rounded-full bg-yellow-500" style="width: 42%"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AppShell Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen bg-slate-50 flex flex-col">
+
+    <!-- ===== NavHeader ===== -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+        <!-- Logo / Brand -->
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-emerald-800 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 6v6l4 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <span class="text-lg font-bold text-gray-900 tracking-tight">GTO Idiot</span>
+        </div>
+
+        <!-- Nav links -->
+        <nav class="flex items-center gap-1">
+          <a href="#" class="px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg">
+            Home
+          </a>
+          <a href="#" class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg">
+            GTO Reference
+          </a>
+          <a href="#" class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg">
+            Statistics
+          </a>
+        </nav>
+
+        <!-- Right side actions -->
+        <div class="flex items-center gap-3">
+          <button class="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
+            New Session
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== Main Content (Landing Page mock) ===== -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-8">
+      <!-- Hero section -->
+      <div class="text-center mb-10">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">Texas Hold'em GTO Trainer</h1>
+        <p class="text-gray-600 text-lg">Practice your poker strategy with real-time GTO guidance</p>
+      </div>
+
+      <!-- Quick stats row -->
+      <div class="grid grid-cols-4 gap-4 mb-8">
+        <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
+          <p class="text-sm text-gray-600 mb-1">Total Hands</p>
+          <p class="text-2xl font-bold text-gray-900">1,247</p>
+        </div>
+        <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
+          <p class="text-sm text-gray-600 mb-1">Net P/L</p>
+          <p class="text-2xl font-bold text-green-500">+34.5 BB</p>
+        </div>
+        <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
+          <p class="text-sm text-gray-600 mb-1">GTO Conformance</p>
+          <p class="text-2xl font-bold text-blue-600">72%</p>
+        </div>
+        <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
+          <p class="text-sm text-gray-600 mb-1">Sessions</p>
+          <p class="text-2xl font-bold text-gray-900">18</p>
+        </div>
+      </div>
+
+      <!-- Recent sessions -->
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm">
+        <div class="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
+          <h2 class="text-lg font-semibold text-gray-900">Recent Sessions</h2>
+          <a href="#" class="text-sm text-blue-600 hover:text-blue-700 font-medium">View All</a>
+        </div>
+        <div class="divide-y divide-gray-100">
+          <!-- Session row 1 -->
+          <div class="px-6 py-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center">
+                <span class="text-emerald-700 font-semibold text-sm">#18</span>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-900">Session #18</p>
+                <p class="text-xs text-gray-400">Mar 22, 2026 · 42 hands · 35 min</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-6">
+              <div class="text-right">
+                <p class="text-sm font-semibold text-green-500">+12.5 BB</p>
+                <p class="text-xs text-gray-400">Net P/L</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-semibold text-blue-600">78%</p>
+                <p class="text-xs text-gray-400">GTO</p>
+              </div>
+              <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+          <!-- Session row 2 -->
+          <div class="px-6 py-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center">
+                <span class="text-emerald-700 font-semibold text-sm">#17</span>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-900">Session #17</p>
+                <p class="text-xs text-gray-400">Mar 21, 2026 · 38 hands · 28 min</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-6">
+              <div class="text-right">
+                <p class="text-sm font-semibold text-red-500">-8.0 BB</p>
+                <p class="text-xs text-gray-400">Net P/L</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-semibold text-blue-600">65%</p>
+                <p class="text-xs text-gray-400">GTO</p>
+              </div>
+              <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+          <!-- Session row 3 -->
+          <div class="px-6 py-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center">
+                <span class="text-emerald-700 font-semibold text-sm">#16</span>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-900">Session #16</p>
+                <p class="text-xs text-gray-400">Mar 20, 2026 · 55 hands · 45 min</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-6">
+              <div class="text-right">
+                <p class="text-sm font-semibold text-green-500">+22.0 BB</p>
+                <p class="text-xs text-gray-400">Net P/L</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-semibold text-blue-600">81%</p>
+                <p class="text-xs text-gray-400">GTO</p>
+              </div>
+              <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Toast container (showing sample toasts) ===== -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col-reverse gap-3">
+      <!-- Success toast -->
+      <div class="pointer-events-auto bg-white rounded-xl border border-gray-200 shadow-md px-4 py-3 flex items-center gap-3 min-w-[320px] animate-slide-up">
+        <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-medium text-gray-900">Session started successfully</p>
+        </div>
+        <button class="text-gray-400 hover:text-gray-600 flex-shrink-0">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <!-- Info toast -->
+      <div class="pointer-events-auto bg-white rounded-xl border border-gray-200 shadow-md px-4 py-3 flex items-center gap-3 min-w-[320px]">
+        <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+          </svg>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-medium text-gray-900">GTO tables loaded</p>
+        </div>
+        <button class="text-gray-400 hover:text-gray-600 flex-shrink-0">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

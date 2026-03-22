@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreetStepper Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto space-y-8">
+    <h2 class="text-lg font-semibold text-gray-900 mb-2">StreetStepper</h2>
+
+    <!-- Current: Flop, available: preflop, flop, turn -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-500">Current: Flop (Preflop→Flop→Turn available)</p>
+      <div class="flex items-center gap-0">
+        <!-- Preflop - past -->
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-blue-50 text-blue-700 hover:bg-blue-100">
+          <span class="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold bg-blue-200 text-blue-700">1</span>
+          Preflop
+        </button>
+        <div class="h-0.5 w-8 bg-blue-600"></div>
+        <!-- Flop - current -->
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-blue-600 text-white shadow-sm">
+          <span class="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold bg-white/20 text-white">2</span>
+          Flop
+        </button>
+        <div class="h-0.5 w-8 bg-gray-200"></div>
+        <!-- Turn - available future -->
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200">
+          <span class="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold bg-gray-200 text-gray-400">3</span>
+          Turn
+        </button>
+        <div class="h-0.5 w-8 bg-gray-200"></div>
+        <!-- River - disabled -->
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-50 text-gray-300 cursor-not-allowed" disabled>
+          <span class="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold bg-gray-200 text-gray-400">4</span>
+          River
+        </button>
+        <div class="h-0.5 w-8 bg-gray-200"></div>
+        <!-- Showdown - disabled -->
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-50 text-gray-300 cursor-not-allowed" disabled>
+          <span class="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold bg-gray-200 text-gray-400">5</span>
+          Showdown
+        </button>
+      </div>
+    </div>
+
+    <!-- Current: River, all available -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-500">Current: River (all streets available)</p>
+      <div class="flex items-center gap-0">
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-blue-50 text-blue-700">
+          <span class="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold bg-blue-200 text-blue-700">1</span>
+          Preflop
+        </button>
+        <div class="h-0.5 w-8 bg-blue-600"></div>
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-blue-50 text-blue-700">
+          <span class="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold bg-blue-200 text-blue-700">2</span>
+          Flop
+        </button>
+        <div class="h-0.5 w-8 bg-blue-600"></div>
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-blue-50 text-blue-700">
+          <span class="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold bg-blue-200 text-blue-700">3</span>
+          Turn
+        </button>
+        <div class="h-0.5 w-8 bg-blue-600"></div>
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-blue-600 text-white shadow-sm">
+          <span class="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold bg-white/20 text-white">4</span>
+          River
+        </button>
+        <div class="h-0.5 w-8 bg-gray-200"></div>
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-100 text-gray-600">
+          <span class="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold bg-gray-200 text-gray-400">5</span>
+          Showdown
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SessionFilter Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-8">
+    <h2 class="text-lg font-semibold text-gray-900 mb-2">SessionFilter</h2>
+
+    <!-- Closed state -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-500">Closed (2 selected)</p>
+      <div class="relative inline-block">
+        <button class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-gray-200 bg-white text-sm text-gray-700 hover:bg-gray-50">
+          <span>2 个 Session</span>
+          <span class="text-gray-400 text-xs">▼</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Open state -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-500">Open with dropdown</p>
+      <div class="relative inline-block">
+        <button class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-gray-200 bg-white text-sm text-gray-700">
+          <span>2 个 Session</span>
+          <span class="text-gray-400 text-xs">▲</span>
+        </button>
+
+        <div class="absolute top-full left-0 mt-1 w-72 bg-white border border-gray-200 rounded-xl shadow-md z-50 overflow-hidden">
+          <!-- Header -->
+          <div class="flex items-center justify-between px-3 py-2 border-b border-gray-100 bg-gray-50">
+            <span class="text-xs font-medium text-gray-500">选择 Session</span>
+            <div class="flex items-center gap-2">
+              <button class="text-xs text-blue-600 hover:text-blue-700 font-medium">全选</button>
+              <button class="text-xs text-gray-400 hover:text-gray-600 font-medium">清空</button>
+            </div>
+          </div>
+
+          <!-- Session list -->
+          <div class="max-h-60 overflow-y-auto">
+            <label class="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" checked class="rounded border-gray-300 text-blue-600" />
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">3/20</span>
+                  <span class="text-sm font-medium text-green-600">+12.5BB</span>
+                </div>
+                <span class="text-xs text-gray-400">48 手</span>
+              </div>
+            </label>
+            <label class="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" checked class="rounded border-gray-300 text-blue-600" />
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">3/18</span>
+                  <span class="text-sm font-medium text-red-500">-8.3BB</span>
+                </div>
+                <span class="text-xs text-gray-400">62 手</span>
+              </div>
+            </label>
+            <label class="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" class="rounded border-gray-300 text-blue-600" />
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">3/15</span>
+                  <span class="text-sm font-medium text-green-600">+3.1BB</span>
+                </div>
+                <span class="text-xs text-gray-400">35 手</span>
+              </div>
+            </label>
+            <label class="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" class="rounded border-gray-300 text-blue-600" />
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">3/12</span>
+                  <span class="text-sm font-medium text-green-600">+21.0BB</span>
+                </div>
+                <span class="text-xs text-gray-400">55 手</span>
+              </div>
+            </label>
+            <label class="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" class="rounded border-gray-300 text-blue-600" />
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">3/10</span>
+                  <span class="text-sm font-medium text-red-500">-15.7BB</span>
+                </div>
+                <span class="text-xs text-gray-400">41 手</span>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

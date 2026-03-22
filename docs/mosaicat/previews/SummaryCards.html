@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SummaryCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-4xl mx-auto space-y-8">
+    <!-- Positive P/L scenario -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🃏</span>
+          <span class="text-sm font-medium text-gray-600">总手数</span>
+        </div>
+        <p class="text-2xl font-bold text-gray-900">1,247</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">💰</span>
+          <span class="text-sm font-medium text-gray-600">盈亏 (BB)</span>
+        </div>
+        <p class="text-2xl font-bold text-green-500">+23.5</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🎯</span>
+          <span class="text-sm font-medium text-gray-600">GTO 符合率</span>
+        </div>
+        <p class="text-2xl font-bold text-green-500">72.3%</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">📊</span>
+          <span class="text-sm font-medium text-gray-600">牌局数</span>
+        </div>
+        <p class="text-2xl font-bold text-gray-900">18</p>
+      </div>
+    </div>
+
+    <!-- Negative P/L scenario -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🃏</span>
+          <span class="text-sm font-medium text-gray-600">总手数</span>
+        </div>
+        <p class="text-2xl font-bold text-gray-900">89</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">💰</span>
+          <span class="text-sm font-medium text-gray-600">盈亏 (BB)</span>
+        </div>
+        <p class="text-2xl font-bold text-red-500">-15.2</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🎯</span>
+          <span class="text-sm font-medium text-gray-600">GTO 符合率</span>
+        </div>
+        <p class="text-2xl font-bold text-yellow-500">54.8%</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">📊</span>
+          <span class="text-sm font-medium text-gray-600">牌局数</span>
+        </div>
+        <p class="text-2xl font-bold text-gray-900">3</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

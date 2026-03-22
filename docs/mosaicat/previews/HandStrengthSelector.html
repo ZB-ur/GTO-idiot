@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandStrengthSelector Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xl mx-auto space-y-6">
+    <!-- With '强牌' selected -->
+    <div class="space-y-2">
+      <label class="block text-sm font-semibold text-gray-600">手牌强度</label>
+      <div class="inline-flex gap-2">
+        <button class="px-4 py-2 text-sm font-medium rounded-lg border border-green-300 text-green-700 bg-green-50 shadow-sm transition-all duration-150">坚果</button>
+        <button class="px-4 py-2 text-sm font-medium rounded-lg border bg-blue-600 text-white border-blue-600 shadow-sm transition-all duration-150">强牌</button>
+        <button class="px-4 py-2 text-sm font-medium rounded-lg border border-yellow-300 text-yellow-700 bg-yellow-50 shadow-sm transition-all duration-150">中等</button>
+        <button class="px-4 py-2 text-sm font-medium rounded-lg border border-orange-300 text-orange-700 bg-orange-50 shadow-sm transition-all duration-150">弱牌</button>
+        <button class="px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 text-gray-600 bg-gray-50 shadow-sm transition-all duration-150">空气</button>
+      </div>
+    </div>
+
+    <!-- With '空气' selected -->
+    <div class="space-y-2">
+      <label class="block text-sm font-semibold text-gray-600">手牌强度</label>
+      <div class="inline-flex gap-2">
+        <button class="px-4 py-2 text-sm font-medium rounded-lg border border-green-300 text-green-700 bg-green-50 shadow-sm transition-all duration-150">坚果</button>
+        <button class="px-4 py-2 text-sm font-medium rounded-lg border border-blue-300 text-blue-700 bg-blue-50 shadow-sm transition-all duration-150">强牌</button>
+        <button class="px-4 py-2 text-sm font-medium rounded-lg border border-yellow-300 text-yellow-700 bg-yellow-50 shadow-sm transition-all duration-150">中等</button>
+        <button class="px-4 py-2 text-sm font-medium rounded-lg border border-orange-300 text-orange-700 bg-orange-50 shadow-sm transition-all duration-150">弱牌</button>
+        <button class="px-4 py-2 text-sm font-medium rounded-lg border bg-gray-500 text-white border-gray-500 shadow-sm transition-all duration-150">空气</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

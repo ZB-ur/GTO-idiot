@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; min-height: 400px; }
+    input[type="range"] { accent-color: #ef4444; }
+  </style>
+</head>
+<body>
+
+  <!-- Spacer to simulate table above -->
+  <div style="height: 280px;"></div>
+
+  <!-- ActionPanel -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-t border-gray-200 shadow-lg z-50">
+    <div class="max-w-4xl mx-auto px-4 py-3">
+
+      <!-- Pot odds hint -->
+      <div class="text-center mb-2">
+        <span class="text-xs text-gray-500 bg-gray-100 rounded-full px-3 py-1">
+          Pot Odds: 2.5 : 1 (28.6%)
+        </span>
+      </div>
+
+      <!-- Raise slider -->
+      <div class="mb-3 px-2">
+        <div class="flex items-center gap-3">
+          <div class="flex gap-1.5">
+            <button class="text-xs font-medium px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">1/3</button>
+            <button class="text-xs font-medium px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">1/2</button>
+            <button class="text-xs font-medium px-2.5 py-1 rounded-lg bg-blue-100 text-blue-700 font-semibold transition-colors">2/3</button>
+            <button class="text-xs font-medium px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">Pot</button>
+          </div>
+          <input
+            type="range"
+            min="6"
+            max="100"
+            value="18"
+            class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+          />
+          <span class="text-sm font-bold text-gray-900 min-w-[4rem] text-right">18 BB</span>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex items-center gap-2 justify-center">
+        <button class="flex-1 max-w-[140px] py-3 rounded-lg font-semibold text-sm uppercase tracking-wide transition-all bg-gray-500 hover:bg-gray-600 text-white">
+          Fold
+        </button>
+        <button class="flex-1 max-w-[140px] py-3 rounded-lg font-semibold text-sm uppercase tracking-wide transition-all bg-green-500 hover:bg-green-600 text-white">
+          Call 6
+        </button>
+        <button class="flex-1 max-w-[140px] py-3 rounded-lg font-semibold text-sm uppercase tracking-wide transition-all bg-red-500 hover:bg-red-600 text-white">
+          Raise 18
+        </button>
+        <button class="flex-1 max-w-[140px] py-3 rounded-lg font-bold text-sm uppercase tracking-wide transition-all bg-red-700 hover:bg-red-800 text-white ring-2 ring-red-300">
+          All In 100
+        </button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

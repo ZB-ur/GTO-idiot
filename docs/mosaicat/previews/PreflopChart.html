@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PreflopChart Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    .cell { width: 38px; height: 34px; font-size: 10px; font-weight: 600; text-align: center; vertical-align: middle; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; transition: transform 0.1s; line-height: 34px; }
+    .cell:hover { transform: scale(1.12); z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .raise { background-color: #ef4444; color: white; }
+    .call  { background-color: #22c55e; color: white; }
+    .fold  { background-color: #d1d5db; color: #4b5563; }
+    .allin { background-color: #b91c1c; color: white; }
+    .pair  { box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1); }
+    .hdr   { width: 38px; height: 34px; font-size: 11px; font-weight: 500; color: #6b7280; text-align: center; vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6" style="max-width: 620px;">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-4">
+      <div>
+        <h3 class="text-lg font-semibold text-gray-900">Preflop Chart — CO</h3>
+        <p class="text-sm text-gray-600">Open Raise</p>
+      </div>
+      <div class="flex items-center gap-3 text-xs">
+        <div class="flex items-center gap-1"><span class="inline-block w-3 h-3 rounded bg-red-500"></span><span class="text-gray-600">Raise</span></div>
+        <div class="flex items-center gap-1"><span class="inline-block w-3 h-3 rounded bg-red-700"></span><span class="text-gray-600">All-in</span></div>
+        <div class="flex items-center gap-1"><span class="inline-block w-3 h-3 rounded bg-green-500"></span><span class="text-gray-600">Call</span></div>
+        <div class="flex items-center gap-1"><span class="inline-block w-3 h-3 rounded bg-gray-300"></span><span class="text-gray-600">Fold</span></div>
+      </div>
+    </div>
+
+    <!-- Matrix -->
+    <table style="border-collapse: collapse; width: 100%;">
+      <tr>
+        <td class="hdr"></td>
+        <td class="hdr">A</td><td class="hdr">K</td><td class="hdr">Q</td><td class="hdr">J</td><td class="hdr">T</td>
+        <td class="hdr">9</td><td class="hdr">8</td><td class="hdr">7</td><td class="hdr">6</td><td class="hdr">5</td>
+        <td class="hdr">4</td><td class="hdr">3</td><td class="hdr">2</td>
+      </tr>
+      <!-- Row A -->
+      <tr>
+        <td class="hdr">A</td>
+        <td class="cell raise pair">AA</td><td class="cell raise">AKs</td><td class="cell raise">AQs</td><td class="cell raise">AJs</td><td class="cell raise">ATs</td>
+        <td class="cell raise">A9s</td><td class="cell raise">A8s</td><td class="cell raise">A7s</td><td class="cell raise">A6s</td><td class="cell raise">A5s</td>
+        <td class="cell raise">A4s</td><td class="cell raise">A3s</td><td class="cell raise">A2s</td>
+      </tr>
+      <!-- Row K -->
+      <tr>
+        <td class="hdr">K</td>
+        <td class="cell raise">AKo</td><td class="cell raise pair">KK</td><td class="cell raise">KQs</td><td class="cell raise">KJs</td><td class="cell raise">KTs</td>
+        <td class="cell raise">K9s</td><td class="cell raise">K8s</td><td class="cell raise">K7s</td><td class="cell raise">K6s</td><td class="cell raise">K5s</td>
+        <td class="cell raise">K4s</td><td class="cell fold">K3s</td><td class="cell fold">K2s</td>
+      </tr>
+      <!-- Row Q -->
+      <tr>
+        <td class="hdr">Q</td>
+        <td class="cell raise">AQo</td><td class="cell raise">KQo</td><td class="cell raise pair">QQ</td><td class="cell raise">QJs</td><td class="cell raise">QTs</td>
+        <td class="cell raise">Q9s</td><td class="cell raise">Q8s</td><td class="cell fold">Q7s</td><td class="cell fold">Q6s</td><td class="cell fold">Q5s</td>
+        <td class="cell fold">Q4s</td><td class="cell fold">Q3s</td><td class="cell fold">Q2s</td>
+      </tr>
+      <!-- Row J -->
+      <tr>
+        <td class="hdr">J</td>
+        <td class="cell raise">AJo</td><td class="cell raise">KJo</td><td class="cell raise">QJo</td><td class="cell raise pair">JJ</td><td class="cell raise">JTs</td>
+        <td class="cell raise">J9s</td><td class="cell raise">J8s</td><td class="cell fold">J7s</td><td class="cell fold">J6s</td><td class="cell fold">J5s</td>
+        <td class="cell fold">J4s</td><td class="cell fold">J3s</td><td class="cell fold">J2s</td>
+      </tr>
+      <!-- Row T -->
+      <tr>
+        <td class="hdr">T</td>
+        <td class="cell raise">ATo</td><td class="cell raise">KTo</td><td class="cell raise">QTo</td><td class="cell raise">JTo</td><td class="cell raise pair">TT</td>
+        <td class="cell raise">T9s</td><td class="cell raise">T8s</td><td class="cell raise">T7s</td><td class="cell fold">T6s</td><td class="cell fold">T5s</td>
+        <td class="cell fold">T4s</td><td class="cell fold">T3s</td><td class="cell fold">T2s</td>
+      </tr>
+      <!-- Row 9 -->
+      <tr>
+        <td class="hdr">9</td>
+        <td class="cell raise">A9o</td><td class="cell fold">K9o</td><td class="cell fold">Q9o</td><td class="cell fold">J9o</td><td class="cell fold">T9o</td>
+        <td class="cell raise pair">99</td><td class="cell raise">98s</td><td class="cell raise">97s</td><td class="cell raise">96s</td><td class="cell fold">95s</td>
+        <td class="cell fold">94s</td><td class="cell fold">93s</td><td class="cell fold">92s</td>
+      </tr>
+      <!-- Row 8 -->
+      <tr>
+        <td class="hdr">8</td>
+        <td class="cell fold">A8o</td><td class="cell fold">K8o</td><td class="cell fold">Q8o</td><td class="cell fold">J8o</td><td class="cell fold">T8o</td>
+        <td class="cell fold">98o</td><td class="cell raise pair">88</td><td class="cell raise">87s</td><td class="cell raise">86s</td><td class="cell fold">85s</td>
+        <td class="cell fold">84s</td><td class="cell fold">83s</td><td class="cell fold">82s</td>
+      </tr>
+      <!-- Row 7 -->
+      <tr>
+        <td class="hdr">7</td>
+        <td class="cell fold">A7o</td><td class="cell fold">K7o</td><td class="cell fold">Q7o</td><td class="cell fold">J7o</td><td class="cell fold">T7o</td>
+        <td class="cell fold">97o</td><td class="cell fold">87o</td><td class="cell raise pair">77</td><td class="cell raise">76s</td><td class="cell raise">75s</td>
+        <td class="cell fold">74s</td><td class="cell fold">73s</td><td class="cell fold">72s</td>
+      </tr>
+      <!-- Row 6 -->
+      <tr>
+        <td class="hdr">6</td>
+        <td class="cell fold">A6o</td><td class="cell fold">K6o</td><td class="cell fold">Q6o</td><td class="cell fold">J6o</td><td class="cell fold">T6o</td>
+        <td class="cell fold">96o</td><td class="cell fold">86o</td><td class="cell fold">76o</td><td class="cell raise pair">66</td><td class="cell raise">65s</td>
+        <td class="cell raise">64s</td><td class="cell fold">63s</td><td class="cell fold">62s</td>
+      </tr>
+      <!-- Row 5 -->
+      <tr>
+        <td class="hdr">5</td>
+        <td class="cell fold">A5o</td><td class="cell fold">K5o</td><td class="cell fold">Q5o</td><td class="cell fold">J5o</td><td class="cell fold">T5o</td>
+        <td class="cell fold">95o</td><td class="cell fold">85o</td><td class="cell fold">75o</td><td class="cell fold">65o</td><td class="cell raise pair">55</td>
+        <td class="cell raise">54s</td><td class="cell fold">53s</td><td class="cell fold">52s</td>
+      </tr>
+      <!-- Row 4 -->
+      <tr>
+        <td class="hdr">4</td>
+        <td class="cell fold">A4o</td><td class="cell fold">K4o</td><td class="cell fold">Q4o</td><td class="cell fold">J4o</td><td class="cell fold">T4o</td>
+        <td class="cell fold">94o</td><td class="cell fold">84o</td><td class="cell fold">74o</td><td class="cell fold">64o</td><td class="cell fold">54o</td>
+        <td class="cell raise pair">44</td><td class="cell fold">43s</td><td class="cell fold">42s</td>
+      </tr>
+      <!-- Row 3 -->
+      <tr>
+        <td class="hdr">3</td>
+        <td class="cell fold">A3o</td><td class="cell fold">K3o</td><td class="cell fold">Q3o</td><td class="cell fold">J3o</td><td class="cell fold">T3o</td>
+        <td class="cell fold">93o</td><td class="cell fold">83o</td><td class="cell fold">73o</td><td class="cell fold">63o</td><td class="cell fold">53o</td>
+        <td class="cell fold">43o</td><td class="cell fold pair">33</td><td class="cell fold">32s</td>
+      </tr>
+      <!-- Row 2 -->
+      <tr>
+        <td class="hdr">2</td>
+        <td class="cell fold">A2o</td><td class="cell fold">K2o</td><td class="cell fold">Q2o</td><td class="cell fold">J2o</td><td class="cell fold">T2o</td>
+        <td class="cell fold">92o</td><td class="cell fold">82o</td><td class="cell fold">72o</td><td class="cell fold">62o</td><td class="cell fold">52o</td>
+        <td class="cell fold">42o</td><td class="cell fold">32o</td><td class="cell fold pair">22</td>
+      </tr>
+    </table>
+
+    <!-- Disclaimer -->
+    <p class="mt-3 text-xs text-gray-400 text-center">简化 GTO 参考，仅供学习使用</p>
+  </div>
+</body>
+</html>

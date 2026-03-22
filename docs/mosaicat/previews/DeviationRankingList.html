@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeviationRankingList Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xl mx-auto">
+    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">Top Deviations</h3>
+
+      <div class="space-y-3">
+
+        <!-- #1 -->
+        <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
+          <div class="flex-shrink-0 w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center">
+            <span class="text-xs font-bold text-gray-500">1</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-sm font-medium text-gray-900">Preflop cold-call too often</span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-700">Preflop</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-gray-400">
+              <span>28 occurrences</span>
+              <span>avg -1.8 BB</span>
+            </div>
+            <div class="flex gap-1 mt-1.5">
+              <a href="#" class="text-xs text-blue-600 hover:text-blue-700 hover:underline">Example 1</a>
+              <a href="#" class="text-xs text-blue-600 hover:text-blue-700 hover:underline">Example 2</a>
+              <a href="#" class="text-xs text-blue-600 hover:text-blue-700 hover:underline">Example 3</a>
+            </div>
+          </div>
+          <div class="flex-shrink-0 text-right">
+            <span class="text-sm font-semibold text-red-500">-50.4 BB</span>
+            <p class="text-xs text-gray-400">total</p>
+          </div>
+        </div>
+
+        <!-- #2 -->
+        <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
+          <div class="flex-shrink-0 w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center">
+            <span class="text-xs font-bold text-gray-500">2</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-sm font-medium text-gray-900">Missed flop c-bet opportunity</span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-700">Flop</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-gray-400">
+              <span>22 occurrences</span>
+              <span>avg -2.1 BB</span>
+            </div>
+            <div class="flex gap-1 mt-1.5">
+              <a href="#" class="text-xs text-blue-600 hover:text-blue-700 hover:underline">Example 1</a>
+              <a href="#" class="text-xs text-blue-600 hover:text-blue-700 hover:underline">Example 2</a>
+            </div>
+          </div>
+          <div class="flex-shrink-0 text-right">
+            <span class="text-sm font-semibold text-red-500">-46.2 BB</span>
+            <p class="text-xs text-gray-400">total</p>
+          </div>
+        </div>
+
+        <!-- #3 -->
+        <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
+          <div class="flex-shrink-0 w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center">
+            <span class="text-xs font-bold text-gray-500">3</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-sm font-medium text-gray-900">Over-folding to river bets</span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-700">River</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-gray-400">
+              <span>18 occurrences</span>
+              <span>avg -3.2 BB</span>
+            </div>
+            <div class="flex gap-1 mt-1.5">
+              <a href="#" class="text-xs text-blue-600 hover:text-blue-700 hover:underline">Example 1</a>
+            </div>
+          </div>
+          <div class="flex-shrink-0 text-right">
+            <span class="text-sm font-semibold text-red-500">-57.6 BB</span>
+            <p class="text-xs text-gray-400">total</p>
+          </div>
+        </div>
+
+        <!-- #4 -->
+        <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
+          <div class="flex-shrink-0 w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center">
+            <span class="text-xs font-bold text-gray-500">4</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-sm font-medium text-gray-900">Turn bet sizing too small</span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-700">Turn</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-gray-400">
+              <span>15 occurrences</span>
+              <span>avg -1.4 BB</span>
+            </div>
+          </div>
+          <div class="flex-shrink-0 text-right">
+            <span class="text-sm font-semibold text-red-500">-21.0 BB</span>
+            <p class="text-xs text-gray-400">total</p>
+          </div>
+        </div>
+
+        <!-- #5 -->
+        <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
+          <div class="flex-shrink-0 w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center">
+            <span class="text-xs font-bold text-gray-500">5</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-sm font-medium text-gray-900">Open-raise too tight from CO</span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-700">Preflop</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-gray-400">
+              <span>12 occurrences</span>
+              <span>avg -0.9 BB</span>
+            </div>
+            <div class="flex gap-1 mt-1.5">
+              <a href="#" class="text-xs text-blue-600 hover:text-blue-700 hover:underline">Example 1</a>
+              <a href="#" class="text-xs text-blue-600 hover:text-blue-700 hover:underline">Example 2</a>
+            </div>
+          </div>
+          <div class="flex-shrink-0 text-right">
+            <span class="text-sm font-semibold text-red-500">-10.8 BB</span>
+            <p class="text-xs text-gray-400">total</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

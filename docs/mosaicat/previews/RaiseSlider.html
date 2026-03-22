@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RaiseSlider Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 8px;
+      outline: none;
+      background: linear-gradient(to right, #2563eb 45%, #e5e7eb 45%);
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #2563eb;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      cursor: pointer;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+<body>
+  <div class="max-w-md mx-auto bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+    <div class="w-full space-y-3">
+      <!-- Value display -->
+      <div class="flex items-center justify-between">
+        <span class="text-sm font-medium text-gray-900">Raise to 150</span>
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-gray-400">75.0 BB</span>
+          <span class="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded">50% pot</span>
+        </div>
+      </div>
+
+      <!-- Slider track -->
+      <div class="relative">
+        <input type="range" min="20" max="500" value="150" />
+        <div class="flex justify-between mt-1">
+          <span class="text-xs text-gray-400">20</span>
+          <span class="text-xs text-gray-400">500</span>
+        </div>
+      </div>
+
+      <!-- Suggested sizing buttons -->
+      <div class="flex items-center gap-2 flex-wrap">
+        <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-gray-600">33%</button>
+        <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-blue-600 text-white">50%</button>
+        <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-gray-600">75%</button>
+        <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-gray-600">Pot</button>
+        <button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-gray-600">All-In</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

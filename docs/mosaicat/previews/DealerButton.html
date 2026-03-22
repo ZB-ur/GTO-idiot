@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex items-center gap-6">
+    <!-- On light background -->
+    <div class="flex flex-col items-center gap-2">
+      <div class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white border-2 border-gray-300 shadow-sm text-xs font-bold text-gray-900 select-none">
+        D
+      </div>
+      <span class="text-xs text-gray-400">Light bg</span>
+    </div>
+    <!-- On felt background -->
+    <div class="flex flex-col items-center gap-2">
+      <div class="bg-emerald-800 rounded-xl p-6 inline-flex items-center justify-center">
+        <div class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white border-2 border-gray-300 shadow-sm text-xs font-bold text-gray-900 select-none">
+          D
+        </div>
+      </div>
+      <span class="text-xs text-gray-400">On felt</span>
+    </div>
+  </div>
+</body>
+</html>

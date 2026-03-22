@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">Toast Component</h2>
+
+  <p class="text-sm text-gray-600 mb-3">All Variants (stacked for preview)</p>
+  <div class="flex flex-col gap-3 max-w-sm">
+    <!-- Info -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-blue-50 border-blue-200">
+      <span class="text-lg text-blue-600 flex-shrink-0">ℹ</span>
+      <p class="text-sm text-gray-900 flex-1">Session loaded — 24 hands ready for review.</p>
+      <button class="text-gray-400 hover:text-gray-600 flex-shrink-0 ml-2">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Success -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-green-50 border-green-200">
+      <span class="text-lg text-green-600 flex-shrink-0">✓</span>
+      <p class="text-sm text-gray-900 flex-1">Hand history imported successfully!</p>
+      <button class="text-gray-400 hover:text-gray-600 flex-shrink-0 ml-2">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Warning -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-yellow-50 border-yellow-200">
+      <span class="text-lg text-yellow-600 flex-shrink-0">⚠</span>
+      <p class="text-sm text-gray-900 flex-1">GTO data is simplified — use as reference only.</p>
+      <button class="text-gray-400 hover:text-gray-600 flex-shrink-0 ml-2">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Error -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-red-50 border-red-200">
+      <span class="text-lg text-red-600 flex-shrink-0">✕</span>
+      <p class="text-sm text-gray-900 flex-1">Failed to parse hand history file. Invalid format.</p>
+      <button class="text-gray-400 hover:text-gray-600 flex-shrink-0 ml-2">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Positioning demo -->
+  <p class="text-sm text-gray-600 mt-6 mb-2">Fixed Position (bottom-right, as rendered in app)</p>
+  <div class="relative bg-white border border-gray-200 rounded-xl h-48 overflow-hidden">
+    <div class="p-4 text-sm text-gray-400">App content area...</div>
+    <div class="absolute bottom-4 right-4 flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-green-50 border-green-200 max-w-sm">
+      <span class="text-lg text-green-600 flex-shrink-0">✓</span>
+      <p class="text-sm text-gray-900 flex-1">Analysis complete!</p>
+      <button class="text-gray-400 hover:text-gray-600 flex-shrink-0 ml-2">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</body>
+</html>
