@@ -117,7 +117,8 @@ code/
 ├── src/
 │   ├── {types}/
 │   ├── bot/
-│   │   └── bot-engine.ts
+│   │   ├── bot-engine.ts
+│   │   └── index.ts
 │   ├── components/
 │   │   ├── common/
 │   │   ├── gto/
@@ -132,8 +133,12 @@ code/
 │   │   ├── hand-evaluator.ts
 │   │   ├── index.ts
 │   │   └── pot-calculator.ts
+│   ├── gto/
+│   │   └── preflop-tables.ts
 │   ├── hooks/
-│   │   └── useGameFlow.ts
+│   │   ├── useCrashRecovery.ts
+│   │   ├── useGameFlow.ts
+│   │   └── useGTOLoader.ts
 │   ├── persistence/
 │   │   ├── database.ts
 │   │   ├── hand-repository.ts
@@ -143,7 +148,9 @@ code/
 │   ├── services/
 │   │   ├── ev-estimator.ts
 │   │   ├── index.ts
-│   │   └── session-service.ts
+│   │   ├── review-service.ts
+│   │   ├── session-service.ts
+│   │   └── stats-service.ts
 │   ├── stores/
 │   │   ├── game-store.ts
 │   │   ├── index.ts
@@ -160,10 +167,27 @@ code/
 │   ├── index.css
 │   ├── main.tsx
 │   └── vite-env.d.ts
+├── tests/
+│   ├── app-shell.test.ts
+│   ├── bot-engine.test.ts
+│   ├── e2e-game-loop.test.ts
+│   ├── game-engine.test.ts
+│   ├── gto-reference-ui.test.ts
+│   ├── gto-service.test.ts
+│   ├── persistence.test.ts
+│   ├── review-service.test.ts
+│   ├── review-ui.test.ts
+│   ├── session-manager.test.ts
+│   ├── setup.ts
+│   ├── stats-service.test.ts
+│   ├── stats-ui.test.ts
+│   ├── stores.test.ts
+│   └── table-ui.test.ts
 ├── index.html
 ├── package-lock.json
 ├── package.json
 ├── postcss.config.js
+├── README.md
 ├── tailwind.config.js
 ├── tsconfig.json
 ├── tsconfig.node.json

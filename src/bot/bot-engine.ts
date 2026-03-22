@@ -6,6 +6,8 @@
  * - Postflop: classifies board texture + hand strength, consults simplified
  *   postflop guides, and maps the recommended PostflopAction to a concrete
  *   PlayerAction with appropriate sizing.
+ * - Includes randomization jitter on bet sizing so bots don't always bet
+ *   perfectly round amounts.
  */
 
 import type {
@@ -14,7 +16,6 @@ import type {
   PlayerAction,
   Position,
   Street,
-
   BlindStructure,
   PreflopChart,
   PreflopCell,
@@ -68,6 +69,13 @@ export function setGTOData(
 ): void {
   preflopCharts = charts;
   postflopGuides = guides;
+}
+
+/**
+ * Check whether GTO data has been loaded.
+ */
+export function isGTODataLoaded(): boolean {
+  return preflopCharts !== null || postflopGuides !== null;
 }
 
 // ─── Public API ──────────────────────────────────────────────────
@@ -215,9 +223,11 @@ function mapPreflopAction(
 
     case 'raise': {
       // Standard open-raise sizing: 2.5BB; 3-bet: ~3× previous raise
+      // Add slight randomization (+/- 10%) so bots aren't perfectly predictable
+      const jitter = 0.9 + Math.random() * 0.2; // 0.9 - 1.1
       const raiseSize = currentBet === blinds.bigBlind
-        ? blinds.bigBlind * 2.5
-        : currentBet * 2.5;
+        ? blinds.bigBlind * 2.5 * jitter
+        : currentBet * 2.5 * jitter;
       const totalAmount = Math.min(
         Math.round(raiseSize * 100) / 100,
         player.chipStack + player.currentBet,
@@ -246,13 +256,17 @@ function heuristicPreflop(
   const isSuited = cards[0].suit === cards[1].suit;
   const rand = Math.random();
 
-  // Premium hands – raise
+  // Premium hands (pairs, two broadway, suited broadway) – raise
   if (isPair || highCards === 2 || (highCards === 1 && isSuited)) {
     if (rand < 0.35 && amountToCall <= blinds.bigBlind * 6) {
-      const raiseAmount = currentBet + blinds.bigBlind * 2.5;
+      const jitter = 0.9 + Math.random() * 0.2;
+      const raiseAmount = currentBet + blinds.bigBlind * 2.5 * jitter;
       return {
         actionType: 'raise',
-        amount: Math.min(raiseAmount, player.chipStack + player.currentBet),
+        amount: Math.min(
+          Math.round(raiseAmount * 100) / 100,
+          player.chipStack + player.currentBet,
+        ),
       };
     }
     if (amountToCall <= player.chipStack) return { actionType: 'call' };
@@ -421,13 +435,16 @@ function computeBetSize(
   player: Player,
   blinds: BlindStructure,
 ): number {
-  const raw = Math.round(potSize * potFraction * 100) / 100;
+  // Add slight jitter (+/- 5%) to prevent perfectly predictable sizing
+  const jitter = 0.95 + Math.random() * 0.1;
+  const raw = Math.round(potSize * potFraction * jitter * 100) / 100;
   const clamped = Math.max(raw, blinds.bigBlind);
   return Math.min(clamped, player.chipStack);
 }
 
 function resolveRaise(multiplier: number, amountToCall: number, player: Player): PlayerAction {
-  const raiseTotal = Math.round(amountToCall * multiplier * 100) / 100 + player.currentBet;
+  const jitter = 0.95 + Math.random() * 0.1;
+  const raiseTotal = Math.round(amountToCall * multiplier * jitter * 100) / 100 + player.currentBet;
   if (raiseTotal >= player.chipStack + player.currentBet) {
     return { actionType: 'all_in' };
   }
@@ -471,14 +488,21 @@ function heuristicPostflop(
   }
 
   // Weak / air
-  if (amountToCall === 0) return { actionType: 'check' };
+  if (amountToCall === 0) {
+    // Occasional bluff bet with air
+    if (rand < 0.12) {
+      const betSize = Math.round(potSize * 0.33);
+      return { actionType: 'bet', amount: Math.min(Math.max(betSize, blinds.bigBlind), player.chipStack) };
+    }
+    return { actionType: 'check' };
+  }
   if (rand < 0.08) return { actionType: 'call' }; // bluff call
   return { actionType: 'fold' };
 }
 
 // ─── Board Texture Classification ────────────────────────────────
 
-function classifyBoardTexture(communityCards: Card[]): BoardTexture {
+export function classifyBoardTexture(communityCards: Card[]): BoardTexture {
   if (communityCards.length === 0) return 'mixed_rainbow';
 
   // Height
@@ -516,7 +540,7 @@ function classifyBoardTexture(communityCards: Card[]): BoardTexture {
 
 // ─── Hand Strength Tier ──────────────────────────────────────────
 
-function classifyHandStrength(hand: EvaluatedHand): HandStrengthTier {
+export function classifyHandStrength(hand: EvaluatedHand): HandStrengthTier {
   switch (hand.rank) {
     case HandRank.RoyalFlush:
     case HandRank.StraightFlush:
@@ -549,3 +573,7 @@ function isInPosition(player: Player, players: Player[], dealerIndex: number): b
   // BTN (0) and CO (5) are "in position" in most postflop scenarios
   return offset === 0 || offset >= 4;
 }
+
+// ─── Exported Utilities (for testing / review service) ───────────
+
+export { handNotation };
