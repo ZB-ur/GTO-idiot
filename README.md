@@ -142,10 +142,55 @@ code/
 │   ├── main.tsx
 │   ├── types.ts
 │   └── vite-env.d.ts
+├── tests/
+│   ├── app/
+│   │   ├── app-shell.test.tsx
+│   │   └── error-handling.test.ts
+│   ├── bot/
+│   │   └── bot-engine.test.ts
+│   ├── core/
+│   │   ├── deck.test.ts
+│   │   ├── game-engine.test.ts
+│   │   ├── hand-evaluator.test.ts
+│   │   ├── pot-manager.test.ts
+│   │   └── types.test.ts
+│   ├── e2e/
+│   │   └── full-game-flow.test.tsx
+│   ├── gto/
+│   │   ├── board-classifier.test.ts
+│   │   ├── gto-service.test.ts
+│   │   ├── postflop-loader.test.ts
+│   │   └── preflop-data.test.ts
+│   ├── performance/
+│   │   └── performance.test.ts
+│   ├── persistence/
+│   │   ├── hand-saving.test.ts
+│   │   ├── history-service.test.ts
+│   │   └── schema.test.ts
+│   ├── services/
+│   │   ├── game-service.test.ts
+│   │   ├── replay-service.test.ts
+│   │   ├── report-service.test.ts
+│   │   └── settings-service.test.ts
+│   ├── store/
+│   │   └── game-store.test.ts
+│   ├── ui/
+│   │   ├── action-panel.test.tsx
+│   │   ├── animations.test.tsx
+│   │   ├── history-page.test.tsx
+│   │   ├── playing-card.test.tsx
+│   │   ├── poker-table.test.tsx
+│   │   ├── replay-page.test.tsx
+│   │   ├── report-page.test.tsx
+│   │   ├── settings-page.test.tsx
+│   │   ├── shared.test.tsx
+│   │   └── sound-effects.test.ts
+│   └── setup.ts
 ├── index.html
 ├── package-lock.json
 ├── package.json
 ├── postcss.config.js
+├── README.md
 ├── tailwind.config.js
 ├── tsconfig.app.json
 ├── tsconfig.json

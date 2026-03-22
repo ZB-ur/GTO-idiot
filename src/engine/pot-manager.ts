@@ -62,15 +62,6 @@ export class PotManager {
       const layerAmount = level - previousLevel;
       if (layerAmount <= 0) continue;
 
-      const eligiblePlayerIds = sorted
-        .filter((b) => b.amount >= level)
-        .map((b) => b.playerId);
-
-      // Also include players who contributed at least some to this layer
-      const contributingPlayerIds = sorted
-        .filter((b) => b.amount > previousLevel)
-        .map((b) => b.playerId);
-
       // Each contributing player puts in min(their remaining contribution, layerAmount)
       let potAmount = 0;
       for (const bet of sorted) {
