@@ -1,0 +1,256 @@
+{
+  "guides": [
+    {
+      "boardTexture": "high_rainbow_disconnected",
+      "handStrength": "nuts",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_big", "frequency": 0.85, "sizing": "75% pot", "alternativeAction": "check", "alternativeFrequency": 0.15, "explanation": "Value bet strong hands on dry boards" }
+    },
+    {
+      "boardTexture": "high_rainbow_disconnected",
+      "handStrength": "nuts",
+      "street": "flop",
+      "isInPosition": false,
+      "recommendation": { "primaryAction": "bet_big", "frequency": 0.7, "sizing": "75% pot", "alternativeAction": "check", "alternativeFrequency": 0.3, "explanation": "Lead out with strong hands OOP for value" }
+    },
+    {
+      "boardTexture": "high_rainbow_disconnected",
+      "handStrength": "strong",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_medium", "frequency": 0.75, "sizing": "50% pot", "alternativeAction": "check", "alternativeFrequency": 0.25, "explanation": "Build pot with strong hands on safe board" }
+    },
+    {
+      "boardTexture": "high_rainbow_disconnected",
+      "handStrength": "strong",
+      "street": "flop",
+      "isInPosition": false,
+      "recommendation": { "primaryAction": "check", "frequency": 0.55, "alternativeAction": "bet_medium", "alternativeFrequency": 0.45, "sizing": "50% pot", "explanation": "Mix check-call and donk bets OOP" }
+    },
+    {
+      "boardTexture": "high_rainbow_disconnected",
+      "handStrength": "medium",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_small", "frequency": 0.6, "sizing": "33% pot", "alternativeAction": "check", "alternativeFrequency": 0.4, "explanation": "Small bet for thin value or check back" }
+    },
+    {
+      "boardTexture": "high_rainbow_disconnected",
+      "handStrength": "medium",
+      "street": "flop",
+      "isInPosition": false,
+      "recommendation": { "primaryAction": "check", "frequency": 0.7, "alternativeAction": "call", "alternativeFrequency": 0.3, "explanation": "Check-call medium strength OOP" }
+    },
+    {
+      "boardTexture": "high_rainbow_disconnected",
+      "handStrength": "weak",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "check", "frequency": 0.7, "alternativeAction": "bet_small", "alternativeFrequency": 0.3, "sizing": "33% pot", "explanation": "Mostly check back weak hands" }
+    },
+    {
+      "boardTexture": "high_rainbow_disconnected",
+      "handStrength": "weak",
+      "street": "flop",
+      "isInPosition": false,
+      "recommendation": { "primaryAction": "check", "frequency": 0.85, "alternativeAction": "fold", "alternativeFrequency": 0.15, "explanation": "Check and evaluate OOP with weak hands" }
+    },
+    {
+      "boardTexture": "high_rainbow_disconnected",
+      "handStrength": "air",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "check", "frequency": 0.6, "alternativeAction": "bet_medium", "alternativeFrequency": 0.4, "sizing": "50% pot", "explanation": "Mix bluffs and check-backs" }
+    },
+    {
+      "boardTexture": "high_rainbow_disconnected",
+      "handStrength": "air",
+      "street": "flop",
+      "isInPosition": false,
+      "recommendation": { "primaryAction": "check", "frequency": 0.8, "alternativeAction": "fold", "alternativeFrequency": 0.2, "explanation": "Check-fold most air OOP" }
+    },
+    {
+      "boardTexture": "high_twotone_connected",
+      "handStrength": "nuts",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_big", "frequency": 0.9, "sizing": "75% pot", "alternativeAction": "raise", "alternativeFrequency": 0.1, "explanation": "Protect strong hands on wet boards" }
+    },
+    {
+      "boardTexture": "high_twotone_connected",
+      "handStrength": "nuts",
+      "street": "flop",
+      "isInPosition": false,
+      "recommendation": { "primaryAction": "bet_big", "frequency": 0.8, "sizing": "75% pot", "alternativeAction": "check", "alternativeFrequency": 0.2, "explanation": "Lead for value and protection on wet texture" }
+    },
+    {
+      "boardTexture": "high_twotone_connected",
+      "handStrength": "strong",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_medium", "frequency": 0.7, "sizing": "60% pot", "alternativeAction": "bet_big", "alternativeFrequency": 0.3, "sizing": "75% pot", "explanation": "Bet for value and deny equity on draw-heavy board" }
+    },
+    {
+      "boardTexture": "high_twotone_connected",
+      "handStrength": "medium",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "check", "frequency": 0.55, "alternativeAction": "bet_small", "alternativeFrequency": 0.45, "sizing": "33% pot", "explanation": "Mixed strategy with medium hands on wet boards" }
+    },
+    {
+      "boardTexture": "high_twotone_connected",
+      "handStrength": "weak",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "check", "frequency": 0.75, "alternativeAction": "fold", "alternativeFrequency": 0.25, "explanation": "Check back or fold weak hands on wet boards" }
+    },
+    {
+      "boardTexture": "high_twotone_connected",
+      "handStrength": "air",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_medium", "frequency": 0.45, "sizing": "55% pot", "alternativeAction": "check", "alternativeFrequency": 0.55, "explanation": "Semi-bluff draws, check back air without equity" }
+    },
+    {
+      "boardTexture": "low_rainbow_disconnected",
+      "handStrength": "nuts",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_small", "frequency": 0.8, "sizing": "33% pot", "alternativeAction": "bet_medium", "alternativeFrequency": 0.2, "sizing": "50% pot", "explanation": "Small c-bet on dry low boards" }
+    },
+    {
+      "boardTexture": "low_rainbow_disconnected",
+      "handStrength": "strong",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_small", "frequency": 0.75, "sizing": "33% pot", "alternativeAction": "check", "alternativeFrequency": 0.25, "explanation": "Small bet for value on low dry boards" }
+    },
+    {
+      "boardTexture": "low_rainbow_disconnected",
+      "handStrength": "medium",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_small", "frequency": 0.6, "sizing": "33% pot", "alternativeAction": "check", "alternativeFrequency": 0.4, "explanation": "Thin value bet or check back" }
+    },
+    {
+      "boardTexture": "low_rainbow_disconnected",
+      "handStrength": "weak",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "check", "frequency": 0.65, "alternativeAction": "bet_small", "alternativeFrequency": 0.35, "sizing": "33% pot", "explanation": "Mostly give up or small bluff" }
+    },
+    {
+      "boardTexture": "low_rainbow_disconnected",
+      "handStrength": "air",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_small", "frequency": 0.55, "sizing": "33% pot", "alternativeAction": "check", "alternativeFrequency": 0.45, "explanation": "Frequent small c-bet bluffs on low dry boards" }
+    },
+    {
+      "boardTexture": "mixed_twotone",
+      "handStrength": "nuts",
+      "street": "turn",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_big", "frequency": 0.85, "sizing": "75% pot", "alternativeAction": "bet_medium", "alternativeFrequency": 0.15, "sizing": "50% pot", "explanation": "Continue value betting on turn" }
+    },
+    {
+      "boardTexture": "mixed_twotone",
+      "handStrength": "strong",
+      "street": "turn",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_medium", "frequency": 0.7, "sizing": "60% pot", "alternativeAction": "check", "alternativeFrequency": 0.3, "explanation": "Bet for value, sometimes pot control" }
+    },
+    {
+      "boardTexture": "mixed_twotone",
+      "handStrength": "medium",
+      "street": "turn",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "check", "frequency": 0.65, "alternativeAction": "bet_small", "alternativeFrequency": 0.35, "sizing": "40% pot", "explanation": "Pot control with medium strength" }
+    },
+    {
+      "boardTexture": "mixed_twotone",
+      "handStrength": "weak",
+      "street": "turn",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "check", "frequency": 0.8, "alternativeAction": "fold", "alternativeFrequency": 0.2, "explanation": "Give up or check back weak hands" }
+    },
+    {
+      "boardTexture": "mixed_twotone",
+      "handStrength": "air",
+      "street": "turn",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_big", "frequency": 0.35, "sizing": "75% pot", "alternativeAction": "check", "alternativeFrequency": 0.65, "explanation": "Barrel with good blockers, give up the rest" }
+    },
+    {
+      "boardTexture": "mixed_rainbow",
+      "handStrength": "nuts",
+      "street": "river",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_big", "frequency": 0.9, "sizing": "80% pot", "alternativeAction": "all_in", "alternativeFrequency": 0.1, "explanation": "Max value on river with the nuts" }
+    },
+    {
+      "boardTexture": "mixed_rainbow",
+      "handStrength": "strong",
+      "street": "river",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_medium", "frequency": 0.65, "sizing": "55% pot", "alternativeAction": "check", "alternativeFrequency": 0.35, "explanation": "Value bet strong hands, check if board is scary" }
+    },
+    {
+      "boardTexture": "mixed_rainbow",
+      "handStrength": "medium",
+      "street": "river",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "check", "frequency": 0.75, "alternativeAction": "bet_small", "alternativeFrequency": 0.25, "sizing": "33% pot", "explanation": "Mostly showdown value, thin bet occasionally" }
+    },
+    {
+      "boardTexture": "mixed_rainbow",
+      "handStrength": "weak",
+      "street": "river",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "check", "frequency": 0.85, "alternativeAction": "fold", "alternativeFrequency": 0.15, "explanation": "Check and hope for showdown" }
+    },
+    {
+      "boardTexture": "mixed_rainbow",
+      "handStrength": "air",
+      "street": "river",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_big", "frequency": 0.3, "sizing": "75% pot", "alternativeAction": "check", "alternativeFrequency": 0.7, "explanation": "Bluff with blockers, give up without" }
+    },
+    {
+      "boardTexture": "high_monotone",
+      "handStrength": "nuts",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "bet_small", "frequency": 0.7, "sizing": "33% pot", "alternativeAction": "check", "alternativeFrequency": 0.3, "explanation": "Small bet on monotone, avoid folding out worse" }
+    },
+    {
+      "boardTexture": "high_monotone",
+      "handStrength": "strong",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "check", "frequency": 0.6, "alternativeAction": "bet_small", "alternativeFrequency": 0.4, "sizing": "33% pot", "explanation": "Careful on monotone boards without flush" }
+    },
+    {
+      "boardTexture": "high_monotone",
+      "handStrength": "medium",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "check", "frequency": 0.75, "alternativeAction": "fold", "alternativeFrequency": 0.25, "explanation": "Check back medium hands on flush boards" }
+    },
+    {
+      "boardTexture": "high_monotone",
+      "handStrength": "weak",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "check", "frequency": 0.6, "alternativeAction": "fold", "alternativeFrequency": 0.4, "explanation": "Mostly give up without flush draw" }
+    },
+    {
+      "boardTexture": "high_monotone",
+      "handStrength": "air",
+      "street": "flop",
+      "isInPosition": true,
+      "recommendation": { "primaryAction": "check", "frequency": 0.7, "alternativeAction": "bet_small", "alternativeFrequency": 0.3, "sizing": "33% pot", "explanation": "Bluff with flush draw only" }
+    }
+  ]
+}
