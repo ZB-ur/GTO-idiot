@@ -1,441 +1,408 @@
-# Test Plan — GTO Idiot (Texas Hold'em GTO Strategy Trainer)
+# GTO Idiot — Test Plan
 
 ## Test Strategy
 
-### Framework Selection: Vitest + React Testing Library
-
-**Rationale:**
-- The project uses **Vite + React + TypeScript**, making **Vitest** the natural, zero-config test framework (Vite-native, shared config, fast HMR-based watch mode).
-- **React Testing Library** for component tests — aligns with the project's React 18 stack.
-- **jsdom** environment for DOM-dependent tests (components, IndexedDB mocks).
-- **fake-indexeddb** for IndexedDB simulation in Node.js environment.
+### Framework Selection
+**Vitest + React Testing Library** — chosen because:
+1. The project uses Vite as build tool; Vitest is Vite-native with zero-config integration
+2. React Testing Library aligns with the React 18 UI layer for component testing
+3. `jsdom` environment for DOM simulation (no real browser needed for unit/integration)
+4. Fast watch mode and HMR-aware test runner for developer experience
 
 ### Test Pyramid
+- **Unit tests (70%):** Core engine logic (deck, hand evaluator, pot manager, game engine state machine), GTO data services, bot engine, persistence services, settings
+- **Integration tests (20%):** Service orchestration (game-service wiring engine + bot + GTO), store ↔ service integration, replay/report service consuming history + GTO
+- **E2E tests (10%):** Full game flow (create → play → showdown → history save → replay → report), error handling and edge cases, performance benchmarks
 
-| Level | Focus | Approximate Count |
-|-------|-------|--------------------|
-| **Unit** | Engine logic, evaluators, services, data utilities | ~60 cases |
-| **Integration** | Service orchestration, store ↔ engine, service ↔ persistence | ~20 cases |
-| **E2E (component-level)** | Full page flows, game loop, replay flow | ~10 cases |
-
-### Conventions
-- Test files live under `tests/` directory, mirroring source structure
-- Naming: `tests/{module}/{file}.test.ts` (logic) or `.test.tsx` (components)
-- Mocks: GTO data mocked with minimal fixtures; IndexedDB via fake-indexeddb
-- No actual browser E2E (Playwright) in this plan — component-level integration covers critical flows
+### Environment & Mocking Strategy
+- **IndexedDB:** Use `fake-indexeddb` polyfill in test setup for persistence tests
+- **localStorage:** Use `jsdom` built-in or manual mock
+- **GTO data:** Mock static JSON imports for unit tests; use fixture subsets for integration tests
+- **Timers:** Use `vi.useFakeTimers()` for animation and speed-related tests
+- **Random:** Seed or mock `Math.random` for deterministic deck shuffling in tests
 
 ---
 
 ## Test Suites
 
-### Suite 1: Core — Deck (`tests/core/deck.test.ts`)
+### 1. Core Types (tests/core/types.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should define all Card ranks (2-A) and suits (s/h/d/c) | unit | T-002 |
+| should define all Position values for 6-max | unit | T-002 |
+| should define Street enum (preflop/flop/turn/river) | unit | T-002 |
+| should define ActionType enum (fold/check/call/raise/all-in) | unit | T-002 |
+| should define HandRank enum with correct ordering | unit | T-002 |
+| should define BotStyle enum (TAG/LAG/Fish/Nit/Maniac) | unit | T-002 |
+| should enforce GameState type constraints | unit | T-002 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should create a standard 52-card deck with no duplicates | unit | T-003 |
-| 2 | should shuffle deck with Fisher-Yates producing different orderings | unit | T-003 |
-| 3 | should deal N cards and reduce deck size accordingly | unit | T-003 |
-| 4 | should throw when dealing more cards than remaining | unit | T-003 |
-| 5 | should produce statistically uniform distribution over many shuffles | unit | T-003 |
+### 2. Deck Module (tests/core/deck.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should create a 52-card deck with no duplicates | unit | T-003 |
+| should shuffle deck using Fisher-Yates (uniform distribution) | unit | T-003 |
+| should deal N cards and remove them from deck | unit | T-003 |
+| should throw when dealing more cards than remaining | unit | T-003 |
+| should produce different shuffles on consecutive calls | unit | T-003 |
+| should maintain deck integrity after partial deals | unit | T-003 |
 
-### Suite 2: Core — Hand Evaluator (`tests/core/hand-evaluator.test.ts`)
+### 3. Hand Evaluator (tests/core/hand-evaluator.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should evaluate Royal Flush correctly | unit | T-004 |
+| should evaluate Straight Flush correctly | unit | T-004 |
+| should evaluate Four of a Kind correctly | unit | T-004 |
+| should evaluate Full House correctly | unit | T-004 |
+| should evaluate Flush correctly | unit | T-004 |
+| should evaluate Straight correctly (including A-5 wheel) | unit | T-004 |
+| should evaluate Three of a Kind correctly | unit | T-004 |
+| should evaluate Two Pair correctly | unit | T-004 |
+| should evaluate One Pair correctly | unit | T-004 |
+| should evaluate High Card correctly | unit | T-004 |
+| should select best 5 cards from 7 | unit | T-004 |
+| should compare two hands and determine winner | unit | T-004 |
+| should detect split pot (tied hands) | unit | T-004 |
+| should complete evaluation in <1ms | unit | T-004 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should identify Royal Flush | unit | T-004 |
-| 2 | should identify Straight Flush | unit | T-004 |
-| 3 | should identify Four of a Kind | unit | T-004 |
-| 4 | should identify Full House | unit | T-004 |
-| 5 | should identify Flush | unit | T-004 |
-| 6 | should identify Straight (including A-5 wheel) | unit | T-004 |
-| 7 | should identify Three of a Kind | unit | T-004 |
-| 8 | should identify Two Pair | unit | T-004 |
-| 9 | should identify One Pair | unit | T-004 |
-| 10 | should identify High Card | unit | T-004 |
-| 11 | should select best 5 cards from 7 | unit | T-004 |
-| 12 | should correctly compare two hands and determine winner | unit | T-004 |
-| 13 | should detect a split pot (tied hands) | unit | T-004 |
-| 14 | should evaluate within <1ms for a single hand | unit | T-004 |
+### 4. Pot Manager (tests/core/pot-manager.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should calculate main pot from equal bets | unit | T-005 |
+| should create side pot when player is all-in with less chips | unit | T-005 |
+| should create multiple side pots with multiple all-ins | unit | T-005 |
+| should handle split pot distribution correctly | unit | T-005 |
+| should handle odd chip distribution | unit | T-005 |
+| should reset pots between streets | unit | T-005 |
 
-### Suite 3: Core — Pot Manager (`tests/core/pot-manager.test.ts`)
+### 5. Game Engine (tests/core/game-engine.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should create a game session with 6 players | unit | T-006 |
+| should post blinds correctly at hand start | unit | T-006 |
+| should deal 2 hole cards to each active player | unit | T-006 |
+| should transition streets: preflop → flop → turn → river | unit | T-006 |
+| should deal 3 community cards on flop | unit | T-006 |
+| should deal 1 community card on turn and river | unit | T-006 |
+| should validate fold action | unit | T-006 |
+| should validate check action (only when no bet to call) | unit | T-006 |
+| should validate call action with correct amount | unit | T-006 |
+| should validate raise action with min/max constraints | unit | T-006 |
+| should handle all-in action correctly | unit | T-006 |
+| should advance to next player after action | unit | T-006 |
+| should end street when all players have acted | unit | T-006 |
+| should go to showdown when betting complete on river | unit | T-006 |
+| should end hand early when all but one player folds | unit | T-006 |
+| should determine winner at showdown | unit | T-006 |
+| should settle chips correctly after hand | unit | T-006 |
+| should return correct available actions for current player | unit | T-006 |
+| should rotate dealer button between hands | unit | T-006 |
+| should handle heads-up (2 players remaining) blind posting | unit | T-006 |
+| should reject actions from non-active player | unit | T-006 |
+| should reject invalid action types for current state | unit | T-006 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should calculate main pot from equal bets | unit | T-005 |
-| 2 | should create side pot when a player is all-in with less chips | unit | T-005 |
-| 3 | should handle multiple side pots with 3+ all-in players | unit | T-005 |
-| 4 | should correctly split pot among tied winners | unit | T-005 |
-| 5 | should handle odd chip distribution in split pots | unit | T-005 |
+### 6. GTO Preflop Data (tests/gto/preflop-data.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should load preflop data successfully | unit | T-007 |
+| should contain all 169 hand combos | unit | T-007 |
+| should contain strategies for all 6 positions | unit | T-007 |
+| should have valid action frequencies (sum to ~1.0) | unit | T-007 |
+| should have data size under 2MB | unit | T-007 |
 
-### Suite 4: Core — Game Engine (`tests/core/game-engine.test.ts`)
+### 7. GTO Postflop Loader (tests/gto/postflop-loader.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should lazy-load postflop data chunk by board texture | unit | T-008 |
+| should cache loaded chunks to avoid re-fetching | unit | T-008 |
+| should handle load failure gracefully with retry | unit | T-008 |
+| should support all 18 board texture categories | unit | T-008 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should create a new game session with 6 players and correct blind posting | unit | T-006 |
-| 2 | should deal 2 hole cards to each active player at hand start | unit | T-006 |
-| 3 | should transition streets: preflop → flop (3 cards) → turn (1 card) → river (1 card) | unit | T-006 |
-| 4 | should validate actions — reject raise below minimum, reject check when facing bet | unit | T-006 |
-| 5 | should correctly track betting round completion (all players acted, bets matched) | unit | T-006 |
-| 6 | should move to showdown when betting completes on river | unit | T-006 |
-| 7 | should end hand immediately when all but one player folds | unit | T-006 |
-| 8 | should correctly award pot to winner at showdown | unit | T-006 |
-| 9 | should handle all-in player correctly — skip in future streets, eligible for pot | unit | T-006 |
-| 10 | should rotate dealer button and blinds between hands | unit | T-006 |
-| 11 | should return correct available actions for current player | unit | T-006 |
-| 12 | should track hand status transitions: in_progress → showdown → concluded | unit | T-006 |
+### 8. Board Classifier (tests/gto/board-classifier.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should classify high dry rainbow board (e.g., A-K-7 rainbow) | unit | T-009 |
+| should classify low wet monotone board (e.g., 5-6-7 all spades) | unit | T-009 |
+| should classify mid two-tone board | unit | T-009 |
+| should classify paired boards correctly | unit | T-009 |
+| should handle turn and river board updates | unit | T-009 |
 
-### Suite 5: Core — Types (`tests/core/types.test.ts`)
+### 9. GTO Service (tests/gto/gto-service.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should return preflop strategy for given position and scenario | integration | T-009 |
+| should return postflop strategy for given board texture and street | integration | T-009 |
+| should map game situation to GTO recommendation | integration | T-009 |
+| should handle missing data scenario gracefully | unit | T-009 |
+| should return recommendation within reasonable time | unit | T-009 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should define all Card rank and suit combinations | unit | T-002 |
-| 2 | should define all Position values for 6-max | unit | T-002 |
-| 3 | should define all Street, ActionType, HandRank, BotStyle enums | unit | T-002 |
-| 4 | should enforce GameState and HandState shape via type checks | unit | T-002 |
+### 10. Bot Engine (tests/bot/bot-engine.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should create TAG style profile with correct bias coefficients | unit | T-010 |
+| should create LAG style profile with correct bias coefficients | unit | T-010 |
+| should create Fish style profile with correct bias coefficients | unit | T-010 |
+| should create Nit style profile with correct bias coefficients | unit | T-010 |
+| should create Maniac style profile with correct bias coefficients | unit | T-010 |
+| should apply style bias to GTO recommendation for TAG | unit | T-010 |
+| should apply style bias to GTO recommendation for LAG | unit | T-010 |
+| should produce valid action (fold/check/call/raise) | unit | T-010 |
+| should complete decision in <100ms | unit | T-010 |
+| should respect raise size constraints | unit | T-010 |
 
-### Suite 6: GTO — Board Classifier (`tests/gto/board-classifier.test.ts`)
+### 11. Game Service (tests/services/game-service.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should orchestrate player action through game engine | integration | T-011 |
+| should trigger BOT decisions after player action | integration | T-011 |
+| should process all BOT actions until next human turn | integration | T-011 |
+| should return ActionResult with animation events | integration | T-011 |
+| should handle full betting round with mixed player/BOT actions | integration | T-011 |
+| should handle showdown with multiple players | integration | T-011 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should classify rainbow dry board (e.g., K♠ 7♦ 2♣) | unit | T-009 |
-| 2 | should classify two-tone wet board (e.g., J♠ T♠ 8♦) | unit | T-009 |
-| 3 | should classify monotone board (e.g., A♥ 9♥ 4♥) | unit | T-009 |
-| 4 | should classify high/mid/low card texture correctly | unit | T-009 |
-| 5 | should classify paired boards | unit | T-009 |
-| 6 | should handle turn and river board classifications | unit | T-009 |
+### 12. Game Store (tests/store/game-store.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should initialize with default game state | unit | T-012 |
+| should create a new game with config | unit | T-012 |
+| should update state on submitAction | unit | T-012 |
+| should deal next hand | unit | T-012 |
+| should expose derived selectors (current player, available actions) | unit | T-012 |
+| should reset game state | unit | T-012 |
 
-### Suite 7: GTO — Preflop Data (`tests/gto/preflop-data.test.ts`)
+### 13. IndexedDB Schema & Setup (tests/persistence/schema.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should create hands object store with correct schema | unit | T-023 |
+| should create indexes on playedAt, blindLevel, profit | unit | T-023 |
+| should handle database version upgrade | unit | T-023 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should load preflop data successfully | unit | T-007 |
-| 2 | should contain strategy for all 169 hand combos | unit | T-007 |
-| 3 | should contain entries for all 6 positions | unit | T-007 |
-| 4 | should have valid action frequencies summing to ~1.0 | unit | T-007 |
+### 14. History Service (tests/persistence/history-service.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should save a hand record to IndexedDB | integration | T-023 |
+| should retrieve hand record by ID | integration | T-023 |
+| should list hands with pagination | integration | T-023 |
+| should filter hands by date range | integration | T-023 |
+| should filter hands by blind level | integration | T-023 |
+| should filter hands by profit/loss | integration | T-023 |
+| should compute aggregate stats (total hands, P&L, win rate) | integration | T-023 |
+| should compute VPIP and PFR stats | integration | T-023 |
+| should clear all hand records | integration | T-023 |
+| should handle 10,000+ records efficiently (<100ms query) | integration | T-023 |
 
-### Suite 8: GTO — Postflop Loader (`tests/gto/postflop-loader.test.ts`)
+### 15. Hand Record Saving (tests/persistence/hand-saving.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should auto-save hand record when hand concludes | integration | T-024 |
+| should save complete street records with all actions | integration | T-024 |
+| should save correct player info including positions and stacks | integration | T-024 |
+| should save hand result (winner, pot amounts) | integration | T-024 |
+| should handle IndexedDB unavailable gracefully | integration | T-024, T-032 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should lazy-load postflop chunk by board texture | unit | T-008 |
-| 2 | should cache loaded chunks and not re-fetch | unit | T-008 |
-| 3 | should handle load failure gracefully with retry | unit | T-008 |
+### 16. Settings Service (tests/services/settings-service.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should return default settings when none saved | unit | T-026 |
+| should persist settings to localStorage | unit | T-026 |
+| should update partial settings | unit | T-026 |
+| should validate blind level values | unit | T-026 |
+| should validate stack size range | unit | T-026 |
+| should validate speed setting | unit | T-026 |
+| should handle corrupted localStorage data | unit | T-026 |
 
-### Suite 9: GTO — GTO Service (`tests/gto/gto-service.test.ts`)
+### 17. Replay Service (tests/services/replay-service.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should enrich hand record with GTO analysis per decision point | integration | T-027 |
+| should classify deviation as "match" for GTO-compliant action | integration | T-027 |
+| should classify deviation as "minor" for close-to-GTO action | integration | T-027 |
+| should classify deviation as "major" for significant deviation | integration | T-027 |
+| should generate explanation text for each deviation | integration | T-027 |
+| should handle hands with no player decisions (auto-win) | integration | T-027 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should return preflop strategy for given position and scenario | integration | T-009 |
-| 2 | should return postflop strategy for given board texture and street | integration | T-009 |
-| 3 | should map full game situation to GTORecommendation via lookup() | integration | T-009 |
-| 4 | should handle unknown scenario gracefully with default recommendation | unit | T-009 |
+### 18. Report Service (tests/services/report-service.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should generate GTO compliance report for N recent hands | integration | T-029 |
+| should compute overall compliance percentage | integration | T-029 |
+| should compute per-street breakdown (preflop/flop/turn/river) | integration | T-029 |
+| should compute per-decision-type breakdown (fold/call/raise) | integration | T-029 |
+| should identify top 5 weakness scenarios | integration | T-029 |
+| should filter report by date range | integration | T-029 |
+| should handle empty history gracefully | integration | T-029 |
+| should complete analysis for 100 hands in <2s | integration | T-029 |
 
-### Suite 10: Bot Engine (`tests/bot/bot-engine.test.ts`)
+### 19. Shared UI Components (tests/ui/shared.test.tsx)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| Toast should render message and auto-dismiss | unit | T-013 |
+| Skeleton should render placeholder with correct dimensions | unit | T-013 |
+| Spinner should render with accessible label | unit | T-013 |
+| LoadingScreen should display progress bar | unit | T-013 |
+| Modal should open/close and trap focus | unit | T-013 |
+| Tooltip should appear on hover | unit | T-013 |
+| EmptyState should render message and optional CTA | unit | T-013 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should create TAG style profile with correct bias coefficients | unit | T-010 |
-| 2 | should create LAG style profile with higher aggression factor | unit | T-010 |
-| 3 | should create Fish style profile with wider ranges | unit | T-010 |
-| 4 | should create Nit style profile with tighter ranges | unit | T-010 |
-| 5 | should create Maniac style profile with extreme aggression | unit | T-010 |
-| 6 | should make a decision within 100ms | unit | T-010 |
-| 7 | should apply style bias to GTO base recommendation | unit | T-010 |
-| 8 | should return valid action (fold/check/call/raise) for given game state | unit | T-010 |
-| 9 | should not raise above player's chip stack | unit | T-010 |
+### 20. PlayingCard Component (tests/ui/playing-card.test.tsx)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should render card face with rank and suit | unit | T-014 |
+| should render card back when faceDown | unit | T-014 |
+| should display correct suit colors (red/black) | unit | T-014 |
+| should apply flip animation class | unit | T-014 |
 
-### Suite 11: Bot Services — Game Service (`tests/services/game-service.test.ts`)
+### 21. Poker Table Layout (tests/ui/poker-table.test.tsx)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should render 6 seat positions | unit | T-015 |
+| should render community cards area | unit | T-015, T-017 |
+| should render pot display | unit | T-015, T-017 |
+| should highlight active player seat | unit | T-016 |
+| should show dealer button at correct position | unit | T-016 |
+| should show fold state for folded players | unit | T-016 |
+| should display chip stack for each player | unit | T-016 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should orchestrate player action → BOT decisions → state update | integration | T-011 |
-| 2 | should process full betting round with BOTs acting in sequence | integration | T-011 |
-| 3 | should emit animation events for deal, bet, fold actions | integration | T-011 |
-| 4 | should handle end-of-hand settlement and trigger next hand | integration | T-011 |
+### 22. Action Panel (tests/ui/action-panel.test.tsx)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should render Fold/Check/Call/Raise buttons based on available actions | unit | T-018 |
+| should disable buttons when not player's turn | unit | T-018 |
+| should show raise slider with min/max constraints | unit | T-018 |
+| should show raise presets (1/2 pot, 3/4 pot, pot, all-in) | unit | T-018 |
+| should validate raise amount before submission | unit | T-018 |
+| should support keyboard navigation between buttons | unit | T-018 |
 
-### Suite 12: Bot Services — Game Store (`tests/store/game-store.test.ts`)
+### 23. Game Animations (tests/ui/animations.test.tsx)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should apply deal animation to cards | unit | T-019 |
+| should apply flip animation to community cards | unit | T-019 |
+| should apply chip movement animation | unit | T-019 |
+| should apply fold fade animation | unit | T-019 |
+| should apply win collect animation | unit | T-019 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should initialize with idle state | unit | T-012 |
-| 2 | should create a new game session via createGame action | unit | T-012 |
-| 3 | should update state after submitAction | unit | T-012 |
-| 4 | should provide derived selectors (current player, available actions, pot) | unit | T-012 |
-| 5 | should dealNextHand and reset hand state | unit | T-012 |
+### 24. App Shell & Routing (tests/app/app-shell.test.tsx)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should render AppShell with TopNav | unit | T-020 |
+| should navigate to /play route | unit | T-020 |
+| should navigate to /history route | unit | T-020 |
+| should navigate to /history/:handId/replay route | unit | T-020 |
+| should navigate to /report route | unit | T-020 |
+| should navigate to /settings route | unit | T-020 |
+| should show loading screen during GTO data initialization | unit | T-021 |
+| should transition to app after GTO data loads | integration | T-021 |
 
-### Suite 13: Persistence — IndexedDB Schema (`tests/persistence/schema.test.ts`)
+### 25. History Page UI (tests/ui/history-page.test.tsx)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should render stats cards row | unit | T-025 |
+| should render filter toolbar | unit | T-025 |
+| should render hand history list | unit | T-025 |
+| should show empty state when no hands | unit | T-025 |
+| should navigate to replay on hand click | unit | T-025 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should create hands object store with correct indexes | unit | T-023 |
-| 2 | should open database and upgrade schema | unit | T-023 |
+### 26. Replay Page UI (tests/ui/replay-page.test.tsx)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should render ReplayView with street navigator | unit | T-028 |
+| should render action timeline with color-coded nodes | unit | T-028 |
+| should render GTO comparison card | unit | T-028 |
+| should show deviation badge with severity | unit | T-028 |
+| should reveal bot style tags after replay | unit | T-028 |
+| should navigate between streets | unit | T-028 |
 
-### Suite 14: Persistence — History Service (`tests/persistence/history-service.test.ts`)
+### 27. Report Page UI (tests/ui/report-page.test.tsx)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should render compliance score ring | unit | T-030 |
+| should render bar chart by street | unit | T-030 |
+| should render radar chart by decision type | unit | T-030 |
+| should render weakness ranking list | unit | T-030 |
+| should render range selector for hand count | unit | T-030 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should save a hand record to IndexedDB | integration | T-023 |
-| 2 | should retrieve a hand by ID | integration | T-023 |
-| 3 | should list hands with pagination | integration | T-023 |
-| 4 | should filter hands by date range | integration | T-023 |
-| 5 | should filter hands by blind level | integration | T-023 |
-| 6 | should filter hands by profit/loss | integration | T-023 |
-| 7 | should compute aggregate stats (total hands, P&L, win rate, VPIP, PFR) | integration | T-023 |
-| 8 | should clear all records with clearAll() | integration | T-023 |
-| 9 | should handle 10,000+ records with <100ms query time | integration | T-023 |
+### 28. Settings Page UI (tests/ui/settings-page.test.tsx)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should render all settings controls | unit | T-026 |
+| should update blind level selection | unit | T-026 |
+| should update stack size via slider | unit | T-026 |
+| should update speed selection | unit | T-026 |
+| should toggle sound effects | unit | T-026, T-033 |
+| should show confirmation dialog on data clear | unit | T-026 |
 
-### Suite 15: Persistence — Hand Record Saving (`tests/persistence/hand-saving.test.ts`)
+### 29. Sound Effects (tests/ui/sound-effects.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should play fold sound on fold action | unit | T-033 |
+| should play check sound on check action | unit | T-033 |
+| should play chip sound on bet/raise | unit | T-033 |
+| should play deal sound on card deal | unit | T-033 |
+| should respect sound toggle setting | unit | T-033 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should auto-save completed hand from game engine to IndexedDB | integration | T-024 |
-| 2 | should not save incomplete/aborted hands | integration | T-024 |
-| 3 | should record all street actions in correct order | integration | T-024 |
+### 30. Error Handling (tests/app/error-handling.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should show toast when IndexedDB is unavailable | integration | T-032 |
+| should retry GTO lazy load on failure | integration | T-032 |
+| should recover from invalid game state | integration | T-032 |
+| should prevent data loss with confirmation token on clear | integration | T-032 |
 
-### Suite 16: Persistence — Replay Service (`tests/services/replay-service.test.ts`)
+### 31. Performance (tests/performance/performance.test.ts)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| hand evaluator should complete 10,000 evaluations in <1s | unit | T-034, T-004 |
+| bot decision should complete in <100ms | unit | T-034, T-010 |
+| history query with filters on 10,000 records should complete in <100ms | integration | T-034, T-023 |
+| report generation for 100 hands should complete in <2s | integration | T-034, T-029 |
 
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should enrich hand record with GTO analysis per decision point | integration | T-027 |
-| 2 | should classify deviation as match for correct GTO play | unit | T-027 |
-| 3 | should classify deviation as minor for close-to-GTO play | unit | T-027 |
-| 4 | should classify deviation as major for anti-GTO play | unit | T-027 |
-| 5 | should generate explanation text for each deviation | unit | T-027 |
-| 6 | should handle hands with no player decisions (auto-win scenarios) | unit | T-027 |
-
-### Suite 17: Persistence — Report Service (`tests/services/report-service.test.ts`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should generate compliance report for N recent hands | integration | T-029 |
-| 2 | should compute overall GTO compliance percentage | integration | T-029 |
-| 3 | should compute per-street compliance breakdown | integration | T-029 |
-| 4 | should compute per-decision-type compliance breakdown | integration | T-029 |
-| 5 | should identify top 5 weakness scenarios | integration | T-029 |
-| 6 | should return weakness-specific hand list via getWeaknessHands | integration | T-029 |
-| 7 | should handle empty history gracefully | unit | T-029 |
-
-### Suite 18: Bot Services — Settings Service (`tests/services/settings-service.test.ts`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should return default settings when localStorage is empty | unit | T-026 |
-| 2 | should persist updated settings to localStorage | unit | T-026 |
-| 3 | should merge partial updates without overwriting other fields | unit | T-026 |
-| 4 | should validate setting values (blind level, stack size, speed) | unit | T-026 |
-| 5 | should handle corrupted localStorage data gracefully | unit | T-026 |
-
-### Suite 19: UI Shared Components (`tests/ui/shared.test.tsx`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | Toast should render message and auto-dismiss | unit | T-013 |
-| 2 | Spinner should render with correct size prop | unit | T-013 |
-| 3 | Skeleton should render placeholder with correct dimensions | unit | T-013 |
-| 4 | LoadingScreen should show progress bar | unit | T-013 |
-| 5 | Modal should open/close and render children | unit | T-013 |
-| 6 | Tooltip should show on hover | unit | T-013 |
-| 7 | EmptyState should render message and optional action button | unit | T-013 |
-
-### Suite 20: UI Table — PlayingCard (`tests/ui/playing-card.test.tsx`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should render card face with correct rank and suit | unit | T-014 |
-| 2 | should render card back when face-down | unit | T-014 |
-| 3 | should apply correct suit color (red for hearts/diamonds, black for spades/clubs) | unit | T-014 |
-| 4 | should apply flip animation class when transitioning | unit | T-014 |
-
-### Suite 21: UI Table — PokerTable Layout (`tests/ui/poker-table.test.tsx`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should render 6 seat positions | unit | T-015 |
-| 2 | should display dealer button at correct position | unit | T-015, T-016 |
-| 3 | should highlight active player's seat | unit | T-016 |
-| 4 | should show folded state for eliminated players | unit | T-016 |
-| 5 | should render community cards area | unit | T-017 |
-| 6 | should display pot amount | unit | T-017 |
-
-### Suite 22: UI Table — ActionPanel (`tests/ui/action-panel.test.tsx`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should render available action buttons (Fold/Check/Call/Raise) | unit | T-018 |
-| 2 | should disable unavailable actions | unit | T-018 |
-| 3 | should show raise slider with min/max constraints | unit | T-018 |
-| 4 | should display preset raise amounts (1/3 pot, 1/2 pot, pot, all-in) | unit | T-018 |
-| 5 | should call onAction callback with correct action type and amount | unit | T-018 |
-
-### Suite 23: UI Pages — History Page (`tests/ui/history-page.test.tsx`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should render stats cards row | unit | T-025 |
-| 2 | should render filter toolbar | unit | T-025 |
-| 3 | should display hand history list | unit | T-025 |
-| 4 | should show empty state when no history | unit | T-025 |
-
-### Suite 24: UI Pages — Replay Page (`tests/ui/replay-page.test.tsx`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should render street navigator | unit | T-028 |
-| 2 | should render action timeline with color-coded nodes | unit | T-028 |
-| 3 | should display GTO comparison card for selected action | unit | T-028 |
-| 4 | should reveal bot style tags | unit | T-028 |
-| 5 | should show deviation badges (match/minor/major) | unit | T-028 |
-
-### Suite 25: UI Pages — Report Page (`tests/ui/report-page.test.tsx`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should render compliance score ring | unit | T-030 |
-| 2 | should render bar chart for per-street breakdown | unit | T-030 |
-| 3 | should render radar chart for per-decision-type breakdown | unit | T-030 |
-| 4 | should render weakness ranking list | unit | T-030 |
-| 5 | should render range selector for hand count | unit | T-030 |
-
-### Suite 26: UI Pages — Settings Page (`tests/ui/settings-page.test.tsx`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should render all settings controls | unit | T-026 |
-| 2 | should persist changes on update | integration | T-026 |
-| 3 | should show confirmation dialog for data clear | unit | T-026 |
-| 4 | should toggle sound effects | unit | T-033 |
-
-### Suite 27: App Shell (`tests/app/app-shell.test.tsx`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should render AppShell with TopNav | unit | T-020 |
-| 2 | should navigate between all routes | integration | T-020 |
-| 3 | should show loading screen during GTO data initialization | unit | T-021 |
-| 4 | should complete GTO data load and transition to app | integration | T-021 |
-| 5 | should show dashboard with start game CTA and quick stats | unit | T-031 |
-
-### Suite 28: Game Animations (`tests/ui/animations.test.tsx`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should apply deal animation class to newly dealt cards | unit | T-019 |
-| 2 | should apply flip animation to community cards | unit | T-019 |
-| 3 | should apply fold fade animation to folded player | unit | T-019 |
-
-### Suite 29: Error Handling (`tests/app/error-handling.test.ts`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should show toast when IndexedDB is unavailable | unit | T-032 |
-| 2 | should retry GTO lazy load on failure | unit | T-032 |
-| 3 | should recover from invalid game state | unit | T-032 |
-
-### Suite 30: Sound Effects (`tests/ui/sound-effects.test.ts`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should play sound on fold/check/call/raise actions when enabled | unit | T-033 |
-| 2 | should not play sound when sound is disabled in settings | unit | T-033 |
-
-### Suite 31: Performance (`tests/performance/performance.test.ts`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should evaluate hand in <1ms | unit | T-034 |
-| 2 | should make BOT decision in <100ms | unit | T-034 |
-| 3 | should query history with filters in <100ms for 1000 records | integration | T-034 |
-
-### Suite 32: E2E — Full Game Flow (`tests/e2e/full-game-flow.test.tsx`)
-
-| # | Test Case | Type | Covers |
-|---|-----------|------|--------|
-| 1 | should complete a full hand: deal → preflop → flop → turn → river → showdown | e2e | T-035, T-006 |
-| 2 | should save completed hand to history and retrieve it | e2e | T-035, T-024 |
-| 3 | should generate replay with GTO analysis for a completed hand | e2e | T-035, T-027 |
-| 4 | should generate compliance report from saved history | e2e | T-035, T-029 |
-| 5 | should complete multi-hand session with correct stack tracking | e2e | T-035, T-006 |
+### 32. E2E Full Game Flow (tests/e2e/full-game-flow.test.tsx)
+| Test Case | Type | Covers |
+|-----------|------|--------|
+| should complete full game flow: create game → play hand → showdown → settle | e2e | T-035, T-006, T-011 |
+| should auto-save hand to history after completion | e2e | T-035, T-024 |
+| should replay saved hand with GTO analysis | e2e | T-035, T-027 |
+| should generate compliance report from played hands | e2e | T-035, T-029 |
+| should persist settings across page navigation | e2e | T-035, T-026 |
+| should handle multiple consecutive hands in a session | e2e | T-035, T-006 |
 
 ---
 
 ## Setup Instructions
 
-### Install Dependencies
 ```bash
-cd code
-npm install -D vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom fake-indexeddb
+# Install dependencies (from code/ directory)
+cd code && npm install
+
+# Run all tests
+npx vitest run
+
+# Run tests in watch mode
+npx vitest
+
+# Run specific test suite
+npx vitest run tests/core/hand-evaluator.test.ts
+
+# Run tests with coverage
+npx vitest run --coverage
+
+# Run only unit tests
+npx vitest run --grep "unit"
+
+# Run only integration tests
+npx vitest run --grep "integration"
 ```
 
-### Vitest Configuration
-Add to `vite.config.ts`:
-```ts
-/// <reference types="vitest" />
-export default defineConfig({
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: ['./tests/setup.ts'],
-    include: ['tests/**/*.test.{ts,tsx}'],
-    coverage: {
-      reporter: ['text', 'json', 'html'],
-      include: ['src/**/*.{ts,tsx}'],
-      exclude: ['src/vite-env.d.ts', 'src/**/*.d.ts']
-    }
-  }
-});
-```
+### Test Configuration
+- Vitest config is in `vite.config.ts` (test section) or `vitest.config.ts`
+- Test setup file: `tests/setup.ts` (mocks for IndexedDB, localStorage, Audio API)
+- Environment: `jsdom` for all test files
+- Coverage target: ≥80% line coverage for engine and service modules
 
-### Test Setup File (`tests/setup.ts`)
-```ts
-import '@testing-library/jest-dom';
-import 'fake-indexeddb/auto';
-```
-
-### Run Commands
-```bash
-npx vitest run          # Run all tests once
-npx vitest              # Watch mode
-npx vitest --coverage   # With coverage report
-```
-
----
-
-## Task Coverage Matrix
-
-| Task | Test Suites |
-|------|-------------|
-| T-001 | Suite 27 (app-shell) |
-| T-002 | Suite 5 (types) |
-| T-003 | Suite 1 (deck) |
-| T-004 | Suite 2 (hand-evaluator) |
-| T-005 | Suite 3 (pot-manager) |
-| T-006 | Suite 4 (game-engine), Suite 32 (e2e) |
-| T-007 | Suite 7 (preflop-data) |
-| T-008 | Suite 8 (postflop-loader) |
-| T-009 | Suite 6 (board-classifier), Suite 9 (gto-service) |
-| T-010 | Suite 10 (bot-engine) |
-| T-011 | Suite 11 (game-service) |
-| T-012 | Suite 12 (game-store) |
-| T-013 | Suite 19 (shared components) |
-| T-014 | Suite 20 (playing-card) |
-| T-015 | Suite 21 (poker-table) |
-| T-016 | Suite 21 (poker-table) |
-| T-017 | Suite 21 (poker-table) |
-| T-018 | Suite 22 (action-panel) |
-| T-019 | Suite 28 (animations) |
-| T-020 | Suite 27 (app-shell) |
-| T-021 | Suite 27 (app-shell) |
-| T-022 | Suite 32 (e2e full-game) |
-| T-023 | Suite 13 (schema), Suite 14 (history-service) |
-| T-024 | Suite 15 (hand-saving), Suite 32 (e2e) |
-| T-025 | Suite 23 (history-page) |
-| T-026 | Suite 18 (settings-service), Suite 26 (settings-page) |
-| T-027 | Suite 16 (replay-service), Suite 32 (e2e) |
-| T-028 | Suite 24 (replay-page) |
-| T-029 | Suite 17 (report-service), Suite 32 (e2e) |
-| T-030 | Suite 25 (report-page) |
-| T-031 | Suite 27 (app-shell) |
-| T-032 | Suite 29 (error-handling) |
-| T-033 | Suite 30 (sound-effects), Suite 26 (settings-page) |
-| T-034 | Suite 31 (performance) |
-| T-035 | Suite 32 (e2e full-game) |
+### Key Dependencies for Testing
+- `vitest` — test runner
+- `@testing-library/react` — React component testing
+- `@testing-library/jest-dom` — DOM matchers
+- `@testing-library/user-event` — user interaction simulation
+- `fake-indexeddb` — IndexedDB polyfill for Node.js test environment
+- `jsdom` — DOM environment
