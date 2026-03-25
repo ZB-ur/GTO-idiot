@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TurnIndicator Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #064e3b; font-family: system-ui, sans-serif; }
+    @keyframes glow-pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 12px rgba(251,191,36,0.4); }
+      50% { opacity: 0.7; box-shadow: 0 0 20px rgba(251,191,36,0.6); }
+    }
+    .glow-active { animation: glow-pulse 2s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+  <div class="flex items-center gap-8">
+    <!-- Active seat -->
+    <div class="relative">
+      <div class="relative w-28 h-20 rounded-xl bg-emerald-800 border border-emerald-700 flex flex-col items-center justify-center">
+        <span class="text-sm font-semibold text-white">Player 1</span>
+        <span class="text-xs text-emerald-300">1,500</span>
+      </div>
+      <!-- Glow overlay -->
+      <div class="absolute inset-0 rounded-xl border-2 border-amber-400 glow-active"></div>
+      <div class="absolute -inset-0.5 rounded-xl bg-amber-400/10 glow-active"></div>
+    </div>
+
+    <!-- Inactive seat (no glow) -->
+    <div class="relative">
+      <div class="relative w-28 h-20 rounded-xl bg-emerald-800 border border-emerald-700 flex flex-col items-center justify-center">
+        <span class="text-sm font-semibold text-white">Player 2</span>
+        <span class="text-xs text-emerald-300">980</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

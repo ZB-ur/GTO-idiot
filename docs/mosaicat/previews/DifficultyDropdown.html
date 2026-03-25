@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DifficultyDropdown Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-8">
+    <!-- Closed state -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2">Closed (Regular selected)</p>
+      <div class="w-64">
+        <label class="block text-sm font-semibold text-gray-900 mb-1.5">Difficulty</label>
+        <div class="w-full flex items-center justify-between px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-900 shadow-sm">
+          <span>♠️ Regular</span>
+          <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+        </div>
+      </div>
+    </div>
+    <!-- Open state -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2">Open (Regular selected)</p>
+      <div class="w-64 relative">
+        <label class="block text-sm font-semibold text-gray-900 mb-1.5">Difficulty</label>
+        <div class="w-full flex items-center justify-between px-4 py-2.5 bg-white border border-blue-400 rounded-lg text-sm text-gray-900 shadow-sm">
+          <span>♠️ Regular</span>
+          <svg class="w-4 h-4 text-gray-400 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+        </div>
+        <div class="absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
+          <div class="w-full text-left px-4 py-3 text-sm text-gray-900 hover:bg-blue-50">
+            <div class="font-medium">🐟 Fish</div>
+            <div class="text-xs text-gray-500 mt-0.5">Loose & passive play</div>
+          </div>
+          <div class="w-full text-left px-4 py-3 text-sm bg-blue-50 text-blue-600">
+            <div class="font-medium">♠️ Regular</div>
+            <div class="text-xs text-gray-500 mt-0.5">Solid TAG style</div>
+          </div>
+          <div class="w-full text-left px-4 py-3 text-sm text-gray-900 hover:bg-blue-50">
+            <div class="font-medium">🧠 GTO</div>
+            <div class="text-xs text-gray-500 mt-0.5">Game-theory optimal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

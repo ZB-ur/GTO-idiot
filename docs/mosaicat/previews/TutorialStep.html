@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TutorialStep Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-12 items-center">
+
+    <!-- Step 1 of 4 -->
+    <div class="flex flex-col items-center justify-center w-full max-w-md mx-auto px-6 py-8 bg-white rounded-xl shadow-sm border border-gray-200">
+      <!-- Progress Dots -->
+      <div class="flex items-center gap-2 mb-8">
+        <div class="h-2 w-8 rounded-full bg-blue-600"></div>
+        <div class="h-2 w-2 rounded-full bg-gray-200"></div>
+        <div class="h-2 w-2 rounded-full bg-gray-200"></div>
+        <div class="h-2 w-2 rounded-full bg-gray-200"></div>
+      </div>
+
+      <!-- Illustration -->
+      <div class="flex items-center justify-center w-48 h-48 mb-8 rounded-2xl bg-slate-50">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <rect x="8" y="16" width="28" height="40" rx="4" fill="#2563eb" opacity="0.8" />
+          <rect x="44" y="16" width="28" height="40" rx="4" fill="#dc2626" opacity="0.8" />
+          <text x="22" y="42" text-anchor="middle" fill="white" font-size="18" font-weight="bold">A</text>
+          <text x="14" y="30" fill="white" font-size="10">♠</text>
+          <text x="58" y="42" text-anchor="middle" fill="white" font-size="18" font-weight="bold">K</text>
+          <text x="50" y="30" fill="white" font-size="10">♥</text>
+        </svg>
+      </div>
+
+      <!-- Text Content -->
+      <div class="text-center mb-10">
+        <h2 class="text-2xl font-bold text-gray-900 mb-3">Welcome to GTO Idiot</h2>
+        <p class="text-base text-gray-500 leading-relaxed max-w-sm">
+          Practice Texas Hold'em against AI bots and learn Game Theory Optimal play at your own pace.
+        </p>
+      </div>
+
+      <!-- Step Counter -->
+      <p class="text-sm text-gray-400 mb-4">1 of 4</p>
+
+      <!-- Action Button -->
+      <button class="w-full max-w-xs px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base rounded-xl transition-colors duration-150">
+        Next
+      </button>
+    </div>
+
+    <!-- Step 3 of 4 (mid-progress) -->
+    <div class="flex flex-col items-center justify-center w-full max-w-md mx-auto px-6 py-8 bg-white rounded-xl shadow-sm border border-gray-200">
+      <!-- Progress Dots -->
+      <div class="flex items-center gap-2 mb-8">
+        <div class="h-2 w-2 rounded-full bg-blue-300"></div>
+        <div class="h-2 w-2 rounded-full bg-blue-300"></div>
+        <div class="h-2 w-8 rounded-full bg-blue-600"></div>
+        <div class="h-2 w-2 rounded-full bg-gray-200"></div>
+      </div>
+
+      <!-- Illustration -->
+      <div class="flex items-center justify-center w-48 h-48 mb-8 rounded-2xl bg-slate-50">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="36" r="24" fill="#059669" opacity="0.15" />
+          <path d="M28 36 L36 44 L52 28" stroke="#059669" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="40" y="70" text-anchor="middle" fill="#6b7280" font-size="10">GTO</text>
+        </svg>
+      </div>
+
+      <!-- Text Content -->
+      <div class="text-center mb-10">
+        <h2 class="text-2xl font-bold text-gray-900 mb-3">GTO Analysis</h2>
+        <p class="text-base text-gray-500 leading-relaxed max-w-sm">
+          After each hand, review your decisions against GTO-optimal play. See where you deviated and learn to improve.
+        </p>
+      </div>
+
+      <!-- Step Counter -->
+      <p class="text-sm text-gray-400 mb-4">3 of 4</p>
+
+      <!-- Action Button -->
+      <button class="w-full max-w-xs px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base rounded-xl transition-colors duration-150">
+        Next
+      </button>
+    </div>
+
+    <!-- Step 4 of 4 (last step) -->
+    <div class="flex flex-col items-center justify-center w-full max-w-md mx-auto px-6 py-8 bg-white rounded-xl shadow-sm border border-gray-200">
+      <!-- Progress Dots -->
+      <div class="flex items-center gap-2 mb-8">
+        <div class="h-2 w-2 rounded-full bg-blue-300"></div>
+        <div class="h-2 w-2 rounded-full bg-blue-300"></div>
+        <div class="h-2 w-2 rounded-full bg-blue-300"></div>
+        <div class="h-2 w-8 rounded-full bg-blue-600"></div>
+      </div>
+
+      <!-- Illustration -->
+      <div class="flex items-center justify-center w-48 h-48 mb-8 rounded-2xl bg-slate-50">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="28" fill="#f59e0b" opacity="0.15" />
+          <circle cx="40" cy="40" r="18" fill="#f59e0b" opacity="0.3" />
+          <text x="40" y="46" text-anchor="middle" fill="#92400e" font-size="22" font-weight="bold">★</text>
+        </svg>
+      </div>
+
+      <!-- Text Content -->
+      <div class="text-center mb-10">
+        <h2 class="text-2xl font-bold text-gray-900 mb-3">Ready to Play!</h2>
+        <p class="text-base text-gray-500 leading-relaxed max-w-sm">
+          Start with Fish-level bots and work your way up. Track your progress and become a GTO master.
+        </p>
+      </div>
+
+      <!-- Step Counter -->
+      <p class="text-sm text-gray-400 mb-4">4 of 4</p>
+
+      <!-- Action Button -->
+      <button class="w-full max-w-xs px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base rounded-xl transition-colors duration-150">
+        Get Started
+      </button>
+    </div>
+
+  </div>
+</body>
+</html>

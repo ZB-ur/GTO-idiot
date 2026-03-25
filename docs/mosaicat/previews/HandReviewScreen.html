@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandReviewScreen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #111827; font-family: system-ui, sans-serif; color: #fff; }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'chip-gold': '#fbbf24',
+            'felt-green': '#064e3b',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <div style="max-width: 1152px; margin: 0 auto; padding: 24px 16px;">
+    <!-- ── Header ── -->
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button style="padding: 8px; border-radius: 8px; background: #1f2937; border: 1px solid #374151; color: #9ca3af; cursor: pointer;">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <div>
+          <h1 style="font-size: 20px; font-weight: 700; color: #f3f4f6; margin: 0;">Hand Review</h1>
+          <p style="font-size: 14px; color: #6b7280; margin: 4px 0 0 0;">Hand #xyz789 &middot; 8 decisions</p>
+        </div>
+      </div>
+
+      <!-- GTO Score Badge -->
+      <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 12px; background: rgba(234,179,8,0.1); border: 1px solid rgba(161,98,7,0.4);">
+        <span style="font-size: 12px; color: #9ca3af;">GTO Score</span>
+        <span style="font-size: 24px; font-weight: 700; color: #facc15; font-variant-numeric: tabular-nums;">72</span>
+      </div>
+    </div>
+
+    <!-- ── Hand Summary Card ── -->
+    <div style="border-radius: 12px; border: 1px solid rgba(55,65,81,0.6); background: rgba(31,41,55,0.5); padding: 16px; margin-bottom: 24px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+        <h2 style="font-size: 14px; font-weight: 600; color: #e5e7eb; margin: 0;">Summary</h2>
+        <span style="font-size: 14px; font-weight: 500; color: #f87171; font-variant-numeric: tabular-nums;">-2.3 BB</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 16px;">
+        <div style="text-align: center;">
+          <span style="font-size: 12px; color: #6b7280; display: block; margin-bottom: 2px;">Decisions</span>
+          <span style="font-size: 18px; font-weight: 700; color: #e5e7eb; font-variant-numeric: tabular-nums;">8</span>
+        </div>
+        <div style="text-align: center;">
+          <span style="font-size: 12px; color: #6b7280; display: block; margin-bottom: 2px;">Hero Decisions</span>
+          <span style="font-size: 18px; font-weight: 700; color: #93c5fd; font-variant-numeric: tabular-nums;">3</span>
+        </div>
+        <div style="text-align: center;">
+          <span style="font-size: 12px; color: #6b7280; display: block; margin-bottom: 2px;">EV Diff</span>
+          <span style="font-size: 18px; font-weight: 700; color: #f87171; font-variant-numeric: tabular-nums;">-2.30</span>
+        </div>
+        <div style="text-align: center;">
+          <span style="font-size: 12px; color: #6b7280; display: block; margin-bottom: 2px;">GTO Score</span>
+          <span style="font-size: 18px; font-weight: 700; color: #facc15; font-variant-numeric: tabular-nums;">72/100</span>
+        </div>
+      </div>
+
+      <p style="font-size: 14px; color: #9ca3af; line-height: 1.6; margin: 0 0 12px 0;">
+        Solid hand! Your preflop play was on point, but the river call was too loose.
+      </p>
+
+      <!-- Worst Decision -->
+      <div style="padding: 8px 12px; border-radius: 8px; background: rgba(127,29,29,0.2); border: 1px solid rgba(153,27,27,0.3);">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 12px; color: #f87171; font-weight: 500;">Worst Decision</span>
+          <span style="font-size: 12px; color: #ef4444; font-variant-numeric: tabular-nums;">-1.80 BB</span>
+        </div>
+        <p style="font-size: 12px; color: #9ca3af; margin: 4px 0 0 0;">River call was too loose</p>
+      </div>
+    </div>
+
+    <!-- ── Decision Timeline ── -->
+    <div style="border-radius: 12px; border: 1px solid rgba(55,65,81,0.6); background: rgba(31,41,55,0.5); padding: 12px 16px; margin-bottom: 24px;">
+      <div style="display: flex; align-items: center; gap: 4px; overflow-x: auto; padding-bottom: 4px;">
+        <!-- Decision nodes -->
+        <!-- Node 1: Preflop Raise (Hero) - selected -->
+        <div style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; background: #22c55e; color: white; border: 2px solid rgba(255,255,255,0.6); box-shadow: 0 0 0 3px rgba(74,222,128,0.3); flex-shrink: 0; cursor: pointer;">R</div>
+        <div style="width: 16px; height: 1px; background: #6b7280; flex-shrink: 0;"></div>
+        <!-- Node 2: Preflop Call (Bot) -->
+        <div style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; background: #1f2937; color: #9ca3af; border: 2px solid #4b5563; flex-shrink: 0; cursor: pointer;">C</div>
+        <div style="width: 16px; height: 1px; background: #374151; flex-shrink: 0;"></div>
+        <!-- Node 3: Flop Check (Bot) -->
+        <div style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; background: #1f2937; color: #9ca3af; border: 2px solid #4b5563; flex-shrink: 0; cursor: pointer;">Ck</div>
+        <div style="width: 16px; height: 1px; background: #374151; flex-shrink: 0;"></div>
+        <!-- Node 4: Flop Raise (Hero) - green -->
+        <div style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; background: #1f2937; color: #9ca3af; border: 2px solid #4b5563; flex-shrink: 0; cursor: pointer; position: relative;">R<span style="position: absolute; top: -2px; right: -2px; width: 8px; height: 8px; border-radius: 50%; background: #22c55e;"></span></div>
+        <div style="width: 16px; height: 1px; background: #374151; flex-shrink: 0;"></div>
+        <!-- Node 5: Flop Call (Bot) -->
+        <div style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; background: #1f2937; color: #9ca3af; border: 2px solid #4b5563; flex-shrink: 0; cursor: pointer;">C</div>
+        <div style="width: 16px; height: 1px; background: #374151; flex-shrink: 0;"></div>
+        <!-- Node 6: Turn Check (Bot) -->
+        <div style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; background: #1f2937; color: #9ca3af; border: 2px solid #4b5563; flex-shrink: 0; cursor: pointer;">Ck</div>
+        <div style="width: 16px; height: 1px; background: #374151; flex-shrink: 0;"></div>
+        <!-- Node 7: Turn Raise (Hero) - yellow deviation -->
+        <div style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; background: #1f2937; color: #9ca3af; border: 2px solid #4b5563; flex-shrink: 0; cursor: pointer; position: relative;">R<span style="position: absolute; top: -2px; right: -2px; width: 8px; height: 8px; border-radius: 50%; background: #eab308;"></span></div>
+        <div style="width: 16px; height: 1px; background: #374151; flex-shrink: 0;"></div>
+        <!-- Node 8: River Call (Hero) - red deviation -->
+        <div style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; background: #1f2937; color: #9ca3af; border: 2px solid #4b5563; flex-shrink: 0; cursor: pointer; position: relative;">C<span style="position: absolute; top: -2px; right: -2px; width: 8px; height: 8px; border-radius: 50%; background: #ef4444;"></span></div>
+      </div>
+
+      <!-- Street labels -->
+      <div style="display: flex; margin-top: 6px; font-size: 10px; color: #4b5563; text-transform: uppercase; letter-spacing: 0.1em;">
+        <span style="flex: 2; text-align: center;">Preflop</span>
+        <span style="flex: 3; text-align: center;">Flop</span>
+        <span style="flex: 2; text-align: center;">Turn</span>
+        <span style="flex: 1; text-align: center;">River</span>
+      </div>
+    </div>
+
+    <!-- ── Navigation Buttons ── -->
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+      <button style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 8px; background: #1f2937; border: 1px solid #374151; color: #d1d5db; font-size: 14px; cursor: pointer; opacity: 0.4;">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        Prev Decision
+      </button>
+      <span style="font-size: 14px; color: #6b7280; font-variant-numeric: tabular-nums;">1 / 8</span>
+      <button style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 8px; background: #1f2937; border: 1px solid #374151; color: #d1d5db; font-size: 14px; cursor: pointer;">
+        Next Decision
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- ── Table View + GTO Comparison (side-by-side) ── -->
+    <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 16px; margin-bottom: 24px;">
+      <!-- Table Snapshot -->
+      <div style="position: relative; aspect-ratio: 16/10; border-radius: 12px; background: #111827; overflow: hidden;">
+        <!-- Felt oval -->
+        <div style="position: absolute; top: 10%; left: 10%; right: 10%; bottom: 10%; border-radius: 50%; background: linear-gradient(135deg, rgba(6,78,59,0.8), #064e3b); border: 4px solid #374151;"></div>
+
+        <!-- Pot display -->
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+          <span style="font-size: 12px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em;">Pot</span>
+          <div style="font-size: 18px; font-weight: 700; color: #fbbf24; font-variant-numeric: tabular-nums;">24</div>
+        </div>
+
+        <!-- Community cards -->
+        <div style="position: absolute; top: 35%; left: 50%; transform: translateX(-50%); display: flex; gap: 4px;">
+          <div style="width: 36px; height: 52px; border-radius: 4px; background: white; border: 1px solid #d1d5db; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 14px; font-weight: 700;">
+            <span style="color: #111827;">K</span><span style="color: #111827; font-size: 12px;">&spades;</span>
+          </div>
+          <div style="width: 36px; height: 52px; border-radius: 4px; background: white; border: 1px solid #d1d5db; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 14px; font-weight: 700;">
+            <span style="color: #dc2626;">9</span><span style="color: #dc2626; font-size: 12px;">&hearts;</span>
+          </div>
+          <div style="width: 36px; height: 52px; border-radius: 4px; background: white; border: 1px solid #d1d5db; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 14px; font-weight: 700;">
+            <span style="color: #111827;">4</span><span style="color: #111827; font-size: 12px;">&clubs;</span>
+          </div>
+        </div>
+
+        <!-- Player seats -->
+        <!-- Seat 0: Hero (BTN) - Highlighted -->
+        <div style="position: absolute; top: 75%; left: 20%; transform: translate(-50%, -50%);">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 12px; border-radius: 8px; background: rgba(30,58,138,0.6); border: 1px solid rgba(59,130,246,0.6); box-shadow: 0 0 0 2px rgba(96,165,250,0.2); min-width: 70px; text-align: center;">
+            <div style="display: flex; align-items: center; gap: 4px;">
+              <span style="font-size: 12px; font-weight: 500; color: #d1d5db;">Hero</span>
+              <span style="width: 16px; height: 16px; border-radius: 50%; background: #eab308; font-size: 9px; font-weight: 700; color: #111827; display: flex; align-items: center; justify-content: center;">D</span>
+            </div>
+            <span style="font-size: 10px; color: #6b7280;">BTN</span>
+            <span style="font-size: 12px; font-weight: 600; color: #fbbf24; font-variant-numeric: tabular-nums;">196</span>
+            <div style="display: flex; gap: 2px; margin-top: 2px;">
+              <div style="width: 24px; height: 34px; border-radius: 3px; background: white; border: 1px solid #d1d5db; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;">
+                <span style="color: #111827;">A</span><span style="color: #111827; font-size: 8px;">&spades;</span>
+              </div>
+              <div style="width: 24px; height: 34px; border-radius: 3px; background: white; border: 1px solid #d1d5db; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;">
+                <span style="color: #111827;">K</span><span style="color: #111827; font-size: 8px;">&spades;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seat 1: Bot_SB -->
+        <div style="position: absolute; top: 75%; left: 80%; transform: translate(-50%, -50%);">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 12px; border-radius: 8px; background: rgba(31,41,55,0.8); border: 1px solid rgba(75,85,99,0.6); min-width: 70px; text-align: center;">
+            <span style="font-size: 12px; font-weight: 500; color: #d1d5db;">Bot_SB</span>
+            <span style="font-size: 10px; color: #6b7280;">SB</span>
+            <span style="font-size: 12px; font-weight: 600; color: #fbbf24; font-variant-numeric: tabular-nums;">188</span>
+          </div>
+        </div>
+
+        <!-- Seat 2: Bot_BB -->
+        <div style="position: absolute; top: 40%; left: 95%; transform: translate(-50%, -50%);">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 12px; border-radius: 8px; background: rgba(31,41,55,0.8); border: 1px solid rgba(75,85,99,0.6); min-width: 70px; text-align: center;">
+            <span style="font-size: 12px; font-weight: 500; color: #d1d5db;">Bot_BB</span>
+            <span style="font-size: 10px; color: #6b7280;">BB</span>
+            <span style="font-size: 12px; font-weight: 600; color: #fbbf24; font-variant-numeric: tabular-nums;">172</span>
+          </div>
+        </div>
+
+        <!-- Seat 3: Bot_UTG (folded) -->
+        <div style="position: absolute; top: 5%; left: 80%; transform: translate(-50%, -50%);">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 12px; border-radius: 8px; background: rgba(17,24,39,0.6); border: 1px solid rgba(55,65,81,0.4); min-width: 70px; text-align: center; opacity: 0.5;">
+            <span style="font-size: 12px; font-weight: 500; color: #d1d5db;">Bot_UTG</span>
+            <span style="font-size: 10px; color: #6b7280;">UTG</span>
+            <span style="font-size: 12px; font-weight: 600; color: #fbbf24; font-variant-numeric: tabular-nums;">200</span>
+          </div>
+        </div>
+
+        <!-- Seat 4: Bot_MP (folded) -->
+        <div style="position: absolute; top: 5%; left: 20%; transform: translate(-50%, -50%);">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 12px; border-radius: 8px; background: rgba(17,24,39,0.6); border: 1px solid rgba(55,65,81,0.4); min-width: 70px; text-align: center; opacity: 0.5;">
+            <span style="font-size: 12px; font-weight: 500; color: #d1d5db;">Bot_MP</span>
+            <span style="font-size: 10px; color: #6b7280;">MP</span>
+            <span style="font-size: 12px; font-weight: 600; color: #fbbf24; font-variant-numeric: tabular-nums;">200</span>
+          </div>
+        </div>
+
+        <!-- Seat 5: Bot_CO (folded) -->
+        <div style="position: absolute; top: 40%; left: 5%; transform: translate(-50%, -50%);">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 12px; border-radius: 8px; background: rgba(17,24,39,0.6); border: 1px solid rgba(55,65,81,0.4); min-width: 70px; text-align: center; opacity: 0.5;">
+            <span style="font-size: 12px; font-weight: 500; color: #d1d5db;">Bot_CO</span>
+            <span style="font-size: 10px; color: #6b7280;">CO</span>
+            <span style="font-size: 12px; font-weight: 600; color: #fbbf24; font-variant-numeric: tabular-nums;">200</span>
+          </div>
+        </div>
+
+        <!-- Street label -->
+        <div style="position: absolute; bottom: 4px; right: 12px; font-size: 12px; font-weight: 500; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em;">Flop</div>
+      </div>
+
+      <!-- GTO Comparison Panel -->
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <!-- Decision Info -->
+        <div style="border-radius: 12px; border: 1px solid rgba(55,65,81,0.6); background: rgba(31,41,55,0.5); padding: 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <h3 style="font-size: 14px; font-weight: 600; color: #e5e7eb; margin: 0;">Decision #1</h3>
+            <span style="font-size: 12px; padding: 2px 8px; border-radius: 9999px; background: #374151; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em;">preflop</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; justify-content: space-between; font-size: 14px;">
+              <span style="color: #6b7280;">Player</span>
+              <span style="color: #60a5fa; font-weight: 500;">Hero</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 14px;">
+              <span style="color: #6b7280;">Action</span>
+              <span style="color: #e5e7eb; font-weight: 500;">Raise 6</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 14px;">
+              <span style="color: #6b7280;">Pot</span>
+              <span style="color: #fbbf24; font-weight: 500; font-variant-numeric: tabular-nums;">3</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- GTO Comparison -->
+        <div style="border-radius: 12px; border: 1px solid rgba(55,65,81,0.6); background: rgba(31,41,55,0.5); padding: 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <h3 style="font-size: 14px; font-weight: 600; color: #e5e7eb; margin: 0;">GTO Comparison</h3>
+            <span style="font-size: 12px; font-weight: 500; color: #4ade80; font-variant-numeric: tabular-nums;">+0.00 BB</span>
+          </div>
+
+          <!-- Hero action -->
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-radius: 8px; background: rgba(30,58,138,0.3); border: 1px solid rgba(29,78,216,0.4); margin-bottom: 12px;">
+            <span style="font-size: 12px; color: #93c5fd;">Your Action</span>
+            <span style="font-size: 14px; font-weight: 500; color: #bfdbfe;">Raise 6</span>
+          </div>
+
+          <!-- GTO Strategy -->
+          <span style="font-size: 12px; color: #6b7280; display: block; margin-bottom: 6px;">GTO Strategy</span>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; border-radius: 6px; background: #1f2937; border: 1px solid rgba(55,65,81,0.4);">
+              <span style="font-size: 12px; color: #d1d5db; font-weight: 500;">Raise</span>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="width: 64px; height: 6px; border-radius: 9999px; background: #374151; overflow: hidden;">
+                  <div style="width: 85%; height: 100%; border-radius: 9999px; background: #10b981;"></div>
+                </div>
+                <span style="font-size: 12px; color: #6b7280; font-variant-numeric: tabular-nums; width: 32px; text-align: right;">85%</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; border-radius: 6px; background: #1f2937; border: 1px solid rgba(55,65,81,0.4);">
+              <span style="font-size: 12px; color: #d1d5db; font-weight: 500;">Call</span>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="width: 64px; height: 6px; border-radius: 9999px; background: #374151; overflow: hidden;">
+                  <div style="width: 10%; height: 100%; border-radius: 9999px; background: #10b981;"></div>
+                </div>
+                <span style="font-size: 12px; color: #6b7280; font-variant-numeric: tabular-nums; width: 32px; text-align: right;">10%</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; border-radius: 6px; background: #1f2937; border: 1px solid rgba(55,65,81,0.4);">
+              <span style="font-size: 12px; color: #d1d5db; font-weight: 500;">Fold</span>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="width: 64px; height: 6px; border-radius: 9999px; background: #374151; overflow: hidden;">
+                  <div style="width: 5%; height: 100%; border-radius: 9999px; background: #10b981;"></div>
+                </div>
+                <span style="font-size: 12px; color: #6b7280; font-variant-numeric: tabular-nums; width: 32px; text-align: right;">5%</span>
+              </div>
+            </div>
+          </div>
+
+          <p style="font-size: 10px; color: #4b5563; margin-top: 8px;">Based on GTO preflop ranges for BTN</p>
+
+          <button style="width: 100%; margin-top: 8px; padding: 8px 12px; border-radius: 8px; background: #1f2937; border: 1px solid #374151; font-size: 12px; color: #60a5fa; cursor: pointer;">
+            View Range Chart
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Action Log ── -->
+    <div style="border-radius: 12px; border: 1px solid rgba(55,65,81,0.6); background: rgba(31,41,55,0.5); padding: 16px; margin-bottom: 24px;">
+      <h3 style="font-size: 14px; font-weight: 600; color: #e5e7eb; margin: 0 0 12px 0;">Action Log</h3>
+
+      <!-- Preflop -->
+      <div style="margin-bottom: 12px;">
+        <span style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #4b5563; display: block; margin-bottom: 6px;">Preflop</span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; border-radius: 6px; background: rgba(30,58,138,0.4); border: 1px solid rgba(59,130,246,0.4); font-size: 12px; color: #bfdbfe;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="width: 6px; height: 6px; border-radius: 50%; background: #60a5fa; flex-shrink: 0;"></span>
+              <span style="font-weight: 500;">Hero</span>
+            </div>
+            <span style="font-weight: 500;">Raise 6</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; border-radius: 6px; background: rgba(31,41,55,0.6); font-size: 12px; color: #9ca3af;">
+            <span>Seat 1</span>
+            <span style="font-weight: 500;">Call</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flop -->
+      <div style="margin-bottom: 12px;">
+        <span style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #4b5563; display: block; margin-bottom: 6px;">Flop</span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; border-radius: 6px; background: rgba(31,41,55,0.6); font-size: 12px; color: #9ca3af;">
+            <span>Seat 1</span>
+            <span style="font-weight: 500;">Check</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; border-radius: 6px; background: rgba(31,41,55,0.6); font-size: 12px; color: #9ca3af;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="width: 6px; height: 6px; border-radius: 50%; background: #60a5fa; flex-shrink: 0;"></span>
+              <span style="color: #93c5fd; font-weight: 500;">Hero</span>
+            </div>
+            <span style="font-weight: 500;">Raise 12</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; border-radius: 6px; background: rgba(31,41,55,0.6); font-size: 12px; color: #9ca3af;">
+            <span>Seat 1</span>
+            <span style="font-weight: 500;">Call</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Turn -->
+      <div style="margin-bottom: 12px;">
+        <span style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #4b5563; display: block; margin-bottom: 6px;">Turn</span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; border-radius: 6px; background: rgba(31,41,55,0.6); font-size: 12px; color: #9ca3af;">
+            <span>Seat 1</span>
+            <span style="font-weight: 500;">Check</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; border-radius: 6px; background: rgba(31,41,55,0.6); font-size: 12px; color: #9ca3af;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="width: 6px; height: 6px; border-radius: 50%; background: #60a5fa; flex-shrink: 0;"></span>
+              <span style="color: #93c5fd; font-weight: 500;">Hero</span>
+            </div>
+            <span style="font-weight: 500;">Raise 24</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- River -->
+      <div>
+        <span style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #4b5563; display: block; margin-bottom: 6px;">River</span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; border-radius: 6px; background: rgba(31,41,55,0.6); font-size: 12px; color: #9ca3af;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="width: 6px; height: 6px; border-radius: 50%; background: #60a5fa; flex-shrink: 0;"></span>
+              <span style="color: #93c5fd; font-weight: 500;">Hero</span>
+            </div>
+            <span style="font-weight: 500;">Call</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Hand Summary Footer ── -->
+    <div style="border-radius: 12px; border: 1px solid rgba(55,65,81,0.6); background: rgba(31,41,55,0.5); padding: 16px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+        <h3 style="font-size: 14px; font-weight: 600; color: #e5e7eb; margin: 0;">Hand Summary</h3>
+        <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 9999px; background: rgba(234,179,8,0.15); border: 1px solid rgba(161,98,7,0.4); font-size: 11px; font-weight: 500; color: #facc15;">Minor</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px;">
+        <div style="text-align: center;">
+          <span style="font-size: 12px; color: #6b7280; display: block; margin-bottom: 2px;">Total EV Loss</span>
+          <span style="font-size: 18px; font-weight: 700; color: #facc15; font-variant-numeric: tabular-nums;">-2.30 BB</span>
+        </div>
+        <div style="text-align: center;">
+          <span style="font-size: 12px; color: #6b7280; display: block; margin-bottom: 2px;">Major Deviations</span>
+          <span style="font-size: 18px; font-weight: 700; color: #f87171; font-variant-numeric: tabular-nums;">1</span>
+        </div>
+        <div style="text-align: center;">
+          <span style="font-size: 12px; color: #6b7280; display: block; margin-bottom: 2px;">Minor Deviations</span>
+          <span style="font-size: 18px; font-weight: 700; color: #facc15; font-variant-numeric: tabular-nums;">1</span>
+        </div>
+      </div>
+
+      <!-- Major deviation detail -->
+      <span style="font-size: 12px; color: #6b7280; display: block; margin-bottom: 8px;">Key Mistakes</span>
+      <div style="display: flex; align-items: flex-start; gap: 8px; padding: 8px 12px; border-radius: 8px; background: rgba(127,29,29,0.2); border: 1px solid rgba(153,27,27,0.3);">
+        <span style="flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: rgba(127,29,29,0.6); color: #fca5a5; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 2px;">8</span>
+        <div style="flex: 1; min-width: 0;">
+          <p style="font-size: 12px; color: #d1d5db; margin: 0; line-height: 1.5;">River call was too loose — should have folded facing overbet</p>
+          <span style="font-size: 10px; color: #f87171; font-variant-numeric: tabular-nums;">-1.80 BB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

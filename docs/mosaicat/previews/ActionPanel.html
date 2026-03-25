@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #064e3b; font-family: system-ui, sans-serif; min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <!-- Poker table background simulation -->
+  <div class="min-h-screen flex flex-col">
+    <!-- Spacer to push action panel down -->
+    <div class="flex-1 flex items-center justify-center">
+      <div class="text-center">
+        <p class="text-emerald-300/40 text-sm uppercase tracking-widest mb-2">Pot</p>
+        <p class="text-white text-3xl font-bold">24</p>
+        <div class="flex gap-2 justify-center mt-4">
+          <div class="w-10 h-14 bg-white rounded-lg shadow-md flex items-center justify-center text-sm font-bold">
+            <span class="text-red-600">A♥</span>
+          </div>
+          <div class="w-10 h-14 bg-white rounded-lg shadow-md flex items-center justify-center text-sm font-bold">
+            <span class="text-gray-900">K♠</span>
+          </div>
+          <div class="w-10 h-14 bg-white rounded-lg shadow-md flex items-center justify-center text-sm font-bold">
+            <span class="text-red-600">7♦</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 1: Standard action panel (Fold / Call / Raise) -->
+    <div class="relative">
+      <p class="text-emerald-300/60 text-[10px] px-4 mb-1 font-semibold uppercase tracking-wider">Facing a Bet — Your Turn</p>
+      <div class="bg-gradient-to-t from-gray-950/95 via-gray-900/90 to-transparent pt-6 pb-4 px-4">
+        <div style="max-width: 400px; margin: 0 auto;" class="flex gap-2">
+          <button class="flex-1 py-3.5 rounded-xl font-bold text-base bg-gray-600/80 text-gray-100 shadow-md transition-all hover:bg-gray-500/80">
+            Fold
+          </button>
+          <button class="flex-1 py-3.5 rounded-xl font-bold text-base bg-sky-500 text-white shadow-md transition-all hover:bg-sky-400">
+            <span class="block">Call</span>
+            <span class="block text-xs font-normal opacity-80">4</span>
+          </button>
+          <button class="flex-1 py-3.5 rounded-xl font-bold text-base bg-emerald-500 text-white shadow-md transition-all hover:bg-emerald-400">
+            Raise
+          </button>
+          <button class="flex-1 py-3.5 rounded-xl font-bold text-base bg-red-500 text-white shadow-md transition-all hover:bg-red-400">
+            <span class="block">All In</span>
+            <span class="block text-xs font-normal opacity-80">196</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- State 2: With raise slider expanded (shown below as separate preview) -->
+  <div class="min-h-[50vh] flex flex-col bg-emerald-800" style="border-top: 1px solid rgba(255,255,255,0.1);">
+    <div class="flex-1 flex items-center justify-center">
+      <p class="text-emerald-300/40 text-xs uppercase tracking-widest">Raise Panel Expanded</p>
+    </div>
+
+    <div class="relative">
+      <div class="bg-gradient-to-t from-gray-950/95 via-gray-900/90 to-transparent pt-6 pb-4 px-4">
+        <!-- Raise expanded panel -->
+        <div style="max-width: 400px; margin: 0 auto 12px auto;" class="bg-emerald-900/90 rounded-xl p-4 space-y-3 border border-emerald-700/50 shadow-lg">
+          <!-- Pot shortcuts -->
+          <div class="flex gap-2">
+            <button class="flex-1 py-1.5 text-xs font-semibold rounded-lg bg-emerald-700/60 text-emerald-100 hover:bg-emerald-600/80 transition-colors">
+              ½ Pot
+            </button>
+            <button class="flex-1 py-1.5 text-xs font-semibold rounded-lg bg-emerald-700/60 text-emerald-100 hover:bg-emerald-600/80 transition-colors">
+              ¾ Pot
+            </button>
+            <button class="flex-1 py-1.5 text-xs font-semibold rounded-lg bg-emerald-700/60 text-emerald-100 hover:bg-emerald-600/80 transition-colors">
+              Pot
+            </button>
+          </div>
+
+          <!-- Slider -->
+          <input
+            type="range" min="8" max="196" value="36"
+            class="w-full h-2 appearance-none rounded-full accent-emerald-400 cursor-pointer"
+            style="background: linear-gradient(to right, #34d399 0%, #34d399 15%, rgba(6,78,59,0.5) 15%, rgba(6,78,59,0.5) 100%);"
+            disabled
+          />
+          <div class="flex justify-between text-[10px] text-emerald-400/60">
+            <span>8</span>
+            <span>196</span>
+          </div>
+
+          <!-- Input + confirm -->
+          <div class="flex gap-2 items-center">
+            <input
+              type="number" value="36"
+              class="flex-1 bg-emerald-950/60 border border-emerald-600/40 rounded-lg px-3 py-2 text-center text-white text-lg font-bold focus:outline-none"
+              readonly
+            />
+            <button class="px-5 py-2 bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-bold rounded-lg transition-colors shadow-md">
+              Raise
+            </button>
+          </div>
+        </div>
+
+        <!-- Buttons row with raise in cancel state -->
+        <div style="max-width: 400px; margin: 0 auto;" class="flex gap-2">
+          <button class="flex-1 py-3.5 rounded-xl font-bold text-base bg-gray-600/80 text-gray-100 shadow-md">
+            Fold
+          </button>
+          <button class="flex-1 py-3.5 rounded-xl font-bold text-base bg-sky-500 text-white shadow-md">
+            <span class="block">Call</span>
+            <span class="block text-xs font-normal opacity-80">4</span>
+          </button>
+          <button class="flex-1 py-3.5 rounded-xl font-bold text-base bg-emerald-400 text-emerald-950 shadow-lg shadow-emerald-500/30">
+            Cancel
+          </button>
+          <button class="flex-1 py-3.5 rounded-xl font-bold text-base bg-red-500 text-white shadow-md">
+            <span class="block">All In</span>
+            <span class="block text-xs font-normal opacity-80">196</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- State 3: Check available (no bet to call) -->
+  <div class="min-h-[30vh] flex flex-col bg-emerald-900" style="border-top: 1px solid rgba(255,255,255,0.1);">
+    <div class="flex-1 flex items-center justify-center">
+      <p class="text-emerald-300/40 text-xs uppercase tracking-widest">No Bet — Check Available</p>
+    </div>
+
+    <div class="relative">
+      <div class="bg-gradient-to-t from-gray-950/95 via-gray-900/90 to-transparent pt-6 pb-4 px-4">
+        <div style="max-width: 400px; margin: 0 auto;" class="flex gap-2">
+          <button class="flex-1 py-3.5 rounded-xl font-bold text-base bg-gray-600/80 text-gray-100 shadow-md">
+            Fold
+          </button>
+          <button class="flex-1 py-3.5 rounded-xl font-bold text-base bg-sky-500 text-white shadow-md">
+            Check
+          </button>
+          <button class="flex-1 py-3.5 rounded-xl font-bold text-base bg-emerald-500 text-white shadow-md">
+            Raise
+          </button>
+          <button class="flex-1 py-3.5 rounded-xl font-bold text-base bg-gray-700/40 text-gray-500 cursor-not-allowed" disabled>
+            <span class="block">All In</span>
+            <span class="block text-xs font-normal opacity-80">196</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

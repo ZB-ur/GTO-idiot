@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <!-- Dark background to simulate table context -->
+  <div class="inline-flex items-center gap-6 rounded-xl bg-emerald-900 p-8">
+    <!-- Normal dealer button -->
+    <div class="flex h-7 w-7 items-center justify-center rounded-full border-2 border-amber-300 bg-gradient-to-b from-white to-amber-50 text-xs font-black text-gray-900 shadow-md">
+      D
+    </div>
+
+    <!-- In context: next to a player label -->
+    <div class="flex items-center gap-2">
+      <div class="flex h-7 w-7 items-center justify-center rounded-full border-2 border-amber-300 bg-gradient-to-b from-white to-amber-50 text-xs font-black text-gray-900 shadow-md">
+        D
+      </div>
+      <span class="text-sm font-semibold text-emerald-100">Player 3</span>
+    </div>
+  </div>
+</body>
+</html>

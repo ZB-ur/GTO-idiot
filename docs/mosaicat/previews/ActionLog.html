@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionLog Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 380px;">
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div class="px-4 py-3 border-b border-gray-200">
+        <h3 class="text-sm font-semibold text-gray-900">Action Log</h3>
+      </div>
+      <div class="divide-y divide-gray-100 max-h-64 overflow-y-auto">
+        <!-- Action 1: UTG Fold -->
+        <div class="flex items-center gap-3 px-4 py-2.5">
+          <span class="flex-shrink-0 w-5 text-xs text-gray-400 text-right">1</span>
+          <span class="flex-shrink-0 w-8 text-xs font-medium text-blue-600 bg-blue-50 rounded px-1.5 py-0.5 text-center">UTG</span>
+          <span class="text-sm text-gray-900 truncate min-w-0 flex-1">Bot_UTG</span>
+          <span class="flex-shrink-0 text-xs font-semibold px-2 py-0.5 rounded-lg bg-gray-100 text-gray-500">Fold</span>
+        </div>
+        <!-- Action 2: MP Raise -->
+        <div class="flex items-center gap-3 px-4 py-2.5">
+          <span class="flex-shrink-0 w-5 text-xs text-gray-400 text-right">2</span>
+          <span class="flex-shrink-0 w-8 text-xs font-medium text-blue-600 bg-blue-50 rounded px-1.5 py-0.5 text-center">MP</span>
+          <span class="text-sm text-gray-900 truncate min-w-0 flex-1">Bot_MP</span>
+          <span class="flex-shrink-0 text-xs font-semibold px-2 py-0.5 rounded-lg bg-amber-50 text-amber-700">Raise 6</span>
+        </div>
+        <!-- Action 3: CO Fold -->
+        <div class="flex items-center gap-3 px-4 py-2.5">
+          <span class="flex-shrink-0 w-5 text-xs text-gray-400 text-right">3</span>
+          <span class="flex-shrink-0 w-8 text-xs font-medium text-blue-600 bg-blue-50 rounded px-1.5 py-0.5 text-center">CO</span>
+          <span class="text-sm text-gray-900 truncate min-w-0 flex-1">Bot_CO</span>
+          <span class="flex-shrink-0 text-xs font-semibold px-2 py-0.5 rounded-lg bg-gray-100 text-gray-500">Fold</span>
+        </div>
+        <!-- Action 4: BTN Call (Hero) -->
+        <div class="flex items-center gap-3 px-4 py-2.5 bg-slate-50">
+          <span class="flex-shrink-0 w-5 text-xs text-gray-400 text-right">4</span>
+          <span class="flex-shrink-0 w-8 text-xs font-medium text-blue-600 bg-blue-50 rounded px-1.5 py-0.5 text-center">BTN</span>
+          <span class="text-sm text-gray-900 truncate min-w-0 flex-1 font-medium">Hero</span>
+          <span class="flex-shrink-0 text-xs font-semibold px-2 py-0.5 rounded-lg bg-sky-50 text-sky-700">Call 6</span>
+        </div>
+        <!-- Action 5: SB Fold -->
+        <div class="flex items-center gap-3 px-4 py-2.5">
+          <span class="flex-shrink-0 w-5 text-xs text-gray-400 text-right">5</span>
+          <span class="flex-shrink-0 w-8 text-xs font-medium text-blue-600 bg-blue-50 rounded px-1.5 py-0.5 text-center">SB</span>
+          <span class="text-sm text-gray-900 truncate min-w-0 flex-1">Bot_SB</span>
+          <span class="flex-shrink-0 text-xs font-semibold px-2 py-0.5 rounded-lg bg-gray-100 text-gray-500">Fold</span>
+        </div>
+        <!-- Action 6: BB Call -->
+        <div class="flex items-center gap-3 px-4 py-2.5">
+          <span class="flex-shrink-0 w-5 text-xs text-gray-400 text-right">6</span>
+          <span class="flex-shrink-0 w-8 text-xs font-medium text-blue-600 bg-blue-50 rounded px-1.5 py-0.5 text-center">BB</span>
+          <span class="text-sm text-gray-900 truncate min-w-0 flex-1">Bot_BB</span>
+          <span class="flex-shrink-0 text-xs font-semibold px-2 py-0.5 rounded-lg bg-sky-50 text-sky-700">Call 4</span>
+        </div>
+        <!-- Action 7: BB Check -->
+        <div class="flex items-center gap-3 px-4 py-2.5">
+          <span class="flex-shrink-0 w-5 text-xs text-gray-400 text-right">7</span>
+          <span class="flex-shrink-0 w-8 text-xs font-medium text-blue-600 bg-blue-50 rounded px-1.5 py-0.5 text-center">BB</span>
+          <span class="text-sm text-gray-900 truncate min-w-0 flex-1">Bot_BB</span>
+          <span class="flex-shrink-0 text-xs font-semibold px-2 py-0.5 rounded-lg bg-emerald-50 text-emerald-700">Check</span>
+        </div>
+        <!-- Action 8: MP Raise -->
+        <div class="flex items-center gap-3 px-4 py-2.5">
+          <span class="flex-shrink-0 w-5 text-xs text-gray-400 text-right">8</span>
+          <span class="flex-shrink-0 w-8 text-xs font-medium text-blue-600 bg-blue-50 rounded px-1.5 py-0.5 text-center">MP</span>
+          <span class="text-sm text-gray-900 truncate min-w-0 flex-1">Bot_MP</span>
+          <span class="flex-shrink-0 text-xs font-semibold px-2 py-0.5 rounded-lg bg-amber-50 text-amber-700">Raise 12</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

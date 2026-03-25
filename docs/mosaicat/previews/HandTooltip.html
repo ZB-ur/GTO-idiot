@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandTooltip Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-8 pt-4">
+    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">HandTooltip — Variants</p>
+
+    <!-- Pure raise -->
+    <div class="flex gap-6">
+      <div>
+        <p class="text-xs text-gray-400 mb-3">Pure raise</p>
+        <div class="relative inline-block">
+          <div class="bg-gray-900 text-white rounded-lg shadow-md px-3 py-2 min-w-[140px]">
+            <p class="text-xs font-bold mb-1.5">AKs</p>
+            <div class="flex h-2 rounded-full overflow-hidden mb-2">
+              <div class="bg-red-500 w-full"></div>
+            </div>
+            <div class="space-y-0.5">
+              <div class="flex items-center justify-between text-[11px]">
+                <span class="flex items-center gap-1.5">
+                  <span class="inline-block w-2 h-2 rounded-full bg-red-500"></span>
+                  Raise
+                </span>
+                <span class="font-mono text-gray-300">100%</span>
+              </div>
+            </div>
+          </div>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-gray-900"></div>
+        </div>
+      </div>
+
+      <!-- Mixed actions -->
+      <div>
+        <p class="text-xs text-gray-400 mb-3">Mixed (raise/call/fold)</p>
+        <div class="relative inline-block">
+          <div class="bg-gray-900 text-white rounded-lg shadow-md px-3 py-2 min-w-[140px]">
+            <p class="text-xs font-bold mb-1.5">T9s</p>
+            <div class="flex h-2 rounded-full overflow-hidden mb-2">
+              <div class="bg-red-500" style="width:45%"></div>
+              <div class="bg-emerald-500" style="width:35%"></div>
+              <div class="bg-blue-500" style="width:20%"></div>
+            </div>
+            <div class="space-y-0.5">
+              <div class="flex items-center justify-between text-[11px]">
+                <span class="flex items-center gap-1.5">
+                  <span class="inline-block w-2 h-2 rounded-full bg-red-500"></span>
+                  Raise
+                </span>
+                <span class="font-mono text-gray-300">45%</span>
+              </div>
+              <div class="flex items-center justify-between text-[11px]">
+                <span class="flex items-center gap-1.5">
+                  <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
+                  Call
+                </span>
+                <span class="font-mono text-gray-300">35%</span>
+              </div>
+              <div class="flex items-center justify-between text-[11px]">
+                <span class="flex items-center gap-1.5">
+                  <span class="inline-block w-2 h-2 rounded-full bg-blue-500"></span>
+                  Fold
+                </span>
+                <span class="font-mono text-gray-300">20%</span>
+              </div>
+            </div>
+          </div>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-gray-900"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3-bet tooltip -->
+    <div>
+      <p class="text-xs text-gray-400 mb-3">3-Bet / Call mix</p>
+      <div class="relative inline-block">
+        <div class="bg-gray-900 text-white rounded-lg shadow-md px-3 py-2 min-w-[140px]">
+          <p class="text-xs font-bold mb-1.5">QQ</p>
+          <div class="flex h-2 rounded-full overflow-hidden mb-2">
+            <div class="bg-amber-500" style="width:75%"></div>
+            <div class="bg-emerald-500" style="width:25%"></div>
+          </div>
+          <div class="space-y-0.5">
+            <div class="flex items-center justify-between text-[11px]">
+              <span class="flex items-center gap-1.5">
+                <span class="inline-block w-2 h-2 rounded-full bg-amber-500"></span>
+                3-Bet
+              </span>
+              <span class="font-mono text-gray-300">75%</span>
+            </div>
+            <div class="flex items-center justify-between text-[11px]">
+              <span class="flex items-center gap-1.5">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
+                Call
+              </span>
+              <span class="font-mono text-gray-300">25%</span>
+            </div>
+          </div>
+        </div>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-gray-900"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BotSeat Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #064e3b; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .anim-bounce-1 { animation: bounce 0.8s infinite 0ms; }
+    .anim-bounce-2 { animation: bounce 0.8s infinite 150ms; }
+    .anim-bounce-3 { animation: bounce 0.8s infinite 300ms; }
+  </style>
+</head>
+<body>
+  <div class="flex gap-12 items-start flex-wrap">
+
+    <!-- Fish bot, thinking -->
+    <div class="flex flex-col items-center">
+      <p class="text-emerald-300 text-xs mb-3 font-semibold">Fish — Thinking</p>
+      <div class="relative flex flex-col items-center">
+        <div class="absolute -top-1 -left-1 z-10 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow flex items-center gap-0.5">
+          <span>🐟</span><span>Fish</span>
+        </div>
+        <div class="relative flex flex-col items-center">
+          <div class="relative rounded-full p-0.5 ring-2 ring-amber-400 ring-offset-2 ring-offset-emerald-900 animate-pulse">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-gray-500 to-gray-700">F</div>
+            <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">UTG</span>
+          </div>
+          <div class="mt-1 text-center">
+            <div class="text-white text-xs font-semibold">Fish_01</div>
+            <div class="text-amber-400 text-xs font-mono">174</div>
+          </div>
+          <div class="flex gap-0.5 mt-1">
+            <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+              <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+            </div>
+            <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+              <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 mt-1">
+            <div class="flex gap-0.5">
+              <div class="w-1.5 h-1.5 rounded-full bg-amber-400 anim-bounce-1"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-amber-400 anim-bounce-2"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-amber-400 anim-bounce-3"></div>
+            </div>
+            <span class="text-amber-300 text-[10px] font-medium">Thinking…</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Regular bot, acted -->
+    <div class="flex flex-col items-center">
+      <p class="text-emerald-300 text-xs mb-3 font-semibold">Regular — Acted</p>
+      <div class="relative flex flex-col items-center">
+        <div class="absolute -top-1 -left-1 z-10 bg-gradient-to-r from-orange-400 to-orange-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow flex items-center gap-0.5">
+          <span>🎯</span><span>Reg</span>
+        </div>
+        <div class="relative flex flex-col items-center">
+          <div class="relative rounded-full p-0.5">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-gray-500 to-gray-700">R</div>
+            <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">MP</span>
+          </div>
+          <div class="mt-1 text-center">
+            <div class="text-white text-xs font-semibold">Reg_02</div>
+            <div class="text-amber-400 text-xs font-mono">210</div>
+          </div>
+          <div class="flex gap-0.5 mt-1">
+            <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+              <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+            </div>
+            <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+              <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+            </div>
+          </div>
+          <div class="mt-1 bg-amber-400/90 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full shadow-sm">Raise 8</div>
+          <div class="mt-1 flex items-center gap-1">
+            <div class="w-4 h-4 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 border border-amber-600 shadow-sm"></div>
+            <span class="text-white text-xs font-mono">8</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GTO bot, showdown -->
+    <div class="flex flex-col items-center">
+      <p class="text-emerald-300 text-xs mb-3 font-semibold">GTO — Showdown</p>
+      <div class="relative flex flex-col items-center">
+        <div class="absolute -top-1 -left-1 z-10 bg-gradient-to-r from-purple-400 to-purple-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow flex items-center gap-0.5">
+          <span>🧠</span><span>GTO</span>
+        </div>
+        <div class="relative flex flex-col items-center">
+          <div class="relative rounded-full p-0.5">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-gray-500 to-gray-700">G</div>
+            <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">CO</span>
+          </div>
+          <div class="mt-1 text-center">
+            <div class="text-white text-xs font-semibold">GTO_03</div>
+            <div class="text-amber-400 text-xs font-mono">256</div>
+          </div>
+          <div class="flex gap-0.5 mt-1">
+            <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+              <span class="text-sm font-bold leading-none text-red-600">A</span>
+              <span class="text-base leading-none text-red-600">♥</span>
+            </div>
+            <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+              <span class="text-sm font-bold leading-none text-red-600">K</span>
+              <span class="text-base leading-none text-red-600">♦</span>
+            </div>
+          </div>
+          <div class="mt-1 bg-emerald-500/90 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full shadow-sm">Flush, Ace high</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fish bot, busted -->
+    <div class="flex flex-col items-center">
+      <p class="text-emerald-300 text-xs mb-3 font-semibold">Fish — Busted</p>
+      <div class="relative flex flex-col items-center">
+        <div class="absolute -top-1 -left-1 z-10 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow flex items-center gap-0.5">
+          <span>🐟</span><span>Fish</span>
+        </div>
+        <div class="relative flex flex-col items-center opacity-40 grayscale">
+          <div class="relative rounded-full p-0.5">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-gray-500 to-gray-700">F</div>
+            <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">BB</span>
+          </div>
+          <div class="mt-1 text-center">
+            <div class="text-white text-xs font-semibold">Fish_04</div>
+            <div class="text-amber-400 text-xs font-mono">BUST</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

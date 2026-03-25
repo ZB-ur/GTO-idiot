@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTORecommendationDisplay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-sm mx-auto space-y-8">
+
+    <!-- Example 1: Mixed actions (typical postflop spot) -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
+      <div class="space-y-3">
+        <h4 class="text-sm font-semibold text-gray-900 flex items-center gap-2">
+          <span class="inline-flex items-center justify-center w-5 h-5 rounded bg-blue-600 text-white text-xs font-bold">G</span>
+          GTO Recommendation
+        </h4>
+
+        <div class="space-y-2">
+          <!-- Raise 12 — 55% -->
+          <div class="rounded-lg px-3 py-2.5 bg-red-50">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-sm font-semibold text-red-700">Raise 12</span>
+              <span class="text-sm font-bold tabular-nums text-red-700">55%</span>
+            </div>
+            <div class="w-full h-2 bg-white/60 rounded-full overflow-hidden">
+              <div class="h-full rounded-full bg-red-500" style="width: 55%"></div>
+            </div>
+          </div>
+
+          <!-- Call — 30% -->
+          <div class="rounded-lg px-3 py-2.5 bg-emerald-50">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-sm font-semibold text-emerald-700">Call</span>
+              <span class="text-sm font-bold tabular-nums text-emerald-700">30%</span>
+            </div>
+            <div class="w-full h-2 bg-white/60 rounded-full overflow-hidden">
+              <div class="h-full rounded-full bg-emerald-500" style="width: 30%"></div>
+            </div>
+          </div>
+
+          <!-- Fold — 15% -->
+          <div class="rounded-lg px-3 py-2.5 bg-gray-50">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-sm font-semibold text-gray-600">Fold</span>
+              <span class="text-sm font-bold tabular-nums text-gray-600">15%</span>
+            </div>
+            <div class="w-full h-2 bg-white/60 rounded-full overflow-hidden">
+              <div class="h-full rounded-full bg-gray-400" style="width: 15%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 2: Preflop premium (strong raise) -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
+      <div class="space-y-3">
+        <h4 class="text-sm font-semibold text-gray-900 flex items-center gap-2">
+          <span class="inline-flex items-center justify-center w-5 h-5 rounded bg-blue-600 text-white text-xs font-bold">G</span>
+          GTO Recommendation
+        </h4>
+
+        <div class="space-y-2">
+          <!-- Raise 6 — 100% -->
+          <div class="rounded-lg px-3 py-2.5 bg-red-50">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-sm font-semibold text-red-700">Raise 6</span>
+              <span class="text-sm font-bold tabular-nums text-red-700">100%</span>
+            </div>
+            <div class="w-full h-2 bg-white/60 rounded-full overflow-hidden">
+              <div class="h-full rounded-full bg-red-500" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 3: Check/fold spot -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
+      <div class="space-y-3">
+        <h4 class="text-sm font-semibold text-gray-900 flex items-center gap-2">
+          <span class="inline-flex items-center justify-center w-5 h-5 rounded bg-blue-600 text-white text-xs font-bold">G</span>
+          GTO Recommendation
+        </h4>
+
+        <div class="space-y-2">
+          <!-- Check — 72% -->
+          <div class="rounded-lg px-3 py-2.5 bg-sky-50">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-sm font-semibold text-sky-700">Check</span>
+              <span class="text-sm font-bold tabular-nums text-sky-700">72%</span>
+            </div>
+            <div class="w-full h-2 bg-white/60 rounded-full overflow-hidden">
+              <div class="h-full rounded-full bg-sky-500" style="width: 72%"></div>
+            </div>
+          </div>
+
+          <!-- Raise 8 — 28% -->
+          <div class="rounded-lg px-3 py-2.5 bg-red-50">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-sm font-semibold text-red-700">Raise 8</span>
+              <span class="text-sm font-bold tabular-nums text-red-700">28%</span>
+            </div>
+            <div class="w-full h-2 bg-white/60 rounded-full overflow-hidden">
+              <div class="h-full rounded-full bg-red-500" style="width: 28%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

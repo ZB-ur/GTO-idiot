@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xs flex flex-col gap-6">
+    <!-- Normal state -->
+    <div class="flex flex-col gap-1">
+      <div class="relative">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-medium">$</span>
+        <input
+          type="text"
+          value="450"
+          readonly
+          class="w-full pl-7 pr-4 py-3 rounded-xl text-base font-semibold text-gray-900 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-colors duration-150"
+        />
+      </div>
+      <div class="flex justify-between text-xs text-gray-400 px-1">
+        <span>Min: 100</span>
+        <span>Max: 1,500</span>
+      </div>
+    </div>
+    <!-- Out of range state -->
+    <div class="flex flex-col gap-1">
+      <div class="relative">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-medium">$</span>
+        <input
+          type="text"
+          value="50"
+          readonly
+          class="w-full pl-7 pr-4 py-3 rounded-xl text-base font-semibold text-gray-900 border border-red-400 ring-2 ring-red-100 outline-none transition-colors duration-150"
+        />
+      </div>
+      <div class="flex justify-between text-xs text-gray-400 px-1">
+        <span>Min: 100</span>
+        <span>Max: 1,500</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlindLevelSelector Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-6 max-w-sm">
+    <!-- 1/2 selected -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2">$1/$2 selected</p>
+      <label class="block text-sm font-semibold text-gray-900 mb-2">Blind Level</label>
+      <div class="flex gap-2">
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium rounded-lg border border-blue-600 bg-blue-600 text-white shadow-sm">$1 / $2</button>
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-900">$2 / $5</button>
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-900">$5 / $10</button>
+      </div>
+    </div>
+    <!-- 2/5 selected -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2">$2/$5 selected</p>
+      <label class="block text-sm font-semibold text-gray-900 mb-2">Blind Level</label>
+      <div class="flex gap-2">
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-900">$1 / $2</button>
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium rounded-lg border border-blue-600 bg-blue-600 text-white shadow-sm">$2 / $5</button>
+        <button class="flex-1 px-4 py-2.5 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-900">$5 / $10</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

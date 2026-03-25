@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiniTablePreview Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="relative w-64 h-44 mx-auto">
+    <!-- Table felt -->
+    <div class="absolute inset-4 bg-emerald-800 rounded-[50%] border-4 border-emerald-900 shadow-inner"></div>
+    <div class="absolute inset-6 bg-emerald-700 rounded-[50%] border-2 border-emerald-600/30"></div>
+
+    <!-- Stack label -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-emerald-200/70 text-xs font-medium">
+      100bb
+    </div>
+
+    <!-- Seat 0 — Hero -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:78%;left:50%">
+      <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-[10px] font-bold shadow-md border-2 border-blue-400">You</div>
+    </div>
+    <!-- Seat 1 — Fish -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:60%;left:12%">
+      <div class="w-7 h-7 rounded-full bg-emerald-400 flex items-center justify-center text-sm shadow-sm border-2 border-white/50">🐟</div>
+    </div>
+    <!-- Seat 2 — Fish -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:15%;left:15%">
+      <div class="w-7 h-7 rounded-full bg-emerald-400 flex items-center justify-center text-sm shadow-sm border-2 border-white/50">🐟</div>
+    </div>
+    <!-- Seat 3 — Regular -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:5%;left:50%">
+      <div class="w-7 h-7 rounded-full bg-amber-400 flex items-center justify-center text-sm shadow-sm border-2 border-white/50">🎯</div>
+    </div>
+    <!-- Seat 4 — GTO -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:15%;left:85%">
+      <div class="w-7 h-7 rounded-full bg-red-400 flex items-center justify-center text-sm shadow-sm border-2 border-white/50">🧠</div>
+    </div>
+    <!-- Seat 5 — Regular -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:60%;left:88%">
+      <div class="w-7 h-7 rounded-full bg-amber-400 flex items-center justify-center text-sm shadow-sm border-2 border-white/50">🎯</div>
+    </div>
+  </div>
+</body>
+</html>

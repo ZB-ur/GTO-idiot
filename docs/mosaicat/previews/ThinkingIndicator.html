@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThinkingIndicator Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #064e3b; font-family: system-ui, sans-serif; }
+    @keyframes dot-bounce {
+      0%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-6px); }
+    }
+    .dot { animation: dot-bounce 1.2s ease-in-out infinite; }
+    .dot-1 { animation-delay: 0ms; }
+    .dot-2 { animation-delay: 150ms; }
+    .dot-3 { animation-delay: 300ms; }
+  </style>
+</head>
+<body>
+  <div class="flex items-center gap-6">
+    <!-- Bot seat with thinking indicator -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="relative w-14 h-14 rounded-full bg-emerald-800 border-2 border-emerald-600 flex items-center justify-center">
+        <span class="text-lg">🤖</span>
+        <!-- Thinking dots overlay -->
+        <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-emerald-900/90 rounded-full px-2 py-0.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-amber-400 dot dot-1"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-amber-400 dot dot-2"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-amber-400 dot dot-3"></span>
+        </div>
+      </div>
+      <span class="text-xs text-emerald-300">Bot thinking...</span>
+    </div>
+
+    <!-- Bot seat idle (no indicator) -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="relative w-14 h-14 rounded-full bg-emerald-800 border-2 border-emerald-600 flex items-center justify-center">
+        <span class="text-lg">🤖</span>
+      </div>
+      <span class="text-xs text-emerald-300">Bot idle</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PotDisplay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <!-- Dark background to simulate table context -->
+  <div class="inline-flex flex-col items-center gap-4 rounded-xl bg-emerald-900 p-8">
+    <!-- Small pot -->
+    <div class="inline-flex items-center gap-1.5 rounded-full bg-gray-900/70 px-4 py-1.5 shadow-lg">
+      <div class="flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 text-[10px] font-black text-amber-900 shadow-inner">$</div>
+      <span class="text-sm font-bold text-white">150</span>
+    </div>
+
+    <!-- Medium pot -->
+    <div class="inline-flex items-center gap-1.5 rounded-full bg-gray-900/70 px-4 py-1.5 shadow-lg">
+      <div class="flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 text-[10px] font-black text-amber-900 shadow-inner">$</div>
+      <span class="text-sm font-bold text-white">12,500</span>
+    </div>
+
+    <!-- Large pot -->
+    <div class="inline-flex items-center gap-1.5 rounded-full bg-gray-900/70 px-4 py-1.5 shadow-lg">
+      <div class="flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 text-[10px] font-black text-amber-900 shadow-inner">$</div>
+      <span class="text-sm font-bold text-white">1.5M</span>
+    </div>
+  </div>
+</body>
+</html>

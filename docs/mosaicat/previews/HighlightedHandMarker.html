@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HighlightedHandMarker Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-8">
+    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">HighlightedHandMarker — Overlay</p>
+
+    <!-- Single cell with marker -->
+    <div>
+      <p class="text-xs text-gray-400 mb-3">On a raise cell (T9s)</p>
+      <div class="flex gap-6 items-start">
+        <!-- Without marker -->
+        <div>
+          <p class="text-[10px] text-gray-400 mb-1">Normal</p>
+          <div class="relative w-12 h-12 rounded-sm bg-red-500/90 flex items-center justify-center text-white text-xs font-medium">
+            T9s
+          </div>
+        </div>
+        <!-- With marker -->
+        <div>
+          <p class="text-[10px] text-gray-400 mb-1">Highlighted</p>
+          <div class="relative w-12 h-12 rounded-sm bg-red-500/90 flex items-center justify-center text-white text-xs font-medium">
+            T9s
+            <!-- Marker overlay -->
+            <div class="absolute inset-0 pointer-events-none z-20">
+              <div class="absolute inset-0 rounded-sm ring-2 ring-amber-400 ring-offset-1 animate-pulse"></div>
+              <div class="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full border-2 border-white shadow-sm"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- In a grid context -->
+    <div>
+      <p class="text-xs text-gray-400 mb-3">In grid context (hero has T9s)</p>
+      <div class="inline-grid grid-cols-5 gap-px bg-gray-300 rounded-lg overflow-hidden p-px">
+        <div class="w-10 h-10 bg-red-500/90 flex items-center justify-center text-white text-[10px] font-medium">AKs</div>
+        <div class="w-10 h-10 bg-red-500/90 flex items-center justify-center text-white text-[10px] font-medium">AQs</div>
+        <div class="w-10 h-10 bg-emerald-500/90 flex items-center justify-center text-white text-[10px] font-medium">KJs</div>
+        <div class="w-10 h-10 bg-emerald-500/90 flex items-center justify-center text-white text-[10px] font-medium">QTs</div>
+        <div class="w-10 h-10 bg-blue-500/20 flex items-center justify-center text-gray-500 text-[10px] font-medium">96s</div>
+
+        <div class="w-10 h-10 bg-red-500/90 flex items-center justify-center text-white text-[10px] font-medium">AJs</div>
+        <div class="w-10 h-10 bg-emerald-500/90 flex items-center justify-center text-white text-[10px] font-medium">KTs</div>
+        <div class="w-10 h-10 bg-emerald-500/90 flex items-center justify-center text-white text-[10px] font-medium">QJs</div>
+        <!-- Highlighted cell -->
+        <div class="relative w-10 h-10 bg-red-500/90 flex items-center justify-center text-white text-[10px] font-medium">
+          T9s
+          <div class="absolute inset-0 pointer-events-none z-20">
+            <div class="absolute inset-0 rounded-sm ring-2 ring-amber-400 ring-offset-1 animate-pulse"></div>
+            <div class="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full border-2 border-white shadow-sm"></div>
+          </div>
+        </div>
+        <div class="w-10 h-10 bg-blue-500/20 flex items-center justify-center text-gray-500 text-[10px] font-medium">85s</div>
+
+        <div class="w-10 h-10 bg-emerald-500/90 flex items-center justify-center text-white text-[10px] font-medium">ATs</div>
+        <div class="w-10 h-10 bg-blue-500/20 flex items-center justify-center text-gray-500 text-[10px] font-medium">K9s</div>
+        <div class="w-10 h-10 bg-emerald-500/90 flex items-center justify-center text-white text-[10px] font-medium">JTs</div>
+        <div class="w-10 h-10 bg-emerald-500/90 flex items-center justify-center text-white text-[10px] font-medium">98s</div>
+        <div class="w-10 h-10 bg-blue-500/20 flex items-center justify-center text-gray-500 text-[10px] font-medium">76s</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

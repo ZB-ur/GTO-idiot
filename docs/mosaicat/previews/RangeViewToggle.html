@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RangeViewToggle Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-6">
+    <!-- State: Opening selected -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2">Opening Ranges selected</p>
+      <div class="inline-flex rounded-xl bg-gray-100 p-1">
+        <button class="px-4 py-2 text-sm font-semibold rounded-lg bg-blue-600 text-white shadow-sm">Opening Ranges</button>
+        <button class="px-4 py-2 text-sm font-semibold rounded-lg text-gray-500">Vs Raise</button>
+      </div>
+    </div>
+    <!-- State: Vs Raise selected -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2">Vs Raise selected</p>
+      <div class="inline-flex rounded-xl bg-gray-100 p-1">
+        <button class="px-4 py-2 text-sm font-semibold rounded-lg text-gray-500">Opening Ranges</button>
+        <button class="px-4 py-2 text-sm font-semibold rounded-lg bg-blue-600 text-white shadow-sm">Vs Raise</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

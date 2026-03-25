@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandHistoryCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xl mx-auto space-y-3">
+
+    <!-- Card 1: Won, GTO high (92%) -->
+    <div class="flex items-center justify-between p-4 bg-[#1e293b] border border-gray-700 rounded-xl cursor-pointer hover:bg-gray-700/60 transition-colors">
+      <div class="flex items-center gap-3">
+        <div class="flex flex-col">
+          <span class="text-sm font-bold text-gray-100">#12</span>
+          <span class="text-[10px] text-gray-500">5m ago</span>
+        </div>
+        <div class="flex gap-1">
+          <div class="w-10 h-14 bg-white rounded-lg border border-gray-300 flex flex-col justify-between p-1 shadow-md">
+            <div class="text-xs font-bold text-gray-900 leading-none">
+              <div>A</div><div>&#9824;</div>
+            </div>
+            <div class="text-gray-900 text-center text-lg leading-none">&#9824;</div>
+          </div>
+          <div class="w-10 h-14 bg-white rounded-lg border border-gray-300 flex flex-col justify-between p-1 shadow-md">
+            <div class="text-xs font-bold text-gray-900 leading-none">
+              <div>K</div><div>&#9824;</div>
+            </div>
+            <div class="text-gray-900 text-center text-lg leading-none">&#9824;</div>
+          </div>
+        </div>
+        <div class="flex gap-0.5">
+          <span class="text-[10px] font-mono font-bold text-red-400">Q&#9829;</span>
+          <span class="text-[10px] font-mono font-bold text-gray-300">J&#9824;</span>
+          <span class="text-[10px] font-mono font-bold text-gray-300">T&#9824;</span>
+          <span class="text-[10px] font-mono font-bold text-red-400">3&#9830;</span>
+          <span class="text-[10px] font-mono font-bold text-gray-300">2&#9827;</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex flex-col items-center">
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">GTO</span>
+          <span class="text-[10px] text-gray-500 mt-0.5">92%</span>
+        </div>
+        <span class="text-sm font-bold tabular-nums text-emerald-400">+12.5 BB</span>
+        <svg class="w-4 h-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Card 2: Lost, GTO mid (67%) -->
+    <div class="flex items-center justify-between p-4 bg-[#1e293b] border border-gray-700 rounded-xl cursor-pointer hover:bg-gray-700/60 transition-colors">
+      <div class="flex items-center gap-3">
+        <div class="flex flex-col">
+          <span class="text-sm font-bold text-gray-100">#11</span>
+          <span class="text-[10px] text-gray-500">12m ago</span>
+        </div>
+        <div class="flex gap-1">
+          <div class="w-10 h-14 bg-white rounded-lg border border-gray-300 flex flex-col justify-between p-1 shadow-md">
+            <div class="text-xs font-bold text-red-500 leading-none">
+              <div>T</div><div>&#9829;</div>
+            </div>
+            <div class="text-red-500 text-center text-lg leading-none">&#9829;</div>
+          </div>
+          <div class="w-10 h-14 bg-white rounded-lg border border-gray-300 flex flex-col justify-between p-1 shadow-md">
+            <div class="text-xs font-bold text-gray-900 leading-none">
+              <div>9</div><div>&#9827;</div>
+            </div>
+            <div class="text-gray-900 text-center text-lg leading-none">&#9827;</div>
+          </div>
+        </div>
+        <div class="flex gap-0.5">
+          <span class="text-[10px] font-mono font-bold text-gray-300">8&#9824;</span>
+          <span class="text-[10px] font-mono font-bold text-red-400">7&#9829;</span>
+          <span class="text-[10px] font-mono font-bold text-gray-300">2&#9827;</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex flex-col items-center">
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-400/20 text-amber-400 border border-amber-400/30">OK</span>
+          <span class="text-[10px] text-gray-500 mt-0.5">67%</span>
+        </div>
+        <span class="text-sm font-bold tabular-nums text-red-400">-3.0 BB</span>
+        <svg class="w-4 h-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Card 3: Lost big, GTO low (33%) -->
+    <div class="flex items-center justify-between p-4 bg-[#1e293b] border border-gray-700 rounded-xl cursor-pointer hover:bg-gray-700/60 transition-colors">
+      <div class="flex items-center gap-3">
+        <div class="flex flex-col">
+          <span class="text-sm font-bold text-gray-100">#10</span>
+          <span class="text-[10px] text-gray-500">25m ago</span>
+        </div>
+        <div class="flex gap-1">
+          <div class="w-10 h-14 bg-white rounded-lg border border-gray-300 flex flex-col justify-between p-1 shadow-md">
+            <div class="text-xs font-bold text-red-500 leading-none">
+              <div>7</div><div>&#9830;</div>
+            </div>
+            <div class="text-red-500 text-center text-lg leading-none">&#9830;</div>
+          </div>
+          <div class="w-10 h-14 bg-white rounded-lg border border-gray-300 flex flex-col justify-between p-1 shadow-md">
+            <div class="text-xs font-bold text-gray-900 leading-none">
+              <div>2</div><div>&#9827;</div>
+            </div>
+            <div class="text-gray-900 text-center text-lg leading-none">&#9827;</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex flex-col items-center">
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-red-500/20 text-red-400 border border-red-500/30">Leak</span>
+          <span class="text-[10px] text-gray-500 mt-0.5">33%</span>
+        </div>
+        <span class="text-sm font-bold tabular-nums text-red-400">-25.0 BB</span>
+        <svg class="w-4 h-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Card 4: Tied, GTO perfect -->
+    <div class="flex items-center justify-between p-4 bg-[#1e293b] border border-gray-700 rounded-xl cursor-pointer hover:bg-gray-700/60 transition-colors">
+      <div class="flex items-center gap-3">
+        <div class="flex flex-col">
+          <span class="text-sm font-bold text-gray-100">#9</span>
+          <span class="text-[10px] text-gray-500">1h ago</span>
+        </div>
+        <div class="flex gap-1">
+          <div class="w-10 h-14 bg-white rounded-lg border border-gray-300 flex flex-col justify-between p-1 shadow-md">
+            <div class="text-xs font-bold text-gray-900 leading-none">
+              <div>Q</div><div>&#9824;</div>
+            </div>
+            <div class="text-gray-900 text-center text-lg leading-none">&#9824;</div>
+          </div>
+          <div class="w-10 h-14 bg-white rounded-lg border border-gray-300 flex flex-col justify-between p-1 shadow-md">
+            <div class="text-xs font-bold text-red-500 leading-none">
+              <div>J</div><div>&#9829;</div>
+            </div>
+            <div class="text-red-500 text-center text-lg leading-none">&#9829;</div>
+          </div>
+        </div>
+        <div class="flex gap-0.5">
+          <span class="text-[10px] font-mono font-bold text-gray-300">A&#9824;</span>
+          <span class="text-[10px] font-mono font-bold text-red-400">K&#9829;</span>
+          <span class="text-[10px] font-mono font-bold text-red-400">5&#9830;</span>
+          <span class="text-[10px] font-mono font-bold text-gray-300">4&#9827;</span>
+          <span class="text-[10px] font-mono font-bold text-gray-300">3&#9824;</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex flex-col items-center">
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">GTO</span>
+          <span class="text-[10px] text-gray-500 mt-0.5">100%</span>
+        </div>
+        <span class="text-sm font-bold tabular-nums text-gray-400">0.0 BB</span>
+        <svg class="w-4 h-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

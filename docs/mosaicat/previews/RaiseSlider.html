@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xs flex flex-col gap-2">
+    <div class="flex justify-between text-sm text-gray-500">
+      <span>Min: 100</span>
+      <span class="font-semibold text-gray-900">450</span>
+      <span>Max: 1,500</span>
+    </div>
+    <div class="relative w-full h-10 flex items-center">
+      <div class="absolute w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+        <div class="h-full bg-blue-600 rounded-full" style="width: 25%"></div>
+      </div>
+      <div class="absolute w-5 h-5 bg-white border-2 border-blue-600 rounded-full shadow-md" style="left: calc(25% - 10px)"></div>
+    </div>
+    <div class="flex justify-between gap-2">
+      <button class="flex-1 px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors">50%</button>
+      <button class="flex-1 px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors">75%</button>
+      <button class="flex-1 px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors">Max</button>
+    </div>
+  </div>
+</body>
+</html>

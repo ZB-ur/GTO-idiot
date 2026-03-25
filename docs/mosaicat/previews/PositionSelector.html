@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PositionSelector Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-8">
+    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">PositionSelector — Variants</p>
+
+    <!-- UTG selected -->
+    <div>
+      <p class="text-xs text-gray-400 mb-3">UTG selected</p>
+      <div class="flex rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+        <button class="flex-1 px-3 py-2 text-sm font-medium bg-blue-600 text-white">UTG</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600 border-l border-gray-200 hover:bg-gray-50">MP</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600 border-l border-gray-200 hover:bg-gray-50">CO</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600 border-l border-gray-200 hover:bg-gray-50">BTN</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600 border-l border-gray-200 hover:bg-gray-50">SB</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600 border-l border-gray-200 hover:bg-gray-50">BB</button>
+      </div>
+    </div>
+
+    <!-- BTN selected -->
+    <div>
+      <p class="text-xs text-gray-400 mb-3">BTN selected</p>
+      <div class="flex rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600">UTG</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600 border-l border-gray-200">MP</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600 border-l border-gray-200">CO</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium bg-blue-600 text-white border-l border-gray-200">BTN</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600 border-l border-gray-200">SB</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600 border-l border-gray-200">BB</button>
+      </div>
+    </div>
+
+    <!-- BB selected -->
+    <div>
+      <p class="text-xs text-gray-400 mb-3">BB selected</p>
+      <div class="flex rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600">UTG</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600 border-l border-gray-200">MP</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600 border-l border-gray-200">CO</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600 border-l border-gray-200">BTN</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium text-gray-600 border-l border-gray-200">SB</button>
+        <button class="flex-1 px-3 py-2 text-sm font-medium bg-blue-600 text-white border-l border-gray-200">BB</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

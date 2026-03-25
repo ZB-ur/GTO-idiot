@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-4 max-w-sm ml-auto">
+    <!-- Success Toast -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-emerald-50 border-emerald-200" role="alert">
+      <span class="flex items-center justify-center w-6 h-6 rounded-full text-white text-xs font-bold bg-emerald-500">✓</span>
+      <span class="text-sm font-medium text-emerald-900">Hand saved successfully!</span>
+      <button class="ml-2 text-gray-400 hover:text-gray-600 text-lg leading-none">×</button>
+    </div>
+
+    <!-- Error Toast -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-red-50 border-red-200" role="alert">
+      <span class="flex items-center justify-center w-6 h-6 rounded-full text-white text-xs font-bold bg-red-500">✕</span>
+      <span class="text-sm font-medium text-red-900">Failed to load hand history.</span>
+      <button class="ml-2 text-gray-400 hover:text-gray-600 text-lg leading-none">×</button>
+    </div>
+
+    <!-- Info Toast -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-sky-50 border-sky-200" role="alert">
+      <span class="flex items-center justify-center w-6 h-6 rounded-full text-white text-xs font-bold bg-sky-500">i</span>
+      <span class="text-sm font-medium text-sky-900">Analysis complete — 3 leaks found.</span>
+      <button class="ml-2 text-gray-400 hover:text-gray-600 text-lg leading-none">×</button>
+    </div>
+  </div>
+</body>
+</html>

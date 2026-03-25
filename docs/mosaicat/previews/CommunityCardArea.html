@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommunityCardArea Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #f8fafc;
+      font-family: system-ui, sans-serif;
+    }
+
+    @keyframes dealCard {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px) rotateY(90deg) scale(0.8);
+      }
+      50% {
+        opacity: 0.7;
+        transform: translateY(-5px) rotateY(20deg) scale(1.02);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) rotateY(0deg) scale(1);
+      }
+    }
+
+    .animate-deal {
+      animation: dealCard 0.5s ease-out forwards;
+    }
+
+    .deal-delay-1 { animation-delay: 150ms; opacity: 0; }
+    .deal-delay-2 { animation-delay: 300ms; opacity: 0; }
+  </style>
+</head>
+<body>
+
+  <div style="display: flex; flex-direction: column; gap: 48px;">
+
+    <!-- Variant 1: Flop (3 cards) on felt background -->
+    <div>
+      <div style="margin-bottom: 8px; font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Flop — 3 community cards</div>
+      <div style="background: linear-gradient(135deg, #064e3b, #065f46); border-radius: 16px; padding: 32px; display: flex; justify-content: center;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+          <!-- Street label -->
+          <div style="padding: 4px 12px; border-radius: 9999px; background: rgba(6, 78, 59, 0.6); backdrop-filter: blur(4px);">
+            <span style="font-size: 12px; font-weight: 600; color: #a7f3d0; text-transform: uppercase; letter-spacing: 0.08em;">Flop</span>
+          </div>
+          <!-- Cards row -->
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <!-- Card 1: A♠ -->
+            <div class="animate-deal" style="position: relative; width: 64px; height: 88px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); border: 1px solid #e5e7eb; display: flex; flex-direction: column; align-items: center; justify-content: center; user-select: none;">
+              <div style="position: absolute; top: 4px; left: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #111827;">
+                <div>A</div>
+                <div style="font-size: 10px;">♠</div>
+              </div>
+              <div style="font-size: 24px; color: #111827;">♠</div>
+              <div style="position: absolute; bottom: 4px; right: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #111827; transform: rotate(180deg);">
+                <div>A</div>
+                <div style="font-size: 10px;">♠</div>
+              </div>
+            </div>
+            <!-- Card 2: K♥ -->
+            <div class="animate-deal deal-delay-1" style="position: relative; width: 64px; height: 88px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); border: 1px solid #e5e7eb; display: flex; flex-direction: column; align-items: center; justify-content: center; user-select: none;">
+              <div style="position: absolute; top: 4px; left: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626;">
+                <div>K</div>
+                <div style="font-size: 10px;">♥</div>
+              </div>
+              <div style="font-size: 24px; color: #dc2626;">♥</div>
+              <div style="position: absolute; bottom: 4px; right: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626; transform: rotate(180deg);">
+                <div>K</div>
+                <div style="font-size: 10px;">♥</div>
+              </div>
+            </div>
+            <!-- Card 3: 7♦ -->
+            <div class="animate-deal deal-delay-2" style="position: relative; width: 64px; height: 88px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); border: 1px solid #e5e7eb; display: flex; flex-direction: column; align-items: center; justify-content: center; user-select: none;">
+              <div style="position: absolute; top: 4px; left: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626;">
+                <div>7</div>
+                <div style="font-size: 10px;">♦</div>
+              </div>
+              <div style="font-size: 24px; color: #dc2626;">♦</div>
+              <div style="position: absolute; bottom: 4px; right: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626; transform: rotate(180deg);">
+                <div>7</div>
+                <div style="font-size: 10px;">♦</div>
+              </div>
+            </div>
+            <!-- Placeholder 4 -->
+            <div style="width: 64px; height: 88px; border-radius: 8px; border: 2px dashed rgba(16, 185, 129, 0.3); background: rgba(6, 78, 59, 0.2);"></div>
+            <!-- Placeholder 5 -->
+            <div style="width: 64px; height: 88px; border-radius: 8px; border: 2px dashed rgba(16, 185, 129, 0.3); background: rgba(6, 78, 59, 0.2);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant 2: Turn (4 cards) -->
+    <div>
+      <div style="margin-bottom: 8px; font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Turn — 4 community cards</div>
+      <div style="background: linear-gradient(135deg, #064e3b, #065f46); border-radius: 16px; padding: 32px; display: flex; justify-content: center;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+          <div style="padding: 4px 12px; border-radius: 9999px; background: rgba(6, 78, 59, 0.6); backdrop-filter: blur(4px);">
+            <span style="font-size: 12px; font-weight: 600; color: #a7f3d0; text-transform: uppercase; letter-spacing: 0.08em;">Turn</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <!-- Card 1: A♠ -->
+            <div style="position: relative; width: 64px; height: 88px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); border: 1px solid #e5e7eb; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <div style="position: absolute; top: 4px; left: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #111827;">
+                <div>A</div><div style="font-size: 10px;">♠</div>
+              </div>
+              <div style="font-size: 24px; color: #111827;">♠</div>
+              <div style="position: absolute; bottom: 4px; right: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #111827; transform: rotate(180deg);">
+                <div>A</div><div style="font-size: 10px;">♠</div>
+              </div>
+            </div>
+            <!-- Card 2: K♥ -->
+            <div style="position: relative; width: 64px; height: 88px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); border: 1px solid #e5e7eb; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <div style="position: absolute; top: 4px; left: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626;">
+                <div>K</div><div style="font-size: 10px;">♥</div>
+              </div>
+              <div style="font-size: 24px; color: #dc2626;">♥</div>
+              <div style="position: absolute; bottom: 4px; right: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626; transform: rotate(180deg);">
+                <div>K</div><div style="font-size: 10px;">♥</div>
+              </div>
+            </div>
+            <!-- Card 3: 7♦ -->
+            <div style="position: relative; width: 64px; height: 88px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); border: 1px solid #e5e7eb; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <div style="position: absolute; top: 4px; left: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626;">
+                <div>7</div><div style="font-size: 10px;">♦</div>
+              </div>
+              <div style="font-size: 24px; color: #dc2626;">♦</div>
+              <div style="position: absolute; bottom: 4px; right: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626; transform: rotate(180deg);">
+                <div>7</div><div style="font-size: 10px;">♦</div>
+              </div>
+            </div>
+            <!-- Card 4 (NEW - Turn card): J♣ -->
+            <div class="animate-deal" style="position: relative; width: 64px; height: 88px; background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); border: 2px solid #fbbf24; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <div style="position: absolute; top: 4px; left: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #111827;">
+                <div>J</div><div style="font-size: 10px;">♣</div>
+              </div>
+              <div style="font-size: 24px; color: #111827;">♣</div>
+              <div style="position: absolute; bottom: 4px; right: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #111827; transform: rotate(180deg);">
+                <div>J</div><div style="font-size: 10px;">♣</div>
+              </div>
+            </div>
+            <!-- Placeholder 5 -->
+            <div style="width: 64px; height: 88px; border-radius: 8px; border: 2px dashed rgba(16, 185, 129, 0.3); background: rgba(6, 78, 59, 0.2);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant 3: River (5 cards, full board) -->
+    <div>
+      <div style="margin-bottom: 8px; font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">River — full board</div>
+      <div style="background: linear-gradient(135deg, #064e3b, #065f46); border-radius: 16px; padding: 32px; display: flex; justify-content: center;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+          <div style="padding: 4px 12px; border-radius: 9999px; background: rgba(6, 78, 59, 0.6); backdrop-filter: blur(4px);">
+            <span style="font-size: 12px; font-weight: 600; color: #a7f3d0; text-transform: uppercase; letter-spacing: 0.08em;">River</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <!-- Card 1: A♠ -->
+            <div style="position: relative; width: 64px; height: 88px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); border: 1px solid #e5e7eb; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <div style="position: absolute; top: 4px; left: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #111827;">
+                <div>A</div><div style="font-size: 10px;">♠</div>
+              </div>
+              <div style="font-size: 24px; color: #111827;">♠</div>
+              <div style="position: absolute; bottom: 4px; right: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #111827; transform: rotate(180deg);">
+                <div>A</div><div style="font-size: 10px;">♠</div>
+              </div>
+            </div>
+            <!-- Card 2: K♥ -->
+            <div style="position: relative; width: 64px; height: 88px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); border: 1px solid #e5e7eb; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <div style="position: absolute; top: 4px; left: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626;">
+                <div>K</div><div style="font-size: 10px;">♥</div>
+              </div>
+              <div style="font-size: 24px; color: #dc2626;">♥</div>
+              <div style="position: absolute; bottom: 4px; right: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626; transform: rotate(180deg);">
+                <div>K</div><div style="font-size: 10px;">♥</div>
+              </div>
+            </div>
+            <!-- Card 3: 7♦ -->
+            <div style="position: relative; width: 64px; height: 88px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); border: 1px solid #e5e7eb; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <div style="position: absolute; top: 4px; left: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626;">
+                <div>7</div><div style="font-size: 10px;">♦</div>
+              </div>
+              <div style="font-size: 24px; color: #dc2626;">♦</div>
+              <div style="position: absolute; bottom: 4px; right: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626; transform: rotate(180deg);">
+                <div>7</div><div style="font-size: 10px;">♦</div>
+              </div>
+            </div>
+            <!-- Card 4: J♣ -->
+            <div style="position: relative; width: 64px; height: 88px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); border: 1px solid #e5e7eb; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <div style="position: absolute; top: 4px; left: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #111827;">
+                <div>J</div><div style="font-size: 10px;">♣</div>
+              </div>
+              <div style="font-size: 24px; color: #111827;">♣</div>
+              <div style="position: absolute; bottom: 4px; right: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #111827; transform: rotate(180deg);">
+                <div>J</div><div style="font-size: 10px;">♣</div>
+              </div>
+            </div>
+            <!-- Card 5 (NEW - River card): 2♥ -->
+            <div class="animate-deal" style="position: relative; width: 64px; height: 88px; background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); border: 2px solid #fbbf24; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <div style="position: absolute; top: 4px; left: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626;">
+                <div>2</div><div style="font-size: 10px;">♥</div>
+              </div>
+              <div style="font-size: 24px; color: #dc2626;">♥</div>
+              <div style="position: absolute; bottom: 4px; right: 6px; font-size: 12px; font-weight: 700; line-height: 1; color: #dc2626; transform: rotate(180deg);">
+                <div>2</div><div style="font-size: 10px;">♥</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant 4: Pre-flop (no cards) -->
+    <div>
+      <div style="margin-bottom: 8px; font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Pre-Flop — no community cards</div>
+      <div style="background: linear-gradient(135deg, #064e3b, #065f46); border-radius: 16px; padding: 32px; display: flex; justify-content: center;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+          <div style="padding: 4px 12px; border-radius: 9999px; background: rgba(6, 78, 59, 0.6); backdrop-filter: blur(4px);">
+            <span style="font-size: 12px; font-weight: 600; color: #a7f3d0; text-transform: uppercase; letter-spacing: 0.08em;">Pre-Flop</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 64px; height: 88px; border-radius: 8px; border: 2px dashed rgba(16, 185, 129, 0.3); background: rgba(6, 78, 59, 0.2);"></div>
+            <div style="width: 64px; height: 88px; border-radius: 8px; border: 2px dashed rgba(16, 185, 129, 0.3); background: rgba(6, 78, 59, 0.2);"></div>
+            <div style="width: 64px; height: 88px; border-radius: 8px; border: 2px dashed rgba(16, 185, 129, 0.3); background: rgba(6, 78, 59, 0.2);"></div>
+            <div style="width: 64px; height: 88px; border-radius: 8px; border: 2px dashed rgba(16, 185, 129, 0.3); background: rgba(6, 78, 59, 0.2);"></div>
+            <div style="width: 64px; height: 88px; border-radius: 8px; border: 2px dashed rgba(16, 185, 129, 0.3); background: rgba(6, 78, 59, 0.2);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

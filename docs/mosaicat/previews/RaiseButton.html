@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RaiseButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #064e3b; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 360px; margin: 0 auto;">
+    <!-- State 1: Collapsed raise button -->
+    <p class="text-emerald-300/60 text-xs mb-2 font-semibold uppercase tracking-wider">Collapsed State</p>
+    <div class="mb-8">
+      <button
+        class="w-full py-3.5 rounded-xl font-bold text-base bg-emerald-500 hover:bg-emerald-400 text-white shadow-md transition-all"
+      >
+        Raise
+      </button>
+    </div>
+
+    <!-- State 2: Expanded raise panel -->
+    <p class="text-emerald-300/60 text-xs mb-2 font-semibold uppercase tracking-wider">Expanded State</p>
+    <div class="flex flex-col items-stretch gap-2">
+      <div class="bg-emerald-900/90 rounded-xl p-4 space-y-3 border border-emerald-700/50 shadow-lg">
+        <!-- Pot-size shortcuts -->
+        <div class="flex gap-2">
+          <button class="flex-1 py-1.5 text-xs font-semibold rounded-lg bg-emerald-700/60 text-emerald-100 hover:bg-emerald-600/80 transition-colors">
+            ½ Pot
+            <span class="block text-[10px] text-emerald-300/70">12</span>
+          </button>
+          <button class="flex-1 py-1.5 text-xs font-semibold rounded-lg bg-emerald-700/60 text-emerald-100 hover:bg-emerald-600/80 transition-colors">
+            ¾ Pot
+            <span class="block text-[10px] text-emerald-300/70">18</span>
+          </button>
+          <button class="flex-1 py-1.5 text-xs font-semibold rounded-lg bg-emerald-700/60 text-emerald-100 hover:bg-emerald-600/80 transition-colors">
+            Pot
+            <span class="block text-[10px] text-emerald-300/70">24</span>
+          </button>
+        </div>
+
+        <!-- Slider -->
+        <div class="relative">
+          <input
+            type="range"
+            min="8"
+            max="196"
+            value="36"
+            class="w-full h-2 appearance-none rounded-full cursor-pointer accent-emerald-400"
+            style="background: linear-gradient(to right, #34d399 0%, #34d399 15%, rgba(6,78,59,0.5) 15%, rgba(6,78,59,0.5) 100%);"
+            disabled
+          />
+          <div class="flex justify-between text-[10px] text-emerald-400/60 mt-1">
+            <span>8</span>
+            <span>196</span>
+          </div>
+        </div>
+
+        <!-- Amount input + confirm -->
+        <div class="flex gap-2 items-center">
+          <input
+            type="number"
+            value="36"
+            class="flex-1 bg-emerald-950/60 border border-emerald-600/40 rounded-lg px-3 py-2 text-center text-white text-lg font-bold focus:outline-none"
+            readonly
+          />
+          <button class="px-5 py-2 bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-bold rounded-lg transition-colors shadow-md">
+            Raise
+          </button>
+        </div>
+      </div>
+
+      <!-- Cancel button (shown when expanded) -->
+      <button
+        class="w-full py-3.5 rounded-xl font-bold text-base bg-emerald-400 text-emerald-950 shadow-lg shadow-emerald-500/30 transition-all"
+      >
+        Cancel
+      </button>
+    </div>
+
+    <!-- State 3: Disabled -->
+    <p class="text-emerald-300/60 text-xs mb-2 mt-8 font-semibold uppercase tracking-wider">Disabled State</p>
+    <div>
+      <button
+        class="w-full py-3.5 rounded-xl font-bold text-base bg-gray-600/50 text-gray-400 cursor-not-allowed"
+        disabled
+      >
+        Raise
+      </button>
+    </div>
+  </div>
+</body>
+</html>

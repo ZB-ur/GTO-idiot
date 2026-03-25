@@ -1,0 +1,11 @@
+The self-contained HTML preview at `previews/PokerTableScreen.html` renders:
+
+- **Top bar** with `HandNumberBadge` (#12), blind level (2/4), and "End Session" button
+- **Oval poker felt** with emerald gradient, 6 player seats positioned around the table
+- **Hero seat** (bottom center) showing A♠ K♠ hole cards, blue highlight, BTN position, 196 chips
+- **5 bot seats** with face-down cards, varying difficulties (fish/reg/gto), last actions (Fold/Call/Raise), and one bot (UTG) with animated thinking dots and amber active-turn border
+- **Community cards** — 3 dealt (A♠ K♥ 7♦) + 2 dashed placeholders (Flop street)
+- **Pot display** — gold chip icon + "24" in amber
+- **Action panel** fixed at bottom with Fold / Call 12 / Raise / All In 196 buttons matching the `ActionPanel` component's color scheme
+
+All static HTML + Tailwind CDN, no JavaScript, faithful visual match to the React component.
