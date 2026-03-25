@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GtoComparisonPanel Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 24px; max-width: 420px; margin: 0 auto;">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">GtoComparisonPanel — All Ratings</p>
+
+    <!-- GREEN: GTO Match -->
+    <div class="rounded-xl border p-4 bg-emerald-900/30 border-emerald-700/50">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-gray-200">GTO Comparison</h3>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold text-emerald-400 bg-emerald-900/30 border border-emerald-700/50">
+          <span>✓</span> GTO Match
+        </span>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="rounded-lg bg-gray-800/60 p-3 text-center">
+          <span class="text-[10px] text-gray-500 uppercase tracking-wider block mb-1">Your Action</span>
+          <span class="text-white text-sm font-bold block">Fold</span>
+        </div>
+        <div class="rounded-lg p-3 text-center bg-emerald-900/30">
+          <span class="text-[10px] text-gray-500 uppercase tracking-wider block mb-1">GTO Optimal</span>
+          <span class="text-emerald-400 text-sm font-bold block">Fold</span>
+        </div>
+      </div>
+      <div class="mt-3 px-3 py-2 rounded-lg bg-gray-800/40 border border-gray-700/40">
+        <p class="text-xs text-gray-300 leading-relaxed">T9o is not in UTG open-raise range. GTO recommends fold.</p>
+      </div>
+    </div>
+
+    <!-- YELLOW: Acceptable -->
+    <div class="rounded-xl border p-4 bg-amber-900/30 border-amber-700/50">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-gray-200">GTO Comparison</h3>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold text-amber-400 bg-amber-900/30 border border-amber-700/50">
+          <span>~</span> Acceptable
+        </span>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="rounded-lg bg-gray-800/60 p-3 text-center">
+          <span class="text-[10px] text-gray-500 uppercase tracking-wider block mb-1">Your Action</span>
+          <span class="text-white text-sm font-bold block">Raise 3.5 BB</span>
+        </div>
+        <div class="rounded-lg p-3 text-center bg-amber-900/30">
+          <span class="text-[10px] text-gray-500 uppercase tracking-wider block mb-1">GTO Optimal</span>
+          <span class="text-amber-400 text-sm font-bold block">Raise 2.5 BB</span>
+        </div>
+      </div>
+      <div class="mt-3 px-3 py-2 rounded-lg bg-gray-800/40 border border-gray-700/40">
+        <p class="text-xs text-gray-300 leading-relaxed">Sizing is slightly larger than GTO standard. 2.5x open is preferred from CO.</p>
+      </div>
+    </div>
+
+    <!-- RED: GTO Error -->
+    <div class="rounded-xl border p-4 bg-red-900/30 border-red-700/50">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-gray-200">GTO Comparison</h3>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold text-red-400 bg-red-900/30 border border-red-700/50">
+          <span>✗</span> GTO Error
+        </span>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="rounded-lg bg-gray-800/60 p-3 text-center">
+          <span class="text-[10px] text-gray-500 uppercase tracking-wider block mb-1">Your Action</span>
+          <span class="text-white text-sm font-bold block">Raise 6.5 BB</span>
+        </div>
+        <div class="rounded-lg p-3 text-center bg-red-900/30">
+          <span class="text-[10px] text-gray-500 uppercase tracking-wider block mb-1">GTO Optimal</span>
+          <span class="text-red-400 text-sm font-bold block">Fold</span>
+        </div>
+      </div>
+      <div class="mt-3 px-3 py-2 rounded-lg bg-gray-800/40 border border-gray-700/40">
+        <p class="text-xs text-gray-300 leading-relaxed">72o is not in any open-raise range. This hand should always be folded from UTG.</p>
+      </div>
+    </div>
+
+    <!-- GRAY: Simplified postflop -->
+    <div class="rounded-xl border p-4 bg-gray-800/50 border-gray-700/50">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-gray-200">GTO Comparison</h3>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold text-gray-400 bg-gray-800/50 border border-gray-700/50">
+          <span>?</span> No Reference
+        </span>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="rounded-lg bg-gray-800/60 p-3 text-center">
+          <span class="text-[10px] text-gray-500 uppercase tracking-wider block mb-1">Your Action</span>
+          <span class="text-white text-sm font-bold block">Bet 4.0 BB</span>
+        </div>
+        <div class="rounded-lg p-3 text-center bg-gray-800/50">
+          <span class="text-[10px] text-gray-500 uppercase tracking-wider block mb-1">GTO Optimal</span>
+          <span class="text-gray-400 text-sm font-bold block">Check</span>
+        </div>
+      </div>
+      <div class="mt-3 px-3 py-2 rounded-lg bg-gray-800/40 border border-gray-700/40">
+        <p class="text-xs text-gray-300 leading-relaxed">On dry boards OOP, checking is preferred to avoid bloating the pot without position.</p>
+      </div>
+      <p class="mt-2 text-[10px] text-gray-500 italic text-center">* Postflop GTO reference is simplified / approximate</p>
+    </div>
+  </div>
+</body>
+</html>

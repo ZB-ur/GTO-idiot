@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayerBetChips Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 32px; align-items: center; padding-top: 32px;">
+
+    <!-- Small bet: 1 BB -->
+    <div>
+      <p class="text-gray-400 text-sm mb-3 text-center">Small Bet — 1 BB</p>
+      <div class="flex items-center gap-1.5">
+        <div class="relative flex flex-col-reverse items-center" style="width: 20px;">
+          <div class="w-5 h-1.5 rounded-full border bg-emerald-500 border-emerald-400"></div>
+        </div>
+        <span class="text-xs font-bold text-amber-300 px-1.5 py-0.5 rounded-md border border-gray-700 whitespace-nowrap" style="background: rgba(17,24,39,0.7);">1 BB</span>
+      </div>
+    </div>
+
+    <!-- Medium bet: 5.5 BB -->
+    <div>
+      <p class="text-gray-400 text-sm mb-3 text-center">Medium Bet — 5.5 BB</p>
+      <div class="flex items-center gap-1.5">
+        <div class="relative flex flex-col-reverse items-center" style="width: 20px;">
+          <div class="w-5 h-1.5 rounded-full border bg-emerald-500 border-emerald-400"></div>
+          <div class="w-5 h-1.5 rounded-full border bg-blue-500 border-blue-400" style="margin-bottom: -2px;"></div>
+        </div>
+        <span class="text-xs font-bold text-amber-300 px-1.5 py-0.5 rounded-md border border-gray-700 whitespace-nowrap" style="background: rgba(17,24,39,0.7);">5.5 BB</span>
+      </div>
+    </div>
+
+    <!-- Large bet: 15 BB -->
+    <div>
+      <p class="text-gray-400 text-sm mb-3 text-center">Large Bet — 15 BB</p>
+      <div class="flex items-center gap-1.5">
+        <div class="relative flex flex-col-reverse items-center" style="width: 20px;">
+          <div class="w-5 h-1.5 rounded-full border bg-emerald-500 border-emerald-400"></div>
+          <div class="w-5 h-1.5 rounded-full border bg-blue-500 border-blue-400" style="margin-bottom: -2px;"></div>
+          <div class="w-5 h-1.5 rounded-full border bg-red-500 border-red-400" style="margin-bottom: -2px;"></div>
+        </div>
+        <span class="text-xs font-bold text-amber-300 px-1.5 py-0.5 rounded-md border border-gray-700 whitespace-nowrap" style="background: rgba(17,24,39,0.7);">15 BB</span>
+      </div>
+    </div>
+
+    <!-- All-in: 98.5 BB -->
+    <div>
+      <p class="text-gray-400 text-sm mb-3 text-center">All-in — 98.5 BB</p>
+      <div class="flex items-center gap-1.5">
+        <div class="relative flex flex-col-reverse items-center" style="width: 20px;">
+          <div class="w-5 h-1.5 rounded-full border bg-emerald-500 border-emerald-400"></div>
+          <div class="w-5 h-1.5 rounded-full border bg-blue-500 border-blue-400" style="margin-bottom: -2px;"></div>
+          <div class="w-5 h-1.5 rounded-full border bg-red-500 border-red-400" style="margin-bottom: -2px;"></div>
+          <div class="w-5 h-1.5 rounded-full border bg-amber-500 border-amber-400" style="margin-bottom: -2px;"></div>
+        </div>
+        <span class="text-xs font-bold text-amber-300 px-1.5 py-0.5 rounded-md border border-gray-700 whitespace-nowrap" style="background: rgba(17,24,39,0.7);">98.5 BB</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

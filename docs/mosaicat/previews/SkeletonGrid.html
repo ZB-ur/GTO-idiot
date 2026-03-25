@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          gridTemplateColumns: { '13': 'repeat(13, minmax(0, 1fr))' }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .cell { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 420px;">
+    <div class="grid grid-cols-13 gap-0.5">
+      <script>/* cells generated below */</script>
+    </div>
+  </div>
+
+  <!-- Static 13x13 grid rendered without JS expressions -->
+  <div style="max-width: 420px;">
+    <div style="display: grid; grid-template-columns: repeat(13, 1fr); gap: 2px;">
+      <!-- Row 1 -->
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:0ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:30ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:60ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:90ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:120ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:150ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:180ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:210ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:240ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:270ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:300ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:330ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:360ms"></div>
+      <!-- Row 2 -->
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:30ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:60ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:90ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:120ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:150ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:180ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:210ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:240ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:270ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:300ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:330ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:360ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:390ms"></div>
+      <!-- Row 3 -->
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:60ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:90ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:120ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:150ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:180ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:210ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:240ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:270ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:300ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:330ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:360ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:390ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:420ms"></div>
+      <!-- Row 4 -->
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:90ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:120ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:150ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:180ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:210ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:240ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:270ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:300ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:330ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:360ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:390ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:420ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:450ms"></div>
+      <!-- Row 5 -->
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:120ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:150ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:180ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:210ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:240ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:270ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:300ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:330ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:360ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:390ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:420ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:450ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:480ms"></div>
+      <!-- Row 6 -->
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:150ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:180ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:210ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:240ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:270ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:300ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:330ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:360ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:390ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:420ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:450ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:480ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:510ms"></div>
+      <!-- Row 7 -->
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:180ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:210ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:240ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:270ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:300ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:330ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:360ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:390ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:420ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:450ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:480ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:510ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:540ms"></div>
+      <!-- Row 8 -->
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:210ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:240ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:270ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:300ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:330ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:360ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:390ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:420ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:450ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:480ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:510ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:540ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:570ms"></div>
+      <!-- Row 9 -->
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:240ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:270ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:300ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:330ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:360ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:390ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:420ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:450ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:480ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:510ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:540ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:570ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:600ms"></div>
+      <!-- Row 10 -->
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:270ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:300ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:330ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:360ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:390ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:420ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:450ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:480ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:510ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:540ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:570ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:600ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:630ms"></div>
+      <!-- Row 11 -->
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:300ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:330ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:360ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:390ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:420ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:450ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:480ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:510ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:540ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:570ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:600ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:630ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:660ms"></div>
+      <!-- Row 12 -->
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:330ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:360ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:390ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:420ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:450ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:480ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:510ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:540ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:570ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:600ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:630ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:660ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:690ms"></div>
+      <!-- Row 13 -->
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:360ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:390ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:420ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:450ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:480ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:510ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:540ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:570ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:600ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:630ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:660ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:690ms"></div>
+      <div class="aspect-square rounded-sm bg-[#1e293b] border border-gray-700/50 cell" style="animation-delay:720ms"></div>
+    </div>
+  </div>
+</body>
+</html>

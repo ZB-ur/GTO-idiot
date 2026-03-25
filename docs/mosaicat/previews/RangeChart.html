@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RangeChart Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="background:#1e293b;" class="rounded-xl border border-gray-700 p-4 max-w-2xl mx-auto">
+    <!-- Position Tabs -->
+    <div class="flex gap-1 mb-3">
+      <button class="px-3 py-1.5 rounded-lg text-sm font-medium bg-emerald-500 text-white">UTG</button>
+      <button class="px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-800 text-gray-400">MP</button>
+      <button class="px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-800 text-gray-400">CO</button>
+      <button class="px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-800 text-gray-400">BTN</button>
+      <button class="px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-800 text-gray-400">SB</button>
+      <button class="px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-800 text-gray-400">BB</button>
+    </div>
+    <!-- Scenario Tabs -->
+    <div class="flex gap-1 mb-4 flex-wrap">
+      <button class="px-3 py-1 rounded-lg text-xs font-medium bg-emerald-500/20 text-emerald-400 border border-emerald-500/50">Open Raise</button>
+      <button class="px-3 py-1 rounded-lg text-xs font-medium bg-gray-800/60 text-gray-500 border border-transparent">vs 3-Bet</button>
+      <button class="px-3 py-1 rounded-lg text-xs font-medium bg-gray-800/60 text-gray-500 border border-transparent">vs 4-Bet</button>
+      <button class="px-3 py-1 rounded-lg text-xs font-medium bg-gray-800/60 text-gray-500 border border-transparent">vs Open</button>
+      <button class="px-3 py-1 rounded-lg text-xs font-medium bg-gray-800/60 text-gray-500 border border-transparent">Squeeze</button>
+    </div>
+    <!-- Range % -->
+    <div class="flex items-center justify-between mb-3">
+      <span class="text-gray-400 text-sm">Range</span>
+      <span class="text-emerald-400 font-semibold text-sm">15.4%</span>
+    </div>
+    <!-- 13x13 Grid -->
+    <div style="display:grid; grid-template-columns:repeat(13,1fr); gap:2px;">
+      <script>
+        // We'll generate this statically below
+      </script>
+    </div>
+    <!-- Static 13x13 grid rendered inline -->
+    <div id="grid" style="display:grid; grid-template-columns:repeat(13,1fr); gap:2px;"></div>
+    <!-- Legend -->
+    <div class="flex items-center gap-4 mt-3 text-xs text-gray-500">
+      <div class="flex items-center gap-1"><span class="w-3 h-3 rounded-sm bg-emerald-500 inline-block"></span><span>Strong</span></div>
+      <div class="flex items-center gap-1"><span class="w-3 h-3 rounded-sm bg-emerald-800 inline-block"></span><span>Marginal</span></div>
+      <div class="flex items-center gap-1"><span class="w-3 h-3 rounded-sm" style="background:rgba(31,41,55,0.5);" ></span><span>Fold</span></div>
+      <div class="ml-auto flex gap-2">
+        <span class="text-amber-300">Pairs</span>
+        <span class="text-blue-300">Suited</span>
+        <span class="text-gray-300">Offsuit</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Generate static grid for preview
+    const ranks = ['A','K','Q','J','T','9','8','7','6','5','4','3','2'];
+    // UTG open raise range (approximate top 15%)
+    const inRange = new Set([
+      '0-0','1-1','2-2','3-3','4-4','5-5','6-6', // AA-88 pairs
+      '0-1','0-2','0-3', // AKs, AQs, AJs
+      '1-2','1-3', // KQs, KJs
+      '2-3', // QJs
+      '1-0','2-0','3-0', // AKo, AQo, AJo
+      '2-1', // KQo
+    ]);
+    const strong = new Set(['0-0','1-1','2-2','3-3','0-1','1-0','0-2','2-0']);
+    const grid = document.getElementById('grid');
+    for (let r = 0; r < 13; r++) {
+      for (let c = 0; c < 13; c++) {
+        const key = r+'-'+c;
+        const cell = document.createElement('div');
+        const isPair = r === c;
+        const isSuited = r < c;
+        let label;
+        if (isPair) label = ranks[r]+ranks[c];
+        else if (isSuited) label = ranks[r]+ranks[c]+'s';
+        else label = ranks[c]+ranks[r]+'o';
+
+        let bg;
+        if (inRange.has(key)) {
+          bg = strong.has(key) ? '#10b981' : '#065f46';
+        } else {
+          bg = 'rgba(31,41,55,0.5)';
+        }
+        let color = isPair ? '#fcd34d' : isSuited ? '#93c5fd' : '#d1d5db';
+        cell.style.cssText = `aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:${bg};border-radius:2px;cursor:pointer;`;
+        cell.innerHTML = `<span style="font-size:10px;font-weight:500;color:${color};line-height:1;">${label}</span>`;
+        grid.appendChild(cell);
+      }
+    }
+  </script>
+</body>
+</html>

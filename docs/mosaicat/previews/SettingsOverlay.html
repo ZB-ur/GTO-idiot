@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SettingsOverlay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #1a1a2e; font-family: system-ui, sans-serif; min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <!-- Backdrop -->
+  <div class="fixed inset-0" style="background:rgba(0,0,0,0.6); backdrop-filter:blur(4px);"></div>
+
+  <!-- Modal -->
+  <div class="fixed inset-0 flex items-center justify-center p-4" style="z-index:50;">
+    <div class="w-full max-w-md rounded-xl border border-gray-700 shadow-xl overflow-hidden" style="background:#1e293b;">
+      <!-- Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-700">
+        <h2 class="text-gray-100 text-lg font-semibold">Settings</h2>
+        <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-gray-800 text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Content -->
+      <div class="px-6 py-5 space-y-6">
+        <!-- Language -->
+        <div>
+          <label class="text-gray-300 text-sm font-medium mb-2 block">Language / 语言</label>
+          <div class="flex gap-2">
+            <button class="flex-1 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-400">English</button>
+            <button class="flex-1 py-2 rounded-lg text-sm font-medium bg-emerald-500 text-white">中文</button>
+          </div>
+        </div>
+
+        <!-- Bot Speed -->
+        <div>
+          <label class="text-gray-300 text-sm font-medium mb-2 block">Bot Speed</label>
+          <div class="flex gap-2">
+            <button class="flex-1 py-2 rounded-lg text-sm font-medium bg-emerald-500 text-white flex flex-col items-center">
+              <span>Slow</span>
+              <span class="text-xs opacity-60">2000ms</span>
+            </button>
+            <button class="flex-1 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-400 flex flex-col items-center">
+              <span>Normal</span>
+              <span class="text-xs opacity-60">1000ms</span>
+            </button>
+            <button class="flex-1 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-400 flex flex-col items-center">
+              <span>Fast</span>
+              <span class="text-xs opacity-60">300ms</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Default Buy-In -->
+        <div>
+          <label class="text-gray-300 text-sm font-medium mb-2 block">
+            Default Buy-In: <span class="text-emerald-400">100 BB</span>
+          </label>
+          <input type="range" min="50" max="200" step="10" value="100" class="w-full accent-emerald-500" style="background:transparent;" />
+          <div class="flex justify-between text-xs text-gray-500 mt-1">
+            <span>50 BB</span>
+            <span>200 BB</span>
+          </div>
+        </div>
+
+        <!-- Change Seat -->
+        <div>
+          <button class="w-full py-2.5 rounded-lg bg-gray-800 text-gray-300 text-sm font-medium border border-gray-700">
+            Change Seat Position
+          </button>
+        </div>
+
+        <!-- Clear Data -->
+        <div class="pt-2 border-t border-gray-700">
+          <button class="w-full py-2.5 rounded-lg text-sm font-medium border" style="background:rgba(239,68,68,0.1); color:#f87171; border-color:rgba(239,68,68,0.2);">
+            Clear All Data
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

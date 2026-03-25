@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LoadingOverlay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #1a1a2e; font-family: system-ui, sans-serif; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner { animation: spin 1s linear infinite; }
+  </style>
+</head>
+<body>
+  <div class="fixed inset-0 z-50 flex flex-col items-center justify-center" style="background: rgba(26,26,46,0.8); backdrop-filter: blur(4px);">
+    <div class="relative w-12 h-12 mb-4">
+      <div class="absolute inset-0 rounded-full border-2 border-gray-700"></div>
+      <div class="absolute inset-0 rounded-full border-2 border-emerald-500 border-t-transparent spinner"></div>
+    </div>
+    <p class="text-gray-400 text-sm font-medium">Shuffling the deck…</p>
+  </div>
+</body>
+</html>

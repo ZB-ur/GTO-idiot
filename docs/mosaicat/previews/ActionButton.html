@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <p class="text-gray-400 text-sm mb-4 font-semibold">ActionButton — All Variants</p>
+
+  <div class="flex flex-wrap gap-3 items-start mb-6">
+    <!-- Fold -->
+    <button class="bg-gray-700 text-gray-300 border border-gray-600 hover:bg-gray-600 rounded-lg px-5 py-2.5 font-semibold text-sm transition-all duration-150 select-none flex flex-col items-center gap-0.5 min-w-[80px] cursor-pointer">
+      <span>Fold</span>
+    </button>
+
+    <!-- Check -->
+    <button class="bg-emerald-600 text-white border border-emerald-500 hover:bg-emerald-500 rounded-lg px-5 py-2.5 font-semibold text-sm transition-all duration-150 select-none flex flex-col items-center gap-0.5 min-w-[80px] cursor-pointer">
+      <span>Check</span>
+    </button>
+
+    <!-- Call with amount -->
+    <button class="bg-emerald-600 text-white border border-emerald-500 hover:bg-emerald-500 rounded-lg px-5 py-2.5 font-semibold text-sm transition-all duration-150 select-none flex flex-col items-center gap-0.5 min-w-[80px] cursor-pointer">
+      <span>Call</span>
+      <span class="text-xs opacity-80">200</span>
+    </button>
+
+    <!-- Bet with amount -->
+    <button class="bg-amber-500 text-gray-900 border border-amber-400 hover:bg-amber-400 rounded-lg px-5 py-2.5 font-semibold text-sm transition-all duration-150 select-none flex flex-col items-center gap-0.5 min-w-[80px] cursor-pointer">
+      <span>Bet</span>
+      <span class="text-xs opacity-80">500</span>
+    </button>
+
+    <!-- Raise with amount -->
+    <button class="bg-amber-500 text-gray-900 border border-amber-400 hover:bg-amber-400 rounded-lg px-5 py-2.5 font-semibold text-sm transition-all duration-150 select-none flex flex-col items-center gap-0.5 min-w-[80px] cursor-pointer">
+      <span>Raise</span>
+      <span class="text-xs opacity-80">1,200</span>
+    </button>
+
+    <!-- All-In with amount -->
+    <button class="bg-red-600 text-white border border-red-500 hover:bg-red-500 rounded-lg px-5 py-2.5 font-semibold text-sm transition-all duration-150 select-none flex flex-col items-center gap-0.5 min-w-[80px] cursor-pointer">
+      <span>All-In</span>
+      <span class="text-xs opacity-80">15,000</span>
+    </button>
+  </div>
+
+  <p class="text-gray-400 text-sm mb-3 font-semibold">Disabled State</p>
+  <div class="flex flex-wrap gap-3">
+    <button class="bg-emerald-600 text-white border border-emerald-500 rounded-lg px-5 py-2.5 font-semibold text-sm select-none flex flex-col items-center gap-0.5 min-w-[80px] opacity-40 cursor-not-allowed">
+      <span>Call</span>
+      <span class="text-xs opacity-80">200</span>
+    </button>
+    <button class="bg-amber-500 text-gray-900 border border-amber-400 rounded-lg px-5 py-2.5 font-semibold text-sm select-none flex flex-col items-center gap-0.5 min-w-[80px] opacity-40 cursor-not-allowed">
+      <span>Raise</span>
+      <span class="text-xs opacity-80">1,200</span>
+    </button>
+  </div>
+</body>
+</html>

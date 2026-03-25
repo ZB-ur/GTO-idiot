@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StatsDashboard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-5xl mx-auto px-6 py-8 space-y-6">
+
+    <!-- Page Header -->
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-bold text-gray-100">Statistics</h2>
+      <button class="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-medium rounded-lg transition-colors">
+        Play More
+      </button>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- Total Hands -->
+      <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-6 flex flex-col gap-2 hover:border-emerald-500/40 transition-colors">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Total Hands</span>
+          <svg class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
+          </svg>
+        </div>
+        <span class="text-2xl font-bold text-gray-100">156</span>
+      </div>
+
+      <!-- Profit / Loss -->
+      <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-6 flex flex-col gap-2 hover:border-emerald-500/40 transition-colors">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Profit / Loss</span>
+          <svg class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <span class="text-2xl font-bold text-emerald-400">+23.5 BB</span>
+      </div>
+
+      <!-- Win Rate -->
+      <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-6 flex flex-col gap-2 hover:border-emerald-500/40 transition-colors">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Win Rate</span>
+          <svg class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" />
+          </svg>
+        </div>
+        <span class="text-2xl font-bold text-emerald-400">54.3%</span>
+      </div>
+
+      <!-- GTO Score -->
+      <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-6 flex flex-col gap-2 hover:border-emerald-500/40 transition-colors">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">GTO Score</span>
+          <svg class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <span class="text-2xl font-bold text-amber-400">67.8%</span>
+        <span class="text-xs text-gray-500">Room to improve</span>
+      </div>
+    </div>
+
+    <!-- GTO Conformance Trend Chart -->
+    <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold text-gray-100">GTO Conformance Trend</h3>
+        <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Per 10 Hands</span>
+      </div>
+
+      <svg viewBox="0 0 600 220" class="w-full h-52">
+        <defs>
+          <linearGradient id="gtoTrendGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#10b981" stop-opacity="0.3" />
+            <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+
+        <!-- Grid lines -->
+        <line x1="50" y1="30" x2="580" y2="30" stroke="#374151" stroke-width="1" stroke-dasharray="4" />
+        <line x1="50" y1="95" x2="580" y2="95" stroke="#374151" stroke-width="1" stroke-dasharray="4" />
+        <line x1="50" y1="160" x2="580" y2="160" stroke="#374151" stroke-width="1" stroke-dasharray="4" />
+
+        <!-- Y-axis labels -->
+        <text x="45" y="34" text-anchor="end" fill="#6b7280" font-size="10">85%</text>
+        <text x="45" y="99" text-anchor="end" fill="#6b7280" font-size="10">60%</text>
+        <text x="45" y="164" text-anchor="end" fill="#6b7280" font-size="10">35%</text>
+
+        <!-- Area fill -->
+        <path d="M66,140 L132,120 L198,100 L264,110 L330,80 L396,65 L462,55 L528,50 L528,160 L66,160 Z" fill="url(#gtoTrendGrad)" />
+
+        <!-- Line -->
+        <path d="M66,140 L132,120 L198,100 L264,110 L330,80 L396,65 L462,55 L528,50" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+        <!-- Data points -->
+        <circle cx="66" cy="140" r="3" fill="#10b981" stroke="#1e293b" stroke-width="2" />
+        <circle cx="132" cy="120" r="3" fill="#10b981" stroke="#1e293b" stroke-width="2" />
+        <circle cx="198" cy="100" r="3" fill="#10b981" stroke="#1e293b" stroke-width="2" />
+        <circle cx="264" cy="110" r="3" fill="#10b981" stroke="#1e293b" stroke-width="2" />
+        <circle cx="330" cy="80" r="3" fill="#10b981" stroke="#1e293b" stroke-width="2" />
+        <circle cx="396" cy="65" r="3" fill="#10b981" stroke="#1e293b" stroke-width="2" />
+        <circle cx="462" cy="55" r="3" fill="#10b981" stroke="#1e293b" stroke-width="2" />
+        <circle cx="528" cy="50" r="3" fill="#10b981" stroke="#1e293b" stroke-width="2" />
+
+        <!-- X-axis labels -->
+        <text x="66" y="185" text-anchor="middle" fill="#6b7280" font-size="10">1-10</text>
+        <text x="264" y="185" text-anchor="middle" fill="#6b7280" font-size="10">31-40</text>
+        <text x="528" y="185" text-anchor="middle" fill="#6b7280" font-size="10">71-80</text>
+      </svg>
+    </div>
+
+    <!-- Error Categories -->
+    <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold text-gray-100">Common Errors</h3>
+        <span class="text-xs text-gray-500 font-medium">45 total errors</span>
+      </div>
+
+      <div class="flex flex-col gap-3">
+
+        <!-- Error 1: Critical -->
+        <div class="flex items-center gap-4 p-4 rounded-lg bg-[#16213e] border border-gray-700/50 hover:border-emerald-500/30 transition-colors cursor-pointer group">
+          <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider border bg-red-500/20 text-red-400 border-red-500/30">
+            Critical
+          </span>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-gray-200 truncate">Over-opening from UTG</p>
+            <p class="text-xs text-gray-500 truncate">UTG位置过度open</p>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <span class="text-lg font-bold text-gray-200">15</span>
+            <span class="text-xs text-gray-500 ml-1">(33.3%)</span>
+          </div>
+          <svg class="w-4 h-4 text-gray-600 group-hover:text-emerald-400 transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+
+        <!-- Error 2: Warning -->
+        <div class="flex items-center gap-4 p-4 rounded-lg bg-[#16213e] border border-gray-700/50 hover:border-emerald-500/30 transition-colors cursor-pointer group">
+          <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider border bg-amber-400/20 text-amber-400 border-amber-400/30">
+            Warning
+          </span>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-gray-200 truncate">Calling too wide vs 3-bet</p>
+            <p class="text-xs text-gray-500 truncate">面对3bet时call范围过宽</p>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <span class="text-lg font-bold text-gray-200">12</span>
+            <span class="text-xs text-gray-500 ml-1">(26.7%)</span>
+          </div>
+          <svg class="w-4 h-4 text-gray-600 group-hover:text-emerald-400 transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+
+        <!-- Error 3: Warning -->
+        <div class="flex items-center gap-4 p-4 rounded-lg bg-[#16213e] border border-gray-700/50 hover:border-emerald-500/30 transition-colors cursor-pointer group">
+          <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider border bg-amber-400/20 text-amber-400 border-amber-400/30">
+            Warning
+          </span>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-gray-200 truncate">Missing c-bet on dry boards</p>
+            <p class="text-xs text-gray-500 truncate">干燥牌面缺少持续下注</p>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <span class="text-lg font-bold text-gray-200">9</span>
+            <span class="text-xs text-gray-500 ml-1">(20.0%)</span>
+          </div>
+          <svg class="w-4 h-4 text-gray-600 group-hover:text-emerald-400 transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+
+        <!-- Error 4: Minor -->
+        <div class="flex items-center gap-4 p-4 rounded-lg bg-[#16213e] border border-gray-700/50 hover:border-emerald-500/30 transition-colors cursor-pointer group">
+          <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider border bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
+            Minor
+          </span>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-gray-200 truncate">Incorrect bet sizing on river</p>
+            <p class="text-xs text-gray-500 truncate">河牌下注尺度不当</p>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <span class="text-lg font-bold text-gray-200">5</span>
+            <span class="text-xs text-gray-500 ml-1">(11.1%)</span>
+          </div>
+          <svg class="w-4 h-4 text-gray-600 group-hover:text-emerald-400 transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+
+        <!-- Error 5: Minor -->
+        <div class="flex items-center gap-4 p-4 rounded-lg bg-[#16213e] border border-gray-700/50 hover:border-emerald-500/30 transition-colors cursor-pointer group">
+          <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider border bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
+            Minor
+          </span>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-gray-200 truncate">Over-folding BB vs steal</p>
+            <p class="text-xs text-gray-500 truncate">BB面对偷盲过度弃牌</p>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <span class="text-lg font-bold text-gray-200">4</span>
+            <span class="text-xs text-gray-500 ml-1">(8.9%)</span>
+          </div>
+          <svg class="w-4 h-4 text-gray-600 group-hover:text-emerald-400 transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

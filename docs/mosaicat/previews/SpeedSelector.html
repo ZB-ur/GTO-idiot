@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="max-width: 400px;">
+    <p class="text-gray-400 text-sm mb-2 font-semibold">BOT Speed</p>
+    <div class="flex gap-2">
+      <!-- Slow (unselected) -->
+      <button class="flex-1 px-4 py-3 rounded-lg text-center border border-gray-700 bg-[#1e293b] transition-all">
+        <div class="text-sm font-semibold text-gray-400">Slow</div>
+        <div class="text-xs text-gray-500 mt-0.5">3s delay</div>
+      </button>
+      <!-- Normal (selected) -->
+      <button class="flex-1 px-4 py-3 rounded-lg text-center border border-emerald-500 bg-emerald-500/20 transition-all ring-2 ring-emerald-500/30">
+        <div class="text-sm font-semibold text-emerald-400">Normal</div>
+        <div class="text-xs text-gray-500 mt-0.5">1.5s delay</div>
+      </button>
+      <!-- Fast (unselected) -->
+      <button class="flex-1 px-4 py-3 rounded-lg text-center border border-gray-700 bg-[#1e293b] transition-all">
+        <div class="text-sm font-semibold text-gray-400">Fast</div>
+        <div class="text-xs text-gray-500 mt-0.5">0.5s delay</div>
+      </button>
+    </div>
+  </div>
+</body>
+</html>

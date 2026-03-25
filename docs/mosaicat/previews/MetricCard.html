@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="grid grid-cols-4 gap-4 p-8 max-w-4xl">
+    <!-- Default -->
+    <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-6">
+      <p class="text-gray-400 text-sm font-medium mb-2">Hands Played</p>
+      <div class="flex items-baseline gap-1">
+        <span class="text-3xl font-bold text-gray-100">1,284</span>
+      </div>
+    </div>
+    <!-- Green -->
+    <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-6">
+      <p class="text-gray-400 text-sm font-medium mb-2">Win Rate</p>
+      <div class="flex items-baseline gap-1">
+        <span class="text-3xl font-bold text-emerald-500">64.2</span>
+        <span class="text-gray-500 text-sm font-medium">%</span>
+      </div>
+    </div>
+    <!-- Red -->
+    <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-6">
+      <p class="text-gray-400 text-sm font-medium mb-2">Biggest Loss</p>
+      <div class="flex items-baseline gap-1">
+        <span class="text-3xl font-bold text-red-500">-$420</span>
+      </div>
+    </div>
+    <!-- Default with suffix -->
+    <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-6">
+      <p class="text-gray-400 text-sm font-medium mb-2">Avg Session</p>
+      <div class="flex items-baseline gap-1">
+        <span class="text-3xl font-bold text-gray-100">2.4</span>
+        <span class="text-gray-500 text-sm font-medium">hrs</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

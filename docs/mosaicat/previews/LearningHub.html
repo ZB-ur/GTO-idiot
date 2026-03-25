@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearningHub Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-gray-100 mb-2">Learning Hub</h1>
+      <p class="text-gray-400 text-lg">Master GTO strategy with interactive charts and reference guides.</p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Preflop Range Chart Card -->
+      <div class="text-left rounded-xl border border-gray-700 p-6 transition-all duration-200 hover:border-emerald-500/50 cursor-pointer" style="background: #1e293b;">
+        <div class="flex items-start justify-between mb-4">
+          <span class="text-4xl">🃏</span>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-medium border" style="background: rgba(16,185,129,0.15); color: #34d399; border-color: rgba(16,185,129,0.25);">Core</span>
+        </div>
+        <h2 class="text-xl font-semibold text-gray-100 mb-1">Preflop Range Chart</h2>
+        <p class="text-sm text-gray-500 mb-3">翻前范围表</p>
+        <p class="text-gray-400 text-sm leading-relaxed mb-5">Interactive 13×13 matrix showing GTO opening ranges, 3-bet ranges, and more for every position.</p>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-center gap-2 text-sm text-gray-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+            6 positions (UTG → BB)
+          </li>
+          <li class="flex items-center gap-2 text-sm text-gray-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+            5 scenarios per position
+          </li>
+          <li class="flex items-center gap-2 text-sm text-gray-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+            Color-coded frequencies
+          </li>
+          <li class="flex items-center gap-2 text-sm text-gray-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+            Mixed strategy details
+          </li>
+        </ul>
+        <div class="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+          <span>Explore</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Postflop Strategy Reference Card -->
+      <div class="text-left rounded-xl border border-gray-700 p-6 transition-all duration-200 hover:border-emerald-500/50 cursor-pointer" style="background: #1e293b;">
+        <div class="flex items-start justify-between mb-4">
+          <span class="text-4xl">📊</span>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-medium border" style="background: rgba(16,185,129,0.15); color: #34d399; border-color: rgba(16,185,129,0.25);">Reference</span>
+        </div>
+        <h2 class="text-xl font-semibold text-gray-100 mb-1">Postflop Strategy Reference</h2>
+        <p class="text-sm text-gray-500 mb-3">翻后策略参考</p>
+        <p class="text-gray-400 text-sm leading-relaxed mb-5">Simplified GTO guidelines organized by board texture, position, and stack-to-pot ratio.</p>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-center gap-2 text-sm text-gray-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+            Dry / Wet / Monotone boards
+          </li>
+          <li class="flex items-center gap-2 text-sm text-gray-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+            IP vs OOP strategies
+          </li>
+          <li class="flex items-center gap-2 text-sm text-gray-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+            SPR-based sizing guides
+          </li>
+          <li class="flex items-center gap-2 text-sm text-gray-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+            Key principles per spot
+          </li>
+        </ul>
+        <div class="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+          <span>Explore</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Tip -->
+    <div class="mt-8 rounded-lg border border-gray-700 p-4 flex items-start gap-3" style="background: #16213e;">
+      <span class="text-amber-400 text-lg flex-shrink-0">💡</span>
+      <div>
+        <p class="text-sm text-gray-300">
+          <span class="font-medium text-gray-100">Tip:</span>
+          Start with the Preflop Range Chart to build a solid foundation, then use the Postflop Strategy Reference to refine your play on later streets.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

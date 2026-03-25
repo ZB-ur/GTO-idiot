@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayControls Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-8">
+    <!-- State: mid-replay (step 5 of 12) -->
+    <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-4">
+      <p class="text-[10px] text-gray-500 mb-3 uppercase tracking-wider">Mid-replay</p>
+      <div class="flex items-center gap-2">
+        <button class="p-2 rounded-lg text-gray-400 hover:text-gray-100 hover:bg-slate-700 transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z" />
+          </svg>
+        </button>
+        <button class="p-2 rounded-lg text-gray-400 hover:text-gray-100 hover:bg-slate-700 transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="px-4 py-1.5 bg-slate-800 border border-gray-700 rounded-lg min-w-[80px] text-center">
+          <span class="text-sm font-bold text-gray-100">5</span>
+          <span class="text-sm text-gray-500"> / 12</span>
+        </div>
+        <button class="p-2 rounded-lg text-gray-400 hover:text-gray-100 hover:bg-slate-700 transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <button class="p-2 rounded-lg text-gray-400 hover:text-gray-100 hover:bg-slate-700 transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0zm6 0a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- State: at start (step 1, prev disabled) -->
+    <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-4">
+      <p class="text-[10px] text-gray-500 mb-3 uppercase tracking-wider">At start</p>
+      <div class="flex items-center gap-2">
+        <button class="p-2 rounded-lg text-gray-400 opacity-30 cursor-not-allowed transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z" />
+          </svg>
+        </button>
+        <button class="p-2 rounded-lg text-gray-400 opacity-30 cursor-not-allowed transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="px-4 py-1.5 bg-slate-800 border border-gray-700 rounded-lg min-w-[80px] text-center">
+          <span class="text-sm font-bold text-gray-100">1</span>
+          <span class="text-sm text-gray-500"> / 12</span>
+        </div>
+        <button class="p-2 rounded-lg text-gray-400 hover:text-gray-100 hover:bg-slate-700 transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <button class="p-2 rounded-lg text-gray-400 hover:text-gray-100 hover:bg-slate-700 transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0zm6 0a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- State: at end (step 12, next disabled) -->
+    <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-4">
+      <p class="text-[10px] text-gray-500 mb-3 uppercase tracking-wider">At end</p>
+      <div class="flex items-center gap-2">
+        <button class="p-2 rounded-lg text-gray-400 hover:text-gray-100 hover:bg-slate-700 transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z" />
+          </svg>
+        </button>
+        <button class="p-2 rounded-lg text-gray-400 hover:text-gray-100 hover:bg-slate-700 transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="px-4 py-1.5 bg-slate-800 border border-gray-700 rounded-lg min-w-[80px] text-center">
+          <span class="text-sm font-bold text-gray-100">12</span>
+          <span class="text-sm text-gray-500"> / 12</span>
+        </div>
+        <button class="p-2 rounded-lg text-gray-400 opacity-30 cursor-not-allowed transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <button class="p-2 rounded-lg text-gray-400 opacity-30 cursor-not-allowed transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0zm6 0a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

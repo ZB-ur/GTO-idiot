@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RangeCellTooltip Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 40px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="w-48 border rounded-lg shadow-lg p-3" style="background: #1e293b; border-color: #374151;">
+    <div class="text-sm font-bold text-gray-100 mb-2">AKs</div>
+    <div class="space-y-1.5">
+      <!-- Raise -->
+      <div class="flex items-center gap-2">
+        <div class="flex-1 flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-red-500"></div>
+          <span class="text-xs text-gray-300">Raise</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <div class="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
+            <div class="h-full rounded-full bg-red-500" style="width: 65%;"></div>
+          </div>
+          <span class="text-xs text-gray-400 w-8 text-right">65%</span>
+        </div>
+      </div>
+      <!-- Call -->
+      <div class="flex items-center gap-2">
+        <div class="flex-1 flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+          <span class="text-xs text-gray-300">Call</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <div class="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
+            <div class="h-full rounded-full bg-emerald-500" style="width: 25%;"></div>
+          </div>
+          <span class="text-xs text-gray-400 w-8 text-right">25%</span>
+        </div>
+      </div>
+      <!-- Fold -->
+      <div class="flex items-center gap-2">
+        <div class="flex-1 flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-gray-500"></div>
+          <span class="text-xs text-gray-300">Fold</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <div class="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
+            <div class="h-full rounded-full bg-gray-500" style="width: 10%;"></div>
+          </div>
+          <span class="text-xs text-gray-400 w-8 text-right">10%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

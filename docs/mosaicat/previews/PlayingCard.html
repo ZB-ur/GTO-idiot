@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayingCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <p class="text-gray-400 text-sm mb-4 font-semibold">PlayingCard — All States</p>
+
+  <div class="flex flex-wrap gap-6 items-end">
+    <!-- Small cards -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2">Small</p>
+      <div class="flex gap-2">
+        <!-- A♠ sm -->
+        <div class="w-10 h-14 rounded-md border-2 border-gray-300 flex flex-col justify-between p-1 bg-white select-none">
+          <div class="flex flex-col items-start leading-none">
+            <span class="text-xs font-bold" style="color:#ecf0f1">A</span>
+            <span class="text-[10px]" style="color:#ecf0f1">♠</span>
+          </div>
+          <div class="text-lg self-center" style="color:#ecf0f1">♠</div>
+          <div class="flex flex-col items-end leading-none rotate-180">
+            <span class="text-xs font-bold" style="color:#ecf0f1">A</span>
+            <span class="text-[10px]" style="color:#ecf0f1">♠</span>
+          </div>
+        </div>
+        <!-- K♥ sm -->
+        <div class="w-10 h-14 rounded-md border-2 border-gray-300 flex flex-col justify-between p-1 bg-white select-none">
+          <div class="flex flex-col items-start leading-none">
+            <span class="text-xs font-bold" style="color:#e74c3c">K</span>
+            <span class="text-[10px]" style="color:#e74c3c">♥</span>
+          </div>
+          <div class="text-lg self-center" style="color:#e74c3c">♥</div>
+          <div class="flex flex-col items-end leading-none rotate-180">
+            <span class="text-xs font-bold" style="color:#e74c3c">K</span>
+            <span class="text-[10px]" style="color:#e74c3c">♥</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Medium cards -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2">Medium</p>
+      <div class="flex gap-2">
+        <!-- A♠ md -->
+        <div class="w-16 h-22 rounded-md border-2 border-gray-300 flex flex-col justify-between p-1 bg-white select-none">
+          <div class="flex flex-col items-start leading-none">
+            <span class="text-sm font-bold" style="color:#ecf0f1">A</span>
+            <span class="text-xs" style="color:#ecf0f1">♠</span>
+          </div>
+          <div class="text-2xl self-center" style="color:#ecf0f1">♠</div>
+          <div class="flex flex-col items-end leading-none rotate-180">
+            <span class="text-sm font-bold" style="color:#ecf0f1">A</span>
+            <span class="text-xs" style="color:#ecf0f1">♠</span>
+          </div>
+        </div>
+        <!-- Q♦ md -->
+        <div class="w-16 h-22 rounded-md border-2 border-gray-300 flex flex-col justify-between p-1 bg-white select-none">
+          <div class="flex flex-col items-start leading-none">
+            <span class="text-sm font-bold" style="color:#e74c3c">Q</span>
+            <span class="text-xs" style="color:#e74c3c">♦</span>
+          </div>
+          <div class="text-2xl self-center" style="color:#e74c3c">♦</div>
+          <div class="flex flex-col items-end leading-none rotate-180">
+            <span class="text-sm font-bold" style="color:#e74c3c">Q</span>
+            <span class="text-xs" style="color:#e74c3c">♦</span>
+          </div>
+        </div>
+        <!-- J♣ md highlighted -->
+        <div class="w-16 h-22 rounded-md border-2 border-emerald-400 shadow-lg flex flex-col justify-between p-1 bg-white select-none -translate-y-1" style="box-shadow: 0 0 15px rgba(16,185,129,0.3)">
+          <div class="flex flex-col items-start leading-none">
+            <span class="text-sm font-bold" style="color:#ecf0f1">J</span>
+            <span class="text-xs" style="color:#ecf0f1">♣</span>
+          </div>
+          <div class="text-2xl self-center" style="color:#ecf0f1">♣</div>
+          <div class="flex flex-col items-end leading-none rotate-180">
+            <span class="text-sm font-bold" style="color:#ecf0f1">J</span>
+            <span class="text-xs" style="color:#ecf0f1">♣</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Large cards -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2">Large</p>
+      <div class="flex gap-3">
+        <!-- K♥ lg -->
+        <div class="w-24 h-34 rounded-md border-2 border-gray-300 flex flex-col justify-between p-1.5 bg-white select-none">
+          <div class="flex flex-col items-start leading-none">
+            <span class="text-lg font-bold" style="color:#e74c3c">K</span>
+            <span class="text-base" style="color:#e74c3c">♥</span>
+          </div>
+          <div class="text-4xl self-center" style="color:#e74c3c">♥</div>
+          <div class="flex flex-col items-end leading-none rotate-180">
+            <span class="text-lg font-bold" style="color:#e74c3c">K</span>
+            <span class="text-base" style="color:#e74c3c">♥</span>
+          </div>
+        </div>
+        <!-- Face-down lg -->
+        <div class="w-24 h-34 rounded-md border-2 border-gray-600 flex items-center justify-center select-none" style="background: linear-gradient(135deg, #1e3a5f 0%, #0f2744 50%, #1e3a5f 100%)">
+          <div class="text-blue-300/40 text-2xl font-bold">♣</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

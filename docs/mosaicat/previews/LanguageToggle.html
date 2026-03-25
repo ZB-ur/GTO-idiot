@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-6 p-8">
+    <!-- State: Chinese selected -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2">中文 selected</p>
+      <div class="inline-flex items-center bg-[#1e293b] border border-gray-700 rounded-lg p-0.5">
+        <button class="px-3 py-1.5 text-sm font-medium rounded-md bg-emerald-500 text-white shadow-sm">中文</button>
+        <button class="px-3 py-1.5 text-sm font-medium rounded-md text-gray-400">EN</button>
+      </div>
+    </div>
+    <!-- State: English selected -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2">English selected</p>
+      <div class="inline-flex items-center bg-[#1e293b] border border-gray-700 rounded-lg p-0.5">
+        <button class="px-3 py-1.5 text-sm font-medium rounded-md text-gray-400">中文</button>
+        <button class="px-3 py-1.5 text-sm font-medium rounded-md bg-emerald-500 text-white shadow-sm">EN</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

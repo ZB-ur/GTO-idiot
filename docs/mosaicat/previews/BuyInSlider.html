@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BuyInSlider Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 40px; align-items: center; padding-top: 32px;">
+
+    <!-- Default: 100 BB -->
+    <div>
+      <p class="text-gray-400 text-sm mb-4 text-center">Default — 100 BB</p>
+      <div class="flex flex-col gap-4 w-full" style="max-width: 360px;">
+        <!-- Title row -->
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-semibold text-gray-100">Buy-in Amount</span>
+          <span class="text-lg font-bold text-emerald-400">100 BB</span>
+        </div>
+
+        <!-- Presets -->
+        <div class="flex gap-2">
+          <button class="flex-1 px-2 py-1.5 text-xs font-semibold rounded-lg border border-gray-700 text-gray-400" style="background: rgba(31,41,55,0.6);">50 BB</button>
+          <button class="flex-1 px-2 py-1.5 text-xs font-semibold rounded-lg border border-emerald-500 text-emerald-400" style="background: rgba(16,185,129,0.2);">100 BB</button>
+          <button class="flex-1 px-2 py-1.5 text-xs font-semibold rounded-lg border border-gray-700 text-gray-400" style="background: rgba(31,41,55,0.6);">150 BB</button>
+          <button class="flex-1 px-2 py-1.5 text-xs font-semibold rounded-lg border border-gray-700 text-gray-400" style="background: rgba(31,41,55,0.6);">200 BB</button>
+        </div>
+
+        <!-- Slider -->
+        <div class="relative">
+          <div class="flex justify-between text-gray-500 mb-1.5" style="font-size: 10px;">
+            <span>50 BB</span>
+            <span>200 BB</span>
+          </div>
+          <div class="relative h-2 bg-gray-700 rounded-full">
+            <div class="absolute h-2 bg-emerald-500 rounded-full" style="width: 33.3%;"></div>
+            <div class="absolute w-5 h-5 bg-emerald-500 border-2 border-emerald-300 rounded-full shadow-md -top-1.5" style="left: calc(33.3% - 10px); box-shadow: 0 2px 8px rgba(16,185,129,0.3);"></div>
+          </div>
+        </div>
+
+        <!-- Input -->
+        <div class="flex items-center gap-2">
+          <div class="relative flex-1">
+            <input type="text" value="100" readonly class="w-full px-3 py-2 pr-10 rounded-lg border border-gray-700 text-sm font-semibold text-gray-100" style="background: #1f2937;" />
+            <span class="absolute right-3 top-1/2 text-xs text-gray-500 font-medium" style="transform: translateY(-50%);">BB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Max: 200 BB -->
+    <div>
+      <p class="text-gray-400 text-sm mb-4 text-center">Maximum — 200 BB</p>
+      <div class="flex flex-col gap-4 w-full" style="max-width: 360px;">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-semibold text-gray-100">Buy-in Amount</span>
+          <span class="text-lg font-bold text-emerald-400">200 BB</span>
+        </div>
+
+        <div class="flex gap-2">
+          <button class="flex-1 px-2 py-1.5 text-xs font-semibold rounded-lg border border-gray-700 text-gray-400" style="background: rgba(31,41,55,0.6);">50 BB</button>
+          <button class="flex-1 px-2 py-1.5 text-xs font-semibold rounded-lg border border-gray-700 text-gray-400" style="background: rgba(31,41,55,0.6);">100 BB</button>
+          <button class="flex-1 px-2 py-1.5 text-xs font-semibold rounded-lg border border-gray-700 text-gray-400" style="background: rgba(31,41,55,0.6);">150 BB</button>
+          <button class="flex-1 px-2 py-1.5 text-xs font-semibold rounded-lg border border-emerald-500 text-emerald-400" style="background: rgba(16,185,129,0.2);">200 BB</button>
+        </div>
+
+        <div class="relative">
+          <div class="flex justify-between text-gray-500 mb-1.5" style="font-size: 10px;">
+            <span>50 BB</span>
+            <span>200 BB</span>
+          </div>
+          <div class="relative h-2 bg-gray-700 rounded-full">
+            <div class="absolute h-2 bg-emerald-500 rounded-full" style="width: 100%;"></div>
+            <div class="absolute w-5 h-5 bg-emerald-500 border-2 border-emerald-300 rounded-full shadow-md -top-1.5" style="left: calc(100% - 20px); box-shadow: 0 2px 8px rgba(16,185,129,0.3);"></div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <div class="relative flex-1">
+            <input type="text" value="200" readonly class="w-full px-3 py-2 pr-10 rounded-lg border border-gray-700 text-sm font-semibold text-gray-100" style="background: #1f2937;" />
+            <span class="absolute right-3 top-1/2 text-xs text-gray-500 font-medium" style="transform: translateY(-50%);">BB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

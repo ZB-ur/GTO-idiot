@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReturningUserBanner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <div class="w-full max-w-3xl rounded-xl border border-gray-700 p-6 mx-auto" style="background:#1e293b;">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-4">
+      <div>
+        <h3 class="text-gray-100 text-lg font-semibold">Welcome Back!</h3>
+        <p class="text-gray-500 text-sm">Last played 2h ago</p>
+      </div>
+      <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background:rgba(16,185,129,0.1);">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-3 gap-4 mb-5">
+      <div class="text-center">
+        <p class="text-2xl font-bold text-gray-100">156</p>
+        <p class="text-gray-500 text-xs">Hands Played</p>
+      </div>
+      <div class="text-center">
+        <p class="text-2xl font-bold text-emerald-400">54.3%</p>
+        <p class="text-gray-500 text-xs">Win Rate</p>
+      </div>
+      <div class="text-center">
+        <p class="text-2xl font-bold text-amber-400">67.8%</p>
+        <p class="text-gray-500 text-xs">GTO Score</p>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex gap-3">
+      <button class="flex-1 py-2.5 bg-emerald-500 text-white font-semibold rounded-lg shadow-lg" style="box-shadow:0 10px 15px rgba(16,185,129,0.2);">
+        Continue Playing
+      </button>
+      <button class="px-5 py-2.5 bg-gray-800 text-gray-300 font-medium rounded-lg border border-gray-700">
+        New Game
+      </button>
+    </div>
+  </div>
+</body>
+</html>

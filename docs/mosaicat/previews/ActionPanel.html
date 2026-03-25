@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ActionPanel Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 32px; max-width: 540px; margin: 0 auto;">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">ActionPanel — States</p>
+
+    <!-- State 1: Basic actions (fold / check / raise) -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2">Basic: Fold / Check / Raise</p>
+      <div class="flex flex-col items-center gap-3 w-full">
+        <div class="flex gap-2 flex-wrap justify-center">
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-gray-600 hover:bg-gray-500 text-gray-100 cursor-pointer">Fold</button>
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-emerald-700 hover:bg-emerald-600 text-white cursor-pointer">Check</button>
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-yellow-600 hover:bg-yellow-500 text-black cursor-pointer">Raise</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 2: With call amount -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2">With Call Amount: Fold / Call 2.5 / Raise / All In</p>
+      <div class="flex flex-col items-center gap-3 w-full">
+        <div class="flex gap-2 flex-wrap justify-center">
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-gray-600 text-gray-100 cursor-pointer">Fold</button>
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-blue-700 text-white cursor-pointer">Call 2.5</button>
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-yellow-600 text-black cursor-pointer">Raise</button>
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-red-700 text-white cursor-pointer">All In</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 3: Raise slider expanded -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2">Raise Slider Expanded + Pot Presets</p>
+      <div class="flex flex-col items-center gap-3 w-full">
+        <!-- Slider panel -->
+        <div class="w-full bg-gray-800/90 rounded-xl p-4 border border-gray-700 space-y-3">
+          <!-- Amount display -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-xs text-gray-400">
+              <span>Min: 2.0</span>
+              <span class="text-white text-sm font-bold" style="font-variant-numeric: tabular-nums;">6.5 BB</span>
+              <span>Max: 97.5</span>
+            </div>
+            <div class="w-full h-2 bg-gray-700 rounded-lg relative">
+              <div class="absolute left-0 top-0 h-2 bg-emerald-500 rounded-lg" style="width: 5%;"></div>
+              <div class="absolute w-4 h-4 bg-emerald-400 rounded-full border-2 border-white shadow-md" style="left: 5%; top: -4px;"></div>
+            </div>
+          </div>
+
+          <!-- Pot presets -->
+          <div class="flex gap-2 flex-wrap justify-center">
+            <button class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-700 text-gray-300">1/3 Pot</button>
+            <button class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-700 text-gray-300">1/2 Pot</button>
+            <button class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-700 text-gray-300">2/3 Pot</button>
+            <button class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-700 text-gray-300">Pot</button>
+          </div>
+
+          <!-- Confirm -->
+          <button class="w-full py-2.5 rounded-lg font-bold text-sm bg-emerald-600 text-white">Raise to 6.5 BB</button>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="flex gap-2 flex-wrap justify-center">
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-gray-600 text-gray-100 cursor-pointer">Fold</button>
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-blue-700 text-white cursor-pointer">Call 2.5</button>
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-yellow-600 text-black cursor-pointer">Raise to 6.5</button>
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-red-700 text-white cursor-pointer">All In</button>
+          <button class="px-3 py-2.5 rounded-lg text-sm text-gray-400">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

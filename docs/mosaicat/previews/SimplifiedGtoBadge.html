@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SimplifiedGtoBadge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <p class="text-gray-400 text-sm mb-4 font-semibold">SimplifiedGtoBadge</p>
+
+  <!-- Badge on dark background -->
+  <div class="mb-6">
+    <span class="inline-flex items-center gap-1.5 bg-amber-400/10 border border-amber-400/30 text-amber-400 text-xs font-medium rounded-lg px-2.5 py-1 select-none">
+      <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"></path>
+      </svg>
+      <span>简化GTO参考</span>
+      <span class="text-amber-400/60">|</span>
+      <span class="text-amber-300/80">Simplified GTO Reference</span>
+    </span>
+  </div>
+
+  <!-- Badge in context (on surface card) -->
+  <p class="text-gray-400 text-sm mb-3 font-semibold">In Context</p>
+  <div class="rounded-xl p-4 border border-gray-700" style="background: #1e293b;">
+    <div class="flex items-center justify-between mb-3">
+      <span class="text-gray-100 text-sm font-semibold">GTO Strategy Suggestion</span>
+      <span class="inline-flex items-center gap-1.5 bg-amber-400/10 border border-amber-400/30 text-amber-400 text-xs font-medium rounded-lg px-2.5 py-1 select-none">
+        <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"></path>
+        </svg>
+        <span>简化GTO参考</span>
+        <span class="text-amber-400/60">|</span>
+        <span class="text-amber-300/80">Simplified GTO Reference</span>
+      </span>
+    </div>
+    <p class="text-gray-400 text-sm">Recommended: Raise to 3BB with AKs from BTN position.</p>
+  </div>
+</body>
+</html>

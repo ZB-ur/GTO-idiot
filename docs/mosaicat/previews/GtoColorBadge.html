@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GtoColorBadge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <p class="text-gray-400 text-sm mb-4 font-semibold">GtoColorBadge — Ratings &amp; Sizes</p>
+
+  <!-- All ratings at medium size -->
+  <div class="flex items-center gap-6 mb-6">
+    <div class="flex items-center gap-2">
+      <span class="inline-block rounded-full w-4 h-4 bg-emerald-500 ring-2 ring-emerald-400/30 shadow-md" style="box-shadow: 0 4px 6px rgba(16,185,129,0.4)"></span>
+      <span class="text-gray-300 text-sm">Green — Optimal</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="inline-block rounded-full w-4 h-4 bg-amber-400 ring-2 ring-amber-300/30 shadow-md" style="box-shadow: 0 4px 6px rgba(251,191,36,0.4)"></span>
+      <span class="text-gray-300 text-sm">Yellow — Acceptable</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="inline-block rounded-full w-4 h-4 bg-red-500 ring-2 ring-red-400/30 shadow-md" style="box-shadow: 0 4px 6px rgba(239,68,68,0.4)"></span>
+      <span class="text-gray-300 text-sm">Red — Suboptimal</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="inline-block rounded-full w-4 h-4 bg-gray-500 ring-2 ring-gray-400/20 shadow-md" style="box-shadow: 0 4px 6px rgba(107,114,128,0.2)"></span>
+      <span class="text-gray-300 text-sm">Gray — N/A</span>
+    </div>
+  </div>
+
+  <!-- Size comparison -->
+  <p class="text-gray-400 text-sm mb-3 font-semibold">Sizes</p>
+  <div class="flex items-center gap-6">
+    <div class="flex items-center gap-2">
+      <span class="inline-block rounded-full w-3 h-3 bg-emerald-500 ring-2 ring-emerald-400/30 shadow-md"></span>
+      <span class="text-gray-500 text-xs">sm</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="inline-block rounded-full w-4 h-4 bg-emerald-500 ring-2 ring-emerald-400/30 shadow-md"></span>
+      <span class="text-gray-500 text-xs">md</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="inline-block rounded-full w-6 h-6 bg-emerald-500 ring-2 ring-emerald-400/30 shadow-md"></span>
+      <span class="text-gray-500 text-xs">lg</span>
+    </div>
+  </div>
+</body>
+</html>

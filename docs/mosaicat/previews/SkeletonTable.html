@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  </style>
+</head>
+<body>
+  <div class="relative w-full max-w-lg mx-auto" style="aspect-ratio: 4/3;">
+    <!-- Felt surface -->
+    <div class="absolute inset-0 rounded-full bg-[#2d5a3d] border-4 border-[#3d7a5d] shadow-lg pulse" style="border-radius: 50%;"></div>
+
+    <!-- Center pot area -->
+    <div class="absolute top-1/2 left-1/2 flex flex-col items-center gap-2" style="transform: translate(-50%, -50%);">
+      <div class="h-4 w-20 bg-gray-700/50 rounded-md"></div>
+      <div class="flex gap-1">
+        <div class="w-8 h-11 bg-gray-700/40 rounded-md"></div>
+        <div class="w-8 h-11 bg-gray-700/40 rounded-md"></div>
+        <div class="w-8 h-11 bg-gray-700/40 rounded-md"></div>
+        <div class="w-8 h-11 bg-gray-700/40 rounded-md"></div>
+        <div class="w-8 h-11 bg-gray-700/40 rounded-md"></div>
+      </div>
+    </div>
+
+    <!-- Bottom (Hero) -->
+    <div class="absolute flex flex-col items-center gap-1" style="bottom: 8px; left: 50%; transform: translateX(-50%);">
+      <div class="w-10 h-10 rounded-full bg-gray-700/50 pulse"></div>
+      <div class="h-3 w-16 bg-gray-700/50 rounded-md pulse"></div>
+    </div>
+    <!-- Top -->
+    <div class="absolute flex flex-col items-center gap-1" style="top: 8px; left: 50%; transform: translateX(-50%);">
+      <div class="w-10 h-10 rounded-full bg-gray-700/50 pulse"></div>
+      <div class="h-3 w-16 bg-gray-700/50 rounded-md pulse"></div>
+    </div>
+    <!-- Left -->
+    <div class="absolute flex flex-col items-center gap-1" style="top: 50%; left: 16px; transform: translateY(-50%);">
+      <div class="w-10 h-10 rounded-full bg-gray-700/50 pulse"></div>
+      <div class="h-3 w-16 bg-gray-700/50 rounded-md pulse"></div>
+    </div>
+    <!-- Right -->
+    <div class="absolute flex flex-col items-center gap-1" style="top: 50%; right: 16px; transform: translateY(-50%);">
+      <div class="w-10 h-10 rounded-full bg-gray-700/50 pulse"></div>
+      <div class="h-3 w-16 bg-gray-700/50 rounded-md pulse"></div>
+    </div>
+    <!-- Top-left -->
+    <div class="absolute flex flex-col items-center gap-1" style="top: 15%; left: 10%;">
+      <div class="w-10 h-10 rounded-full bg-gray-700/50 pulse"></div>
+      <div class="h-3 w-16 bg-gray-700/50 rounded-md pulse"></div>
+    </div>
+    <!-- Top-right -->
+    <div class="absolute flex flex-col items-center gap-1" style="top: 15%; right: 10%;">
+      <div class="w-10 h-10 rounded-full bg-gray-700/50 pulse"></div>
+      <div class="h-3 w-16 bg-gray-700/50 rounded-md pulse"></div>
+    </div>
+  </div>
+</body>
+</html>
