@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  </style>
+</head>
+<body>
+  <div class="space-y-4" style="max-width: 360px;">
+    <!-- Default skeleton card -->
+    <div class="w-full h-32 rounded-xl bg-[#1e293b] border border-gray-700 pulse">
+      <div class="p-4 space-y-3 h-full flex flex-col justify-center">
+        <div class="h-3 bg-gray-700 rounded-md" style="width: 75%"></div>
+        <div class="h-3 bg-gray-700 rounded-md" style="width: 50%"></div>
+        <div class="h-3 bg-gray-700 rounded-md" style="width: 83%"></div>
+      </div>
+    </div>
+    <!-- Smaller skeleton card -->
+    <div class="h-20 rounded-xl bg-[#1e293b] border border-gray-700 pulse" style="width: 200px;">
+      <div class="p-4 space-y-3 h-full flex flex-col justify-center">
+        <div class="h-3 bg-gray-700 rounded-md" style="width: 75%"></div>
+        <div class="h-3 bg-gray-700 rounded-md" style="width: 50%"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

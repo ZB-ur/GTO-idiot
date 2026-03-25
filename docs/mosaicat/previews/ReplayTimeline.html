@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayTimeline Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-lg mx-auto space-y-8">
+    <!-- State: mid-hand replay, step 6 of 12, mixed GTO ratings -->
+    <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-4">
+      <p class="text-[10px] text-gray-500 mb-3 uppercase tracking-wider">Mid-replay (step 6/12)</p>
+      <div class="flex flex-col gap-2">
+        <!-- Dot timeline -->
+        <div class="flex items-center gap-1 px-1">
+          <!-- Step 0: bot action (past) -->
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-500 transition-all"></button>
+          <!-- Step 1: bot action (past) -->
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-500 transition-all"></button>
+          <!-- Step 2: user decision, green GTO -->
+          <button class="flex-shrink-0 rounded-full w-4 h-4 bg-emerald-500 transition-all"></button>
+          <!-- Step 3: bot action (past) -->
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-500 transition-all"></button>
+          <!-- Step 4: bot action (past) -->
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-500 transition-all"></button>
+          <!-- Step 5: user decision, red GTO — CURRENT -->
+          <button class="flex-shrink-0 rounded-full w-4 h-4 bg-red-500 ring-2 ring-offset-1 ring-red-400 scale-125 transition-all" style="--tw-ring-offset-color: #1e293b"></button>
+          <!-- Step 6: bot action (future) -->
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-700 transition-all"></button>
+          <!-- Step 7: bot action (future) -->
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-700 transition-all"></button>
+          <!-- Step 8: user decision, yellow GTO (future, has rating) -->
+          <button class="flex-shrink-0 rounded-full w-4 h-4 bg-amber-400 transition-all"></button>
+          <!-- Step 9: bot action (future) -->
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-700 transition-all"></button>
+          <!-- Step 10: bot action (future) -->
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-700 transition-all"></button>
+          <!-- Step 11: user decision, green GTO (future) -->
+          <button class="flex-shrink-0 rounded-full w-4 h-4 bg-emerald-500 transition-all"></button>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="relative h-1 bg-gray-700 rounded-full overflow-hidden">
+          <div class="absolute h-full bg-emerald-500/60 rounded-full" style="width: 45%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- State: at start -->
+    <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-4">
+      <p class="text-[10px] text-gray-500 mb-3 uppercase tracking-wider">At start (step 1/8)</p>
+      <div class="flex flex-col gap-2">
+        <div class="flex items-center gap-1 px-1">
+          <!-- Step 0: bot action — CURRENT -->
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-700 ring-2 ring-offset-1 ring-gray-400 scale-125 transition-all" style="--tw-ring-offset-color: #1e293b"></button>
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-700 transition-all"></button>
+          <button class="flex-shrink-0 rounded-full w-4 h-4 bg-emerald-500 transition-all"></button>
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-700 transition-all"></button>
+          <button class="flex-shrink-0 rounded-full w-4 h-4 bg-amber-400 transition-all"></button>
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-700 transition-all"></button>
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-700 transition-all"></button>
+          <button class="flex-shrink-0 rounded-full w-4 h-4 bg-red-500 transition-all"></button>
+        </div>
+        <div class="relative h-1 bg-gray-700 rounded-full overflow-hidden">
+          <div class="absolute h-full bg-emerald-500/60 rounded-full" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- State: at end, all green -->
+    <div class="bg-[#1e293b] border border-gray-700 rounded-xl p-4">
+      <p class="text-[10px] text-gray-500 mb-3 uppercase tracking-wider">At end — perfect play</p>
+      <div class="flex flex-col gap-2">
+        <div class="flex items-center gap-1 px-1">
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-500 transition-all"></button>
+          <button class="flex-shrink-0 rounded-full w-4 h-4 bg-emerald-500 transition-all"></button>
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-500 transition-all"></button>
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-500 transition-all"></button>
+          <button class="flex-shrink-0 rounded-full w-4 h-4 bg-emerald-500 transition-all"></button>
+          <button class="flex-shrink-0 rounded-full w-2.5 h-2.5 bg-gray-500 transition-all"></button>
+          <button class="flex-shrink-0 rounded-full w-4 h-4 bg-emerald-500 ring-2 ring-offset-1 ring-emerald-400 scale-125 transition-all" style="--tw-ring-offset-color: #1e293b"></button>
+        </div>
+        <div class="relative h-1 bg-gray-700 rounded-full overflow-hidden">
+          <div class="absolute h-full bg-emerald-500/60 rounded-full" style="width: 100%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

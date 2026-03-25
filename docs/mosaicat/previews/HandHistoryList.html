@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandHistoryList Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; color: #f3f4f6; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 480px; margin: 0 auto;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+
+      <!-- Toolbar -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+        <select style="background: #334155; border: 1px solid #374151; color: #f3f4f6; font-size: 14px; border-radius: 8px; padding: 8px 12px; outline: none;">
+          <option selected>最新优先</option>
+          <option>最早优先</option>
+          <option>盈利最高</option>
+          <option>亏损最多</option>
+          <option>GTO最低</option>
+        </select>
+        <select style="background: #334155; border: 1px solid #374151; color: #f3f4f6; font-size: 14px; border-radius: 8px; padding: 8px 12px; outline: none;">
+          <option selected>全部评级</option>
+          <option>✅ GTO</option>
+          <option>⚠️ 偏差</option>
+          <option>❌ 错误</option>
+        </select>
+        <span style="margin-left: auto; color: #6b7280; font-size: 14px;">共 156 局</span>
+      </div>
+
+      <!-- Hand Card 1 - Green / Win -->
+      <div style="background: #1e293b; border: 1px solid #374151; border-radius: 8px; padding: 16px; cursor: pointer;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+          <span style="color: #9ca3af; font-size: 14px;">#47</span>
+          <span style="color: #6b7280; font-size: 12px;">03/25 15:30</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+          <span style="font-size: 18px; letter-spacing: 2px; font-family: monospace; font-weight: bold;">
+            <span style="color: #f3f4f6;">A♠</span>
+            <span style="color: #f3f4f6;">K♠</span>
+          </span>
+          <span style="font-size: 12px; font-weight: 500; color: #9ca3af; background: rgba(55,65,81,0.6); padding: 2px 8px; border-radius: 4px;">BTN</span>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 16px; font-weight: 600; color: #34d399;">+12.5 BB</span>
+          <span style="font-size: 12px; font-weight: 500; padding: 2px 8px; border-radius: 6px; border: 1px solid rgba(16,185,129,0.3); background: rgba(16,185,129,0.2); color: #34d399;">GTO 89%</span>
+        </div>
+      </div>
+
+      <!-- Hand Card 2 - Red / Loss -->
+      <div style="background: #1e293b; border: 1px solid #374151; border-radius: 8px; padding: 16px; cursor: pointer;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+          <span style="color: #9ca3af; font-size: 14px;">#46</span>
+          <span style="color: #6b7280; font-size: 12px;">03/25 15:22</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+          <span style="font-size: 18px; letter-spacing: 2px; font-family: monospace; font-weight: bold;">
+            <span style="color: #ef4444;">T♥</span>
+            <span style="color: #f3f4f6;">9♣</span>
+          </span>
+          <span style="font-size: 12px; font-weight: 500; color: #9ca3af; background: rgba(55,65,81,0.6); padding: 2px 8px; border-radius: 4px;">UTG</span>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 16px; font-weight: 600; color: #f87171;">-8.0 BB</span>
+          <span style="font-size: 12px; font-weight: 500; padding: 2px 8px; border-radius: 6px; border: 1px solid rgba(239,68,68,0.3); background: rgba(239,68,68,0.2); color: #f87171;">错误 33%</span>
+        </div>
+      </div>
+
+      <!-- Hand Card 3 - Yellow / Small Win -->
+      <div style="background: #1e293b; border: 1px solid #374151; border-radius: 8px; padding: 16px; cursor: pointer;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+          <span style="color: #9ca3af; font-size: 14px;">#45</span>
+          <span style="color: #6b7280; font-size: 12px;">03/25 15:15</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+          <span style="font-size: 18px; letter-spacing: 2px; font-family: monospace; font-weight: bold;">
+            <span style="color: #ef4444;">Q♦</span>
+            <span style="color: #ef4444;">J♥</span>
+          </span>
+          <span style="font-size: 12px; font-weight: 500; color: #9ca3af; background: rgba(55,65,81,0.6); padding: 2px 8px; border-radius: 4px;">CO</span>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 16px; font-weight: 600; color: #34d399;">+3.5 BB</span>
+          <span style="font-size: 12px; font-weight: 500; padding: 2px 8px; border-radius: 6px; border: 1px solid rgba(251,191,36,0.3); background: rgba(251,191,36,0.2); color: #fbbf24;">偏差 67%</span>
+        </div>
+      </div>
+
+      <!-- Hand Card 4 - Green / Loss (good play, bad luck) -->
+      <div style="background: #1e293b; border: 1px solid #374151; border-radius: 8px; padding: 16px; cursor: pointer;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+          <span style="color: #9ca3af; font-size: 14px;">#44</span>
+          <span style="color: #6b7280; font-size: 12px;">03/25 15:08</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+          <span style="font-size: 18px; letter-spacing: 2px; font-family: monospace; font-weight: bold;">
+            <span style="color: #f3f4f6;">K♠</span>
+            <span style="color: #f3f4f6;">Q♣</span>
+          </span>
+          <span style="font-size: 12px; font-weight: 500; color: #9ca3af; background: rgba(55,65,81,0.6); padding: 2px 8px; border-radius: 4px;">BB</span>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 16px; font-weight: 600; color: #f87171;">-2.0 BB</span>
+          <span style="font-size: 12px; font-weight: 500; padding: 2px 8px; border-radius: 6px; border: 1px solid rgba(16,185,129,0.3); background: rgba(16,185,129,0.2); color: #34d399;">GTO 100%</span>
+        </div>
+      </div>
+
+      <!-- Hand Card 5 - Gray -->
+      <div style="background: #1e293b; border: 1px solid #374151; border-radius: 8px; padding: 16px; cursor: pointer;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+          <span style="color: #9ca3af; font-size: 14px;">#43</span>
+          <span style="color: #6b7280; font-size: 12px;">03/25 15:01</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+          <span style="font-size: 18px; letter-spacing: 2px; font-family: monospace; font-weight: bold;">
+            <span style="color: #f3f4f6;">7♣</span>
+            <span style="color: #ef4444;">2♦</span>
+          </span>
+          <span style="font-size: 12px; font-weight: 500; color: #9ca3af; background: rgba(55,65,81,0.6); padding: 2px 8px; border-radius: 4px;">SB</span>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 16px; font-weight: 600; color: #9ca3af;">0.0 BB</span>
+          <span style="font-size: 12px; font-weight: 500; padding: 2px 8px; border-radius: 6px; border: 1px solid rgba(107,114,128,0.3); background: rgba(107,114,128,0.2); color: #9ca3af;">无参考</span>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; padding-top: 8px;">
+        <button style="padding: 6px 12px; font-size: 14px; border-radius: 8px; border: 1px solid #374151; color: #6b7280; background: transparent; opacity: 0.3; cursor: not-allowed;">上一页</button>
+        <button style="width: 32px; height: 32px; font-size: 14px; border-radius: 8px; background: #10b981; color: white; border: none; font-weight: 500; cursor: pointer;">1</button>
+        <button style="width: 32px; height: 32px; font-size: 14px; border-radius: 8px; background: transparent; color: #9ca3af; border: none; cursor: pointer;">2</button>
+        <button style="width: 32px; height: 32px; font-size: 14px; border-radius: 8px; background: transparent; color: #9ca3af; border: none; cursor: pointer;">3</button>
+        <button style="width: 32px; height: 32px; font-size: 14px; border-radius: 8px; background: transparent; color: #9ca3af; border: none; cursor: pointer;">4</button>
+        <button style="width: 32px; height: 32px; font-size: 14px; border-radius: 8px; background: transparent; color: #9ca3af; border: none; cursor: pointer;">5</button>
+        <button style="width: 32px; height: 32px; font-size: 14px; border-radius: 8px; background: transparent; color: #9ca3af; border: none; cursor: pointer;">6</button>
+        <button style="width: 32px; height: 32px; font-size: 14px; border-radius: 8px; background: transparent; color: #9ca3af; border: none; cursor: pointer;">7</button>
+        <button style="padding: 6px 12px; font-size: 14px; border-radius: 8px; border: 1px solid #374151; color: #9ca3af; background: transparent; cursor: pointer;">下一页</button>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

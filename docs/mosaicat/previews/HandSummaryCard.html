@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HandSummaryCard Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 32px; max-width: 460px; margin: 0 auto;">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">HandSummaryCard — Variants</p>
+
+    <!-- Variant 1: Mixed result with deviations -->
+    <div class="rounded-xl border border-gray-700/60 bg-gray-800/50 p-6 space-y-5">
+      <!-- Title -->
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-gray-100">Hand Summary</h3>
+        <span class="text-sm font-bold text-red-400" style="font-variant-numeric: tabular-nums;">-3.0 BB</span>
+      </div>
+
+      <!-- GTO gauge -->
+      <div class="flex items-center gap-5">
+        <div class="flex-shrink-0 w-20 h-20 rounded-full border-4 border-amber-400 flex items-center justify-center">
+          <span class="text-2xl font-bold text-amber-400" style="font-variant-numeric: tabular-nums;">67%</span>
+        </div>
+        <div class="flex-1 space-y-1">
+          <p class="text-sm text-gray-200 font-medium">GTO Conformance</p>
+          <p class="text-xs text-gray-400">2 of 3 decisions matched GTO</p>
+          <div class="w-full h-2 bg-gray-700 rounded-full overflow-hidden mt-1">
+            <div class="h-full rounded-full bg-amber-500" style="width: 67%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key deviations -->
+      <div>
+        <span class="text-xs text-gray-500 mb-2 block uppercase tracking-wider">Key Deviations</span>
+        <div class="flex flex-col gap-2">
+          <div class="flex items-start gap-3 px-3 py-2.5 rounded-lg bg-red-900/20 border border-red-800/30">
+            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-red-400 text-black text-[10px] font-bold flex items-center justify-center mt-0.5">5</span>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="text-xs text-gray-300 font-medium">You: <span class="text-white">Raise 3BB</span></span>
+                <span class="text-gray-600">→</span>
+                <span class="text-xs font-medium text-red-400">GTO: Fold</span>
+              </div>
+              <p class="text-[11px] text-gray-400 leading-relaxed">T9o is not in UTG open-raise range</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex gap-3 pt-1">
+        <button class="flex-1 py-2.5 rounded-lg text-sm font-semibold bg-gray-700 text-gray-200">Back to List</button>
+        <button class="flex-1 py-2.5 rounded-lg text-sm font-semibold bg-emerald-600 text-white">Next Hand →</button>
+      </div>
+    </div>
+
+    <!-- Variant 2: Perfect play -->
+    <div class="rounded-xl border border-gray-700/60 bg-gray-800/50 p-6 space-y-5">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-gray-100">Hand Summary</h3>
+        <span class="text-sm font-bold text-emerald-400" style="font-variant-numeric: tabular-nums;">+12.5 BB</span>
+      </div>
+
+      <div class="flex items-center gap-5">
+        <div class="flex-shrink-0 w-20 h-20 rounded-full border-4 border-emerald-400 flex items-center justify-center">
+          <span class="text-2xl font-bold text-emerald-400" style="font-variant-numeric: tabular-nums;">100%</span>
+        </div>
+        <div class="flex-1 space-y-1">
+          <p class="text-sm text-gray-200 font-medium">GTO Conformance</p>
+          <p class="text-xs text-gray-400">4 of 4 decisions matched GTO</p>
+          <div class="w-full h-2 bg-gray-700 rounded-full overflow-hidden mt-1">
+            <div class="h-full rounded-full bg-emerald-500" style="width: 100%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center py-4 rounded-lg bg-emerald-900/20 border border-emerald-800/30">
+        <p class="text-sm text-emerald-300 font-medium">Excellent! All decisions matched GTO strategy.</p>
+      </div>
+
+      <div class="flex gap-3 pt-1">
+        <button class="flex-1 py-2.5 rounded-lg text-sm font-semibold bg-gray-700 text-gray-200">Back to List</button>
+      </div>
+    </div>
+
+    <!-- Variant 3: Poor play -->
+    <div class="rounded-xl border border-gray-700/60 bg-gray-800/50 p-6 space-y-5">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-gray-100">Hand Summary</h3>
+        <span class="text-sm font-bold text-red-400" style="font-variant-numeric: tabular-nums;">-15.0 BB</span>
+      </div>
+
+      <div class="flex items-center gap-5">
+        <div class="flex-shrink-0 w-20 h-20 rounded-full border-4 border-red-400 flex items-center justify-center">
+          <span class="text-2xl font-bold text-red-400" style="font-variant-numeric: tabular-nums;">25%</span>
+        </div>
+        <div class="flex-1 space-y-1">
+          <p class="text-sm text-gray-200 font-medium">GTO Conformance</p>
+          <p class="text-xs text-gray-400">1 of 4 decisions matched GTO</p>
+          <div class="w-full h-2 bg-gray-700 rounded-full overflow-hidden mt-1">
+            <div class="h-full rounded-full bg-red-500" style="width: 25%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="text-xs text-gray-500 mb-2 block uppercase tracking-wider">Key Deviations</span>
+        <div class="flex flex-col gap-2">
+          <div class="flex items-start gap-3 px-3 py-2.5 rounded-lg bg-red-900/20 border border-red-800/30">
+            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-red-400 text-black text-[10px] font-bold flex items-center justify-center mt-0.5">2</span>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="text-xs text-gray-300 font-medium">You: <span class="text-white">Call</span></span>
+                <span class="text-gray-600">→</span>
+                <span class="text-xs font-medium text-red-400">GTO: Raise 7BB</span>
+              </div>
+              <p class="text-[11px] text-gray-400 leading-relaxed">AKs should 3-bet vs CO open</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 px-3 py-2.5 rounded-lg bg-amber-900/20 border border-amber-800/30">
+            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-amber-400 text-black text-[10px] font-bold flex items-center justify-center mt-0.5">6</span>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="text-xs text-gray-300 font-medium">You: <span class="text-white">Bet 8BB</span></span>
+                <span class="text-gray-600">→</span>
+                <span class="text-xs font-medium text-amber-400">GTO: Bet 4BB</span>
+              </div>
+              <p class="text-[11px] text-gray-400 leading-relaxed">Overbet on dry flop, 1/3 pot preferred</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 px-3 py-2.5 rounded-lg bg-red-900/20 border border-red-800/30">
+            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-red-400 text-black text-[10px] font-bold flex items-center justify-center mt-0.5">9</span>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="text-xs text-gray-300 font-medium">You: <span class="text-white">All In</span></span>
+                <span class="text-gray-600">→</span>
+                <span class="text-xs font-medium text-red-400">GTO: Fold</span>
+              </div>
+              <p class="text-[11px] text-gray-400 leading-relaxed">River shove with top pair is a significant overplay</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-3 pt-1">
+        <button class="flex-1 py-2.5 rounded-lg text-sm font-semibold bg-gray-700 text-gray-200">Back to List</button>
+        <button class="flex-1 py-2.5 rounded-lg text-sm font-semibold bg-emerald-600 text-white">Next Hand →</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

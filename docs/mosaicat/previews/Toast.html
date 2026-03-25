@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; min-height: 300px; }
+  </style>
+</head>
+<body>
+  <div class="space-y-3" style="max-width: 360px; margin: 0 auto;">
+    <!-- Success toast -->
+    <div class="flex items-center gap-2 px-4 py-3 rounded-lg border shadow-lg bg-emerald-500/10 border-emerald-500/40">
+      <span class="text-sm text-emerald-400">✓</span>
+      <span class="text-sm text-gray-100">Data cleared successfully</span>
+      <button class="ml-auto text-gray-500 hover:text-gray-300 text-sm">✕</button>
+    </div>
+    <!-- Error toast -->
+    <div class="flex items-center gap-2 px-4 py-3 rounded-lg border shadow-lg bg-red-500/10 border-red-500/40">
+      <span class="text-sm text-red-400">✕</span>
+      <span class="text-sm text-gray-100">Failed to load hand history</span>
+      <button class="ml-auto text-gray-500 hover:text-gray-300 text-sm">✕</button>
+    </div>
+    <!-- Warning toast -->
+    <div class="flex items-center gap-2 px-4 py-3 rounded-lg border shadow-lg bg-amber-400/10 border-amber-400/40">
+      <span class="text-sm text-amber-400">⚠</span>
+      <span class="text-sm text-gray-100">Connection unstable</span>
+      <button class="ml-auto text-gray-500 hover:text-gray-300 text-sm">✕</button>
+    </div>
+    <!-- Info toast -->
+    <div class="flex items-center gap-2 px-4 py-3 rounded-lg border shadow-lg bg-[#1e293b] border-gray-600">
+      <span class="text-sm text-gray-100">ℹ</span>
+      <span class="text-sm text-gray-100">BOT speed changed to Fast</span>
+      <button class="ml-auto text-gray-500 hover:text-gray-300 text-sm">✕</button>
+    </div>
+  </div>
+</body>
+</html>

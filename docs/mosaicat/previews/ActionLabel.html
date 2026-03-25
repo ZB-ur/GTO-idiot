@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-wrap gap-8 items-end p-8">
+    <!-- Fold -->
+    <div class="relative inline-block">
+      <div class="w-16 h-16 rounded-full bg-slate-700 border-2 border-gray-600"></div>
+      <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg bg-gray-900/90 backdrop-blur-sm border border-gray-700 text-sm font-bold whitespace-nowrap text-gray-400">
+        FOLD
+      </div>
+    </div>
+    <!-- Call -->
+    <div class="relative inline-block">
+      <div class="w-16 h-16 rounded-full bg-slate-700 border-2 border-gray-600"></div>
+      <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg bg-gray-900/90 backdrop-blur-sm border border-gray-700 text-sm font-bold whitespace-nowrap text-emerald-400">
+        CALL $200
+      </div>
+    </div>
+    <!-- Raise -->
+    <div class="relative inline-block">
+      <div class="w-16 h-16 rounded-full bg-slate-700 border-2 border-gray-600"></div>
+      <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg bg-gray-900/90 backdrop-blur-sm border border-gray-700 text-sm font-bold whitespace-nowrap text-amber-400">
+        RAISE $1,500
+      </div>
+    </div>
+    <!-- All-In -->
+    <div class="relative inline-block">
+      <div class="w-16 h-16 rounded-full bg-slate-700 border-2 border-gray-600"></div>
+      <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg bg-gray-900/90 backdrop-blur-sm border border-gray-700 text-sm font-bold whitespace-nowrap text-red-500">
+        ALL-IN $12,400
+      </div>
+    </div>
+    <!-- Check -->
+    <div class="relative inline-block">
+      <div class="w-16 h-16 rounded-full bg-slate-700 border-2 border-gray-600"></div>
+      <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg bg-gray-900/90 backdrop-blur-sm border border-gray-700 text-sm font-bold whitespace-nowrap text-emerald-500">
+        CHECK
+      </div>
+    </div>
+  </div>
+</body>
+</html>

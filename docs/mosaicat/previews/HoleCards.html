@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HoleCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 32px; align-items: center; padding-top: 40px;">
+    <!-- Face up cards -->
+    <div>
+      <p class="text-gray-400 text-sm mb-3 text-center">Face Up — A♠ K♥</p>
+      <div class="flex items-center gap-2">
+        <!-- Ace of Spades -->
+        <div class="relative w-20 h-28 rounded-lg border-2 border-gray-300 shadow-lg bg-white select-none" style="transform: rotate(-3deg);">
+          <div class="absolute top-1.5 left-2 font-bold text-lg leading-none text-gray-900">
+            <div>A</div>
+            <div class="text-sm">♠</div>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center text-4xl text-gray-900">♠</div>
+          <div class="absolute bottom-1.5 right-2 font-bold text-lg leading-none text-gray-900" style="transform: rotate(180deg);">
+            <div>A</div>
+            <div class="text-sm">♠</div>
+          </div>
+        </div>
+        <!-- King of Hearts -->
+        <div class="relative w-20 h-28 rounded-lg border-2 border-gray-300 shadow-lg bg-white select-none" style="transform: rotate(3deg);">
+          <div class="absolute top-1.5 left-2 font-bold text-lg leading-none text-red-500">
+            <div>K</div>
+            <div class="text-sm">♥</div>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center text-4xl text-red-500">♥</div>
+          <div class="absolute bottom-1.5 right-2 font-bold text-lg leading-none text-red-500" style="transform: rotate(180deg);">
+            <div>K</div>
+            <div class="text-sm">♥</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Face down cards -->
+    <div>
+      <p class="text-gray-400 text-sm mb-3 text-center">Face Down</p>
+      <div class="flex items-center gap-2">
+        <div class="relative w-20 h-28 rounded-lg border-2 border-emerald-600 shadow-lg select-none" style="background: linear-gradient(135deg, #047857, #064e3b); transform: rotate(-3deg);">
+          <div class="absolute inset-1 rounded-md" style="background: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,0.08) 4px, rgba(255,255,255,0.08) 8px);"></div>
+        </div>
+        <div class="relative w-20 h-28 rounded-lg border-2 border-emerald-600 shadow-lg select-none" style="background: linear-gradient(135deg, #047857, #064e3b); transform: rotate(3deg);">
+          <div class="absolute inset-1 rounded-md" style="background: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,0.08) 4px, rgba(255,255,255,0.08) 8px);"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Another hand: pocket queens -->
+    <div>
+      <p class="text-gray-400 text-sm mb-3 text-center">Pocket Queens — Q♦ Q♣</p>
+      <div class="flex items-center gap-2">
+        <div class="relative w-20 h-28 rounded-lg border-2 border-gray-300 shadow-lg bg-white select-none" style="transform: rotate(-3deg);">
+          <div class="absolute top-1.5 left-2 font-bold text-lg leading-none text-red-500">
+            <div>Q</div>
+            <div class="text-sm">♦</div>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center text-4xl text-red-500">♦</div>
+          <div class="absolute bottom-1.5 right-2 font-bold text-lg leading-none text-red-500" style="transform: rotate(180deg);">
+            <div>Q</div>
+            <div class="text-sm">♦</div>
+          </div>
+        </div>
+        <div class="relative w-20 h-28 rounded-lg border-2 border-gray-300 shadow-lg bg-white select-none" style="transform: rotate(3deg);">
+          <div class="absolute top-1.5 left-2 font-bold text-lg leading-none text-gray-900">
+            <div>Q</div>
+            <div class="text-sm">♣</div>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center text-4xl text-gray-900">♣</div>
+          <div class="absolute bottom-1.5 right-2 font-bold text-lg leading-none text-gray-900" style="transform: rotate(180deg);">
+            <div>Q</div>
+            <div class="text-sm">♣</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

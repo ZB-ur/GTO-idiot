@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PostflopStrategyPage Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #1a1a2e; font-family: system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen" style="background-color: #1a1a2e;">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+
+      <!-- Header -->
+      <div class="mb-8">
+        <h1 class="text-2xl font-bold text-gray-100 mb-2">Postflop Strategy Reference</h1>
+        <p class="text-sm text-gray-400">Simplified GTO strategies organized by board texture, position, and stack-to-pot ratio.</p>
+        <p class="text-xs text-gray-500 mt-1">翻牌后简化GTO策略参考，按牌面质地、位置和筹码池比分类。</p>
+      </div>
+
+      <!-- Texture Filter Tabs -->
+      <div class="flex items-center gap-2 mb-8">
+        <button class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
+          <span>🃏</span><span>All</span><span class="text-xs opacity-60">全部</span>
+        </button>
+        <button class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-400 border border-gray-700/50 hover:text-gray-200" style="background-color: #1e293b;">
+          <span>🏜️</span><span>Dry</span><span class="text-xs opacity-60">干燥</span>
+        </button>
+        <button class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-400 border border-gray-700/50 hover:text-gray-200" style="background-color: #1e293b;">
+          <span>🌊</span><span>Wet</span><span class="text-xs opacity-60">湿润</span>
+        </button>
+        <button class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-400 border border-gray-700/50 hover:text-gray-200" style="background-color: #1e293b;">
+          <span>🎨</span><span>Monotone</span><span class="text-xs opacity-60">同花</span>
+        </button>
+      </div>
+
+      <!-- Section 1: Dry Board -->
+      <div class="space-y-10">
+        <section class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-xl font-bold text-gray-100">Dry Board</h2>
+                <span class="px-2.5 py-0.5 text-xs font-medium rounded-full border bg-amber-500/20 text-amber-400 border-amber-500/30">dry</span>
+              </div>
+              <p class="text-sm text-gray-400 mb-1">Boards with few draws and disconnected cards (e.g., K♠ 7♦ 2♣)</p>
+              <p class="text-xs text-gray-500">很少听牌且不连接的牌面（如 K♠ 7♦ 2♣）</p>
+            </div>
+            <div class="flex gap-1.5 mt-1">
+              <span class="inline-flex items-center justify-center w-10 h-14 rounded-md text-sm font-bold" style="background-color: #1a1a2e; border: 1px solid #334155; color: #ecf0f1;">K♠</span>
+              <span class="inline-flex items-center justify-center w-10 h-14 rounded-md text-sm font-bold" style="background-color: #1a1a2e; border: 1px solid #334155; color: #e74c3c;">7♦</span>
+              <span class="inline-flex items-center justify-center w-10 h-14 rounded-md text-sm font-bold" style="background-color: #1a1a2e; border: 1px solid #334155; color: #ecf0f1;">2♣</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Strategy Card 1 -->
+            <div class="rounded-xl p-5 border border-gray-700/50" style="background-color: #1e293b;">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-semibold text-emerald-400">IP</span>
+                  <span class="text-xs text-gray-500">•</span>
+                  <span class="text-xs text-gray-400">High SPR (>8)</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full bg-amber-400/15 text-amber-400 border border-amber-400/25">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.168 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+                  Simplified GTO
+                </span>
+              </div>
+              <h4 class="text-sm font-semibold text-gray-100 mb-1">C-Bet Strategy (IP, High SPR)</h4>
+              <p class="text-xs text-gray-500 mb-4">持续下注策略（有位置，高SPR）</p>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-500/20 text-emerald-400">
+                  <span class="text-sm font-medium">Bet</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">60-70%</span>
+                    <span class="font-mono">1/3 pot</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-500/20 text-gray-400">
+                  <span class="text-sm font-medium">Check</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">30-40%</span>
+                    <span class="font-mono">—</span>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-lg p-3 border border-gray-700/40" style="background-color: #16213e;">
+                <p class="text-xs text-gray-300 leading-relaxed">Bet small and frequently on dry boards when in position</p>
+                <p class="text-xs text-gray-500 mt-1">有位置时在干燥牌面小额高频下注</p>
+              </div>
+            </div>
+
+            <!-- Strategy Card 2 -->
+            <div class="rounded-xl p-5 border border-gray-700/50" style="background-color: #1e293b;">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-semibold text-red-400">OOP</span>
+                  <span class="text-xs text-gray-500">•</span>
+                  <span class="text-xs text-gray-400">High SPR (>8)</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full bg-amber-400/15 text-amber-400 border border-amber-400/25">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.168 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+                  Simplified GTO
+                </span>
+              </div>
+              <h4 class="text-sm font-semibold text-gray-100 mb-1">Check-Raise Strategy (OOP, High SPR)</h4>
+              <p class="text-xs text-gray-500 mb-4">过牌加注策略（无位置，高SPR）</p>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-500/20 text-gray-400">
+                  <span class="text-sm font-medium">Check</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">70-80%</span>
+                    <span class="font-mono">—</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-red-500/20 text-red-400">
+                  <span class="text-sm font-medium">Raise</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">10-15%</span>
+                    <span class="font-mono">3x</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-500/20 text-emerald-400">
+                  <span class="text-sm font-medium">Bet</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">10-15%</span>
+                    <span class="font-mono">1/3 pot</span>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-lg p-3 border border-gray-700/40" style="background-color: #16213e;">
+                <p class="text-xs text-gray-300 leading-relaxed">Check most of your range OOP on dry boards, mix in check-raises with strong hands</p>
+                <p class="text-xs text-gray-500 mt-1">无位置在干燥牌面大部分过牌，用强牌混入过牌加注</p>
+              </div>
+            </div>
+
+            <!-- Strategy Card 3 -->
+            <div class="rounded-xl p-5 border border-gray-700/50" style="background-color: #1e293b;">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-semibold text-emerald-400">IP</span>
+                  <span class="text-xs text-gray-500">•</span>
+                  <span class="text-xs text-gray-400">Low SPR (<3)</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full bg-amber-400/15 text-amber-400 border border-amber-400/25">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.168 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+                  Simplified GTO
+                </span>
+              </div>
+              <h4 class="text-sm font-semibold text-gray-100 mb-1">Shove or Fold (IP, Low SPR)</h4>
+              <p class="text-xs text-gray-500 mb-4">全下或弃牌策略（有位置，低SPR）</p>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-500/20 text-emerald-400">
+                  <span class="text-sm font-medium">Bet</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">45-55%</span>
+                    <span class="font-mono">All-in</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-500/20 text-gray-400">
+                  <span class="text-sm font-medium">Check</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">45-55%</span>
+                    <span class="font-mono">—</span>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-lg p-3 border border-gray-700/40" style="background-color: #16213e;">
+                <p class="text-xs text-gray-300 leading-relaxed">With low SPR, simplify to shove-or-check on dry boards</p>
+                <p class="text-xs text-gray-500 mt-1">低SPR时简化为全下或过牌</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Wet Board -->
+        <section class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-xl font-bold text-gray-100">Wet Board</h2>
+                <span class="px-2.5 py-0.5 text-xs font-medium rounded-full border bg-blue-500/20 text-blue-400 border-blue-500/30">wet</span>
+              </div>
+              <p class="text-sm text-gray-400 mb-1">Boards with many draws and connected cards (e.g., 9♥ 8♥ 6♠)</p>
+              <p class="text-xs text-gray-500">多听牌且连接的牌面（如 9♥ 8♥ 6♠）</p>
+            </div>
+            <div class="flex gap-1.5 mt-1">
+              <span class="inline-flex items-center justify-center w-10 h-14 rounded-md text-sm font-bold" style="background-color: #1a1a2e; border: 1px solid #334155; color: #e74c3c;">9♥</span>
+              <span class="inline-flex items-center justify-center w-10 h-14 rounded-md text-sm font-bold" style="background-color: #1a1a2e; border: 1px solid #334155; color: #e74c3c;">8♥</span>
+              <span class="inline-flex items-center justify-center w-10 h-14 rounded-md text-sm font-bold" style="background-color: #1a1a2e; border: 1px solid #334155; color: #ecf0f1;">6♠</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Wet Strategy Card 1 -->
+            <div class="rounded-xl p-5 border border-gray-700/50" style="background-color: #1e293b;">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-semibold text-emerald-400">IP</span>
+                  <span class="text-xs text-gray-500">•</span>
+                  <span class="text-xs text-gray-400">High SPR (>8)</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full bg-amber-400/15 text-amber-400 border border-amber-400/25">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.168 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+                  Simplified GTO
+                </span>
+              </div>
+              <h4 class="text-sm font-semibold text-gray-100 mb-1">Polarized Betting (IP, High SPR)</h4>
+              <p class="text-xs text-gray-500 mb-4">极化下注策略（有位置，高SPR）</p>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-500/20 text-emerald-400">
+                  <span class="text-sm font-medium">Bet</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">40-50%</span>
+                    <span class="font-mono">2/3 pot</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-500/20 text-gray-400">
+                  <span class="text-sm font-medium">Check</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">50-60%</span>
+                    <span class="font-mono">—</span>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-lg p-3 border border-gray-700/40" style="background-color: #16213e;">
+                <p class="text-xs text-gray-300 leading-relaxed">Use larger sizing on wet boards to deny equity from draws</p>
+                <p class="text-xs text-gray-500 mt-1">在湿润牌面使用较大尺度下注以拒绝听牌权益</p>
+              </div>
+            </div>
+
+            <!-- Wet Strategy Card 2 -->
+            <div class="rounded-xl p-5 border border-gray-700/50" style="background-color: #1e293b;">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-semibold text-red-400">OOP</span>
+                  <span class="text-xs text-gray-500">•</span>
+                  <span class="text-xs text-gray-400">Med SPR (3-8)</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full bg-amber-400/15 text-amber-400 border border-amber-400/25">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.168 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+                  Simplified GTO
+                </span>
+              </div>
+              <h4 class="text-sm font-semibold text-gray-100 mb-1">Donk Bet Strategy (OOP, Med SPR)</h4>
+              <p class="text-xs text-gray-500 mb-4">领先下注策略（无位置，中SPR）</p>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-500/20 text-gray-400">
+                  <span class="text-sm font-medium">Check</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">60-70%</span>
+                    <span class="font-mono">—</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-500/20 text-emerald-400">
+                  <span class="text-sm font-medium">Bet</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">30-40%</span>
+                    <span class="font-mono">3/4 pot</span>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-lg p-3 border border-gray-700/40" style="background-color: #16213e;">
+                <p class="text-xs text-gray-300 leading-relaxed">Lead into the raiser on wet boards with strong made hands and combo draws</p>
+                <p class="text-xs text-gray-500 mt-1">在湿润牌面用强成牌和组合听牌领先下注</p>
+              </div>
+            </div>
+
+            <!-- Wet Strategy Card 3 -->
+            <div class="rounded-xl p-5 border border-gray-700/50" style="background-color: #1e293b;">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-semibold text-emerald-400">IP</span>
+                  <span class="text-xs text-gray-500">•</span>
+                  <span class="text-xs text-gray-400">Med SPR (3-8)</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full bg-amber-400/15 text-amber-400 border border-amber-400/25">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.168 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+                  Simplified GTO
+                </span>
+              </div>
+              <h4 class="text-sm font-semibold text-gray-100 mb-1">Protection Bet (IP, Med SPR)</h4>
+              <p class="text-xs text-gray-500 mb-4">保护性下注策略（有位置，中SPR）</p>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-500/20 text-emerald-400">
+                  <span class="text-sm font-medium">Bet</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">55-65%</span>
+                    <span class="font-mono">1/2 pot</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-500/20 text-gray-400">
+                  <span class="text-sm font-medium">Check</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">35-45%</span>
+                    <span class="font-mono">—</span>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-lg p-3 border border-gray-700/40" style="background-color: #16213e;">
+                <p class="text-xs text-gray-300 leading-relaxed">Bet for protection and value on dynamic boards with medium stacks</p>
+                <p class="text-xs text-gray-500 mt-1">中等筹码深度在动态牌面下注保护和获取价值</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Monotone Board -->
+        <section class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-xl font-bold text-gray-100">Monotone Board</h2>
+                <span class="px-2.5 py-0.5 text-xs font-medium rounded-full border bg-purple-500/20 text-purple-400 border-purple-500/30">monotone</span>
+              </div>
+              <p class="text-sm text-gray-400 mb-1">All three cards share the same suit (e.g., T♣ 7♣ 3♣)</p>
+              <p class="text-xs text-gray-500">三张同花色牌面（如 T♣ 7♣ 3♣）</p>
+            </div>
+            <div class="flex gap-1.5 mt-1">
+              <span class="inline-flex items-center justify-center w-10 h-14 rounded-md text-sm font-bold" style="background-color: #1a1a2e; border: 1px solid #334155; color: #ecf0f1;">T♣</span>
+              <span class="inline-flex items-center justify-center w-10 h-14 rounded-md text-sm font-bold" style="background-color: #1a1a2e; border: 1px solid #334155; color: #ecf0f1;">7♣</span>
+              <span class="inline-flex items-center justify-center w-10 h-14 rounded-md text-sm font-bold" style="background-color: #1a1a2e; border: 1px solid #334155; color: #ecf0f1;">3♣</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Monotone Strategy Card 1 -->
+            <div class="rounded-xl p-5 border border-gray-700/50" style="background-color: #1e293b;">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-semibold text-emerald-400">IP</span>
+                  <span class="text-xs text-gray-500">•</span>
+                  <span class="text-xs text-gray-400">High SPR (>8)</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full bg-amber-400/15 text-amber-400 border border-amber-400/25">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.168 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+                  Simplified GTO
+                </span>
+              </div>
+              <h4 class="text-sm font-semibold text-gray-100 mb-1">Cautious C-Bet (IP, High SPR)</h4>
+              <p class="text-xs text-gray-500 mb-4">谨慎持续下注（有位置，高SPR）</p>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-500/20 text-gray-400">
+                  <span class="text-sm font-medium">Check</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">55-65%</span>
+                    <span class="font-mono">—</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-500/20 text-emerald-400">
+                  <span class="text-sm font-medium">Bet</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">35-45%</span>
+                    <span class="font-mono">1/3 pot</span>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-lg p-3 border border-gray-700/40" style="background-color: #16213e;">
+                <p class="text-xs text-gray-300 leading-relaxed">Reduce c-bet frequency on monotone boards — opponents have more flushes and flush draws</p>
+                <p class="text-xs text-gray-500 mt-1">同花牌面降低持续下注频率——对手有更多同花和同花听牌</p>
+              </div>
+            </div>
+
+            <!-- Monotone Strategy Card 2 -->
+            <div class="rounded-xl p-5 border border-gray-700/50" style="background-color: #1e293b;">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-semibold text-red-400">OOP</span>
+                  <span class="text-xs text-gray-500">•</span>
+                  <span class="text-xs text-gray-400">High SPR (>8)</span>
+                </div>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full bg-amber-400/15 text-amber-400 border border-amber-400/25">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.168 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+                  Simplified GTO
+                </span>
+              </div>
+              <h4 class="text-sm font-semibold text-gray-100 mb-1">Check-Call Heavy (OOP, High SPR)</h4>
+              <p class="text-xs text-gray-500 mb-4">高频过牌跟注（无位置，高SPR）</p>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-500/20 text-gray-400">
+                  <span class="text-sm font-medium">Check</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">80-90%</span>
+                    <span class="font-mono">—</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-blue-500/20 text-blue-400">
+                  <span class="text-sm font-medium">Call</span>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="opacity-80">vs bet</span>
+                    <span class="font-mono">wide</span>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-lg p-3 border border-gray-700/40" style="background-color: #16213e;">
+                <p class="text-xs text-gray-300 leading-relaxed">Check your entire range OOP on monotone boards, call wide with flush draws and made hands</p>
+                <p class="text-xs text-gray-500 mt-1">无位置在同花牌面过牌全部范围，用同花听牌和成牌宽跟注</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="mt-10 rounded-xl p-4 border border-amber-400/20 flex items-start gap-3" style="background-color: rgba(251, 191, 36, 0.05);">
+        <svg class="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.168 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+        </svg>
+        <div>
+          <p class="text-xs text-amber-400 font-medium">These are simplified GTO approximations for learning purposes. Real GTO solutions are far more nuanced.</p>
+          <p class="text-xs text-amber-400/60 mt-1">以上为简化GTO近似参考，仅供学习。真实GTO解法远比这复杂。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

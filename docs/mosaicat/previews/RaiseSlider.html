@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RaiseSlider Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-sm mx-auto space-y-8">
+    <!-- State: mid-range raise -->
+    <div class="bg-slate-800 border border-gray-700 rounded-xl p-4">
+      <div class="flex flex-col gap-2">
+        <!-- Amount display -->
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-gray-400">Raise to</span>
+          <div class="flex items-center gap-1.5">
+            <div class="w-20 px-2 py-1 text-right text-sm font-bold text-emerald-400 bg-slate-800 border border-gray-700 rounded-lg">
+              12.5
+            </div>
+            <span class="text-xs font-medium text-gray-500">BB</span>
+          </div>
+        </div>
+
+        <!-- Slider track -->
+        <div class="relative py-2">
+          <div class="relative h-2 bg-gray-700 rounded-full">
+            <div class="absolute h-2 bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full" style="width: 40%"></div>
+            <div class="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-emerald-500 border-2 border-emerald-300 rounded-full shadow-lg" style="left: calc(40% - 10px)"></div>
+          </div>
+        </div>
+
+        <!-- Min / Max labels -->
+        <div class="flex justify-between text-[10px] text-gray-500 font-medium">
+          <span>Min 4 BB</span>
+          <span>All-in 97.5 BB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- State: near all-in -->
+    <div class="bg-slate-800 border border-gray-700 rounded-xl p-4">
+      <div class="flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-gray-400">Raise to</span>
+          <div class="flex items-center gap-1.5">
+            <div class="w-20 px-2 py-1 text-right text-sm font-bold text-emerald-400 bg-slate-800 border border-gray-700 rounded-lg">
+              85
+            </div>
+            <span class="text-xs font-medium text-gray-500">BB</span>
+          </div>
+        </div>
+
+        <div class="relative py-2">
+          <div class="relative h-2 bg-gray-700 rounded-full">
+            <div class="absolute h-2 bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full" style="width: 87%"></div>
+            <div class="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-emerald-500 border-2 border-emerald-300 rounded-full shadow-lg" style="left: calc(87% - 10px)"></div>
+          </div>
+        </div>
+
+        <div class="flex justify-between text-[10px] text-gray-500 font-medium">
+          <span>Min 4 BB</span>
+          <span>All-in 97.5 BB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- State: minimum -->
+    <div class="bg-slate-800 border border-gray-700 rounded-xl p-4">
+      <div class="flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-gray-400">Raise to</span>
+          <div class="flex items-center gap-1.5">
+            <div class="w-20 px-2 py-1 text-right text-sm font-bold text-emerald-400 bg-slate-800 border border-gray-700 rounded-lg">
+              4
+            </div>
+            <span class="text-xs font-medium text-gray-500">BB</span>
+          </div>
+        </div>
+
+        <div class="relative py-2">
+          <div class="relative h-2 bg-gray-700 rounded-full">
+            <div class="absolute h-2 bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full" style="width: 0%"></div>
+            <div class="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-emerald-500 border-2 border-emerald-300 rounded-full shadow-lg" style="left: calc(0% - 0px)"></div>
+          </div>
+        </div>
+
+        <div class="flex justify-between text-[10px] text-gray-500 font-medium">
+          <span>Min 4 BB</span>
+          <span>All-in 97.5 BB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

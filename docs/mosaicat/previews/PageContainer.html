@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PageContainer Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 32px;">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">PageContainer — Variants</p>
+
+    <!-- Default max-w-7xl -->
+    <div class="border border-dashed border-gray-600 rounded-xl">
+      <div class="max-w-7xl mx-auto px-4 py-6">
+        <div class="rounded-xl bg-gray-800/80 border border-gray-700 p-6">
+          <h2 class="text-lg font-semibold text-gray-100 mb-2">Default (max-w-7xl)</h2>
+          <p class="text-gray-400 text-sm">This is the default page container with max-w-7xl width constraint, horizontal padding px-4 and vertical padding py-6. Content is centered with mx-auto.</p>
+          <div class="mt-4 grid grid-cols-3 gap-4">
+            <div class="bg-gray-700/50 rounded-lg p-4 text-center text-gray-300 text-sm">Card 1</div>
+            <div class="bg-gray-700/50 rounded-lg p-4 text-center text-gray-300 text-sm">Card 2</div>
+            <div class="bg-gray-700/50 rounded-lg p-4 text-center text-gray-300 text-sm">Card 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Narrow max-w-4xl -->
+    <div class="border border-dashed border-gray-600 rounded-xl">
+      <div class="max-w-4xl mx-auto px-4 py-6">
+        <div class="rounded-xl bg-gray-800/80 border border-gray-700 p-6">
+          <h2 class="text-lg font-semibold text-gray-100 mb-2">Narrow (max-w-4xl)</h2>
+          <p class="text-gray-400 text-sm">A narrower container variant for focused content like settings or forms.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

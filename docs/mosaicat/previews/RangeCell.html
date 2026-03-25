@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="p-8">
+    <!-- Legend -->
+    <div class="flex gap-4 mb-4 text-xs text-gray-400">
+      <div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded bg-amber-400"></div> Pair</div>
+      <div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded bg-emerald-500"></div> Suited</div>
+      <div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded bg-sky-500"></div> Offsuit</div>
+      <div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded bg-gray-700"></div> Not in range</div>
+    </div>
+    <!-- 5x5 sample grid -->
+    <div class="inline-grid grid-cols-5 gap-1">
+      <!-- Row 1: AA, AKs, AQs, AJs, ATs -->
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-amber-400 text-white font-semibold" style="opacity:1">AA</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-emerald-500 text-white font-semibold" style="opacity:0.9">AKs</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-emerald-500 text-white font-semibold" style="opacity:0.75">AQs</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-emerald-500 text-white font-semibold" style="opacity:0.5">AJs</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-emerald-500 text-white font-semibold" style="opacity:0.3">ATs</div>
+      </div>
+      <!-- Row 2: AKo, KK, KQs, KJs, KTs -->
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-sky-500 text-white font-semibold" style="opacity:0.85">AKo</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-amber-400 text-white font-semibold" style="opacity:1">KK</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-emerald-500 text-white font-semibold" style="opacity:0.7">KQs</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-emerald-500 text-white font-semibold" style="opacity:0.4">KJs</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-gray-700 text-gray-500" style="opacity:1">KTs</div>
+      </div>
+      <!-- Row 3: AQo, KQo, QQ, QJs, QTs -->
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-sky-500 text-white font-semibold" style="opacity:0.6">AQo</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-sky-500 text-white font-semibold" style="opacity:0.4">KQo</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-amber-400 text-white font-semibold" style="opacity:1">QQ</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-emerald-500 text-white font-semibold" style="opacity:0.35">QJs</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-gray-700 text-gray-500" style="opacity:1">QTs</div>
+      </div>
+      <!-- Row 4: AJo, KJo, QJo, JJ, JTs -->
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-gray-700 text-gray-500" style="opacity:1">AJo</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-gray-700 text-gray-500" style="opacity:1">KJo</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-gray-700 text-gray-500" style="opacity:1">QJo</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-amber-400 text-white font-semibold" style="opacity:0.95">JJ</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-emerald-500 text-white font-semibold" style="opacity:0.25">JTs</div>
+      </div>
+      <!-- Row 5: ATo, KTo, QTo, JTo, TT -->
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-gray-700 text-gray-500" style="opacity:1">ATo</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-gray-700 text-gray-500" style="opacity:1">KTo</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-gray-700 text-gray-500" style="opacity:1">QTo</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-gray-700 text-gray-500" style="opacity:1">JTo</div>
+      </div>
+      <div class="w-10 h-10 flex items-center justify-center text-xs rounded-md border border-gray-700/50">
+        <div class="w-full h-full flex items-center justify-center rounded-md bg-amber-400 text-white font-semibold" style="opacity:0.9">TT</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

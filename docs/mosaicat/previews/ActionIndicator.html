@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+    @keyframes pulse-ring {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    @keyframes ping-ring {
+      0% { transform: scale(1); opacity: 0.6; }
+      75%, 100% { transform: scale(1.15); opacity: 0; }
+    }
+    .pulse-border { animation: pulse-ring 1.5s ease-in-out infinite; }
+    .ping-border { animation: ping-ring 1.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
+  </style>
+</head>
+<body>
+  <div class="flex gap-12 items-center p-8">
+    <!-- Active player -->
+    <div class="text-center">
+      <div class="relative inline-block">
+        <div class="w-20 h-20 rounded-full bg-slate-700 border-2 border-gray-600 flex items-center justify-center text-gray-100 font-bold text-sm">P1</div>
+        <div class="absolute inset-0 rounded-full border-2 border-emerald-500 pulse-border"></div>
+        <div class="absolute -inset-1 rounded-full border border-emerald-500/40 ping-border"></div>
+      </div>
+      <p class="text-emerald-400 text-xs mt-3 font-medium">Active</p>
+    </div>
+    <!-- Inactive player -->
+    <div class="text-center">
+      <div class="relative inline-block">
+        <div class="w-20 h-20 rounded-full bg-slate-700 border-2 border-gray-600 flex items-center justify-center text-gray-100 font-bold text-sm">P2</div>
+      </div>
+      <p class="text-gray-500 text-xs mt-3 font-medium">Inactive</p>
+    </div>
+  </div>
+</body>
+</html>

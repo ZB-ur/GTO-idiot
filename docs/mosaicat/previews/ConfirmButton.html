@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConfirmButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .animate-spin { animation: spin 1s linear infinite; }
+  </style>
+</head>
+<body>
+  <p class="text-gray-400 text-sm mb-4 font-semibold">ConfirmButton — All States</p>
+
+  <div class="flex flex-wrap gap-4 items-start">
+    <!-- Default -->
+    <button class="bg-emerald-500 text-white border border-emerald-400 hover:bg-emerald-400 rounded-lg px-8 py-3 font-bold text-base transition-all duration-150 select-none flex items-center justify-center gap-2 min-w-[120px] shadow-md cursor-pointer" style="box-shadow: 0 4px 6px rgba(16,185,129,0.2)">
+      <span>Confirm</span>
+    </button>
+
+    <!-- Loading -->
+    <button class="bg-emerald-500 text-white border border-emerald-400 rounded-lg px-8 py-3 font-bold text-base select-none flex items-center justify-center gap-2 min-w-[120px] shadow-md opacity-50 cursor-not-allowed" style="box-shadow: 0 4px 6px rgba(16,185,129,0.2)">
+      <svg class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle style="opacity:0.25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path style="opacity:0.75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
+      <span>Confirming...</span>
+    </button>
+
+    <!-- Disabled -->
+    <button class="bg-emerald-500 text-white border border-emerald-400 rounded-lg px-8 py-3 font-bold text-base select-none flex items-center justify-center gap-2 min-w-[120px] shadow-md opacity-50 cursor-not-allowed" style="box-shadow: 0 4px 6px rgba(16,185,129,0.2)">
+      <span>Confirm</span>
+    </button>
+  </div>
+
+  <div class="flex gap-6 mt-3">
+    <p class="text-gray-500 text-xs ml-6">Default</p>
+    <p class="text-gray-500 text-xs ml-14">Loading</p>
+    <p class="text-gray-500 text-xs ml-12">Disabled</p>
+  </div>
+</body>
+</html>

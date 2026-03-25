@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #1a1a2e; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <p class="text-gray-400 text-sm mb-4 font-semibold">DealerButton</p>
+
+  <!-- Standalone -->
+  <div class="flex items-center gap-6 mb-8">
+    <div>
+      <div class="w-8 h-8 rounded-full bg-gradient-to-br from-white to-gray-200 border-2 border-gray-300 shadow-lg flex items-center justify-center select-none" style="box-shadow: 0 4px 12px rgba(0,0,0,0.3)">
+        <span class="text-gray-900 text-xs font-black tracking-tight">D</span>
+      </div>
+      <p class="text-gray-500 text-xs mt-2 text-center">Default</p>
+    </div>
+  </div>
+
+  <!-- In context: on felt -->
+  <p class="text-gray-400 text-sm mb-3 font-semibold">On Table Felt</p>
+  <div class="rounded-xl p-8 border-2 flex items-center justify-center relative" style="background: #2d5a3d; border-color: #3d7a5d; min-height: 120px;">
+    <!-- Simulated player seat area -->
+    <div class="absolute bottom-4 left-12 flex items-center gap-2">
+      <div class="w-8 h-8 rounded-full bg-gradient-to-br from-white to-gray-200 border-2 border-gray-300 shadow-lg flex items-center justify-center select-none" style="box-shadow: 0 4px 12px rgba(0,0,0,0.3)">
+        <span class="text-gray-900 text-xs font-black tracking-tight">D</span>
+      </div>
+      <div class="rounded-lg px-3 py-1.5 border border-gray-600" style="background: #334155;">
+        <span class="text-gray-100 text-xs font-semibold">Player 1</span>
+      </div>
+    </div>
+    <span class="text-emerald-300/30 text-sm">Table Center</span>
+  </div>
+</body>
+</html>
