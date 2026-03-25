@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeviationExplanation Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-4 max-w-lg">
+    <h2 class="text-lg font-semibold text-gray-900">DeviationExplanation</h2>
+
+    <!-- Minor Deviation -->
+    <div class="flex items-start gap-2 px-3 py-2.5 rounded-lg border border-yellow-300 bg-yellow-50">
+      <span class="text-base flex-shrink-0 mt-0.5 text-yellow-500">⚠</span>
+      <p class="text-sm leading-relaxed text-yellow-800">
+        BTN 位置面对 UTG 开池，AJo 通常混合 call/fold，纯 3-bet 频率较低。建议在此位置更多选择 call。
+      </p>
+    </div>
+
+    <!-- Major Deviation -->
+    <div class="flex items-start gap-2 px-3 py-2.5 rounded-lg border border-red-300 bg-red-50">
+      <span class="text-base flex-shrink-0 mt-0.5 text-red-500">⛔</span>
+      <p class="text-sm leading-relaxed text-red-800">
+        UTG 是最早行动的位置，通常需要更紧的 range。72o 在 UTG 位置应该 100% 弃牌，开池会导致长期亏损。
+      </p>
+    </div>
+
+    <!-- Minor - shorter text -->
+    <div class="flex items-start gap-2 px-3 py-2.5 rounded-lg border border-yellow-300 bg-yellow-50">
+      <span class="text-base flex-shrink-0 mt-0.5 text-yellow-500">⚠</span>
+      <p class="text-sm leading-relaxed text-yellow-800">
+        此处 check 比 bet 更优，可以保护你的 check range。
+      </p>
+    </div>
+  </div>
+</body>
+</html>

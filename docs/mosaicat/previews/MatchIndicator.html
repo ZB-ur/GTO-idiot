@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MatchIndicator Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-4">
+    <h2 class="text-lg font-semibold text-gray-900">MatchIndicator</h2>
+    <div class="flex items-center gap-3">
+      <!-- Match -->
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-sm font-medium rounded-lg border bg-green-50 border-green-200">
+        <span class="text-base font-bold text-green-600">✓</span>
+        <span class="text-green-600">符合 GTO</span>
+      </span>
+      <!-- Minor Deviation -->
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-sm font-medium rounded-lg border bg-yellow-50 border-yellow-200">
+        <span class="text-base font-bold text-yellow-600">⚠</span>
+        <span class="text-yellow-600">轻微偏离</span>
+      </span>
+      <!-- Major Deviation -->
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-sm font-medium rounded-lg border bg-red-50 border-red-200">
+        <span class="text-base font-bold text-red-600">✕</span>
+        <span class="text-red-600">严重偏离</span>
+      </span>
+    </div>
+  </div>
+</body>
+</html>

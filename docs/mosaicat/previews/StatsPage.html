@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StatsPage Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-2xl font-bold text-gray-900">统计数据</h1>
+      <p class="text-gray-500 mt-1">你的 GTO 训练表现总览</p>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <!-- Total Hands -->
+      <div class="bg-white border border-gray-200 rounded-xl p-5 flex items-start gap-4 shadow-sm">
+        <div class="bg-blue-50 rounded-lg p-2.5 text-xl">🃏</div>
+        <div>
+          <p class="text-sm text-gray-500">总手数</p>
+          <p class="text-2xl font-bold text-blue-600 mt-0.5">142</p>
+        </div>
+      </div>
+      <!-- Win Rate -->
+      <div class="bg-white border border-gray-200 rounded-xl p-5 flex items-start gap-4 shadow-sm">
+        <div class="bg-amber-50 rounded-lg p-2.5 text-xl">🏆</div>
+        <div>
+          <p class="text-sm text-gray-500">胜率</p>
+          <p class="text-2xl font-bold text-amber-600 mt-0.5">38.0%</p>
+        </div>
+      </div>
+      <!-- Profit/Loss -->
+      <div class="bg-white border border-gray-200 rounded-xl p-5 flex items-start gap-4 shadow-sm">
+        <div class="bg-green-50 rounded-lg p-2.5 text-xl">📈</div>
+        <div>
+          <p class="text-sm text-gray-500">总盈亏</p>
+          <p class="text-2xl font-bold text-green-600 mt-0.5">+350</p>
+        </div>
+      </div>
+      <!-- GTO Compliance -->
+      <div class="bg-white border border-gray-200 rounded-xl p-5 flex items-start gap-4 shadow-sm">
+        <div class="bg-purple-50 rounded-lg p-2.5 text-xl">🎯</div>
+        <div>
+          <p class="text-sm text-gray-500">GTO 合规率</p>
+          <p class="text-2xl font-bold text-purple-600 mt-0.5">62.0%</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chip Trend Chart -->
+    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm mb-6">
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">筹码趋势</h3>
+      <svg viewBox="0 0 600 200" class="w-full" preserveAspectRatio="none" style="min-width:320px;height:200px;">
+        <!-- Zero line at y=130 (maps to 0 on scale -120 to +350) -->
+        <line x1="0" y1="130" x2="600" y2="130" stroke="#e5e7eb" stroke-dasharray="4 4" stroke-width="1"/>
+        <!-- Gradient definition -->
+        <defs>
+          <linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2563eb"/>
+            <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <!-- Area fill — mock data: starts 0, dips to -80, recovers to +350 -->
+        <polygon
+          points="0,130 40,138 80,150 120,160 160,148 200,136 240,130 280,118 320,105 360,90 400,75 440,60 480,48 520,35 560,24 600,16 600,130 0,130"
+          fill="url(#trendGrad)" opacity="0.3"/>
+        <!-- Line -->
+        <polyline
+          points="0,130 40,138 80,150 120,160 160,148 200,136 240,130 280,118 320,105 360,90 400,75 440,60 480,48 520,35 560,24 600,16"
+          fill="none" stroke="#2563eb" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+      <div class="flex justify-between text-xs text-gray-400 mt-2">
+        <span>第 1 手</span>
+        <span>第 142 手</span>
+      </div>
+    </div>
+
+    <!-- Position Stats Table -->
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <div class="p-6 pb-4">
+        <h3 class="text-lg font-semibold text-gray-900">位置统计</h3>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-t border-gray-100 bg-slate-50">
+              <th class="text-left py-3 px-6 font-medium text-gray-500">位置</th>
+              <th class="text-right py-3 px-6 font-medium text-gray-500">手数</th>
+              <th class="text-right py-3 px-6 font-medium text-gray-500">胜率</th>
+              <th class="text-right py-3 px-6 font-medium text-gray-500">盈亏</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-gray-100 hover:bg-slate-50 transition-colors">
+              <td class="py-3 px-6 font-medium text-gray-900">UTG - 枪口位</td>
+              <td class="py-3 px-6 text-right text-gray-600">24</td>
+              <td class="py-3 px-6 text-right text-gray-600">29.2%</td>
+              <td class="py-3 px-6 text-right font-semibold text-red-600">-85</td>
+            </tr>
+            <tr class="border-t border-gray-100 hover:bg-slate-50 transition-colors">
+              <td class="py-3 px-6 font-medium text-gray-900">UTG1 - 枪口位+1</td>
+              <td class="py-3 px-6 text-right text-gray-600">22</td>
+              <td class="py-3 px-6 text-right text-gray-600">31.8%</td>
+              <td class="py-3 px-6 text-right font-semibold text-red-600">-40</td>
+            </tr>
+            <tr class="border-t border-gray-100 hover:bg-slate-50 transition-colors">
+              <td class="py-3 px-6 font-medium text-gray-900">MP - 中间位</td>
+              <td class="py-3 px-6 text-right text-gray-600">25</td>
+              <td class="py-3 px-6 text-right text-gray-600">36.0%</td>
+              <td class="py-3 px-6 text-right font-semibold text-green-600">+30</td>
+            </tr>
+            <tr class="border-t border-gray-100 hover:bg-slate-50 transition-colors">
+              <td class="py-3 px-6 font-medium text-gray-900">CO - 关煞位</td>
+              <td class="py-3 px-6 text-right text-gray-600">23</td>
+              <td class="py-3 px-6 text-right text-gray-600">39.1%</td>
+              <td class="py-3 px-6 text-right font-semibold text-green-600">+65</td>
+            </tr>
+            <tr class="border-t border-gray-100 hover:bg-slate-50 transition-colors">
+              <td class="py-3 px-6 font-medium text-gray-900">BTN - 按钮位</td>
+              <td class="py-3 px-6 text-right text-gray-600">24</td>
+              <td class="py-3 px-6 text-right text-gray-600">45.8%</td>
+              <td class="py-3 px-6 text-right font-semibold text-green-600">+210</td>
+            </tr>
+            <tr class="border-t border-gray-100 hover:bg-slate-50 transition-colors">
+              <td class="py-3 px-6 font-medium text-gray-900">SB - 小盲位</td>
+              <td class="py-3 px-6 text-right text-gray-600">24</td>
+              <td class="py-3 px-6 text-right text-gray-600">33.3%</td>
+              <td class="py-3 px-6 text-right font-semibold text-green-600">+20</td>
+            </tr>
+            <tr class="border-t border-gray-100 hover:bg-slate-50 transition-colors">
+              <td class="py-3 px-6 font-medium text-gray-900">BB - 大盲位</td>
+              <td class="py-3 px-6 text-right text-gray-600">24</td>
+              <td class="py-3 px-6 text-right text-gray-600">41.7%</td>
+              <td class="py-3 px-6 text-right font-semibold text-green-600">+150</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CallButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xs mx-auto space-y-4">
+    <p class="text-sm text-gray-500 font-medium">Default (amount: 50)</p>
+    <button class="w-full py-3 px-6 rounded-lg font-semibold text-base transition-all bg-blue-600 text-white shadow-sm">
+      <span class="block text-base">跟注</span>
+      <span class="block text-sm font-normal opacity-90">50</span>
+    </button>
+
+    <p class="text-sm text-gray-500 font-medium mt-6">Hover</p>
+    <button class="w-full py-3 px-6 rounded-lg font-semibold text-base transition-all bg-blue-700 text-white shadow-md">
+      <span class="block text-base">跟注</span>
+      <span class="block text-sm font-normal opacity-90">50</span>
+    </button>
+
+    <p class="text-sm text-gray-500 font-medium mt-6">Disabled</p>
+    <button class="w-full py-3 px-6 rounded-lg font-semibold text-base bg-gray-200 text-gray-400 cursor-not-allowed" disabled>
+      <span class="block text-base">跟注</span>
+      <span class="block text-sm font-normal opacity-90">50</span>
+    </button>
+  </div>
+</body>
+</html>

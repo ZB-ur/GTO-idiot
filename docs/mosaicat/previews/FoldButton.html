@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoldButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-6">
+    <h2 class="text-lg font-semibold text-gray-900 mb-3">FoldButton 示例</h2>
+
+    <div class="bg-white rounded-xl border border-gray-200 p-6 space-y-4">
+      <!-- Normal state -->
+      <div>
+        <p class="text-sm text-gray-600 mb-2">正常状态：</p>
+        <button class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-base font-semibold bg-red-500 text-white shadow-sm hover:shadow-md transition-all duration-150">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 14l8-8M6 6l8 8" />
+          </svg>
+          <span>弃牌</span>
+        </button>
+      </div>
+
+      <!-- Disabled state -->
+      <div>
+        <p class="text-sm text-gray-600 mb-2">禁用状态：</p>
+        <button disabled class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-base font-semibold bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200 transition-all duration-150">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 14l8-8M6 6l8 8" />
+          </svg>
+          <span>弃牌</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Context: action panel mockup -->
+    <div class="bg-emerald-800 rounded-xl p-4">
+      <p class="text-sm text-emerald-300 mb-3">牌桌操作栏场景：</p>
+      <div class="flex items-center gap-3">
+        <button class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-base font-semibold bg-red-500 text-white shadow-sm">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 14l8-8M6 6l8 8" />
+          </svg>
+          <span>弃牌</span>
+        </button>
+        <button class="inline-flex items-center justify-center px-6 py-3 rounded-lg text-base font-semibold bg-blue-600 text-white shadow-sm">
+          跟注 10
+        </button>
+        <button class="inline-flex items-center justify-center px-6 py-3 rounded-lg text-base font-semibold bg-yellow-500 text-white shadow-sm">
+          加注
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

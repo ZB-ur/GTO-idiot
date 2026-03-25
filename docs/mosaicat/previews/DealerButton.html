@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- Context: shown on a dark felt background to simulate table placement -->
+  <div class="flex flex-col items-center gap-8">
+
+    <!-- Demo 1: standalone on light background -->
+    <div class="flex flex-col items-center gap-2">
+      <span class="text-sm text-gray-500">Light background</span>
+      <div
+        class="inline-flex items-center justify-center w-8 h-8 bg-white border-2 border-gray-300 rounded-full shadow-md text-sm font-bold text-gray-900 select-none"
+      >D</div>
+    </div>
+
+    <!-- Demo 2: on emerald felt (typical table context) -->
+    <div class="flex flex-col items-center gap-2">
+      <span class="text-sm text-gray-500">On table felt</span>
+      <div class="bg-emerald-800 rounded-xl p-8 flex items-center justify-center">
+        <div
+          class="inline-flex items-center justify-center w-8 h-8 bg-white border-2 border-gray-300 rounded-full shadow-md text-sm font-bold text-gray-900 select-none"
+        >D</div>
+      </div>
+    </div>
+
+    <!-- Demo 3: next to a player seat mock -->
+    <div class="flex flex-col items-center gap-2">
+      <span class="text-sm text-gray-500">Next to player seat</span>
+      <div class="bg-emerald-800 rounded-xl p-8 flex items-center gap-3">
+        <!-- Mock player chip -->
+        <div class="flex flex-col items-center gap-1">
+          <div class="w-14 h-14 rounded-full bg-slate-100 border-2 border-gray-200 flex items-center justify-center text-xs font-semibold text-gray-700">You</div>
+          <span class="text-xs text-emerald-200">500</span>
+        </div>
+        <!-- Dealer button -->
+        <div
+          class="inline-flex items-center justify-center w-8 h-8 bg-white border-2 border-gray-300 rounded-full shadow-md text-sm font-bold text-gray-900 select-none"
+        >D</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
