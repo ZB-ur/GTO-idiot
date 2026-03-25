@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeroSeat Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #064e3b; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  </style>
+</head>
+<body>
+  <div class="flex gap-12 items-start flex-wrap">
+
+    <!-- Hero seat: current actor -->
+    <div class="flex flex-col items-center">
+      <p class="text-emerald-300 text-xs mb-3 font-semibold">Hero — Your Turn</p>
+      <div class="relative">
+        <div class="absolute -inset-3 rounded-2xl bg-amber-400/10 blur-md pointer-events-none"></div>
+        <div class="relative bg-emerald-800/40 rounded-2xl px-3 py-2 border border-emerald-600/30">
+          <div class="relative flex flex-col items-center">
+            <div class="relative rounded-full p-0.5 ring-2 ring-amber-400 ring-offset-2 ring-offset-emerald-900 animate-pulse">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-blue-500 to-blue-700">H</div>
+              <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">BTN</span>
+            </div>
+            <div class="mt-1 text-center">
+              <div class="text-white text-xs font-semibold">Hero</div>
+              <div class="text-amber-400 text-xs font-mono">196</div>
+            </div>
+            <!-- Always face-up cards -->
+            <div class="flex gap-0.5 mt-1">
+              <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+                <span class="text-sm font-bold leading-none text-gray-900">A</span>
+                <span class="text-base leading-none text-gray-900">♠</span>
+              </div>
+              <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+                <span class="text-sm font-bold leading-none text-gray-900">K</span>
+                <span class="text-base leading-none text-gray-900">♠</span>
+              </div>
+            </div>
+            <div class="mt-1 flex items-center gap-1">
+              <div class="w-4 h-4 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 border border-amber-600 shadow-sm"></div>
+              <span class="text-white text-xs font-mono">4</span>
+            </div>
+          </div>
+          <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow uppercase tracking-wider">You</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero seat: waiting -->
+    <div class="flex flex-col items-center">
+      <p class="text-emerald-300 text-xs mb-3 font-semibold">Hero — Waiting</p>
+      <div class="relative">
+        <div class="relative bg-emerald-800/40 rounded-2xl px-3 py-2 border border-emerald-600/30">
+          <div class="relative flex flex-col items-center">
+            <div class="relative rounded-full p-0.5">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-blue-500 to-blue-700">H</div>
+              <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">SB</span>
+            </div>
+            <div class="mt-1 text-center">
+              <div class="text-white text-xs font-semibold">Hero</div>
+              <div class="text-amber-400 text-xs font-mono">188</div>
+            </div>
+            <div class="flex gap-0.5 mt-1">
+              <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+                <span class="text-sm font-bold leading-none text-red-600">Q</span>
+                <span class="text-base leading-none text-red-600">♥</span>
+              </div>
+              <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+                <span class="text-sm font-bold leading-none text-red-600">T</span>
+                <span class="text-base leading-none text-red-600">♥</span>
+              </div>
+            </div>
+            <div class="mt-1 bg-amber-400/90 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full shadow-sm">Call 4</div>
+          </div>
+          <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow uppercase tracking-wider">You</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayerSeat Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #064e3b; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  </style>
+</head>
+<body>
+  <div class="flex gap-12 items-start flex-wrap">
+
+    <!-- Active hero seat with cards, current actor -->
+    <div class="flex flex-col items-center">
+      <p class="text-emerald-300 text-xs mb-3 font-semibold">Hero (Current Actor)</p>
+      <div class="relative flex flex-col items-center">
+        <div class="relative rounded-full p-0.5 ring-2 ring-amber-400 ring-offset-2 ring-offset-emerald-900 animate-pulse">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-blue-500 to-blue-700">H</div>
+          <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">BTN</span>
+        </div>
+        <div class="mt-1 text-center">
+          <div class="text-white text-xs font-semibold">Hero</div>
+          <div class="text-amber-400 text-xs font-mono">196</div>
+        </div>
+        <div class="flex gap-0.5 mt-1">
+          <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+            <span class="text-sm font-bold leading-none text-gray-900">A</span>
+            <span class="text-base leading-none text-gray-900">♠</span>
+          </div>
+          <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+            <span class="text-sm font-bold leading-none text-gray-900">K</span>
+            <span class="text-base leading-none text-gray-900">♠</span>
+          </div>
+        </div>
+        <div class="mt-1 bg-amber-400/90 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full shadow-sm">Raise 12</div>
+        <div class="mt-1 flex items-center gap-1">
+          <div class="w-4 h-4 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 border border-amber-600 shadow-sm"></div>
+          <span class="text-white text-xs font-mono">12</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bot seat with face-down cards -->
+    <div class="flex flex-col items-center">
+      <p class="text-emerald-300 text-xs mb-3 font-semibold">Bot (Face Down)</p>
+      <div class="relative flex flex-col items-center">
+        <div class="relative rounded-full p-0.5">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-gray-500 to-gray-700">F</div>
+          <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">SB</span>
+        </div>
+        <div class="mt-1 text-center">
+          <div class="text-white text-xs font-semibold">Fish_01</div>
+          <div class="text-amber-400 text-xs font-mono">188</div>
+        </div>
+        <div class="flex gap-0.5 mt-1">
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+            <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+          </div>
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+            <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+          </div>
+        </div>
+        <div class="mt-1 bg-amber-400/90 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full shadow-sm">Call 4</div>
+        <div class="mt-1 flex items-center gap-1">
+          <div class="w-4 h-4 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 border border-amber-600 shadow-sm"></div>
+          <span class="text-white text-xs font-mono">4</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Showdown seat with hand rank -->
+    <div class="flex flex-col items-center">
+      <p class="text-emerald-300 text-xs mb-3 font-semibold">Showdown</p>
+      <div class="relative flex flex-col items-center">
+        <div class="relative rounded-full p-0.5">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-gray-500 to-gray-700">R</div>
+          <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">CO</span>
+        </div>
+        <div class="mt-1 text-center">
+          <div class="text-white text-xs font-semibold">Reg_02</div>
+          <div class="text-amber-400 text-xs font-mono">240</div>
+        </div>
+        <div class="flex gap-0.5 mt-1">
+          <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+            <span class="text-sm font-bold leading-none text-red-600">Q</span>
+            <span class="text-base leading-none text-red-600">♥</span>
+          </div>
+          <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+            <span class="text-sm font-bold leading-none text-red-600">J</span>
+            <span class="text-base leading-none text-red-600">♥</span>
+          </div>
+        </div>
+        <div class="mt-1 bg-emerald-500/90 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full shadow-sm">Two Pair, Queens and Jacks</div>
+      </div>
+    </div>
+
+    <!-- Busted seat -->
+    <div class="flex flex-col items-center">
+      <p class="text-emerald-300 text-xs mb-3 font-semibold">Busted</p>
+      <div class="relative flex flex-col items-center opacity-40 grayscale">
+        <div class="relative rounded-full p-0.5">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-gray-500 to-gray-700">G</div>
+          <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">UTG</span>
+        </div>
+        <div class="mt-1 text-center">
+          <div class="text-white text-xs font-semibold">GTO_03</div>
+          <div class="text-amber-400 text-xs font-mono">BUST</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

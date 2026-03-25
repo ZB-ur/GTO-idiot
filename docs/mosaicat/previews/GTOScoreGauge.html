@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTOScoreGauge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-lg mx-auto flex items-end justify-center gap-10">
+    <!-- High score (green) - lg -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="relative" style="width: 160px; height: 160px;">
+        <svg width="160" height="160" class="-rotate-90">
+          <circle cx="80" cy="80" r="75" fill="none" stroke="#f3f4f6" stroke-width="10" />
+          <circle cx="80" cy="80" r="75" fill="none" stroke="#10b981" stroke-width="10"
+            stroke-dasharray="471.24" stroke-dashoffset="56.55" stroke-linecap="round" />
+        </svg>
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="font-bold text-3xl text-emerald-500">88</span>
+        </div>
+      </div>
+      <span class="font-medium text-gray-500 uppercase tracking-wide text-sm">GTO Score</span>
+    </div>
+
+    <!-- Medium score (amber) - md -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="relative" style="width: 120px; height: 120px;">
+        <svg width="120" height="120" class="-rotate-90">
+          <circle cx="60" cy="60" r="56" fill="none" stroke="#f3f4f6" stroke-width="8" />
+          <circle cx="60" cy="60" r="56" fill="none" stroke="#f59e0b" stroke-width="8"
+            stroke-dasharray="351.86" stroke-dashoffset="140.74" stroke-linecap="round" />
+        </svg>
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="font-bold text-2xl text-amber-500">60</span>
+        </div>
+      </div>
+      <span class="font-medium text-gray-500 uppercase tracking-wide text-xs">GTO Score</span>
+    </div>
+
+    <!-- Low score (red) - sm -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="relative" style="width: 80px; height: 80px;">
+        <svg width="80" height="80" class="-rotate-90">
+          <circle cx="40" cy="40" r="37" fill="none" stroke="#f3f4f6" stroke-width="6" />
+          <circle cx="40" cy="40" r="37" fill="none" stroke="#ef4444" stroke-width="6"
+            stroke-dasharray="232.48" stroke-dashoffset="162.73" stroke-linecap="round" />
+        </svg>
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="font-bold text-lg text-red-500">30</span>
+        </div>
+      </div>
+      <span class="font-medium text-gray-500 uppercase tracking-wide text-[10px]">GTO Score</span>
+    </div>
+  </div>
+</body>
+</html>

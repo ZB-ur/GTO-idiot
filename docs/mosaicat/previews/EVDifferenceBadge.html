@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVDifferenceBadge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-sm mx-auto space-y-4">
+    <p class="text-sm font-semibold text-gray-900">EV Difference Badges</p>
+
+    <div class="flex flex-wrap gap-3">
+      <!-- Positive -->
+      <span class="inline-flex items-center gap-1 px-2.5 py-1 text-sm font-semibold rounded-lg border bg-emerald-50 text-emerald-700 border-emerald-200">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+        +1.25 BB
+      </span>
+
+      <!-- Positive small -->
+      <span class="inline-flex items-center gap-1 px-2.5 py-1 text-sm font-semibold rounded-lg border bg-emerald-50 text-emerald-700 border-emerald-200">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+        +0.05 BB
+      </span>
+
+      <!-- Zero -->
+      <span class="inline-flex items-center gap-1 px-2.5 py-1 text-sm font-semibold rounded-lg border bg-emerald-50 text-emerald-700 border-emerald-200">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+        +0.00 BB
+      </span>
+
+      <!-- Negative -->
+      <span class="inline-flex items-center gap-1 px-2.5 py-1 text-sm font-semibold rounded-lg border bg-red-50 text-red-700 border-red-200">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+        -0.83 BB
+      </span>
+
+      <!-- Large negative -->
+      <span class="inline-flex items-center gap-1 px-2.5 py-1 text-sm font-semibold rounded-lg border bg-red-50 text-red-700 border-red-200">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+        -3.50 BB
+      </span>
+    </div>
+  </div>
+</body>
+</html>

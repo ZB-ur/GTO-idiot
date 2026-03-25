@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkipButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-6">
+    <!-- On light background -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2">On light background</p>
+      <div class="bg-white border border-gray-200 rounded-xl p-4 inline-block">
+        <button class="text-sm text-gray-400 hover:text-gray-600 font-medium">Skip Tutorial →</button>
+      </div>
+    </div>
+    <!-- On dark overlay (typical tutorial context) -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2">On dark overlay (tutorial context)</p>
+      <div class="bg-gray-900/80 rounded-xl p-6 relative">
+        <div class="absolute top-3 right-4">
+          <button class="text-sm text-gray-400 hover:text-gray-200 font-medium">Skip Tutorial →</button>
+        </div>
+        <div class="pt-6 text-white text-sm opacity-40">Tutorial content area…</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TableLayout Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #0f172a; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .anim-bounce-1 { animation: bounce 0.8s infinite 0ms; }
+    .anim-bounce-2 { animation: bounce 0.8s infinite 150ms; }
+    .anim-bounce-3 { animation: bounce 0.8s infinite 300ms; }
+  </style>
+</head>
+<body>
+  <div class="relative w-full max-w-4xl mx-auto" style="aspect-ratio: 16/10;">
+
+    <!-- Table felt -->
+    <div class="absolute inset-4 rounded-[50%] bg-gradient-to-b from-emerald-800 to-emerald-900 border-[6px] border-emerald-950 shadow-2xl">
+      <div class="absolute inset-3 rounded-[50%] border border-emerald-700/40"></div>
+    </div>
+
+    <!-- Center: community cards + pot -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 z-10">
+      <div class="text-emerald-300/60 text-xs font-semibold uppercase tracking-widest mb-1">flop</div>
+      <div class="flex gap-1.5">
+        <!-- Flop card 1 -->
+        <div class="w-12 h-[68px] rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+          <span class="text-base font-bold leading-none text-gray-900">T</span>
+          <span class="text-lg leading-none text-gray-900">♠</span>
+        </div>
+        <!-- Flop card 2 -->
+        <div class="w-12 h-[68px] rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+          <span class="text-base font-bold leading-none text-red-600">7</span>
+          <span class="text-lg leading-none text-red-600">♥</span>
+        </div>
+        <!-- Flop card 3 -->
+        <div class="w-12 h-[68px] rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+          <span class="text-base font-bold leading-none text-red-600">2</span>
+          <span class="text-lg leading-none text-red-600">♦</span>
+        </div>
+        <!-- Placeholder turn -->
+        <div class="w-12 h-[68px] rounded-lg border-2 border-dashed border-emerald-600/40"></div>
+        <!-- Placeholder river -->
+        <div class="w-12 h-[68px] rounded-lg border-2 border-dashed border-emerald-600/40"></div>
+      </div>
+      <!-- Pot -->
+      <div class="flex items-center gap-1.5 bg-black/40 rounded-full px-3 py-1.5">
+        <div class="w-5 h-5 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 border border-amber-600 shadow-sm flex items-center justify-center">
+          <span class="text-[8px] font-bold text-amber-900">$</span>
+        </div>
+        <span class="text-amber-400 font-bold text-sm font-mono">24</span>
+      </div>
+    </div>
+
+    <!-- Seat 0: Hero (bottom center) — current actor -->
+    <div class="absolute z-10" style="top: 78%; left: 50%; transform: translate(-50%, -50%);">
+      <div class="relative">
+        <div class="absolute -inset-3 rounded-2xl bg-amber-400/10 blur-md pointer-events-none"></div>
+        <div class="relative bg-emerald-800/40 rounded-2xl px-3 py-2 border border-emerald-600/30">
+          <div class="relative flex flex-col items-center">
+            <div class="relative rounded-full p-0.5 ring-2 ring-amber-400 ring-offset-2 ring-offset-emerald-900 animate-pulse">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-blue-500 to-blue-700">H</div>
+              <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">BTN</span>
+            </div>
+            <div class="mt-1 text-center">
+              <div class="text-white text-xs font-semibold">Hero</div>
+              <div class="text-amber-400 text-xs font-mono">196</div>
+            </div>
+            <div class="flex gap-0.5 mt-1">
+              <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+                <span class="text-sm font-bold leading-none text-gray-900">A</span>
+                <span class="text-base leading-none text-gray-900">♠</span>
+              </div>
+              <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-md flex flex-col items-center justify-center gap-0">
+                <span class="text-sm font-bold leading-none text-gray-900">K</span>
+                <span class="text-base leading-none text-gray-900">♠</span>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow uppercase tracking-wider">You</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seat 1: Fish bot (bottom-left) -->
+    <div class="absolute z-10" style="top: 62%; left: 10%; transform: translate(-50%, -50%);">
+      <div class="relative flex flex-col items-center">
+        <div class="absolute -top-1 -left-1 z-10 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow flex items-center gap-0.5">
+          <span>🐟</span><span>Fish</span>
+        </div>
+        <div class="relative flex flex-col items-center">
+          <div class="relative rounded-full p-0.5">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-gray-500 to-gray-700">F</div>
+            <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">SB</span>
+          </div>
+          <div class="mt-1 text-center">
+            <div class="text-white text-xs font-semibold">Fish_01</div>
+            <div class="text-amber-400 text-xs font-mono">188</div>
+          </div>
+          <div class="flex gap-0.5 mt-1">
+            <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+              <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+            </div>
+            <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+              <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+            </div>
+          </div>
+          <div class="mt-1 bg-amber-400/90 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full shadow-sm">Call 4</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seat 2: Fish bot (top-left) -->
+    <div class="absolute z-10" style="top: 18%; left: 10%; transform: translate(-50%, -50%);">
+      <div class="relative flex flex-col items-center">
+        <div class="absolute -top-1 -left-1 z-10 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow flex items-center gap-0.5">
+          <span>🐟</span><span>Fish</span>
+        </div>
+        <div class="relative flex flex-col items-center opacity-60">
+          <div class="relative rounded-full p-0.5">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-gray-500 to-gray-700">F</div>
+            <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">BB</span>
+          </div>
+          <div class="mt-1 text-center">
+            <div class="text-white text-xs font-semibold">Fish_02</div>
+            <div class="text-amber-400 text-xs font-mono">162</div>
+          </div>
+          <div class="mt-1 bg-amber-400/90 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full shadow-sm">Fold</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seat 3: Regular bot (top center) -->
+    <div class="absolute z-10" style="top: 5%; left: 50%; transform: translate(-50%, -50%);">
+      <div class="relative flex flex-col items-center">
+        <div class="absolute -top-1 -left-1 z-10 bg-gradient-to-r from-orange-400 to-orange-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow flex items-center gap-0.5">
+          <span>🎯</span><span>Reg</span>
+        </div>
+        <div class="relative flex flex-col items-center">
+          <div class="relative rounded-full p-0.5">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-gray-500 to-gray-700">R</div>
+            <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">UTG</span>
+          </div>
+          <div class="mt-1 text-center">
+            <div class="text-white text-xs font-semibold">Reg_03</div>
+            <div class="text-amber-400 text-xs font-mono">220</div>
+          </div>
+          <div class="flex gap-0.5 mt-1">
+            <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+              <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+            </div>
+            <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+              <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+            </div>
+          </div>
+          <div class="mt-1 bg-amber-400/90 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full shadow-sm">Raise 8</div>
+          <div class="mt-1 flex items-center gap-1">
+            <div class="w-4 h-4 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 border border-amber-600 shadow-sm"></div>
+            <span class="text-white text-xs font-mono">8</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seat 4: GTO bot (top-right) -->
+    <div class="absolute z-10" style="top: 18%; left: 90%; transform: translate(-50%, -50%);">
+      <div class="relative flex flex-col items-center">
+        <div class="absolute -top-1 -left-1 z-10 bg-gradient-to-r from-purple-400 to-purple-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow flex items-center gap-0.5">
+          <span>🧠</span><span>GTO</span>
+        </div>
+        <div class="relative flex flex-col items-center">
+          <div class="relative rounded-full p-0.5">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-gray-500 to-gray-700">G</div>
+            <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">MP</span>
+          </div>
+          <div class="mt-1 text-center">
+            <div class="text-white text-xs font-semibold">GTO_04</div>
+            <div class="text-amber-400 text-xs font-mono">200</div>
+          </div>
+          <div class="flex gap-0.5 mt-1">
+            <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+              <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+            </div>
+            <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+              <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+            </div>
+          </div>
+          <div class="mt-1 bg-amber-400/90 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full shadow-sm">Call 8</div>
+          <div class="mt-1 flex items-center gap-1">
+            <div class="w-4 h-4 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 border border-amber-600 shadow-sm"></div>
+            <span class="text-white text-xs font-mono">8</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seat 5: Regular bot (bottom-right) -->
+    <div class="absolute z-10" style="top: 62%; left: 90%; transform: translate(-50%, -50%);">
+      <div class="relative flex flex-col items-center">
+        <div class="absolute -top-1 -left-1 z-10 bg-gradient-to-r from-orange-400 to-orange-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow flex items-center gap-0.5">
+          <span>🎯</span><span>Reg</span>
+        </div>
+        <div class="relative flex flex-col items-center">
+          <div class="relative rounded-full p-0.5">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md bg-gradient-to-br from-gray-500 to-gray-700">R</div>
+            <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow">CO</span>
+          </div>
+          <div class="mt-1 text-center">
+            <div class="text-white text-xs font-semibold">Reg_05</div>
+            <div class="text-amber-400 text-xs font-mono">194</div>
+          </div>
+          <div class="flex gap-0.5 mt-1">
+            <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+              <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+            </div>
+            <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center">
+              <div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div>
+            </div>
+          </div>
+          <div class="mt-1 bg-amber-400/90 text-gray-900 text-xs font-semibold px-2 py-0.5 rounded-full shadow-sm">Call 8</div>
+          <div class="mt-1 flex items-center gap-1">
+            <div class="w-4 h-4 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 border border-amber-600 shadow-sm"></div>
+            <span class="text-white text-xs font-mono">8</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dealer button (at seat 0 = BTN) -->
+    <div class="absolute z-20 w-7 h-7 rounded-full bg-white border-2 border-gray-300 shadow-md flex items-center justify-center" style="top: 78%; left: 50%; transform: translate(-180%, -50%);">
+      <span class="text-[10px] font-black text-gray-800">D</span>
+    </div>
+
+    <!-- Hand info -->
+    <div class="absolute top-2 left-4 text-emerald-400/50 text-xs font-mono">
+      Hand #12 · 1/2
+    </div>
+  </div>
+</body>
+</html>

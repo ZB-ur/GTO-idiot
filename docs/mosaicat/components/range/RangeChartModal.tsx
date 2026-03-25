@@ -1,0 +1,1 @@
+`components/range/RangeChartModal.tsx` — Modal wrapper that composes `PositionSelector`, `RangeViewToggle`, `RangeGrid`, and `RangeSummary`. Opens as a centered overlay with backdrop blur, fetches range data from `/api/ranges/{position}?view={view}`, syncs position from parent prop, supports Escape to close, and shows loading spinner while fetching.

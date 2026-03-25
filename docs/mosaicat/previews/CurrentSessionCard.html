@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CurrentSessionCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">CurrentSessionCard</h2>
+
+  <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 max-w-md">
+    <h3 class="text-sm font-semibold text-gray-900 mb-4">Current Session</h3>
+
+    <div class="flex items-start gap-6">
+      <!-- GTO Score Gauge -->
+      <div class="flex flex-col items-center shrink-0">
+        <svg width="88" height="88" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="36" fill="none" stroke="#e5e7eb" stroke-width="6" />
+          <circle cx="44" cy="44" r="36" fill="none" stroke="#f59e0b" stroke-width="6"
+            stroke-linecap="round"
+            stroke-dasharray="226.19"
+            stroke-dashoffset="81.43"
+            transform="rotate(-90 44 44)" />
+          <text x="44" y="40" text-anchor="middle" fill="#f59e0b" font-size="20" font-weight="bold">64</text>
+          <text x="44" y="54" text-anchor="middle" fill="#9ca3af" font-size="9" font-weight="500">GTO</text>
+        </svg>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-2 gap-x-6 gap-y-3 flex-1 min-w-0">
+        <!-- Hands -->
+        <div class="flex flex-col">
+          <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Hands</span>
+          <span class="text-lg font-bold text-gray-900">47</span>
+        </div>
+
+        <!-- P/L -->
+        <div class="flex flex-col">
+          <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Profit / Loss</span>
+          <span class="text-lg font-bold text-emerald-600">+142</span>
+        </div>
+
+        <!-- VPIP -->
+        <div class="flex flex-col">
+          <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">VPIP</span>
+          <div class="flex items-center gap-2">
+            <span class="text-lg font-bold text-gray-900">28%</span>
+            <div class="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden max-w-[80px]">
+              <div class="h-full bg-blue-500 rounded-full" style="width: 28%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PFR -->
+        <div class="flex flex-col">
+          <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">PFR</span>
+          <div class="flex items-center gap-2">
+            <span class="text-lg font-bold text-gray-900">19%</span>
+            <div class="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden max-w-[80px]">
+              <div class="h-full bg-sky-500 rounded-full" style="width: 19%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Win Rate -->
+        <div class="flex flex-col col-span-2">
+          <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Win Rate</span>
+          <span class="text-lg font-bold text-gray-900">58%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

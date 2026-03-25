@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandHistoryScreen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-4xl mx-auto px-4 py-8 space-y-6">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-900">Hand History</h1>
+        <p class="text-sm text-gray-500 mt-1">Review your past hands and track progress</p>
+      </div>
+      <div class="flex gap-2">
+        <button class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+          </svg>
+          Import
+        </button>
+        <button class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-lg shadow-sm hover:bg-blue-700 transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Export
+        </button>
+      </div>
+    </div>
+
+    <!-- Summary Bar -->
+    <div class="grid grid-cols-3 gap-4">
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 text-center">
+        <p class="text-sm text-gray-500 mb-1">Hands Played</p>
+        <p class="text-2xl font-bold text-gray-900">247</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 text-center">
+        <p class="text-sm text-gray-500 mb-1">Win Rate</p>
+        <p class="text-2xl font-bold text-gray-900">54.3%</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 text-center">
+        <p class="text-sm text-gray-500 mb-1">Total Profit</p>
+        <p class="text-2xl font-bold text-emerald-500">+342 BB</p>
+      </div>
+    </div>
+
+    <!-- Hand List -->
+    <div class="space-y-3">
+
+      <!-- Hand Row 1 — Won -->
+      <div class="w-full flex items-center gap-4 bg-white rounded-xl border border-gray-200 shadow-sm p-4 hover:border-blue-300 hover:shadow-md transition-all cursor-pointer">
+        <div class="flex-shrink-0 w-16 text-center">
+          <p class="text-lg font-bold text-gray-900">#247</p>
+          <p class="text-xs text-gray-500">Mar 25</p>
+          <p class="text-xs text-gray-400">10:35</p>
+        </div>
+        <div class="flex gap-1 flex-shrink-0">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">A♠</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">K♠</span>
+        </div>
+        <div class="flex gap-1 flex-shrink-0">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">Q♥</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">J♠</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">T♣</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">2♦</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">7♥</span>
+        </div>
+        <div class="flex-1"></div>
+        <span class="px-2.5 py-1 rounded-lg text-xs font-semibold uppercase bg-emerald-50 text-emerald-700">Won</span>
+        <div class="w-20 text-right">
+          <p class="text-sm font-bold text-emerald-500">+48 BB</p>
+        </div>
+        <div class="w-16 text-right">
+          <p class="text-sm font-bold text-emerald-500">92</p>
+          <p class="text-xs text-gray-400">GTO</p>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <!-- Hand Row 2 — Lost -->
+      <div class="w-full flex items-center gap-4 bg-white rounded-xl border border-gray-200 shadow-sm p-4 hover:border-blue-300 hover:shadow-md transition-all cursor-pointer">
+        <div class="flex-shrink-0 w-16 text-center">
+          <p class="text-lg font-bold text-gray-900">#246</p>
+          <p class="text-xs text-gray-500">Mar 25</p>
+          <p class="text-xs text-gray-400">10:32</p>
+        </div>
+        <div class="flex gap-1 flex-shrink-0">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">9♥</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">9♦</span>
+        </div>
+        <div class="flex gap-1 flex-shrink-0">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">K♣</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">8♦</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">3♠</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">A♥</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">6♣</span>
+        </div>
+        <div class="flex-1"></div>
+        <span class="px-2.5 py-1 rounded-lg text-xs font-semibold uppercase bg-red-50 text-red-700">Lost</span>
+        <div class="w-20 text-right">
+          <p class="text-sm font-bold text-red-500">-24 BB</p>
+        </div>
+        <div class="w-16 text-right">
+          <p class="text-sm font-bold text-amber-500">58</p>
+          <p class="text-xs text-gray-400">GTO</p>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <!-- Hand Row 3 — Won -->
+      <div class="w-full flex items-center gap-4 bg-white rounded-xl border border-gray-200 shadow-sm p-4 hover:border-blue-300 hover:shadow-md transition-all cursor-pointer">
+        <div class="flex-shrink-0 w-16 text-center">
+          <p class="text-lg font-bold text-gray-900">#245</p>
+          <p class="text-xs text-gray-500">Mar 25</p>
+          <p class="text-xs text-gray-400">10:28</p>
+        </div>
+        <div class="flex gap-1 flex-shrink-0">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">J♥</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">T♠</span>
+        </div>
+        <div class="flex gap-1 flex-shrink-0">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">Q♦</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">9♣</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">8♠</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">2♥</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">5♣</span>
+        </div>
+        <div class="flex-1"></div>
+        <span class="px-2.5 py-1 rounded-lg text-xs font-semibold uppercase bg-emerald-50 text-emerald-700">Won</span>
+        <div class="w-20 text-right">
+          <p class="text-sm font-bold text-emerald-500">+36 BB</p>
+        </div>
+        <div class="w-16 text-right">
+          <p class="text-sm font-bold text-emerald-500">85</p>
+          <p class="text-xs text-gray-400">GTO</p>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <!-- Hand Row 4 — Tied -->
+      <div class="w-full flex items-center gap-4 bg-white rounded-xl border border-gray-200 shadow-sm p-4 hover:border-blue-300 hover:shadow-md transition-all cursor-pointer">
+        <div class="flex-shrink-0 w-16 text-center">
+          <p class="text-lg font-bold text-gray-900">#244</p>
+          <p class="text-xs text-gray-500">Mar 25</p>
+          <p class="text-xs text-gray-400">10:24</p>
+        </div>
+        <div class="flex gap-1 flex-shrink-0">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">A♣</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">K♥</span>
+        </div>
+        <div class="flex gap-1 flex-shrink-0">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">A♦</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">K♠</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">7♣</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">4♥</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">3♦</span>
+        </div>
+        <div class="flex-1"></div>
+        <span class="px-2.5 py-1 rounded-lg text-xs font-semibold uppercase bg-amber-50 text-amber-700">Tied</span>
+        <div class="w-20 text-right">
+          <p class="text-sm font-bold text-gray-500">0 BB</p>
+        </div>
+        <div class="w-16 text-right">
+          <p class="text-sm font-bold text-red-500">38</p>
+          <p class="text-xs text-gray-400">GTO</p>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <!-- Hand Row 5 — Lost -->
+      <div class="w-full flex items-center gap-4 bg-white rounded-xl border border-gray-200 shadow-sm p-4 hover:border-blue-300 hover:shadow-md transition-all cursor-pointer">
+        <div class="flex-shrink-0 w-16 text-center">
+          <p class="text-lg font-bold text-gray-900">#243</p>
+          <p class="text-xs text-gray-500">Mar 25</p>
+          <p class="text-xs text-gray-400">10:20</p>
+        </div>
+        <div class="flex gap-1 flex-shrink-0">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">7♠</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">6♣</span>
+        </div>
+        <div class="flex gap-1 flex-shrink-0">
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">5♥</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-red-600">4♦</span>
+          <span class="inline-flex items-center justify-center w-8 h-10 rounded-md bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-900">K♠</span>
+        </div>
+        <div class="flex-1"></div>
+        <span class="px-2.5 py-1 rounded-lg text-xs font-semibold uppercase bg-red-50 text-red-700">Lost</span>
+        <div class="w-20 text-right">
+          <p class="text-sm font-bold text-red-500">-18 BB</p>
+        </div>
+        <div class="w-16 text-right">
+          <p class="text-sm font-bold text-amber-500">65</p>
+          <p class="text-xs text-gray-400">GTO</p>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex items-center justify-center gap-2 pt-2">
+      <button class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg opacity-40 cursor-not-allowed">
+        Previous
+      </button>
+      <span class="text-sm text-gray-500">Page 1 of 13</span>
+      <button class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50">
+        Next
+      </button>
+    </div>
+
+  </div>
+</body>
+</html>

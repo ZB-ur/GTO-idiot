@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTOComparisonPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 380px; display: flex; flex-direction: column; gap: 24px;">
+
+    <!-- ===== State 1: Negative EV (preflop range) ===== -->
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+      <!-- Header -->
+      <div class="px-5 py-3.5 border-b border-gray-100 bg-gray-50/50">
+        <h3 class="text-sm font-semibold text-gray-900">GTO Comparison</h3>
+        <p class="text-xs text-gray-500 mt-0.5">Based on GTO preflop ranges for BTN</p>
+      </div>
+      <!-- Body -->
+      <div class="p-5 space-y-5">
+        <!-- EV Badge (negative) -->
+        <div class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-red-50 border border-red-200">
+          <span class="text-lg text-red-700">▼</span>
+          <div class="text-center">
+            <p class="text-xs font-medium text-gray-500">EV Difference</p>
+            <p class="text-xl font-bold text-red-700">-1.2 BB</p>
+          </div>
+        </div>
+
+        <!-- Your Action -->
+        <div class="space-y-1.5">
+          <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Your Action</p>
+          <div class="inline-flex items-center gap-2 px-3 py-2 rounded-lg border bg-emerald-50 border-emerald-200">
+            <span class="text-base font-semibold text-emerald-500">Call</span>
+          </div>
+        </div>
+
+        <!-- GTO Recommendation -->
+        <div class="space-y-2">
+          <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">GTO Recommendation</p>
+          <div class="space-y-1.5">
+            <!-- Raise -->
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-gray-700 w-16 shrink-0">Raise 6</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-md overflow-hidden">
+                <div class="h-full bg-blue-500 rounded-md" style="width: 75%"></div>
+              </div>
+              <span class="text-xs font-semibold text-gray-500 w-10 text-right shrink-0">75%</span>
+            </div>
+            <!-- Call -->
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-gray-700 w-16 shrink-0">Call</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-md overflow-hidden">
+                <div class="h-full bg-emerald-400 rounded-md" style="width: 15%"></div>
+              </div>
+              <span class="text-xs font-semibold text-gray-500 w-10 text-right shrink-0">15%</span>
+            </div>
+            <!-- Fold -->
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-gray-700 w-16 shrink-0">Fold</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-md overflow-hidden">
+                <div class="h-full bg-red-400 rounded-md" style="width: 10%"></div>
+              </div>
+              <span class="text-xs font-semibold text-gray-500 w-10 text-right shrink-0">10%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- View Range Chart -->
+        <button class="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M3 14h18M9 4v16M15 4v16" />
+          </svg>
+          View Range Chart
+        </button>
+
+        <!-- Disclaimer -->
+        <div class="flex items-start gap-2 px-3 py-2.5 bg-sky-50 border border-sky-200 rounded-lg">
+          <svg class="w-4 h-4 text-sky-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+          </svg>
+          <p class="text-xs text-sky-700 leading-relaxed">Based on GTO preflop ranges for BTN</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== State 2: Positive EV (postflop simplified) ===== -->
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+      <!-- Header -->
+      <div class="px-5 py-3.5 border-b border-gray-100 bg-gray-50/50">
+        <h3 class="text-sm font-semibold text-gray-900">GTO Comparison</h3>
+        <p class="text-xs text-gray-500 mt-0.5">Simplified postflop analysis</p>
+      </div>
+      <!-- Body -->
+      <div class="p-5 space-y-5">
+        <!-- EV Badge (positive) -->
+        <div class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-emerald-50 border border-emerald-200">
+          <span class="text-lg text-emerald-700">▲</span>
+          <div class="text-center">
+            <p class="text-xs font-medium text-gray-500">EV Difference</p>
+            <p class="text-xl font-bold text-emerald-700">+0.8 BB</p>
+          </div>
+        </div>
+
+        <!-- Your Action -->
+        <div class="space-y-1.5">
+          <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Your Action</p>
+          <div class="inline-flex items-center gap-2 px-3 py-2 rounded-lg border bg-blue-50 border-blue-200">
+            <span class="text-base font-semibold text-blue-600">Raise 12</span>
+          </div>
+        </div>
+
+        <!-- GTO Recommendation -->
+        <div class="space-y-2">
+          <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">GTO Recommendation</p>
+          <div class="space-y-1.5">
+            <!-- Raise -->
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-gray-700 w-16 shrink-0">Raise 12</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-md overflow-hidden">
+                <div class="h-full bg-blue-500 rounded-md" style="width: 60%"></div>
+              </div>
+              <span class="text-xs font-semibold text-gray-500 w-10 text-right shrink-0">60%</span>
+            </div>
+            <!-- Check -->
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-gray-700 w-16 shrink-0">Check</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-md overflow-hidden">
+                <div class="h-full bg-gray-400 rounded-md" style="width: 40%"></div>
+              </div>
+              <span class="text-xs font-semibold text-gray-500 w-10 text-right shrink-0">40%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="flex items-start gap-2 px-3 py-2.5 bg-sky-50 border border-sky-200 rounded-lg">
+          <svg class="w-4 h-4 text-sky-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+          </svg>
+          <p class="text-xs text-sky-700 leading-relaxed">GTO values are simplified approximations and may not reflect exact solver outputs.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== State 3: Empty / Not Hero Decision ===== -->
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+      <p class="text-sm text-gray-400 text-center">GTO comparison is only available for your decisions.</p>
+    </div>
+
+  </div>
+</body>
+</html>

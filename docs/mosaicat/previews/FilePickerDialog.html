@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FilePickerDialog Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #1a1a2e; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <!-- Overlay -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center">
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    <!-- Dialog -->
+    <div class="relative max-w-md w-full mx-4 bg-gray-800 rounded-xl shadow-xl border border-gray-700">
+      <!-- Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-700">
+        <h2 class="text-lg font-semibold text-gray-100">Import Hand History</h2>
+        <button class="text-gray-400 hover:text-gray-200 transition-colors">✕</button>
+      </div>
+
+      <!-- Content -->
+      <div class="px-6 py-5">
+        <!-- Drop zone - idle state -->
+        <div class="border-2 border-dashed border-gray-600 rounded-xl p-8 text-center bg-gray-800/50 cursor-pointer hover:border-gray-500 transition-colors">
+          <div class="text-3xl mb-3">📁</div>
+          <p class="text-sm text-gray-300 font-medium">Drop JSON file here or click to browse</p>
+          <p class="text-xs text-gray-500 mt-1">Max 10 MB</p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-700">
+        <button class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-gray-100 transition-colors rounded-lg">Cancel</button>
+        <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 opacity-40 cursor-not-allowed rounded-lg">Import</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second dialog state: file selected + valid -->
+  <div class="fixed inset-0 z-40 flex items-center justify-center" style="top: 520px; position: relative; margin-top: 32px;">
+    <div class="max-w-md w-full mx-auto bg-gray-800 rounded-xl shadow-xl border border-gray-700">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-700">
+        <h2 class="text-lg font-semibold text-gray-100">Import Hand History</h2>
+        <button class="text-gray-400 hover:text-gray-200 transition-colors">✕</button>
+      </div>
+
+      <div class="px-6 py-5">
+        <div class="border-2 border-dashed border-emerald-500/50 rounded-xl p-8 text-center bg-emerald-500/5 cursor-pointer">
+          <div class="space-y-2">
+            <div class="text-2xl">✅</div>
+            <p class="text-sm text-gray-200 font-medium">hand-history-export.json</p>
+            <p class="text-xs text-gray-500">245.3 KB</p>
+          </div>
+        </div>
+        <p class="mt-3 text-sm text-emerald-400 flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+          File validated successfully
+        </p>
+      </div>
+
+      <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-700">
+        <button class="px-4 py-2 text-sm font-medium text-gray-300 rounded-lg">Cancel</button>
+        <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg">Import</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Third dialog state: file selected + invalid -->
+  <div class="max-w-md w-full mx-auto bg-gray-800 rounded-xl shadow-xl border border-gray-700 mt-8">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-gray-700">
+      <h2 class="text-lg font-semibold text-gray-100">Import Hand History</h2>
+      <button class="text-gray-400 hover:text-gray-200 transition-colors">✕</button>
+    </div>
+
+    <div class="px-6 py-5">
+      <div class="border-2 border-dashed border-red-500/50 rounded-xl p-8 text-center bg-red-500/5 cursor-pointer">
+        <div class="space-y-2">
+          <div class="text-2xl">❌</div>
+          <p class="text-sm text-gray-200 font-medium">corrupted-file.json</p>
+          <p class="text-xs text-gray-500">12.1 KB</p>
+        </div>
+      </div>
+      <p class="mt-3 text-sm text-red-400 flex items-center gap-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-red-400 shrink-0"></span>
+        Invalid format: missing "version" or "hands" array.
+      </p>
+    </div>
+
+    <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-700">
+      <button class="px-4 py-2 text-sm font-medium text-gray-300 rounded-lg">Cancel</button>
+      <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 opacity-40 cursor-not-allowed rounded-lg">Import</button>
+    </div>
+  </div>
+</body>
+</html>

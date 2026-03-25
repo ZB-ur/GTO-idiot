@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DecisionTimeline Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- Preview: Default state with decision point #3 active -->
+  <div class="max-w-2xl mx-auto space-y-8">
+
+    <!-- Card wrapper -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+      <h3 class="text-sm font-semibold text-gray-900 mb-3">Hand #12 — Decision Timeline</h3>
+
+      <div class="w-full overflow-x-auto">
+        <div class="flex items-center gap-1 min-w-max px-2 py-3">
+
+          <!-- Preflop group -->
+          <div class="flex flex-col items-center gap-1.5">
+            <span class="text-[10px] font-semibold uppercase tracking-wider text-gray-500">Preflop</span>
+            <div class="flex items-center gap-1.5">
+              <!-- Dot 0: opponent, not active -->
+              <button class="w-5 h-5 rounded-full border-2 bg-gray-100 border-gray-300 hover:bg-gray-200 hover:border-gray-400 cursor-pointer transition-all duration-150 flex items-center justify-center"></button>
+              <div class="w-3 h-px bg-gray-300"></div>
+              <!-- Dot 1: hero, not active -->
+              <button class="w-5 h-5 rounded-full border-2 bg-blue-100 border-blue-400 hover:bg-blue-200 hover:border-blue-500 cursor-pointer transition-all duration-150 flex items-center justify-center"></button>
+              <div class="w-3 h-px bg-gray-300"></div>
+              <!-- Dot 2: opponent, not active -->
+              <button class="w-5 h-5 rounded-full border-2 bg-gray-100 border-gray-300 hover:bg-gray-200 hover:border-gray-400 cursor-pointer transition-all duration-150 flex items-center justify-center"></button>
+            </div>
+          </div>
+
+          <!-- Separator -->
+          <div class="flex items-center px-1">
+            <div class="w-6 h-px bg-gray-300"></div>
+          </div>
+
+          <!-- Flop group -->
+          <div class="flex flex-col items-center gap-1.5">
+            <span class="text-[10px] font-semibold uppercase tracking-wider text-gray-500">Flop</span>
+            <div class="flex items-center gap-1.5">
+              <!-- Dot 3: hero, ACTIVE -->
+              <button class="w-5 h-5 rounded-full border-2 bg-blue-600 border-blue-600 ring-2 ring-blue-300 ring-offset-1 scale-125 transition-all duration-150 flex items-center justify-center">
+                <span class="block w-1.5 h-1.5 rounded-full bg-white"></span>
+              </button>
+              <div class="w-3 h-px bg-gray-300"></div>
+              <!-- Dot 4: opponent, not active -->
+              <button class="w-5 h-5 rounded-full border-2 bg-gray-100 border-gray-300 hover:bg-gray-200 hover:border-gray-400 cursor-pointer transition-all duration-150 flex items-center justify-center"></button>
+              <div class="w-3 h-px bg-gray-300"></div>
+              <!-- Dot 5: hero, not active -->
+              <button class="w-5 h-5 rounded-full border-2 bg-blue-100 border-blue-400 hover:bg-blue-200 hover:border-blue-500 cursor-pointer transition-all duration-150 flex items-center justify-center"></button>
+            </div>
+          </div>
+
+          <!-- Separator -->
+          <div class="flex items-center px-1">
+            <div class="w-6 h-px bg-gray-300"></div>
+          </div>
+
+          <!-- Turn group -->
+          <div class="flex flex-col items-center gap-1.5">
+            <span class="text-[10px] font-semibold uppercase tracking-wider text-gray-500">Turn</span>
+            <div class="flex items-center gap-1.5">
+              <!-- Dot 6: opponent, not active -->
+              <button class="w-5 h-5 rounded-full border-2 bg-gray-100 border-gray-300 hover:bg-gray-200 hover:border-gray-400 cursor-pointer transition-all duration-150 flex items-center justify-center"></button>
+              <div class="w-3 h-px bg-gray-300"></div>
+              <!-- Dot 7: hero, not active -->
+              <button class="w-5 h-5 rounded-full border-2 bg-blue-100 border-blue-400 hover:bg-blue-200 hover:border-blue-500 cursor-pointer transition-all duration-150 flex items-center justify-center"></button>
+            </div>
+          </div>
+
+          <!-- Separator -->
+          <div class="flex items-center px-1">
+            <div class="w-6 h-px bg-gray-300"></div>
+          </div>
+
+          <!-- River group -->
+          <div class="flex flex-col items-center gap-1.5">
+            <span class="text-[10px] font-semibold uppercase tracking-wider text-gray-500">River</span>
+            <div class="flex items-center gap-1.5">
+              <!-- Dot 8: hero, not active -->
+              <button class="w-5 h-5 rounded-full border-2 bg-blue-100 border-blue-400 hover:bg-blue-200 hover:border-blue-500 cursor-pointer transition-all duration-150 flex items-center justify-center"></button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Legend -->
+        <div class="flex items-center gap-4 px-2 pb-1">
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-blue-100 border border-blue-400"></span>
+            <span class="text-[10px] text-gray-500">Hero</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-gray-100 border border-gray-300"></span>
+            <span class="text-[10px] text-gray-500">Opponent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second variant: opponent dot active -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+      <h3 class="text-sm font-semibold text-gray-900 mb-3">Variant — Opponent action selected (Turn)</h3>
+
+      <div class="w-full overflow-x-auto">
+        <div class="flex items-center gap-1 min-w-max px-2 py-3">
+
+          <!-- Preflop group -->
+          <div class="flex flex-col items-center gap-1.5">
+            <span class="text-[10px] font-semibold uppercase tracking-wider text-gray-500">Preflop</span>
+            <div class="flex items-center gap-1.5">
+              <button class="w-5 h-5 rounded-full border-2 bg-gray-100 border-gray-300 hover:bg-gray-200 hover:border-gray-400 cursor-pointer transition-all duration-150 flex items-center justify-center"></button>
+              <div class="w-3 h-px bg-gray-300"></div>
+              <button class="w-5 h-5 rounded-full border-2 bg-blue-100 border-blue-400 hover:bg-blue-200 hover:border-blue-500 cursor-pointer transition-all duration-150 flex items-center justify-center"></button>
+            </div>
+          </div>
+
+          <!-- Separator -->
+          <div class="flex items-center px-1">
+            <div class="w-6 h-px bg-gray-300"></div>
+          </div>
+
+          <!-- Flop group -->
+          <div class="flex flex-col items-center gap-1.5">
+            <span class="text-[10px] font-semibold uppercase tracking-wider text-gray-500">Flop</span>
+            <div class="flex items-center gap-1.5">
+              <button class="w-5 h-5 rounded-full border-2 bg-blue-100 border-blue-400 hover:bg-blue-200 hover:border-blue-500 cursor-pointer transition-all duration-150 flex items-center justify-center"></button>
+              <div class="w-3 h-px bg-gray-300"></div>
+              <button class="w-5 h-5 rounded-full border-2 bg-gray-100 border-gray-300 hover:bg-gray-200 hover:border-gray-400 cursor-pointer transition-all duration-150 flex items-center justify-center"></button>
+            </div>
+          </div>
+
+          <!-- Separator -->
+          <div class="flex items-center px-1">
+            <div class="w-6 h-px bg-gray-300"></div>
+          </div>
+
+          <!-- Turn group -->
+          <div class="flex flex-col items-center gap-1.5">
+            <span class="text-[10px] font-semibold uppercase tracking-wider text-gray-500">Turn</span>
+            <div class="flex items-center gap-1.5">
+              <!-- Dot: opponent, ACTIVE -->
+              <button class="w-5 h-5 rounded-full border-2 bg-gray-500 border-gray-500 ring-2 ring-gray-300 ring-offset-1 scale-125 transition-all duration-150 flex items-center justify-center">
+                <span class="block w-1.5 h-1.5 rounded-full bg-white"></span>
+              </button>
+              <div class="w-3 h-px bg-gray-300"></div>
+              <button class="w-5 h-5 rounded-full border-2 bg-blue-100 border-blue-400 hover:bg-blue-200 hover:border-blue-500 cursor-pointer transition-all duration-150 flex items-center justify-center"></button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Legend -->
+        <div class="flex items-center gap-4 px-2 pb-1">
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-blue-100 border border-blue-400"></span>
+            <span class="text-[10px] text-gray-500">Hero</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-gray-100 border border-gray-300"></span>
+            <span class="text-[10px] text-gray-500">Opponent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

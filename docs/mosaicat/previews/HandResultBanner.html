@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandResultBanner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #064e3b; font-family: system-ui, sans-serif; }
+    @keyframes slide-in { 0% { opacity: 0; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1); } }
+    .banner-anim { animation: slide-in 0.4s ease-out forwards; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col items-center gap-8 pt-8">
+    <!-- Positive result -->
+    <div class="rounded-xl px-8 py-4 backdrop-blur-md border bg-emerald-900/80 border-emerald-500/40 shadow-[0_0_24px_rgba(16,185,129,0.3)] banner-anim">
+      <span class="text-3xl font-black tracking-tight text-emerald-400">+24 chips</span>
+    </div>
+
+    <!-- Negative result -->
+    <div class="rounded-xl px-8 py-4 backdrop-blur-md border bg-red-900/80 border-red-500/40 shadow-[0_0_24px_rgba(239,68,68,0.3)] banner-anim">
+      <span class="text-3xl font-black tracking-tight text-red-400">-12 chips</span>
+    </div>
+
+    <!-- Zero / break even -->
+    <div class="rounded-xl px-8 py-4 backdrop-blur-md border bg-emerald-900/80 border-emerald-500/40 shadow-[0_0_24px_rgba(16,185,129,0.3)] banner-anim">
+      <span class="text-3xl font-black tracking-tight text-emerald-400">+0 chips</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StartGameButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .animate-spin { animation: spin 1s linear infinite; }
+  </style>
+</head>
+<body>
+  <div class="max-w-sm mx-auto space-y-6">
+    <p class="text-sm text-gray-400">StartGameButton — Default</p>
+    <button class="relative w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-lg font-bold text-white bg-blue-600 hover:bg-blue-700 active:scale-[0.98] shadow-sm transition-all duration-150 ease-in-out cursor-pointer">
+      <span>Deal Me In!</span>
+    </button>
+
+    <p class="text-sm text-gray-400 mt-6">StartGameButton — Loading</p>
+    <button class="relative w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-lg font-bold text-white bg-blue-400 opacity-70 cursor-not-allowed shadow-sm" disabled>
+      <svg class="animate-spin w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
+      <span>Shuffling…</span>
+    </button>
+
+    <p class="text-sm text-gray-400 mt-6">StartGameButton — Disabled</p>
+    <button class="relative w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-lg font-bold text-white bg-blue-400 opacity-70 cursor-not-allowed shadow-sm" disabled>
+      <span>Deal Me In!</span>
+    </button>
+  </div>
+</body>
+</html>

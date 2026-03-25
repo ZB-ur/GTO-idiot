@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HistorySummaryBar Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1a1a2e; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xl mx-auto space-y-6">
+
+    <!-- Profitable session -->
+    <div class="flex items-center justify-around rounded-xl border border-gray-700/60 bg-[#1e293b] divide-x divide-gray-700/60">
+      <div class="flex flex-col items-center px-4 py-3">
+        <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Hands</span>
+        <span class="text-lg font-bold tabular-nums mt-0.5 text-gray-100">247</span>
+      </div>
+      <div class="flex flex-col items-center px-4 py-3">
+        <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Win Rate</span>
+        <span class="text-lg font-bold tabular-nums mt-0.5 text-emerald-400">54.3%</span>
+      </div>
+      <div class="flex flex-col items-center px-4 py-3">
+        <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Profit</span>
+        <span class="text-lg font-bold tabular-nums mt-0.5 text-emerald-400">+342 BB</span>
+      </div>
+    </div>
+
+    <!-- Losing session -->
+    <div class="flex items-center justify-around rounded-xl border border-gray-700/60 bg-[#1e293b] divide-x divide-gray-700/60">
+      <div class="flex flex-col items-center px-4 py-3">
+        <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Hands</span>
+        <span class="text-lg font-bold tabular-nums mt-0.5 text-gray-100">89</span>
+      </div>
+      <div class="flex flex-col items-center px-4 py-3">
+        <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Win Rate</span>
+        <span class="text-lg font-bold tabular-nums mt-0.5 text-red-400">38.2%</span>
+      </div>
+      <div class="flex flex-col items-center px-4 py-3">
+        <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Profit</span>
+        <span class="text-lg font-bold tabular-nums mt-0.5 text-red-400">-156 BB</span>
+      </div>
+    </div>
+
+    <!-- Breakeven session -->
+    <div class="flex items-center justify-around rounded-xl border border-gray-700/60 bg-[#1e293b] divide-x divide-gray-700/60">
+      <div class="flex flex-col items-center px-4 py-3">
+        <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Hands</span>
+        <span class="text-lg font-bold tabular-nums mt-0.5 text-gray-100">1,247</span>
+      </div>
+      <div class="flex flex-col items-center px-4 py-3">
+        <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Win Rate</span>
+        <span class="text-lg font-bold tabular-nums mt-0.5 text-amber-400">49.8%</span>
+      </div>
+      <div class="flex flex-col items-center px-4 py-3">
+        <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Profit</span>
+        <span class="text-lg font-bold tabular-nums mt-0.5 text-gray-400">0 BB</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

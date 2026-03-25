@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OverallStatsCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">OverallStatsCard</h2>
+
+  <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 max-w-lg">
+    <h3 class="text-sm font-semibold text-gray-900 mb-4">Overall Stats</h3>
+
+    <!-- Top stats row -->
+    <div class="grid grid-cols-3 gap-4 mb-6">
+      <div class="flex flex-col gap-1">
+        <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Total Hands</span>
+        <span class="text-2xl font-bold text-gray-900">1,247</span>
+      </div>
+      <div class="flex flex-col gap-1">
+        <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Total Profit</span>
+        <span class="text-2xl font-bold text-emerald-600">+892</span>
+      </div>
+      <div class="flex flex-col gap-1">
+        <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Avg GTO Score</span>
+        <span class="text-2xl font-bold text-amber-500">68</span>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-100 mb-4"></div>
+
+    <!-- Deviation Trend Chart (inline) -->
+    <div>
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">GTO Score Trend</span>
+        <span class="text-sm font-bold text-emerald-500">Latest: 74</span>
+      </div>
+
+      <svg viewBox="0 0 480 160" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+        <!-- Grid lines -->
+        <line x1="40" y1="20" x2="440" y2="20" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4" />
+        <text x="34" y="23" text-anchor="end" fill="#9ca3af" font-size="10">90</text>
+
+        <line x1="40" y1="60" x2="440" y2="60" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4" />
+        <text x="34" y="63" text-anchor="end" fill="#9ca3af" font-size="10">75</text>
+
+        <line x1="40" y1="100" x2="440" y2="100" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4" />
+        <text x="34" y="103" text-anchor="end" fill="#9ca3af" font-size="10">60</text>
+
+        <line x1="40" y1="140" x2="440" y2="140" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4" />
+        <text x="34" y="143" text-anchor="end" fill="#9ca3af" font-size="10">45</text>
+
+        <defs>
+          <linearGradient id="trendGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2563eb" />
+            <stop offset="100%" stop-color="#2563eb" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <path d="M40,140 L107,120 L173,105 L240,85 L307,70 L373,55 L440,38 L440,140 Z" fill="url(#trendGradient)" opacity="0.15" />
+
+        <polyline points="40,140 107,120 173,105 240,85 307,70 373,55 440,38" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+        <circle cx="40" cy="140" r="4" fill="#ef4444" stroke="white" stroke-width="2" />
+        <circle cx="107" cy="120" r="4" fill="#f59e0b" stroke="white" stroke-width="2" />
+        <circle cx="173" cy="105" r="4" fill="#f59e0b" stroke="white" stroke-width="2" />
+        <circle cx="240" cy="85" r="4" fill="#f59e0b" stroke="white" stroke-width="2" />
+        <circle cx="307" cy="70" r="4" fill="#f59e0b" stroke="white" stroke-width="2" />
+        <circle cx="373" cy="55" r="4" fill="#10b981" stroke="white" stroke-width="2" />
+        <circle cx="440" cy="38" r="4" fill="#10b981" stroke="white" stroke-width="2" />
+
+        <text x="40" y="155" text-anchor="start" fill="#9ca3af" font-size="9">Mar 14</text>
+        <text x="240" y="155" text-anchor="middle" fill="#9ca3af" font-size="9">Mar 17</text>
+        <text x="440" y="155" text-anchor="end" fill="#9ca3af" font-size="9">Mar 20</text>
+      </svg>
+    </div>
+  </div>
+
+</body>
+</html>

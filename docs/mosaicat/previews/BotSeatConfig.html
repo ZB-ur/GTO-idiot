@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BotSeatConfig Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex gap-4 flex-wrap">
+    <!-- Bot 1 — Fish -->
+    <div class="flex flex-col items-center gap-2 p-4 bg-white border border-gray-200 rounded-xl shadow-sm min-w-[120px]">
+      <div class="w-12 h-12 rounded-full flex items-center justify-center text-xl bg-emerald-500 text-white shadow-sm">🐟</div>
+      <span class="text-xs font-medium text-gray-500">Bot 1</span>
+      <select class="w-full px-2 py-1.5 text-xs bg-white border border-gray-200 rounded-lg text-gray-900 cursor-pointer text-center">
+        <option selected>🐟 Fish</option>
+        <option>🎯 Regular</option>
+        <option>🧠 GTO</option>
+      </select>
+    </div>
+
+    <!-- Bot 2 — Regular -->
+    <div class="flex flex-col items-center gap-2 p-4 bg-white border border-gray-200 rounded-xl shadow-sm min-w-[120px]">
+      <div class="w-12 h-12 rounded-full flex items-center justify-center text-xl bg-amber-500 text-white shadow-sm">🎯</div>
+      <span class="text-xs font-medium text-gray-500">Bot 2</span>
+      <select class="w-full px-2 py-1.5 text-xs bg-white border border-gray-200 rounded-lg text-gray-900 cursor-pointer text-center">
+        <option>🐟 Fish</option>
+        <option selected>🎯 Regular</option>
+        <option>🧠 GTO</option>
+      </select>
+    </div>
+
+    <!-- Bot 3 — GTO -->
+    <div class="flex flex-col items-center gap-2 p-4 bg-white border border-gray-200 rounded-xl shadow-sm min-w-[120px]">
+      <div class="w-12 h-12 rounded-full flex items-center justify-center text-xl bg-red-500 text-white shadow-sm">🧠</div>
+      <span class="text-xs font-medium text-gray-500">Bot 3</span>
+      <select class="w-full px-2 py-1.5 text-xs bg-white border border-gray-200 rounded-lg text-gray-900 cursor-pointer text-center">
+        <option>🐟 Fish</option>
+        <option>🎯 Regular</option>
+        <option selected>🧠 GTO</option>
+      </select>
+    </div>
+  </div>
+</body>
+</html>

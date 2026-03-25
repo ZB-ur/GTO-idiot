@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkeletonGrid Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .animate-pulse { animation: pulse 1.5s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+  <div class="max-w-lg">
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div class="grid grid-cols-6 gap-2">
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:0ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:100ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:200ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:300ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:400ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:500ms"></div>
+
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:0ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:100ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:200ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:300ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:400ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:500ms"></div>
+
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:0ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:100ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:200ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:300ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:400ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:500ms"></div>
+
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:0ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:100ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:200ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:300ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:400ms"></div>
+        <div class="h-8 bg-gray-200 rounded-lg animate-pulse" style="animation-delay:500ms"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spinner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .animate-spin { animation: spin 0.7s linear infinite; }
+  </style>
+</head>
+<body>
+  <div class="flex items-center gap-8">
+    <!-- sm -->
+    <div class="flex flex-col items-center gap-2">
+      <div class="w-4 h-4 border-2 border-gray-200 border-t-blue-600 rounded-full animate-spin"></div>
+      <span class="text-xs text-gray-500">sm</span>
+    </div>
+    <!-- md -->
+    <div class="flex flex-col items-center gap-2">
+      <div class="w-8 h-8 border-[3px] border-gray-200 border-t-blue-600 rounded-full animate-spin"></div>
+      <span class="text-xs text-gray-500">md</span>
+    </div>
+    <!-- lg -->
+    <div class="flex flex-col items-center gap-2">
+      <div class="w-12 h-12 border-4 border-gray-200 border-t-blue-600 rounded-full animate-spin"></div>
+      <span class="text-xs text-gray-500">lg</span>
+    </div>
+  </div>
+</body>
+</html>

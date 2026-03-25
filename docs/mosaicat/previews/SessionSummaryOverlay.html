@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SessionSummaryOverlay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- Backdrop -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+    <!-- Modal -->
+    <div class="relative max-w-md w-full mx-4 bg-white rounded-xl shadow-md border border-gray-200">
+      <!-- Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+        <h2 class="text-lg font-semibold text-gray-900">Session Complete</h2>
+        <button class="flex items-center justify-center w-8 h-8 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-slate-100 transition-colors">
+          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="px-6 py-5">
+        <!-- GTO Score Gauge -->
+        <div class="flex flex-col items-center mb-5">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="36" fill="none" stroke="#e5e7eb" stroke-width="6" />
+            <!-- score 64 → offset = 226.19 - (64/100)*226.19 = 81.43 -->
+            <circle cx="50" cy="50" r="36" fill="none" stroke="#f59e0b" stroke-width="6"
+              stroke-linecap="round"
+              stroke-dasharray="226.19"
+              stroke-dashoffset="81.43"
+              transform="rotate(-90 50 50)" />
+            <text x="50" y="46" text-anchor="middle" fill="#f59e0b" font-size="22" font-weight="bold">64</text>
+            <text x="50" y="60" text-anchor="middle" fill="#9ca3af" font-size="10" font-weight="500">GTO Score</text>
+          </svg>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 gap-4 mb-5">
+          <div class="bg-slate-50 rounded-xl p-4 flex flex-col gap-1">
+            <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Hands</span>
+            <span class="text-2xl font-bold text-gray-900">47</span>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-4 flex flex-col gap-1">
+            <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Profit / Loss</span>
+            <span class="text-2xl font-bold text-emerald-600">+142</span>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-4 flex flex-col gap-1">
+            <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">VPIP</span>
+            <span class="text-2xl font-bold text-gray-900">28%</span>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-4 flex flex-col gap-1">
+            <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">PFR</span>
+            <span class="text-2xl font-bold text-gray-900">19%</span>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-4 flex flex-col gap-1 col-span-2">
+            <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Win Rate</span>
+            <span class="text-2xl font-bold text-gray-900">58%</span>
+          </div>
+        </div>
+
+        <!-- Progression Hint Banner -->
+        <div class="flex items-start gap-3 p-4 bg-amber-50 border border-amber-200 rounded-xl mb-2">
+          <svg class="w-5 h-5 text-amber-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-semibold text-amber-800">Ready for a Challenge?</p>
+            <p class="text-xs text-amber-700 mt-0.5">Your GTO score is consistently above 70 against Fish bots — try Regular bots for a bigger challenge!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-200 bg-slate-50 rounded-b-xl">
+        <button class="px-4 py-2 text-sm font-semibold text-amber-700 bg-amber-100 rounded-lg hover:bg-amber-200 transition-colors">
+          Try Regular Bots
+        </button>
+        <button class="px-5 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors shadow-sm">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

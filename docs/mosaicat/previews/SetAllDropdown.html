@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SetAllDropdown Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex items-center gap-3">
+    <label class="text-sm font-medium text-gray-500 whitespace-nowrap">
+      Set All Bots:
+    </label>
+    <select
+      class="w-44 px-3 py-2 text-sm bg-white border border-gray-200 rounded-lg
+             text-gray-900 shadow-sm cursor-pointer
+             hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500
+             transition-colors"
+    >
+      <option value="" disabled selected>Choose difficulty…</option>
+      <option value="fish">🐟 Fish — Beginner</option>
+      <option value="regular">🎯 Regular — Intermediate</option>
+      <option value="gto">🧠 GTO — Advanced</option>
+    </select>
+  </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BotDifficultyPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-3xl mx-auto">
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 space-y-5">
+      <!-- Header row -->
+      <div class="flex items-center justify-between flex-wrap gap-3">
+        <h3 class="text-lg font-semibold text-gray-900">Bot Opponents</h3>
+        <div class="flex items-center gap-3">
+          <label class="text-sm font-medium text-gray-500 whitespace-nowrap">Set All Bots:</label>
+          <select class="w-44 px-3 py-2 text-sm bg-white border border-gray-200 rounded-lg text-gray-900 shadow-sm cursor-pointer">
+            <option value="" disabled selected>Choose difficulty…</option>
+            <option>🐟 Fish — Beginner</option>
+            <option>🎯 Regular — Intermediate</option>
+            <option>🧠 GTO — Advanced</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Bot seats -->
+      <div class="flex justify-center gap-3 flex-wrap">
+        <!-- Bot 1 — Fish -->
+        <div class="flex flex-col items-center gap-2 p-4 bg-white border border-gray-200 rounded-xl shadow-sm min-w-[120px]">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center text-xl bg-emerald-500 text-white shadow-sm">🐟</div>
+          <span class="text-xs font-medium text-gray-500">Bot 1</span>
+          <select class="w-full px-2 py-1.5 text-xs bg-white border border-gray-200 rounded-lg text-gray-900 cursor-pointer text-center">
+            <option selected>🐟 Fish</option>
+            <option>🎯 Regular</option>
+            <option>🧠 GTO</option>
+          </select>
+        </div>
+
+        <!-- Bot 2 — Fish -->
+        <div class="flex flex-col items-center gap-2 p-4 bg-white border border-gray-200 rounded-xl shadow-sm min-w-[120px]">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center text-xl bg-emerald-500 text-white shadow-sm">🐟</div>
+          <span class="text-xs font-medium text-gray-500">Bot 2</span>
+          <select class="w-full px-2 py-1.5 text-xs bg-white border border-gray-200 rounded-lg text-gray-900 cursor-pointer text-center">
+            <option selected>🐟 Fish</option>
+            <option>🎯 Regular</option>
+            <option>🧠 GTO</option>
+          </select>
+        </div>
+
+        <!-- Bot 3 — Regular -->
+        <div class="flex flex-col items-center gap-2 p-4 bg-white border border-gray-200 rounded-xl shadow-sm min-w-[120px]">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center text-xl bg-amber-500 text-white shadow-sm">🎯</div>
+          <span class="text-xs font-medium text-gray-500">Bot 3</span>
+          <select class="w-full px-2 py-1.5 text-xs bg-white border border-gray-200 rounded-lg text-gray-900 cursor-pointer text-center">
+            <option>🐟 Fish</option>
+            <option selected>🎯 Regular</option>
+            <option>🧠 GTO</option>
+          </select>
+        </div>
+
+        <!-- Bot 4 — GTO -->
+        <div class="flex flex-col items-center gap-2 p-4 bg-white border border-gray-200 rounded-xl shadow-sm min-w-[120px]">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center text-xl bg-red-500 text-white shadow-sm">🧠</div>
+          <span class="text-xs font-medium text-gray-500">Bot 4</span>
+          <select class="w-full px-2 py-1.5 text-xs bg-white border border-gray-200 rounded-lg text-gray-900 cursor-pointer text-center">
+            <option>🐟 Fish</option>
+            <option>🎯 Regular</option>
+            <option selected>🧠 GTO</option>
+          </select>
+        </div>
+
+        <!-- Bot 5 — Regular -->
+        <div class="flex flex-col items-center gap-2 p-4 bg-white border border-gray-200 rounded-xl shadow-sm min-w-[120px]">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center text-xl bg-amber-500 text-white shadow-sm">🎯</div>
+          <span class="text-xs font-medium text-gray-500">Bot 5</span>
+          <select class="w-full px-2 py-1.5 text-xs bg-white border border-gray-200 rounded-lg text-gray-900 cursor-pointer text-center">
+            <option>🐟 Fish</option>
+            <option selected>🎯 Regular</option>
+            <option>🧠 GTO</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
