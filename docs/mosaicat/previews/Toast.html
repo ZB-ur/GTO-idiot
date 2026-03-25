@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-4">
+    <h2 class="text-lg font-semibold text-gray-900 mb-3">Toast 示例</h2>
+
+    <!-- Info -->
+    <div class="flex items-center gap-2 px-4 py-3 rounded-lg border shadow-md bg-blue-50 border-blue-200 text-blue-700">
+      <span class="text-base leading-none">ℹ</span>
+      <span class="text-sm font-medium">新手牌已发出，请查看手牌</span>
+      <button class="ml-2 text-sm opacity-60 hover:opacity-100 text-blue-700">✕</button>
+    </div>
+
+    <!-- Success -->
+    <div class="flex items-center gap-2 px-4 py-3 rounded-lg border shadow-md bg-green-50 border-green-200 text-green-700">
+      <span class="text-base leading-none">✓</span>
+      <span class="text-sm font-medium">游戏进度已保存</span>
+      <button class="ml-2 text-sm opacity-60 hover:opacity-100 text-green-700">✕</button>
+    </div>
+
+    <!-- Warning -->
+    <div class="flex items-center gap-2 px-4 py-3 rounded-lg border shadow-md bg-yellow-50 border-yellow-200 text-yellow-700">
+      <span class="text-base leading-none">⚠</span>
+      <span class="text-sm font-medium">存储空间不足，旧记录将自动清理</span>
+      <button class="ml-2 text-sm opacity-60 hover:opacity-100 text-yellow-700">✕</button>
+    </div>
+
+    <!-- Error -->
+    <div class="flex items-center gap-2 px-4 py-3 rounded-lg border shadow-md bg-red-50 border-red-200 text-red-700">
+      <span class="text-base leading-none">✕</span>
+      <span class="text-sm font-medium">操作失败，请重试</span>
+      <button class="ml-2 text-sm opacity-60 hover:opacity-100 text-red-700">✕</button>
+    </div>
+  </div>
+</body>
+</html>

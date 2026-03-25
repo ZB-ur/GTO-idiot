@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResultBadge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-4">
+    <h2 class="text-lg font-semibold text-gray-900 mb-3">ResultBadge 示例</h2>
+
+    <div class="bg-white rounded-xl border border-gray-200 p-4 space-y-3">
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-gray-600 w-20">大赢：</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-sm font-medium bg-green-50 text-green-600">
+          <span>胜</span>
+          <span class="tabular-nums">+120</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-gray-600 w-20">小赢：</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-sm font-medium bg-green-50 text-green-600">
+          <span>胜</span>
+          <span class="tabular-nums">+15</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-gray-600 w-20">大负：</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-sm font-medium bg-red-50 text-red-600">
+          <span>负</span>
+          <span class="tabular-nums">-200</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-gray-600 w-20">小负：</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-sm font-medium bg-red-50 text-red-600">
+          <span>负</span>
+          <span class="tabular-nums">-5</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-gray-600 w-20">平局：</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-sm font-medium bg-yellow-50 text-yellow-600">
+          <span>平</span>
+          <span class="tabular-nums">±0</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

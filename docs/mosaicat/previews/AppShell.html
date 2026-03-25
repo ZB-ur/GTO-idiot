@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AppShell Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-spin { animation: spin 1s linear infinite; }
+    .animate-slide-down { animation: slideDown 0.25s ease-out; }
+  </style>
+</head>
+<body>
+
+<div class="min-h-screen bg-slate-50 flex flex-col relative" style="height:812px;width:375px;margin:0 auto;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;">
+
+  <!-- Storage Warning Banner -->
+  <div class="bg-yellow-50 border-b border-yellow-200 px-4 py-2 flex items-center justify-between text-sm">
+    <span class="text-yellow-800">⚠ 存储空间已使用 85%，建议清理旧记录</span>
+    <button class="text-yellow-700 font-medium hover:text-yellow-900 underline text-sm">立即清理</button>
+  </div>
+
+  <!-- Toast (top overlay) -->
+  <div class="absolute top-14 left-1/2 -translate-x-1/2 z-50 flex flex-col gap-2 w-[90%] max-w-sm animate-slide-down">
+    <div class="bg-green-500 text-white rounded-lg shadow-md px-4 py-3 flex items-center gap-2">
+      <span class="font-bold text-sm">✓</span>
+      <span class="text-sm flex-1">牌局已保存</span>
+      <button class="opacity-70 hover:opacity-100 text-sm">✕</button>
+    </div>
+  </div>
+
+  <!-- Main Content Area (Home Screen mock) -->
+  <main class="flex-1 pb-16 overflow-y-auto">
+    <div class="max-w-4xl mx-auto p-4 space-y-6">
+      <!-- Header -->
+      <div class="pt-4">
+        <h1 class="text-2xl font-bold text-gray-900">GTO Idiot</h1>
+        <p class="text-sm text-gray-600 mt-1">德州扑克 GTO 策略训练器</p>
+      </div>
+
+      <!-- Returning Player Card -->
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-lg font-semibold text-gray-900">继续上次牌局</h2>
+          <span class="text-xs text-gray-400">3 小时前</span>
+        </div>
+        <div class="flex items-center gap-4 text-sm text-gray-600 mb-4">
+          <span>盲注 2/5</span>
+          <span class="text-gray-300">|</span>
+          <span>筹码 485</span>
+          <span class="text-gray-300">|</span>
+          <span>已玩 24 手</span>
+        </div>
+        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2.5 rounded-lg transition-colors">
+          恢复牌局
+        </button>
+      </div>
+
+      <!-- New Game Card -->
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">开始新牌局</h2>
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-600 mb-1.5">盲注级别</label>
+            <div class="flex gap-2">
+              <button class="flex-1 py-2 rounded-lg border border-gray-200 text-sm text-gray-600 hover:border-blue-300">1/2</button>
+              <button class="flex-1 py-2 rounded-lg border-2 border-blue-600 bg-blue-50 text-sm text-blue-700 font-medium">2/5</button>
+              <button class="flex-1 py-2 rounded-lg border border-gray-200 text-sm text-gray-600 hover:border-blue-300">5/10</button>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-600 mb-1.5">买入（大盲）</label>
+            <div class="flex items-center gap-3">
+              <input type="range" min="20" max="100" value="100" class="flex-1 accent-blue-600" />
+              <span class="text-sm font-medium text-gray-900 w-10 text-right">100</span>
+            </div>
+          </div>
+          <button class="w-full bg-emerald-800 hover:bg-emerald-900 text-white text-sm font-medium py-2.5 rounded-lg transition-colors">
+            ♠ 开始新牌局
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-3">快速统计</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <p class="text-2xl font-bold text-gray-900">142</p>
+            <p class="text-xs text-gray-400">总手数</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-green-500">+350</p>
+            <p class="text-xs text-gray-400">总盈亏</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-gray-900">38%</p>
+            <p class="text-xs text-gray-400">胜率</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-blue-600">62%</p>
+            <p class="text-xs text-gray-400">GTO 符合率</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200">
+    <div class="flex items-center justify-around h-14">
+      <button class="flex flex-col items-center justify-center gap-0.5 w-16 h-full text-blue-600">
+        <span class="text-lg leading-none">🏠</span>
+        <span class="text-xs font-semibold">首页</span>
+      </button>
+      <button class="flex flex-col items-center justify-center gap-0.5 w-16 h-full text-gray-400">
+        <span class="text-lg leading-none">♠️</span>
+        <span class="text-xs font-medium">牌桌</span>
+      </button>
+      <button class="flex flex-col items-center justify-center gap-0.5 w-16 h-full text-gray-400">
+        <span class="text-lg leading-none">📋</span>
+        <span class="text-xs font-medium">牌局</span>
+      </button>
+      <button class="flex flex-col items-center justify-center gap-0.5 w-16 h-full text-gray-400">
+        <span class="text-lg leading-none">📊</span>
+        <span class="text-xs font-medium">统计</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Newbie Guide Modal (shown overlaid) -->
+  <!--
+  <div class="absolute inset-0 z-50 bg-slate-900/60 flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl shadow-md w-full max-w-sm overflow-hidden">
+      <div class="p-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-2">欢迎来到 GTO Idiot</h2>
+        <p class="text-sm text-gray-600 leading-relaxed">这是一款德州扑克 GTO 策略训练器，帮助你用科学的方式提升牌技。</p>
+      </div>
+      <div class="flex justify-center gap-1.5 pb-4">
+        <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+        <div class="w-2 h-2 rounded-full bg-gray-200"></div>
+        <div class="w-2 h-2 rounded-full bg-gray-200"></div>
+        <div class="w-2 h-2 rounded-full bg-gray-200"></div>
+      </div>
+      <div class="border-t border-gray-200 px-6 py-3 flex justify-between items-center">
+        <button class="text-sm text-gray-400 hover:text-gray-600">跳过</button>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2 rounded-lg">下一步</button>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Full Screen Loader (uncomment to preview) -->
+  <!--
+  <div class="absolute inset-0 z-50 bg-slate-900/60 flex flex-col items-center justify-center gap-3">
+    <div class="w-10 h-10 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
+    <p class="text-white text-sm">正在加载…</p>
+  </div>
+  -->
+
+</div>
+
+</body>
+</html>

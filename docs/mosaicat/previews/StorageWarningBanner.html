@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StorageWarningBanner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <!-- Banner at top of page -->
+  <div class="w-full bg-yellow-50 border-b border-yellow-200 px-4 py-3 flex items-center gap-3" role="alert">
+    <span class="text-yellow-600 text-base leading-none shrink-0">⚠</span>
+    <p class="text-sm text-yellow-700 flex-1">
+      浏览器存储不可用，游戏进度和历史记录将无法保存。请检查浏览器隐私设置或尝试关闭无痕模式。
+    </p>
+    <button class="shrink-0 text-sm text-yellow-600 hover:text-yellow-800 font-medium transition-colors">
+      知道了
+    </button>
+  </div>
+
+  <!-- Page content below for context -->
+  <div class="p-6 max-w-2xl mx-auto">
+    <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">GTO Idiot</h2>
+      <p class="text-gray-600">页面内容区域 — 顶部横幅示意</p>
+    </div>
+  </div>
+</body>
+</html>

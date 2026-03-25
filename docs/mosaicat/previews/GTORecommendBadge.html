@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTORecommendBadge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-4">
+    <h2 class="text-lg font-semibold text-gray-900">GTORecommendBadge</h2>
+
+    <div class="flex flex-col gap-3">
+      <p class="text-sm text-gray-500">Precise GTO Recommendation:</p>
+      <div class="flex flex-wrap items-center gap-3">
+        <!-- GTO Raise -->
+        <span class="inline-flex items-center gap-1.5 pl-1 pr-2.5 py-1 text-sm font-medium rounded-lg border bg-orange-50 text-orange-700 border-orange-300">
+          <span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-bold rounded bg-blue-600 text-white">GTO</span>
+          <span>Raise to 15</span>
+        </span>
+        <!-- GTO Call -->
+        <span class="inline-flex items-center gap-1.5 pl-1 pr-2.5 py-1 text-sm font-medium rounded-lg border bg-blue-50 text-blue-700 border-blue-300">
+          <span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-bold rounded bg-blue-600 text-white">GTO</span>
+          <span>Call 10</span>
+        </span>
+        <!-- GTO Fold -->
+        <span class="inline-flex items-center gap-1.5 pl-1 pr-2.5 py-1 text-sm font-medium rounded-lg border bg-gray-50 text-gray-600 border-gray-300">
+          <span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-bold rounded bg-blue-600 text-white">GTO</span>
+          <span>Fold</span>
+        </span>
+      </div>
+
+      <p class="text-sm text-gray-500 mt-2">Simplified GTO Reference:</p>
+      <div class="flex flex-wrap items-center gap-3">
+        <!-- Simplified Bet -->
+        <span class="inline-flex items-center gap-1.5 pl-1 pr-2.5 py-1 text-sm font-medium rounded-lg border bg-orange-50 text-orange-700 border-orange-300">
+          <span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-bold rounded bg-gray-500 text-white">简化参考</span>
+          <span>Bet 66% pot</span>
+        </span>
+        <!-- Simplified Check -->
+        <span class="inline-flex items-center gap-1.5 pl-1 pr-2.5 py-1 text-sm font-medium rounded-lg border bg-blue-50 text-blue-600 border-blue-300">
+          <span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-bold rounded bg-gray-500 text-white">简化参考</span>
+          <span>Check</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

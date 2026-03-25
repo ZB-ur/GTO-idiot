@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActivePlayerIndicator Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes glow-pulse {
+      0%, 100% { box-shadow: 0 0 16px 4px rgba(59, 130, 246, 0.5); }
+      50% { box-shadow: 0 0 24px 8px rgba(59, 130, 246, 0.7); }
+    }
+    .animate-glow-pulse {
+      animation: glow-pulse 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="space-y-8">
+    <p class="text-sm font-semibold text-gray-600">Active Player (glowing)</p>
+
+    <div class="bg-emerald-800 rounded-xl p-8 flex gap-8 items-start">
+      <!-- Active seat -->
+      <div class="relative rounded-xl ring-2 ring-blue-400 animate-glow-pulse">
+        <div class="bg-gray-900/90 text-white rounded-xl px-4 py-3 w-36 text-center">
+          <p class="text-sm font-semibold">You</p>
+          <p class="text-xs text-gray-400">BTN · 500</p>
+          <div class="flex gap-1.5 justify-center mt-2">
+            <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center">
+              <span class="text-sm font-bold leading-none text-red-600">A</span>
+              <span class="text-xs leading-none text-red-600">♥</span>
+            </div>
+            <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-center">
+              <span class="text-sm font-bold leading-none text-gray-900">K</span>
+              <span class="text-xs leading-none text-gray-900">♠</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inactive seat -->
+      <div class="relative rounded-xl">
+        <div class="bg-gray-900/90 text-white rounded-xl px-4 py-3 w-36 text-center">
+          <p class="text-sm font-semibold">BOT 1</p>
+          <p class="text-xs text-gray-400">CO · 480</p>
+          <div class="flex gap-1.5 justify-center mt-2">
+            <div class="w-10 h-14 rounded-lg bg-blue-800 border border-blue-900 shadow-sm flex items-center justify-center">
+              <div class="w-6 h-9 rounded border border-blue-600 bg-blue-700 opacity-80"></div>
+            </div>
+            <div class="w-10 h-14 rounded-lg bg-blue-800 border border-blue-900 shadow-sm flex items-center justify-center">
+              <div class="w-6 h-9 rounded border border-blue-600 bg-blue-700 opacity-80"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-sm font-semibold text-gray-600">Inactive (no glow)</p>
+    <div class="bg-emerald-800 rounded-xl p-8">
+      <div class="relative rounded-xl">
+        <div class="bg-gray-900/90 text-white rounded-xl px-4 py-3 w-36 text-center">
+          <p class="text-sm font-semibold">BOT 2</p>
+          <p class="text-xs text-gray-400">SB · 495</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

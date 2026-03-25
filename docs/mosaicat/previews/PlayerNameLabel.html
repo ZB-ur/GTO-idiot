@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayerNameLabel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-6 max-w-xs">
+    <!-- Section: Human player -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2 uppercase tracking-wide">Human Player (isUser=true)</p>
+      <div class="inline-flex items-center justify-center bg-emerald-800 rounded-xl px-4 py-3">
+        <span class="text-sm font-semibold leading-tight truncate max-w-[7rem] inline-block text-center text-blue-400">You</span>
+      </div>
+    </div>
+
+    <!-- Section: BOT players -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2 uppercase tracking-wide">BOT Players (isUser=false)</p>
+      <div class="flex gap-3">
+        <div class="inline-flex items-center justify-center bg-emerald-800 rounded-xl px-4 py-3">
+          <span class="text-sm font-semibold leading-tight truncate max-w-[7rem] inline-block text-center text-gray-400">BOT 1</span>
+        </div>
+        <div class="inline-flex items-center justify-center bg-emerald-800 rounded-xl px-4 py-3">
+          <span class="text-sm font-semibold leading-tight truncate max-w-[7rem] inline-block text-center text-gray-400">BOT 2</span>
+        </div>
+        <div class="inline-flex items-center justify-center bg-emerald-800 rounded-xl px-4 py-3">
+          <span class="text-sm font-semibold leading-tight truncate max-w-[7rem] inline-block text-center text-gray-400">LongNamePlayer</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Truncation demo -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2 uppercase tracking-wide">Truncation (long name)</p>
+      <div class="inline-flex items-center justify-center bg-emerald-800 rounded-xl px-4 py-3">
+        <span class="text-sm font-semibold leading-tight truncate max-w-[7rem] inline-block text-center text-gray-400">VeryLongPlayerName123</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

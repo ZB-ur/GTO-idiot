@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ContinueButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xs mx-auto space-y-6">
+    <!-- Default state -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2 uppercase tracking-wide">Default</p>
+      <button
+        type="button"
+        class="w-full px-6 py-3 text-base font-semibold text-white bg-blue-600 rounded-lg shadow-sm transition-colors duration-150"
+      >
+        继续下一手
+      </button>
+    </div>
+
+    <!-- Hover state -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2 uppercase tracking-wide">Hover</p>
+      <button
+        type="button"
+        class="w-full px-6 py-3 text-base font-semibold text-white bg-blue-700 rounded-lg shadow-sm transition-colors duration-150"
+      >
+        继续下一手
+      </button>
+    </div>
+
+    <!-- In context (inside a card) -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2 uppercase tracking-wide">In Card Context</p>
+      <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-4">
+        <p class="text-sm text-gray-600 text-center">复盘完成，GTO 合规率 75%</p>
+        <button
+          type="button"
+          class="w-full px-6 py-3 text-base font-semibold text-white bg-blue-600 rounded-lg shadow-sm transition-colors duration-150"
+        >
+          继续下一手
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
