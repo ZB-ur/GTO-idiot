@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StartGameButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .animate-spin { animation: spin 1s linear infinite; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 480px; margin: 0 auto;" class="space-y-8">
+
+    <!-- Label -->
+    <p class="text-sm font-medium text-gray-500 tracking-wide uppercase">Default (enabled)</p>
+
+    <!-- Enabled state -->
+    <button
+      type="button"
+      class="relative w-full max-w-xs mx-auto flex items-center justify-center gap-2
+             px-8 py-4 text-lg font-semibold text-white
+             rounded-xl shadow-md bg-blue-600 hover:bg-blue-700 hover:shadow-lg
+             transition-all duration-200 ease-in-out cursor-pointer
+             focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+    >
+      <span>开始牌局</span>
+    </button>
+
+    <!-- Label -->
+    <p class="text-sm font-medium text-gray-500 tracking-wide uppercase">Disabled</p>
+
+    <!-- Disabled state -->
+    <button
+      type="button"
+      disabled
+      class="relative w-full max-w-xs mx-auto flex items-center justify-center gap-2
+             px-8 py-4 text-lg font-semibold
+             rounded-xl bg-gray-300 text-gray-500 cursor-not-allowed shadow-none"
+    >
+      <span>开始牌局</span>
+    </button>
+
+    <!-- Label -->
+    <p class="text-sm font-medium text-gray-500 tracking-wide uppercase">Loading</p>
+
+    <!-- Loading state -->
+    <button
+      type="button"
+      disabled
+      class="relative w-full max-w-xs mx-auto flex items-center justify-center gap-2
+             px-8 py-4 text-lg font-semibold text-white
+             rounded-xl shadow-md bg-blue-600 cursor-not-allowed"
+    >
+      <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      <span>正在开始…</span>
+    </button>
+
+  </div>
+</body>
+</html>

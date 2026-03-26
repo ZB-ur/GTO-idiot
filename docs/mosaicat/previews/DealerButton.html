@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <p class="text-sm text-gray-500 mb-4 font-semibold">DealerButton — Dealer Marker</p>
+
+  <!-- Standalone -->
+  <div class="flex items-center gap-6 mb-8">
+    <div class="flex flex-col items-center gap-2">
+      <div class="w-7 h-7 rounded-full bg-white border-2 border-gray-300 shadow-md flex items-center justify-center select-none">
+        <span class="text-xs font-black text-gray-900 tracking-tight">D</span>
+      </div>
+      <span class="text-xs text-gray-400">Default</span>
+    </div>
+  </div>
+
+  <!-- In-context: next to a seat -->
+  <p class="text-xs text-gray-400 mb-3">In context (seat mock)</p>
+  <div class="inline-flex items-end gap-1 bg-emerald-800 p-4 rounded-xl">
+    <div class="flex flex-col items-center gap-1">
+      <div class="w-12 h-12 rounded-full bg-gray-700 border-2 border-gray-500 flex items-center justify-center">
+        <span class="text-white text-xs font-bold">P1</span>
+      </div>
+      <span class="text-white text-xs">$2,500</span>
+    </div>
+    <div class="w-7 h-7 rounded-full bg-white border-2 border-gray-300 shadow-md flex items-center justify-center select-none -mb-1">
+      <span class="text-xs font-black text-gray-900 tracking-tight">D</span>
+    </div>
+  </div>
+</body>
+</html>

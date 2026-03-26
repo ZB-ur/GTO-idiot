@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeatOption Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- Section: All 6 seats in a row (none selected) -->
+  <p class="text-sm font-semibold text-gray-600 mb-3">Default State — No Selection</p>
+  <div class="flex flex-wrap gap-3 mb-8">
+
+    <!-- Seat 0: UTG -->
+    <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-sm transition-all duration-200 cursor-pointer select-none">
+      <span class="text-lg font-bold tracking-wide text-gray-900">UTG</span>
+      <span class="text-xs mt-0.5 text-gray-400">Seat 1</span>
+    </button>
+
+    <!-- Seat 1: MP -->
+    <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-sm transition-all duration-200 cursor-pointer select-none">
+      <span class="text-lg font-bold tracking-wide text-gray-900">MP</span>
+      <span class="text-xs mt-0.5 text-gray-400">Seat 2</span>
+    </button>
+
+    <!-- Seat 2: CO -->
+    <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-sm transition-all duration-200 cursor-pointer select-none">
+      <span class="text-lg font-bold tracking-wide text-gray-900">CO</span>
+      <span class="text-xs mt-0.5 text-gray-400">Seat 3</span>
+    </button>
+
+    <!-- Seat 3: BTN -->
+    <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-sm transition-all duration-200 cursor-pointer select-none">
+      <span class="text-lg font-bold tracking-wide text-gray-900">BTN</span>
+      <span class="text-xs mt-0.5 text-gray-400">Seat 4</span>
+    </button>
+
+    <!-- Seat 4: SB -->
+    <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-sm transition-all duration-200 cursor-pointer select-none">
+      <span class="text-lg font-bold tracking-wide text-gray-900">SB</span>
+      <span class="text-xs mt-0.5 text-gray-400">Seat 5</span>
+    </button>
+
+    <!-- Seat 5: BB -->
+    <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-sm transition-all duration-200 cursor-pointer select-none">
+      <span class="text-lg font-bold tracking-wide text-gray-900">BB</span>
+      <span class="text-xs mt-0.5 text-gray-400">Seat 6</span>
+    </button>
+  </div>
+
+  <!-- Section: BTN selected -->
+  <p class="text-sm font-semibold text-gray-600 mb-3">Selected State — BTN chosen</p>
+  <div class="flex flex-wrap gap-3 mb-8">
+
+    <!-- Seat 0: UTG (not selected) -->
+    <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-sm transition-all duration-200 cursor-pointer select-none">
+      <span class="text-lg font-bold tracking-wide text-gray-900">UTG</span>
+      <span class="text-xs mt-0.5 text-gray-400">Seat 1</span>
+    </button>
+
+    <!-- Seat 1: MP (not selected) -->
+    <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-sm transition-all duration-200 cursor-pointer select-none">
+      <span class="text-lg font-bold tracking-wide text-gray-900">MP</span>
+      <span class="text-xs mt-0.5 text-gray-400">Seat 2</span>
+    </button>
+
+    <!-- Seat 2: CO (not selected) -->
+    <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-sm transition-all duration-200 cursor-pointer select-none">
+      <span class="text-lg font-bold tracking-wide text-gray-900">CO</span>
+      <span class="text-xs mt-0.5 text-gray-400">Seat 3</span>
+    </button>
+
+    <!-- Seat 3: BTN (SELECTED) -->
+    <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-blue-600 bg-blue-50 shadow-md ring-2 ring-blue-600/30 transition-all duration-200 cursor-pointer select-none">
+      <span class="text-lg font-bold tracking-wide text-blue-600">BTN</span>
+      <span class="text-xs mt-0.5 text-blue-500">Seat 4</span>
+      <!-- Check badge -->
+      <span class="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-blue-600 text-white">
+        <svg class="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+      </span>
+    </button>
+
+    <!-- Seat 4: SB (not selected) -->
+    <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-sm transition-all duration-200 cursor-pointer select-none">
+      <span class="text-lg font-bold tracking-wide text-gray-900">SB</span>
+      <span class="text-xs mt-0.5 text-gray-400">Seat 5</span>
+    </button>
+
+    <!-- Seat 5: BB (not selected) -->
+    <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-sm transition-all duration-200 cursor-pointer select-none">
+      <span class="text-lg font-bold tracking-wide text-gray-900">BB</span>
+      <span class="text-xs mt-0.5 text-gray-400">Seat 6</span>
+    </button>
+  </div>
+
+  <!-- Section: Single seat states side by side -->
+  <p class="text-sm font-semibold text-gray-600 mb-3">State Comparison</p>
+  <div class="flex gap-6 items-start">
+    <div class="flex flex-col items-center gap-1">
+      <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-gray-200 bg-white transition-all duration-200 cursor-pointer select-none">
+        <span class="text-lg font-bold tracking-wide text-gray-900">CO</span>
+        <span class="text-xs mt-0.5 text-gray-400">Seat 3</span>
+      </button>
+      <span class="text-xs text-gray-500">Default</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-blue-600 bg-blue-50 shadow-md ring-2 ring-blue-600/30 transition-all duration-200 cursor-pointer select-none">
+        <span class="text-lg font-bold tracking-wide text-blue-600">CO</span>
+        <span class="text-xs mt-0.5 text-blue-500">Seat 3</span>
+        <span class="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-blue-600 text-white">
+          <svg class="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </span>
+      </button>
+      <span class="text-xs text-gray-500">Selected</span>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionBadge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <p class="text-sm text-gray-500 mb-4 font-semibold">ActionBadge — Player Actions</p>
+
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <!-- Fold -->
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-xs font-semibold shadow-sm bg-gray-100 text-gray-600">
+      Fold
+    </span>
+
+    <!-- Check -->
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-xs font-semibold shadow-sm bg-blue-50 text-blue-700">
+      Check
+    </span>
+
+    <!-- Call 150 -->
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-xs font-semibold shadow-sm bg-blue-100 text-blue-700">
+      Call <span class="font-bold">150</span>
+    </span>
+
+    <!-- Bet 300 -->
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-xs font-semibold shadow-sm bg-amber-50 text-amber-700">
+      Bet <span class="font-bold">300</span>
+    </span>
+
+    <!-- Raise 800 -->
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-xs font-semibold shadow-sm bg-amber-100 text-amber-800">
+      Raise <span class="font-bold">800</span>
+    </span>
+
+    <!-- All-In 5.2k -->
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-xs font-semibold shadow-sm bg-red-100 text-red-700">
+      All-In <span class="font-bold">5.2k</span>
+    </span>
+  </div>
+
+  <!-- In-context: on a seat -->
+  <p class="text-xs text-gray-400 mb-3">In context (seat mock)</p>
+  <div class="inline-flex flex-col items-center gap-1 bg-emerald-800 p-4 rounded-xl">
+    <div class="w-12 h-12 rounded-full bg-gray-700 border-2 border-gray-500 flex items-center justify-center">
+      <span class="text-white text-xs font-bold">P3</span>
+    </div>
+    <span class="text-white text-xs">$1,250</span>
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-xs font-semibold shadow-sm bg-amber-100 text-amber-800">
+      Raise <span class="font-bold">300</span>
+    </span>
+  </div>
+</body>
+</html>

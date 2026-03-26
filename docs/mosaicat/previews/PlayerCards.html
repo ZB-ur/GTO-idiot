@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayerCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-xl mx-auto space-y-8">
+
+    <!-- Label -->
+    <h2 class="text-lg font-semibold text-gray-900">PlayerCards Component</h2>
+
+    <!-- State 1: User cards face-up (A♠ K♥) -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-600">User — Face Up (A♠ K♥)</p>
+      <div class="inline-flex items-center p-4 rounded-xl bg-emerald-800">
+        <div class="flex gap-1" style="perspective: 200px;">
+          <!-- Card 1: A♠ -->
+          <div class="-rotate-3">
+            <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-between py-1 px-0.5 select-none">
+              <span class="text-xs font-bold leading-none text-gray-900">A</span>
+              <span class="text-sm leading-none text-gray-900">♠</span>
+            </div>
+          </div>
+          <!-- Card 2: K♥ -->
+          <div class="rotate-3">
+            <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-between py-1 px-0.5 select-none">
+              <span class="text-xs font-bold leading-none text-red-600">K</span>
+              <span class="text-sm leading-none text-red-600">♥</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 2: Bot cards face-down -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-600">Opponent — Face Down</p>
+      <div class="inline-flex items-center p-4 rounded-xl bg-emerald-800">
+        <div class="flex gap-1" style="perspective: 200px;">
+          <!-- Card back 1 -->
+          <div class="-rotate-3">
+            <div class="w-10 h-14 rounded-lg border border-blue-900 shadow-sm flex items-center justify-center select-none" style="background: linear-gradient(135deg, #2563eb, #1e40af);">
+              <div class="w-7 h-10 rounded border flex items-center justify-center" style="border-color: rgba(96,165,250,0.3); background: rgba(29,78,216,0.5);">
+                <div class="w-5 h-8 rounded" style="border: 1px solid rgba(96,165,250,0.2); background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.05) 2px, rgba(255,255,255,0.05) 4px);"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Card back 2 -->
+          <div class="rotate-3">
+            <div class="w-10 h-14 rounded-lg border border-blue-900 shadow-sm flex items-center justify-center select-none" style="background: linear-gradient(135deg, #2563eb, #1e40af);">
+              <div class="w-7 h-10 rounded border flex items-center justify-center" style="border-color: rgba(96,165,250,0.3); background: rgba(29,78,216,0.5);">
+                <div class="w-5 h-8 rounded" style="border: 1px solid rgba(96,165,250,0.2); background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.05) 2px, rgba(255,255,255,0.05) 4px);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 3: Showdown — all face-up (Q♦ J♣) -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-600">Showdown — Opponent Revealed (Q♦ J♣)</p>
+      <div class="inline-flex items-center p-4 rounded-xl bg-emerald-800">
+        <div class="flex gap-1" style="perspective: 200px;">
+          <!-- Card 1: Q♦ -->
+          <div class="-rotate-3">
+            <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-between py-1 px-0.5 select-none">
+              <span class="text-xs font-bold leading-none text-red-600">Q</span>
+              <span class="text-sm leading-none text-red-600">♦</span>
+            </div>
+          </div>
+          <!-- Card 2: J♣ -->
+          <div class="rotate-3">
+            <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-between py-1 px-0.5 select-none">
+              <span class="text-xs font-bold leading-none text-gray-900">J</span>
+              <span class="text-sm leading-none text-gray-900">♣</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 4: No cards (empty placeholder) -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-600">No Cards Dealt (Empty)</p>
+      <div class="inline-flex items-center p-4 rounded-xl bg-emerald-800">
+        <div class="flex gap-1">
+          <div class="w-10 h-14 rounded-lg border border-dashed" style="border-color: rgba(209,213,219,0.5); background: rgba(243,244,246,0.3);"></div>
+          <div class="w-10 h-14 rounded-lg border border-dashed" style="border-color: rgba(209,213,219,0.5); background: rgba(243,244,246,0.3);"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 5: Pair of pocket aces (T♠ T♥) -->
+    <div class="space-y-2">
+      <p class="text-sm text-gray-600">Pocket Tens (T♠ T♥)</p>
+      <div class="inline-flex items-center p-4 rounded-xl bg-emerald-800">
+        <div class="flex gap-1" style="perspective: 200px;">
+          <div class="-rotate-3">
+            <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-between py-1 px-0.5 select-none">
+              <span class="text-xs font-bold leading-none text-gray-900">T</span>
+              <span class="text-sm leading-none text-gray-900">♠</span>
+            </div>
+          </div>
+          <div class="rotate-3">
+            <div class="w-10 h-14 rounded-lg bg-white border border-gray-200 shadow-sm flex flex-col items-center justify-between py-1 px-0.5 select-none">
+              <span class="text-xs font-bold leading-none text-red-600">T</span>
+              <span class="text-sm leading-none text-red-600">♥</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AppShell Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .animate-slide-in { animation: slideIn 0.25s ease-out; }
+  </style>
+</head>
+<body>
+  <div class="h-screen flex flex-col bg-slate-50">
+    <!-- TopNavBar -->
+    <header class="bg-white border-b border-gray-200 px-4 h-14 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2">
+        <span class="text-xl font-bold text-blue-600">GTO Idiot</span>
+        <span class="text-xs text-gray-400">6-Max NL Hold'em Trainer</span>
+      </div>
+      <nav class="flex items-center gap-1">
+        <button class="px-3 py-1.5 rounded-lg text-sm font-medium bg-blue-50 text-blue-700">
+          <span class="mr-1">🃏</span>牌桌
+        </button>
+        <button class="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">
+          <span class="mr-1">📋</span>历史
+        </button>
+        <button class="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">
+          <span class="mr-1">📊</span>统计
+        </button>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button class="px-3 py-1.5 rounded-lg text-sm font-medium text-red-500 hover:bg-red-50">
+          离开牌桌
+        </button>
+      </div>
+    </header>
+
+    <!-- PageContainer with placeholder content -->
+    <main class="flex-1 overflow-auto bg-slate-50">
+      <!-- Simulated poker table area -->
+      <div class="flex items-center justify-center h-full">
+        <div class="relative w-[640px] h-[380px]">
+          <!-- Table felt -->
+          <div class="absolute inset-0 bg-emerald-800 rounded-[50%] border-8 border-emerald-900 shadow-lg"></div>
+          <!-- Pot display -->
+          <div class="absolute top-1/3 left-1/2 -translate-x-1/2 text-center">
+            <span class="text-emerald-300 text-xs font-medium">底池</span>
+            <div class="text-white font-bold text-lg">1,500</div>
+          </div>
+          <!-- Community cards -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-1.5">
+            <div class="w-11 h-16 bg-white rounded-lg shadow-sm flex flex-col items-center justify-center border border-gray-200">
+              <span class="text-red-600 text-xs">♥</span>
+              <span class="text-gray-900 text-sm font-bold">A</span>
+            </div>
+            <div class="w-11 h-16 bg-white rounded-lg shadow-sm flex flex-col items-center justify-center border border-gray-200">
+              <span class="text-gray-900 text-xs">♠</span>
+              <span class="text-gray-900 text-sm font-bold">K</span>
+            </div>
+            <div class="w-11 h-16 bg-white rounded-lg shadow-sm flex flex-col items-center justify-center border border-gray-200">
+              <span class="text-red-600 text-xs">♦</span>
+              <span class="text-gray-900 text-sm font-bold">7</span>
+            </div>
+            <div class="w-11 h-16 bg-white rounded-lg shadow-sm flex flex-col items-center justify-center border border-gray-200">
+              <span class="text-gray-900 text-xs">♣</span>
+              <span class="text-gray-900 text-sm font-bold">2</span>
+            </div>
+            <div class="w-11 h-16 bg-gray-300 rounded-lg shadow-sm border border-gray-200"></div>
+          </div>
+          <!-- Player seats (6 positions around the table) -->
+          <!-- BTN (bottom center, user) -->
+          <div class="absolute bottom-[-24px] left-1/2 -translate-x-1/2 text-center">
+            <div class="bg-white border-2 border-blue-500 rounded-xl px-3 py-2 shadow-sm min-w-[80px]">
+              <div class="text-xs text-blue-600 font-semibold">BTN · 你</div>
+              <div class="text-sm font-bold text-gray-900">10,000</div>
+              <div class="flex gap-1 justify-center mt-1">
+                <div class="w-7 h-10 bg-blue-50 border border-blue-200 rounded flex flex-col items-center justify-center">
+                  <span class="text-red-600" style="font-size:8px">♥</span>
+                  <span class="text-gray-900 text-xs font-bold">A</span>
+                </div>
+                <div class="w-7 h-10 bg-blue-50 border border-blue-200 rounded flex flex-col items-center justify-center">
+                  <span class="text-gray-900" style="font-size:8px">♠</span>
+                  <span class="text-gray-900 text-xs font-bold">K</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-1 bg-yellow-400 text-yellow-900 text-[10px] font-bold px-1.5 py-0.5 rounded-full inline-block">D</div>
+          </div>
+          <!-- SB (bottom-right) -->
+          <div class="absolute bottom-[20px] right-[20px] text-center">
+            <div class="bg-white border border-gray-200 rounded-xl px-3 py-2 shadow-sm min-w-[72px]">
+              <div class="text-xs text-gray-500 font-medium">SB</div>
+              <div class="text-xs text-gray-400">BOT 1</div>
+              <div class="text-sm font-bold text-gray-900">9,750</div>
+              <div class="text-[10px] text-amber-600 mt-0.5">call 200</div>
+            </div>
+          </div>
+          <!-- BB (top-right) -->
+          <div class="absolute top-[20px] right-[20px] text-center">
+            <div class="bg-white border border-gray-200 rounded-xl px-3 py-2 shadow-sm min-w-[72px]">
+              <div class="text-xs text-gray-500 font-medium">BB</div>
+              <div class="text-xs text-gray-400">BOT 2</div>
+              <div class="text-sm font-bold text-gray-900">8,500</div>
+              <div class="text-[10px] text-red-500 mt-0.5">folded</div>
+            </div>
+          </div>
+          <!-- UTG (top-center) -->
+          <div class="absolute top-[-24px] left-1/2 -translate-x-1/2 text-center">
+            <div class="bg-white border border-gray-200 rounded-xl px-3 py-2 shadow-sm min-w-[72px]">
+              <div class="text-xs text-gray-500 font-medium">UTG</div>
+              <div class="text-xs text-gray-400">BOT 3</div>
+              <div class="text-sm font-bold text-gray-900">11,200</div>
+              <div class="text-[10px] text-blue-600 mt-0.5">raise 400</div>
+            </div>
+          </div>
+          <!-- MP (top-left) -->
+          <div class="absolute top-[20px] left-[20px] text-center">
+            <div class="bg-white border border-gray-200 rounded-xl px-3 py-2 shadow-sm min-w-[72px]">
+              <div class="text-xs text-gray-500 font-medium">MP</div>
+              <div class="text-xs text-gray-400">BOT 4</div>
+              <div class="text-sm font-bold text-gray-900">10,000</div>
+              <div class="text-[10px] text-red-500 mt-0.5">folded</div>
+            </div>
+          </div>
+          <!-- CO (bottom-left) -->
+          <div class="absolute bottom-[20px] left-[20px] text-center">
+            <div class="bg-white border border-gray-200 rounded-xl px-3 py-2 shadow-sm min-w-[72px]">
+              <div class="text-xs text-gray-500 font-medium">CO</div>
+              <div class="text-xs text-gray-400">BOT 5</div>
+              <div class="text-sm font-bold text-gray-900">9,200</div>
+              <div class="text-[10px] text-green-600 mt-0.5">check</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Toast stack (bottom-right) -->
+    <div class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 max-w-sm">
+      <div class="bg-amber-500 text-white px-4 py-3 rounded-xl shadow-md flex items-center justify-between gap-3 animate-slide-in">
+        <span class="text-sm">⚠️ 本地存储空间不足，请清理历史记录</span>
+        <button class="text-white/70 hover:text-white shrink-0">✕</button>
+      </div>
+      <div class="bg-green-500 text-white px-4 py-3 rounded-xl shadow-md flex items-center justify-between gap-3 animate-slide-in">
+        <span class="text-sm">✓ 已加入牌桌</span>
+        <button class="text-white/70 hover:text-white shrink-0">✕</button>
+      </div>
+    </div>
+
+    <!-- ConfirmDialog overlay -->
+    <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40" style="display:none">
+      <div class="bg-white rounded-xl shadow-md p-6 max-w-sm w-full mx-4">
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">离开牌桌</h3>
+        <p class="text-sm text-gray-600 mb-6">确定要离开当前牌桌吗？当前牌局进度将被保存。</p>
+        <div class="flex justify-end gap-3">
+          <button class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100">取消</button>
+          <button class="px-4 py-2 rounded-lg text-sm font-medium text-white bg-red-500 hover:bg-red-600">离开</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GtoExplanationText Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-6">
+    <!-- Short explanation -->
+    <div class="rounded-lg bg-blue-50 border border-blue-200 px-4 py-3">
+      <div class="flex items-center gap-1.5 mb-1.5">
+        <svg class="h-4 w-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-xs font-semibold text-blue-700">GTO 策略解释</span>
+      </div>
+      <p class="text-sm leading-relaxed text-gray-700">在此翻牌面（A♠ K♥ 7♦），作为翻牌前加注者应以较高频率持续下注。你的范围中包含更多强牌组合（AA、KK、AK），因此可以通过小额下注（约底池的33%）对对手施加广泛压力。</p>
+    </div>
+
+    <!-- Longer explanation -->
+    <div class="rounded-lg bg-blue-50 border border-blue-200 px-4 py-3">
+      <div class="flex items-center gap-1.5 mb-1.5">
+        <svg class="h-4 w-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-xs font-semibold text-blue-700">GTO 策略解释</span>
+      </div>
+      <p class="text-sm leading-relaxed text-gray-700">GTO建议在河牌圈过牌。你的中等牌力（顶对弱踢脚）在面对对手的全押时很难盈利，而主动下注会被对手的强牌跟注、弱牌弃牌，导致只在落后时被跟。过牌可以保留你的摊牌价值。</p>
+    </div>
+  </div>
+</body>
+</html>

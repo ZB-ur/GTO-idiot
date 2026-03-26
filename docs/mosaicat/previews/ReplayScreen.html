@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayScreen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen bg-slate-50">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 px-4 py-3">
+      <div class="max-w-4xl mx-auto flex items-center justify-between">
+        <button class="flex items-center gap-1 text-sm text-gray-600 hover:text-gray-900 transition-colors">
+          <span>←</span><span>返回</span>
+        </button>
+        <div class="text-center">
+          <h1 class="text-lg font-bold text-gray-900">Hand #12 复盘</h1>
+          <p class="text-xs text-gray-500">CO · A♠5♠ — 顶对 +45BB</p>
+        </div>
+        <div class="text-right">
+          <span class="text-sm font-bold text-green-500">胜利</span>
+          <div class="text-xs font-medium text-green-500">+450 chips</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="max-w-4xl mx-auto px-4 py-6 space-y-6">
+
+      <!-- GTO Summary Bar -->
+      <div class="flex items-center justify-center gap-6 py-3 bg-white rounded-xl border border-gray-200 shadow-sm">
+        <div class="text-center">
+          <div class="text-2xl font-bold text-gray-900">2/3</div>
+          <div class="text-xs text-gray-500">GTO 一致</div>
+        </div>
+        <div class="w-px h-8 bg-gray-200"></div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-green-500">2</div>
+          <div class="text-xs text-gray-500">正确</div>
+        </div>
+        <div class="w-px h-8 bg-gray-200"></div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-red-500">1</div>
+          <div class="text-xs text-gray-500">偏离</div>
+        </div>
+      </div>
+
+      <!-- Mini Poker Table -->
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
+        <div class="relative w-full max-w-lg mx-auto" style="aspect-ratio: 16/10;">
+          <!-- Table felt -->
+          <div class="absolute inset-4 bg-emerald-800 rounded-[50%] border-4 border-emerald-900 shadow-lg"></div>
+
+          <!-- Pot -->
+          <div class="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-10">
+            <span class="text-emerald-200 text-xs font-medium">Pot</span>
+            <div class="text-white font-bold text-lg">750</div>
+          </div>
+
+          <!-- Community Cards -->
+          <div class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-1 z-10">
+            <!-- A♠ -->
+            <div class="w-8 h-11 bg-white rounded-lg border border-gray-200 shadow-sm flex flex-col items-center justify-center font-bold text-xs text-gray-900">
+              <span>A</span><span class="-mt-1">♠</span>
+            </div>
+            <!-- K♥ -->
+            <div class="w-8 h-11 bg-white rounded-lg border border-gray-200 shadow-sm flex flex-col items-center justify-center font-bold text-xs text-red-600">
+              <span>K</span><span class="-mt-1">♥</span>
+            </div>
+            <!-- 7♦ -->
+            <div class="w-8 h-11 bg-white rounded-lg border border-gray-200 shadow-sm flex flex-col items-center justify-center font-bold text-xs text-red-600">
+              <span>7</span><span class="-mt-1">♦</span>
+            </div>
+            <!-- 2♣ -->
+            <div class="w-8 h-11 bg-white rounded-lg border border-gray-200 shadow-sm flex flex-col items-center justify-center font-bold text-xs text-gray-900">
+              <span>2</span><span class="-mt-1">♣</span>
+            </div>
+            <!-- Empty placeholder -->
+            <div class="w-8 h-11 rounded-lg border border-emerald-700 bg-emerald-900/40"></div>
+          </div>
+
+          <!-- Seat 0: BB (bottom center) — user seat -->
+          <div class="absolute z-10 -translate-x-1/2 -translate-y-1/2" style="top:78%; left:50%;">
+            <div class="px-2 py-1 rounded-lg text-xs font-medium shadow-sm border bg-gray-300 text-gray-500 border-gray-400">
+              <div class="font-bold">BB</div>
+              <div class="text-[10px] text-gray-500">folded</div>
+            </div>
+          </div>
+
+          <!-- Seat 1: SB (bottom-left) -->
+          <div class="absolute z-10 -translate-x-1/2 -translate-y-1/2" style="top:65%; left:12%;">
+            <div class="px-2 py-1 rounded-lg text-xs font-medium shadow-sm border bg-gray-300 text-gray-500 border-gray-400">
+              <div class="font-bold">SB</div>
+              <div class="text-[10px] text-gray-500">folded</div>
+            </div>
+          </div>
+
+          <!-- Seat 2: UTG (top-left) -->
+          <div class="absolute z-10 -translate-x-1/2 -translate-y-1/2" style="top:18%; left:12%;">
+            <div class="px-2 py-1 rounded-lg text-xs font-medium shadow-sm border bg-white text-gray-900 border-gray-200">
+              <div class="font-bold">UTG</div>
+              <div class="text-[10px] text-gray-500">8750</div>
+            </div>
+          </div>
+
+          <!-- Seat 3: MP (top center) -->
+          <div class="absolute z-10 -translate-x-1/2 -translate-y-1/2" style="top:5%; left:50%;">
+            <div class="px-2 py-1 rounded-lg text-xs font-medium shadow-sm border bg-gray-300 text-gray-500 border-gray-400">
+              <div class="font-bold">MP</div>
+              <div class="text-[10px] text-gray-500">folded</div>
+            </div>
+          </div>
+
+          <!-- Seat 4: CO (top-right) — user seat -->
+          <div class="absolute z-10 -translate-x-1/2 -translate-y-1/2" style="top:18%; left:88%;">
+            <div class="px-2 py-1 rounded-lg text-xs font-medium shadow-sm border bg-blue-600 text-white border-blue-700">
+              <div class="font-bold">CO</div>
+              <div class="text-[10px] text-blue-100">9200</div>
+            </div>
+            <!-- User hole cards -->
+            <div class="flex gap-0.5 justify-center mt-1">
+              <div class="w-8 h-11 bg-white rounded-lg border border-gray-200 shadow-sm flex flex-col items-center justify-center font-bold text-xs text-gray-900">
+                <span>A</span><span class="-mt-1">♠</span>
+              </div>
+              <div class="w-8 h-11 bg-white rounded-lg border border-gray-200 shadow-sm flex flex-col items-center justify-center font-bold text-xs text-gray-900">
+                <span>5</span><span class="-mt-1">♠</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seat 5: BTN (bottom-right) -->
+          <div class="absolute z-10 -translate-x-1/2 -translate-y-1/2" style="top:65%; left:88%;">
+            <div class="px-2 py-1 rounded-lg text-xs font-medium shadow-sm border bg-white text-gray-900 border-gray-200">
+              <div class="font-bold">BTN</div>
+              <div class="text-[10px] text-gray-500">9500</div>
+            </div>
+            <div class="text-[10px] text-amber-400 font-bold mt-0.5 text-center">300</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
+        <h2 class="text-sm font-semibold text-gray-900 mb-3">决策时间轴</h2>
+        <div class="flex items-center gap-2 w-full">
+          <!-- Point 1: correct, not active -->
+          <button class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold border-2 bg-green-100 text-green-600 border-green-300 hover:bg-green-200">1</button>
+          <div class="flex-1 h-0.5 bg-gray-200"></div>
+          <!-- Point 2: deviation, active -->
+          <button class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold border-2 bg-red-500 text-white border-red-600 scale-110 shadow-md">2</button>
+          <div class="flex-1 h-0.5 bg-gray-200"></div>
+          <!-- Point 3: correct, not active -->
+          <button class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold border-2 bg-green-100 text-green-600 border-green-300 hover:bg-green-200">3</button>
+        </div>
+      </div>
+
+      <!-- Decision Point Card — Deviation example -->
+      <div class="rounded-xl border p-4 space-y-3 border-red-200 bg-red-50">
+        <!-- Header -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-medium text-gray-600">转牌</span>
+            <span class="inline-flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded-full bg-red-500 text-white">偏离</span>
+          </div>
+        </div>
+
+        <!-- Action Comparison -->
+        <div class="grid grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <span class="text-xs text-gray-500 font-medium">你的操作</span>
+            <div class="text-base font-bold text-red-600">Check</div>
+          </div>
+          <div class="space-y-1">
+            <span class="text-xs text-gray-500 font-medium">GTO 建议</span>
+            <div class="text-base font-bold text-blue-600">Bet 300</div>
+          </div>
+        </div>
+
+        <!-- GTO Frequencies -->
+        <div class="space-y-1.5">
+          <span class="text-xs text-gray-500 font-medium">GTO 混合策略</span>
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-gray-700 w-16 shrink-0">Bet 300</span>
+              <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-500 rounded-full" style="width: 75%;"></div>
+              </div>
+              <span class="text-xs text-gray-500 w-10 text-right">75%</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-gray-700 w-16 shrink-0">Check</span>
+              <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-500 rounded-full" style="width: 25%;"></div>
+              </div>
+              <span class="text-xs text-gray-500 w-10 text-right">25%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Explanation -->
+        <p class="text-sm text-gray-700 leading-relaxed">
+          在CO位置持有A♠5♠，转牌出现2♣后形成顶对弱踢脚，GTO建议以75%频率下注300（约2/3 pot）获取价值并保护范围。Check会让对手免费看河牌，错失对弱牌的价值。
+        </p>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex items-center justify-between">
+        <button class="px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 transition-colors">
+          ← 上一步
+        </button>
+        <span class="text-sm text-gray-500">2 / 3</span>
+        <button class="px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 transition-colors">
+          下一步 →
+        </button>
+      </div>
+
+      <!-- Approximation Disclaimer -->
+      <div class="flex items-start gap-2 p-3 rounded-lg bg-amber-50 border border-amber-200">
+        <span class="text-amber-500 text-sm mt-0.5">⚠</span>
+        <p class="text-xs text-amber-700 leading-relaxed">
+          GTO 建议基于简化模型的近似计算，仅供学习参考，不代表精确 GTO 解。实际对局中请结合对手倾向综合判断。
+        </p>
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>
