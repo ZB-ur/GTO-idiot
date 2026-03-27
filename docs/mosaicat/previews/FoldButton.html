@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoldButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex items-center gap-6 p-6 bg-gray-900 rounded-xl">
+    <!-- Default state -->
+    <div class="flex flex-col items-center gap-2">
+      <button class="px-6 py-3 text-sm font-semibold rounded-lg border bg-gray-800 text-gray-50 border-gray-700 hover:bg-gray-700 hover:border-gray-600 active:bg-gray-600 transition-colors">
+        Fold
+      </button>
+      <span class="text-xs text-gray-400">Default</span>
+    </div>
+
+    <!-- Hover state (simulated) -->
+    <div class="flex flex-col items-center gap-2">
+      <button class="px-6 py-3 text-sm font-semibold rounded-lg border bg-gray-700 text-gray-50 border-gray-600 transition-colors">
+        Fold
+      </button>
+      <span class="text-xs text-gray-400">Hover</span>
+    </div>
+
+    <!-- Disabled state -->
+    <div class="flex flex-col items-center gap-2">
+      <button class="px-6 py-3 text-sm font-semibold rounded-lg border bg-gray-800/50 text-gray-500 border-gray-700/50 cursor-not-allowed" disabled>
+        Fold
+      </button>
+      <span class="text-xs text-gray-400">Disabled</span>
+    </div>
+  </div>
+</body>
+</html>

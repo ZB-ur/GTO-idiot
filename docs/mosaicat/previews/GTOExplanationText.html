@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTOExplanationText Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-3 max-w-md">
+
+    <!-- Short explanation -->
+    <div class="flex items-start gap-2.5 px-4 py-3 bg-gray-900 rounded-xl border border-gray-800">
+      <div class="flex-shrink-0 mt-0.5">
+        <svg class="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        在CO位面对UTG加注，AKo有足够的底池赔率跟注，GTO建议跟注而非3-bet以平衡跟注范围。
+      </p>
+    </div>
+
+    <!-- Longer explanation -->
+    <div class="flex items-start gap-2.5 px-4 py-3 bg-gray-900 rounded-xl border border-gray-800">
+      <div class="flex-shrink-0 mt-0.5">
+        <svg class="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        翻牌圈在干燥面（K♠7♦2♣），持有顶对顶踢脚应做价值下注。GTO推荐下注约2/3底池以从中对和听牌中获取价值。弃牌在此处放弃了显著的正EV。
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>

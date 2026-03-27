@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DecisionDetailPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-6">
+
+    <!-- State 1: Error rating with EV loss -->
+    <div class="bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">
+      <div class="px-4 py-3 border-b border-gray-800 flex items-center justify-between bg-red-500/10">
+        <h3 class="text-sm font-semibold text-gray-50">决策分析 #1</h3>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border bg-red-500/10 text-red-400 border-red-500/30">❌ 错误</span>
+      </div>
+      <div class="p-4 space-y-4">
+        <!-- Context -->
+        <div class="flex flex-wrap gap-2 text-xs">
+          <span class="px-2 py-1 bg-gray-800 rounded-lg text-gray-300">翻前</span>
+          <span class="px-2 py-1 bg-gray-800 rounded-lg text-gray-300">CO</span>
+          <span class="px-2 py-1 bg-gray-800 rounded-lg text-gray-300">底池 3</span>
+          <span class="px-2 py-1 bg-gray-800 rounded-lg text-gray-300">筹码 400</span>
+        </div>
+        <!-- Cards -->
+        <div class="flex items-center gap-4 text-sm">
+          <div>
+            <span class="text-gray-500 text-xs block mb-1">手牌</span>
+            <div class="flex gap-1">
+              <span class="bg-gray-800 px-1.5 py-0.5 rounded font-mono font-bold text-sm text-gray-100">A♠</span>
+              <span class="bg-gray-800 px-1.5 py-0.5 rounded font-mono font-bold text-sm text-gray-100">T♠</span>
+            </div>
+          </div>
+        </div>
+        <!-- User vs GTO -->
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-3 space-y-1.5">
+            <span class="text-xs text-gray-500">你的选择</span>
+            <p class="text-sm font-semibold text-gray-50">弃牌</p>
+          </div>
+          <div class="bg-amber-500/5 border border-amber-500/20 rounded-lg p-3 space-y-1.5">
+            <span class="text-xs text-amber-400/70">GTO推荐</span>
+            <p class="text-sm font-semibold text-amber-400">加注到 6</p>
+          </div>
+        </div>
+        <!-- EV Difference -->
+        <div class="flex items-center justify-between bg-gray-800/30 rounded-lg px-3 py-2">
+          <span class="text-xs text-gray-400">EV差异</span>
+          <div class="flex items-center gap-1.5">
+            <span class="text-sm font-semibold text-red-400">-2.3 BB</span>
+          </div>
+        </div>
+        <!-- Explanation -->
+        <div class="border-t border-gray-800 pt-3">
+          <p class="text-sm text-gray-300 leading-relaxed">CO位置，ATs属于标准开牌范围。弃牌损失了正EV的机会。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 2: Optimal rating -->
+    <div class="bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">
+      <div class="px-4 py-3 border-b border-gray-800 flex items-center justify-between bg-emerald-500/10">
+        <h3 class="text-sm font-semibold text-gray-50">决策分析 #2</h3>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border bg-emerald-500/10 text-emerald-400 border-emerald-500/30">✅ 最优</span>
+      </div>
+      <div class="p-4 space-y-4">
+        <div class="flex flex-wrap gap-2 text-xs">
+          <span class="px-2 py-1 bg-gray-800 rounded-lg text-gray-300">翻牌</span>
+          <span class="px-2 py-1 bg-gray-800 rounded-lg text-gray-300">BTN</span>
+          <span class="px-2 py-1 bg-gray-800 rounded-lg text-gray-300">底池 15</span>
+          <span class="px-2 py-1 bg-gray-800 rounded-lg text-gray-300">筹码 394</span>
+          <span class="px-2 py-1 bg-gray-800 rounded-lg text-gray-300">面对 6</span>
+        </div>
+        <div class="flex items-center gap-4 text-sm">
+          <div>
+            <span class="text-gray-500 text-xs block mb-1">手牌</span>
+            <div class="flex gap-1">
+              <span class="bg-gray-800 px-1.5 py-0.5 rounded font-mono font-bold text-sm text-red-500">K♥</span>
+              <span class="bg-gray-800 px-1.5 py-0.5 rounded font-mono font-bold text-sm text-red-500">Q♥</span>
+            </div>
+          </div>
+          <div>
+            <span class="text-gray-500 text-xs block mb-1">公共牌</span>
+            <div class="flex gap-1">
+              <span class="bg-gray-800 px-1.5 py-0.5 rounded font-mono font-bold text-sm text-red-500">J♥</span>
+              <span class="bg-gray-800 px-1.5 py-0.5 rounded font-mono font-bold text-sm text-gray-100">T♣</span>
+              <span class="bg-gray-800 px-1.5 py-0.5 rounded font-mono font-bold text-sm text-red-500">4♦</span>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-3 space-y-1.5">
+            <span class="text-xs text-gray-500">你的选择</span>
+            <p class="text-sm font-semibold text-gray-50">加注到 18</p>
+          </div>
+          <div class="bg-amber-500/5 border border-amber-500/20 rounded-lg p-3 space-y-1.5">
+            <span class="text-xs text-amber-400/70">GTO推荐</span>
+            <p class="text-sm font-semibold text-amber-400">加注到 18</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-between bg-gray-800/30 rounded-lg px-3 py-2">
+          <span class="text-xs text-gray-400">EV差异</span>
+          <div class="flex items-center gap-1.5">
+            <span class="text-sm font-semibold text-gray-300">0.0 BB</span>
+            <span class="px-1.5 py-0.5 bg-gray-700 rounded text-[10px] text-gray-400 font-medium">近似</span>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-3">
+          <p class="text-sm text-gray-300 leading-relaxed">持有顶对+顺子听牌，在有位置时加注建立底池是标准打法。尺度选择合理。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 3: Empty state -->
+    <div class="bg-gray-900 rounded-xl border border-gray-700 p-6">
+      <div class="text-center text-gray-500 py-8">
+        <div class="text-3xl mb-2">🎯</div>
+        <p class="text-sm">选择一个决策点查看详细分析</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

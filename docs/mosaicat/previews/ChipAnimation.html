@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChipAnimation Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes chipSlide0 {
+      0% { left: 50%; top: 85%; opacity: 1; }
+      80% { opacity: 1; }
+      100% { left: 50%; top: 48%; opacity: 0; }
+    }
+    @keyframes chipSlide1 {
+      0% { left: 10%; top: 65%; opacity: 1; }
+      80% { opacity: 1; }
+      100% { left: 50%; top: 48%; opacity: 0; }
+    }
+    @keyframes chipSlide4 {
+      0% { left: 90%; top: 25%; opacity: 1; }
+      80% { opacity: 1; }
+      100% { left: 50%; top: 48%; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="space-y-6">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">ChipAnimation — Chip sliding to pot</p>
+
+    <!-- Table container -->
+    <div class="relative w-full max-w-lg mx-auto" style="height: 400px; background: radial-gradient(ellipse at center, #064e3b 0%, #022c22 70%); border-radius: 50% / 40%; border: 3px solid #047857;">
+
+      <!-- Pot center marker -->
+      <div class="absolute flex flex-col items-center" style="left: 50%; top: 48%; transform: translate(-50%, -50%);">
+        <div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-900/80 border border-gray-700">
+          <span class="text-gray-400 text-xs">底池:</span>
+          <span class="text-amber-400 text-xs font-bold">$156</span>
+        </div>
+      </div>
+
+      <!-- Seat labels -->
+      <div class="absolute text-gray-400 text-xs" style="left: 50%; top: 88%; transform: translate(-50%, -50%);">Seat 0 (User)</div>
+      <div class="absolute text-gray-400 text-xs" style="left: 10%; top: 65%; transform: translate(-50%, -50%);">Seat 1</div>
+      <div class="absolute text-gray-400 text-xs" style="left: 90%; top: 25%; transform: translate(-50%, -50%);">Seat 4</div>
+
+      <!-- Animated chip from seat 0 -->
+      <div class="absolute flex items-center gap-1" style="animation: chipSlide0 1.2s ease-out infinite; left: 50%; top: 85%; transform: translate(-50%, -50%);">
+        <div class="w-6 h-6 rounded-full bg-amber-500 border-2 border-amber-300 shadow-md flex items-center justify-center">
+          <div class="w-3.5 h-3.5 rounded-full border border-amber-300/60"></div>
+        </div>
+        <span class="text-amber-400 text-xs font-bold">24</span>
+      </div>
+
+      <!-- Animated chip from seat 1 -->
+      <div class="absolute flex items-center gap-1" style="animation: chipSlide1 1.2s ease-out 0.4s infinite; left: 10%; top: 65%; transform: translate(-50%, -50%);">
+        <div class="w-6 h-6 rounded-full bg-amber-500 border-2 border-amber-300 shadow-md flex items-center justify-center">
+          <div class="w-3.5 h-3.5 rounded-full border border-amber-300/60"></div>
+        </div>
+        <span class="text-amber-400 text-xs font-bold">12</span>
+      </div>
+
+      <!-- Animated chip from seat 4 -->
+      <div class="absolute flex items-center gap-1" style="animation: chipSlide4 1.2s ease-out 0.8s infinite; left: 90%; top: 25%; transform: translate(-50%, -50%);">
+        <div class="w-6 h-6 rounded-full bg-amber-500 border-2 border-amber-300 shadow-md flex items-center justify-center">
+          <div class="w-3.5 h-3.5 rounded-full border border-amber-300/60"></div>
+        </div>
+        <span class="text-amber-400 text-xs font-bold">48</span>
+      </div>
+    </div>
+
+    <!-- Static chip token reference -->
+    <div class="flex items-center gap-4 mt-4">
+      <p class="text-gray-500 text-xs">Chip token:</p>
+      <div class="flex items-center gap-1">
+        <div class="w-6 h-6 rounded-full bg-amber-500 border-2 border-amber-300 shadow-md flex items-center justify-center">
+          <div class="w-3.5 h-3.5 rounded-full border border-amber-300/60"></div>
+        </div>
+        <span class="text-amber-400 text-xs font-bold">100</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <div class="w-6 h-6 rounded-full bg-amber-500 border-2 border-amber-300 shadow-md flex items-center justify-center">
+          <div class="w-3.5 h-3.5 rounded-full border border-amber-300/60"></div>
+        </div>
+        <span class="text-amber-400 text-xs font-bold">1.5k</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

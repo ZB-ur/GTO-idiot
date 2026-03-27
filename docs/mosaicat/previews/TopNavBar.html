@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TopNavBar Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- Variant 1: Lobby active, no leave button -->
+  <nav class="flex items-center justify-between px-4 h-14 bg-gray-900 border-b border-gray-800">
+    <!-- Logo -->
+    <div class="flex items-center gap-2 shrink-0">
+      <div class="w-7 h-7 rounded-lg bg-amber-500 flex items-center justify-center">
+        <span class="text-gray-950 font-bold text-sm">♠</span>
+      </div>
+      <span class="text-gray-50 font-semibold text-base">Poker Trainer</span>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex items-center gap-1 bg-gray-950 rounded-xl p-1">
+      <!-- Lobby - Active -->
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-800 text-amber-500 shadow-sm">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1" />
+        </svg>
+        <span>大厅</span>
+      </button>
+      <!-- Table -->
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <span>牌桌</span>
+      </button>
+      <!-- Replay -->
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>复盘</span>
+      </button>
+      <!-- Stats -->
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-200">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+        <span>统计</span>
+      </button>
+    </div>
+
+    <!-- Right: Sound toggle only -->
+    <div class="flex items-center gap-2 shrink-0">
+      <button class="p-2 rounded-lg text-amber-500 hover:bg-gray-800 transition-colors">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M6.5 8.788l4.033-3.07A1 1 0 0112 6.5v11a1 1 0 01-1.467.884L6.5 15.212H4a1 1 0 01-1-1v-4.424a1 1 0 011-1h2.5z" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="h-4"></div>
+
+  <!-- Variant 2: Table active, with leave button -->
+  <nav class="flex items-center justify-between px-4 h-14 bg-gray-900 border-b border-gray-800">
+    <!-- Logo -->
+    <div class="flex items-center gap-2 shrink-0">
+      <div class="w-7 h-7 rounded-lg bg-amber-500 flex items-center justify-center">
+        <span class="text-gray-950 font-bold text-sm">♠</span>
+      </div>
+      <span class="text-gray-50 font-semibold text-base">Poker Trainer</span>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex items-center gap-1 bg-gray-950 rounded-xl p-1">
+      <!-- Lobby -->
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1" />
+        </svg>
+        <span>大厅</span>
+      </button>
+      <!-- Table - Active -->
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-800 text-amber-500 shadow-sm">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <span>牌桌</span>
+      </button>
+      <!-- Replay -->
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>复盘</span>
+      </button>
+      <!-- Stats -->
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+        <span>统计</span>
+      </button>
+    </div>
+
+    <!-- Right: Sound (muted) + Leave button -->
+    <div class="flex items-center gap-2 shrink-0">
+      <button class="p-2 rounded-lg text-gray-500 hover:bg-gray-800 transition-colors">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.5 8.788l4.033-3.07A1 1 0 0112 6.5v11a1 1 0 01-1.467.884L6.5 15.212H4a1 1 0 01-1-1v-4.424a1 1 0 011-1h2.5z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 9l-6 6m0-6l6 6" />
+        </svg>
+      </button>
+      <button class="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-red-400 bg-red-500/10 rounded-lg">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2h5a2 2 0 012 2v1" />
+        </svg>
+        离开
+      </button>
+    </div>
+  </nav>
+
+  <div class="h-4"></div>
+
+  <!-- Variant 3: Stats active, sound on, no leave -->
+  <nav class="flex items-center justify-between px-4 h-14 bg-gray-900 border-b border-gray-800">
+    <!-- Logo -->
+    <div class="flex items-center gap-2 shrink-0">
+      <div class="w-7 h-7 rounded-lg bg-amber-500 flex items-center justify-center">
+        <span class="text-gray-950 font-bold text-sm">♠</span>
+      </div>
+      <span class="text-gray-50 font-semibold text-base">Poker Trainer</span>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex items-center gap-1 bg-gray-950 rounded-xl p-1">
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1" />
+        </svg>
+        <span>大厅</span>
+      </button>
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <span>牌桌</span>
+      </button>
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>复盘</span>
+      </button>
+      <!-- Stats - Active -->
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-800 text-amber-500 shadow-sm">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+        <span>统计</span>
+      </button>
+    </div>
+
+    <!-- Right: Sound on -->
+    <div class="flex items-center gap-2 shrink-0">
+      <button class="p-2 rounded-lg text-amber-500 hover:bg-gray-800 transition-colors">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M6.5 8.788l4.033-3.07A1 1 0 0112 6.5v11a1 1 0 01-1.467.884L6.5 15.212H4a1 1 0 01-1-1v-4.424a1 1 0 011-1h2.5z" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+</body>
+</html>

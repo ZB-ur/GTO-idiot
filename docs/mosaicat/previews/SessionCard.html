@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SessionCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 480px;" class="space-y-3">
+
+    <!-- Card 1: Active session, positive profit -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex items-center justify-between gap-4 hover:border-gray-600 transition-colors">
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-gray-50 text-base font-semibold truncate">3月28日 10:00</span>
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-900/50 text-emerald-400 border border-emerald-700/50">进行中</span>
+        </div>
+        <div class="flex items-center gap-4 text-sm text-gray-400">
+          <span>42 手</span>
+          <span class="font-semibold text-emerald-500">+15.5 BB</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <button class="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-gray-950 text-sm font-semibold rounded-lg transition-colors">继续</button>
+      </div>
+    </div>
+
+    <!-- Card 2: Completed session, negative profit -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex items-center justify-between gap-4 hover:border-gray-600 transition-colors">
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-gray-50 text-base font-semibold truncate">3月27日 14:30</span>
+        </div>
+        <div class="flex items-center gap-4 text-sm text-gray-400">
+          <span>68 手</span>
+          <span class="font-semibold text-red-500">-8.0 BB</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <button class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-50 text-sm font-semibold rounded-lg border border-gray-700 transition-colors">复盘</button>
+      </div>
+    </div>
+
+    <!-- Card 3: Completed session, zero profit -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex items-center justify-between gap-4 hover:border-gray-600 transition-colors">
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-gray-50 text-base font-semibold truncate">3月26日 20:15</span>
+        </div>
+        <div class="flex items-center gap-4 text-sm text-gray-400">
+          <span>25 手</span>
+          <span class="font-semibold text-gray-400">0.0 BB</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <button class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-50 text-sm font-semibold rounded-lg border border-gray-700 transition-colors">复盘</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeatLayout Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .dot-bounce { animation: bounce 0.6s infinite; }
+  </style>
+</head>
+<body>
+  <div class="relative w-full h-screen bg-gray-950">
+
+    <!-- Table felt (background reference) -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="width: 68%; height: 52%;">
+      <div class="absolute inset-0 rounded-[50%] bg-emerald-900 border-4 border-emerald-700 shadow-inner"></div>
+      <!-- Pot -->
+      <div class="absolute top-[35%] left-1/2 -translate-x-1/2 text-amber-500 font-bold text-sm bg-gray-950/60 px-3 py-1 rounded-full">
+        底池: 15
+      </div>
+    </div>
+
+    <!-- Dealer Button (seat 3 = BTN, top center offset) -->
+    <div class="absolute w-6 h-6 rounded-full bg-amber-400 text-gray-950 text-xs font-black flex items-center justify-center shadow-md border-2 border-amber-300 z-10 -translate-x-1/2 -translate-y-1/2"
+         style="top: calc(4% + 6%); left: calc(50% + 4%);">
+      D
+    </div>
+
+    <!-- Seat 0: User (bottom center, active) -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-1" style="top: 82%; left: 50%;">
+      <div class="flex gap-0.5">
+        <div class="w-8 h-11 rounded bg-gray-50 border border-gray-300 flex flex-col items-center justify-center shadow-sm text-xs font-bold leading-none">
+          <span style="color:#f87171;">A</span><span style="color:#f87171;">♥</span>
+        </div>
+        <div class="w-8 h-11 rounded bg-gray-50 border border-gray-300 flex flex-col items-center justify-center shadow-sm text-xs font-bold leading-none">
+          <span class="text-gray-800">K</span><span class="text-gray-800">♠</span>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold bg-amber-500 text-gray-950 ring-2 ring-amber-400 ring-offset-2 ring-offset-gray-950">用</div>
+        <span class="absolute -bottom-1 -right-1 bg-gray-800 border border-gray-600 text-gray-300 text-[10px] font-bold px-1.5 py-0.5 rounded-full">CO</span>
+      </div>
+      <span class="text-sm font-medium text-amber-400">用户</span>
+      <span class="text-gray-400 text-xs">394 筹码</span>
+      <span class="text-sky-400 text-xs font-medium bg-sky-950 border border-sky-800 px-2 py-0.5 rounded-full">Raise 6</span>
+      <span class="text-amber-500 text-xs font-bold">6</span>
+    </div>
+
+    <!-- Seat 1: Bot (bottom left) -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-1" style="top: 62%; left: 6%;">
+      <div class="flex gap-0.5">
+        <div class="w-8 h-11 rounded bg-gradient-to-br from-blue-800 to-blue-950 border border-blue-700 shadow-sm"></div>
+        <div class="w-8 h-11 rounded bg-gradient-to-br from-blue-800 to-blue-950 border border-blue-700 shadow-sm -ml-2"></div>
+      </div>
+      <div class="relative">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold bg-gray-700 text-gray-200">鲨</div>
+        <span class="absolute -bottom-1 -right-1 bg-gray-800 border border-gray-600 text-gray-300 text-[10px] font-bold px-1.5 py-0.5 rounded-full">UTG</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="text-sm font-medium text-gray-50">鲨鱼哥</span>
+        <span class="text-[10px] px-1.5 py-0.5 rounded border text-red-400 bg-red-950 border-red-800">紧凶</span>
+      </div>
+      <span class="text-gray-400 text-xs">398 筹码</span>
+      <span class="text-sky-400 text-xs font-medium bg-sky-950 border border-sky-800 px-2 py-0.5 rounded-full">Call 2</span>
+      <span class="text-amber-500 text-xs font-bold">2</span>
+    </div>
+
+    <!-- Seat 2: Bot (top left, folded) -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-1 opacity-40" style="top: 14%; left: 10%;">
+      <div class="relative">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold bg-gray-700 text-gray-200">疯</div>
+        <span class="absolute -bottom-1 -right-1 bg-gray-800 border border-gray-600 text-gray-300 text-[10px] font-bold px-1.5 py-0.5 rounded-full">HJ</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="text-sm font-medium text-gray-50">疯狗</span>
+        <span class="text-[10px] px-1.5 py-0.5 rounded border text-orange-400 bg-orange-950 border-orange-800">松凶</span>
+      </div>
+      <span class="text-gray-400 text-xs">400 筹码</span>
+    </div>
+
+    <!-- Seat 3: Bot (top center, BTN, thinking) -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-1" style="top: 4%; left: 50%;">
+      <div class="flex gap-0.5">
+        <div class="w-8 h-11 rounded bg-gradient-to-br from-blue-800 to-blue-950 border border-blue-700 shadow-sm"></div>
+        <div class="w-8 h-11 rounded bg-gradient-to-br from-blue-800 to-blue-950 border border-blue-700 shadow-sm -ml-2"></div>
+      </div>
+      <div class="relative">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold bg-gray-700 text-gray-200">静</div>
+        <span class="absolute -bottom-1 -right-1 bg-gray-800 border border-gray-600 text-gray-300 text-[10px] font-bold px-1.5 py-0.5 rounded-full">BTN</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="text-sm font-medium text-gray-50">静静</span>
+        <span class="text-[10px] px-1.5 py-0.5 rounded border text-purple-400 bg-purple-950 border-purple-800">平衡</span>
+      </div>
+      <span class="text-gray-400 text-xs">400 筹码</span>
+      <div class="flex gap-1 items-center">
+        <div class="w-1.5 h-1.5 rounded-full bg-amber-500 dot-bounce"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-amber-500 dot-bounce" style="animation-delay: 150ms;"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-amber-500 dot-bounce" style="animation-delay: 300ms;"></div>
+      </div>
+    </div>
+
+    <!-- Seat 4: Bot (top right) -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-1" style="top: 14%; left: 90%;">
+      <div class="flex gap-0.5">
+        <div class="w-8 h-11 rounded bg-gradient-to-br from-blue-800 to-blue-950 border border-blue-700 shadow-sm"></div>
+        <div class="w-8 h-11 rounded bg-gradient-to-br from-blue-800 to-blue-950 border border-blue-700 shadow-sm -ml-2"></div>
+      </div>
+      <div class="relative">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold bg-gray-700 text-gray-200">老</div>
+        <span class="absolute -bottom-1 -right-1 bg-gray-800 border border-gray-600 text-gray-300 text-[10px] font-bold px-1.5 py-0.5 rounded-full">SB</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="text-sm font-medium text-gray-50">老王</span>
+        <span class="text-[10px] px-1.5 py-0.5 rounded border text-blue-400 bg-blue-950 border-blue-800">紧弱</span>
+      </div>
+      <span class="text-gray-400 text-xs">399 筹码</span>
+      <span class="text-amber-500 text-xs font-bold">1</span>
+    </div>
+
+    <!-- Seat 5: Bot (bottom right) -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-1" style="top: 62%; left: 94%;">
+      <div class="flex gap-0.5">
+        <div class="w-8 h-11 rounded bg-gradient-to-br from-blue-800 to-blue-950 border border-blue-700 shadow-sm"></div>
+        <div class="w-8 h-11 rounded bg-gradient-to-br from-blue-800 to-blue-950 border border-blue-700 shadow-sm -ml-2"></div>
+      </div>
+      <div class="relative">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold bg-gray-700 text-gray-200">小</div>
+        <span class="absolute -bottom-1 -right-1 bg-gray-800 border border-gray-600 text-gray-300 text-[10px] font-bold px-1.5 py-0.5 rounded-full">BB</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="text-sm font-medium text-gray-50">小明</span>
+        <span class="text-[10px] px-1.5 py-0.5 rounded border text-green-400 bg-green-950 border-green-800">鱼</span>
+      </div>
+      <span class="text-gray-400 text-xs">398 筹码</span>
+      <span class="text-sky-400 text-xs font-medium bg-sky-950 border border-sky-800 px-2 py-0.5 rounded-full">Call 2</span>
+      <span class="text-amber-500 text-xs font-bold">2</span>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BotThinkingIndicator Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes dotBounce {
+      0%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-6px); }
+    }
+    .dot-1 { animation: dotBounce 1s infinite ease-in-out; animation-delay: 0ms; }
+    .dot-2 { animation: dotBounce 1s infinite ease-in-out; animation-delay: 150ms; }
+    .dot-3 { animation: dotBounce 1s infinite ease-in-out; animation-delay: 300ms; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 24px; align-items: center;">
+    <!-- Context: inside a dark player seat card -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 flex flex-col items-center gap-2 w-40">
+      <span class="text-gray-50 text-sm font-medium">BOT Player</span>
+      <div class="flex items-center justify-center gap-1 px-2 py-1">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 dot-1"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 dot-2"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 dot-3"></span>
+      </div>
+    </div>
+
+    <!-- Standalone indicator -->
+    <div class="flex items-center justify-center gap-1 px-2 py-1">
+      <span class="w-1.5 h-1.5 rounded-full bg-amber-500 dot-1"></span>
+      <span class="w-1.5 h-1.5 rounded-full bg-amber-500 dot-2"></span>
+      <span class="w-1.5 h-1.5 rounded-full bg-amber-500 dot-3"></span>
+    </div>
+  </div>
+</body>
+</html>

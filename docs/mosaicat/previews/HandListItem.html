@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandListItem Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-3">
+
+    <!-- Hand 1: Win with good GTO -->
+    <button class="w-full flex items-center gap-4 p-4 bg-gray-900 border border-gray-800 rounded-xl text-left">
+      <span class="text-gray-500 text-sm font-mono w-8 shrink-0 text-right">#5</span>
+      <div class="flex gap-0.5">
+        <span class="inline-flex items-center justify-center w-8 h-10 rounded bg-gray-800 border border-gray-700 text-xs font-bold text-gray-100">A♠</span>
+        <span class="inline-flex items-center justify-center w-8 h-10 rounded bg-gray-800 border border-gray-700 text-xs font-bold text-red-500">K♥</span>
+      </div>
+      <div class="flex flex-col gap-0.5 flex-1 min-w-0">
+        <span class="text-gray-400 text-xs">10:05</span>
+        <div class="flex items-center gap-1.5 text-xs">
+          <span class="text-emerald-500">✅2</span>
+          <span class="text-yellow-500">⚠️1</span>
+        </div>
+      </div>
+      <span class="text-sm font-semibold tabular-nums text-emerald-500 shrink-0">+6.0 BB</span>
+      <svg class="w-4 h-4 text-gray-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+    </button>
+
+    <!-- Hand 2: Loss with error -->
+    <button class="w-full flex items-center gap-4 p-4 bg-gray-900 border border-gray-800 rounded-xl text-left">
+      <span class="text-gray-500 text-sm font-mono w-8 shrink-0 text-right">#4</span>
+      <div class="flex gap-0.5">
+        <span class="inline-flex items-center justify-center w-8 h-10 rounded bg-gray-800 border border-gray-700 text-xs font-bold text-red-500">Q♦</span>
+        <span class="inline-flex items-center justify-center w-8 h-10 rounded bg-gray-800 border border-gray-700 text-xs font-bold text-red-500">J♥</span>
+      </div>
+      <div class="flex flex-col gap-0.5 flex-1 min-w-0">
+        <span class="text-gray-400 text-xs">10:02</span>
+        <div class="flex items-center gap-1.5 text-xs">
+          <span class="text-emerald-500">✅1</span>
+          <span class="text-red-500">❌1</span>
+        </div>
+      </div>
+      <span class="text-sm font-semibold tabular-nums text-red-500 shrink-0">-8.5 BB</span>
+      <svg class="w-4 h-4 text-gray-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+    </button>
+
+    <!-- Hand 3: Break even -->
+    <button class="w-full flex items-center gap-4 p-4 bg-gray-900 border border-gray-800 rounded-xl text-left">
+      <span class="text-gray-500 text-sm font-mono w-8 shrink-0 text-right">#3</span>
+      <div class="flex gap-0.5">
+        <span class="inline-flex items-center justify-center w-8 h-10 rounded bg-gray-800 border border-gray-700 text-xs font-bold text-gray-100">7♣</span>
+        <span class="inline-flex items-center justify-center w-8 h-10 rounded bg-gray-800 border border-gray-700 text-xs font-bold text-gray-100">7♠</span>
+      </div>
+      <div class="flex flex-col gap-0.5 flex-1 min-w-0">
+        <span class="text-gray-400 text-xs">09:58</span>
+        <div class="flex items-center gap-1.5 text-xs">
+          <span class="text-emerald-500">✅3</span>
+        </div>
+      </div>
+      <span class="text-sm font-semibold tabular-nums text-gray-400 shrink-0">0.0 BB</span>
+      <svg class="w-4 h-4 text-gray-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+    </button>
+
+    <!-- Hand 4: Small win, all optimal -->
+    <button class="w-full flex items-center gap-4 p-4 bg-gray-900 border border-gray-800 rounded-xl text-left">
+      <span class="text-gray-500 text-sm font-mono w-8 shrink-0 text-right">#2</span>
+      <div class="flex gap-0.5">
+        <span class="inline-flex items-center justify-center w-8 h-10 rounded bg-gray-800 border border-gray-700 text-xs font-bold text-red-500">T♥</span>
+        <span class="inline-flex items-center justify-center w-8 h-10 rounded bg-gray-800 border border-gray-700 text-xs font-bold text-gray-100">T♣</span>
+      </div>
+      <div class="flex flex-col gap-0.5 flex-1 min-w-0">
+        <span class="text-gray-400 text-xs">09:55</span>
+        <div class="flex items-center gap-1.5 text-xs">
+          <span class="text-emerald-500">✅4</span>
+        </div>
+      </div>
+      <span class="text-sm font-semibold tabular-nums text-emerald-500 shrink-0">+2.0 BB</span>
+      <svg class="w-4 h-4 text-gray-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+    </button>
+
+  </div>
+</body>
+</html>

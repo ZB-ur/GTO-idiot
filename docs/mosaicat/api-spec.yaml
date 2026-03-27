@@ -1,0 +1,1767 @@
+openapi: "3.0.0"
+info:
+  title: GTO Idiot API
+  version: "1.0.0"
+  description: 德州扑克GTO策略练习器后端API，支持6人桌现金桌对战、手牌历史记录、GTO策略查询和复盘分析。
+servers:
+  - url: /api
+
+tags:
+  - name: Sessions
+    description: 牌局session管理（创建、列表、恢复）
+  - name: Game
+    description: 牌桌对战核心操作（发牌、下注、行动）
+  - name: Hands
+    description: 手牌历史记录查询与浏览
+  - name: Replay
+    description: 手牌复盘与GTO对比分析
+  - name: GTO
+    description: GTO策略数据查询
+  - name: Statistics
+    description: 对战统计数据
+
+paths:
+  # ==================== Sessions ====================
+  /sessions:
+    post:
+      summary: 创建新的6人桌对战session
+      operationId: createSession
+      tags: [Sessions]
+      x-covers-features: ["F-009", "F-003", "F-004"]
+      responses:
+        "201":
+          description: Session创建成功，返回session详情及初始牌桌状态
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SessionDetail"
+        "400":
+          description: 请求参数错误
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    get:
+      summary: 获取历史session列表
+      operationId: listSessions
+      tags: [Sessions]
+      x-covers-features: ["F-009"]
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+          description: 页码
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 100
+          description: 每页数量
+        - name: sort_by
+          in: query
+          schema:
+            type: string
+            enum: [created_at, updated_at, hands_played]
+            default: updated_at
+          description: 排序字段
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: desc
+          description: 排序方向
+      responses:
+        "200":
+          description: Session列表
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SessionListResponse"
+        "400":
+          description: 请求参数错误
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sessions/{sessionId}:
+    get:
+      summary: 获取单个session详情
+      operationId: getSession
+      tags: [Sessions]
+      x-covers-features: ["F-009"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      responses:
+        "200":
+          description: Session详情
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SessionDetail"
+        "404":
+          description: Session不存在
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    delete:
+      summary: 结束并归档session
+      operationId: endSession
+      tags: [Sessions]
+      x-covers-features: ["F-009"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      responses:
+        "200":
+          description: Session已结束
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SessionSummary"
+        "404":
+          description: Session不存在
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ==================== Game Play ====================
+  /sessions/{sessionId}/hands/current:
+    get:
+      summary: 获取当前手牌的完整游戏状态
+      operationId: getCurrentGameState
+      tags: [Game]
+      x-covers-features: ["F-001", "F-003", "F-004"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      responses:
+        "200":
+          description: 当前手牌的游戏状态
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "404":
+          description: Session不存在或无进行中的手牌
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sessions/{sessionId}/hands/deal:
+    post:
+      summary: 发下一手牌（开始新的一手）
+      operationId: dealNextHand
+      tags: [Game]
+      x-covers-features: ["F-003", "F-013"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      responses:
+        "201":
+          description: 新手牌已发出，返回初始游戏状态
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "400":
+          description: 当前手牌尚未结束，无法发新牌
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session不存在
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sessions/{sessionId}/actions:
+    post:
+      summary: 用户提交行动（fold/check/call/raise）
+      operationId: submitAction
+      tags: [Game]
+      x-covers-features: ["F-002", "F-003", "F-004", "F-006"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlayerActionRequest"
+      responses:
+        "200":
+          description: 行动已执行，返回更新后的游戏状态（包含后续BOT行动结果）
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ActionResult"
+        "400":
+          description: 无效行动（金额不合法、非用户回合等）
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session不存在或无进行中的手牌
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ==================== Hand History ====================
+  /hands:
+    get:
+      summary: 获取所有手牌历史列表（跨session）
+      operationId: listAllHands
+      tags: [Hands]
+      x-covers-features: ["F-006", "F-011"]
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+          description: 页码
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 100
+          description: 每页数量
+        - name: session_id
+          in: query
+          schema:
+            type: string
+          description: 按session筛选
+        - name: filter_errors_only
+          in: query
+          schema:
+            type: boolean
+            default: false
+          description: 仅显示包含❌错误决策的手牌
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: desc
+          description: 排序方向（按时间）
+      responses:
+        "200":
+          description: 手牌列表
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HandListResponse"
+        "400":
+          description: 请求参数错误
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sessions/{sessionId}/hands:
+    get:
+      summary: 获取指定session的手牌列表
+      operationId: listSessionHands
+      tags: [Hands]
+      x-covers-features: ["F-006", "F-011"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+          description: 页码
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 100
+          description: 每页数量
+        - name: filter_errors_only
+          in: query
+          schema:
+            type: boolean
+            default: false
+          description: 仅显示包含❌错误决策的手牌
+      responses:
+        "200":
+          description: 手牌列表
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HandListResponse"
+        "400":
+          description: 请求参数错误
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session不存在
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /hands/{handId}:
+    get:
+      summary: 获取单手牌完整历史记录
+      operationId: getHandHistory
+      tags: [Hands]
+      x-covers-features: ["F-006"]
+      parameters:
+        - $ref: "#/components/parameters/HandId"
+      responses:
+        "200":
+          description: 手牌完整历史
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HandHistory"
+        "404":
+          description: 手牌不存在
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ==================== Replay & GTO Comparison ====================
+  /hands/{handId}/replay:
+    get:
+      summary: 获取手牌复盘数据（含GTO对比和评分）
+      operationId: getHandReplay
+      tags: [Replay]
+      x-covers-features: ["F-007", "F-010"]
+      parameters:
+        - $ref: "#/components/parameters/HandId"
+      responses:
+        "200":
+          description: 完整复盘数据，包含每个用户决策点的GTO对比
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HandReplay"
+        "404":
+          description: 手牌不存在
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /hands/{handId}/replay/decisions/{decisionIndex}:
+    get:
+      summary: 获取单个决策点的详细GTO对比分析
+      operationId: getDecisionDetail
+      tags: [Replay]
+      x-covers-features: ["F-007", "F-010"]
+      parameters:
+        - $ref: "#/components/parameters/HandId"
+        - name: decisionIndex
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 0
+          description: 决策点索引（在该手牌中的顺序）
+      responses:
+        "200":
+          description: 决策点详细GTO对比
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DecisionDetail"
+        "404":
+          description: 手牌或决策点不存在
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ==================== GTO Strategy ====================
+  /gto/preflop:
+    get:
+      summary: 查询翻前GTO策略（指定位置和场景）
+      operationId: getPreflopStrategy
+      tags: [GTO]
+      x-covers-features: ["F-005"]
+      parameters:
+        - name: position
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [UTG, HJ, CO, BTN, SB, BB]
+          description: 玩家位置
+        - name: scenario
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [open, vs_raise, vs_3bet, vs_4bet]
+          description: 翻前场景类型
+        - name: raiser_position
+          in: query
+          schema:
+            type: string
+            enum: [UTG, HJ, CO, BTN, SB, BB]
+          description: 加注者位置（vs_raise/vs_3bet/vs_4bet场景必填）
+      responses:
+        "200":
+          description: 翻前GTO策略范围表
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PreflopStrategy"
+        "400":
+          description: 参数错误（如缺少必填参数）
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /gto/postflop:
+    get:
+      summary: 查询翻后GTO策略（基于牌面纹理分类的简化建议）
+      operationId: getPostflopStrategy
+      tags: [GTO]
+      x-covers-features: ["F-005"]
+      parameters:
+        - name: board_texture
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [dry, wet, paired]
+          description: 牌面纹理分类
+        - name: street
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [flop, turn, river]
+          description: 当前街
+        - name: position
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [IP, OOP]
+          description: 相对位置（IP=有位置，OOP=无位置）
+        - name: spr_range
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [low, medium, high]
+          description: SPR区间（low<4, medium 4-10, high>10）
+        - name: hand_category
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [strong_made, medium_made, weak_made, strong_draw, weak_draw, air]
+          description: 手牌相对强度分类
+      responses:
+        "200":
+          description: 翻后GTO策略建议
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PostflopStrategy"
+        "400":
+          description: 参数错误
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ==================== Statistics ====================
+  /statistics:
+    get:
+      summary: 获取综合统计数据（盈亏、胜率、GTO指标）
+      operationId: getStatistics
+      tags: [Statistics]
+      x-covers-features: ["F-008"]
+      parameters:
+        - name: session_id
+          in: query
+          schema:
+            type: string
+          description: 按session筛选，不传则返回全部session的汇总统计
+      responses:
+        "200":
+          description: 统计数据
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Statistics"
+        "400":
+          description: 请求参数错误
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /statistics/pl-chart:
+    get:
+      summary: 获取盈亏走势图数据点
+      operationId: getPLChartData
+      tags: [Statistics]
+      x-covers-features: ["F-008"]
+      parameters:
+        - name: session_id
+          in: query
+          schema:
+            type: string
+          description: 按session筛选，不传则返回全部session的累计走势
+      responses:
+        "200":
+          description: 盈亏走势数据点
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PLChartResponse"
+        "400":
+          description: 请求参数错误
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ==================== Sound Preferences ====================
+  /preferences/sound:
+    put:
+      summary: 更新音效偏好设置
+      operationId: updateSoundPreference
+      tags: [Sessions]
+      x-covers-features: ["F-012"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SoundPreferenceRequest"
+      responses:
+        "200":
+          description: 偏好已更新
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SoundPreference"
+        "400":
+          description: 请求参数错误
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    get:
+      summary: 获取音效偏好设置
+      operationId: getSoundPreference
+      tags: [Sessions]
+      x-covers-features: ["F-012"]
+      responses:
+        "200":
+          description: 当前音效偏好
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SoundPreference"
+
+components:
+  parameters:
+    SessionId:
+      name: sessionId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Session唯一标识
+    HandId:
+      name: handId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: 手牌唯一标识
+
+  schemas:
+    # ==================== Error ====================
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code:
+              type: string
+              description: 错误代码
+              example: "INVALID_ACTION"
+            message:
+              type: string
+              description: 人类可读的错误描述
+              example: "加注金额低于最小加注额"
+            details:
+              type: array
+              items:
+                type: object
+                properties:
+                  field:
+                    type: string
+                    description: 出错字段
+                    example: "amount"
+                  reason:
+                    type: string
+                    description: 具体原因
+                    example: "最小加注金额为 6"
+
+    # ==================== Cards & Common ====================
+    Card:
+      type: object
+      required: [rank, suit]
+      properties:
+        rank:
+          type: string
+          enum: ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"]
+          description: 牌面大小
+          example: "A"
+        suit:
+          type: string
+          enum: [s, h, d, c]
+          description: 花色（s=黑桃, h=红桃, d=方块, c=梅花）
+          example: "s"
+
+    Position:
+      type: string
+      enum: [UTG, HJ, CO, BTN, SB, BB]
+      description: 6人桌位置标签
+
+    ActionType:
+      type: string
+      enum: [fold, check, call, raise, bet, all_in]
+      description: 行动类型
+
+    Street:
+      type: string
+      enum: [preflop, flop, turn, river]
+      description: 牌局阶段
+
+    BotStyle:
+      type: string
+      enum: [TAG, LAG, TightPassive, Fish, Balanced]
+      description: BOT风格标签（TAG=紧凶, LAG=松凶, TightPassive=紧弱, Fish=鱼, Balanced=平衡）
+
+    # ==================== Session ====================
+    SessionSummary:
+      type: object
+      required: [sessionId, createdAt, updatedAt, handsPlayed, netProfitBB, status]
+      properties:
+        sessionId:
+          type: string
+          description: Session唯一标识
+          example: "sess_abc123"
+        createdAt:
+          type: string
+          format: date-time
+          description: 创建时间
+          example: "2026-03-28T10:00:00Z"
+        updatedAt:
+          type: string
+          format: date-time
+          description: 最后更新时间
+          example: "2026-03-28T11:30:00Z"
+        handsPlayed:
+          type: integer
+          description: 已打手牌数
+          example: 42
+        netProfitBB:
+          type: number
+          format: float
+          description: 净盈亏（以BB为单位）
+          example: 15.5
+        status:
+          type: string
+          enum: [active, completed]
+          description: Session状态
+          example: "active"
+
+    SessionDetail:
+      type: object
+      required: [sessionId, createdAt, updatedAt, handsPlayed, netProfitBB, status, players, blinds, buyIn]
+      properties:
+        sessionId:
+          type: string
+          description: Session唯一标识
+          example: "sess_abc123"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2026-03-28T10:00:00Z"
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2026-03-28T11:30:00Z"
+        handsPlayed:
+          type: integer
+          example: 0
+        netProfitBB:
+          type: number
+          format: float
+          example: 0
+        status:
+          type: string
+          enum: [active, completed]
+          example: "active"
+        blinds:
+          type: object
+          required: [small, big]
+          properties:
+            small:
+              type: integer
+              description: 小盲注
+              example: 1
+            big:
+              type: integer
+              description: 大盲注
+              example: 2
+        buyIn:
+          type: integer
+          description: 买入筹码数
+          example: 400
+        players:
+          type: array
+          minItems: 6
+          maxItems: 6
+          items:
+            $ref: "#/components/schemas/PlayerInfo"
+          description: 6名玩家信息（含用户和5个BOT）
+        currentHandId:
+          type: string
+          nullable: true
+          description: 当前进行中的手牌ID，无进行中手牌时为null
+          example: "hand_xyz789"
+
+    SessionListResponse:
+      type: object
+      required: [sessions, pagination]
+      properties:
+        sessions:
+          type: array
+          items:
+            $ref: "#/components/schemas/SessionSummary"
+        pagination:
+          $ref: "#/components/schemas/Pagination"
+
+    # ==================== Player ====================
+    PlayerInfo:
+      type: object
+      required: [playerId, nickname, seatIndex, isUser, chipCount]
+      properties:
+        playerId:
+          type: string
+          description: 玩家唯一标识
+          example: "player_001"
+        nickname:
+          type: string
+          description: 玩家昵称
+          example: "鲨鱼哥"
+        seatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          description: 座位编号（0-5）
+          example: 0
+        isUser:
+          type: boolean
+          description: 是否为用户
+          example: false
+        botStyle:
+          $ref: "#/components/schemas/BotStyle"
+          description: BOT风格（仅BOT玩家有值）
+        chipCount:
+          type: integer
+          description: 当前筹码数
+          example: 400
+
+    SeatState:
+      type: object
+      required: [playerId, nickname, seatIndex, isUser, chipCount, position, isFolded, isAllIn, currentBet]
+      properties:
+        playerId:
+          type: string
+          example: "player_001"
+        nickname:
+          type: string
+          example: "鲨鱼哥"
+        seatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          example: 0
+        isUser:
+          type: boolean
+          example: false
+        botStyle:
+          $ref: "#/components/schemas/BotStyle"
+        chipCount:
+          type: integer
+          description: 当前剩余筹码
+          example: 394
+        position:
+          $ref: "#/components/schemas/Position"
+        isFolded:
+          type: boolean
+          description: 是否已弃牌
+          example: false
+        isAllIn:
+          type: boolean
+          description: 是否已全押
+          example: false
+        currentBet:
+          type: integer
+          description: 本轮已下注金额
+          example: 6
+        holeCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 2
+          maxItems: 2
+          nullable: true
+          description: 手牌（仅用户自己的手牌可见，摊牌后所有未弃牌玩家的手牌可见）
+        lastAction:
+          type: string
+          nullable: true
+          description: 最近一次行动描述
+          example: "Raise 6"
+
+    # ==================== Game State ====================
+    GameState:
+      type: object
+      required: [handId, handNumber, street, pot, communityCards, seats, dealerSeatIndex, activeSeatIndex, isHandComplete]
+      properties:
+        handId:
+          type: string
+          description: 手牌唯一标识
+          example: "hand_xyz789"
+        handNumber:
+          type: integer
+          description: 当前session中的手牌序号
+          example: 1
+        street:
+          $ref: "#/components/schemas/Street"
+        pot:
+          type: integer
+          description: 当前主底池金额
+          example: 15
+        sidePots:
+          type: array
+          items:
+            $ref: "#/components/schemas/SidePot"
+          description: 边池列表（有全押情况时才有）
+        communityCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          maxItems: 5
+          description: 公共牌（翻牌3张，转牌+1，河牌+1）
+        seats:
+          type: array
+          minItems: 6
+          maxItems: 6
+          items:
+            $ref: "#/components/schemas/SeatState"
+          description: 6个座位的当前状态
+        dealerSeatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          description: 庄家座位编号
+          example: 3
+        activeSeatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          nullable: true
+          description: 当前行动玩家的座位编号，无人行动时为null
+          example: 0
+        isUserTurn:
+          type: boolean
+          description: 是否轮到用户行动
+          example: true
+        availableActions:
+          $ref: "#/components/schemas/AvailableActions"
+          description: 用户当前可执行的行动（仅在isUserTurn=true时有值）
+        isHandComplete:
+          type: boolean
+          description: 手牌是否已结束
+          example: false
+        result:
+          $ref: "#/components/schemas/HandResult"
+          description: 手牌结果（仅在isHandComplete=true时有值）
+
+    SidePot:
+      type: object
+      required: [amount, eligiblePlayerIds]
+      properties:
+        amount:
+          type: integer
+          description: 边池金额
+          example: 50
+        eligiblePlayerIds:
+          type: array
+          items:
+            type: string
+          description: 有资格赢得该边池的玩家ID列表
+          example: ["player_001", "player_003"]
+
+    AvailableActions:
+      type: object
+      required: [canFold, canCheck, canCall, canRaise]
+      properties:
+        canFold:
+          type: boolean
+          description: 是否可弃牌
+          example: true
+        canCheck:
+          type: boolean
+          description: 是否可过牌
+          example: false
+        canCall:
+          type: boolean
+          description: 是否可跟注
+          example: true
+        callAmount:
+          type: integer
+          description: 跟注需要的金额
+          example: 4
+        canRaise:
+          type: boolean
+          description: 是否可加注
+          example: true
+        minRaise:
+          type: integer
+          description: 最小加注金额（总金额，非增量）
+          example: 8
+        maxRaise:
+          type: integer
+          description: 最大加注金额（即全押金额）
+          example: 400
+
+    HandResult:
+      type: object
+      required: [winners, showdown]
+      properties:
+        winners:
+          type: array
+          items:
+            $ref: "#/components/schemas/WinnerInfo"
+          description: 赢家信息列表
+        showdown:
+          type: boolean
+          description: 是否进行了摊牌
+          example: true
+
+    WinnerInfo:
+      type: object
+      required: [playerId, nickname, amount]
+      properties:
+        playerId:
+          type: string
+          example: "player_002"
+        nickname:
+          type: string
+          example: "用户"
+        amount:
+          type: integer
+          description: 赢得的筹码数
+          example: 42
+        winningHand:
+          type: string
+          nullable: true
+          description: 获胜牌型描述（摊牌时有值）
+          example: "两对 A和K"
+        holeCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          nullable: true
+          description: 赢家手牌（摊牌时有值）
+
+    # ==================== Player Action ====================
+    PlayerActionRequest:
+      type: object
+      required: [actionType]
+      properties:
+        actionType:
+          type: string
+          enum: [fold, check, call, raise]
+          description: 行动类型
+          example: "raise"
+        amount:
+          type: integer
+          minimum: 0
+          description: 加注金额（仅raise时必填，为总下注金额）
+          example: 12
+
+    ActionResult:
+      type: object
+      required: [gameState, actionLog]
+      properties:
+        gameState:
+          $ref: "#/components/schemas/GameState"
+          description: 用户行动后（及后续BOT行动后）的最新游戏状态
+        actionLog:
+          type: array
+          items:
+            $ref: "#/components/schemas/ActionLogEntry"
+          description: 从用户行动到下一个用户决策点之间发生的所有行动记录（含BOT行动），按时间顺序排列
+
+    ActionLogEntry:
+      type: object
+      required: [playerId, nickname, actionType, street, sequenceIndex]
+      properties:
+        playerId:
+          type: string
+          example: "player_003"
+        nickname:
+          type: string
+          example: "疯狗"
+        actionType:
+          $ref: "#/components/schemas/ActionType"
+        amount:
+          type: integer
+          nullable: true
+          description: 下注/加注金额
+          example: 12
+        street:
+          $ref: "#/components/schemas/Street"
+        sequenceIndex:
+          type: integer
+          description: 在当前手牌中的行动序号
+          example: 5
+        thinkingDelayMs:
+          type: integer
+          description: BOT思考延迟毫秒数（前端用于动画排队）
+          example: 1500
+
+    # ==================== Hand History ====================
+    HandListItem:
+      type: object
+      required: [handId, handNumber, sessionId, playedAt, holeCards, resultBB, gtoRating]
+      properties:
+        handId:
+          type: string
+          example: "hand_xyz789"
+        handNumber:
+          type: integer
+          description: Session内手牌序号
+          example: 5
+        sessionId:
+          type: string
+          example: "sess_abc123"
+        playedAt:
+          type: string
+          format: date-time
+          example: "2026-03-28T10:05:00Z"
+        holeCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 2
+          maxItems: 2
+          description: 用户的手牌
+        resultBB:
+          type: number
+          format: float
+          description: 盈亏（以BB为单位，正数为赢）
+          example: 6.0
+        gtoRating:
+          $ref: "#/components/schemas/GTORatingSummary"
+
+    GTORatingSummary:
+      type: object
+      required: [optimalCount, acceptableCount, errorCount, totalDecisions]
+      properties:
+        optimalCount:
+          type: integer
+          description: ✅最优决策数
+          example: 2
+        acceptableCount:
+          type: integer
+          description: ⚠️可接受决策数
+          example: 1
+        errorCount:
+          type: integer
+          description: ❌错误决策数
+          example: 1
+        totalDecisions:
+          type: integer
+          description: 总决策点数
+          example: 4
+
+    HandListResponse:
+      type: object
+      required: [hands, pagination]
+      properties:
+        hands:
+          type: array
+          items:
+            $ref: "#/components/schemas/HandListItem"
+        pagination:
+          $ref: "#/components/schemas/Pagination"
+
+    HandHistory:
+      type: object
+      required: [handId, handNumber, sessionId, playedAt, blinds, players, communityCards, streets, result]
+      properties:
+        handId:
+          type: string
+          example: "hand_xyz789"
+        handNumber:
+          type: integer
+          example: 5
+        sessionId:
+          type: string
+          example: "sess_abc123"
+        playedAt:
+          type: string
+          format: date-time
+          example: "2026-03-28T10:05:00Z"
+        blinds:
+          type: object
+          required: [small, big]
+          properties:
+            small:
+              type: integer
+              example: 1
+            big:
+              type: integer
+              example: 2
+        players:
+          type: array
+          minItems: 6
+          maxItems: 6
+          items:
+            $ref: "#/components/schemas/HandHistoryPlayer"
+          description: 参与该手牌的所有玩家信息
+        communityCards:
+          type: object
+          required: [flop, turn, river]
+          properties:
+            flop:
+              type: array
+              items:
+                $ref: "#/components/schemas/Card"
+              maxItems: 3
+              nullable: true
+              description: 翻牌（3张），未到翻牌阶段为null
+            turn:
+              $ref: "#/components/schemas/Card"
+              nullable: true
+              description: 转牌，未到转牌阶段为null
+            river:
+              $ref: "#/components/schemas/Card"
+              nullable: true
+              description: 河牌，未到河牌阶段为null
+        streets:
+          type: object
+          required: [preflop]
+          properties:
+            preflop:
+              type: array
+              items:
+                $ref: "#/components/schemas/StreetAction"
+              description: 翻前行动序列
+            flop:
+              type: array
+              items:
+                $ref: "#/components/schemas/StreetAction"
+              nullable: true
+              description: 翻牌行动序列
+            turn:
+              type: array
+              items:
+                $ref: "#/components/schemas/StreetAction"
+              nullable: true
+              description: 转牌行动序列
+            river:
+              type: array
+              items:
+                $ref: "#/components/schemas/StreetAction"
+              nullable: true
+              description: 河牌行动序列
+        result:
+          $ref: "#/components/schemas/HandResult"
+
+    HandHistoryPlayer:
+      type: object
+      required: [playerId, nickname, seatIndex, position, isUser, startingChips, endingChips, holeCards]
+      properties:
+        playerId:
+          type: string
+          example: "player_001"
+        nickname:
+          type: string
+          example: "鲨鱼哥"
+        seatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          example: 0
+        position:
+          $ref: "#/components/schemas/Position"
+        isUser:
+          type: boolean
+          example: false
+        botStyle:
+          $ref: "#/components/schemas/BotStyle"
+        startingChips:
+          type: integer
+          description: 手牌开始时的筹码
+          example: 400
+        endingChips:
+          type: integer
+          description: 手牌结束后的筹码
+          example: 394
+        holeCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 2
+          maxItems: 2
+          nullable: true
+          description: 手牌（弃牌且未摊牌则为null）
+
+    StreetAction:
+      type: object
+      required: [playerId, nickname, actionType, sequenceIndex, potAfter]
+      properties:
+        playerId:
+          type: string
+          example: "player_002"
+        nickname:
+          type: string
+          example: "用户"
+        actionType:
+          $ref: "#/components/schemas/ActionType"
+        amount:
+          type: integer
+          nullable: true
+          description: 金额（fold/check无金额）
+          example: 6
+        sequenceIndex:
+          type: integer
+          description: 全局行动序号
+          example: 3
+        potAfter:
+          type: integer
+          description: 该行动后的底池金额
+          example: 15
+        isUserAction:
+          type: boolean
+          description: 是否为用户的行动
+          example: true
+
+    # ==================== Replay & GTO ====================
+    HandReplay:
+      type: object
+      required: [handId, handNumber, playedAt, holeCards, resultBB, communityCards, streets, decisions, overallRating]
+      properties:
+        handId:
+          type: string
+          example: "hand_xyz789"
+        handNumber:
+          type: integer
+          example: 5
+        playedAt:
+          type: string
+          format: date-time
+          example: "2026-03-28T10:05:00Z"
+        holeCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 2
+          maxItems: 2
+          description: 用户手牌
+        resultBB:
+          type: number
+          format: float
+          description: 盈亏BB数
+          example: 6.0
+        communityCards:
+          type: object
+          required: [flop, turn, river]
+          properties:
+            flop:
+              type: array
+              items:
+                $ref: "#/components/schemas/Card"
+              maxItems: 3
+              nullable: true
+            turn:
+              $ref: "#/components/schemas/Card"
+              nullable: true
+            river:
+              $ref: "#/components/schemas/Card"
+              nullable: true
+        streets:
+          type: object
+          required: [preflop]
+          description: 每条街的行动序列（同HandHistory）
+          properties:
+            preflop:
+              type: array
+              items:
+                $ref: "#/components/schemas/StreetAction"
+            flop:
+              type: array
+              items:
+                $ref: "#/components/schemas/StreetAction"
+              nullable: true
+            turn:
+              type: array
+              items:
+                $ref: "#/components/schemas/StreetAction"
+              nullable: true
+            river:
+              type: array
+              items:
+                $ref: "#/components/schemas/StreetAction"
+              nullable: true
+        decisions:
+          type: array
+          items:
+            $ref: "#/components/schemas/DecisionSummary"
+          description: 用户所有决策点的GTO对比摘要列表
+        overallRating:
+          $ref: "#/components/schemas/GTORatingSummary"
+
+    DecisionSummary:
+      type: object
+      required: [decisionIndex, street, sequenceIndex, userAction, gtoAction, rating]
+      properties:
+        decisionIndex:
+          type: integer
+          description: 决策点索引
+          example: 0
+        street:
+          $ref: "#/components/schemas/Street"
+        sequenceIndex:
+          type: integer
+          description: 在行动序列中的位置
+          example: 3
+        userAction:
+          type: object
+          required: [actionType]
+          properties:
+            actionType:
+              $ref: "#/components/schemas/ActionType"
+            amount:
+              type: integer
+              nullable: true
+              example: 6
+        gtoAction:
+          type: object
+          required: [actionType]
+          properties:
+            actionType:
+              $ref: "#/components/schemas/ActionType"
+            amount:
+              type: integer
+              nullable: true
+              example: 6
+        rating:
+          type: string
+          enum: [optimal, acceptable, error]
+          description: GTO评分（optimal=✅最优, acceptable=⚠️可接受, error=❌错误）
+          example: "optimal"
+        evDifferenceBB:
+          type: number
+          format: float
+          nullable: true
+          description: 估算EV差异（BB单位），null表示无法计算
+          example: -2.3
+        isApproximate:
+          type: boolean
+          description: 是否为近似参考（翻后策略为true）
+          example: false
+
+    DecisionDetail:
+      type: object
+      required: [decisionIndex, street, position, holeCards, communityCards, potSize, stackSize, userAction, gtoAction, rating, explanation]
+      properties:
+        decisionIndex:
+          type: integer
+          example: 0
+        street:
+          $ref: "#/components/schemas/Street"
+        position:
+          $ref: "#/components/schemas/Position"
+        holeCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 2
+          maxItems: 2
+          description: 用户手牌
+        communityCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          maxItems: 5
+          description: 该决策点时的公共牌
+        potSize:
+          type: integer
+          description: 决策时底池大小
+          example: 15
+        stackSize:
+          type: integer
+          description: 决策时用户剩余筹码
+          example: 394
+        facingBet:
+          type: integer
+          nullable: true
+          description: 面对的下注金额（无人下注时为null）
+          example: 6
+        userAction:
+          type: object
+          required: [actionType, label]
+          properties:
+            actionType:
+              $ref: "#/components/schemas/ActionType"
+            amount:
+              type: integer
+              nullable: true
+              example: 6
+            label:
+              type: string
+              description: 用户行动的可读描述
+              example: "加注到 6"
+        gtoAction:
+          type: object
+          required: [actionType, label]
+          properties:
+            actionType:
+              $ref: "#/components/schemas/ActionType"
+            amount:
+              type: integer
+              nullable: true
+              example: 6
+            label:
+              type: string
+              description: GTO推荐行动的可读描述
+              example: "加注到 6"
+        rating:
+          type: string
+          enum: [optimal, acceptable, error]
+          description: GTO评分
+          example: "optimal"
+        evDifferenceBB:
+          type: number
+          format: float
+          nullable: true
+          description: 估算EV差异（BB单位）
+          example: -2.3
+        isApproximate:
+          type: boolean
+          description: 是否为近似参考数据
+          example: false
+        confidenceLevel:
+          type: string
+          enum: [exact, approximate]
+          description: 置信度级别（翻前=exact，翻后=approximate）
+          example: "exact"
+        explanation:
+          type: string
+          description: 1-2句中文GTO解释
+          example: "CO位置，ATs属于标准开牌范围。弃牌损失了正EV的机会。"
+        gtoUnavailable:
+          type: boolean
+          description: GTO数据是否不可用（如多人底池翻后等超出覆盖范围的场景）
+          example: false
+        gtoUnavailableReason:
+          type: string
+          nullable: true
+          description: GTO数据不可用的原因
+          example: "该场景（多人底池翻后）超出简化策略表覆盖范围"
+
+    # ==================== GTO Strategy ====================
+    PreflopStrategy:
+      type: object
+      required: [position, scenario, confidenceLevel, rangeMatrix]
+      properties:
+        position:
+          $ref: "#/components/schemas/Position"
+        scenario:
+          type: string
+          enum: [open, vs_raise, vs_3bet, vs_4bet]
+          description: 场景类型
+          example: "open"
+        raiserPosition:
+          $ref: "#/components/schemas/Position"
+          nullable: true
+          description: 加注者位置（vs_raise等场景时有值）
+        confidenceLevel:
+          type: string
+          enum: [exact, approximate]
+          description: 置信度级别
+          example: "exact"
+        rangeMatrix:
+          type: array
+          minItems: 13
+          maxItems: 13
+          items:
+            type: array
+            minItems: 13
+            maxItems: 13
+            items:
+              $ref: "#/components/schemas/RangeCell"
+          description: 13×13手牌范围矩阵（行=第一张牌 A-2，列=第二张牌 A-2；对角线上方=同花，下方=不同花，对角线=对子）
+
+    RangeCell:
+      type: object
+      required: [hand, action, frequency]
+      properties:
+        hand:
+          type: string
+          description: 手牌标记
+          example: "AKs"
+        action:
+          type: string
+          enum: [raise, call, fold]
+          description: GTO推荐行动
+          example: "raise"
+        frequency:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: 该行动的频率（0-1，如混合策略时raise 70%=0.7）
+          example: 1.0
+
+    PostflopStrategy:
+      type: object
+      required: [boardTexture, street, position, sprRange, handCategory, confidenceLevel, recommendation]
+      properties:
+        boardTexture:
+          type: string
+          enum: [dry, wet, paired]
+          description: 牌面纹理分类
+          example: "wet"
+        street:
+          $ref: "#/components/schemas/Street"
+        position:
+          type: string
+          enum: [IP, OOP]
+          description: 相对位置
+          example: "IP"
+        sprRange:
+          type: string
+          enum: [low, medium, high]
+          description: SPR区间
+          example: "medium"
+        handCategory:
+          type: string
+          enum: [strong_made, medium_made, weak_made, strong_draw, weak_draw, air]
+          description: 手牌相对强度
+          example: "medium_made"
+        confidenceLevel:
+          type: string
+          enum: [exact, approximate]
+          description: 置信度级别（翻后始终为approximate）
+          example: "approximate"
+        recommendation:
+          type: object
+          required: [primaryAction, betSizing, reasoning]
+          properties:
+            primaryAction:
+              type: string
+              enum: [check, bet, call, raise, fold]
+              description: 推荐主要行动
+              example: "check"
+            secondaryAction:
+              type: string
+              enum: [check, bet, call, raise, fold]
+              nullable: true
+              description: 可选的次要行动（混合策略时）
+              example: "bet"
+            primaryFrequency:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              description: 主要行动频率
+              example: 0.65
+            betSizing:
+              type: string
+              nullable: true
+              description: 推荐下注尺度（如"1/3 pot", "2/3 pot", "pot"）
+              example: "1/3 pot"
+            reasoning:
+              type: string
+              description: 策略推荐理由（中文）
+              example: "湿润牌面上，中等牌力手牌在有位置时倾向于过牌控池，避免面对加注的困难决策。"
+
+    # ==================== Statistics ====================
+    Statistics:
+      type: object
+      required: [totalHands, netProfitBB, winRate, gtoMetrics]
+      properties:
+        totalHands:
+          type: integer
+          description: 总手牌数
+          example: 150
+        netProfitBB:
+          type: number
+          format: float
+          description: 总净盈亏（BB单位）
+          example: 23.5
+        winRate:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: 胜率（赢得底池的手牌比例）
+          example: 0.32
+        gtoMetrics:
+          $ref: "#/components/schemas/GTOMetrics"
+        sessionCount:
+          type: integer
+          description: 总session数
+          example: 3
+        handsWithReplay:
+          type: integer
+          description: 已完成复盘的手牌数
+          example: 120
+
+    GTOMetrics:
+      type: object
+      required: [complianceRate, avgEvLossPerHand, totalDecisions, evaluatedHands]
+      properties:
+        complianceRate:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: GTO符合率（✅最优决策占比）
+          example: 0.65
+        avgEvLossPerHand:
+          type: number
+          format: float
+          description: 平均每手EV损失（BB单位，估算值）
+          example: 1.2
+        totalDecisions:
+          type: integer
+          description: 已评估的总决策数
+          example: 320
+        evaluatedHands:
+          type: integer
+          description: 已评估的手牌数
+          example: 120
+        isEstimated:
+          type: boolean
+          description: 是否为估算值
+          example: true
+
+    PLChartResponse:
+      type: object
+      required: [dataPoints]
+      properties:
+        dataPoints:
+          type: array
+          items:
+            $ref: "#/components/schemas/PLDataPoint"
+          description: 盈亏走势数据点列表
+
+    PLDataPoint:
+      type: object
+      required: [handIndex, cumulativeBB]
+      properties:
+        handIndex:
+          type: integer
+          description: 累计手牌序号
+          example: 42
+        cumulativeBB:
+          type: number
+          format: float
+          description: 截至该手的累计盈亏（BB单位）
+          example: 15.5
+        handId:
+          type: string
+          description: 对应的手牌ID
+          example: "hand_xyz789"
+        sessionId:
+          type: string
+          description: 所属session ID
+          example: "sess_abc123"
+
+    # ==================== Sound Preference ====================
+    SoundPreference:
+      type: object
+      required: [enabled]
+      properties:
+        enabled:
+          type: boolean
+          description: 音效是否开启
+          example: true
+
+    SoundPreferenceRequest:
+      type: object
+      required: [enabled]
+      properties:
+        enabled:
+          type: boolean
+          description: 是否开启音效
+          example: true
+
+    # ==================== Pagination ====================
+    Pagination:
+      type: object
+      required: [page, perPage, totalItems, totalPages]
+      properties:
+        page:
+          type: integer
+          description: 当前页码
+          example: 1
+        perPage:
+          type: integer
+          description: 每页数量
+          example: 20
+        totalItems:
+          type: integer
+          description: 总条目数
+          example: 42
+        totalPages:
+          type: integer
+          description: 总页数
+          example: 3
