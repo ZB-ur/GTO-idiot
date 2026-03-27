@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThinkingDots Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes dotBounce {
+      0%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-6px); }
+    }
+    .dot { animation: dotBounce 1s infinite ease-in-out; }
+    .dot-1 { animation-delay: 0ms; }
+    .dot-2 { animation-delay: 150ms; }
+    .dot-3 { animation-delay: 300ms; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 24px; align-items: flex-start;">
+    <!-- Context: inside a dark seat chip -->
+    <div class="bg-gray-800 rounded-xl px-4 py-3 flex items-center gap-3">
+      <span class="text-gray-400 text-sm">BOT thinking</span>
+      <div class="flex items-center gap-1">
+        <span class="dot dot-1 inline-block w-2 h-2 bg-gray-400 rounded-full"></span>
+        <span class="dot dot-2 inline-block w-2 h-2 bg-gray-400 rounded-full"></span>
+        <span class="dot dot-3 inline-block w-2 h-2 bg-gray-400 rounded-full"></span>
+      </div>
+    </div>
+
+    <!-- Standalone -->
+    <div class="flex items-center gap-1">
+      <span class="dot dot-1 inline-block w-2 h-2 bg-gray-400 rounded-full"></span>
+      <span class="dot dot-2 inline-block w-2 h-2 bg-gray-400 rounded-full"></span>
+      <span class="dot dot-3 inline-block w-2 h-2 bg-gray-400 rounded-full"></span>
+    </div>
+  </div>
+</body>
+</html>

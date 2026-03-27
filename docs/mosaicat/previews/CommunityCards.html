@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommunityCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="space-y-8">
+    <!-- Flop (3 cards) -->
+    <div>
+      <p class="text-gray-400 text-sm font-semibold tracking-wide uppercase mb-3">Flop — 3 cards</p>
+      <div class="inline-flex items-center justify-center gap-2 bg-emerald-900/60 rounded-2xl px-6 py-4 border border-emerald-800/40">
+        <!-- A♠ -->
+        <div class="w-16 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center border border-gray-200 select-none" style="height:5.5rem">
+          <span class="text-xl font-bold text-gray-800 leading-none">A</span>
+          <span class="text-xl text-gray-800 leading-none mt-0.5">♠</span>
+        </div>
+        <!-- K♥ -->
+        <div class="w-16 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center border border-gray-200 select-none" style="height:5.5rem">
+          <span class="text-xl font-bold text-red-500 leading-none">K</span>
+          <span class="text-xl text-red-500 leading-none mt-0.5">♥</span>
+        </div>
+        <!-- 7♦ -->
+        <div class="w-16 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center border border-gray-200 select-none" style="height:5.5rem">
+          <span class="text-xl font-bold text-red-500 leading-none">7</span>
+          <span class="text-xl text-red-500 leading-none mt-0.5">♦</span>
+        </div>
+        <!-- Empty -->
+        <div class="w-16 rounded-lg border border-dashed border-gray-600/40 bg-gray-800/30 select-none" style="height:5.5rem"></div>
+        <div class="w-16 rounded-lg border border-dashed border-gray-600/40 bg-gray-800/30 select-none" style="height:5.5rem"></div>
+      </div>
+    </div>
+
+    <!-- Turn (4 cards) -->
+    <div>
+      <p class="text-gray-400 text-sm font-semibold tracking-wide uppercase mb-3">Turn — 4 cards</p>
+      <div class="inline-flex items-center justify-center gap-2 bg-emerald-900/60 rounded-2xl px-6 py-4 border border-emerald-800/40">
+        <div class="w-16 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center border border-gray-200 select-none" style="height:5.5rem">
+          <span class="text-xl font-bold text-gray-800 leading-none">A</span>
+          <span class="text-xl text-gray-800 leading-none mt-0.5">♠</span>
+        </div>
+        <div class="w-16 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center border border-gray-200 select-none" style="height:5.5rem">
+          <span class="text-xl font-bold text-red-500 leading-none">K</span>
+          <span class="text-xl text-red-500 leading-none mt-0.5">♥</span>
+        </div>
+        <div class="w-16 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center border border-gray-200 select-none" style="height:5.5rem">
+          <span class="text-xl font-bold text-red-500 leading-none">7</span>
+          <span class="text-xl text-red-500 leading-none mt-0.5">♦</span>
+        </div>
+        <div class="w-16 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center border border-gray-200 select-none" style="height:5.5rem">
+          <span class="text-xl font-bold text-gray-800 leading-none">2</span>
+          <span class="text-xl text-gray-800 leading-none mt-0.5">♣</span>
+        </div>
+        <div class="w-16 rounded-lg border border-dashed border-gray-600/40 bg-gray-800/30 select-none" style="height:5.5rem"></div>
+      </div>
+    </div>
+
+    <!-- River (5 cards) -->
+    <div>
+      <p class="text-gray-400 text-sm font-semibold tracking-wide uppercase mb-3">River — 5 cards</p>
+      <div class="inline-flex items-center justify-center gap-2 bg-emerald-900/60 rounded-2xl px-6 py-4 border border-emerald-800/40">
+        <div class="w-16 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center border border-gray-200 select-none" style="height:5.5rem">
+          <span class="text-xl font-bold text-gray-800 leading-none">A</span>
+          <span class="text-xl text-gray-800 leading-none mt-0.5">♠</span>
+        </div>
+        <div class="w-16 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center border border-gray-200 select-none" style="height:5.5rem">
+          <span class="text-xl font-bold text-red-500 leading-none">K</span>
+          <span class="text-xl text-red-500 leading-none mt-0.5">♥</span>
+        </div>
+        <div class="w-16 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center border border-gray-200 select-none" style="height:5.5rem">
+          <span class="text-xl font-bold text-red-500 leading-none">7</span>
+          <span class="text-xl text-red-500 leading-none mt-0.5">♦</span>
+        </div>
+        <div class="w-16 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center border border-gray-200 select-none" style="height:5.5rem">
+          <span class="text-xl font-bold text-gray-800 leading-none">2</span>
+          <span class="text-xl text-gray-800 leading-none mt-0.5">♣</span>
+        </div>
+        <div class="w-16 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center border border-gray-200 select-none" style="height:5.5rem">
+          <span class="text-xl font-bold text-red-500 leading-none">Q</span>
+          <span class="text-xl text-red-500 leading-none mt-0.5">♥</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

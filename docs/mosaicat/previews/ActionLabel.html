@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionLabel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-wrap gap-3 items-center">
+
+    <!-- Fold -->
+    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold border bg-gray-600/80 text-gray-300 border-gray-500/50 shadow-lg">
+      Fold
+    </span>
+
+    <!-- Check -->
+    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold border bg-emerald-600/80 text-emerald-100 border-emerald-400/50 shadow-lg">
+      Check
+    </span>
+
+    <!-- Call -->
+    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold border bg-sky-600/80 text-sky-100 border-sky-400/50 shadow-lg">
+      Call 3BB
+    </span>
+
+    <!-- Bet -->
+    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold border bg-amber-600/80 text-amber-100 border-amber-400/50 shadow-lg">
+      Bet 4BB
+    </span>
+
+    <!-- Raise -->
+    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold border bg-orange-600/80 text-orange-100 border-orange-400/50 shadow-lg">
+      Raise to 6BB
+    </span>
+
+    <!-- All-In -->
+    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold border bg-red-600/80 text-red-100 border-red-400/50 shadow-lg">
+      All-In 100BB
+    </span>
+
+  </div>
+
+  <!-- Hidden state demo -->
+  <div class="mt-6 text-gray-500 text-xs mb-2">Hidden state (opacity-0):</div>
+  <div class="flex gap-3">
+    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold border bg-amber-600/80 text-amber-100 border-amber-400/50 shadow-lg opacity-0">
+      Bet 4BB
+    </span>
+    <span class="text-gray-600 text-xs self-center">&larr; invisible label here</span>
+  </div>
+</body>
+</html>

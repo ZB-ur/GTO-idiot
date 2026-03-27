@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeatmapSkeleton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    .grid-13 { display: grid; grid-template-columns: repeat(13, 1fr); gap: 1px; }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.15; }
+    }
+    .skel-pulse { animation: pulse 1.5s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 480px;">
+    <div class="bg-gray-800 border border-gray-700 rounded-xl p-4">
+      <!-- Header skeleton -->
+      <div class="flex items-center justify-between mb-3">
+        <div class="h-4 w-32 bg-gray-700 rounded skel-pulse"></div>
+        <div class="h-3 w-10 bg-gray-700 rounded skel-pulse"></div>
+      </div>
+
+      <!-- 13×13 skeleton grid -->
+      <div class="grid-13" id="skeleton-grid"></div>
+
+      <!-- Legend skeleton -->
+      <div class="flex items-center gap-2 mt-3 pt-3 border-t border-gray-700">
+        <div class="h-2 w-8 bg-gray-700 rounded skel-pulse"></div>
+        <div class="flex gap-px flex-1">
+          <div class="h-2 flex-1 rounded-sm bg-gray-700 skel-pulse"></div>
+          <div class="h-2 flex-1 rounded-sm bg-gray-700 skel-pulse"></div>
+          <div class="h-2 flex-1 rounded-sm bg-gray-700 skel-pulse"></div>
+          <div class="h-2 flex-1 rounded-sm bg-gray-700 skel-pulse"></div>
+          <div class="h-2 flex-1 rounded-sm bg-gray-700 skel-pulse"></div>
+          <div class="h-2 flex-1 rounded-sm bg-gray-700 skel-pulse"></div>
+        </div>
+        <div class="h-2 w-8 bg-gray-700 rounded skel-pulse"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const grid = document.getElementById('skeleton-grid');
+    for (let i = 0; i < 169; i++) {
+      const div = document.createElement('div');
+      div.style.aspectRatio = '1';
+      div.style.borderRadius = '2px';
+      div.style.backgroundColor = '#374151';
+      div.classList.add('skel-pulse');
+      const row = Math.floor(i / 13);
+      const col = i % 13;
+      div.style.animationDelay = `${(col * 30 + row * 30)}ms`;
+      grid.appendChild(div);
+    }
+  </script>
+</body>
+</html>

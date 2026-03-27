@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeviationBadge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start;">
+    <!-- Optimal -->
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-emerald-400/15 text-emerald-400">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+      符合GTO
+    </span>
+
+    <!-- Slight -->
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-amber-400/15 text-amber-400">
+      <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+      轻微偏差
+    </span>
+
+    <!-- Significant -->
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-red-400/15 text-red-400">
+      <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+      显著偏差
+    </span>
+
+    <!-- No data -->
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-700/50 text-gray-500">
+      <span class="w-1.5 h-1.5 rounded-full bg-gray-500"></span>
+      无数据
+    </span>
+  </div>
+</body>
+</html>

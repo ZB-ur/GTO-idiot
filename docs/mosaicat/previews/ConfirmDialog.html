@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConfirmDialog Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 w-full max-w-sm shadow-xl">
+      <!-- Warning Icon -->
+      <div class="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z" />
+        </svg>
+      </div>
+
+      <h3 class="text-lg font-bold text-gray-100 text-center mb-2">确认离开牌桌？</h3>
+      <p class="text-sm text-gray-400 text-center mb-6">离开后本局将结束，你的筹码将被保存到 Session 记录中。</p>
+
+      <!-- Actions -->
+      <div class="flex gap-3">
+        <button class="flex-1 py-3 rounded-lg font-semibold border border-gray-600 text-gray-300">
+          取消
+        </button>
+        <button class="flex-1 py-3 rounded-lg font-semibold bg-emerald-500 text-gray-950">
+          确认离开
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .animate-pulse { animation: pulse 1s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-8 max-w-xs mx-auto pt-6">
+    <!-- Full time remaining -->
+    <div class="p-4 bg-gray-800 rounded-xl border border-gray-700">
+      <p class="text-gray-500 text-xs mb-3 uppercase tracking-wide">Full — 30s left</p>
+      <div class="w-full">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-gray-400 text-xs font-medium uppercase tracking-wide">Time</span>
+          <span class="text-sm font-bold text-gray-100" style="font-variant-numeric: tabular-nums;">30s</span>
+        </div>
+        <div class="w-full h-2 bg-gray-900 rounded-full overflow-hidden border border-gray-700">
+          <div class="h-full rounded-full bg-gradient-to-r from-emerald-500 to-emerald-400" style="width: 100%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Half time -->
+    <div class="p-4 bg-gray-800 rounded-xl border border-gray-700">
+      <p class="text-gray-500 text-xs mb-3 uppercase tracking-wide">Half — 15s left</p>
+      <div class="w-full">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-gray-400 text-xs font-medium uppercase tracking-wide">Time</span>
+          <span class="text-sm font-bold text-gray-100" style="font-variant-numeric: tabular-nums;">15s</span>
+        </div>
+        <div class="w-full h-2 bg-gray-900 rounded-full overflow-hidden border border-gray-700">
+          <div class="h-full rounded-full bg-gradient-to-r from-emerald-500 to-emerald-400" style="width: 50%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Urgent — under 10s -->
+    <div class="p-4 bg-gray-800 rounded-xl border border-gray-700">
+      <p class="text-gray-500 text-xs mb-3 uppercase tracking-wide">Urgent — 5s left</p>
+      <div class="w-full">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-gray-400 text-xs font-medium uppercase tracking-wide">Time</span>
+          <span class="text-sm font-bold text-red-400 animate-pulse" style="font-variant-numeric: tabular-nums;">5s</span>
+        </div>
+        <div class="w-full h-2 bg-gray-900 rounded-full overflow-hidden border border-gray-700">
+          <div class="h-full rounded-full bg-gradient-to-r from-red-500 to-red-400" style="width: 17%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Almost expired -->
+    <div class="p-4 bg-gray-800 rounded-xl border border-gray-700">
+      <p class="text-gray-500 text-xs mb-3 uppercase tracking-wide">Critical — 1s left</p>
+      <div class="w-full">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-gray-400 text-xs font-medium uppercase tracking-wide">Time</span>
+          <span class="text-sm font-bold text-red-400 animate-pulse" style="font-variant-numeric: tabular-nums;">1s</span>
+        </div>
+        <div class="w-full h-2 bg-gray-900 rounded-full overflow-hidden border border-gray-700">
+          <div class="h-full rounded-full bg-gradient-to-r from-red-500 to-red-400" style="width: 3%;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

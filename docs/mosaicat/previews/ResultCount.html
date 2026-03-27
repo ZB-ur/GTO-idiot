@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResultCount Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start;">
+    <!-- Filtered state -->
+    <span class="text-sm text-gray-500">
+      显示 <span class="text-emerald-400 font-medium">12</span> / <span class="text-gray-100 font-medium">47</span> 手
+    </span>
+
+    <!-- Unfiltered state -->
+    <span class="text-sm text-gray-500">
+      显示 <span class="text-gray-100 font-medium">47</span> / <span class="text-gray-100 font-medium">47</span> 手
+    </span>
+
+    <!-- Large numbers -->
+    <span class="text-sm text-gray-500">
+      显示 <span class="text-emerald-400 font-medium">238</span> / <span class="text-gray-100 font-medium">1,024</span> 手
+    </span>
+  </div>
+</body>
+</html>

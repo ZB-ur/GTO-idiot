@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col items-center gap-6 pt-6">
+    <!-- Default state -->
+    <div class="text-center">
+      <p class="text-gray-500 text-xs mb-2 uppercase tracking-wide">Default</p>
+      <button class="inline-flex items-center justify-center gap-2 px-6 py-3 min-w-[120px] rounded-lg font-semibold text-sm uppercase tracking-wide border bg-emerald-600 border-emerald-500 text-white hover:bg-emerald-500 hover:border-emerald-400 hover:shadow-lg hover:shadow-emerald-500/20 active:scale-95 transition-all duration-150">
+        <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="3,8 7,12 13,4" />
+        </svg>
+        Check
+      </button>
+    </div>
+
+    <!-- Hover state (simulated) -->
+    <div class="text-center">
+      <p class="text-gray-500 text-xs mb-2 uppercase tracking-wide">Hover</p>
+      <button class="inline-flex items-center justify-center gap-2 px-6 py-3 min-w-[120px] rounded-lg font-semibold text-sm uppercase tracking-wide border bg-emerald-500 border-emerald-400 text-white shadow-lg shadow-emerald-500/20 transition-all duration-150">
+        <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="3,8 7,12 13,4" />
+        </svg>
+        Check
+      </button>
+    </div>
+
+    <!-- Disabled state -->
+    <div class="text-center">
+      <p class="text-gray-500 text-xs mb-2 uppercase tracking-wide">Disabled</p>
+      <button disabled class="inline-flex items-center justify-center gap-2 px-6 py-3 min-w-[120px] rounded-lg font-semibold text-sm uppercase tracking-wide border bg-emerald-900/20 border-emerald-800/30 text-emerald-700 cursor-not-allowed transition-all duration-150">
+        <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="3,8 7,12 13,4" />
+        </svg>
+        Check
+      </button>
+    </div>
+
+    <!-- Side-by-side with FoldButton for context -->
+    <div class="text-center mt-4">
+      <p class="text-gray-500 text-xs mb-2 uppercase tracking-wide">Action Panel Context</p>
+      <div class="flex items-center gap-3 p-4 bg-gray-800 rounded-xl border border-gray-700">
+        <button class="inline-flex items-center justify-center gap-2 px-6 py-3 min-w-[120px] rounded-lg font-semibold text-sm uppercase tracking-wide border bg-gray-800 border-gray-600 text-gray-300 transition-all duration-150">
+          <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="4" x2="12" y2="12" />
+            <line x1="12" y1="4" x2="4" y2="12" />
+          </svg>
+          Fold
+        </button>
+        <button class="inline-flex items-center justify-center gap-2 px-6 py-3 min-w-[120px] rounded-lg font-semibold text-sm uppercase tracking-wide border bg-emerald-600 border-emerald-500 text-white transition-all duration-150">
+          <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3,8 7,12 13,4" />
+          </svg>
+          Check
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

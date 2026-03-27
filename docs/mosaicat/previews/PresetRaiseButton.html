@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PresetRaiseButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex gap-2">
+    <!-- 1/2 Pot -->
+    <button class="flex flex-col items-center justify-center px-3 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-amber-500 text-gray-100 rounded-lg transition-all duration-150 min-w-[72px]">
+      <span class="text-xs text-amber-400 font-medium uppercase">1/2 Pot</span>
+      <span class="text-sm font-bold text-gray-100">$150</span>
+    </button>
+
+    <!-- 3/4 Pot -->
+    <button class="flex flex-col items-center justify-center px-3 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-amber-500 text-gray-100 rounded-lg transition-all duration-150 min-w-[72px]">
+      <span class="text-xs text-amber-400 font-medium uppercase">3/4 Pot</span>
+      <span class="text-sm font-bold text-gray-100">$225</span>
+    </button>
+
+    <!-- Pot -->
+    <button class="flex flex-col items-center justify-center px-3 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-amber-500 text-gray-100 rounded-lg transition-all duration-150 min-w-[72px]">
+      <span class="text-xs text-amber-400 font-medium uppercase">Pot</span>
+      <span class="text-sm font-bold text-gray-100">$300</span>
+    </button>
+
+    <!-- All-In -->
+    <button class="flex flex-col items-center justify-center px-3 py-2 bg-gray-800 hover:bg-gray-700 border border-red-500/50 hover:border-red-500 text-gray-100 rounded-lg transition-all duration-150 min-w-[72px]">
+      <span class="text-xs text-red-400 font-medium uppercase">All-In</span>
+      <span class="text-sm font-bold text-gray-100">$2,400</span>
+    </button>
+  </div>
+</body>
+</html>

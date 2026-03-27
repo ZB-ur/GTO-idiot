@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="p-6 flex flex-col items-center gap-6">
+    <!-- Context text with highlighted term -->
+    <p class="text-gray-100 text-base">
+      Your opponent decided to
+      <span class="border-b border-dashed border-emerald-400 text-emerald-400 cursor-help">Check</span>
+    </p>
+
+    <!-- Tooltip shown -->
+    <div class="relative w-64">
+      <!-- Arrow -->
+      <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-gray-800 border-l border-t border-gray-700 rotate-45 z-10"></div>
+      <!-- Tooltip body -->
+      <div class="w-64 p-3 bg-gray-800 border border-gray-700 rounded-lg shadow-md">
+        <div class="flex items-baseline gap-2 mb-1">
+          <span class="text-emerald-400 font-semibold text-sm">Check</span>
+          <span class="text-gray-500 text-xs">过牌</span>
+        </div>
+        <p class="text-gray-300 text-sm leading-relaxed">不加注也不弃牌，将行动权传给下一位玩家。只有在当前轮无人加注时可用。</p>
+      </div>
+    </div>
+
+    <!-- Second tooltip example -->
+    <div class="relative w-64 mt-4">
+      <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-gray-800 border-l border-t border-gray-700 rotate-45 z-10"></div>
+      <div class="w-64 p-3 bg-gray-800 border border-gray-700 rounded-lg shadow-md">
+        <div class="flex items-baseline gap-2 mb-1">
+          <span class="text-emerald-400 font-semibold text-sm">Fold</span>
+          <span class="text-gray-500 text-xs">弃牌</span>
+        </div>
+        <p class="text-gray-300 text-sm leading-relaxed">放弃当前手牌，退出本轮牌局。已投入底池的筹码不会退回。</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

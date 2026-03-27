@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardFace Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-wrap gap-4 items-end">
+
+    <!-- Ace of Spades - lg -->
+    <div class="w-20 h-28 relative bg-white rounded-lg shadow-md border border-gray-300 flex items-center justify-center select-none overflow-hidden">
+      <div class="absolute top-0.5 left-1 flex flex-col items-center leading-none text-gray-100" style="color:#f3f4f6;">
+        <span class="text-sm font-bold" style="color:#1a1a2e;">A</span>
+        <span class="text-xs" style="color:#1a1a2e;">♠</span>
+      </div>
+      <span class="text-4xl" style="color:#1a1a2e;">♠</span>
+      <div class="absolute bottom-0.5 right-1 flex flex-col items-center leading-none rotate-180" style="color:#1a1a2e;">
+        <span class="text-sm font-bold">A</span>
+        <span class="text-xs">♠</span>
+      </div>
+    </div>
+
+    <!-- King of Hearts - lg -->
+    <div class="w-20 h-28 relative bg-white rounded-lg shadow-md border border-gray-300 flex items-center justify-center select-none overflow-hidden">
+      <div class="absolute top-0.5 left-1 flex flex-col items-center leading-none text-red-500">
+        <span class="text-sm font-bold">K</span>
+        <span class="text-xs">♥</span>
+      </div>
+      <span class="text-4xl text-red-500">♥</span>
+      <div class="absolute bottom-0.5 right-1 flex flex-col items-center leading-none rotate-180 text-red-500">
+        <span class="text-sm font-bold">K</span>
+        <span class="text-xs">♥</span>
+      </div>
+    </div>
+
+    <!-- Queen of Diamonds - md -->
+    <div class="w-14 h-20 relative bg-white rounded-lg shadow-md border border-gray-300 flex items-center justify-center select-none overflow-hidden">
+      <div class="absolute top-0.5 left-1 flex flex-col items-center leading-none text-red-500">
+        <span class="text-xs font-bold">Q</span>
+        <span class="text-[10px]">♦</span>
+      </div>
+      <span class="text-2xl text-red-500">♦</span>
+      <div class="absolute bottom-0.5 right-1 flex flex-col items-center leading-none rotate-180 text-red-500">
+        <span class="text-xs font-bold">Q</span>
+        <span class="text-[10px]">♦</span>
+      </div>
+    </div>
+
+    <!-- 7 of Clubs - md -->
+    <div class="w-14 h-20 relative bg-white rounded-lg shadow-md border border-gray-300 flex items-center justify-center select-none overflow-hidden">
+      <div class="absolute top-0.5 left-1 flex flex-col items-center leading-none" style="color:#1a1a2e;">
+        <span class="text-xs font-bold">7</span>
+        <span class="text-[10px]">♣</span>
+      </div>
+      <span class="text-2xl" style="color:#1a1a2e;">♣</span>
+      <div class="absolute bottom-0.5 right-1 flex flex-col items-center leading-none rotate-180" style="color:#1a1a2e;">
+        <span class="text-xs font-bold">7</span>
+        <span class="text-[10px]">♣</span>
+      </div>
+    </div>
+
+    <!-- T of Hearts - sm -->
+    <div class="w-10 h-14 relative bg-white rounded-lg shadow-md border border-gray-300 flex items-center justify-center select-none overflow-hidden">
+      <div class="absolute top-0.5 left-1 flex flex-col items-center leading-none text-red-500">
+        <span class="text-[10px] font-bold">T</span>
+        <span class="text-[8px]">♥</span>
+      </div>
+      <span class="text-lg text-red-500">♥</span>
+      <div class="absolute bottom-0.5 right-1 flex flex-col items-center leading-none rotate-180 text-red-500">
+        <span class="text-[10px] font-bold">T</span>
+        <span class="text-[8px]">♥</span>
+      </div>
+    </div>
+
+    <!-- 2 of Spades - sm -->
+    <div class="w-10 h-14 relative bg-white rounded-lg shadow-md border border-gray-300 flex items-center justify-center select-none overflow-hidden">
+      <div class="absolute top-0.5 left-1 flex flex-col items-center leading-none" style="color:#1a1a2e;">
+        <span class="text-[10px] font-bold">2</span>
+        <span class="text-[8px]">♠</span>
+      </div>
+      <span class="text-lg" style="color:#1a1a2e;">♠</span>
+      <div class="absolute bottom-0.5 right-1 flex flex-col items-center leading-none rotate-180" style="color:#1a1a2e;">
+        <span class="text-[10px] font-bold">2</span>
+        <span class="text-[8px]">♠</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Labels -->
+  <div class="flex flex-wrap gap-4 mt-3 text-gray-400 text-xs">
+    <span class="w-20 text-center">A♠ lg</span>
+    <span class="w-20 text-center">K♥ lg</span>
+    <span class="w-14 text-center">Q♦ md</span>
+    <span class="w-14 text-center">7♣ md</span>
+    <span class="w-10 text-center">T♥ sm</span>
+    <span class="w-10 text-center">2♠ sm</span>
+  </div>
+</body>
+</html>
