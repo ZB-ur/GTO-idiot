@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealAnimation Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes dealTo0 {
+      0% { left: 50%; top: 10%; transform: translate(-50%,-50%) scale(0.6); opacity: 1; }
+      100% { left: 50%; top: 85%; transform: translate(-50%,-50%) scale(1); opacity: 1; }
+    }
+    @keyframes dealTo1 {
+      0% { left: 50%; top: 10%; transform: translate(-50%,-50%) scale(0.6); opacity: 1; }
+      100% { left: 10%; top: 65%; transform: translate(-50%,-50%) scale(1); opacity: 1; }
+    }
+    @keyframes dealTo2 {
+      0% { left: 50%; top: 10%; transform: translate(-50%,-50%) scale(0.6); opacity: 1; }
+      100% { left: 10%; top: 25%; transform: translate(-50%,-50%) scale(1); opacity: 1; }
+    }
+    @keyframes dealTo3 {
+      0% { left: 50%; top: 10%; transform: translate(-50%,-50%) scale(0.6); opacity: 1; }
+      100% { left: 50%; top: 5%; transform: translate(-50%,-50%) scale(1); opacity: 1; }
+    }
+    @keyframes dealTo4 {
+      0% { left: 50%; top: 10%; transform: translate(-50%,-50%) scale(0.6); opacity: 1; }
+      100% { left: 90%; top: 25%; transform: translate(-50%,-50%) scale(1); opacity: 1; }
+    }
+    @keyframes dealTo5 {
+      0% { left: 50%; top: 10%; transform: translate(-50%,-50%) scale(0.6); opacity: 1; }
+      100% { left: 90%; top: 65%; transform: translate(-50%,-50%) scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="space-y-6">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">DealAnimation — Cards flying from deck to seats</p>
+
+    <!-- Table container -->
+    <div class="relative w-full max-w-lg mx-auto" style="height: 400px; background: radial-gradient(ellipse at center, #064e3b 0%, #022c22 70%); border-radius: 50% / 40%; border: 3px solid #047857;">
+
+      <!-- Deck position indicator -->
+      <div class="absolute flex flex-col items-center" style="left: 50%; top: 10%; transform: translate(-50%, -50%);">
+        <div class="w-12 h-16 rounded-lg bg-gradient-to-br from-sky-700 to-sky-900 border-2 border-sky-500 shadow-xl flex items-center justify-center relative">
+          <div class="absolute -top-0.5 -left-0.5 w-12 h-16 rounded-lg bg-sky-800 border border-sky-600 -z-10"></div>
+          <div class="absolute -top-1 -left-1 w-12 h-16 rounded-lg bg-sky-900 border border-sky-700 -z-20"></div>
+          <span class="text-sky-300/60 text-lg font-bold">✦</span>
+        </div>
+        <span class="text-gray-500 text-xs mt-1">Deck</span>
+      </div>
+
+      <!-- Seat labels -->
+      <div class="absolute text-gray-400/60 text-xs font-medium" style="left: 50%; top: 88%; transform: translate(-50%, -50%);">Seat 0</div>
+      <div class="absolute text-gray-400/60 text-xs font-medium" style="left: 8%; top: 65%; transform: translate(-50%, -50%);">Seat 1</div>
+      <div class="absolute text-gray-400/60 text-xs font-medium" style="left: 8%; top: 25%; transform: translate(-50%, -50%);">Seat 2</div>
+      <div class="absolute text-gray-400/60 text-xs font-medium" style="left: 50%; top: 2%; transform: translate(-50%, -50%);">Seat 3</div>
+      <div class="absolute text-gray-400/60 text-xs font-medium" style="left: 92%; top: 25%; transform: translate(-50%, -50%);">Seat 4</div>
+      <div class="absolute text-gray-400/60 text-xs font-medium" style="left: 92%; top: 65%; transform: translate(-50%, -50%);">Seat 5</div>
+
+      <!-- Animated cards dealing to each seat with stagger -->
+      <div class="absolute w-10 h-14 rounded-lg bg-gradient-to-br from-sky-800 to-sky-950 border border-sky-600 shadow-lg" style="animation: dealTo0 0.5s ease-out 0s infinite; left: 50%; top: 10%; transform: translate(-50%,-50%) scale(0.6);">
+        <div class="w-full h-full flex items-center justify-center"><div class="w-[70%] h-[75%] rounded border border-sky-500/40 bg-sky-900/60 flex items-center justify-center"><span class="text-sky-400/50 text-sm font-bold">✦</span></div></div>
+      </div>
+
+      <div class="absolute w-10 h-14 rounded-lg bg-gradient-to-br from-sky-800 to-sky-950 border border-sky-600 shadow-lg" style="animation: dealTo1 0.5s ease-out 0.15s infinite; left: 50%; top: 10%; transform: translate(-50%,-50%) scale(0.6);">
+        <div class="w-full h-full flex items-center justify-center"><div class="w-[70%] h-[75%] rounded border border-sky-500/40 bg-sky-900/60 flex items-center justify-center"><span class="text-sky-400/50 text-sm font-bold">✦</span></div></div>
+      </div>
+
+      <div class="absolute w-10 h-14 rounded-lg bg-gradient-to-br from-sky-800 to-sky-950 border border-sky-600 shadow-lg" style="animation: dealTo2 0.5s ease-out 0.3s infinite; left: 50%; top: 10%; transform: translate(-50%,-50%) scale(0.6);">
+        <div class="w-full h-full flex items-center justify-center"><div class="w-[70%] h-[75%] rounded border border-sky-500/40 bg-sky-900/60 flex items-center justify-center"><span class="text-sky-400/50 text-sm font-bold">✦</span></div></div>
+      </div>
+
+      <div class="absolute w-10 h-14 rounded-lg bg-gradient-to-br from-sky-800 to-sky-950 border border-sky-600 shadow-lg" style="animation: dealTo3 0.5s ease-out 0.45s infinite; left: 50%; top: 10%; transform: translate(-50%,-50%) scale(0.6);">
+        <div class="w-full h-full flex items-center justify-center"><div class="w-[70%] h-[75%] rounded border border-sky-500/40 bg-sky-900/60 flex items-center justify-center"><span class="text-sky-400/50 text-sm font-bold">✦</span></div></div>
+      </div>
+
+      <div class="absolute w-10 h-14 rounded-lg bg-gradient-to-br from-sky-800 to-sky-950 border border-sky-600 shadow-lg" style="animation: dealTo4 0.5s ease-out 0.6s infinite; left: 50%; top: 10%; transform: translate(-50%,-50%) scale(0.6);">
+        <div class="w-full h-full flex items-center justify-center"><div class="w-[70%] h-[75%] rounded border border-sky-500/40 bg-sky-900/60 flex items-center justify-center"><span class="text-sky-400/50 text-sm font-bold">✦</span></div></div>
+      </div>
+
+      <div class="absolute w-10 h-14 rounded-lg bg-gradient-to-br from-sky-800 to-sky-950 border border-sky-600 shadow-lg" style="animation: dealTo5 0.5s ease-out 0.75s infinite; left: 50%; top: 10%; transform: translate(-50%,-50%) scale(0.6);">
+        <div class="w-full h-full flex items-center justify-center"><div class="w-[70%] h-[75%] rounded border border-sky-500/40 bg-sky-900/60 flex items-center justify-center"><span class="text-sky-400/50 text-sm font-bold">✦</span></div></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

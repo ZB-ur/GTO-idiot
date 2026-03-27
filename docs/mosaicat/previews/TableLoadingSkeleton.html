@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TableLoadingSkeleton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .skeleton-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  </style>
+</head>
+<body>
+  <div class="relative w-full h-screen bg-gray-950 flex items-center justify-center overflow-hidden">
+
+    <!-- Table felt skeleton -->
+    <div class="relative" style="width: 70%; height: 55%;">
+      <div class="absolute inset-0 rounded-[50%] border-4 skeleton-pulse" style="background: rgba(6,78,59,0.4); border-color: rgba(4,120,87,0.3);"></div>
+
+      <!-- Community cards skeleton -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2">
+        <div class="w-12 h-[68px] rounded-lg skeleton-pulse" style="background: rgba(6,78,59,0.5);"></div>
+        <div class="w-12 h-[68px] rounded-lg skeleton-pulse" style="background: rgba(6,78,59,0.5);"></div>
+        <div class="w-12 h-[68px] rounded-lg skeleton-pulse" style="background: rgba(6,78,59,0.5);"></div>
+        <div class="w-12 h-[68px] rounded-lg skeleton-pulse" style="background: rgba(6,78,59,0.5);"></div>
+        <div class="w-12 h-[68px] rounded-lg skeleton-pulse" style="background: rgba(6,78,59,0.5);"></div>
+      </div>
+
+      <!-- Pot skeleton -->
+      <div class="absolute left-1/2 -translate-x-1/2" style="top: 30%;">
+        <div class="w-24 h-6 rounded-full bg-gray-800 skeleton-pulse"></div>
+      </div>
+    </div>
+
+    <!-- Seat 0: bottom center (user) -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2" style="top: 78%; left: 50%;">
+      <div class="w-14 h-14 rounded-full bg-gray-800 skeleton-pulse"></div>
+      <div class="w-16 h-4 rounded-lg bg-gray-800 skeleton-pulse"></div>
+      <div class="w-12 h-3 rounded-lg bg-gray-800 skeleton-pulse"></div>
+    </div>
+
+    <!-- Seat 1: bottom left -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2" style="top: 58%; left: 10%;">
+      <div class="w-14 h-14 rounded-full bg-gray-800 skeleton-pulse"></div>
+      <div class="w-16 h-4 rounded-lg bg-gray-800 skeleton-pulse"></div>
+      <div class="w-12 h-3 rounded-lg bg-gray-800 skeleton-pulse"></div>
+    </div>
+
+    <!-- Seat 2: top left -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2" style="top: 18%; left: 14%;">
+      <div class="w-14 h-14 rounded-full bg-gray-800 skeleton-pulse"></div>
+      <div class="w-16 h-4 rounded-lg bg-gray-800 skeleton-pulse"></div>
+      <div class="w-12 h-3 rounded-lg bg-gray-800 skeleton-pulse"></div>
+    </div>
+
+    <!-- Seat 3: top center -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2" style="top: 8%; left: 50%;">
+      <div class="w-14 h-14 rounded-full bg-gray-800 skeleton-pulse"></div>
+      <div class="w-16 h-4 rounded-lg bg-gray-800 skeleton-pulse"></div>
+      <div class="w-12 h-3 rounded-lg bg-gray-800 skeleton-pulse"></div>
+    </div>
+
+    <!-- Seat 4: top right -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2" style="top: 18%; left: 86%;">
+      <div class="w-14 h-14 rounded-full bg-gray-800 skeleton-pulse"></div>
+      <div class="w-16 h-4 rounded-lg bg-gray-800 skeleton-pulse"></div>
+      <div class="w-12 h-3 rounded-lg bg-gray-800 skeleton-pulse"></div>
+    </div>
+
+    <!-- Seat 5: bottom right -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2" style="top: 58%; left: 90%;">
+      <div class="w-14 h-14 rounded-full bg-gray-800 skeleton-pulse"></div>
+      <div class="w-16 h-4 rounded-lg bg-gray-800 skeleton-pulse"></div>
+      <div class="w-12 h-3 rounded-lg bg-gray-800 skeleton-pulse"></div>
+    </div>
+
+    <!-- Loading text -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-500 text-sm skeleton-pulse">
+      牌桌加载中…
+    </div>
+  </div>
+</body>
+</html>

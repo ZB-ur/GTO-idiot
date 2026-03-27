@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreetTimeline Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-xl mx-auto space-y-8">
+    <!-- State: Flop active, preflop+flop available -->
+    <div class="bg-gray-900 rounded-xl border border-gray-700 p-4">
+      <p class="text-gray-500 text-xs mb-3 uppercase tracking-wider">Active: Flop</p>
+      <div class="flex items-center justify-center gap-0 py-4 px-6">
+        <!-- Preflop - past -->
+        <div class="relative flex flex-col items-center gap-1.5 cursor-pointer">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold bg-amber-500/20 text-amber-400 border-2 border-amber-500/50">1</div>
+          <span class="text-xs font-medium text-gray-400">翻前</span>
+        </div>
+        <!-- Connector - active -->
+        <div class="flex-1 min-w-8 max-w-16 h-0.5 mt-[-18px] mx-1">
+          <div class="h-full rounded-full bg-amber-500/50"></div>
+        </div>
+        <!-- Flop - active -->
+        <div class="relative flex flex-col items-center gap-1.5 cursor-pointer">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold bg-amber-500 text-gray-950 shadow-lg scale-110" style="box-shadow: 0 10px 15px -3px rgba(245,158,11,0.3);">2</div>
+          <span class="text-xs font-medium text-amber-400">翻牌</span>
+        </div>
+        <!-- Connector - inactive -->
+        <div class="flex-1 min-w-8 max-w-16 h-0.5 mt-[-18px] mx-1">
+          <div class="h-full rounded-full bg-gray-700"></div>
+        </div>
+        <!-- Turn - available but future -->
+        <div class="relative flex flex-col items-center gap-1.5 cursor-pointer group">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-800 text-gray-400 border-2 border-gray-700">3</div>
+          <span class="text-xs font-medium text-gray-500">转牌</span>
+        </div>
+        <!-- Connector - inactive -->
+        <div class="flex-1 min-w-8 max-w-16 h-0.5 mt-[-18px] mx-1">
+          <div class="h-full rounded-full bg-gray-700"></div>
+        </div>
+        <!-- River - unavailable -->
+        <div class="relative flex flex-col items-center gap-1.5 cursor-not-allowed">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-900 text-gray-600 border-2 border-gray-800">4</div>
+          <span class="text-xs font-medium text-gray-600">河牌</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- State: River active, all available -->
+    <div class="bg-gray-900 rounded-xl border border-gray-700 p-4">
+      <p class="text-gray-500 text-xs mb-3 uppercase tracking-wider">Active: River (all available)</p>
+      <div class="flex items-center justify-center gap-0 py-4 px-6">
+        <!-- Preflop - past -->
+        <div class="relative flex flex-col items-center gap-1.5 cursor-pointer">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold bg-amber-500/20 text-amber-400 border-2 border-amber-500/50">1</div>
+          <span class="text-xs font-medium text-gray-400">翻前</span>
+        </div>
+        <div class="flex-1 min-w-8 max-w-16 h-0.5 mt-[-18px] mx-1">
+          <div class="h-full rounded-full bg-amber-500/50"></div>
+        </div>
+        <!-- Flop - past -->
+        <div class="relative flex flex-col items-center gap-1.5 cursor-pointer">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold bg-amber-500/20 text-amber-400 border-2 border-amber-500/50">2</div>
+          <span class="text-xs font-medium text-gray-400">翻牌</span>
+        </div>
+        <div class="flex-1 min-w-8 max-w-16 h-0.5 mt-[-18px] mx-1">
+          <div class="h-full rounded-full bg-amber-500/50"></div>
+        </div>
+        <!-- Turn - past -->
+        <div class="relative flex flex-col items-center gap-1.5 cursor-pointer">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold bg-amber-500/20 text-amber-400 border-2 border-amber-500/50">3</div>
+          <span class="text-xs font-medium text-gray-400">转牌</span>
+        </div>
+        <div class="flex-1 min-w-8 max-w-16 h-0.5 mt-[-18px] mx-1">
+          <div class="h-full rounded-full bg-amber-500/50"></div>
+        </div>
+        <!-- River - active -->
+        <div class="relative flex flex-col items-center gap-1.5 cursor-pointer">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold bg-amber-500 text-gray-950 shadow-lg scale-110" style="box-shadow: 0 10px 15px -3px rgba(245,158,11,0.3);">4</div>
+          <span class="text-xs font-medium text-amber-400">河牌</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

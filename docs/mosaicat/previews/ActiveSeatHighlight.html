@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActiveSeatHighlight Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 12px 2px rgba(245,158,11,0.5), 0 0 24px 4px rgba(245,158,11,0.25); }
+      50% { box-shadow: 0 0 18px 4px rgba(245,158,11,0.7), 0 0 36px 8px rgba(245,158,11,0.35); }
+    }
+  </style>
+</head>
+<body>
+  <div style="display: flex; gap: 40px; align-items: center; justify-content: center; padding: 32px;">
+    <!-- Inactive seat -->
+    <div class="relative w-36 rounded-xl bg-gray-900 border border-gray-700 p-4 text-center">
+      <span class="text-gray-50 text-sm font-medium">Player 1</span>
+      <div class="text-gray-400 text-xs mt-1">$1,200</div>
+    </div>
+
+    <!-- Active seat with highlight -->
+    <div class="relative w-36 rounded-xl bg-gray-900 border border-gray-700 p-4 text-center">
+      <div class="absolute inset-0 rounded-xl border-2 border-amber-500" style="animation: glowPulse 2s ease-in-out infinite;"></div>
+      <span class="relative text-gray-50 text-sm font-medium">Player 2</span>
+      <div class="relative text-gray-400 text-xs mt-1">$980</div>
+    </div>
+  </div>
+</body>
+</html>

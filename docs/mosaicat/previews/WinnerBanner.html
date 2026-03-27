@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WinnerBanner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 20px; max-width: 600px; margin: 32px auto;">
+    <!-- With winning hand -->
+    <div class="flex items-center justify-center py-3 px-6 rounded-xl border border-amber-500/30" style="background: linear-gradient(to right, rgba(245,158,11,0.05), rgba(245,158,11,0.15), rgba(245,158,11,0.05));">
+      <div class="flex flex-col items-center gap-1">
+        <div class="flex items-center gap-2">
+          <span class="text-amber-500 text-lg">🏆</span>
+          <span class="text-gray-50 font-bold text-lg">Alice</span>
+          <span class="text-gray-400 font-medium">赢得底池</span>
+          <span class="text-amber-400 font-bold text-lg">$2,450</span>
+        </div>
+        <span class="text-gray-500 text-sm">Full House, Aces over Kings</span>
+      </div>
+    </div>
+
+    <!-- Without winning hand -->
+    <div class="flex items-center justify-center py-3 px-6 rounded-xl border border-amber-500/30" style="background: linear-gradient(to right, rgba(245,158,11,0.05), rgba(245,158,11,0.15), rgba(245,158,11,0.05));">
+      <div class="flex flex-col items-center gap-1">
+        <div class="flex items-center gap-2">
+          <span class="text-amber-500 text-lg">🏆</span>
+          <span class="text-gray-50 font-bold text-lg">Bob</span>
+          <span class="text-gray-400 font-medium">赢得底池</span>
+          <span class="text-amber-400 font-bold text-lg">$800</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

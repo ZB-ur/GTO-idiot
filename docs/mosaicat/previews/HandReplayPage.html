@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandReplayPage Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; color: #f9fafb; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen bg-gray-950 text-gray-50">
+    <div class="max-w-6xl mx-auto px-4 py-6 space-y-5">
+
+      <!-- Top bar -->
+      <div class="flex items-center justify-between">
+        <a href="#" class="inline-flex items-center gap-2 text-gray-400 hover:text-amber-500 transition-colors text-sm">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+          返回手牌列表
+        </a>
+        <div class="flex items-center gap-4">
+          <div class="flex items-center gap-3 text-xs">
+            <span class="text-emerald-500">✅ 2</span>
+            <span class="text-yellow-500">⚠️ 1</span>
+            <span class="text-red-500">❌ 1</span>
+          </div>
+          <div class="text-sm font-bold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-500">
+            +6.0 BB
+          </div>
+        </div>
+      </div>
+
+      <!-- Page title -->
+      <div>
+        <h1 class="text-xl font-bold text-gray-50">手牌 #5 复盘</h1>
+        <p class="text-gray-500 text-xs mt-1">2026/3/28 18:05:00</p>
+      </div>
+
+      <!-- Table View (Felt) -->
+      <div class="bg-emerald-900 border-2 border-emerald-700 rounded-xl p-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 100%);"></div>
+        <div class="relative flex flex-col items-center gap-4">
+          <!-- Community cards -->
+          <div class="flex items-center gap-2">
+            <!-- Flop -->
+            <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center font-bold text-sm text-red-500">
+              <span>K</span><span class="-mt-1">♥</span>
+            </div>
+            <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center font-bold text-sm text-gray-100">
+              <span>7</span><span class="-mt-1">♠</span>
+            </div>
+            <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center font-bold text-sm text-red-500">
+              <span>2</span><span class="-mt-1">♦</span>
+            </div>
+            <!-- Turn -->
+            <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center font-bold text-sm text-gray-100">
+              <span>T</span><span class="-mt-1">♣</span>
+            </div>
+            <!-- River -->
+            <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center font-bold text-sm text-red-500">
+              <span>5</span><span class="-mt-1">♥</span>
+            </div>
+          </div>
+          <!-- Divider -->
+          <div class="w-32 h-px bg-emerald-700/50"></div>
+          <!-- Hole cards -->
+          <div class="flex items-center gap-2">
+            <span class="text-emerald-400/70 text-xs mr-2">你的手牌</span>
+            <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center font-bold text-sm text-gray-100">
+              <span>A</span><span class="-mt-1">♠</span>
+            </div>
+            <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center font-bold text-sm text-red-500">
+              <span>T</span><span class="-mt-1">♥</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Street Timeline -->
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-4">
+        <div class="flex items-center gap-1">
+          <!-- Preflop -->
+          <button class="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-400 hover:text-gray-200 hover:bg-gray-800/50">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span class="text-sm">翻前</span>
+          </button>
+          <div class="w-6 h-px bg-gray-700 mx-1"></div>
+          <!-- Flop (active) -->
+          <button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 text-amber-500 font-semibold">
+            <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+            <span class="text-sm">翻牌</span>
+          </button>
+          <div class="w-6 h-px bg-gray-700 mx-1"></div>
+          <!-- Turn -->
+          <button class="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-400 hover:text-gray-200 hover:bg-gray-800/50">
+            <span class="w-2 h-2 rounded-full bg-red-500"></span>
+            <span class="text-sm">转牌</span>
+          </button>
+          <div class="w-6 h-px bg-gray-700 mx-1"></div>
+          <!-- River -->
+          <button class="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-400 hover:text-gray-200 hover:bg-gray-800/50">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span class="text-sm">河牌</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Action + Decision panels -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+
+        <!-- Action Sequence Panel -->
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <h3 class="text-gray-50 font-semibold text-sm mb-3">行动序列</h3>
+          <div class="space-y-1.5">
+            <!-- Action 1: Opponent check -->
+            <div class="w-full flex items-center gap-3 px-3 py-2 rounded-lg opacity-60 border border-transparent">
+              <span class="text-xs font-medium w-16 truncate text-gray-400">玩家3</span>
+              <span class="text-gray-50 text-sm flex-1">过牌</span>
+              <span class="text-gray-500 text-xs">pot 15</span>
+            </div>
+            <!-- Action 2: User bet (selected, acceptable) -->
+            <div class="w-full flex items-center gap-3 px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/30">
+              <span class="text-xs font-medium w-16 truncate text-amber-500">你</span>
+              <span class="text-gray-50 text-sm flex-1">下注 10</span>
+              <span class="text-gray-500 text-xs">pot 25</span>
+              <span class="text-xs px-2 py-0.5 rounded-full bg-yellow-500/10 text-yellow-500">⚠️ 可接受</span>
+            </div>
+            <!-- Action 3: Opponent call -->
+            <div class="w-full flex items-center gap-3 px-3 py-2 rounded-lg opacity-60 border border-transparent">
+              <span class="text-xs font-medium w-16 truncate text-gray-400">玩家3</span>
+              <span class="text-gray-50 text-sm flex-1">跟注 10</span>
+              <span class="text-gray-500 text-xs">pot 35</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decision Detail Panel -->
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 space-y-4">
+          <!-- Header -->
+          <div class="flex items-center justify-between">
+            <h3 class="text-gray-50 font-semibold text-sm">决策 #2 — 翻牌</h3>
+            <span class="text-sm font-semibold px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-500">⚠️ 可接受</span>
+          </div>
+
+          <!-- Context info -->
+          <div class="grid grid-cols-3 gap-3 text-xs">
+            <div class="bg-gray-800 rounded-lg p-2.5 text-center">
+              <div class="text-gray-500 mb-0.5">位置</div>
+              <div class="text-gray-50 font-semibold">CO</div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-2.5 text-center">
+              <div class="text-gray-500 mb-0.5">底池</div>
+              <div class="text-gray-50 font-semibold">15 BB</div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-2.5 text-center">
+              <div class="text-gray-500 mb-0.5">剩余</div>
+              <div class="text-gray-50 font-semibold">394 BB</div>
+            </div>
+          </div>
+
+          <!-- Action comparison -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-gray-800 rounded-lg p-3">
+              <div class="text-gray-500 text-xs mb-1.5">你的行动</div>
+              <div class="text-gray-50 font-semibold text-sm">下注 10</div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-3">
+              <div class="text-gray-500 text-xs mb-1.5">GTO 推荐</div>
+              <div class="text-amber-500 font-semibold text-sm">下注 5 (1/3 pot)</div>
+            </div>
+          </div>
+
+          <!-- EV difference -->
+          <div class="flex items-center gap-2 text-xs">
+            <span class="text-gray-500">EV 差异:</span>
+            <span class="text-red-500 font-semibold">-0.8 BB</span>
+            <span class="text-gray-600 italic">(近似值)</span>
+          </div>
+
+          <!-- Explanation -->
+          <div class="bg-gray-800/50 rounded-lg p-3 border border-gray-700/50">
+            <p class="text-gray-300 text-sm leading-relaxed">
+              K72r干燥牌面，ATs拥有后门顺子和后门同花听牌。GTO倾向于使用较小的下注尺度（1/3底池），以维持较宽的下注范围。下注10偏大但方向正确。
+            </p>
+          </div>
+
+          <!-- Confidence badge -->
+          <div class="flex items-center gap-2">
+            <span class="text-xs px-2 py-0.5 rounded-full bg-sky-400/10 text-sky-400">近似参考</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

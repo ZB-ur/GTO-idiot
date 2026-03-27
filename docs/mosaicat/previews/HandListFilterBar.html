@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandListFilterBar Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <!-- State: "all" active -->
+  <div class="max-w-md mx-auto space-y-6">
+    <p class="text-gray-500 text-xs mb-1">activeFilter = "all"</p>
+    <div class="flex gap-2 p-1 bg-gray-900 rounded-lg border border-gray-800">
+      <button class="flex-1 px-4 py-2 text-sm font-medium rounded-lg bg-amber-500 text-gray-950 shadow-sm">
+        全部
+      </button>
+      <button class="flex-1 px-4 py-2 text-sm font-medium rounded-lg text-gray-400">
+        仅 ❌ 错误决策
+      </button>
+    </div>
+
+    <!-- State: "errors_only" active -->
+    <p class="text-gray-500 text-xs mb-1 mt-8">activeFilter = "errors_only"</p>
+    <div class="flex gap-2 p-1 bg-gray-900 rounded-lg border border-gray-800">
+      <button class="flex-1 px-4 py-2 text-sm font-medium rounded-lg text-gray-400">
+        全部
+      </button>
+      <button class="flex-1 px-4 py-2 text-sm font-medium rounded-lg bg-amber-500 text-gray-950 shadow-sm">
+        仅 ❌ 错误决策
+      </button>
+    </div>
+  </div>
+</body>
+</html>

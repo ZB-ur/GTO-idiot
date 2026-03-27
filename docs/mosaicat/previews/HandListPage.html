@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandListPage Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {}
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-950 min-h-screen text-gray-50">
+
+  <!-- Page Container -->
+  <div class="max-w-4xl mx-auto px-4 py-6 space-y-6">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-50">手牌记录</h1>
+        <p class="mt-1 text-sm text-gray-400">浏览和回顾你的对局历史</p>
+      </div>
+      <div class="text-sm text-gray-500">共 24 手</div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="bg-gray-900 rounded-xl border border-gray-800 p-4">
+      <div class="flex flex-wrap items-center gap-3">
+        <!-- Result Filter -->
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-gray-500 uppercase tracking-wide">结果</span>
+          <div class="flex gap-1">
+            <button class="px-3 py-1.5 text-sm rounded-lg bg-gray-800 text-gray-300 border border-gray-700 hover:border-gray-600 transition-colors">全部</button>
+            <button class="px-3 py-1.5 text-sm rounded-lg bg-emerald-900/40 text-emerald-400 border border-emerald-700/50 transition-colors">赢</button>
+            <button class="px-3 py-1.5 text-sm rounded-lg bg-gray-800 text-gray-300 border border-gray-700 hover:border-gray-600 transition-colors">输</button>
+            <button class="px-3 py-1.5 text-sm rounded-lg bg-gray-800 text-gray-300 border border-gray-700 hover:border-gray-600 transition-colors">弃牌</button>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-px h-6 bg-gray-800"></div>
+
+        <!-- Position Filter -->
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-gray-500 uppercase tracking-wide">位置</span>
+          <div class="flex gap-1">
+            <button class="px-2.5 py-1.5 text-xs rounded-lg bg-gray-800 text-gray-300 border border-gray-700 hover:border-gray-600 transition-colors font-mono">ALL</button>
+            <button class="px-2.5 py-1.5 text-xs rounded-lg bg-gray-800 text-gray-300 border border-gray-700 hover:border-gray-600 transition-colors font-mono">UTG</button>
+            <button class="px-2.5 py-1.5 text-xs rounded-lg bg-gray-800 text-gray-300 border border-gray-700 hover:border-gray-600 transition-colors font-mono">HJ</button>
+            <button class="px-2.5 py-1.5 text-xs rounded-lg bg-gray-800 text-gray-300 border border-gray-700 hover:border-gray-600 transition-colors font-mono">CO</button>
+            <button class="px-2.5 py-1.5 text-xs rounded-lg bg-amber-500/20 text-amber-400 border border-amber-500/40 transition-colors font-mono">BTN</button>
+            <button class="px-2.5 py-1.5 text-xs rounded-lg bg-gray-800 text-gray-300 border border-gray-700 hover:border-gray-600 transition-colors font-mono">SB</button>
+            <button class="px-2.5 py-1.5 text-xs rounded-lg bg-gray-800 text-gray-300 border border-gray-700 hover:border-gray-600 transition-colors font-mono">BB</button>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-px h-6 bg-gray-800"></div>
+
+        <!-- Sort -->
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-gray-500 uppercase tracking-wide">排序</span>
+          <select class="bg-gray-800 border border-gray-700 text-gray-300 text-sm rounded-lg px-3 py-1.5 focus:outline-none focus:border-amber-500/50">
+            <option>最新优先</option>
+            <option>最早优先</option>
+            <option>盈利最多</option>
+            <option>亏损最多</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hand List -->
+    <div class="space-y-3">
+
+      <!-- Hand 1: Win -->
+      <div class="bg-gray-900 rounded-xl border border-gray-800 p-4 hover:border-gray-700 transition-colors cursor-pointer">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <!-- Hole Cards -->
+            <div class="flex gap-1">
+              <div class="w-10 h-14 rounded-lg bg-white flex items-center justify-center shadow-md">
+                <span class="text-red-500 font-bold text-sm">A<span class="text-xs">♥</span></span>
+              </div>
+              <div class="w-10 h-14 rounded-lg bg-white flex items-center justify-center shadow-md">
+                <span class="text-red-500 font-bold text-sm">K<span class="text-xs">♥</span></span>
+              </div>
+            </div>
+            <!-- Info -->
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-50">AKs</span>
+                <span class="px-2 py-0.5 text-xs font-mono rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">BTN</span>
+                <span class="text-xs text-gray-500">→ River</span>
+              </div>
+              <div class="flex items-center gap-3 text-xs text-gray-500">
+                <span>NL50</span>
+                <span>底池 42 BB</span>
+                <span>3分钟前</span>
+              </div>
+            </div>
+          </div>
+          <!-- Result -->
+          <div class="text-right">
+            <div class="text-emerald-400 font-bold text-lg">+18.5 BB</div>
+            <div class="text-xs text-emerald-500/70">赢</div>
+          </div>
+        </div>
+        <!-- Board -->
+        <div class="mt-3 pt-3 border-t border-gray-800 flex items-center gap-2">
+          <span class="text-xs text-gray-500">公共牌:</span>
+          <div class="flex gap-1">
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-gray-300 font-mono">K♠</span>
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-gray-300 font-mono">9♣</span>
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-red-400 font-mono">4♥</span>
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-gray-300 font-mono">2♠</span>
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-red-400 font-mono">7♦</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hand 2: Lose -->
+      <div class="bg-gray-900 rounded-xl border border-gray-800 p-4 hover:border-gray-700 transition-colors cursor-pointer">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div class="flex gap-1">
+              <div class="w-10 h-14 rounded-lg bg-white flex items-center justify-center shadow-md">
+                <span class="text-gray-800 font-bold text-sm">Q<span class="text-xs">♠</span></span>
+              </div>
+              <div class="w-10 h-14 rounded-lg bg-white flex items-center justify-center shadow-md">
+                <span class="text-gray-800 font-bold text-sm">Q<span class="text-xs">♣</span></span>
+              </div>
+            </div>
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-50">QQ</span>
+                <span class="px-2 py-0.5 text-xs font-mono rounded-full bg-gray-800 text-gray-400 border border-gray-700">CO</span>
+                <span class="text-xs text-gray-500">→ River</span>
+              </div>
+              <div class="flex items-center gap-3 text-xs text-gray-500">
+                <span>NL50</span>
+                <span>底池 86 BB</span>
+                <span>12分钟前</span>
+              </div>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="text-red-400 font-bold text-lg">-43.0 BB</div>
+            <div class="text-xs text-red-500/70">输</div>
+          </div>
+        </div>
+        <div class="mt-3 pt-3 border-t border-gray-800 flex items-center gap-2">
+          <span class="text-xs text-gray-500">公共牌:</span>
+          <div class="flex gap-1">
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-red-400 font-mono">A♥</span>
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-gray-300 font-mono">J♣</span>
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-gray-300 font-mono">5♠</span>
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-red-400 font-mono">3♦</span>
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-red-400 font-mono">A♦</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hand 3: Fold (preflop) -->
+      <div class="bg-gray-900 rounded-xl border border-gray-800 p-4 hover:border-gray-700 transition-colors cursor-pointer">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div class="flex gap-1">
+              <div class="w-10 h-14 rounded-lg bg-white flex items-center justify-center shadow-md">
+                <span class="text-gray-800 font-bold text-sm">7<span class="text-xs">♠</span></span>
+              </div>
+              <div class="w-10 h-14 rounded-lg bg-white flex items-center justify-center shadow-md">
+                <span class="text-red-500 font-bold text-sm">2<span class="text-xs">♥</span></span>
+              </div>
+            </div>
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-50">72o</span>
+                <span class="px-2 py-0.5 text-xs font-mono rounded-full bg-gray-800 text-gray-400 border border-gray-700">UTG</span>
+                <span class="text-xs text-gray-500">→ Preflop</span>
+              </div>
+              <div class="flex items-center gap-3 text-xs text-gray-500">
+                <span>NL50</span>
+                <span>底池 1.5 BB</span>
+                <span>15分钟前</span>
+              </div>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="text-gray-400 font-bold text-lg">-1.0 BB</div>
+            <div class="text-xs text-gray-500">弃牌</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hand 4: Win -->
+      <div class="bg-gray-900 rounded-xl border border-gray-800 p-4 hover:border-gray-700 transition-colors cursor-pointer">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div class="flex gap-1">
+              <div class="w-10 h-14 rounded-lg bg-white flex items-center justify-center shadow-md">
+                <span class="text-red-500 font-bold text-sm">J<span class="text-xs">♦</span></span>
+              </div>
+              <div class="w-10 h-14 rounded-lg bg-white flex items-center justify-center shadow-md">
+                <span class="text-red-500 font-bold text-sm">T<span class="text-xs">♦</span></span>
+              </div>
+            </div>
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-50">JTs</span>
+                <span class="px-2 py-0.5 text-xs font-mono rounded-full bg-gray-800 text-gray-400 border border-gray-700">HJ</span>
+                <span class="text-xs text-gray-500">→ Turn</span>
+              </div>
+              <div class="flex items-center gap-3 text-xs text-gray-500">
+                <span>NL50</span>
+                <span>底池 28 BB</span>
+                <span>22分钟前</span>
+              </div>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="text-emerald-400 font-bold text-lg">+14.0 BB</div>
+            <div class="text-xs text-emerald-500/70">赢</div>
+          </div>
+        </div>
+        <div class="mt-3 pt-3 border-t border-gray-800 flex items-center gap-2">
+          <span class="text-xs text-gray-500">公共牌:</span>
+          <div class="flex gap-1">
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-gray-300 font-mono">Q♣</span>
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-gray-300 font-mono">9♠</span>
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-red-400 font-mono">3♥</span>
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-gray-300 font-mono">8♣</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hand 5: Lose (small) -->
+      <div class="bg-gray-900 rounded-xl border border-gray-800 p-4 hover:border-gray-700 transition-colors cursor-pointer">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div class="flex gap-1">
+              <div class="w-10 h-14 rounded-lg bg-white flex items-center justify-center shadow-md">
+                <span class="text-gray-800 font-bold text-sm">A<span class="text-xs">♠</span></span>
+              </div>
+              <div class="w-10 h-14 rounded-lg bg-white flex items-center justify-center shadow-md">
+                <span class="text-gray-800 font-bold text-sm">9<span class="text-xs">♣</span></span>
+              </div>
+            </div>
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-50">A9o</span>
+                <span class="px-2 py-0.5 text-xs font-mono rounded-full bg-gray-800 text-gray-400 border border-gray-700">SB</span>
+                <span class="text-xs text-gray-500">→ Flop</span>
+              </div>
+              <div class="flex items-center gap-3 text-xs text-gray-500">
+                <span>NL50</span>
+                <span>底池 12 BB</span>
+                <span>35分钟前</span>
+              </div>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="text-red-400 font-bold text-lg">-6.0 BB</div>
+            <div class="text-xs text-red-500/70">输</div>
+          </div>
+        </div>
+        <div class="mt-3 pt-3 border-t border-gray-800 flex items-center gap-2">
+          <span class="text-xs text-gray-500">公共牌:</span>
+          <div class="flex gap-1">
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-gray-300 font-mono">K♣</span>
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-red-400 font-mono">T♥</span>
+            <span class="px-2 py-1 text-xs rounded bg-gray-800 text-red-400 font-mono">6♦</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

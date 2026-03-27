@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTOUnavailableNotice Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="max-width: 400px;">
+    <div class="flex flex-col items-center justify-center gap-3 rounded-xl border border-gray-700 bg-gray-900 px-6 py-8 text-center">
+      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-800">
+        <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+        </svg>
+      </div>
+      <p class="text-sm text-gray-400">GTO数据暂不可用</p>
+    </div>
+
+    <div class="mt-6">
+      <div class="flex flex-col items-center justify-center gap-3 rounded-xl border border-gray-700 bg-gray-900 px-6 py-8 text-center">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-800">
+          <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+          </svg>
+        </div>
+        <p class="text-sm text-gray-400">该场景超出GTO求解器覆盖范围</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

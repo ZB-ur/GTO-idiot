@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayTableView Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-3xl mx-auto">
+    <div class="bg-gray-900 rounded-xl border border-gray-700 p-4">
+      <div class="relative w-full" style="aspect-ratio: 16/10;">
+
+        <!-- Felt -->
+        <div class="absolute rounded-[50%] bg-emerald-900 border-4 border-emerald-700 shadow-inner" style="inset: 32px;">
+          <div class="absolute rounded-[50%] border border-emerald-600/30" style="inset: 12px;"></div>
+        </div>
+
+        <!-- Center: Pot + Community Cards -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2">
+          <div class="px-3 py-1 bg-gray-950/80 rounded-full border border-gray-700">
+            <span class="text-xs text-amber-400 font-semibold">底池 42</span>
+          </div>
+          <div class="flex gap-1">
+            <!-- Flop card 1 -->
+            <div class="inline-flex items-center justify-center bg-white rounded shadow-md w-9 h-12 text-sm font-mono font-bold text-red-500">J♥</div>
+            <!-- Flop card 2 -->
+            <div class="inline-flex items-center justify-center bg-white rounded shadow-md w-9 h-12 text-sm font-mono font-bold text-gray-100">T♣</div>
+            <!-- Flop card 3 -->
+            <div class="inline-flex items-center justify-center bg-white rounded shadow-md w-9 h-12 text-sm font-mono font-bold text-red-500">4♦</div>
+          </div>
+        </div>
+
+        <!-- Seat 0 - bottom-left (SB, folded) -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top: 78%; left: 25%;">
+          <div class="relative flex flex-col items-center gap-1 opacity-40">
+            <div class="relative px-3 py-1.5 rounded-lg text-center min-w-[80px] bg-gray-800 border border-gray-700">
+              <p class="text-xs font-medium truncate text-gray-200">鲨鱼哥</p>
+              <p class="text-[10px] text-gray-400">SB</p>
+              <p class="text-xs font-semibold text-gray-300">398</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seat 1 - bottom-right (BB, user, highlighted) -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top: 78%; left: 75%;">
+          <div class="relative flex flex-col items-center gap-1">
+            <div class="flex gap-0.5 mb-1">
+              <div class="inline-flex items-center justify-center bg-white rounded shadow-md w-7 h-10 text-xs font-mono font-bold text-red-500">K♥</div>
+              <div class="inline-flex items-center justify-center bg-white rounded shadow-md w-7 h-10 text-xs font-mono font-bold text-red-500">Q♥</div>
+            </div>
+            <div class="relative px-3 py-1.5 rounded-lg text-center min-w-[80px] bg-amber-500/20 border-2 border-amber-500 shadow-lg" style="box-shadow: 0 10px 15px -3px rgba(245,158,11,0.2);">
+              <p class="text-xs font-medium truncate text-amber-400">用户</p>
+              <p class="text-[10px] text-gray-400">BB</p>
+              <p class="text-xs font-semibold text-gray-300">394</p>
+            </div>
+            <div class="px-2 py-0.5 bg-gray-900/80 border border-gray-700 rounded-full text-[10px] text-gray-300">Raise 18</div>
+          </div>
+        </div>
+
+        <!-- Seat 2 - right (UTG) -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top: 40%; left: 95%;">
+          <div class="relative flex flex-col items-center gap-1">
+            <div class="flex gap-0.5 mb-1">
+              <div class="inline-flex items-center justify-center rounded shadow-md w-7 h-10 bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600"><div class="w-3/4 h-3/4 border border-blue-400/30 rounded-sm"></div></div>
+              <div class="inline-flex items-center justify-center rounded shadow-md w-7 h-10 bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600"><div class="w-3/4 h-3/4 border border-blue-400/30 rounded-sm"></div></div>
+            </div>
+            <div class="relative px-3 py-1.5 rounded-lg text-center min-w-[80px] bg-gray-800 border border-gray-700">
+              <p class="text-xs font-medium truncate text-gray-200">小鱼儿</p>
+              <p class="text-[10px] text-gray-400">UTG</p>
+              <p class="text-xs font-semibold text-gray-300">412</p>
+            </div>
+            <div class="px-2 py-0.5 bg-gray-900/80 border border-gray-700 rounded-full text-[10px] text-gray-300">Call 18</div>
+          </div>
+        </div>
+
+        <!-- Seat 3 - top-right (HJ, dealer) -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top: 5%; left: 75%;">
+          <div class="relative flex flex-col items-center gap-1">
+            <div class="flex gap-0.5 mb-1">
+              <div class="inline-flex items-center justify-center rounded shadow-md w-7 h-10 bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600"><div class="w-3/4 h-3/4 border border-blue-400/30 rounded-sm"></div></div>
+              <div class="inline-flex items-center justify-center rounded shadow-md w-7 h-10 bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600"><div class="w-3/4 h-3/4 border border-blue-400/30 rounded-sm"></div></div>
+            </div>
+            <div class="relative px-3 py-1.5 rounded-lg text-center min-w-[80px] bg-gray-800 border border-gray-700">
+              <div class="absolute -top-2 -right-2 w-5 h-5 bg-amber-400 text-gray-950 rounded-full text-[10px] font-bold flex items-center justify-center shadow">D</div>
+              <p class="text-xs font-medium truncate text-gray-200">老千</p>
+              <p class="text-[10px] text-gray-400">HJ</p>
+              <p class="text-xs font-semibold text-gray-300">382</p>
+            </div>
+            <div class="px-2 py-0.5 bg-gray-900/80 border border-gray-700 rounded-full text-[10px] text-gray-300">Check</div>
+          </div>
+        </div>
+
+        <!-- Seat 4 - top-left (CO, folded) -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top: 5%; left: 25%;">
+          <div class="relative flex flex-col items-center gap-1 opacity-40">
+            <div class="relative px-3 py-1.5 rounded-lg text-center min-w-[80px] bg-gray-800 border border-gray-700">
+              <p class="text-xs font-medium truncate text-gray-200">赌侠</p>
+              <p class="text-[10px] text-gray-400">CO</p>
+              <p class="text-xs font-semibold text-gray-300">400</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seat 5 - left (BTN, all-in) -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top: 40%; left: 5%;">
+          <div class="relative flex flex-col items-center gap-1">
+            <div class="flex gap-0.5 mb-1">
+              <div class="inline-flex items-center justify-center rounded shadow-md w-7 h-10 bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600"><div class="w-3/4 h-3/4 border border-blue-400/30 rounded-sm"></div></div>
+              <div class="inline-flex items-center justify-center rounded shadow-md w-7 h-10 bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600"><div class="w-3/4 h-3/4 border border-blue-400/30 rounded-sm"></div></div>
+            </div>
+            <div class="relative px-3 py-1.5 rounded-lg text-center min-w-[80px] bg-gray-800 border border-gray-700">
+              <p class="text-xs font-medium truncate text-gray-200">疯狗</p>
+              <p class="text-[10px] text-gray-400">BTN</p>
+              <p class="text-xs font-semibold text-gray-300">0</p>
+            </div>
+            <div class="px-2 py-0.5 bg-red-500/20 border border-red-500/40 rounded-full text-[10px] text-red-400 font-semibold">ALL IN</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

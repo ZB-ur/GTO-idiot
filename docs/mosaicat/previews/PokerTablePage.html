@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokerTablePage Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, -apple-system, sans-serif; }
+    @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); } 70% { box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); } 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); } }
+    .active-pulse { animation: pulse-ring 1.5s ease-in-out infinite; }
+    @keyframes fade-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .animate-fade-in { animation: fade-in 0.4s ease-out; }
+  </style>
+</head>
+<body>
+  <div style="width: 1024px; height: 700px;" class="flex flex-col bg-gray-950 select-none overflow-hidden">
+
+    <!-- Hand Info Bar -->
+    <div class="flex items-center justify-between px-4 py-2 bg-gray-900 border-b border-gray-800 shrink-0">
+      <div class="flex items-center gap-4">
+        <span class="text-gray-400 text-sm">#7</span>
+        <span class="text-amber-500 font-semibold text-sm">翻牌</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1.5">
+          <span class="text-gray-400 text-sm">底池</span>
+          <span class="text-amber-500 font-bold">42</span>
+        </div>
+      </div>
+      <button class="text-gray-500 hover:text-gray-300 transition-colors p-1">🔊</button>
+    </div>
+
+    <!-- Table Area -->
+    <div class="flex-1 relative overflow-hidden">
+
+      <!-- Felt -->
+      <div class="absolute" style="top:15%; left:15%; right:15%; bottom:15%; border-radius:50%;">
+        <div class="w-full h-full rounded-[50%] bg-gradient-to-br from-emerald-900 to-emerald-950 border-4 border-emerald-700 shadow-inner flex items-center justify-center">
+          <!-- Community Cards -->
+          <div class="flex gap-2">
+            <!-- Card: A♠ -->
+            <div class="w-11 h-[60px] rounded-lg bg-white shadow-md flex flex-col items-center justify-center border border-gray-300">
+              <span class="text-sm font-bold leading-none text-gray-900">A</span>
+              <span class="text-xs leading-none text-gray-900">♠</span>
+            </div>
+            <!-- Card: K♥ -->
+            <div class="w-11 h-[60px] rounded-lg bg-white shadow-md flex flex-col items-center justify-center border border-gray-300">
+              <span class="text-sm font-bold leading-none text-red-500">K</span>
+              <span class="text-xs leading-none text-red-500">♥</span>
+            </div>
+            <!-- Card: 7♦ -->
+            <div class="w-11 h-[60px] rounded-lg bg-white shadow-md flex flex-col items-center justify-center border border-gray-300">
+              <span class="text-sm font-bold leading-none text-red-500">7</span>
+              <span class="text-xs leading-none text-red-500">♦</span>
+            </div>
+            <!-- Empty slot -->
+            <div class="w-11 h-[60px] rounded-lg border border-emerald-700/50 bg-emerald-800/30 opacity-30"></div>
+            <!-- Empty slot -->
+            <div class="w-11 h-[60px] rounded-lg border border-emerald-700/50 bg-emerald-800/30 opacity-30"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seat 0: User (bottom center) — ACTIVE -->
+      <div class="absolute flex flex-col items-center gap-1" style="top:78%; left:50%; transform: translate(-50%, -50%);">
+        <div class="flex gap-0.5 mb-1">
+          <div class="w-10 h-14 rounded-lg bg-white shadow-md flex flex-col items-center justify-center border border-gray-300">
+            <span class="text-sm font-bold leading-none text-red-500">Q</span>
+            <span class="text-xs leading-none text-red-500">♥</span>
+          </div>
+          <div class="w-10 h-14 rounded-lg bg-white shadow-md flex flex-col items-center justify-center border border-gray-300">
+            <span class="text-sm font-bold leading-none text-red-500">J</span>
+            <span class="text-xs leading-none text-red-500">♦</span>
+          </div>
+        </div>
+        <div class="relative px-3 py-2 rounded-xl min-w-[100px] text-center bg-gray-800 ring-2 ring-amber-500 shadow-lg active-pulse" style="box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);">
+          <span class="absolute -top-2 -left-2 text-[10px] bg-gray-700 text-gray-300 px-1.5 py-0.5 rounded-full font-medium">CO</span>
+          <div class="text-gray-50 text-sm font-semibold">用户 <span class="text-amber-400 text-[10px]">你</span></div>
+          <div class="text-amber-400 text-xs font-mono">388</div>
+          <div class="text-emerald-400 text-[11px] mt-0.5 font-medium">Call 6</div>
+        </div>
+        <div class="flex items-center gap-1 mt-1">
+          <div class="w-3.5 h-3.5 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 border border-amber-300 shadow"></div>
+          <span class="text-amber-300 text-xs font-mono">6</span>
+        </div>
+      </div>
+
+      <!-- Seat 1: Bottom-left -->
+      <div class="absolute flex flex-col items-center gap-1" style="top:65%; left:12%; transform: translate(-50%, -50%);">
+        <div class="flex gap-0.5 mb-1">
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-amber-300/40"></div></div>
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-amber-300/40"></div></div>
+        </div>
+        <div class="relative px-3 py-2 rounded-xl min-w-[100px] text-center bg-gray-800/60 opacity-50">
+          <span class="absolute -top-2 -left-2 text-[10px] bg-gray-700 text-gray-300 px-1.5 py-0.5 rounded-full font-medium">BB</span>
+          <div class="text-gray-50 text-sm font-semibold">老王</div>
+          <div class="text-amber-400 text-xs font-mono">245</div>
+          <div class="text-gray-500 text-[11px] mt-0.5">弃牌</div>
+        </div>
+      </div>
+
+      <!-- Seat 2: Top-left -->
+      <div class="absolute flex flex-col items-center gap-1" style="top:18%; left:12%; transform: translate(-50%, -50%);">
+        <div class="flex gap-0.5 mb-1">
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-amber-300/40"></div></div>
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-amber-300/40"></div></div>
+        </div>
+        <div class="relative px-3 py-2 rounded-xl min-w-[100px] text-center bg-gray-800 border border-gray-700">
+          <span class="absolute -top-2 -left-2 text-[10px] bg-gray-700 text-gray-300 px-1.5 py-0.5 rounded-full font-medium">UTG</span>
+          <div class="text-gray-50 text-sm font-semibold">鲨鱼哥</div>
+          <div class="text-amber-400 text-xs font-mono">520</div>
+          <div class="text-emerald-400 text-[11px] mt-0.5 font-medium">Raise 6</div>
+        </div>
+        <div class="flex items-center gap-1 mt-1">
+          <div class="w-3.5 h-3.5 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 border border-amber-300 shadow"></div>
+          <span class="text-amber-300 text-xs font-mono">6</span>
+        </div>
+      </div>
+
+      <!-- Seat 3: Top center — DEALER -->
+      <div class="absolute flex flex-col items-center gap-1" style="top:5%; left:50%; transform: translate(-50%, -50%);">
+        <div class="flex gap-0.5 mb-1">
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-amber-300/40"></div></div>
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-amber-300/40"></div></div>
+        </div>
+        <div class="relative px-3 py-2 rounded-xl min-w-[100px] text-center bg-gray-800 border border-gray-700">
+          <span class="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-amber-500 text-gray-950 text-[10px] font-bold flex items-center justify-center shadow">D</span>
+          <span class="absolute -top-2 -left-2 text-[10px] bg-gray-700 text-gray-300 px-1.5 py-0.5 rounded-full font-medium">BTN</span>
+          <div class="text-gray-50 text-sm font-semibold">疯狗</div>
+          <div class="text-amber-400 text-xs font-mono">680</div>
+          <div class="text-emerald-400 text-[11px] mt-0.5 font-medium">Call 6</div>
+        </div>
+        <div class="flex items-center gap-1 mt-1">
+          <div class="w-3.5 h-3.5 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 border border-amber-300 shadow"></div>
+          <span class="text-amber-300 text-xs font-mono">6</span>
+        </div>
+      </div>
+
+      <!-- Seat 4: Top-right -->
+      <div class="absolute flex flex-col items-center gap-1" style="top:18%; left:88%; transform: translate(-50%, -50%);">
+        <div class="flex gap-0.5 mb-1">
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-amber-300/40"></div></div>
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-amber-300/40"></div></div>
+        </div>
+        <div class="relative px-3 py-2 rounded-xl min-w-[100px] text-center bg-gray-800 border border-gray-700">
+          <span class="absolute -top-2 -left-2 text-[10px] bg-gray-700 text-gray-300 px-1.5 py-0.5 rounded-full font-medium">SB</span>
+          <div class="text-gray-50 text-sm font-semibold">小鱼</div>
+          <div class="text-amber-400 text-xs font-mono">310</div>
+          <div class="text-emerald-400 text-[11px] mt-0.5 font-medium">Call 6</div>
+        </div>
+        <div class="flex items-center gap-1 mt-1">
+          <div class="w-3.5 h-3.5 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 border border-amber-300 shadow"></div>
+          <span class="text-amber-300 text-xs font-mono">6</span>
+        </div>
+      </div>
+
+      <!-- Seat 5: Bottom-right -->
+      <div class="absolute flex flex-col items-center gap-1" style="top:65%; left:88%; transform: translate(-50%, -50%);">
+        <div class="flex gap-0.5 mb-1">
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-amber-300/40"></div></div>
+          <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-amber-300/40"></div></div>
+        </div>
+        <div class="relative px-3 py-2 rounded-xl min-w-[100px] text-center bg-gray-800 border border-gray-700">
+          <span class="absolute -top-2 -left-2 text-[10px] bg-gray-700 text-gray-300 px-1.5 py-0.5 rounded-full font-medium">HJ</span>
+          <div class="text-gray-50 text-sm font-semibold">铁头</div>
+          <div class="text-amber-400 text-xs font-mono">450</div>
+          <div class="text-red-400 text-[11px] mt-0.5 font-bold">ALL IN</div>
+        </div>
+        <div class="flex items-center gap-1 mt-1">
+          <div class="w-3.5 h-3.5 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 border border-amber-300 shadow"></div>
+          <span class="text-amber-300 text-xs font-mono">18</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Action Panel -->
+    <div class="flex items-center justify-center gap-3 px-4 py-3 bg-gray-900 border-t border-gray-800 shrink-0">
+      <button class="px-5 py-2.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold text-sm transition-colors border border-gray-700">
+        弃牌
+      </button>
+      <button class="px-5 py-2.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm transition-colors">
+        跟注 18
+      </button>
+      <div class="flex items-center gap-2">
+        <div class="flex gap-1">
+          <button class="px-2 py-1 rounded text-[11px] font-medium bg-gray-800 text-gray-400 hover:bg-gray-700">Min</button>
+          <button class="px-2 py-1 rounded text-[11px] font-medium bg-gray-800 text-gray-400 hover:bg-gray-700">1/2 Pot</button>
+          <button class="px-2 py-1 rounded text-[11px] font-medium bg-amber-500 text-gray-950">Pot</button>
+          <button class="px-2 py-1 rounded text-[11px] font-medium bg-gray-800 text-gray-400 hover:bg-gray-700">All In</button>
+        </div>
+        <input type="range" min="36" max="388" value="126" class="w-24 accent-amber-500" />
+        <button class="px-5 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold text-sm transition-colors">
+          加注 126
+        </button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

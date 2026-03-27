@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LobbyPage Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-950 text-gray-50">
+  <div class="mx-auto max-w-4xl px-4 py-8">
+
+    <!-- Header -->
+    <div class="mb-8 flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold tracking-tight text-gray-50">GTO Idiot</h1>
+        <p class="mt-1 text-sm text-gray-400">德州扑克 GTO 策略练习器</p>
+      </div>
+      <button class="inline-flex items-center gap-2 rounded-xl bg-amber-500 px-5 py-2.5 text-sm font-semibold text-gray-950 shadow-md hover:bg-amber-400">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+        新牌局
+      </button>
+    </div>
+
+    <!-- Session List -->
+    <div class="space-y-3">
+      <h2 class="text-lg font-semibold text-gray-50">历史牌局</h2>
+
+      <!-- Session 1 — in progress -->
+      <button class="flex w-full items-center justify-between rounded-xl border border-gray-800 bg-gray-900 px-5 py-4 text-left hover:border-gray-700 hover:bg-gray-800 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-800">
+            <svg class="h-5 w-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h6m-6-4.5h16.5" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-gray-50">2026/3/28</span>
+              <span class="rounded-full bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-500">进行中</span>
+            </div>
+            <span class="text-xs text-gray-500">42 手</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-sm font-semibold text-emerald-500">+18.5 BB</span>
+          <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </div>
+      </button>
+
+      <!-- Session 2 — completed, positive -->
+      <button class="flex w-full items-center justify-between rounded-xl border border-gray-800 bg-gray-900 px-5 py-4 text-left hover:border-gray-700 hover:bg-gray-800 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-800">
+            <svg class="h-5 w-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h6m-6-4.5h16.5" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-gray-50">2026/3/27</span>
+            </div>
+            <span class="text-xs text-gray-500">100 手</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-sm font-semibold text-emerald-500">+32.0 BB</span>
+          <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </div>
+      </button>
+
+      <!-- Session 3 — completed, negative -->
+      <button class="flex w-full items-center justify-between rounded-xl border border-gray-800 bg-gray-900 px-5 py-4 text-left hover:border-gray-700 hover:bg-gray-800 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-800">
+            <svg class="h-5 w-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h6m-6-4.5h16.5" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-gray-50">2026/3/25</span>
+            </div>
+            <span class="text-xs text-gray-500">78 手</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-sm font-semibold text-red-500">-14.5 BB</span>
+          <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </div>
+      </button>
+
+      <!-- Session 4 — completed, breakeven -->
+      <button class="flex w-full items-center justify-between rounded-xl border border-gray-800 bg-gray-900 px-5 py-4 text-left hover:border-gray-700 hover:bg-gray-800 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-800">
+            <svg class="h-5 w-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h6m-6-4.5h16.5" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-gray-50">2026/3/22</span>
+            </div>
+            <span class="text-xs text-gray-500">55 手</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-sm font-semibold text-gray-400">0 BB</span>
+          <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </div>
+      </button>
+    </div>
+
+  </div>
+</body>
+</html>

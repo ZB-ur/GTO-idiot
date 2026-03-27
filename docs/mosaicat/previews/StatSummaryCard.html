@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StatSummaryCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+    <!-- Green: positive profit -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex flex-col gap-1" style="min-width: 160px;">
+      <span class="text-sm text-gray-400">净盈亏</span>
+      <div class="flex items-baseline gap-1">
+        <span class="text-3xl font-bold text-emerald-500">+23.5</span>
+        <span class="text-sm text-gray-500">BB</span>
+      </div>
+    </div>
+
+    <!-- Red: negative profit -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex flex-col gap-1" style="min-width: 160px;">
+      <span class="text-sm text-gray-400">净盈亏</span>
+      <div class="flex items-baseline gap-1">
+        <span class="text-3xl font-bold text-red-500">-12.0</span>
+        <span class="text-sm text-gray-500">BB</span>
+      </div>
+    </div>
+
+    <!-- Neutral: total hands -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex flex-col gap-1" style="min-width: 160px;">
+      <span class="text-sm text-gray-400">总手牌数</span>
+      <div class="flex items-baseline gap-1">
+        <span class="text-3xl font-bold text-gray-50">150</span>
+        <span class="text-sm text-gray-500">手</span>
+      </div>
+    </div>
+
+    <!-- Neutral: win rate -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex flex-col gap-1" style="min-width: 160px;">
+      <span class="text-sm text-gray-400">胜率</span>
+      <div class="flex items-baseline gap-1">
+        <span class="text-3xl font-bold text-gray-50">32</span>
+        <span class="text-sm text-gray-500">%</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

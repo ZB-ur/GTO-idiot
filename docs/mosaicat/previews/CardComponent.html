@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardComponent Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-6">
+    <!-- Label -->
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">Card Component — Sizes & States</p>
+
+    <!-- Face-up cards row -->
+    <div class="flex items-end gap-4 flex-wrap">
+      <!-- Small cards -->
+      <div class="text-center">
+        <p class="text-gray-500 text-xs mb-2">sm</p>
+        <div class="w-10 h-14 rounded-lg bg-white border border-gray-300 flex flex-col justify-between p-1 shadow-md relative text-red-500">
+          <div class="flex flex-col items-center leading-none">
+            <span class="text-xs font-bold">A</span>
+            <span class="text-sm">♥</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <span class="text-lg">♥</span>
+          </div>
+          <div class="flex flex-col items-center leading-none rotate-180">
+            <span class="text-xs font-bold">A</span>
+            <span class="text-sm">♥</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medium cards -->
+      <div class="text-center">
+        <p class="text-gray-500 text-xs mb-2">md</p>
+        <div class="w-16 h-22 rounded-lg bg-white border border-gray-300 flex flex-col justify-between p-1 shadow-md relative text-gray-100" style="color:#f3f4f6">
+          <div class="flex flex-col items-center leading-none" style="color:#1f2937">
+            <span class="text-sm font-bold">K</span>
+            <span class="text-base">♠</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style="color:#1f2937">
+            <span class="text-2xl">♠</span>
+          </div>
+          <div class="flex flex-col items-center leading-none rotate-180" style="color:#1f2937">
+            <span class="text-sm font-bold">K</span>
+            <span class="text-base">♠</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <p class="text-gray-500 text-xs mb-2">md (red)</p>
+        <div class="w-16 h-22 rounded-lg bg-white border border-gray-300 flex flex-col justify-between p-1 shadow-md relative text-red-500">
+          <div class="flex flex-col items-center leading-none">
+            <span class="text-sm font-bold">Q</span>
+            <span class="text-base">♦</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <span class="text-2xl">♦</span>
+          </div>
+          <div class="flex flex-col items-center leading-none rotate-180">
+            <span class="text-sm font-bold">Q</span>
+            <span class="text-base">♦</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Large card -->
+      <div class="text-center">
+        <p class="text-gray-500 text-xs mb-2">lg</p>
+        <div class="w-24 h-34 rounded-lg bg-white border border-gray-300 flex flex-col justify-between p-1 shadow-md relative text-red-500">
+          <div class="flex flex-col items-center leading-none">
+            <span class="text-lg font-bold">10</span>
+            <span class="text-xl">♥</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <span class="text-4xl">♥</span>
+          </div>
+          <div class="flex flex-col items-center leading-none rotate-180">
+            <span class="text-lg font-bold">10</span>
+            <span class="text-xl">♥</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Face-down cards -->
+      <div class="text-center">
+        <p class="text-gray-500 text-xs mb-2">face down</p>
+        <div class="w-16 h-22 rounded-lg bg-gradient-to-br from-sky-800 to-sky-950 border border-sky-600 flex items-center justify-center shadow-md">
+          <div class="w-[70%] h-[75%] rounded border border-sky-500/40 bg-sky-900/60 flex items-center justify-center">
+            <span class="text-sky-400/50 text-lg font-bold">✦</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <p class="text-gray-500 text-xs mb-2">sm face down</p>
+        <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-sky-800 to-sky-950 border border-sky-600 flex items-center justify-center shadow-md">
+          <div class="w-[70%] h-[75%] rounded border border-sky-500/40 bg-sky-900/60 flex items-center justify-center">
+            <span class="text-sky-400/50 text-lg font-bold">✦</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full hand example -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2">Hand example (5 cards)</p>
+      <div class="flex gap-2">
+        <div class="w-16 h-22 rounded-lg bg-white border border-gray-300 flex flex-col justify-between p-1 shadow-md relative" style="color:#1f2937">
+          <div class="flex flex-col items-center leading-none"><span class="text-sm font-bold">A</span><span class="text-base">♠</span></div>
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span class="text-2xl">♠</span></div>
+          <div class="flex flex-col items-center leading-none rotate-180"><span class="text-sm font-bold">A</span><span class="text-base">♠</span></div>
+        </div>
+        <div class="w-16 h-22 rounded-lg bg-white border border-gray-300 flex flex-col justify-between p-1 shadow-md relative" style="color:#1f2937">
+          <div class="flex flex-col items-center leading-none"><span class="text-sm font-bold">K</span><span class="text-base">♣</span></div>
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span class="text-2xl">♣</span></div>
+          <div class="flex flex-col items-center leading-none rotate-180"><span class="text-sm font-bold">K</span><span class="text-base">♣</span></div>
+        </div>
+        <div class="w-16 h-22 rounded-lg bg-white border border-gray-300 flex flex-col justify-between p-1 shadow-md relative text-red-500">
+          <div class="flex flex-col items-center leading-none"><span class="text-sm font-bold">Q</span><span class="text-base">♥</span></div>
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span class="text-2xl">♥</span></div>
+          <div class="flex flex-col items-center leading-none rotate-180"><span class="text-sm font-bold">Q</span><span class="text-base">♥</span></div>
+        </div>
+        <div class="w-16 h-22 rounded-lg bg-white border border-gray-300 flex flex-col justify-between p-1 shadow-md relative text-red-500">
+          <div class="flex flex-col items-center leading-none"><span class="text-sm font-bold">J</span><span class="text-base">♦</span></div>
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span class="text-2xl">♦</span></div>
+          <div class="flex flex-col items-center leading-none rotate-180"><span class="text-sm font-bold">J</span><span class="text-base">♦</span></div>
+        </div>
+        <div class="w-16 h-22 rounded-lg bg-white border border-gray-300 flex flex-col justify-between p-1 shadow-md relative" style="color:#1f2937">
+          <div class="flex flex-col items-center leading-none"><span class="text-sm font-bold">10</span><span class="text-base">♠</span></div>
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span class="text-2xl">♠</span></div>
+          <div class="flex flex-col items-center leading-none rotate-180"><span class="text-sm font-bold">10</span><span class="text-base">♠</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

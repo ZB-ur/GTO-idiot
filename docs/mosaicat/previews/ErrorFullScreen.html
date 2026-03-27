@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ErrorFullScreen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="fixed inset-0 bg-gray-950 flex flex-col items-center justify-center px-6 text-center">
+    <!-- Error icon -->
+    <div class="w-20 h-20 rounded-full flex items-center justify-center mb-6" style="background: rgba(239,68,68,0.1); border: 2px solid rgba(239,68,68,0.3);">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="12" y1="8" x2="12" y2="12" />
+        <line x1="12" y1="16" x2="12.01" y2="16" />
+      </svg>
+    </div>
+
+    <h2 class="text-xl font-bold text-gray-50 mb-2">Something Went Wrong</h2>
+    <p class="text-sm text-gray-400 max-w-sm mb-8">Unable to connect to the game server. Please check your internet connection and try again.</p>
+
+    <button class="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-gray-950 font-semibold text-sm rounded-lg transition-colors">
+      Retry Connection
+    </button>
+  </div>
+</body>
+</html>

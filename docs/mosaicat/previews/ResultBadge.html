@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResultBadge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-6">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">Result Badge — Win / Loss / Break-even</p>
+
+    <div class="flex items-center gap-3 flex-wrap">
+      <!-- Positive -->
+      <span class="inline-flex items-center font-semibold rounded-full border bg-emerald-500/15 text-emerald-400 border-emerald-500/30 text-sm px-3 py-1">
+        +12.5 BB
+      </span>
+      <span class="inline-flex items-center font-semibold rounded-full border bg-emerald-500/15 text-emerald-400 border-emerald-500/30 text-sm px-3 py-1">
+        +3 BB
+      </span>
+      <span class="inline-flex items-center font-semibold rounded-full border bg-emerald-500/15 text-emerald-400 border-emerald-500/30 text-sm px-3 py-1">
+        +0.5 BB
+      </span>
+      <!-- Zero -->
+      <span class="inline-flex items-center font-semibold rounded-full border bg-gray-500/15 text-gray-400 border-gray-500/30 text-sm px-3 py-1">
+        ±0 BB
+      </span>
+      <!-- Negative -->
+      <span class="inline-flex items-center font-semibold rounded-full border bg-red-500/15 text-red-400 border-red-500/30 text-sm px-3 py-1">
+        -2 BB
+      </span>
+      <span class="inline-flex items-center font-semibold rounded-full border bg-red-500/15 text-red-400 border-red-500/30 text-sm px-3 py-1">
+        -24.5 BB
+      </span>
+    </div>
+
+    <!-- In context -->
+    <div>
+      <p class="text-gray-500 text-xs mb-3">In context (hand history row)</p>
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-gray-50 text-sm">Hand #1042 — A♠ K♥</span>
+          <span class="inline-flex items-center font-semibold rounded-full border bg-emerald-500/15 text-emerald-400 border-emerald-500/30 text-sm px-3 py-1">+8.5 BB</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-gray-50 text-sm">Hand #1043 — 7♦ 2♣</span>
+          <span class="inline-flex items-center font-semibold rounded-full border bg-red-500/15 text-red-400 border-red-500/30 text-sm px-3 py-1">-3 BB</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-gray-50 text-sm">Hand #1044 — J♠ J♦</span>
+          <span class="inline-flex items-center font-semibold rounded-full border bg-gray-500/15 text-gray-400 border-gray-500/30 text-sm px-3 py-1">±0 BB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionSequencePanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-md mx-auto">
+    <div class="bg-gray-900 rounded-xl border border-gray-700 overflow-hidden">
+      <div class="px-4 py-3 border-b border-gray-800">
+        <h3 class="text-sm font-semibold text-gray-50">行动序列</h3>
+      </div>
+      <div class="max-h-80 overflow-y-auto">
+        <div class="divide-y divide-gray-800/50">
+          <!-- Action 1: SB post blind -->
+          <button class="w-full flex items-center gap-3 px-4 py-3 text-left transition-all hover:bg-gray-800/60 border-l-2 border-l-transparent">
+            <span class="text-xs text-gray-600 w-5 text-right shrink-0">1</span>
+            <span class="text-sm truncate w-16 shrink-0 text-gray-300">鲨鱼哥</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium border bg-sky-500/10 text-sky-400 border-sky-500/30">跟注 1</span>
+            <span class="ml-auto text-xs text-gray-500 shrink-0">底池 1</span>
+          </button>
+
+          <!-- Action 2: BB post blind -->
+          <button class="w-full flex items-center gap-3 px-4 py-3 text-left transition-all hover:bg-gray-800/60 border-l-2 border-l-transparent">
+            <span class="text-xs text-gray-600 w-5 text-right shrink-0">2</span>
+            <span class="text-sm truncate w-16 shrink-0 text-gray-300">疯狗</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium border bg-sky-500/10 text-sky-400 border-sky-500/30">跟注 2</span>
+            <span class="ml-auto text-xs text-gray-500 shrink-0">底池 3</span>
+          </button>
+
+          <!-- Action 3: UTG fold -->
+          <button class="w-full flex items-center gap-3 px-4 py-3 text-left transition-all hover:bg-gray-800/60 border-l-2 border-l-transparent">
+            <span class="text-xs text-gray-600 w-5 text-right shrink-0">3</span>
+            <span class="text-sm truncate w-16 shrink-0 text-gray-300">小鱼儿</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium border bg-gray-800/50 text-gray-500 border-gray-700">弃牌</span>
+            <span class="ml-auto text-xs text-gray-500 shrink-0">底池 3</span>
+          </button>
+
+          <!-- Action 4: User raise - SELECTED & USER HIGHLIGHT -->
+          <button class="w-full flex items-center gap-3 px-4 py-3 text-left transition-all bg-gray-800 ring-1 ring-inset ring-amber-500/40 border-l-2 border-l-amber-500">
+            <span class="text-xs text-gray-600 w-5 text-right shrink-0">4</span>
+            <span class="text-sm truncate w-16 shrink-0 text-amber-400 font-medium">用户</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium border bg-amber-500/10 text-amber-400 border-amber-500/30">加注 6</span>
+            <span class="ml-auto text-xs text-gray-500 shrink-0">底池 9</span>
+          </button>
+
+          <!-- Action 5: CO call -->
+          <button class="w-full flex items-center gap-3 px-4 py-3 text-left transition-all hover:bg-gray-800/60 border-l-2 border-l-transparent">
+            <span class="text-xs text-gray-600 w-5 text-right shrink-0">5</span>
+            <span class="text-sm truncate w-16 shrink-0 text-gray-300">老千</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium border bg-sky-500/10 text-sky-400 border-sky-500/30">跟注 6</span>
+            <span class="ml-auto text-xs text-gray-500 shrink-0">底池 15</span>
+          </button>
+
+          <!-- Action 6: BTN fold -->
+          <button class="w-full flex items-center gap-3 px-4 py-3 text-left transition-all hover:bg-gray-800/60 border-l-2 border-l-transparent">
+            <span class="text-xs text-gray-600 w-5 text-right shrink-0">6</span>
+            <span class="text-sm truncate w-16 shrink-0 text-gray-300">赌侠</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium border bg-gray-800/50 text-gray-500 border-gray-700">弃牌</span>
+            <span class="ml-auto text-xs text-gray-500 shrink-0">底池 15</span>
+          </button>
+
+          <!-- Action 7: All-in -->
+          <button class="w-full flex items-center gap-3 px-4 py-3 text-left transition-all hover:bg-gray-800/60 border-l-2 border-l-transparent">
+            <span class="text-xs text-gray-600 w-5 text-right shrink-0">7</span>
+            <span class="text-sm truncate w-16 shrink-0 text-gray-300">鲨鱼哥</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium border bg-red-500/10 text-red-400 border-red-500/30">全押 394</span>
+            <span class="ml-auto text-xs text-gray-500 shrink-0">底池 409</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EmptyStateIllustration Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <!-- Chips variant -->
+  <div class="flex flex-col items-center justify-center py-16 px-6 text-center bg-gray-900 rounded-xl mb-6">
+    <div class="mb-6 opacity-60">
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="65" r="40" fill="#1f2937" stroke="#374151" stroke-width="2" />
+        <circle cx="60" cy="65" r="30" fill="#111827" stroke="#f59e0b" stroke-width="3" stroke-dasharray="8 4" />
+        <circle cx="60" cy="65" r="12" fill="#f59e0b" opacity="0.3" />
+        <circle cx="45" cy="50" r="40" fill="#1f2937" stroke="#374151" stroke-width="2" opacity="0.4" />
+      </svg>
+    </div>
+    <h3 class="text-lg font-semibold text-gray-50 mb-2">No Chips Yet</h3>
+    <p class="text-sm text-gray-400 max-w-xs mb-6">Play your first hand to start earning chips and climb the leaderboard.</p>
+    <button class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-gray-950 font-semibold text-sm rounded-lg transition-colors">
+      Start Playing
+    </button>
+  </div>
+
+  <!-- Cards variant -->
+  <div class="flex flex-col items-center justify-center py-16 px-6 text-center bg-gray-900 rounded-xl mb-6">
+    <div class="mb-6 opacity-60">
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="25" y="20" width="50" height="70" rx="6" fill="#1f2937" stroke="#374151" stroke-width="2" transform="rotate(-10 25 20)" />
+        <rect x="45" y="20" width="50" height="70" rx="6" fill="#111827" stroke="#f59e0b" stroke-width="2" transform="rotate(10 70 55)" />
+        <text x="60" y="62" text-anchor="middle" fill="#6b7280" font-size="24">?</text>
+      </svg>
+    </div>
+    <h3 class="text-lg font-semibold text-gray-50 mb-2">No Hand History</h3>
+    <p class="text-sm text-gray-400 max-w-xs mb-6">Your completed hands will appear here for review.</p>
+  </div>
+
+  <!-- Chart variant -->
+  <div class="flex flex-col items-center justify-center py-16 px-6 text-center bg-gray-900 rounded-xl">
+    <div class="mb-6 opacity-60">
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="70" width="16" height="30" rx="3" fill="#374151" />
+        <rect x="42" y="50" width="16" height="50" rx="3" fill="#374151" />
+        <rect x="64" y="60" width="16" height="40" rx="3" fill="#374151" />
+        <rect x="86" y="40" width="16" height="60" rx="3" fill="#374151" />
+        <line x1="15" y1="100" x2="107" y2="100" stroke="#4b5563" stroke-width="2" />
+      </svg>
+    </div>
+    <h3 class="text-lg font-semibold text-gray-50 mb-2">No Statistics</h3>
+    <p class="text-sm text-gray-400 max-w-xs mb-6">Play some hands to see your performance stats.</p>
+    <button class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-gray-950 font-semibold text-sm rounded-lg transition-colors">
+      Find a Table
+    </button>
+  </div>
+</body>
+</html>

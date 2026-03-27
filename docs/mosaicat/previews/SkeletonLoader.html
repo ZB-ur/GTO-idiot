@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkeletonLoader Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .skeleton-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  </style>
+</head>
+<body>
+  <div class="space-y-8 max-w-lg">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">Skeleton Loader — All Variants</p>
+
+    <!-- Text variant -->
+    <div>
+      <p class="text-gray-500 text-xs mb-3">variant: text (count: 3)</p>
+      <div class="space-y-2">
+        <div class="skeleton-pulse bg-gray-800 rounded-lg" style="width:100%;height:16px"></div>
+        <div class="skeleton-pulse bg-gray-800 rounded-lg" style="width:100%;height:16px"></div>
+        <div class="skeleton-pulse bg-gray-800 rounded-lg" style="width:60%;height:16px"></div>
+      </div>
+    </div>
+
+    <!-- Card variant -->
+    <div>
+      <p class="text-gray-500 text-xs mb-3">variant: card</p>
+      <div class="skeleton-pulse bg-gray-800 rounded-xl border border-gray-700/50 p-4" style="width:100%;height:120px">
+        <div class="space-y-3">
+          <div class="bg-gray-700 rounded h-4 w-2/3"></div>
+          <div class="bg-gray-700 rounded h-3 w-full"></div>
+          <div class="bg-gray-700 rounded h-3 w-4/5"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart variant -->
+    <div>
+      <p class="text-gray-500 text-xs mb-3">variant: chart</p>
+      <div class="skeleton-pulse bg-gray-800 rounded-xl border border-gray-700/50 p-4 flex items-end gap-2" style="width:100%;height:200px">
+        <div class="bg-gray-700 rounded-t flex-1" style="height:40%"></div>
+        <div class="bg-gray-700 rounded-t flex-1" style="height:65%"></div>
+        <div class="bg-gray-700 rounded-t flex-1" style="height:30%"></div>
+        <div class="bg-gray-700 rounded-t flex-1" style="height:80%"></div>
+        <div class="bg-gray-700 rounded-t flex-1" style="height:55%"></div>
+        <div class="bg-gray-700 rounded-t flex-1" style="height:70%"></div>
+        <div class="bg-gray-700 rounded-t flex-1" style="height:45%"></div>
+      </div>
+    </div>
+
+    <!-- Circle + Rect row -->
+    <div class="flex gap-6">
+      <div>
+        <p class="text-gray-500 text-xs mb-3">variant: circle</p>
+        <div class="skeleton-pulse bg-gray-800 rounded-full" style="width:48px;height:48px"></div>
+      </div>
+      <div class="flex-1">
+        <p class="text-gray-500 text-xs mb-3">variant: rect</p>
+        <div class="skeleton-pulse bg-gray-800 rounded-lg" style="width:100%;height:40px"></div>
+      </div>
+    </div>
+
+    <!-- Composed loading state -->
+    <div>
+      <p class="text-gray-500 text-xs mb-3">Composed: loading hand history</p>
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 space-y-3">
+        <div class="flex items-center gap-3">
+          <div class="skeleton-pulse bg-gray-800 rounded-full" style="width:36px;height:36px"></div>
+          <div class="flex-1 space-y-2">
+            <div class="skeleton-pulse bg-gray-800 rounded-lg" style="width:50%;height:14px"></div>
+            <div class="skeleton-pulse bg-gray-800 rounded-lg" style="width:30%;height:12px"></div>
+          </div>
+          <div class="skeleton-pulse bg-gray-800 rounded-full" style="width:64px;height:28px"></div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="skeleton-pulse bg-gray-800 rounded-full" style="width:36px;height:36px"></div>
+          <div class="flex-1 space-y-2">
+            <div class="skeleton-pulse bg-gray-800 rounded-lg" style="width:45%;height:14px"></div>
+            <div class="skeleton-pulse bg-gray-800 rounded-lg" style="width:25%;height:12px"></div>
+          </div>
+          <div class="skeleton-pulse bg-gray-800 rounded-full" style="width:64px;height:28px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

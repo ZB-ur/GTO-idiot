@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StatsPage Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-950 min-h-screen">
+  <div class="max-w-lg mx-auto px-4 py-6">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="text-2xl font-bold text-gray-50">统计数据</h1>
+      <div class="flex gap-1 bg-gray-900 rounded-lg p-1">
+        <button class="px-3 py-1.5 text-sm font-medium rounded-lg text-gray-400">今天</button>
+        <button class="px-3 py-1.5 text-sm font-medium rounded-lg text-gray-400">本周</button>
+        <button class="px-3 py-1.5 text-sm font-medium rounded-lg text-gray-400">本月</button>
+        <button class="px-3 py-1.5 text-sm font-medium rounded-lg bg-amber-500 text-gray-950">全部</button>
+      </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="grid grid-cols-2 gap-3 mb-6">
+      <!-- Total Hands -->
+      <div class="bg-gray-900 rounded-xl border border-gray-800 p-4">
+        <div class="flex items-center gap-2 mb-2">
+          <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center">
+            <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5a1 1 0 011 1v1a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1zm0 8h.01M7 11h5a1 1 0 011 1v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-1a1 1 0 011-1z"/>
+            </svg>
+          </div>
+          <span class="text-xs text-gray-500">总手数</span>
+        </div>
+        <div class="text-xl font-bold text-gray-50">2,847</div>
+      </div>
+      <!-- P&L -->
+      <div class="bg-gray-900 rounded-xl border border-gray-800 p-4">
+        <div class="flex items-center gap-2 mb-2">
+          <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center">
+            <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+            </svg>
+          </div>
+          <span class="text-xs text-gray-500">盈亏</span>
+        </div>
+        <div class="text-xl font-bold text-emerald-500 flex items-center gap-1">
+          +242.50
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Win Rate -->
+      <div class="bg-gray-900 rounded-xl border border-gray-800 p-4">
+        <div class="flex items-center gap-2 mb-2">
+          <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center">
+            <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+            </svg>
+          </div>
+          <span class="text-xs text-gray-500">赢率</span>
+        </div>
+        <div class="text-xl font-bold text-emerald-500 flex items-center gap-1">
+          +8.5 bb/100
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Sessions -->
+      <div class="bg-gray-900 rounded-xl border border-gray-800 p-4">
+        <div class="flex items-center gap-2 mb-2">
+          <div class="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center">
+            <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <span class="text-xs text-gray-500">场次</span>
+        </div>
+        <div class="text-xl font-bold text-gray-50">23</div>
+      </div>
+    </div>
+
+    <!-- P&L Chart -->
+    <div class="bg-gray-900 rounded-xl border border-gray-800 p-5 mb-6">
+      <h2 class="text-lg font-semibold text-gray-50 mb-4">盈亏走势</h2>
+      <div class="relative h-48">
+        <!-- Y axis labels -->
+        <div class="absolute left-0 top-0 h-full flex flex-col justify-between text-xs text-gray-500 pr-2">
+          <span>+300</span>
+          <span>+200</span>
+          <span>+100</span>
+          <span class="text-gray-600">0</span>
+          <span>-50</span>
+        </div>
+        <!-- Chart area -->
+        <div class="ml-10 h-full relative">
+          <!-- Zero line -->
+          <div class="absolute bottom-8 left-0 right-0 border-t border-dashed border-gray-700"></div>
+          <!-- SVG Chart -->
+          <svg class="w-full h-full" viewBox="0 0 400 180" preserveAspectRatio="none">
+            <!-- Gradient fill -->
+            <defs>
+              <linearGradient id="plGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#10b981" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- Area fill -->
+            <path d="M0,160 L20,150 L40,140 L60,155 L80,130 L100,120 L120,135 L140,100 L160,90 L180,95 L200,70 L220,60 L240,75 L260,50 L280,55 L300,35 L320,40 L340,25 L360,30 L380,15 L400,20 L400,180 L0,180 Z" fill="url(#plGradient)"/>
+            <!-- Line -->
+            <path d="M0,160 L20,150 L40,140 L60,155 L80,130 L100,120 L120,135 L140,100 L160,90 L180,95 L200,70 L220,60 L240,75 L260,50 L280,55 L300,35 L320,40 L340,25 L360,30 L380,15 L400,20" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Current point -->
+            <circle cx="400" cy="20" r="4" fill="#10b981"/>
+            <circle cx="400" cy="20" r="6" fill="#10b981" opacity="0.3"/>
+          </svg>
+          <!-- X axis labels -->
+          <div class="flex justify-between text-xs text-gray-500 mt-1">
+            <span>0</span>
+            <span>700</span>
+            <span>1,400</span>
+            <span>2,100</span>
+            <span>2,847</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GTO Metrics Row -->
+    <div class="grid grid-cols-1 gap-4 mb-6">
+      <!-- GTO Compliance Rate -->
+      <div class="bg-gray-900 rounded-xl border border-gray-800 p-5">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-lg font-semibold text-gray-50">GTO合规率</h2>
+          <span class="text-2xl font-bold text-amber-500">73%</span>
+        </div>
+        <!-- Progress bar -->
+        <div class="w-full h-3 bg-gray-800 rounded-full overflow-hidden">
+          <div class="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-400" style="width: 73%"></div>
+        </div>
+        <div class="flex justify-between mt-2">
+          <span class="text-xs text-gray-500">基于 2,847 手牌分析</span>
+          <span class="text-xs text-emerald-500">↑ 5% vs 上周</span>
+        </div>
+      </div>
+
+      <!-- Avg EV Loss -->
+      <div class="bg-gray-900 rounded-xl border border-gray-800 p-5">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-lg font-semibold text-gray-50">平均EV损失</h2>
+          <span class="text-2xl font-bold text-amber-500">1.2 bb</span>
+        </div>
+        <!-- Breakdown bars -->
+        <div class="space-y-3 mt-4">
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-gray-400">翻前</span>
+              <span class="text-gray-50">0.3 bb</span>
+            </div>
+            <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+              <div class="h-full rounded-full bg-emerald-500" style="width: 25%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-gray-400">翻后</span>
+              <span class="text-gray-50">0.9 bb</span>
+            </div>
+            <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+              <div class="h-full rounded-full bg-yellow-500" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+        <p class="text-xs text-gray-500 mt-3">每手牌偏离GTO的期望值损失</p>
+      </div>
+    </div>
+
+    <!-- Key Poker Stats -->
+    <div class="bg-gray-900 rounded-xl border border-gray-800 p-5">
+      <h2 class="text-lg font-semibold text-gray-50 mb-4">关键指标</h2>
+      <div class="grid grid-cols-3 gap-4">
+        <div class="text-center">
+          <div class="text-2xl font-bold text-amber-500">24%</div>
+          <div class="text-sm text-gray-400 mt-1">VPIP</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-amber-500">19%</div>
+          <div class="text-sm text-gray-400 mt-1">PFR</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-amber-500">2.8</div>
+          <div class="text-sm text-gray-400 mt-1">AF</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

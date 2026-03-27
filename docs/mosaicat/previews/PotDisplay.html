@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PotDisplay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #064e3b; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 32px; align-items: center; padding: 40px;">
+    <!-- Main pot only -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gray-900/80 border border-gray-700" style="backdrop-filter: blur(8px);">
+        <span class="text-gray-400 text-sm font-medium">底池:</span>
+        <span class="text-amber-400 text-sm font-bold">$1,250</span>
+      </div>
+    </div>
+
+    <!-- Main pot + side pots -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gray-900/80 border border-gray-700" style="backdrop-filter: blur(8px);">
+        <span class="text-gray-400 text-sm font-medium">底池:</span>
+        <span class="text-amber-400 text-sm font-bold">$3,600</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-gray-900/60 border border-gray-800 text-xs">
+          <span class="text-gray-500">边池:</span>
+          <span class="text-amber-500 font-semibold">$800</span>
+        </div>
+        <div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-gray-900/60 border border-gray-800 text-xs">
+          <span class="text-gray-500">边池:</span>
+          <span class="text-amber-500 font-semibold">$400</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

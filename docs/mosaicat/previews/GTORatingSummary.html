@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTORatingSummary Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-6">
+    <!-- Example: 2 optimal, 1 acceptable, 1 error -->
+    <div class="inline-flex items-center gap-3 text-sm">
+      <span class="inline-flex items-center gap-1 text-emerald-500">
+        <span>✅</span>
+        <span class="font-medium">2</span>
+      </span>
+      <span class="inline-flex items-center gap-1 text-yellow-500">
+        <span>⚠️</span>
+        <span class="font-medium">1</span>
+      </span>
+      <span class="inline-flex items-center gap-1 text-red-500">
+        <span>❌</span>
+        <span class="font-medium">1</span>
+      </span>
+    </div>
+
+    <!-- Example: perfect game -->
+    <div class="inline-flex items-center gap-3 text-sm">
+      <span class="inline-flex items-center gap-1 text-emerald-500">
+        <span>✅</span>
+        <span class="font-medium">5</span>
+      </span>
+      <span class="inline-flex items-center gap-1 text-yellow-500">
+        <span>⚠️</span>
+        <span class="font-medium">0</span>
+      </span>
+      <span class="inline-flex items-center gap-1 text-red-500">
+        <span>❌</span>
+        <span class="font-medium">0</span>
+      </span>
+    </div>
+
+    <!-- Example: rough session -->
+    <div class="inline-flex items-center gap-3 text-sm">
+      <span class="inline-flex items-center gap-1 text-emerald-500">
+        <span>✅</span>
+        <span class="font-medium">1</span>
+      </span>
+      <span class="inline-flex items-center gap-1 text-yellow-500">
+        <span>⚠️</span>
+        <span class="font-medium">3</span>
+      </span>
+      <span class="inline-flex items-center gap-1 text-red-500">
+        <span>❌</span>
+        <span class="font-medium">4</span>
+      </span>
+    </div>
+  </div>
+</body>
+</html>

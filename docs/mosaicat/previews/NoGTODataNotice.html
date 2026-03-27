@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoGTODataNotice Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="max-width: 520px;">
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex items-center justify-between gap-4">
+      <div class="flex items-start gap-3">
+        <!-- Info icon circle -->
+        <div class="flex-shrink-0 mt-0.5" style="width: 32px; height: 32px; border-radius: 9999px; background: rgba(56, 189, 248, 0.1); display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 20 20" fill="#38bdf8" style="width: 16px; height: 16px;">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div class="flex flex-col" style="gap: 2px;">
+          <span class="text-sm font-medium text-gray-50">完成复盘后才能显示 GTO 统计</span>
+          <span class="text-xs text-gray-500">复盘你的手牌来解锁 GTO 符合率和 EV 分析</span>
+        </div>
+      </div>
+
+      <button class="font-medium text-sm px-4 py-2 rounded-lg whitespace-nowrap flex-shrink-0" style="background-color: #1f2937; color: #f59e0b;">
+        去复盘
+      </button>
+    </div>
+  </div>
+</body>
+</html>

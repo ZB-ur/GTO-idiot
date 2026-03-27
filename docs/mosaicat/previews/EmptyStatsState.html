@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EmptyStatsState Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col items-center justify-center py-16 px-6" style="max-width: 480px; margin: 0 auto;">
+    <!-- Illustration -->
+    <div class="relative mb-6" style="width: 96px; height: 96px;">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 80px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <rect x="10" y="8" width="36" height="50" rx="4" fill="#1f2937" stroke="#374151" stroke-width="1.5" transform="rotate(-10 28 33)" />
+        <rect x="30" y="8" width="36" height="50" rx="4" fill="#1f2937" stroke="#374151" stroke-width="1.5" transform="rotate(10 48 33)" />
+        <text x="40" y="48" text-anchor="middle" fill="#6b7280" font-size="24" font-family="system-ui" font-weight="bold">?</text>
+      </svg>
+    </div>
+
+    <h3 class="text-lg font-semibold text-gray-50 mb-2">还没有对战数据</h3>
+    <p class="text-sm text-gray-500 mb-6 text-center" style="max-width: 280px;">
+      完成你的第一局对战后，这里将显示你的统计数据和盈亏走势
+    </p>
+
+    <button class="font-semibold text-sm px-6 py-3 rounded-lg" style="background-color: #f59e0b; color: #030712;">
+      开始第一局
+    </button>
+  </div>
+</body>
+</html>
