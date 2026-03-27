@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HoleCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-6">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wide">HoleCards — Face Up & Face Down</p>
+
+    <!-- Face Up — Small -->
+    <div class="flex items-center gap-4">
+      <p class="text-gray-500 text-xs w-20">sm / up</p>
+      <div class="flex items-center">
+        <div class="w-8 h-11 rounded-lg bg-white border border-gray-300 shadow-lg shadow-black/40 flex flex-col items-center justify-center gap-0 select-none">
+          <span class="text-xs font-bold leading-none text-gray-900">A</span>
+          <span class="text-[10px] leading-none text-gray-900">♠</span>
+        </div>
+        <div class="w-8 h-11 rounded-lg bg-white border border-gray-300 shadow-lg shadow-black/40 flex flex-col items-center justify-center gap-0 select-none -ml-3">
+          <span class="text-xs font-bold leading-none text-red-500">K</span>
+          <span class="text-[10px] leading-none text-red-500">♥</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Face Up — Medium -->
+    <div class="flex items-center gap-4">
+      <p class="text-gray-500 text-xs w-20">md / up</p>
+      <div class="flex items-center">
+        <div class="w-10 h-14 rounded-lg bg-white border border-gray-300 shadow-lg shadow-black/40 flex flex-col items-center justify-center gap-0 select-none">
+          <span class="text-sm font-bold leading-none text-red-500">Q</span>
+          <span class="text-xs leading-none text-red-500">♥</span>
+        </div>
+        <div class="w-10 h-14 rounded-lg bg-white border border-gray-300 shadow-lg shadow-black/40 flex flex-col items-center justify-center gap-0 select-none -ml-4">
+          <span class="text-sm font-bold leading-none text-red-500">Q</span>
+          <span class="text-xs leading-none text-red-500">♦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Face Up — Large -->
+    <div class="flex items-center gap-4">
+      <p class="text-gray-500 text-xs w-20">lg / up</p>
+      <div class="flex items-center">
+        <div class="w-14 h-20 rounded-lg bg-white border border-gray-300 shadow-lg shadow-black/40 flex flex-col items-center justify-center gap-0 select-none">
+          <span class="text-lg font-bold leading-none text-gray-900">A</span>
+          <span class="text-sm leading-none text-gray-900">♠</span>
+        </div>
+        <div class="w-14 h-20 rounded-lg bg-white border border-gray-300 shadow-lg shadow-black/40 flex flex-col items-center justify-center gap-0 select-none -ml-5">
+          <span class="text-lg font-bold leading-none text-gray-900">A</span>
+          <span class="text-sm leading-none text-gray-900">♣</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Face Down — All Sizes -->
+    <div class="flex items-center gap-4">
+      <p class="text-gray-500 text-xs w-20">sm / down</p>
+      <div class="flex items-center">
+        <div class="w-8 h-11 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400/50 shadow-lg shadow-black/40 flex items-center justify-center">
+          <div class="w-[70%] h-[75%] rounded border border-amber-300/30 bg-amber-600/40"></div>
+        </div>
+        <div class="w-8 h-11 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400/50 shadow-lg shadow-black/40 flex items-center justify-center -ml-3">
+          <div class="w-[70%] h-[75%] rounded border border-amber-300/30 bg-amber-600/40"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <p class="text-gray-500 text-xs w-20">md / down</p>
+      <div class="flex items-center">
+        <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400/50 shadow-lg shadow-black/40 flex items-center justify-center">
+          <div class="w-[70%] h-[75%] rounded border border-amber-300/30 bg-amber-600/40"></div>
+        </div>
+        <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400/50 shadow-lg shadow-black/40 flex items-center justify-center -ml-4">
+          <div class="w-[70%] h-[75%] rounded border border-amber-300/30 bg-amber-600/40"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <p class="text-gray-500 text-xs w-20">lg / down</p>
+      <div class="flex items-center">
+        <div class="w-14 h-20 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400/50 shadow-lg shadow-black/40 flex items-center justify-center">
+          <div class="w-[70%] h-[75%] rounded border border-amber-300/30 bg-amber-600/40"></div>
+        </div>
+        <div class="w-14 h-20 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 border border-amber-400/50 shadow-lg shadow-black/40 flex items-center justify-center -ml-5">
+          <div class="w-[70%] h-[75%] rounded border border-amber-300/30 bg-amber-600/40"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

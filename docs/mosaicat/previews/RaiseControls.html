@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RaiseControls Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    input[type="range"] { -webkit-appearance: none; appearance: none; height: 8px; border-radius: 9999px; background: #374151; cursor: pointer; }
+    input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #f59e0b; border: 2px solid #1f2937; cursor: pointer; }
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    input[type="number"] { -moz-appearance: textfield; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-8">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wide">RaiseControls — Sizing Panel</p>
+
+    <!-- Default state: min=4, max=200, pot=24, amount=12 (3x selected) -->
+    <div class="flex flex-col gap-3 w-full max-w-sm">
+      <p class="text-gray-500 text-xs mb-1">Default (3x preset active)</p>
+
+      <!-- Preset buttons -->
+      <div class="flex items-center gap-2">
+        <button class="flex-1 px-3 py-1.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-300 border border-gray-700">2x</button>
+        <button class="flex-1 px-3 py-1.5 rounded-lg text-sm font-semibold bg-amber-500 text-gray-950">3x</button>
+        <button class="flex-1 px-3 py-1.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-300 border border-gray-700">Pot</button>
+        <button class="flex-1 px-3 py-1.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-300 border border-gray-700">All-in</button>
+      </div>
+
+      <!-- Slider -->
+      <div class="flex items-center gap-3">
+        <span class="text-xs text-gray-500 tabular-nums w-8 text-right">4</span>
+        <input type="range" min="4" max="200" value="12" class="flex-1" />
+        <span class="text-xs text-gray-500 tabular-nums w-8">200</span>
+      </div>
+
+      <!-- Input + buttons -->
+      <div class="flex items-center gap-2">
+        <div class="relative flex-1">
+          <input type="number" value="12" class="w-full px-3 py-2 rounded-lg text-sm font-bold tabular-nums bg-gray-800 border border-gray-700 text-gray-50 focus:outline-none" />
+        </div>
+        <button class="px-5 py-2 rounded-lg text-sm font-bold bg-amber-500 text-gray-950">Raise</button>
+        <button class="px-3 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-400 border border-gray-700">Cancel</button>
+      </div>
+    </div>
+
+    <!-- All-in state -->
+    <div class="flex flex-col gap-3 w-full max-w-sm">
+      <p class="text-gray-500 text-xs mb-1">All-in state</p>
+
+      <div class="flex items-center gap-2">
+        <button class="flex-1 px-3 py-1.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-300 border border-gray-700">2x</button>
+        <button class="flex-1 px-3 py-1.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-300 border border-gray-700">3x</button>
+        <button class="flex-1 px-3 py-1.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-300 border border-gray-700">Pot</button>
+        <button class="flex-1 px-3 py-1.5 rounded-lg text-sm font-semibold bg-amber-500 text-gray-950">All-in</button>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="text-xs text-gray-500 tabular-nums w-8 text-right">4</span>
+        <input type="range" min="4" max="200" value="200" class="flex-1" />
+        <span class="text-xs text-gray-500 tabular-nums w-8">200</span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <div class="relative flex-1">
+          <input type="number" value="200" class="w-full px-3 py-2 rounded-lg text-sm font-bold tabular-nums bg-gray-800 border border-gray-700 text-gray-50 focus:outline-none" />
+          <span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-red-400">ALL-IN</span>
+        </div>
+        <button class="px-5 py-2 rounded-lg text-sm font-bold bg-amber-500 text-gray-950">Raise</button>
+        <button class="px-3 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-400 border border-gray-700">Cancel</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

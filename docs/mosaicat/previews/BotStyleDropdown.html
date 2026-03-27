@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BotStyleDropdown Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-8">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wide">BotStyleDropdown — States</p>
+
+    <div class="flex gap-8 items-start">
+      <!-- Closed state -->
+      <div class="flex flex-col gap-2">
+        <p class="text-gray-500 text-xs">Closed (TAG selected)</p>
+        <div class="relative w-64">
+          <button class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-semibold text-left bg-gray-800 border border-gray-700 text-gray-50">
+            <span>TAG</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Disabled state -->
+      <div class="flex flex-col gap-2">
+        <p class="text-gray-500 text-xs">Disabled</p>
+        <div class="relative w-64">
+          <button class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-semibold text-left bg-gray-800/50 border border-gray-700/50 text-gray-600 cursor-not-allowed">
+            <span>TAG</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Open state with LAG selected -->
+    <div class="flex flex-col gap-2">
+      <p class="text-gray-500 text-xs">Open (LAG selected)</p>
+      <div class="relative w-64">
+        <button class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-semibold text-left bg-gray-800 border border-gray-700 text-gray-50 ring-2 ring-amber-500/50 border-amber-500">
+          <span>LAG</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500 rotate-180">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+
+        <!-- Dropdown menu -->
+        <div class="absolute z-50 mt-1 w-full rounded-xl bg-gray-800 border border-gray-700 shadow-lg shadow-black/40 overflow-hidden">
+          <!-- TAG -->
+          <button class="w-full flex flex-col px-3 py-2.5 text-left border-l-2 border-transparent hover:bg-gray-700/60">
+            <span class="text-sm font-semibold text-gray-50">TAG</span>
+            <span class="text-xs text-gray-500 mt-0.5">Tight-Aggressive — selective hands, aggressive bets</span>
+          </button>
+          <!-- LAG (selected) -->
+          <button class="w-full flex flex-col px-3 py-2.5 text-left bg-amber-500/15 border-l-2 border-amber-500">
+            <span class="text-sm font-semibold text-amber-400">LAG</span>
+            <span class="text-xs text-gray-500 mt-0.5">Loose-Aggressive — wide range, constant pressure</span>
+          </button>
+          <!-- Fish -->
+          <button class="w-full flex flex-col px-3 py-2.5 text-left border-l-2 border-transparent hover:bg-gray-700/60">
+            <span class="text-sm font-semibold text-gray-50">Fish</span>
+            <span class="text-xs text-gray-500 mt-0.5">Recreational — calls too much, weak decisions</span>
+          </button>
+          <!-- Nit -->
+          <button class="w-full flex flex-col px-3 py-2.5 text-left border-l-2 border-transparent hover:bg-gray-700/60">
+            <span class="text-sm font-semibold text-gray-50">Nit</span>
+            <span class="text-xs text-gray-500 mt-0.5">Ultra-tight — only plays premium hands</span>
+          </button>
+          <!-- Calling Station -->
+          <button class="w-full flex flex-col px-3 py-2.5 text-left border-l-2 border-transparent hover:bg-gray-700/60">
+            <span class="text-sm font-semibold text-gray-50">Calling Station</span>
+            <span class="text-xs text-gray-500 mt-0.5">Passive caller — rarely raises, never folds</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

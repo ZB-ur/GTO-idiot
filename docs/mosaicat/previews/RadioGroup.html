@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RadioGroup Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-8 max-w-sm">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wide">RadioGroup — Examples</p>
+
+    <!-- Game Speed -->
+    <div class="rounded-2xl bg-gray-900 border border-gray-700 p-5">
+      <fieldset class="flex flex-col gap-3">
+        <legend class="text-sm font-medium text-gray-50 mb-1">Game Speed</legend>
+        <div class="flex flex-col gap-2">
+          <!-- Unselected -->
+          <label class="flex items-center gap-3 px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 cursor-pointer">
+            <div class="w-4 h-4 rounded-full border-2 border-gray-600 flex items-center justify-center shrink-0"></div>
+            <span class="text-sm text-gray-400">Slow</span>
+          </label>
+          <!-- Selected -->
+          <label class="flex items-center gap-3 px-4 py-2.5 rounded-lg border border-amber-500/50 bg-amber-500/10 cursor-pointer">
+            <div class="w-4 h-4 rounded-full border-2 border-amber-500 flex items-center justify-center shrink-0">
+              <div class="w-2 h-2 rounded-full bg-amber-500"></div>
+            </div>
+            <span class="text-sm text-gray-50 font-medium">Normal</span>
+          </label>
+          <!-- Unselected -->
+          <label class="flex items-center gap-3 px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 cursor-pointer">
+            <div class="w-4 h-4 rounded-full border-2 border-gray-600 flex items-center justify-center shrink-0"></div>
+            <span class="text-sm text-gray-400">Fast</span>
+          </label>
+          <!-- Unselected -->
+          <label class="flex items-center gap-3 px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 cursor-pointer">
+            <div class="w-4 h-4 rounded-full border-2 border-gray-600 flex items-center justify-center shrink-0"></div>
+            <span class="text-sm text-gray-400">Turbo</span>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+
+    <!-- Theme -->
+    <div class="rounded-2xl bg-gray-900 border border-gray-700 p-5">
+      <fieldset class="flex flex-col gap-3">
+        <legend class="text-sm font-medium text-gray-50 mb-1">Theme</legend>
+        <div class="flex flex-col gap-2">
+          <!-- Selected -->
+          <label class="flex items-center gap-3 px-4 py-2.5 rounded-lg border border-amber-500/50 bg-amber-500/10 cursor-pointer">
+            <div class="w-4 h-4 rounded-full border-2 border-amber-500 flex items-center justify-center shrink-0">
+              <div class="w-2 h-2 rounded-full bg-amber-500"></div>
+            </div>
+            <span class="text-sm text-gray-50 font-medium">Classic Green</span>
+          </label>
+          <!-- Unselected -->
+          <label class="flex items-center gap-3 px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 cursor-pointer">
+            <div class="w-4 h-4 rounded-full border-2 border-gray-600 flex items-center justify-center shrink-0"></div>
+            <span class="text-sm text-gray-400">Midnight Blue</span>
+          </label>
+          <!-- Unselected -->
+          <label class="flex items-center gap-3 px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 cursor-pointer">
+            <div class="w-4 h-4 rounded-full border-2 border-gray-600 flex items-center justify-center shrink-0"></div>
+            <span class="text-sm text-gray-400">Royal Red</span>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</body>
+</html>

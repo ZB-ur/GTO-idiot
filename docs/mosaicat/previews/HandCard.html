@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-2xl space-y-3">
+    <!-- Hand 1 - Won at showdown -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 cursor-pointer hover:bg-gray-800 transition-colors">
+      <div class="flex items-center gap-4">
+        <div class="flex flex-col items-center shrink-0 w-12">
+          <span class="text-xs text-gray-500 font-medium">Hand</span>
+          <span class="text-lg font-bold text-amber-500">#12</span>
+        </div>
+        <!-- Hole cards -->
+        <div class="flex gap-1 shrink-0">
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-gray-50">A</span>
+            <span class="text-[10px] text-gray-50">♠</span>
+          </div>
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-red-400">K</span>
+            <span class="text-[10px] text-red-400">♥</span>
+          </div>
+        </div>
+        <div class="w-px h-10 bg-gray-700 shrink-0"></div>
+        <!-- Community cards -->
+        <div class="flex gap-1">
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-red-400">K</span>
+            <span class="text-[10px] text-red-400">♥</span>
+          </div>
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-emerald-400">5</span>
+            <span class="text-[10px] text-emerald-400">♣</span>
+          </div>
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-sky-400">2</span>
+            <span class="text-[10px] text-sky-400">♦</span>
+          </div>
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-gray-50">9</span>
+            <span class="text-[10px] text-gray-50">♠</span>
+          </div>
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-emerald-400">7</span>
+            <span class="text-[10px] text-emerald-400">♣</span>
+          </div>
+        </div>
+        <div class="flex-1"></div>
+        <div class="flex flex-col items-end gap-1 shrink-0">
+          <span class="text-lg font-bold text-emerald-400">+24</span>
+          <span class="text-[10px] uppercase tracking-wider text-gray-500 font-semibold bg-gray-800 px-1.5 py-0.5 rounded">SD</span>
+        </div>
+      </div>
+      <p class="mt-2 text-sm text-gray-400 truncate pl-16">Raised preflop, bet flop, called turn</p>
+    </div>
+
+    <!-- Hand 2 - Lost, no showdown -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 cursor-pointer hover:bg-gray-800 transition-colors">
+      <div class="flex items-center gap-4">
+        <div class="flex flex-col items-center shrink-0 w-12">
+          <span class="text-xs text-gray-500 font-medium">Hand</span>
+          <span class="text-lg font-bold text-amber-500">#13</span>
+        </div>
+        <div class="flex gap-1 shrink-0">
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-sky-400">J</span>
+            <span class="text-[10px] text-sky-400">♦</span>
+          </div>
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-gray-50">T</span>
+            <span class="text-[10px] text-gray-50">♠</span>
+          </div>
+        </div>
+        <div class="w-px h-10 bg-gray-700 shrink-0"></div>
+        <div class="flex gap-1">
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-red-400">8</span>
+            <span class="text-[10px] text-red-400">♥</span>
+          </div>
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-emerald-400">4</span>
+            <span class="text-[10px] text-emerald-400">♣</span>
+          </div>
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-gray-50">2</span>
+            <span class="text-[10px] text-gray-50">♠</span>
+          </div>
+        </div>
+        <div class="flex-1"></div>
+        <div class="flex flex-col items-end gap-1 shrink-0">
+          <span class="text-lg font-bold text-red-400">-8</span>
+        </div>
+      </div>
+      <p class="mt-2 text-sm text-gray-400 truncate pl-16">Raised preflop, folded to 3-bet on flop</p>
+    </div>
+
+    <!-- Hand 3 - Small win, no action summary -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 cursor-pointer hover:bg-gray-800 transition-colors">
+      <div class="flex items-center gap-4">
+        <div class="flex flex-col items-center shrink-0 w-12">
+          <span class="text-xs text-gray-500 font-medium">Hand</span>
+          <span class="text-lg font-bold text-amber-500">#14</span>
+        </div>
+        <div class="flex gap-1 shrink-0">
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-red-400">7</span>
+            <span class="text-[10px] text-red-400">♥</span>
+          </div>
+          <div class="bg-gray-800 border border-gray-600 rounded-lg w-9 h-12 flex flex-col items-center justify-center">
+            <span class="text-xs font-bold text-red-400">6</span>
+            <span class="text-[10px] text-red-400">♥</span>
+          </div>
+        </div>
+        <div class="w-px h-10 bg-gray-700 shrink-0"></div>
+        <span class="text-sm text-gray-500 italic">No board</span>
+        <div class="flex-1"></div>
+        <div class="flex flex-col items-end gap-1 shrink-0">
+          <span class="text-lg font-bold text-emerald-400">+3</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

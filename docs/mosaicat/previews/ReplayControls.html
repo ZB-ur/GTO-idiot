@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayControls Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col items-center gap-3 select-none">
+    <!-- Progress bar -->
+    <div class="w-full max-w-xs">
+      <div class="h-1 w-full rounded-full bg-gray-800 overflow-hidden">
+        <div class="h-full bg-amber-500 rounded-full" style="width: 29%"></div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <!-- Start -->
+      <button class="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-800 text-gray-50 hover:bg-gray-700">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <rect x="2" y="3" width="2" height="10" rx="0.5" />
+          <path d="M13 3.5L7 8l6 4.5V3.5z" />
+        </svg>
+      </button>
+
+      <!-- Prev -->
+      <button class="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-800 text-gray-50 hover:bg-gray-700">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M11 3.5L5 8l6 4.5V3.5z" />
+        </svg>
+      </button>
+
+      <!-- Step counter -->
+      <div class="px-3 py-1.5 rounded-lg bg-gray-800 border border-gray-700 min-w-[80px] text-center">
+        <span class="text-sm font-mono text-amber-400 font-semibold">7</span>
+        <span class="text-sm font-mono text-gray-500"> / 24</span>
+      </div>
+
+      <!-- Next -->
+      <button class="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-800 text-gray-50 hover:bg-gray-700">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M5 3.5L11 8l-6 4.5V3.5z" />
+        </svg>
+      </button>
+
+      <!-- End -->
+      <button class="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-800 text-gray-50 hover:bg-gray-700">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M3 3.5L9 8l-6 4.5V3.5z" />
+          <rect x="12" y="3" width="2" height="10" rx="0.5" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</body>
+</html>

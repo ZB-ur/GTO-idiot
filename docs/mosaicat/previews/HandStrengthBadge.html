@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandStrengthBadge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 20px; align-items: flex-start;">
+
+    <!-- Strong hand — high equity -->
+    <div class="inline-flex flex-col gap-1.5 px-3 py-2 rounded-lg bg-gray-900/90 border border-gray-700 shadow-lg shadow-black/40">
+      <div class="flex items-center justify-between gap-3">
+        <span class="text-sm font-semibold text-gray-50 whitespace-nowrap">Full House, Aces full of Kings</span>
+        <span class="text-xs font-bold tabular-nums text-amber-400">92%</span>
+      </div>
+      <div class="w-full h-1.5 rounded-full bg-gray-800 overflow-hidden">
+        <div class="h-full rounded-full bg-emerald-400" style="width: 92%;"></div>
+      </div>
+    </div>
+
+    <!-- Mid-strength with draws -->
+    <div class="inline-flex flex-col gap-1.5 px-3 py-2 rounded-lg bg-gray-900/90 border border-gray-700 shadow-lg shadow-black/40">
+      <div class="flex items-center justify-between gap-3">
+        <span class="text-sm font-semibold text-gray-50 whitespace-nowrap">Pair of Jacks</span>
+        <span class="text-xs font-bold tabular-nums text-amber-400">54%</span>
+      </div>
+      <div class="w-full h-1.5 rounded-full bg-gray-800 overflow-hidden">
+        <div class="h-full rounded-full bg-amber-400" style="width: 54%;"></div>
+      </div>
+      <div class="flex flex-wrap gap-1">
+        <span class="text-[10px] px-1.5 py-0.5 rounded bg-gray-800 text-gray-400 border border-gray-700">Flush draw</span>
+        <span class="text-[10px] px-1.5 py-0.5 rounded bg-gray-800 text-gray-400 border border-gray-700">Gutshot</span>
+      </div>
+    </div>
+
+    <!-- Weak hand -->
+    <div class="inline-flex flex-col gap-1.5 px-3 py-2 rounded-lg bg-gray-900/90 border border-gray-700 shadow-lg shadow-black/40">
+      <div class="flex items-center justify-between gap-3">
+        <span class="text-sm font-semibold text-gray-50 whitespace-nowrap">High Card Ace</span>
+        <span class="text-xs font-bold tabular-nums text-amber-400">18%</span>
+      </div>
+      <div class="w-full h-1.5 rounded-full bg-gray-800 overflow-hidden">
+        <div class="h-full rounded-full bg-red-400" style="width: 18%;"></div>
+      </div>
+      <div class="flex flex-wrap gap-1">
+        <span class="text-[10px] px-1.5 py-0.5 rounded bg-gray-800 text-gray-400 border border-gray-700">Backdoor flush</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

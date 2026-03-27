@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayScreen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; color: #f9fafb; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-gray-900 border-b border-gray-800 px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <button class="p-2 rounded-lg hover:bg-gray-800 text-gray-400 hover:text-gray-50 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <div>
+        <h1 class="text-lg font-bold text-gray-50">Hand Replay</h1>
+        <p class="text-xs text-gray-500 font-mono">hand_x7y8z9</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <!-- Deviation summary -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400"></span><span class="text-xs text-gray-400">4</span></div>
+        <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-400"></span><span class="text-xs text-gray-400">2</span></div>
+        <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-orange-400"></span><span class="text-xs text-gray-400">1</span></div>
+        <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-red-500"></span><span class="text-xs text-gray-400">0</span></div>
+      </div>
+      <button class="text-xs px-3 py-1.5 rounded-lg border bg-amber-500/20 text-amber-400 border-amber-500/30">GTO ON</button>
+    </div>
+  </header>
+
+  <div class="flex flex-col lg:flex-row gap-4 p-4 max-w-7xl mx-auto">
+    <!-- Left: Table + Controls -->
+    <div class="flex-1 space-y-4">
+      <!-- Street indicator -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-xs px-3 py-1 rounded-full font-medium text-gray-600">Preflop</span>
+          <span class="text-xs px-3 py-1 rounded-full font-medium bg-amber-500/20 text-amber-400 border border-amber-500/30">Flop</span>
+          <span class="text-xs px-3 py-1 rounded-full font-medium text-gray-600">Turn</span>
+          <span class="text-xs px-3 py-1 rounded-full font-medium text-gray-600">River</span>
+        </div>
+        <span class="text-xs text-gray-500">Step 8 of 24</span>
+      </div>
+
+      <!-- Table area -->
+      <div class="bg-emerald-900/30 border-2 border-emerald-700/40 rounded-2xl p-6 space-y-4 relative">
+        <!-- Top row seats -->
+        <div class="flex justify-around">
+          <!-- Seat 1 - UTG (highlighted, acting) -->
+          <div class="flex flex-col items-center gap-1 p-2 rounded-xl ring-2 ring-amber-500/60">
+            <div class="flex gap-0.5">
+              <div class="w-7 h-10 bg-emerald-800 rounded-lg border border-emerald-600"></div>
+              <div class="w-7 h-10 bg-emerald-800 rounded-lg border border-emerald-600"></div>
+            </div>
+            <div class="text-xs font-semibold px-2 py-0.5 rounded-full bg-gray-700 text-gray-300">Seat 1</div>
+            <span class="text-[10px] text-gray-500 font-medium">UTG</span>
+            <span class="text-xs text-gray-400 font-mono">186</span>
+            <span class="text-[10px] text-amber-400 font-mono">Bet: 6</span>
+          </div>
+          <!-- Seat 2 - MP -->
+          <div class="flex flex-col items-center gap-1 p-2 rounded-xl opacity-40">
+            <div class="flex gap-0.5">
+              <div class="w-7 h-10 bg-emerald-800 rounded-lg border border-emerald-600"></div>
+              <div class="w-7 h-10 bg-emerald-800 rounded-lg border border-emerald-600"></div>
+            </div>
+            <div class="text-xs font-semibold px-2 py-0.5 rounded-full bg-gray-700 text-gray-300">Seat 2</div>
+            <span class="text-[10px] text-gray-500 font-medium">MP</span>
+            <span class="text-xs text-gray-400 font-mono">200</span>
+          </div>
+          <!-- Seat 3 - CO (You) with cards -->
+          <div class="flex flex-col items-center gap-1 p-2 rounded-xl">
+            <div class="flex gap-0.5">
+              <div class="w-7 h-10 bg-white rounded-lg shadow-md flex flex-col items-center justify-center font-bold border border-gray-200">
+                <span class="text-gray-900 text-xs leading-none">A</span>
+                <span class="text-gray-800 text-xs leading-none">♠</span>
+              </div>
+              <div class="w-7 h-10 bg-white rounded-lg shadow-md flex flex-col items-center justify-center font-bold border border-gray-200">
+                <span class="text-gray-900 text-xs leading-none">J</span>
+                <span class="text-gray-800 text-xs leading-none">♠</span>
+              </div>
+            </div>
+            <div class="text-xs font-semibold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400">You</div>
+            <span class="text-[10px] text-gray-500 font-medium">CO</span>
+            <span class="text-xs text-gray-400 font-mono">194</span>
+            <span class="text-[10px] text-amber-400 font-mono">Bet: 6</span>
+          </div>
+        </div>
+
+        <!-- Community cards + pot -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-center gap-1.5 min-h-[4rem]">
+            <!-- Flop: Ks 7h 2d -->
+            <div class="w-9 h-13 bg-white rounded-lg shadow-md flex flex-col items-center justify-center font-bold border border-gray-200">
+              <span class="text-gray-900 text-sm leading-none">K</span>
+              <span class="text-gray-800 text-sm leading-none">♠</span>
+            </div>
+            <div class="w-9 h-13 bg-white rounded-lg shadow-md flex flex-col items-center justify-center font-bold border border-gray-200">
+              <span class="text-gray-900 text-sm leading-none">7</span>
+              <span class="text-red-400 text-sm leading-none">♥</span>
+            </div>
+            <div class="w-9 h-13 bg-white rounded-lg shadow-md flex flex-col items-center justify-center font-bold border border-gray-200">
+              <span class="text-gray-900 text-sm leading-none">2</span>
+              <span class="text-sky-400 text-sm leading-none">♦</span>
+            </div>
+          </div>
+          <!-- Pot -->
+          <div class="flex items-center justify-center gap-1.5">
+            <div class="bg-gray-800 border border-gray-700 rounded-full px-4 py-1.5 flex items-center gap-2">
+              <svg class="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" /></svg>
+              <span class="text-amber-400 font-bold text-sm">27</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom row seats -->
+        <div class="flex justify-around">
+          <!-- Seat 4 - BTN -->
+          <div class="flex flex-col items-center gap-1 p-2 rounded-xl opacity-40">
+            <div class="flex gap-0.5">
+              <div class="w-7 h-10 bg-emerald-800 rounded-lg border border-emerald-600"></div>
+              <div class="w-7 h-10 bg-emerald-800 rounded-lg border border-emerald-600"></div>
+            </div>
+            <div class="text-xs font-semibold px-2 py-0.5 rounded-full bg-gray-700 text-gray-300">Seat 4</div>
+            <span class="text-[10px] text-gray-500 font-medium">BTN</span>
+            <span class="text-xs text-gray-400 font-mono">200</span>
+          </div>
+          <!-- Seat 5 - SB -->
+          <div class="flex flex-col items-center gap-1 p-2 rounded-xl">
+            <div class="flex gap-0.5">
+              <div class="w-7 h-10 bg-emerald-800 rounded-lg border border-emerald-600"></div>
+              <div class="w-7 h-10 bg-emerald-800 rounded-lg border border-emerald-600"></div>
+            </div>
+            <div class="text-xs font-semibold px-2 py-0.5 rounded-full bg-gray-700 text-gray-300">Seat 5</div>
+            <span class="text-[10px] text-gray-500 font-medium">SB</span>
+            <span class="text-xs text-gray-400 font-mono">199</span>
+          </div>
+          <!-- Seat 6 - BB -->
+          <div class="flex flex-col items-center gap-1 p-2 rounded-xl">
+            <div class="flex gap-0.5">
+              <div class="w-7 h-10 bg-emerald-800 rounded-lg border border-emerald-600"></div>
+              <div class="w-7 h-10 bg-emerald-800 rounded-lg border border-emerald-600"></div>
+            </div>
+            <div class="text-xs font-semibold px-2 py-0.5 rounded-full bg-gray-700 text-gray-300">Seat 6</div>
+            <span class="text-[10px] text-gray-500 font-medium">BB</span>
+            <span class="text-xs text-gray-400 font-mono">194</span>
+            <span class="text-[10px] text-amber-400 font-mono">Bet: 6</span>
+          </div>
+        </div>
+
+        <!-- Current action overlay -->
+        <div class="absolute top-3 right-3 bg-gray-900/90 border border-gray-700 rounded-lg px-3 py-1.5">
+          <span class="text-xs text-gray-400">UTG</span>
+          <span class="text-sm text-gray-50 font-semibold ml-2">Raise 6</span>
+        </div>
+      </div>
+
+      <!-- Replay controls -->
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 flex items-center gap-4">
+        <button class="p-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors opacity-30">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" /></svg>
+        </button>
+        <button class="p-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button class="p-2.5 rounded-lg bg-amber-500 text-gray-950 hover:bg-amber-400 transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+        </button>
+        <button class="p-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <button class="p-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" /></svg>
+        </button>
+        <div class="flex-1 flex items-center gap-3">
+          <div class="flex-1 bg-gray-700 rounded-full h-1.5 relative">
+            <div class="bg-amber-500 rounded-full h-1.5 absolute left-0 top-0" style="width: 33%"></div>
+          </div>
+          <span class="text-gray-400 text-sm font-mono whitespace-nowrap">8 / 24</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right sidebar -->
+    <div class="w-full lg:w-80 space-y-4">
+      <!-- Action Log -->
+      <div class="bg-gray-900 border border-gray-700 rounded-xl overflow-hidden flex flex-col">
+        <div class="px-4 py-3 border-b border-gray-800">
+          <h3 class="text-sm font-semibold text-gray-50">Action Log</h3>
+        </div>
+        <div class="divide-y divide-gray-800/50 max-h-80 overflow-y-auto">
+          <!-- Step 1: Deal -->
+          <button class="w-full text-left px-4 py-2 flex items-center gap-3 border-l-2 border-transparent hover:bg-gray-800/50">
+            <span class="text-[10px] text-gray-600 font-mono w-5 text-right">1</span>
+            <span class="text-sm text-gray-300 flex-1">Deal</span>
+          </button>
+          <!-- Step 2: SB Post 1 -->
+          <button class="w-full text-left px-4 py-2 flex items-center gap-3 border-l-2 border-transparent hover:bg-gray-800/50">
+            <span class="text-[10px] text-gray-600 font-mono w-5 text-right">2</span>
+            <span class="text-sm text-gray-300 flex-1">SB Call 1</span>
+            <span class="text-[10px] text-gray-500 font-mono">3</span>
+          </button>
+          <!-- Step 3: BB Post 2 -->
+          <button class="w-full text-left px-4 py-2 flex items-center gap-3 border-l-2 border-transparent hover:bg-gray-800/50">
+            <span class="text-[10px] text-gray-600 font-mono w-5 text-right">3</span>
+            <span class="text-sm text-gray-300 flex-1">BB Check</span>
+            <span class="text-[10px] text-gray-500 font-mono">3</span>
+          </button>
+          <!-- Step 4: UTG Raise -->
+          <button class="w-full text-left px-4 py-2 flex items-center gap-3 border-l-2 border-transparent hover:bg-gray-800/50">
+            <span class="text-[10px] text-gray-600 font-mono w-5 text-right">4</span>
+            <span class="text-sm text-gray-300 flex-1">UTG Raise 6</span>
+            <span class="text-[10px] text-gray-500 font-mono">9</span>
+          </button>
+          <!-- Step 5: MP Fold -->
+          <button class="w-full text-left px-4 py-2 flex items-center gap-3 border-l-2 border-transparent hover:bg-gray-800/50">
+            <span class="text-[10px] text-gray-600 font-mono w-5 text-right">5</span>
+            <span class="text-sm text-gray-300 flex-1">MP Fold</span>
+            <span class="text-[10px] text-gray-500 font-mono">9</span>
+          </button>
+          <!-- Step 6: CO Call (You) - with Mistake annotation -->
+          <button class="w-full text-left px-4 py-2 flex items-center gap-3 border-l-2 border-transparent hover:bg-gray-800/50">
+            <span class="text-[10px] text-gray-600 font-mono w-5 text-right">6</span>
+            <span class="text-sm text-gray-300 flex-1">CO Call 6</span>
+            <span class="text-[10px] text-gray-500 font-mono">15</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded border font-medium bg-orange-400/20 text-orange-400 border-orange-400/30">Mistake</span>
+          </button>
+          <!-- Step 7: Flop deal -->
+          <button class="w-full text-left px-4 py-2 flex items-center gap-3 border-l-2 border-transparent hover:bg-gray-800/50">
+            <span class="text-[10px] text-gray-600 font-mono w-5 text-right">7</span>
+            <span class="text-sm text-sky-400 font-medium flex-1">Flop</span>
+          </button>
+          <!-- Step 8: UTG Raise (current) -->
+          <button class="w-full text-left px-4 py-2 flex items-center gap-3 bg-gray-800 border-l-2 border-amber-500">
+            <span class="text-[10px] text-gray-600 font-mono w-5 text-right">8</span>
+            <span class="text-sm text-gray-300 flex-1">UTG Raise 6</span>
+            <span class="text-[10px] text-gray-500 font-mono">21</span>
+          </button>
+          <!-- Step 9: CO Call -->
+          <button class="w-full text-left px-4 py-2 flex items-center gap-3 border-l-2 border-transparent hover:bg-gray-800/50">
+            <span class="text-[10px] text-gray-600 font-mono w-5 text-right">9</span>
+            <span class="text-sm text-gray-300 flex-1">CO Call 6</span>
+            <span class="text-[10px] text-gray-500 font-mono">27</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded border font-medium bg-emerald-400/20 text-emerald-400 border-emerald-400/30">Good</span>
+          </button>
+          <!-- Step 10: BB Call -->
+          <button class="w-full text-left px-4 py-2 flex items-center gap-3 border-l-2 border-transparent hover:bg-gray-800/50">
+            <span class="text-[10px] text-gray-600 font-mono w-5 text-right">10</span>
+            <span class="text-sm text-gray-300 flex-1">BB Call 6</span>
+            <span class="text-[10px] text-gray-500 font-mono">33</span>
+          </button>
+          <!-- Step 11: Turn -->
+          <button class="w-full text-left px-4 py-2 flex items-center gap-3 border-l-2 border-transparent hover:bg-gray-800/50">
+            <span class="text-[10px] text-gray-600 font-mono w-5 text-right">11</span>
+            <span class="text-sm text-sky-400 font-medium flex-1">Turn</span>
+          </button>
+          <!-- Step 12: CO Fold -->
+          <button class="w-full text-left px-4 py-2 flex items-center gap-3 border-l-2 border-transparent hover:bg-gray-800/50">
+            <span class="text-[10px] text-gray-600 font-mono w-5 text-right">12</span>
+            <span class="text-sm text-gray-300 flex-1">CO Fold</span>
+            <span class="text-[10px] text-gray-500 font-mono">33</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded border font-medium bg-amber-400/20 text-amber-400 border-amber-400/30">Minor</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- GTO Annotation Panel -->
+      <div class="bg-gray-900 border border-orange-400/30 rounded-xl p-4 space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-semibold text-gray-50">GTO Analysis</h3>
+          <span class="text-xs px-2 py-0.5 rounded-full border font-medium bg-orange-400/20 text-orange-400 border-orange-400/30">Mistake (−5.2 bb/100)</span>
+        </div>
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-sm text-gray-400">
+            <span>Your action:</span>
+            <span class="text-gray-50 font-medium">call 6</span>
+          </div>
+          <div class="space-y-1.5">
+            <div class="text-xs text-gray-500 font-medium">GTO Frequencies</div>
+            <!-- Raise -->
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-gray-400 w-10">Raise</span>
+              <div class="flex-1 bg-gray-800 rounded-full h-2 overflow-hidden">
+                <div class="h-full rounded-full bg-red-400" style="width: 67%"></div>
+              </div>
+              <span class="text-xs text-gray-400 font-mono w-10 text-right">67%</span>
+            </div>
+            <!-- Call -->
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-gray-400 w-10">Call</span>
+              <div class="flex-1 bg-gray-800 rounded-full h-2 overflow-hidden">
+                <div class="h-full rounded-full bg-emerald-400" style="width: 33%"></div>
+              </div>
+              <span class="text-xs text-gray-400 font-mono w-10 text-right">33%</span>
+            </div>
+            <!-- Fold -->
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-gray-400 w-10">Fold</span>
+              <div class="flex-1 bg-gray-800 rounded-full h-2 overflow-hidden">
+                <div class="h-full rounded-full bg-gray-500" style="width: 0%"></div>
+              </div>
+              <span class="text-xs text-gray-400 font-mono w-10 text-right">0%</span>
+            </div>
+          </div>
+        </div>
+        <p class="text-xs text-gray-400 leading-relaxed border-t border-gray-800 pt-3">
+          In this spot from CO vs UTG open, GTO suggests 3-betting with AJs at high frequency. Your call is too passive for this holding and position.
+        </p>
+      </div>
+
+      <p class="text-[10px] text-gray-600 italic px-1">GTO Reference (simplified) — not a solver-grade GTO solution</p>
+    </div>
+  </div>
+</body>
+</html>

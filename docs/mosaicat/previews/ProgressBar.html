@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProgressBar Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-8 max-w-md">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wide">ProgressBar — States</p>
+
+    <!-- 0% -->
+    <div class="w-full">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm text-gray-400">Initializing...</span>
+        <span class="text-sm font-semibold text-amber-400">0%</span>
+      </div>
+      <div class="w-full h-2 rounded-full bg-gray-800 border border-gray-700 overflow-hidden">
+        <div class="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-400" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- 35% -->
+    <div class="w-full">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm text-gray-400">Loading assets...</span>
+        <span class="text-sm font-semibold text-amber-400">35%</span>
+      </div>
+      <div class="w-full h-2 rounded-full bg-gray-800 border border-gray-700 overflow-hidden">
+        <div class="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-400" style="width: 35%"></div>
+      </div>
+    </div>
+
+    <!-- 72% -->
+    <div class="w-full">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm text-gray-400">Connecting to server...</span>
+        <span class="text-sm font-semibold text-amber-400">72%</span>
+      </div>
+      <div class="w-full h-2 rounded-full bg-gray-800 border border-gray-700 overflow-hidden">
+        <div class="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-400" style="width: 72%"></div>
+      </div>
+    </div>
+
+    <!-- 100% -->
+    <div class="w-full">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm text-gray-400">Complete!</span>
+        <span class="text-sm font-semibold text-amber-400">100%</span>
+      </div>
+      <div class="w-full h-2 rounded-full bg-gray-800 border border-gray-700 overflow-hidden">
+        <div class="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-400" style="width: 100%"></div>
+      </div>
+    </div>
+
+    <!-- No label -->
+    <div>
+      <p class="text-gray-500 text-xs mb-3">Without label</p>
+      <div class="w-full h-2 rounded-full bg-gray-800 border border-gray-700 overflow-hidden">
+        <div class="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-400" style="width: 60%"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

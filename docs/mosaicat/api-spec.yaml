@@ -1,0 +1,2391 @@
+openapi: "3.0.0"
+info:
+  title: GTO Idiot API
+  version: "1.0.0"
+  description: >
+    Internal service layer contract for GTO Idiot — a browser-based Texas Hold'em GTO strategy trainer.
+    All endpoints are implemented client-side against IndexedDB and localStorage.
+    This spec defines the data operation contracts for the frontend service modules.
+servers:
+  - url: /api
+    description: Client-side service layer (no network calls — all operations are local)
+
+tags:
+  - name: Sessions
+    description: Game session lifecycle management
+  - name: Game
+    description: Active game state and player actions
+  - name: Hands
+    description: Hand history storage and retrieval
+  - name: GTO
+    description: GTO strategy data and deviation analysis
+  - name: Settings
+    description: User preferences and configuration
+  - name: Storage
+    description: Data persistence and storage management
+
+paths:
+  # ─── Sessions ───────────────────────────────────────────────
+  /sessions:
+    post:
+      summary: Create a new game session with seat and BOT configuration
+      operationId: createSession
+      tags: [Sessions]
+      x-covers-features: ["F-003"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateSessionRequest"
+      responses:
+        "201":
+          description: Session created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Session"
+        "400":
+          description: Invalid configuration
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    get:
+      summary: List all sessions with aggregate statistics
+      operationId: listSessions
+      tags: [Sessions]
+      x-covers-features: ["F-010", "F-005"]
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+          description: Page number
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 100
+          description: Sessions per page
+        - name: sort_by
+          in: query
+          schema:
+            type: string
+            enum: [created_at, hands_played, net_profit]
+            default: created_at
+          description: Sort field
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: desc
+          description: Sort direction
+      responses:
+        "200":
+          description: Paginated session list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SessionListResponse"
+        "400":
+          description: Invalid query parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sessions/quick-start:
+    post:
+      summary: Create a quick-start session with random seat and default BOT mix
+      operationId: createQuickStartSession
+      tags: [Sessions]
+      x-covers-features: ["F-009"]
+      responses:
+        "201":
+          description: Quick-start session created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Session"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sessions/{sessionId}:
+    get:
+      summary: Get session details including configuration and current status
+      operationId: getSession
+      tags: [Sessions]
+      x-covers-features: ["F-010"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      responses:
+        "200":
+          description: Session details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Session"
+        "400":
+          description: Invalid session ID
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sessions/{sessionId}/end:
+    post:
+      summary: End an active session and trigger summary calculation
+      operationId: endSession
+      tags: [Sessions]
+      x-covers-features: ["F-010"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      responses:
+        "200":
+          description: Session ended successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SessionSummary"
+        "400":
+          description: Session already ended or invalid state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sessions/{sessionId}/summary:
+    get:
+      summary: Get session summary with stats, GTO deviations, and notable hands
+      operationId: getSessionSummary
+      tags: [Sessions]
+      x-covers-features: ["F-010", "F-007"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      responses:
+        "200":
+          description: Session summary with statistics and deviations
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SessionSummary"
+        "400":
+          description: Invalid session ID
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sessions/{sessionId}/stats:
+    get:
+      summary: Get aggregate statistics for a specific session
+      operationId: getSessionStats
+      tags: [Sessions]
+      x-covers-features: ["F-005", "F-010"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      responses:
+        "200":
+          description: Session statistics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SessionStats"
+        "400":
+          description: Invalid session ID
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ─── Game ───────────────────────────────────────────────────
+  /sessions/{sessionId}/game:
+    get:
+      summary: Get current game state for active session
+      operationId: getGameState
+      tags: [Game]
+      x-covers-features: ["F-001", "F-002"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      responses:
+        "200":
+          description: Current game state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "400":
+          description: Session not active
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session or game not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sessions/{sessionId}/game/deal:
+    post:
+      summary: Deal a new hand — shuffle deck, post blinds, deal hole cards
+      operationId: dealNewHand
+      tags: [Game]
+      x-covers-features: ["F-002"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      responses:
+        "200":
+          description: New hand dealt successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "400":
+          description: Cannot deal (previous hand not complete or no players with chips)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sessions/{sessionId}/game/action:
+    post:
+      summary: Submit a player action (fold, check, call, raise, all-in)
+      operationId: submitPlayerAction
+      tags: [Game]
+      x-covers-features: ["F-001", "F-002"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlayerActionRequest"
+      responses:
+        "200":
+          description: Action processed, returns updated game state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ActionResult"
+        "400":
+          description: Invalid action (not player's turn, illegal raise amount, etc.)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session or active hand not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sessions/{sessionId}/game/bot-action:
+    post:
+      summary: Request the next BOT to act and return its decision
+      operationId: requestBotAction
+      tags: [Game]
+      x-covers-features: ["F-004", "F-002"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      responses:
+        "200":
+          description: BOT action executed, returns updated game state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ActionResult"
+        "400":
+          description: Not a BOT's turn or no active hand
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session or active hand not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /sessions/{sessionId}/game/legal-actions:
+    get:
+      summary: Get legal actions for the current player to act
+      operationId: getLegalActions
+      tags: [Game]
+      x-covers-features: ["F-001", "F-002"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      responses:
+        "200":
+          description: Available legal actions with constraints
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LegalActionsResponse"
+        "400":
+          description: No active hand or not the current player's turn
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ─── Hands ──────────────────────────────────────────────────
+  /hands:
+    get:
+      summary: List hand history across all sessions with filtering and pagination
+      operationId: listHands
+      tags: [Hands]
+      x-covers-features: ["F-005"]
+      parameters:
+        - name: session_id
+          in: query
+          schema:
+            type: string
+          description: Filter by session ID (omit for all sessions)
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+          description: Page number
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 50
+            minimum: 1
+            maximum: 100
+          description: Hands per page
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: desc
+          description: Sort by hand timestamp
+      responses:
+        "200":
+          description: Paginated hand list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HandListResponse"
+        "400":
+          description: Invalid query parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /hands/{handId}:
+    get:
+      summary: Get complete hand record with full action sequence
+      operationId: getHand
+      tags: [Hands]
+      x-covers-features: ["F-005", "F-006"]
+      parameters:
+        - $ref: "#/components/parameters/HandId"
+      responses:
+        "200":
+          description: Complete hand record
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HandRecord"
+        "400":
+          description: Invalid hand ID
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Hand not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /hands/{handId}/replay:
+    get:
+      summary: Get hand replay data as ordered steps for step-through playback
+      operationId: getHandReplay
+      tags: [Hands]
+      x-covers-features: ["F-006"]
+      parameters:
+        - $ref: "#/components/parameters/HandId"
+      responses:
+        "200":
+          description: Ordered replay steps with game state at each point
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HandReplayResponse"
+        "400":
+          description: Invalid hand ID
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Hand not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /hands/{handId}/gto-analysis:
+    get:
+      summary: Get GTO deviation analysis for all player decision points in a hand
+      operationId: getHandGTOAnalysis
+      tags: [GTO]
+      x-covers-features: ["F-007", "F-008"]
+      parameters:
+        - $ref: "#/components/parameters/HandId"
+      responses:
+        "200":
+          description: GTO analysis with deviation annotations per decision point
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HandGTOAnalysis"
+        "400":
+          description: Invalid hand ID
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Hand not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ─── GTO Strategy ───────────────────────────────────────────
+  /gto/strategy:
+    get:
+      summary: Load the full GTO reference strategy dataset
+      operationId: loadGTOStrategy
+      tags: [GTO]
+      x-covers-features: ["F-008"]
+      responses:
+        "200":
+          description: Complete GTO strategy data (preflop ranges + postflop heuristics)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GTOStrategyData"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Strategy data not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /gto/lookup:
+    post:
+      summary: Look up GTO reference action for a specific game situation
+      operationId: lookupGTOAction
+      tags: [GTO]
+      x-covers-features: ["F-007", "F-008"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GTOLookupRequest"
+      responses:
+        "200":
+          description: GTO reference action distribution for the situation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GTOLookupResponse"
+        "400":
+          description: Invalid situation parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: No reference data for this situation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /gto/hand-strength:
+    post:
+      summary: Evaluate hand strength and equity for the hand strength indicator
+      operationId: evaluateHandStrength
+      tags: [GTO]
+      x-covers-features: ["F-012"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HandStrengthRequest"
+      responses:
+        "200":
+          description: Hand strength evaluation with equity estimate
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HandStrengthResponse"
+        "400":
+          description: Invalid cards or board state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ─── Statistics ─────────────────────────────────────────────
+  /stats/aggregate:
+    get:
+      summary: Get aggregate statistics across all sessions
+      operationId: getAggregateStats
+      tags: [Hands]
+      x-covers-features: ["F-005"]
+      responses:
+        "200":
+          description: Lifetime aggregate statistics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AggregateStats"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /stats/profit-chart:
+    get:
+      summary: Get profit/loss data points for charting over time
+      operationId: getProfitChart
+      tags: [Hands]
+      x-covers-features: ["F-005", "F-010"]
+      parameters:
+        - name: session_id
+          in: query
+          schema:
+            type: string
+          description: Filter to a specific session (omit for all)
+      responses:
+        "200":
+          description: Ordered data points for profit chart
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProfitChartResponse"
+        "400":
+          description: Invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ─── Settings ───────────────────────────────────────────────
+  /settings:
+    get:
+      summary: Get all user preferences
+      operationId: getSettings
+      tags: [Settings]
+      x-covers-features: ["F-011", "F-012"]
+      responses:
+        "200":
+          description: Current user settings
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserSettings"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    patch:
+      summary: Update one or more user preferences
+      operationId: updateSettings
+      tags: [Settings]
+      x-covers-features: ["F-011", "F-012"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateSettingsRequest"
+      responses:
+        "200":
+          description: Updated settings
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserSettings"
+        "400":
+          description: Invalid preference values
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ─── Storage Management ─────────────────────────────────────
+  /storage/status:
+    get:
+      summary: Get storage usage and quota information
+      operationId: getStorageStatus
+      tags: [Storage]
+      x-covers-features: ["F-005"]
+      responses:
+        "200":
+          description: Storage usage details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StorageStatus"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /storage/sessions/{sessionId}:
+    delete:
+      summary: Delete a session and all its hand history to free storage
+      operationId: deleteSessionData
+      tags: [Storage]
+      x-covers-features: ["F-005", "F-010"]
+      parameters:
+        - $ref: "#/components/parameters/SessionId"
+      responses:
+        "200":
+          description: Session data deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeleteResponse"
+        "400":
+          description: Cannot delete active session
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /storage/reset:
+    post:
+      summary: Reset entire database — delete all sessions, hands, and settings
+      operationId: resetStorage
+      tags: [Storage]
+      x-covers-features: ["F-005"]
+      responses:
+        "200":
+          description: All data deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeleteResponse"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  securitySchemes:
+    LocalSession:
+      type: apiKey
+      in: header
+      name: X-Local-Session
+      description: >
+        No authentication required — this is a fully client-side application.
+        This placeholder exists for API spec completeness. All operations
+        are local to the user's browser with no server communication.
+
+  parameters:
+    SessionId:
+      name: sessionId
+      in: path
+      required: true
+      schema:
+        type: string
+        example: "sess_a1b2c3d4"
+      description: Unique session identifier
+    HandId:
+      name: handId
+      in: path
+      required: true
+      schema:
+        type: string
+        example: "hand_x7y8z9"
+      description: Unique hand identifier
+
+  schemas:
+    # ─── Enums & Primitives ─────────────────────────────────
+    Position:
+      type: string
+      enum: [UTG, MP, CO, BTN, SB, BB]
+      description: Table position (6-max)
+      example: "CO"
+
+    BotStyle:
+      type: string
+      enum: [TAG, LAG, Fish, Nit, CallingStation]
+      description: BOT playing style
+      example: "TAG"
+
+    ActionType:
+      type: string
+      enum: [fold, check, call, raise, allIn]
+      description: Player action type
+      example: "raise"
+
+    Street:
+      type: string
+      enum: [preflop, flop, turn, river]
+      description: Betting round
+      example: "flop"
+
+    HandRanking:
+      type: string
+      enum:
+        - high_card
+        - one_pair
+        - two_pair
+        - three_of_a_kind
+        - straight
+        - flush
+        - full_house
+        - four_of_a_kind
+        - straight_flush
+        - royal_flush
+      description: Poker hand ranking category
+      example: "two_pair"
+
+    DeviationSeverity:
+      type: string
+      enum: [good, minor, mistake, blunder]
+      description: "GTO deviation severity: good (matches GTO), minor (<3 EV bb/100 loss), mistake (3-10), blunder (>10)"
+      example: "mistake"
+
+    SessionStatus:
+      type: string
+      enum: [active, ended]
+      description: Session lifecycle status
+      example: "active"
+
+    GameSpeed:
+      type: string
+      enum: [fast, normal, slow]
+      description: BOT action delay speed
+      example: "normal"
+
+    Theme:
+      type: string
+      enum: [light, dark]
+      description: UI theme
+      example: "dark"
+
+    Card:
+      type: object
+      description: A playing card with rank and suit
+      required: [rank, suit]
+      properties:
+        rank:
+          type: string
+          enum: ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"]
+          description: Card rank (T = 10)
+          example: "A"
+        suit:
+          type: string
+          enum: [s, h, d, c]
+          description: "Card suit: s=spades, h=hearts, d=diamonds, c=clubs"
+          example: "s"
+
+    # ─── Core Models ────────────────────────────────────────
+    SeatConfig:
+      type: object
+      description: Configuration for a single table seat
+      required: [position, occupant]
+      properties:
+        position:
+          $ref: "#/components/schemas/Position"
+        occupant:
+          type: string
+          enum: [player, bot]
+          description: Whether this seat is the human player or a BOT
+          example: "bot"
+        botStyle:
+          $ref: "#/components/schemas/BotStyle"
+          description: Required when occupant is "bot"
+
+    Session:
+      type: object
+      description: A game session with configuration and status
+      required: [id, status, seats, blinds, startingStack, createdAt, handCount]
+      properties:
+        id:
+          type: string
+          description: Unique session identifier
+          example: "sess_a1b2c3d4"
+        status:
+          $ref: "#/components/schemas/SessionStatus"
+        seats:
+          type: array
+          items:
+            $ref: "#/components/schemas/SeatConfig"
+          minItems: 6
+          maxItems: 6
+          description: All 6 seat configurations
+        blinds:
+          type: object
+          required: [small, big]
+          properties:
+            small:
+              type: integer
+              description: Small blind amount
+              example: 1
+            big:
+              type: integer
+              description: Big blind amount
+              example: 2
+        startingStack:
+          type: integer
+          description: Starting chip stack per player
+          example: 200
+        handCount:
+          type: integer
+          description: Number of hands played in this session
+          example: 47
+        createdAt:
+          type: string
+          format: date-time
+          description: Session creation timestamp
+          example: "2026-03-27T14:30:00Z"
+        endedAt:
+          type: string
+          format: date-time
+          description: Session end timestamp (null if active)
+          example: "2026-03-27T16:15:00Z"
+
+    PlayerState:
+      type: object
+      description: A player's state within a hand
+      required: [seatIndex, position, stack, isActive, isBot]
+      properties:
+        seatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          description: Seat index (0-5)
+          example: 2
+        position:
+          $ref: "#/components/schemas/Position"
+        name:
+          type: string
+          description: Display name (player name or BOT style)
+          example: "TAG Bot"
+        stack:
+          type: integer
+          description: Current chip stack
+          example: 186
+        isActive:
+          type: boolean
+          description: Whether this player is still in the current hand
+          example: true
+        isBot:
+          type: boolean
+          description: Whether this seat is a BOT
+          example: true
+        botStyle:
+          $ref: "#/components/schemas/BotStyle"
+        holeCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 2
+          maxItems: 2
+          description: "Hole cards (visible for human player; revealed at showdown for BOTs; null/empty if face down)"
+        currentBet:
+          type: integer
+          description: Amount bet in the current betting round
+          example: 6
+        totalInvested:
+          type: integer
+          description: Total chips invested in this hand across all streets
+          example: 12
+        hasActed:
+          type: boolean
+          description: Whether this player has acted in the current betting round
+          example: false
+
+    GameState:
+      type: object
+      description: Complete state of the current hand in progress
+      required: [sessionId, handNumber, street, pot, communityCards, players, dealerSeatIndex, currentPlayerIndex, isHandInProgress]
+      properties:
+        sessionId:
+          type: string
+          description: Parent session ID
+          example: "sess_a1b2c3d4"
+        handNumber:
+          type: integer
+          description: Sequential hand number within session
+          example: 12
+        street:
+          $ref: "#/components/schemas/Street"
+        pot:
+          type: integer
+          description: Total pot size including all bets
+          example: 24
+        sidePots:
+          type: array
+          items:
+            type: object
+            required: [amount, eligibleSeatIndexes]
+            properties:
+              amount:
+                type: integer
+                description: Side pot amount
+                example: 50
+              eligibleSeatIndexes:
+                type: array
+                items:
+                  type: integer
+                description: Seat indexes eligible for this pot
+                example: [0, 2, 4]
+          description: Side pots (empty if no side pots)
+        communityCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          maxItems: 5
+          description: Community cards revealed so far
+        players:
+          type: array
+          items:
+            $ref: "#/components/schemas/PlayerState"
+          minItems: 6
+          maxItems: 6
+          description: All 6 players' current state
+        dealerSeatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          description: Seat index of the dealer button
+          example: 3
+        currentPlayerIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          description: Seat index of the player whose turn it is to act
+          example: 0
+        isHandInProgress:
+          type: boolean
+          description: Whether a hand is currently being played
+          example: true
+        isShowdown:
+          type: boolean
+          description: Whether the hand has reached showdown
+          example: false
+        winners:
+          type: array
+          items:
+            type: object
+            required: [seatIndex, amount, handRanking, handDescription]
+            properties:
+              seatIndex:
+                type: integer
+                description: Winning player's seat index
+                example: 2
+              amount:
+                type: integer
+                description: Chips won
+                example: 24
+              handRanking:
+                $ref: "#/components/schemas/HandRanking"
+              handDescription:
+                type: string
+                description: Human-readable hand description
+                example: "Two Pair, Kings and Fives"
+          description: Winners (populated at showdown or when all others fold)
+
+    Action:
+      type: object
+      description: A single action taken during a hand
+      required: [seatIndex, position, street, actionType, timestamp]
+      properties:
+        seatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          description: Seat index of the acting player
+          example: 0
+        position:
+          $ref: "#/components/schemas/Position"
+        street:
+          $ref: "#/components/schemas/Street"
+        actionType:
+          $ref: "#/components/schemas/ActionType"
+        amount:
+          type: integer
+          description: Bet/raise/call amount (0 for fold/check)
+          example: 6
+        isAllIn:
+          type: boolean
+          description: Whether this action put the player all-in
+          example: false
+        potAfterAction:
+          type: integer
+          description: Pot size after this action
+          example: 15
+        timestamp:
+          type: string
+          format: date-time
+          description: When the action was taken
+          example: "2026-03-27T14:32:15Z"
+
+    HandRecord:
+      type: object
+      description: Complete record of a played hand
+      required:
+        - id
+        - sessionId
+        - handNumber
+        - timestamp
+        - players
+        - communityCards
+        - actions
+        - pots
+        - result
+      properties:
+        id:
+          type: string
+          description: Unique hand identifier
+          example: "hand_x7y8z9"
+        sessionId:
+          type: string
+          description: Parent session ID
+          example: "sess_a1b2c3d4"
+        handNumber:
+          type: integer
+          description: Sequential hand number within session
+          example: 12
+        timestamp:
+          type: string
+          format: date-time
+          description: When the hand was played
+          example: "2026-03-27T14:32:00Z"
+        players:
+          type: array
+          items:
+            type: object
+            required: [seatIndex, position, startingStack, endingStack, isBot]
+            properties:
+              seatIndex:
+                type: integer
+                example: 0
+              position:
+                $ref: "#/components/schemas/Position"
+              name:
+                type: string
+                example: "You"
+              startingStack:
+                type: integer
+                example: 200
+              endingStack:
+                type: integer
+                example: 214
+              isBot:
+                type: boolean
+                example: false
+              botStyle:
+                $ref: "#/components/schemas/BotStyle"
+              holeCards:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Card"
+                minItems: 2
+                maxItems: 2
+                description: Hole cards (revealed at showdown or if player; null if folded pre-showdown BOT)
+          minItems: 6
+          maxItems: 6
+          description: All players in this hand with starting/ending stacks
+        communityCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          maxItems: 5
+          description: All community cards dealt (up to the point the hand ended)
+        actions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Action"
+          description: Complete ordered action sequence
+        pots:
+          type: object
+          required: [mainPot, finalTotal]
+          properties:
+            mainPot:
+              type: integer
+              description: Main pot amount at hand end
+              example: 24
+            sidePots:
+              type: array
+              items:
+                type: object
+                required: [amount, eligibleSeatIndexes]
+                properties:
+                  amount:
+                    type: integer
+                    example: 50
+                  eligibleSeatIndexes:
+                    type: array
+                    items:
+                      type: integer
+                    example: [0, 2, 4]
+            finalTotal:
+              type: integer
+              description: Total of all pots
+              example: 24
+        result:
+          type: object
+          required: [winners, playerChipChange, wentToShowdown]
+          properties:
+            winners:
+              type: array
+              items:
+                type: object
+                required: [seatIndex, amount]
+                properties:
+                  seatIndex:
+                    type: integer
+                    example: 0
+                  amount:
+                    type: integer
+                    description: Chips won
+                    example: 24
+                  handRanking:
+                    $ref: "#/components/schemas/HandRanking"
+                  handDescription:
+                    type: string
+                    example: "Two Pair, Kings and Fives"
+            playerChipChange:
+              type: integer
+              description: Human player's net chip change for this hand
+              example: 14
+            wentToShowdown:
+              type: boolean
+              description: Whether the hand reached showdown
+              example: true
+
+    HandSummary:
+      type: object
+      description: Abbreviated hand info for list display
+      required: [id, sessionId, handNumber, timestamp, playerHoleCards, communityCards, playerChipChange, wentToShowdown]
+      properties:
+        id:
+          type: string
+          example: "hand_x7y8z9"
+        sessionId:
+          type: string
+          example: "sess_a1b2c3d4"
+        handNumber:
+          type: integer
+          example: 12
+        timestamp:
+          type: string
+          format: date-time
+          example: "2026-03-27T14:32:00Z"
+        playerHoleCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 2
+          maxItems: 2
+          description: Human player's hole cards
+        communityCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          maxItems: 5
+        playerChipChange:
+          type: integer
+          description: Net chip result for the human player
+          example: 14
+        wentToShowdown:
+          type: boolean
+          example: true
+        actionSummary:
+          type: string
+          description: Brief text summary of key actions
+          example: "Raised preflop, called turn"
+
+    # ─── Replay ─────────────────────────────────────────────
+    ReplayStep:
+      type: object
+      description: A single step in hand replay with full game state snapshot
+      required: [stepIndex, totalSteps, type, gameState]
+      properties:
+        stepIndex:
+          type: integer
+          description: Zero-based step index
+          example: 5
+        totalSteps:
+          type: integer
+          description: Total number of steps in this replay
+          example: 24
+        type:
+          type: string
+          enum: [initial, action, deal_community, showdown]
+          description: Type of this replay step
+          example: "action"
+        action:
+          $ref: "#/components/schemas/Action"
+          description: The action taken at this step (null for initial/deal/showdown steps)
+        newCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          description: Community cards newly revealed at this step
+        gameState:
+          type: object
+          description: Snapshot of game state at this step
+          required: [pot, communityCards, players, street]
+          properties:
+            pot:
+              type: integer
+              example: 15
+            communityCards:
+              type: array
+              items:
+                $ref: "#/components/schemas/Card"
+            players:
+              type: array
+              items:
+                type: object
+                required: [seatIndex, stack, isActive]
+                properties:
+                  seatIndex:
+                    type: integer
+                    example: 0
+                  stack:
+                    type: integer
+                    example: 194
+                  isActive:
+                    type: boolean
+                    example: true
+                  holeCards:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Card"
+                    description: Visible hole cards at this point
+                  currentBet:
+                    type: integer
+                    example: 6
+            street:
+              $ref: "#/components/schemas/Street"
+
+    # ─── GTO Analysis ───────────────────────────────────────
+    GTOAnnotation:
+      type: object
+      description: GTO analysis for a single player decision point
+      required: [stepIndex, street, position, playerAction, gtoDistribution, severity]
+      properties:
+        stepIndex:
+          type: integer
+          description: Corresponding replay step index
+          example: 3
+        street:
+          $ref: "#/components/schemas/Street"
+        position:
+          $ref: "#/components/schemas/Position"
+        holeCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 2
+          maxItems: 2
+          description: Player's hole cards at this decision
+        communityCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          description: Community cards visible at this decision
+        playerAction:
+          type: object
+          required: [actionType]
+          properties:
+            actionType:
+              $ref: "#/components/schemas/ActionType"
+            amount:
+              type: integer
+              example: 6
+          description: What the player actually did
+        gtoDistribution:
+          type: object
+          required: [raise, call, fold]
+          properties:
+            raise:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              description: GTO raise frequency (0-1)
+              example: 0.67
+            call:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              description: GTO call frequency (0-1)
+              example: 0.33
+            fold:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              description: GTO fold frequency (0-1)
+              example: 0.0
+          description: "GTO reference action distribution (labeled as simplified, not solver-grade)"
+        severity:
+          $ref: "#/components/schemas/DeviationSeverity"
+        evLossBbPer100:
+          type: number
+          format: float
+          description: Estimated EV loss in bb/100
+          example: 5.2
+        explanation:
+          type: string
+          description: Human-readable explanation of the deviation
+          example: "In this spot from CO vs UTG open, GTO suggests 3-betting with AJs at high frequency. Your call is too passive for this holding and position."
+        hasReferenceData:
+          type: boolean
+          description: Whether GTO reference data exists for this specific spot
+          example: true
+
+    HandGTOAnalysis:
+      type: object
+      description: Complete GTO analysis for a hand
+      required: [handId, annotations, deviationCounts]
+      properties:
+        handId:
+          type: string
+          example: "hand_x7y8z9"
+        annotations:
+          type: array
+          items:
+            $ref: "#/components/schemas/GTOAnnotation"
+          description: GTO annotation for each player decision point
+        deviationCounts:
+          type: object
+          required: [blunders, mistakes, minors, goods]
+          properties:
+            blunders:
+              type: integer
+              description: "Number of blunders (>10 EV bb/100 loss)"
+              example: 0
+            mistakes:
+              type: integer
+              description: "Number of mistakes (3-10 EV bb/100 loss)"
+              example: 1
+            minors:
+              type: integer
+              description: "Number of minor deviations (<3 EV bb/100 loss)"
+              example: 2
+            goods:
+              type: integer
+              description: Number of decisions matching GTO
+              example: 4
+        disclaimer:
+          type: string
+          description: Label clarifying this is simplified reference
+          example: "GTO Reference (simplified) — not a solver-grade GTO solution"
+
+    GTOStrategyData:
+      type: object
+      description: "Complete GTO reference dataset (<200KB). Preflop ranges by position + postflop heuristics."
+      required: [version, preflopRanges, postflopHeuristics, dataSizeBytes]
+      properties:
+        version:
+          type: string
+          description: Strategy data version
+          example: "1.0.0"
+        preflopRanges:
+          type: object
+          description: "Preflop ranges keyed by position, then scenario"
+          required: [positions]
+          properties:
+            positions:
+              type: object
+              description: "Map of position to scenario to hand ranges"
+              additionalProperties: false
+              properties:
+                UTG:
+                  $ref: "#/components/schemas/PositionRanges"
+                MP:
+                  $ref: "#/components/schemas/PositionRanges"
+                CO:
+                  $ref: "#/components/schemas/PositionRanges"
+                BTN:
+                  $ref: "#/components/schemas/PositionRanges"
+                SB:
+                  $ref: "#/components/schemas/PositionRanges"
+                BB:
+                  $ref: "#/components/schemas/PositionRanges"
+              required: [UTG, MP, CO, BTN, SB, BB]
+        postflopHeuristics:
+          type: array
+          items:
+            $ref: "#/components/schemas/PostflopHeuristic"
+          description: Postflop decision heuristics by board texture and hand strength
+        dataSizeBytes:
+          type: integer
+          description: Total data size in bytes
+          example: 185000
+
+    PositionRanges:
+      type: object
+      description: GTO ranges for a single position across common scenarios
+      required: [openRaise, facingRaise, facing3Bet]
+      properties:
+        openRaise:
+          type: array
+          items:
+            $ref: "#/components/schemas/HandRange"
+          description: "Ranges for open raising (first to enter pot)"
+        facingRaise:
+          type: array
+          items:
+            $ref: "#/components/schemas/HandRange"
+          description: Ranges when facing a single raise
+        facing3Bet:
+          type: array
+          items:
+            $ref: "#/components/schemas/HandRange"
+          description: Ranges when facing a 3-bet
+
+    HandRange:
+      type: object
+      description: Action distribution for a specific starting hand
+      required: [hand, actions]
+      properties:
+        hand:
+          type: string
+          description: "Starting hand notation (e.g., 'AKs', 'QJo', '99')"
+          example: "AJs"
+        actions:
+          type: object
+          required: [raise, call, fold]
+          properties:
+            raise:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              example: 0.67
+            call:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              example: 0.33
+            fold:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              example: 0.0
+
+    PostflopHeuristic:
+      type: object
+      description: Postflop decision heuristic by board texture and hand strength
+      required: [boardTexture, handStrengthBucket, position, potType, actions]
+      properties:
+        boardTexture:
+          type: string
+          enum: [dry, wet, monotone, paired, connected]
+          description: Board texture category
+          example: "wet"
+        handStrengthBucket:
+          type: string
+          enum: [nuts, strong, medium, weak, draw, air]
+          description: Categorized hand strength
+          example: "medium"
+        position:
+          type: string
+          enum: [ip, oop]
+          description: "In position or out of position"
+          example: "ip"
+        potType:
+          type: string
+          enum: [single_raised, three_bet, multiway]
+          description: Pot type context
+          example: "single_raised"
+        actions:
+          type: object
+          required: [bet, check, raise, call, fold]
+          properties:
+            bet:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              example: 0.6
+            check:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              example: 0.4
+            raise:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              example: 0.0
+            call:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              example: 0.0
+            fold:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+              example: 0.0
+          description: GTO action frequencies for this situation
+
+    # ─── Requests ───────────────────────────────────────────
+    CreateSessionRequest:
+      type: object
+      description: Configuration for creating a new session
+      required: [playerSeatIndex, botConfigs]
+      properties:
+        playerSeatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          description: Which seat (0-5) the human player occupies
+          example: 2
+        botConfigs:
+          type: array
+          items:
+            type: object
+            required: [seatIndex, style]
+            properties:
+              seatIndex:
+                type: integer
+                minimum: 0
+                maximum: 5
+                description: Seat index for this BOT
+                example: 0
+              style:
+                $ref: "#/components/schemas/BotStyle"
+          minItems: 5
+          maxItems: 5
+          description: Configuration for all 5 BOT seats
+
+    PlayerActionRequest:
+      type: object
+      description: A player action submission
+      required: [actionType]
+      properties:
+        actionType:
+          $ref: "#/components/schemas/ActionType"
+        amount:
+          type: integer
+          minimum: 0
+          description: "Raise/bet amount (required for raise; ignored for fold/check/call/allIn)"
+          example: 6
+
+    GTOLookupRequest:
+      type: object
+      description: Parameters for looking up a GTO reference action
+      required: [street, position, holeCards]
+      properties:
+        street:
+          $ref: "#/components/schemas/Street"
+        position:
+          $ref: "#/components/schemas/Position"
+        holeCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 2
+          maxItems: 2
+          description: Player's hole cards
+        communityCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          maxItems: 5
+          description: Community cards (required for postflop)
+        scenario:
+          type: string
+          enum: [open, facing_raise, facing_3bet, facing_bet, facing_check]
+          description: Action scenario context
+          example: "facing_raise"
+        potSize:
+          type: integer
+          description: Current pot size (for postflop sizing context)
+          example: 12
+        activePlayers:
+          type: integer
+          minimum: 2
+          maximum: 6
+          description: Number of active players in the hand
+          example: 3
+
+    HandStrengthRequest:
+      type: object
+      description: Input for hand strength evaluation
+      required: [holeCards, communityCards]
+      properties:
+        holeCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 2
+          maxItems: 2
+          description: Player's hole cards
+        communityCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 0
+          maxItems: 5
+          description: Current community cards
+
+    UpdateSettingsRequest:
+      type: object
+      description: Partial settings update
+      properties:
+        gameSpeed:
+          $ref: "#/components/schemas/GameSpeed"
+        soundEnabled:
+          type: boolean
+          description: Whether sound effects are enabled
+        handStrengthIndicatorEnabled:
+          type: boolean
+          description: Whether the hand strength indicator is shown
+        theme:
+          $ref: "#/components/schemas/Theme"
+
+    # ─── Responses ──────────────────────────────────────────
+    SessionListResponse:
+      type: object
+      required: [sessions, pagination]
+      properties:
+        sessions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Session"
+        pagination:
+          $ref: "#/components/schemas/Pagination"
+
+    SessionSummary:
+      type: object
+      description: End-of-session summary with stats and GTO analysis
+      required: [sessionId, stats, deviationSummary, profitChartData, notableHands]
+      properties:
+        sessionId:
+          type: string
+          example: "sess_a1b2c3d4"
+        stats:
+          $ref: "#/components/schemas/SessionStats"
+        deviationSummary:
+          type: object
+          required: [blunders, mistakes, minors, goods, totalDecisions]
+          properties:
+            blunders:
+              type: integer
+              example: 2
+            mistakes:
+              type: integer
+              example: 5
+            minors:
+              type: integer
+              example: 12
+            goods:
+              type: integer
+              example: 31
+            totalDecisions:
+              type: integer
+              example: 50
+        profitChartData:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProfitDataPoint"
+          description: Chip stack over time for this session
+        notableHands:
+          type: array
+          items:
+            type: object
+            required: [handId, handNumber, playerHoleCards, playerChipChange, worstDeviationSeverity]
+            properties:
+              handId:
+                type: string
+                example: "hand_x7y8z9"
+              handNumber:
+                type: integer
+                example: 12
+              playerHoleCards:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Card"
+                minItems: 2
+                maxItems: 2
+              playerChipChange:
+                type: integer
+                example: -24
+              worstDeviationSeverity:
+                $ref: "#/components/schemas/DeviationSeverity"
+              deviationCount:
+                type: integer
+                example: 2
+          maxItems: 3
+          description: Top 3 hands with biggest GTO deviations
+
+    SessionStats:
+      type: object
+      description: Aggregate statistics for a session
+      required: [handsPlayed, netProfitLoss, bbPer100, vpipPercent, pfrPercent]
+      properties:
+        handsPlayed:
+          type: integer
+          description: Total hands played
+          example: 47
+        netProfitLoss:
+          type: integer
+          description: Net chip change (positive = profit)
+          example: 34
+        bbPer100:
+          type: number
+          format: float
+          description: Win rate in big blinds per 100 hands
+          example: 12.5
+        vpipPercent:
+          type: number
+          format: float
+          description: Voluntarily Put In Pot percentage
+          example: 24.3
+        pfrPercent:
+          type: number
+          format: float
+          description: Pre-Flop Raise percentage
+          example: 18.7
+
+    AggregateStats:
+      type: object
+      description: Lifetime stats across all sessions
+      required: [totalHands, totalSessions, netProfitLoss, bbPer100, vpipPercent, pfrPercent]
+      properties:
+        totalHands:
+          type: integer
+          example: 342
+        totalSessions:
+          type: integer
+          example: 8
+        netProfitLoss:
+          type: integer
+          example: 156
+        bbPer100:
+          type: number
+          format: float
+          example: 8.3
+        vpipPercent:
+          type: number
+          format: float
+          example: 23.1
+        pfrPercent:
+          type: number
+          format: float
+          example: 17.5
+
+    HandListResponse:
+      type: object
+      required: [hands, pagination]
+      properties:
+        hands:
+          type: array
+          items:
+            $ref: "#/components/schemas/HandSummary"
+        pagination:
+          $ref: "#/components/schemas/Pagination"
+
+    HandReplayResponse:
+      type: object
+      required: [handId, steps, playerSeatIndex, showdownCards]
+      properties:
+        handId:
+          type: string
+          example: "hand_x7y8z9"
+        steps:
+          type: array
+          items:
+            $ref: "#/components/schemas/ReplayStep"
+        playerSeatIndex:
+          type: integer
+          description: Human player's seat index
+          example: 2
+        showdownCards:
+          type: array
+          items:
+            type: object
+            required: [seatIndex, holeCards]
+            properties:
+              seatIndex:
+                type: integer
+                example: 0
+              holeCards:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Card"
+                minItems: 2
+                maxItems: 2
+          description: All revealed hole cards (for showing during replay)
+
+    GTOLookupResponse:
+      type: object
+      required: [hasReferenceData, distribution]
+      properties:
+        hasReferenceData:
+          type: boolean
+          description: Whether reference data exists for this spot
+          example: true
+        distribution:
+          type: object
+          required: [raise, call, fold]
+          properties:
+            raise:
+              type: number
+              format: float
+              example: 0.67
+            call:
+              type: number
+              format: float
+              example: 0.33
+            fold:
+              type: number
+              format: float
+              example: 0.0
+          description: GTO action frequency distribution
+        disclaimer:
+          type: string
+          example: "GTO Reference (simplified)"
+
+    HandStrengthResponse:
+      type: object
+      required: [madeHand, handDescription, equityPercent]
+      properties:
+        madeHand:
+          $ref: "#/components/schemas/HandRanking"
+        handDescription:
+          type: string
+          description: "Human-readable hand description"
+          example: "Top Pair, King Kicker"
+        equityPercent:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 100
+          description: Approximate equity percentage vs random range
+          example: 72.5
+        draws:
+          type: array
+          items:
+            type: string
+          description: Active draws if any
+          example: ["Flush Draw", "Gutshot"]
+
+    ActionResult:
+      type: object
+      description: Result of a player or BOT action
+      required: [action, gameState]
+      properties:
+        action:
+          $ref: "#/components/schemas/Action"
+        gameState:
+          $ref: "#/components/schemas/GameState"
+        handComplete:
+          type: boolean
+          description: Whether this action ended the hand
+          example: false
+        handRecord:
+          $ref: "#/components/schemas/HandRecord"
+          description: Complete hand record (only populated when handComplete is true)
+
+    LegalActionsResponse:
+      type: object
+      description: Legal actions available for the current player
+      required: [seatIndex, position, actions]
+      properties:
+        seatIndex:
+          type: integer
+          example: 2
+        position:
+          $ref: "#/components/schemas/Position"
+        actions:
+          type: array
+          items:
+            type: object
+            required: [actionType, isAvailable]
+            properties:
+              actionType:
+                $ref: "#/components/schemas/ActionType"
+              isAvailable:
+                type: boolean
+                description: Whether this action is legal
+                example: true
+              amount:
+                type: integer
+                description: Fixed amount for call; null for fold/check
+                example: 4
+              minAmount:
+                type: integer
+                description: Minimum raise amount (for raise action)
+                example: 4
+              maxAmount:
+                type: integer
+                description: Maximum raise amount / all-in amount
+                example: 200
+          description: All possible actions with availability and constraints
+
+    ProfitChartResponse:
+      type: object
+      required: [dataPoints]
+      properties:
+        dataPoints:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProfitDataPoint"
+
+    ProfitDataPoint:
+      type: object
+      required: [handNumber, cumulativeProfit, chipStack]
+      properties:
+        handNumber:
+          type: integer
+          description: Hand sequence number
+          example: 12
+        cumulativeProfit:
+          type: integer
+          description: Cumulative profit/loss at this point
+          example: 34
+        chipStack:
+          type: integer
+          description: Player's chip stack at this point
+          example: 234
+
+    UserSettings:
+      type: object
+      required: [gameSpeed, soundEnabled, handStrengthIndicatorEnabled, theme]
+      properties:
+        gameSpeed:
+          $ref: "#/components/schemas/GameSpeed"
+        soundEnabled:
+          type: boolean
+          description: Whether sound effects are on
+          example: true
+        handStrengthIndicatorEnabled:
+          type: boolean
+          description: Whether hand strength indicator is shown during play
+          example: false
+        theme:
+          $ref: "#/components/schemas/Theme"
+
+    StorageStatus:
+      type: object
+      required: [usedBytes, quotaBytes, sessionCount, handCount]
+      properties:
+        usedBytes:
+          type: integer
+          description: Bytes used by IndexedDB
+          example: 1048576
+        quotaBytes:
+          type: integer
+          description: Estimated storage quota in bytes
+          example: 52428800
+        usagePercent:
+          type: number
+          format: float
+          description: Percentage of quota used
+          example: 2.0
+        sessionCount:
+          type: integer
+          example: 8
+        handCount:
+          type: integer
+          example: 342
+        sessions:
+          type: array
+          items:
+            type: object
+            required: [sessionId, createdAt, handCount, estimatedSizeBytes]
+            properties:
+              sessionId:
+                type: string
+                example: "sess_a1b2c3d4"
+              createdAt:
+                type: string
+                format: date-time
+                example: "2026-03-27T14:30:00Z"
+              handCount:
+                type: integer
+                example: 47
+              estimatedSizeBytes:
+                type: integer
+                example: 131072
+
+    DeleteResponse:
+      type: object
+      required: [deletedCount, freedBytes]
+      properties:
+        deletedCount:
+          type: integer
+          description: Number of records deleted
+          example: 47
+        freedBytes:
+          type: integer
+          description: Estimated bytes freed
+          example: 131072
+
+    Pagination:
+      type: object
+      required: [page, perPage, total, totalPages]
+      properties:
+        page:
+          type: integer
+          example: 1
+        perPage:
+          type: integer
+          example: 50
+        total:
+          type: integer
+          example: 342
+        totalPages:
+          type: integer
+          example: 7
+
+    # ─── Error Response ─────────────────────────────────────
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code
+              example: "INVALID_ACTION"
+            message:
+              type: string
+              description: Human-readable error message
+              example: "Cannot raise below the minimum amount of 4 chips"
+            details:
+              type: array
+              items:
+                type: object
+                properties:
+                  field:
+                    type: string
+                    description: Field that caused the error
+                    example: "amount"
+                  reason:
+                    type: string
+                    description: Why this field is invalid
+                    example: "Must be >= 4 (minimum raise)"

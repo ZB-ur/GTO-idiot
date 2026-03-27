@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-xl">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-semibold text-gray-50">GTO Deviations</h3>
+      <span class="text-sm text-gray-400">50 decisions</span>
+    </div>
+    <div class="flex gap-3">
+      <!-- Blunders -->
+      <div class="flex flex-col items-center gap-2 flex-1 p-4 rounded-xl bg-red-500/20 ring-1 ring-red-500/30">
+        <span class="text-3xl font-bold text-red-400">2</span>
+        <span class="text-sm font-medium text-red-400">Blunders</span>
+      </div>
+      <!-- Mistakes -->
+      <div class="flex flex-col items-center gap-2 flex-1 p-4 rounded-xl bg-amber-500/20 ring-1 ring-amber-500/30">
+        <span class="text-3xl font-bold text-amber-400">5</span>
+        <span class="text-sm font-medium text-amber-400">Mistakes</span>
+      </div>
+      <!-- Minor -->
+      <div class="flex flex-col items-center gap-2 flex-1 p-4 rounded-xl bg-sky-500/20 ring-1 ring-sky-500/30">
+        <span class="text-3xl font-bold text-sky-400">12</span>
+        <span class="text-sm font-medium text-sky-400">Minor</span>
+      </div>
+      <!-- Good -->
+      <div class="flex flex-col items-center gap-2 flex-1 p-4 rounded-xl bg-emerald-500/20 ring-1 ring-emerald-500/30">
+        <span class="text-3xl font-bold text-emerald-400">31</span>
+        <span class="text-sm font-medium text-emerald-400">Good</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

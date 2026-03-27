@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SettingsPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <!-- Backdrop -->
+  <div class="fixed inset-0 bg-black/50 z-40"></div>
+
+  <!-- Simulated game content behind -->
+  <div class="p-8">
+    <div class="max-w-md mx-auto space-y-4 opacity-30">
+      <div class="bg-emerald-900 rounded-2xl h-48 border border-emerald-700 flex items-center justify-center text-emerald-600">Game Table</div>
+    </div>
+  </div>
+
+  <!-- Settings Panel (open state) -->
+  <div class="fixed top-0 right-0 h-full w-80 bg-gray-900 border-l border-gray-700 shadow-2xl shadow-black/60 z-50">
+    <!-- Header -->
+    <div class="flex items-center justify-between px-6 py-4 border-b border-gray-800">
+      <h2 class="text-lg font-semibold text-gray-50">Settings</h2>
+      <button class="w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 hover:text-gray-200 hover:bg-gray-800">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M4 4l8 8M12 4l-8 8" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Content -->
+    <div class="px-6 py-6 space-y-8">
+      <!-- Game Speed -->
+      <div class="space-y-2">
+        <label class="text-sm font-medium text-gray-50">Game Speed</label>
+        <div class="flex gap-2">
+          <button class="flex-1 px-3 py-2 rounded-lg text-sm font-medium bg-gray-800 border border-gray-700 text-gray-400">Fast</button>
+          <button class="flex-1 px-3 py-2 rounded-lg text-sm font-medium bg-amber-500/15 border border-amber-500/50 text-amber-400">Normal</button>
+          <button class="flex-1 px-3 py-2 rounded-lg text-sm font-medium bg-gray-800 border border-gray-700 text-gray-400">Slow</button>
+        </div>
+      </div>
+
+      <!-- Toggles -->
+      <div class="space-y-4">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500">Gameplay</h3>
+
+        <!-- Sound — ON -->
+        <div class="flex items-center justify-between py-1">
+          <div>
+            <p class="text-sm font-medium text-gray-50">Sound Effects</p>
+            <p class="text-xs text-gray-500 mt-0.5">Play sounds for actions and events</p>
+          </div>
+          <button class="relative inline-flex h-6 w-11 items-center rounded-full bg-amber-500">
+            <span class="inline-block h-4 w-4 rounded-full bg-white shadow-sm translate-x-6"></span>
+          </button>
+        </div>
+
+        <!-- Hand Strength — OFF -->
+        <div class="flex items-center justify-between py-1">
+          <div>
+            <p class="text-sm font-medium text-gray-50">Hand Strength Indicator</p>
+            <p class="text-xs text-gray-500 mt-0.5">Show hand strength meter during play</p>
+          </div>
+          <button class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-700">
+            <span class="inline-block h-4 w-4 rounded-full bg-white shadow-sm translate-x-1"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Theme -->
+      <div class="space-y-4">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500">Appearance</h3>
+        <div class="space-y-2">
+          <label class="text-sm font-medium text-gray-50">Theme</label>
+          <div class="flex gap-2">
+            <button class="flex-1 px-3 py-2 rounded-lg text-sm font-medium bg-amber-500/15 border border-amber-500/50 text-amber-400">Dark</button>
+            <button class="flex-1 px-3 py-2 rounded-lg text-sm font-medium bg-gray-800 border border-gray-700 text-gray-400">Light</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

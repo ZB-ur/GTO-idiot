@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ErrorBanner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-0">
+    <!-- Banner with action -->
+    <div class="w-full bg-amber-400/10 border-b border-amber-400/30 px-5 py-3 flex items-center gap-3">
+      <span class="text-amber-400 text-sm font-semibold shrink-0">⚠</span>
+      <span class="text-sm text-gray-50 flex-1">Connection lost. Your changes may not be saved.</span>
+      <button class="text-sm font-semibold text-amber-400 hover:text-amber-300 shrink-0">Retry</button>
+    </div>
+    <!-- Banner without action -->
+    <div class="w-full bg-amber-400/10 border-b border-amber-400/30 px-5 py-3 flex items-center gap-3">
+      <span class="text-amber-400 text-sm font-semibold shrink-0">⚠</span>
+      <span class="text-sm text-gray-50 flex-1">GTO solver is temporarily unavailable. Results may be delayed.</span>
+    </div>
+  </div>
+</body>
+</html>

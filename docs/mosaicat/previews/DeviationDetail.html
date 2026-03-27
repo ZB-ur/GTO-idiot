@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeviationDetail Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md space-y-3">
+
+    <!-- Good — collapsed -->
+    <div class="rounded-xl border border-emerald-400/20 bg-emerald-400/10 overflow-hidden">
+      <button class="w-full flex items-center justify-between px-4 py-3 text-left">
+        <div class="flex items-center gap-3">
+          <span class="flex items-center justify-center w-7 h-7 rounded-lg text-xs font-bold text-emerald-400 bg-gray-900/50">✓</span>
+          <span class="text-sm font-semibold text-emerald-400">Good</span>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 16 16" class="text-gray-500">
+          <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mistake — expanded -->
+    <div class="rounded-xl border border-amber-400/20 bg-amber-400/10 overflow-hidden">
+      <button class="w-full flex items-center justify-between px-4 py-3 text-left">
+        <div class="flex items-center gap-3">
+          <span class="flex items-center justify-center w-7 h-7 rounded-lg text-xs font-bold text-amber-400 bg-gray-900/50">!</span>
+          <div>
+            <span class="text-sm font-semibold text-amber-400">Mistake</span>
+            <span class="ml-2 text-xs text-gray-500">−5.2 bb/100</span>
+          </div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 16 16" class="text-gray-500 rotate-180">
+          <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <div class="px-4 pb-4 pt-0">
+        <div class="border-t border-gray-800/50 pt-3">
+          <p class="text-sm text-gray-300 leading-relaxed">In this spot from CO vs UTG open, GTO suggests 3-betting with AJs at high frequency. Your call is too passive for this holding and position.</p>
+          <div class="mt-3 flex items-center gap-2">
+            <span class="text-xs text-gray-500">Estimated EV loss:</span>
+            <span class="text-sm font-mono font-semibold text-amber-400">−5.2 bb/100</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blunder — collapsed -->
+    <div class="rounded-xl border border-red-400/20 bg-red-400/10 overflow-hidden">
+      <button class="w-full flex items-center justify-between px-4 py-3 text-left">
+        <div class="flex items-center gap-3">
+          <span class="flex items-center justify-center w-7 h-7 rounded-lg text-xs font-bold text-red-400 bg-gray-900/50">!!</span>
+          <div>
+            <span class="text-sm font-semibold text-red-400">Blunder</span>
+            <span class="ml-2 text-xs text-gray-500">−14.7 bb/100</span>
+          </div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 16 16" class="text-gray-500">
+          <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Minor — collapsed -->
+    <div class="rounded-xl border border-sky-400/20 bg-sky-400/10 overflow-hidden">
+      <button class="w-full flex items-center justify-between px-4 py-3 text-left">
+        <div class="flex items-center gap-3">
+          <span class="flex items-center justify-center w-7 h-7 rounded-lg text-xs font-bold text-sky-400 bg-gray-900/50">~</span>
+          <div>
+            <span class="text-sm font-semibold text-sky-400">Minor</span>
+            <span class="ml-2 text-xs text-gray-500">−1.8 bb/100</span>
+          </div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 16 16" class="text-gray-500">
+          <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</body>
+</html>

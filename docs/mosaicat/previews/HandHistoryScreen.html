@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandHistoryScreen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; color: #f9fafb; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen bg-gray-950 text-gray-50">
+    <div class="max-w-4xl mx-auto px-4 py-6 space-y-6">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between">
+        <h1 class="text-2xl font-bold">Hand History</h1>
+        <div class="flex items-center gap-3">
+          <label class="text-sm font-medium text-gray-400">Session</label>
+          <select class="bg-gray-800 text-gray-50 border border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none min-w-[200px]">
+            <option>All Sessions</option>
+            <option>Mar 27 Afternoon — 47 hands</option>
+            <option>Mar 26 Evening — 62 hands</option>
+            <option>Mar 25 Morning — 31 hands</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Hands</div>
+          <div class="text-lg font-bold text-gray-50">342</div>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Sessions</div>
+          <div class="text-lg font-bold text-gray-50">8</div>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Net P/L</div>
+          <div class="text-lg font-bold text-emerald-400">+156</div>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">BB/100</div>
+          <div class="text-lg font-bold text-emerald-400">8.3</div>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">VPIP</div>
+          <div class="text-lg font-bold text-gray-50">23.1%</div>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">PFR</div>
+          <div class="text-lg font-bold text-gray-50">17.5%</div>
+        </div>
+      </div>
+
+      <!-- Profit Chart -->
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-4">
+        <div class="text-sm font-semibold text-gray-400 mb-2">Profit / Loss</div>
+        <svg viewBox="0 0 600 160" class="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+          <!-- zero line -->
+          <line x1="48" x2="584" y1="95" y2="95" stroke="#374151" stroke-dasharray="4 4" stroke-width="1"/>
+          <!-- area fill -->
+          <path d="M48,95 L80,90 L112,88 L144,92 L176,85 L208,78 L240,82 L272,70 L304,65 L336,58 L368,62 L400,50 L432,45 L464,38 L496,42 L528,35 L560,30 L584,25 L584,95 L48,95 Z" fill="rgba(52,211,153,0.15)"/>
+          <!-- profit line -->
+          <path d="M48,95 L80,90 L112,88 L144,92 L176,85 L208,78 L240,82 L272,70 L304,65 L336,58 L368,62 L400,50 L432,45 L464,38 L496,42 L528,35 L560,30 L584,25" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- labels -->
+          <text x="40" y="24" text-anchor="end" fill="#6b7280" font-size="10">+156</text>
+          <text x="40" y="136" text-anchor="end" fill="#6b7280" font-size="10">-20</text>
+          <text x="48" y="156" text-anchor="start" fill="#6b7280" font-size="10">Hand 1</text>
+          <text x="584" y="156" text-anchor="end" fill="#6b7280" font-size="10">Hand 342</text>
+        </svg>
+      </div>
+
+      <!-- Hand List -->
+      <div class="space-y-3">
+        <h2 class="text-lg font-semibold text-gray-400">Hands</h2>
+
+        <!-- Hand 1: Win with showdown -->
+        <div class="w-full bg-gray-900 border border-gray-800 hover:border-gray-700 rounded-2xl p-4 text-left transition-colors cursor-pointer">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-50">#47</span>
+              <span class="text-xs text-gray-500">4:32 PM</span>
+              <span class="text-[10px] uppercase tracking-wider text-amber-500 bg-amber-500/10 px-1.5 py-0.5 rounded font-medium">Showdown</span>
+            </div>
+            <span class="text-sm font-bold text-emerald-400">+24</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-red-400">A♥</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-red-400">K♥</span>
+            </div>
+            <div class="w-px h-6 bg-gray-700"></div>
+            <div class="flex items-center gap-1">
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-red-400">Q♥</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-gray-300">7♠</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-sky-400">2♦</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-red-400">J♥</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-emerald-400">5♣</span>
+            </div>
+          </div>
+          <div class="mt-2 text-xs text-gray-500">Raised preflop, bet flop, called river</div>
+        </div>
+
+        <!-- Hand 2: Loss -->
+        <div class="w-full bg-gray-900 border border-gray-800 hover:border-gray-700 rounded-2xl p-4 text-left transition-colors cursor-pointer">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-50">#46</span>
+              <span class="text-xs text-gray-500">4:28 PM</span>
+            </div>
+            <span class="text-sm font-bold text-red-400">-12</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-gray-300">T♠</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-sky-400">T♦</span>
+            </div>
+            <div class="w-px h-6 bg-gray-700"></div>
+            <div class="flex items-center gap-1">
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-emerald-400">K♣</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-red-400">9♥</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-gray-300">3♠</span>
+            </div>
+          </div>
+          <div class="mt-2 text-xs text-gray-500">Raised preflop, folded turn</div>
+        </div>
+
+        <!-- Hand 3: Small win, showdown -->
+        <div class="w-full bg-gray-900 border border-gray-800 hover:border-gray-700 rounded-2xl p-4 text-left transition-colors cursor-pointer">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-50">#45</span>
+              <span class="text-xs text-gray-500">4:24 PM</span>
+              <span class="text-[10px] uppercase tracking-wider text-amber-500 bg-amber-500/10 px-1.5 py-0.5 rounded font-medium">Showdown</span>
+            </div>
+            <span class="text-sm font-bold text-emerald-400">+6</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-emerald-400">A♣</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-gray-300">Q♠</span>
+            </div>
+            <div class="w-px h-6 bg-gray-700"></div>
+            <div class="flex items-center gap-1">
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-sky-400">A♦</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-emerald-400">8♣</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-red-400">4♥</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-sky-400">J♦</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-gray-300">2♠</span>
+            </div>
+          </div>
+          <div class="mt-2 text-xs text-gray-500">Called preflop, check-called flop and turn</div>
+        </div>
+
+        <!-- Hand 4: Fold preflop -->
+        <div class="w-full bg-gray-900 border border-gray-800 hover:border-gray-700 rounded-2xl p-4 text-left transition-colors cursor-pointer">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-50">#44</span>
+              <span class="text-xs text-gray-500">4:21 PM</span>
+            </div>
+            <span class="text-sm font-bold text-red-400">-1</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-sky-400">7♦</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-emerald-400">2♣</span>
+            </div>
+          </div>
+          <div class="mt-2 text-xs text-gray-500">Folded preflop from UTG</div>
+        </div>
+
+        <!-- Hand 5: Big win -->
+        <div class="w-full bg-gray-900 border border-gray-800 hover:border-gray-700 rounded-2xl p-4 text-left transition-colors cursor-pointer">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-50">#43</span>
+              <span class="text-xs text-gray-500">4:17 PM</span>
+              <span class="text-[10px] uppercase tracking-wider text-amber-500 bg-amber-500/10 px-1.5 py-0.5 rounded font-medium">Showdown</span>
+            </div>
+            <span class="text-sm font-bold text-emerald-400">+48</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-red-400">K♥</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-gray-300">K♠</span>
+            </div>
+            <div class="w-px h-6 bg-gray-700"></div>
+            <div class="flex items-center gap-1">
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-emerald-400">K♣</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-sky-400">5♦</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-red-400">9♥</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-emerald-400">3♣</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-sky-400">8♦</span>
+            </div>
+          </div>
+          <div class="mt-2 text-xs text-gray-500">3-bet preflop, bet all streets</div>
+        </div>
+
+        <!-- Hand 6 -->
+        <div class="w-full bg-gray-900 border border-gray-800 hover:border-gray-700 rounded-2xl p-4 text-left transition-colors cursor-pointer">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-50">#42</span>
+              <span class="text-xs text-gray-500">4:13 PM</span>
+            </div>
+            <span class="text-sm font-bold text-red-400">-8</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-red-400">J♥</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-gray-300">9♠</span>
+            </div>
+            <div class="w-px h-6 bg-gray-700"></div>
+            <div class="flex items-center gap-1">
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-sky-400">Q♦</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-emerald-400">6♣</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-red-400">2♥</span>
+              <span class="inline-flex items-center justify-center w-7 h-9 bg-gray-800 border border-gray-700 rounded text-xs font-bold text-gray-300">4♠</span>
+            </div>
+          </div>
+          <div class="mt-2 text-xs text-gray-500">Called preflop, floated flop, folded turn</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

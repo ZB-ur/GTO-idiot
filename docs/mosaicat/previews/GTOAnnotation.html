@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTOAnnotation Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-lg mx-auto space-y-6">
+
+    <!-- Annotation 1: Mistake -->
+    <p class="text-gray-500 text-xs uppercase tracking-wide">Mistake — Passive Call Instead of 3-Bet</p>
+    <div class="bg-gray-900 border border-gray-700 rounded-2xl p-5 space-y-4 shadow-lg shadow-black/40">
+      <!-- Header -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-500 bg-gray-800 px-2 py-1 rounded-lg">CO</span>
+          <span class="text-xs text-gray-500 capitalize">preflop</span>
+          <div class="flex items-center gap-1">
+            <span class="inline-flex items-center bg-white rounded px-1 py-0.5 text-xs font-bold text-gray-900">A<span class="text-gray-300">♠</span></span>
+            <span class="inline-flex items-center bg-white rounded px-1 py-0.5 text-xs font-bold text-gray-900">J<span class="text-gray-300">♠</span></span>
+          </div>
+        </div>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold border bg-amber-500/10 text-amber-500 border-amber-500/30">
+          <span class="text-sm">!</span> Mistake
+        </span>
+      </div>
+
+      <!-- Player Action -->
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-gray-400">Your action:</span>
+        <span class="px-3 py-1 rounded-lg text-sm font-semibold bg-emerald-500 text-white">Call</span>
+        <span class="text-xs font-medium text-amber-500">−5.2 EV bb/100</span>
+      </div>
+
+      <!-- GTO Distribution -->
+      <div>
+        <p class="text-xs text-gray-500 mb-2 font-medium">GTO Action Distribution</p>
+        <div class="flex h-3 rounded-full overflow-hidden bg-gray-800">
+          <div class="bg-amber-500" style="width: 67%;"></div>
+          <div class="bg-emerald-500" style="width: 33%;"></div>
+        </div>
+        <div class="flex items-center gap-4 mt-2">
+          <div class="flex items-center gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-sm bg-amber-500"></div>
+            <span class="text-xs text-gray-400">Raise 67%</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-sm bg-emerald-500"></div>
+            <span class="text-xs text-gray-400">Call 33%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Explanation -->
+      <div class="bg-gray-800/60 rounded-xl px-4 py-3 border border-gray-700/50">
+        <p class="text-sm text-gray-300 leading-relaxed">In this spot from CO vs UTG open, GTO suggests 3-betting with AJs at high frequency. Your call is too passive for this holding and position.</p>
+      </div>
+
+      <!-- Reference label -->
+      <p class="text-[10px] text-gray-600 uppercase tracking-wider">GTO Reference (simplified) — not a solver-grade solution</p>
+    </div>
+
+    <!-- Annotation 2: Good -->
+    <p class="text-gray-500 text-xs uppercase tracking-wide mt-8">Good — Matches GTO</p>
+    <div class="bg-gray-900 border border-gray-700 rounded-2xl p-5 space-y-4 shadow-lg shadow-black/40">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-500 bg-gray-800 px-2 py-1 rounded-lg">BTN</span>
+          <span class="text-xs text-gray-500 capitalize">flop</span>
+          <div class="flex items-center gap-1">
+            <span class="inline-flex items-center bg-white rounded px-1 py-0.5 text-xs font-bold text-gray-900">K<span class="text-red-400">♥</span></span>
+            <span class="inline-flex items-center bg-white rounded px-1 py-0.5 text-xs font-bold text-gray-900">Q<span class="text-red-400">♥</span></span>
+          </div>
+        </div>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold border bg-emerald-400/10 text-emerald-400 border-emerald-400/30">
+          <span class="text-sm">✓</span> Good
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-gray-400">Your action:</span>
+        <span class="px-3 py-1 rounded-lg text-sm font-semibold bg-amber-500 text-gray-950">Raise to 8</span>
+      </div>
+
+      <div>
+        <p class="text-xs text-gray-500 mb-2 font-medium">GTO Action Distribution</p>
+        <div class="flex h-3 rounded-full overflow-hidden bg-gray-800">
+          <div class="bg-amber-500" style="width: 72%;"></div>
+          <div class="bg-emerald-500" style="width: 18%;"></div>
+          <div class="bg-gray-500" style="width: 10%;"></div>
+        </div>
+        <div class="flex items-center gap-4 mt-2">
+          <div class="flex items-center gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-sm bg-amber-500"></div>
+            <span class="text-xs text-gray-400">Raise 72%</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-sm bg-emerald-500"></div>
+            <span class="text-xs text-gray-400">Call 18%</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-sm bg-gray-500"></div>
+            <span class="text-xs text-gray-400">Fold 10%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-800/60 rounded-xl px-4 py-3 border border-gray-700/50">
+        <p class="text-sm text-gray-300 leading-relaxed">Great play! Raising with top pair and flush draw on a wet board is the highest-frequency GTO action here.</p>
+      </div>
+
+      <p class="text-[10px] text-gray-600 uppercase tracking-wider">GTO Reference (simplified) — not a solver-grade solution</p>
+    </div>
+
+    <!-- Annotation 3: Blunder -->
+    <p class="text-gray-500 text-xs uppercase tracking-wide mt-8">Blunder — Major EV Loss</p>
+    <div class="bg-gray-900 border border-gray-700 rounded-2xl p-5 space-y-4 shadow-lg shadow-black/40">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-500 bg-gray-800 px-2 py-1 rounded-lg">BB</span>
+          <span class="text-xs text-gray-500 capitalize">turn</span>
+          <div class="flex items-center gap-1">
+            <span class="inline-flex items-center bg-white rounded px-1 py-0.5 text-xs font-bold text-gray-900">9<span class="text-sky-400">♦</span></span>
+            <span class="inline-flex items-center bg-white rounded px-1 py-0.5 text-xs font-bold text-gray-900">8<span class="text-sky-400">♦</span></span>
+          </div>
+        </div>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold border bg-red-500/10 text-red-500 border-red-500/30">
+          <span class="text-sm">✗</span> Blunder
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-gray-400">Your action:</span>
+        <span class="px-3 py-1 rounded-lg text-sm font-semibold bg-gray-500 text-white">Fold</span>
+        <span class="text-xs font-medium text-red-500">−14.8 EV bb/100</span>
+      </div>
+
+      <div>
+        <p class="text-xs text-gray-500 mb-2 font-medium">GTO Action Distribution</p>
+        <div class="flex h-3 rounded-full overflow-hidden bg-gray-800">
+          <div class="bg-amber-500" style="width: 15%;"></div>
+          <div class="bg-emerald-500" style="width: 85%;"></div>
+        </div>
+        <div class="flex items-center gap-4 mt-2">
+          <div class="flex items-center gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-sm bg-amber-500"></div>
+            <span class="text-xs text-gray-400">Raise 15%</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-sm bg-emerald-500"></div>
+            <span class="text-xs text-gray-400">Call 85%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-800/60 rounded-xl px-4 py-3 border border-gray-700/50">
+        <p class="text-sm text-gray-300 leading-relaxed">Folding a flush draw with an open-ended straight draw on the turn is a significant blunder. You have 15 outs with excellent pot odds — GTO never folds here.</p>
+      </div>
+
+      <p class="text-[10px] text-gray-600 uppercase tracking-wider">GTO Reference (simplified) — not a solver-grade solution</p>
+    </div>
+
+  </div>
+</body>
+</html>

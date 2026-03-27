@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConfigScreen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="min-h-screen bg-gray-950 flex flex-col items-center justify-center px-4 py-8">
+
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <h1 class="text-2xl font-bold text-gray-50 tracking-tight mb-1">Table Setup</h1>
+      <p class="text-base text-gray-400">Tap seats to configure · Pick your position and BOT opponents</p>
+    </div>
+
+    <!-- Visual Table -->
+    <div class="relative w-[420px] h-[280px] mb-8">
+      <!-- Oval felt -->
+      <div class="absolute inset-10 rounded-full bg-emerald-900/40 border-2 border-emerald-700/30 shadow-lg shadow-black/40"></div>
+      <div class="absolute inset-14 rounded-full bg-emerald-900/20 border border-emerald-700/15"></div>
+
+      <!-- Center label -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span class="text-sm font-semibold text-emerald-700/60 uppercase tracking-widest">6-Max</span>
+      </div>
+
+      <!-- UTG (top-left) — Bot TAG -->
+      <div class="absolute top-0 left-[12%]">
+        <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-2xl bg-emerald-600/20 border-2 border-emerald-600 shadow-lg shadow-emerald-600/20">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">UTG</span>
+          <span class="text-sm font-semibold mt-1 text-emerald-300">TAG</span>
+        </button>
+      </div>
+
+      <!-- MP (top-right) — Bot LAG -->
+      <div class="absolute top-0 right-[12%]">
+        <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-2xl bg-emerald-600/20 border-2 border-emerald-600 shadow-lg shadow-emerald-600/20">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">MP</span>
+          <span class="text-sm font-semibold mt-1 text-emerald-300">LAG</span>
+        </button>
+      </div>
+
+      <!-- CO (right) — Player (You) -->
+      <div class="absolute top-1/2 -translate-y-1/2 right-0">
+        <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-2xl bg-amber-500/20 border-2 border-amber-500 shadow-lg shadow-amber-500/20">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">CO</span>
+          <span class="text-sm font-semibold mt-1 text-amber-300">You</span>
+          <div class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-amber-500 flex items-center justify-center">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#030712" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
+        </button>
+      </div>
+
+      <!-- BTN (bottom-right) — Bot Fish -->
+      <div class="absolute bottom-0 right-[12%]">
+        <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-2xl bg-emerald-600/20 border-2 border-emerald-600 shadow-lg shadow-emerald-600/20">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">BTN</span>
+          <span class="text-sm font-semibold mt-1 text-emerald-300">Fish</span>
+        </button>
+      </div>
+
+      <!-- SB (bottom-left) — Bot Nit -->
+      <div class="absolute bottom-0 left-[12%]">
+        <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-2xl bg-emerald-600/20 border-2 border-emerald-600 shadow-lg shadow-emerald-600/20">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">SB</span>
+          <span class="text-sm font-semibold mt-1 text-emerald-300">Nit</span>
+        </button>
+      </div>
+
+      <!-- BB (left) — Bot CallingStation -->
+      <div class="absolute top-1/2 -translate-y-1/2 left-0">
+        <button class="relative flex flex-col items-center justify-center w-20 h-20 rounded-2xl bg-emerald-600/20 border-2 border-emerald-600 shadow-lg shadow-emerald-600/20">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">BB</span>
+          <span class="text-sm font-semibold mt-1 text-emerald-300">C.Stn</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bot Style Configuration Panel -->
+    <div class="w-full max-w-lg mb-8">
+      <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4 text-center">Bot Styles</h2>
+      <div class="space-y-3">
+
+        <!-- UTG — TAG -->
+        <div class="flex items-center justify-between gap-4 px-4 py-3 bg-gray-900 rounded-xl border border-gray-800">
+          <div class="flex items-center gap-3">
+            <span class="w-10 text-center text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-600/20 py-1 rounded-lg">UTG</span>
+            <span class="text-sm text-gray-400">Bot</span>
+          </div>
+          <div class="relative w-64">
+            <button class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-semibold text-left bg-gray-800 border border-gray-700 text-gray-50 hover:border-gray-600 cursor-pointer">
+              <span>TAG</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- MP — LAG -->
+        <div class="flex items-center justify-between gap-4 px-4 py-3 bg-gray-900 rounded-xl border border-gray-800">
+          <div class="flex items-center gap-3">
+            <span class="w-10 text-center text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-600/20 py-1 rounded-lg">MP</span>
+            <span class="text-sm text-gray-400">Bot</span>
+          </div>
+          <div class="relative w-64">
+            <button class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-semibold text-left bg-gray-800 border border-gray-700 text-gray-50 hover:border-gray-600 cursor-pointer">
+              <span>LAG</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- BTN — Fish -->
+        <div class="flex items-center justify-between gap-4 px-4 py-3 bg-gray-900 rounded-xl border border-gray-800">
+          <div class="flex items-center gap-3">
+            <span class="w-10 text-center text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-600/20 py-1 rounded-lg">BTN</span>
+            <span class="text-sm text-gray-400">Bot</span>
+          </div>
+          <div class="relative w-64">
+            <button class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-semibold text-left bg-gray-800 border border-gray-700 text-gray-50 hover:border-gray-600 cursor-pointer">
+              <span>Fish</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- SB — Nit -->
+        <div class="flex items-center justify-between gap-4 px-4 py-3 bg-gray-900 rounded-xl border border-gray-800">
+          <div class="flex items-center gap-3">
+            <span class="w-10 text-center text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-600/20 py-1 rounded-lg">SB</span>
+            <span class="text-sm text-gray-400">Bot</span>
+          </div>
+          <div class="relative w-64">
+            <button class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-semibold text-left bg-gray-800 border border-gray-700 text-gray-50 hover:border-gray-600 cursor-pointer">
+              <span>Nit</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- BB — Calling Station -->
+        <div class="flex items-center justify-between gap-4 px-4 py-3 bg-gray-900 rounded-xl border border-gray-800">
+          <div class="flex items-center gap-3">
+            <span class="w-10 text-center text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-600/20 py-1 rounded-lg">BB</span>
+            <span class="text-sm text-gray-400">Bot</span>
+          </div>
+          <div class="relative w-64">
+            <button class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-semibold text-left bg-gray-800 border border-gray-700 text-gray-50 hover:border-gray-600 cursor-pointer">
+              <span>Calling Station</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Start Button -->
+    <button class="w-full max-w-sm flex items-center justify-center gap-3 px-6 py-4 bg-amber-500 hover:bg-amber-400 text-gray-950 font-semibold text-lg rounded-xl shadow-lg shadow-black/40 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-950">
+      <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+      </svg>
+      Start Session
+    </button>
+
+    <!-- Seat count summary -->
+    <p class="mt-4 text-xs text-gray-500">6 / 6 seats filled · 5 bots</p>
+  </div>
+</body>
+</html>

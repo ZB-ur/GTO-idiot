@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionDistributionBar Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xs mx-auto space-y-6 pt-8">
+    <!-- Example 1: Balanced -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2 uppercase tracking-wide">Balanced</p>
+      <div class="flex h-3 w-full rounded-lg overflow-hidden">
+        <div class="bg-red-500" style="width: 35%"></div>
+        <div class="bg-emerald-400" style="width: 40%"></div>
+        <div class="bg-sky-400" style="width: 25%"></div>
+      </div>
+      <div class="flex justify-between mt-1.5 text-xs">
+        <span class="text-red-400 font-medium">Raise 35%</span>
+        <span class="text-emerald-400 font-medium">Call 40%</span>
+        <span class="text-sky-400 font-medium">Fold 25%</span>
+      </div>
+    </div>
+
+    <!-- Example 2: Aggressive -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2 uppercase tracking-wide">Aggressive</p>
+      <div class="flex h-3 w-full rounded-lg overflow-hidden">
+        <div class="bg-red-500" style="width: 65%"></div>
+        <div class="bg-emerald-400" style="width: 20%"></div>
+        <div class="bg-sky-400" style="width: 15%"></div>
+      </div>
+      <div class="flex justify-between mt-1.5 text-xs">
+        <span class="text-red-400 font-medium">Raise 65%</span>
+        <span class="text-emerald-400 font-medium">Call 20%</span>
+        <span class="text-sky-400 font-medium">Fold 15%</span>
+      </div>
+    </div>
+
+    <!-- Example 3: Passive -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2 uppercase tracking-wide">Passive</p>
+      <div class="flex h-3 w-full rounded-lg overflow-hidden">
+        <div class="bg-red-500" style="width: 10%"></div>
+        <div class="bg-emerald-400" style="width: 30%"></div>
+        <div class="bg-sky-400" style="width: 60%"></div>
+      </div>
+      <div class="flex justify-between mt-1.5 text-xs">
+        <span class="text-red-400 font-medium">Raise 10%</span>
+        <span class="text-emerald-400 font-medium">Call 30%</span>
+        <span class="text-sky-400 font-medium">Fold 60%</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
