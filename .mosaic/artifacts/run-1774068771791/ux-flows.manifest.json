@@ -1,0 +1,106 @@
+{
+  "flows": [
+    {
+      "name": "app-navigation-flow",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "name": "game-session-flow",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007"
+      ]
+    },
+    {
+      "name": "hand-review-flow",
+      "covers_features": [
+        "F-005",
+        "F-007",
+        "F-008"
+      ]
+    },
+    {
+      "name": "session-stats-flow",
+      "covers_features": [
+        "F-007",
+        "F-009"
+      ]
+    },
+    {
+      "name": "history-browse-flow",
+      "covers_features": [
+        "F-007",
+        "F-010"
+      ]
+    }
+  ],
+  "components": [
+    "AppShell",
+    "TopNav",
+    "PageContainer",
+    "LobbyPage",
+    "QuickStatsCard",
+    "StartGameButton",
+    "GameTablePage",
+    "PokerTable",
+    "PlayerSeat",
+    "CardDisplay",
+    "CommunityCards",
+    "PotDisplay",
+    "ActionPanel",
+    "RaiseSlider",
+    "ConfirmDialog",
+    "StreetIndicator",
+    "HandResultOverlay",
+    "LeaveGameDialog",
+    "ReviewPage",
+    "HandHistoryList",
+    "HandHistoryItem",
+    "HandReviewPanel",
+    "HandSummaryCard",
+    "StreetTimeline",
+    "ActionReplayList",
+    "GTOComparisonCard",
+    "GTOFrequencyBar",
+    "DeviationBadge",
+    "HandNavigation",
+    "StatsPanel",
+    "OverviewMetrics",
+    "CoreMetrics",
+    "PositionBreakdown",
+    "HandStrengthAnalysis",
+    "ChipAmount",
+    "EmptyState",
+    "SkeletonLoader",
+    "GTOWatermark",
+    "TabSwitcher",
+    "Tooltip"
+  ],
+  "interaction_rules": [
+    "Raise slider: min = current minimum raise, max = remaining stack (all-in); real-time amount display; supports direct numeric input",
+    "Action buttons: only show currently legal actions; sufficiently large tap targets",
+    "Fold and all-in require secondary confirmation dialog; other actions execute on single click",
+    "BOT thinking: 0.8-1.5s random delay with thinking animation on player seat",
+    "Deal animation: 0.3s per card for hole cards and community cards",
+    "Chip movement animation: 0.5s for bets and pot collection",
+    "Data loading: skeleton screen on first load for history and stats, fade-in when ready",
+    "localStorage capacity exceeded: auto-clean oldest 100 hands with toast notification",
+    "Leave game during hand: confirmation dialog warning progress will be lost",
+    "Empty state: illustration + guidance text + CTA button for no history records",
+    "Stats empty state: require minimum 10 hands before showing meaningful statistics",
+    "Street timeline: click any street to jump directly, or play linearly",
+    "GTO deviation color coding: green = matches GTO, yellow = minor deviation, red = major deviation; consistent everywhere",
+    "Hand navigation: previous/next buttons in review without returning to list",
+    "Desktop-first responsive layout, minimum width 1024px",
+    "Chinese UI with English poker terminology preserved (fold/call/raise/flop/turn/river)",
+    "All GTO-related displays include '简化GTO参考' watermark/badge",
+    "TopNav highlights current page; pulsing indicator on table tab when game is in progress"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "competitors": [
+    "GTO Wizard",
+    "GTO+",
+    "PioSolver",
+    "FreeBetRange",
+    "GTOBase",
+    "GTO LAB",
+    "Poker Academy",
+    "WASM Postflop (open-source)"
+  ],
+  "key_insights": [
+    "免费+六人桌实战对战+赛后GTO复盘的组合在现有市场中没有直接竞品",
+    "简化GTO策略表（25%频率粒度）对中级玩家学习已足够，无需solver级精度",
+    "Preflop策略数据最成熟可靠，应优先覆盖；Postflop从高频场景渐进扩展",
+    "连续对战→完整复盘的学习闭环是核心差异化，优于竞品的单手选择题模式",
+    "npm生态有成熟手牌评估库（pokersolver/poker-evaluator），技术风险极低",
+    "纯前端零注册定位在付费主导的市场中具有明确传播优势"
+  ],
+  "feasibility": "high",
+  "risks": [
+    "简化GTO策略表的质量和Postflop场景覆盖面可能不足，影响复盘对比的可信度",
+    "BOT行为基于简化策略表可能显得机械，缺乏真实对手的随机性和可信度",
+    "Postflop场景组合爆炸需要合理的分类简化方案，否则策略表会过于庞大或过于粗糙",
+    "localStorage 5-10MB容量限制在长期大量对战后可能不足",
+    "用户可能将简化策略误解为精确GTO，需要清晰的UI标注来管理预期"
+  ]
+}
