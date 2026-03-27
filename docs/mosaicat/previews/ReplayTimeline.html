@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayTimeline Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="width: 600px;" class="bg-gray-900 border border-gray-700 rounded-xl p-4">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-2">
+      <span class="text-xs text-gray-500 font-medium">Event 10 / 24</span>
+    </div>
+
+    <!-- Timeline Track -->
+    <div class="relative h-8" style="cursor: pointer;">
+      <!-- Track background -->
+      <div class="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-1 bg-gray-700 rounded-full"></div>
+      <!-- Progress fill (10/24 ≈ 39%) -->
+      <div class="absolute top-1/2 -translate-y-1/2 left-0 h-1 bg-emerald-500 rounded-full" style="width: 39.1%;"></div>
+
+      <!-- Event dots: 24 total, user decisions at 4, 9, 14, 19 -->
+      <!-- We'll show key dots. Positions spread across 0-100% -->
+
+      <!-- Dot 0: past -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-400" style="left: 0%;"></div>
+      <!-- Dot 1 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-400" style="left: 4.35%;"></div>
+      <!-- Dot 2 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-400" style="left: 8.7%;"></div>
+      <!-- Dot 3 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-400" style="left: 13.04%;"></div>
+      <!-- Diamond 4: user decision, past -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2" style="left: 17.39%;">
+        <div class="w-3.5 h-3.5 rotate-45 border-2 bg-emerald-500 border-emerald-400"></div>
+      </div>
+      <!-- Dot 5 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-400" style="left: 21.74%;"></div>
+      <!-- Dot 6 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-400" style="left: 26.09%;"></div>
+      <!-- Dot 7 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-400" style="left: 30.43%;"></div>
+      <!-- Dot 8 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-400" style="left: 34.78%;"></div>
+      <!-- Diamond 9: user decision, CURRENT -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2" style="left: 39.13%;">
+        <div class="w-3.5 h-3.5 rotate-45 border-2 bg-emerald-400 border-emerald-300 scale-125" style="box-shadow: 0 0 12px rgba(52,211,153,0.4);"></div>
+      </div>
+      <!-- Dot 10 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-600" style="left: 43.48%;"></div>
+      <!-- Dot 11 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-600" style="left: 47.83%;"></div>
+      <!-- Dot 12 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-600" style="left: 52.17%;"></div>
+      <!-- Dot 13 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-600" style="left: 56.52%;"></div>
+      <!-- Diamond 14: user decision, future -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2" style="left: 60.87%;">
+        <div class="w-3.5 h-3.5 rotate-45 border-2 bg-gray-600 border-gray-500"></div>
+      </div>
+      <!-- Dot 15 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-600" style="left: 65.22%;"></div>
+      <!-- Dot 16 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-600" style="left: 69.57%;"></div>
+      <!-- Dot 17 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-600" style="left: 73.91%;"></div>
+      <!-- Dot 18 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-600" style="left: 78.26%;"></div>
+      <!-- Diamond 19: user decision, future -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2" style="left: 82.61%;">
+        <div class="w-3.5 h-3.5 rotate-45 border-2 bg-gray-600 border-gray-500"></div>
+      </div>
+      <!-- Dot 20 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-600" style="left: 86.96%;"></div>
+      <!-- Dot 21 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-600" style="left: 91.3%;"></div>
+      <!-- Dot 22 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-600" style="left: 95.65%;"></div>
+      <!-- Dot 23 -->
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-600" style="left: 100%;"></div>
+    </div>
+
+    <!-- Legend -->
+    <div class="flex items-center gap-4 mt-2">
+      <div class="flex items-center gap-1.5">
+        <div class="w-2 h-2 rounded-full bg-gray-400"></div>
+        <span class="text-xs text-gray-500">Event</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <div class="w-2.5 h-2.5 rotate-45 bg-emerald-500 border border-emerald-400"></div>
+        <span class="text-xs text-gray-500">Your Decision</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

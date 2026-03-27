@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-4 items-start">
+    <!-- Default dealer button -->
+    <div class="flex items-center gap-3">
+      <div class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-yellow-500 shadow-md shadow-yellow-500/30" aria-label="Dealer">
+        <span class="text-[10px] font-black text-gray-900 leading-none">D</span>
+      </div>
+      <span class="text-xs text-gray-500">Dealer position</span>
+    </div>
+
+    <!-- In context: next to a player seat mock -->
+    <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-900 border border-gray-700/50">
+      <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center">
+        <span class="text-xs text-gray-400">P1</span>
+      </div>
+      <span class="text-sm font-medium text-gray-50">Player 1</span>
+      <div class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-yellow-500 shadow-md shadow-yellow-500/30">
+        <span class="text-[10px] font-black text-gray-900 leading-none">D</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

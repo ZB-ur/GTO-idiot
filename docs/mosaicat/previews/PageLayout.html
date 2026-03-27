@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PageLayout Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {}
+      }
+    }
+  </script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen bg-gray-950 text-gray-50 flex flex-col">
+
+    <!-- TopNav -->
+    <nav class="bg-gray-900 border-b border-gray-700">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-14">
+          <!-- Logo -->
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center font-bold text-gray-950 text-sm">G</div>
+            <span class="text-lg font-semibold text-gray-50">GTO Idiot</span>
+          </div>
+
+          <!-- Nav Links -->
+          <div class="flex items-center gap-1">
+            <a href="#" class="px-3 py-2 rounded-lg text-sm font-medium bg-emerald-500/10 text-emerald-400">Play</a>
+            <a href="#" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-50 hover:bg-gray-800">History</a>
+            <a href="#" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-50 hover:bg-gray-800">Stats</a>
+            <a href="#" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-50 hover:bg-gray-800">Settings</a>
+          </div>
+
+          <!-- User Area -->
+          <div class="flex items-center gap-3">
+            <div class="text-sm text-gray-400">1,000 chips</div>
+            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-xs text-gray-400">U</div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <!-- Placeholder content to show layout structure -->
+      <div class="space-y-6">
+        <!-- Page Header -->
+        <div>
+          <h1 class="text-2xl font-bold text-gray-50">Dashboard</h1>
+          <p class="text-sm text-gray-400 mt-1">Welcome back. Ready to practice?</p>
+        </div>
+
+        <!-- Sample Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-6">
+            <div class="text-sm text-gray-400 mb-1">GTO Alignment</div>
+            <div class="text-3xl font-bold text-emerald-400">72.5%</div>
+            <div class="text-xs text-gray-500 mt-2">Last 50 hands</div>
+          </div>
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-6">
+            <div class="text-sm text-gray-400 mb-1">Net Result</div>
+            <div class="text-3xl font-bold text-emerald-400">+125</div>
+            <div class="text-xs text-gray-500 mt-2">This session</div>
+          </div>
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-6">
+            <div class="text-sm text-gray-400 mb-1">Hands Played</div>
+            <div class="text-3xl font-bold text-gray-50">47</div>
+            <div class="text-xs text-gray-500 mt-2">This session</div>
+          </div>
+        </div>
+
+        <!-- Sample Content Block -->
+        <div class="bg-gray-900 border border-gray-700 rounded-xl p-6">
+          <h2 class="text-lg font-semibold text-gray-50 mb-4">Recent Hands</h2>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between py-2 border-b border-gray-800">
+              <div class="flex items-center gap-3">
+                <span class="text-sm font-medium text-gray-50">#47</span>
+                <span class="text-xs text-gray-400 bg-gray-800 px-2 py-0.5 rounded">BTN</span>
+                <span class="text-sm text-gray-400">A♠ K♥</span>
+              </div>
+              <span class="text-sm font-medium text-emerald-400">+45</span>
+            </div>
+            <div class="flex items-center justify-between py-2 border-b border-gray-800">
+              <div class="flex items-center gap-3">
+                <span class="text-sm font-medium text-gray-50">#46</span>
+                <span class="text-xs text-gray-400 bg-gray-800 px-2 py-0.5 rounded">CO</span>
+                <span class="text-sm text-gray-400">Q♦ J♦</span>
+              </div>
+              <span class="text-sm font-medium text-red-400">-12</span>
+            </div>
+            <div class="flex items-center justify-between py-2">
+              <div class="flex items-center gap-3">
+                <span class="text-sm font-medium text-gray-50">#45</span>
+                <span class="text-xs text-gray-400 bg-gray-800 px-2 py-0.5 rounded">SB</span>
+                <span class="text-sm text-gray-400">8♣ 8♠</span>
+              </div>
+              <span class="text-sm font-medium text-emerald-400">+88</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Toast Notification (positioned fixed) -->
+    <div class="fixed bottom-4 right-4 flex flex-col gap-2 z-50">
+      <div class="bg-gray-800 border border-gray-700 rounded-xl shadow-md px-4 py-3 flex items-center gap-3 min-w-[300px]">
+        <div class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></div>
+        <div class="flex-1">
+          <p class="text-sm text-gray-50">Session started</p>
+          <p class="text-xs text-gray-500">47 hands played so far</p>
+        </div>
+        <button class="text-gray-500 hover:text-gray-300 text-sm">&times;</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

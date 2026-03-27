@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayerSeat Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes bounce-dot {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .dot-1 { animation: bounce-dot 0.6s infinite 0ms; }
+    .dot-2 { animation: bounce-dot 0.6s infinite 150ms; }
+    .dot-3 { animation: bounce-dot 0.6s infinite 300ms; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-start;">
+
+    <!-- Seat 1: Active player, current turn, dealer, cards visible, raise action -->
+    <div class="relative flex flex-col items-center gap-1.5">
+      <!-- Dealer Button -->
+      <div class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-yellow-500 text-gray-950 text-xs font-bold flex items-center justify-center shadow-md z-10">D</div>
+      <div class="relative rounded-xl bg-gray-900 border border-emerald-500 shadow-lg shadow-emerald-500/20 p-3 min-w-[120px]">
+        <div class="flex items-center justify-between gap-2 mb-1.5">
+          <span class="text-sm font-semibold text-gray-50 truncate max-w-[80px]">You</span>
+          <span class="text-[10px] font-medium text-gray-500 bg-gray-800 px-1.5 py-0.5 rounded">BTN</span>
+        </div>
+        <div class="flex justify-center gap-1 mb-2">
+          <div class="w-9 h-12 rounded-lg bg-gray-100 border border-gray-300 flex flex-col items-center justify-center shadow-sm">
+            <span class="text-xs font-bold text-gray-100" style="color:#111">A</span>
+            <span class="text-sm leading-none" style="color:#111">♠</span>
+          </div>
+          <div class="w-9 h-12 rounded-lg bg-gray-100 border border-gray-300 flex flex-col items-center justify-center shadow-sm">
+            <span class="text-xs font-bold text-red-500">K</span>
+            <span class="text-sm leading-none text-red-500">♥</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-center gap-1">
+          <svg class="w-3.5 h-3.5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="8"/></svg>
+          <span class="text-sm font-bold text-gray-50">985</span>
+        </div>
+      </div>
+      <div class="px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-orange-900/50 text-orange-400">Raise 12</div>
+    </div>
+
+    <!-- Seat 2: Bot, thinking, cards hidden -->
+    <div class="relative flex flex-col items-center gap-1.5">
+      <div class="relative rounded-xl bg-gray-900 border border-gray-700 p-3 min-w-[120px]">
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 flex gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 dot-1"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 dot-2"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 dot-3"></span>
+        </div>
+        <div class="flex items-center justify-between gap-2 mb-1.5">
+          <span class="text-sm font-semibold text-gray-50 truncate max-w-[80px]">Bot_TAG</span>
+          <span class="text-[10px] font-medium text-gray-500 bg-gray-800 px-1.5 py-0.5 rounded">CO</span>
+        </div>
+        <div class="flex justify-center gap-1 mb-2">
+          <div class="w-9 h-12 rounded-lg bg-gradient-to-br from-emerald-900 to-emerald-950 border border-emerald-700/50 shadow-sm"></div>
+          <div class="w-9 h-12 rounded-lg bg-gradient-to-br from-emerald-900 to-emerald-950 border border-emerald-700/50 shadow-sm -ml-2"></div>
+        </div>
+        <div class="flex items-center justify-center gap-1">
+          <svg class="w-3.5 h-3.5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="8"/></svg>
+          <span class="text-sm font-bold text-gray-50">1,240</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seat 3: Folded player -->
+    <div class="relative flex flex-col items-center gap-1.5 opacity-40">
+      <div class="relative rounded-xl bg-gray-900 border border-gray-700 p-3 min-w-[120px]">
+        <div class="flex items-center justify-between gap-2 mb-1.5">
+          <span class="text-sm font-semibold text-gray-50 truncate max-w-[80px]">Bot_Fish</span>
+          <span class="text-[10px] font-medium text-gray-500 bg-gray-800 px-1.5 py-0.5 rounded">UTG</span>
+        </div>
+        <div class="flex justify-center gap-1 mb-2">
+          <div class="w-9 h-12 rounded-lg bg-gradient-to-br from-emerald-900 to-emerald-950 border border-emerald-700/50 shadow-sm"></div>
+          <div class="w-9 h-12 rounded-lg bg-gradient-to-br from-emerald-900 to-emerald-950 border border-emerald-700/50 shadow-sm -ml-2"></div>
+        </div>
+        <div class="flex items-center justify-center gap-1">
+          <svg class="w-3.5 h-3.5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="8"/></svg>
+          <span class="text-sm font-bold text-gray-50">760</span>
+        </div>
+      </div>
+      <div class="px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-gray-700 text-gray-400">Fold</div>
+    </div>
+
+    <!-- Seat 4: All-in player -->
+    <div class="relative flex flex-col items-center gap-1.5">
+      <div class="relative rounded-xl bg-gray-900 border border-gray-700 p-3 min-w-[120px]">
+        <div class="flex items-center justify-between gap-2 mb-1.5">
+          <span class="text-sm font-semibold text-gray-50 truncate max-w-[80px]">Bot_LAG</span>
+          <span class="text-[10px] font-medium text-gray-500 bg-gray-800 px-1.5 py-0.5 rounded">SB</span>
+        </div>
+        <div class="flex justify-center gap-1 mb-2">
+          <div class="w-9 h-12 rounded-lg bg-gray-100 border border-gray-300 flex flex-col items-center justify-center shadow-sm">
+            <span class="text-xs font-bold text-blue-400">Q</span>
+            <span class="text-sm leading-none text-blue-400">♦</span>
+          </div>
+          <div class="w-9 h-12 rounded-lg bg-gray-100 border border-gray-300 flex flex-col items-center justify-center shadow-sm">
+            <span class="text-xs font-bold text-blue-400">J</span>
+            <span class="text-sm leading-none text-blue-400">♦</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-center gap-1">
+          <svg class="w-3.5 h-3.5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="8"/></svg>
+          <span class="text-sm font-bold text-gray-50">ALL IN</span>
+        </div>
+      </div>
+      <div class="px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-red-900/50 text-red-400">All In 1,500</div>
+    </div>
+
+  </div>
+</body>
+</html>

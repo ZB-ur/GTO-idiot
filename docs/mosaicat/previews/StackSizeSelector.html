@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StackSizeSelector Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 320px;">
+    <div class="flex flex-col gap-2">
+      <label class="text-sm font-semibold text-gray-400">Starting Stack</label>
+      <div class="relative">
+        <select class="w-full appearance-none rounded-xl border border-gray-700 bg-gray-900 px-4 py-3 pr-10 text-base text-gray-50 shadow-sm hover:border-gray-600 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500">
+          <option>50 BB</option>
+          <option selected>100 BB</option>
+          <option>200 BB</option>
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+          <svg class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+          </svg>
+        </div>
+      </div>
+      <span class="text-xs text-gray-500">Standard — recommended</span>
+    </div>
+  </div>
+</body>
+</html>

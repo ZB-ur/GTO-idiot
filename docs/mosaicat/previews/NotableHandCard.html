@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; gap: 16px; max-width: 480px;">
+    <!-- Biggest Win -->
+    <button class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex flex-col gap-2 text-left hover:border-gray-500 hover:bg-gray-800 transition-colors cursor-pointer flex-1">
+      <span class="text-xs uppercase tracking-wider text-gray-500 font-medium">Biggest Win</span>
+      <div class="flex items-baseline justify-between">
+        <span class="text-sm text-gray-400">Hand #23</span>
+        <span class="text-xl font-bold text-emerald-400">+245</span>
+      </div>
+      <span class="text-xs text-gray-500">Tap to replay →</span>
+    </button>
+    <!-- Biggest Loss -->
+    <button class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex flex-col gap-2 text-left hover:border-gray-500 hover:bg-gray-800 transition-colors cursor-pointer flex-1">
+      <span class="text-xs uppercase tracking-wider text-gray-500 font-medium">Biggest Loss</span>
+      <div class="flex items-baseline justify-between">
+        <span class="text-sm text-gray-400">Hand #31</span>
+        <span class="text-xl font-bold text-red-400">-180</span>
+      </div>
+      <span class="text-xs text-gray-500">Tap to replay →</span>
+    </button>
+  </div>
+</body>
+</html>

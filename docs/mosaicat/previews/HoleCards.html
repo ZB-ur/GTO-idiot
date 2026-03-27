@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HoleCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    .card-back {
+      background: repeating-linear-gradient(135deg, #1e3a5f, #1e3a5f 4px, #1a3050 4px, #1a3050 8px);
+    }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-8">
+    <!-- Face-up (user cards) — Large -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2">Face Up — Large (User)</p>
+      <div class="inline-flex gap-2">
+        <!-- Ace of Spades -->
+        <div class="w-20 h-28 flex flex-col items-center justify-center rounded-lg bg-gray-100 shadow-md border border-gray-200">
+          <span class="text-2xl font-bold text-gray-900 leading-none">A</span>
+          <span class="text-lg text-gray-900 leading-none">&spades;</span>
+        </div>
+        <!-- King of Hearts -->
+        <div class="w-20 h-28 flex flex-col items-center justify-center rounded-lg bg-gray-100 shadow-md border border-gray-200">
+          <span class="text-2xl font-bold text-red-500 leading-none">K</span>
+          <span class="text-lg text-red-500 leading-none">&hearts;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Face-up — Medium -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2">Face Up — Medium</p>
+      <div class="inline-flex gap-1.5">
+        <div class="w-14 h-20 flex flex-col items-center justify-center rounded-lg bg-gray-100 shadow-md border border-gray-200">
+          <span class="text-lg font-bold text-red-500 leading-none">Q</span>
+          <span class="text-sm text-red-500 leading-none">&diams;</span>
+        </div>
+        <div class="w-14 h-20 flex flex-col items-center justify-center rounded-lg bg-gray-100 shadow-md border border-gray-200">
+          <span class="text-lg font-bold text-gray-900 leading-none">J</span>
+          <span class="text-sm text-gray-900 leading-none">&clubs;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Face-down (bot cards) — Medium -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2">Face Down — Medium (Bot)</p>
+      <div class="inline-flex gap-1.5">
+        <div class="card-back w-14 h-20 flex items-center justify-center rounded-lg border-2 border-gray-600 shadow-md">
+          <div class="w-3/5 h-3/5 rounded-md border border-gray-500 bg-gray-800/60"></div>
+        </div>
+        <div class="card-back w-14 h-20 flex items-center justify-center rounded-lg border-2 border-gray-600 shadow-md">
+          <div class="w-3/5 h-3/5 rounded-md border border-gray-500 bg-gray-800/60"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Face-down — Small -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2">Face Down — Small</p>
+      <div class="inline-flex gap-1">
+        <div class="card-back w-10 h-14 flex items-center justify-center rounded-lg border-2 border-gray-600 shadow-md">
+          <div class="w-3/5 h-3/5 rounded-md border border-gray-500 bg-gray-800/60"></div>
+        </div>
+        <div class="card-back w-10 h-14 flex items-center justify-center rounded-lg border-2 border-gray-600 shadow-md">
+          <div class="w-3/5 h-3/5 rounded-md border border-gray-500 bg-gray-800/60"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

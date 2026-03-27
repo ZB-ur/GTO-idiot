@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 640px;">
+    <!-- Seat 1 - TAG -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex flex-col gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-gray-800 border border-gray-600 flex items-center justify-center text-lg">🎯</div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-gray-50">Seat 1</span>
+          <span class="text-xs text-sky-400">Tight-Aggressive</span>
+        </div>
+      </div>
+      <div>
+        <label class="text-xs text-gray-500 mb-1.5 block">Bot Profile</label>
+        <select class="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-sm text-gray-50 appearance-none cursor-pointer">
+          <option selected>🎯 TAG — Tight-Aggressive</option>
+          <option>🔥 LAG — Loose-Aggressive</option>
+          <option>🐟 Fish — Fish</option>
+          <option>🔒 Nit — Nit</option>
+          <option>💥 Maniac — Maniac</option>
+        </select>
+      </div>
+    </div>
+    <!-- Seat 2 - Fish -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex flex-col gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-gray-800 border border-gray-600 flex items-center justify-center text-lg">🐟</div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-gray-50">Seat 2</span>
+          <span class="text-xs text-emerald-400">Fish</span>
+        </div>
+      </div>
+      <div>
+        <label class="text-xs text-gray-500 mb-1.5 block">Bot Profile</label>
+        <select class="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-sm text-gray-50 appearance-none cursor-pointer">
+          <option>🎯 TAG — Tight-Aggressive</option>
+          <option>🔥 LAG — Loose-Aggressive</option>
+          <option selected>🐟 Fish — Fish</option>
+          <option>🔒 Nit — Nit</option>
+          <option>💥 Maniac — Maniac</option>
+        </select>
+      </div>
+    </div>
+    <!-- Seat 3 - Maniac -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex flex-col gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-gray-800 border border-gray-600 flex items-center justify-center text-lg">💥</div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-gray-50">Seat 3</span>
+          <span class="text-xs text-red-400">Maniac</span>
+        </div>
+      </div>
+      <div>
+        <label class="text-xs text-gray-500 mb-1.5 block">Bot Profile</label>
+        <select class="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-sm text-gray-50 appearance-none cursor-pointer">
+          <option>🎯 TAG — Tight-Aggressive</option>
+          <option>🔥 LAG — Loose-Aggressive</option>
+          <option>🐟 Fish — Fish</option>
+          <option>🔒 Nit — Nit</option>
+          <option selected>💥 Maniac — Maniac</option>
+        </select>
+      </div>
+    </div>
+    <!-- Seat 4 - LAG -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex flex-col gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-gray-800 border border-gray-600 flex items-center justify-center text-lg">🔥</div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-gray-50">Seat 4</span>
+          <span class="text-xs text-orange-400">Loose-Aggressive</span>
+        </div>
+      </div>
+      <div>
+        <label class="text-xs text-gray-500 mb-1.5 block">Bot Profile</label>
+        <select class="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-sm text-gray-50 appearance-none cursor-pointer">
+          <option>🎯 TAG — Tight-Aggressive</option>
+          <option selected>🔥 LAG — Loose-Aggressive</option>
+          <option>🐟 Fish — Fish</option>
+          <option>🔒 Nit — Nit</option>
+          <option>💥 Maniac — Maniac</option>
+        </select>
+      </div>
+    </div>
+    <!-- Seat 5 - Nit -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 flex flex-col gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-gray-800 border border-gray-600 flex items-center justify-center text-lg">🔒</div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-gray-50">Seat 5</span>
+          <span class="text-xs text-gray-400">Nit</span>
+        </div>
+      </div>
+      <div>
+        <label class="text-xs text-gray-500 mb-1.5 block">Bot Profile</label>
+        <select class="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-sm text-gray-50 appearance-none cursor-pointer">
+          <option>🎯 TAG — Tight-Aggressive</option>
+          <option>🔥 LAG — Loose-Aggressive</option>
+          <option>🐟 Fish — Fish</option>
+          <option selected>🔒 Nit — Nit</option>
+          <option>💥 Maniac — Maniac</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

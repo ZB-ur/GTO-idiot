@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResultBanner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col items-center gap-8 py-8">
+    <!-- Win Banner -->
+    <div class="px-8 py-5 rounded-xl shadow-2xl border backdrop-blur-sm bg-emerald-900/80 border-emerald-500/50">
+      <div class="text-center">
+        <div class="text-2xl font-bold mb-1 text-emerald-400">
+          🎉 You Won!
+        </div>
+        <div class="text-3xl font-extrabold text-emerald-300" style="font-variant-numeric: tabular-nums;">
+          +245 chips
+        </div>
+        <div class="text-sm text-gray-300 mt-2 font-medium">
+          Two Pair, Aces and Kings
+        </div>
+      </div>
+    </div>
+
+    <!-- Loss Banner -->
+    <div class="px-8 py-5 rounded-xl shadow-2xl border backdrop-blur-sm bg-red-900/80 border-red-500/50">
+      <div class="text-center">
+        <div class="text-2xl font-bold mb-1 text-red-400">
+          💔 You Lost
+        </div>
+        <div class="text-3xl font-extrabold text-red-300" style="font-variant-numeric: tabular-nums;">
+          −180 chips
+        </div>
+        <div class="text-sm text-gray-300 mt-2 font-medium">
+          Full House, Kings over Tens
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeroSection Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <section class="relative overflow-hidden rounded-xl bg-gray-900 border border-gray-700 p-10">
+    <!-- Background felt texture -->
+    <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/30 via-gray-900 to-gray-900 pointer-events-none"></div>
+
+    <div class="relative flex flex-col items-center text-center">
+      <!-- Decorative chips -->
+      <div class="flex items-center gap-2 mb-6">
+        <div class="w-3 h-3 rounded-full bg-red-400"></div>
+        <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+        <div class="w-3 h-3 rounded-full bg-sky-400"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+        <div class="w-3 h-3 rounded-full bg-gray-400"></div>
+      </div>
+
+      <h1 class="text-3xl font-bold text-gray-50 mb-3">
+        Sharpen Your Poker Game
+      </h1>
+      <p class="text-gray-400 text-base max-w-md mb-8">
+        Practice against AI opponents, analyze your decisions with GTO comparison, and track your improvement over time.
+      </p>
+
+      <button class="group flex items-center gap-2 px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold text-lg rounded-xl transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-400/30">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+        Start Session
+      </button>
+
+      <p class="text-gray-500 text-xs mt-4">6-max No-Limit Hold'em • 5 AI opponents</p>
+    </div>
+  </section>
+</body>
+</html>

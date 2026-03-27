@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SplashScreen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="min-h-screen bg-gray-950 flex flex-col items-center justify-center px-6">
+    <!-- Logo -->
+    <div class="mb-8 flex flex-col items-center gap-3">
+      <div class="w-16 h-16 bg-emerald-500 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/20">
+        <svg class="w-10 h-10 text-gray-950" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+          <circle cx="12" cy="12" r="4" />
+        </svg>
+      </div>
+      <h1 class="text-2xl font-bold text-gray-50 tracking-tight">PokerGTO</h1>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-64 flex flex-col items-center gap-3">
+      <div class="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
+        <div class="h-full bg-emerald-500 rounded-full" style="width: 65%"></div>
+      </div>
+      <p class="text-gray-500 text-sm">Loading game engine...</p>
+    </div>
+  </div>
+</body>
+</html>

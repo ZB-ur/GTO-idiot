@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; gap: 48px; align-items: flex-start;">
+    <!-- High score -->
+    <div class="flex flex-col items-center gap-3">
+      <div class="relative" style="width: 136px; height: 136px;">
+        <svg width="136" height="136" viewBox="0 0 136 136">
+          <circle cx="68" cy="68" r="54" fill="none" stroke="#1f2937" stroke-width="10"/>
+          <circle cx="68" cy="68" r="54" fill="none" stroke="#34d399" stroke-width="10"
+            stroke-linecap="round"
+            stroke-dasharray="339.29"
+            stroke-dashoffset="93.31"
+            transform="rotate(-90 68 68)"/>
+        </svg>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <span class="text-2xl font-bold text-emerald-400">72%</span>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-0.5">
+        <span class="text-sm font-medium text-gray-50">GTO Alignment</span>
+        <span class="text-xs text-emerald-400">Good</span>
+      </div>
+    </div>
+    <!-- Medium score -->
+    <div class="flex flex-col items-center gap-3">
+      <div class="relative" style="width: 136px; height: 136px;">
+        <svg width="136" height="136" viewBox="0 0 136 136">
+          <circle cx="68" cy="68" r="54" fill="none" stroke="#1f2937" stroke-width="10"/>
+          <circle cx="68" cy="68" r="54" fill="none" stroke="#fb923c" stroke-width="10"
+            stroke-linecap="round"
+            stroke-dasharray="339.29"
+            stroke-dashoffset="186.61"
+            transform="rotate(-90 68 68)"/>
+        </svg>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <span class="text-2xl font-bold text-orange-400">45%</span>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-0.5">
+        <span class="text-sm font-medium text-gray-50">GTO Alignment</span>
+        <span class="text-xs text-orange-400">Needs Work</span>
+      </div>
+    </div>
+    <!-- Low score -->
+    <div class="flex flex-col items-center gap-3">
+      <div class="relative" style="width: 136px; height: 136px;">
+        <svg width="136" height="136" viewBox="0 0 136 136">
+          <circle cx="68" cy="68" r="54" fill="none" stroke="#1f2937" stroke-width="10"/>
+          <circle cx="68" cy="68" r="54" fill="none" stroke="#f87171" stroke-width="10"
+            stroke-linecap="round"
+            stroke-dasharray="339.29"
+            stroke-dashoffset="271.43"
+            transform="rotate(-90 68 68)"/>
+        </svg>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <span class="text-2xl font-bold text-red-400">20%</span>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-0.5">
+        <span class="text-sm font-medium text-gray-50">GTO Alignment</span>
+        <span class="text-xs text-red-400">Poor</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

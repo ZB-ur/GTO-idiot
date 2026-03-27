@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomePage Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gray: {
+              950: '#030712', 900: '#111827', 800: '#1f2937',
+              700: '#374151', 600: '#4b5563', 500: '#6b7280',
+              400: '#9ca3af', 300: '#d1d5db', 200: '#e5e7eb',
+              100: '#f3f4f6', 50: '#f9fafb'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-950 text-gray-50 min-h-screen">
+
+  <!-- Page Layout -->
+  <div class="min-h-screen flex flex-col">
+    <!-- Nav -->
+    <nav class="border-b border-gray-700 bg-gray-900/80 backdrop-blur-sm sticky top-0 z-10">
+      <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center font-bold text-gray-950 text-sm">G</div>
+          <span class="font-semibold text-gray-50">GTO Idiot</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="#" class="text-sm text-gray-400 hover:text-gray-50 transition-colors">Stats</a>
+          <a href="#" class="text-sm text-gray-400 hover:text-gray-50 transition-colors">Settings</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="flex-1 max-w-4xl mx-auto w-full px-6 py-8 space-y-10">
+
+      <!-- Hero Section -->
+      <section class="relative overflow-hidden bg-gray-900 border border-gray-700 rounded-xl p-8">
+        <!-- Subtle felt texture overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 to-transparent rounded-xl"></div>
+        <div class="relative space-y-4">
+          <div class="space-y-2">
+            <h1 class="text-2xl font-bold text-gray-50">Master GTO Strategy</h1>
+            <p class="text-gray-400 max-w-lg">Practice 6-max No-Limit Hold'em against AI opponents. Get instant GTO feedback on every decision and track your improvement over time.</p>
+          </div>
+          <div class="flex items-center gap-4 pt-2">
+            <button class="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-semibold rounded-lg transition-colors text-sm">
+              New Session
+            </button>
+            <div class="flex items-center gap-3 text-sm text-gray-400">
+              <div class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>247 hands played</span>
+              </div>
+              <span class="text-gray-700">•</span>
+              <div class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                <span>72% GTO aligned</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Sessions -->
+      <section>
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-lg font-semibold text-gray-50">Recent Sessions</h2>
+          <a href="#" class="text-sm text-emerald-400 hover:text-emerald-300 transition-colors">View all →</a>
+        </div>
+
+        <div class="space-y-3">
+
+          <!-- Session Card 1 — Active -->
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 hover:border-gray-600 transition-colors cursor-pointer group">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-emerald-900/40 border border-emerald-700/30 flex items-center justify-center">
+                  <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm font-medium text-gray-50">Session #15</span>
+                    <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-900/50 text-emerald-400 border border-emerald-700/30 font-medium">Active</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-1 text-xs text-gray-500">
+                    <span>1/2 Blinds</span>
+                    <span class="text-gray-700">•</span>
+                    <span>100BB Deep</span>
+                    <span class="text-gray-700">•</span>
+                    <span>Started 12 min ago</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-5">
+                <div class="text-right">
+                  <div class="text-sm font-semibold text-emerald-400">+45</div>
+                  <div class="text-xs text-gray-500">8 hands</div>
+                </div>
+                <button class="opacity-0 group-hover:opacity-100 text-gray-500 hover:text-red-400 transition-all p-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Session Card 2 — Completed, Positive -->
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 hover:border-gray-600 transition-colors cursor-pointer group">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center text-sm font-semibold text-gray-400">
+                  14
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm font-medium text-gray-50">Session #14</span>
+                    <span class="text-xs px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 border border-gray-700 font-medium">Completed</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-1 text-xs text-gray-500">
+                    <span>1/2 Blinds</span>
+                    <span class="text-gray-700">•</span>
+                    <span>100BB Deep</span>
+                    <span class="text-gray-700">•</span>
+                    <span>Mar 27, 2026</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-5">
+                <div class="text-right">
+                  <div class="text-sm font-semibold text-emerald-400">+125</div>
+                  <div class="text-xs text-gray-500">47 hands · 72% GTO</div>
+                </div>
+                <button class="opacity-0 group-hover:opacity-100 text-gray-500 hover:text-red-400 transition-all p-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Session Card 3 — Completed, Negative -->
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 hover:border-gray-600 transition-colors cursor-pointer group">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center text-sm font-semibold text-gray-400">
+                  13
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm font-medium text-gray-50">Session #13</span>
+                    <span class="text-xs px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 border border-gray-700 font-medium">Completed</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-1 text-xs text-gray-500">
+                    <span>1/2 Blinds</span>
+                    <span class="text-gray-700">•</span>
+                    <span>200BB Deep</span>
+                    <span class="text-gray-700">•</span>
+                    <span>Mar 26, 2026</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-5">
+                <div class="text-right">
+                  <div class="text-sm font-semibold text-red-400">-88</div>
+                  <div class="text-xs text-gray-500">31 hands · 65% GTO</div>
+                </div>
+                <button class="opacity-0 group-hover:opacity-100 text-gray-500 hover:text-red-400 transition-all p-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Session Card 4 — Completed, Positive -->
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 hover:border-gray-600 transition-colors cursor-pointer group">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center text-sm font-semibold text-gray-400">
+                  12
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm font-medium text-gray-50">Session #12</span>
+                    <span class="text-xs px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 border border-gray-700 font-medium">Completed</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-1 text-xs text-gray-500">
+                    <span>1/2 Blinds</span>
+                    <span class="text-gray-700">•</span>
+                    <span>50BB Deep</span>
+                    <span class="text-gray-700">•</span>
+                    <span>Mar 25, 2026</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-5">
+                <div class="text-right">
+                  <div class="text-sm font-semibold text-emerald-400">+210</div>
+                  <div class="text-xs text-gray-500">62 hands · 78% GTO</div>
+                </div>
+                <button class="opacity-0 group-hover:opacity-100 text-gray-500 hover:text-red-400 transition-all p-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Session Card 5 — Completed, Negative -->
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 hover:border-gray-600 transition-colors cursor-pointer group">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center text-sm font-semibold text-gray-400">
+                  11
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm font-medium text-gray-50">Session #11</span>
+                    <span class="text-xs px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 border border-gray-700 font-medium">Completed</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-1 text-xs text-gray-500">
+                    <span>1/2 Blinds</span>
+                    <span class="text-gray-700">•</span>
+                    <span>100BB Deep</span>
+                    <span class="text-gray-700">•</span>
+                    <span>Mar 24, 2026</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-5">
+                <div class="text-right">
+                  <div class="text-sm font-semibold text-red-400">-42</div>
+                  <div class="text-xs text-gray-500">25 hands · 58% GTO</div>
+                </div>
+                <button class="opacity-0 group-hover:opacity-100 text-gray-500 hover:text-red-400 transition-all p-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-700 py-6">
+      <div class="max-w-4xl mx-auto px-6 text-center text-xs text-gray-500">
+        GTO Idiot — Practice makes perfect. All data stored locally.
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

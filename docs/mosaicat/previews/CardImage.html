@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardImage Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-6">
+    <!-- Label -->
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">CardImage — Sizes & States</p>
+
+    <div class="flex items-end gap-6 flex-wrap">
+      <!-- Small face-up red -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="w-10 h-14 rounded-lg bg-gray-100 border border-gray-300 shadow-md flex flex-col items-center justify-between p-1 select-none">
+          <div class="self-start leading-none text-red-500">
+            <div class="text-xs font-bold">A</div>
+            <div class="text-sm -mt-0.5">♥</div>
+          </div>
+          <div class="text-red-500 text-lg leading-none">♥</div>
+          <div class="self-end leading-none rotate-180 text-red-500">
+            <div class="text-xs font-bold">A</div>
+            <div class="text-sm -mt-0.5">♥</div>
+          </div>
+        </div>
+        <span class="text-gray-500 text-xs">sm</span>
+      </div>
+
+      <!-- Medium face-up black -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="w-14 h-20 rounded-lg bg-gray-100 border border-gray-300 shadow-md flex flex-col items-center justify-between p-1 select-none">
+          <div class="self-start leading-none text-gray-900">
+            <div class="text-sm font-bold">K</div>
+            <div class="text-base -mt-0.5">♠</div>
+          </div>
+          <div class="text-gray-900 text-2xl leading-none">♠</div>
+          <div class="self-end leading-none rotate-180 text-gray-900">
+            <div class="text-sm font-bold">K</div>
+            <div class="text-base -mt-0.5">♠</div>
+          </div>
+        </div>
+        <span class="text-gray-500 text-xs">md</span>
+      </div>
+
+      <!-- Large face-up red -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="w-20 h-28 rounded-lg bg-gray-100 border border-gray-300 shadow-md flex flex-col items-center justify-between p-1 select-none">
+          <div class="self-start leading-none text-red-500">
+            <div class="text-lg font-bold">Q</div>
+            <div class="text-xl -mt-0.5">♦</div>
+          </div>
+          <div class="text-red-500 text-3xl leading-none">♦</div>
+          <div class="self-end leading-none rotate-180 text-red-500">
+            <div class="text-lg font-bold">Q</div>
+            <div class="text-xl -mt-0.5">♦</div>
+          </div>
+        </div>
+        <span class="text-gray-500 text-xs">lg</span>
+      </div>
+
+      <!-- Medium face-down -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="w-14 h-20 rounded-lg bg-gradient-to-br from-emerald-700 to-emerald-900 border border-emerald-600 shadow-md flex items-center justify-center">
+          <div class="w-3/4 h-3/4 rounded border border-emerald-500/40 bg-emerald-800/50 flex items-center justify-center">
+            <span class="text-emerald-400/60 text-xs font-bold">♠</span>
+          </div>
+        </div>
+        <span class="text-gray-500 text-xs">face-down</span>
+      </div>
+
+      <!-- Large face-down -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="w-20 h-28 rounded-lg bg-gradient-to-br from-emerald-700 to-emerald-900 border border-emerald-600 shadow-md flex items-center justify-center">
+          <div class="w-3/4 h-3/4 rounded border border-emerald-500/40 bg-emerald-800/50 flex items-center justify-center">
+            <span class="text-emerald-400/60 text-xs font-bold">♠</span>
+          </div>
+        </div>
+        <span class="text-gray-500 text-xs">face-down lg</span>
+      </div>
+    </div>
+
+    <!-- Row of community cards -->
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider mt-2">Community Cards Example</p>
+    <div class="flex gap-2">
+      <div class="w-14 h-20 rounded-lg bg-gray-100 border border-gray-300 shadow-md flex flex-col items-center justify-between p-1 select-none">
+        <div class="self-start leading-none text-red-500"><div class="text-sm font-bold">10</div><div class="text-base -mt-0.5">♥</div></div>
+        <div class="text-red-500 text-2xl leading-none">♥</div>
+        <div class="self-end leading-none rotate-180 text-red-500"><div class="text-sm font-bold">10</div><div class="text-base -mt-0.5">♥</div></div>
+      </div>
+      <div class="w-14 h-20 rounded-lg bg-gray-100 border border-gray-300 shadow-md flex flex-col items-center justify-between p-1 select-none">
+        <div class="self-start leading-none text-gray-900"><div class="text-sm font-bold">J</div><div class="text-base -mt-0.5">♣</div></div>
+        <div class="text-gray-900 text-2xl leading-none">♣</div>
+        <div class="self-end leading-none rotate-180 text-gray-900"><div class="text-sm font-bold">J</div><div class="text-base -mt-0.5">♣</div></div>
+      </div>
+      <div class="w-14 h-20 rounded-lg bg-gray-100 border border-gray-300 shadow-md flex flex-col items-center justify-between p-1 select-none">
+        <div class="self-start leading-none text-red-500"><div class="text-sm font-bold">Q</div><div class="text-base -mt-0.5">♦</div></div>
+        <div class="text-red-500 text-2xl leading-none">♦</div>
+        <div class="self-end leading-none rotate-180 text-red-500"><div class="text-sm font-bold">Q</div><div class="text-base -mt-0.5">♦</div></div>
+      </div>
+      <div class="w-14 h-20 rounded-lg bg-gray-100 border border-gray-300 shadow-md flex flex-col items-center justify-between p-1 select-none">
+        <div class="self-start leading-none text-gray-900"><div class="text-sm font-bold">K</div><div class="text-base -mt-0.5">♠</div></div>
+        <div class="text-gray-900 text-2xl leading-none">♠</div>
+        <div class="self-end leading-none rotate-180 text-gray-900"><div class="text-sm font-bold">K</div><div class="text-base -mt-0.5">♠</div></div>
+      </div>
+      <div class="w-14 h-20 rounded-lg bg-gray-100 border border-gray-300 shadow-md flex flex-col items-center justify-between p-1 select-none">
+        <div class="self-start leading-none text-red-500"><div class="text-sm font-bold">A</div><div class="text-base -mt-0.5">♥</div></div>
+        <div class="text-red-500 text-2xl leading-none">♥</div>
+        <div class="self-end leading-none rotate-180 text-red-500"><div class="text-sm font-bold">A</div><div class="text-base -mt-0.5">♥</div></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

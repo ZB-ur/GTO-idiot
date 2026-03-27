@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FullScreenError Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="min-h-screen bg-gray-950 flex flex-col items-center justify-center px-6">
+    <!-- Error Icon -->
+    <div class="mb-8 p-5 bg-red-400/10 rounded-full">
+      <svg class="w-16 h-16 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 8v4m0 4h.01" stroke-linecap="round" />
+      </svg>
+    </div>
+
+    <h1 class="text-2xl font-bold text-gray-50 mb-3 text-center">Something Went Wrong</h1>
+    <p class="text-gray-400 text-base text-center max-w-md mb-10">We couldn't load the game session. This might be a temporary issue — please try again or return to the home page.</p>
+
+    <div class="flex items-center gap-3">
+      <button class="px-6 py-3 rounded-xl font-semibold text-sm bg-emerald-500 hover:bg-emerald-400 text-gray-950 transition-colors">
+        Try Again
+      </button>
+      <button class="px-6 py-3 rounded-xl font-semibold text-sm border border-gray-700 text-gray-400 hover:text-gray-50 hover:border-gray-500 transition-colors">
+        Go Home
+      </button>
+    </div>
+  </div>
+</body>
+</html>

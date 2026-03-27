@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EndSessionButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col items-start gap-8 p-8">
+    <!-- Default State -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">Default</p>
+      <button class="px-4 py-2 rounded-lg text-sm font-semibold border bg-gray-800 border-gray-700 text-gray-400 hover:text-gray-300 hover:border-gray-600 transition-all duration-200">
+        End Session
+      </button>
+    </div>
+
+    <!-- Confirming State -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">Confirming</p>
+      <div class="inline-flex items-center gap-2">
+        <button class="px-4 py-2 rounded-lg text-sm font-semibold border bg-red-500/20 border-red-500/50 text-red-400 transition-all duration-200">
+          Confirm End Session
+        </button>
+        <button class="px-3 py-2 rounded-lg text-sm font-medium text-gray-500 hover:text-gray-400 transition-colors">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

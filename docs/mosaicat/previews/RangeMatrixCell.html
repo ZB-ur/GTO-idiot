@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RangeMatrixCell Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="p-8">
+    <p class="text-xs text-gray-500 mb-4 uppercase tracking-wider">Individual Cells (various states)</p>
+    <div class="flex gap-3 items-start mb-8">
+      <!-- Strong raise hand (AKs) -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="relative w-12 h-12 flex items-center justify-center text-xs font-bold rounded-sm transition-all" style="background-color: #fbbf24cc;">
+          <span class="text-gray-50">AKs</span>
+          <div class="absolute bottom-0.5 left-1/2 -translate-x-1/2 flex gap-px">
+            <div class="w-1 h-1 rounded-full" style="background-color: #fbbf24;"></div>
+            <div class="w-1 h-1 rounded-full" style="background-color: #38bdf8;"></div>
+          </div>
+        </div>
+        <span class="text-[10px] text-gray-500">Raise 85%</span>
+      </div>
+
+      <!-- Mixed hand (QTo) -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="relative w-12 h-12 flex items-center justify-center text-xs font-bold rounded-sm transition-all" style="background-color: #38bdf880;">
+          <span class="text-gray-300">QTo</span>
+          <div class="absolute bottom-0.5 left-1/2 -translate-x-1/2 flex gap-px">
+            <div class="w-1 h-1 rounded-full" style="background-color: #38bdf8;"></div>
+            <div class="w-1 h-1 rounded-full" style="background-color: #fbbf24;"></div>
+            <div class="w-1 h-1 rounded-full" style="background-color: #6b7280;"></div>
+          </div>
+        </div>
+        <span class="text-[10px] text-gray-500">Call 50%</span>
+      </div>
+
+      <!-- Fold dominant (72o) -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="relative w-12 h-12 flex items-center justify-center text-xs font-bold rounded-sm transition-all" style="background-color: #6b728066;">
+          <span class="text-gray-300">72o</span>
+        </div>
+        <span class="text-[10px] text-gray-500">Fold 100%</span>
+      </div>
+
+      <!-- Highlighted cell (user's hand) -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="relative w-12 h-12 flex items-center justify-center text-xs font-bold rounded-sm ring-2 ring-emerald-400 ring-offset-1 ring-offset-gray-950 z-10 scale-110" style="background-color: #fbbf24b3;">
+          <span class="text-gray-50">AQs</span>
+          <div class="absolute bottom-0.5 left-1/2 -translate-x-1/2 flex gap-px">
+            <div class="w-1 h-1 rounded-full" style="background-color: #fbbf24;"></div>
+            <div class="w-1 h-1 rounded-full" style="background-color: #38bdf8;"></div>
+          </div>
+        </div>
+        <span class="text-[10px] text-emerald-400 font-medium">Your Hand</span>
+      </div>
+
+      <!-- Pair (JJ) -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="relative w-12 h-12 flex items-center justify-center text-xs font-bold rounded-sm" style="background-color: #fbbf24e6;">
+          <span class="text-gray-50">JJ</span>
+        </div>
+        <span class="text-[10px] text-gray-500">Raise 95%</span>
+      </div>
+    </div>
+
+    <!-- Mini 5x5 grid to show context -->
+    <p class="text-xs text-gray-500 mb-3 uppercase tracking-wider">In Grid Context (5×5 sample)</p>
+    <div class="inline-grid grid-cols-5 gap-0.5" style="width: 220px;">
+      <!-- Row 1: AA, AKs, AQs, AJs, ATs -->
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #fbbf24e6;"><span class="text-gray-50">AA</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #fbbf24cc;"><span class="text-gray-50">AKs</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm ring-2 ring-emerald-400 ring-offset-1 ring-offset-gray-950 z-10" style="background-color: #fbbf24b3;"><span class="text-gray-50">AQs</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #fbbf24a0;"><span class="text-gray-50">AJs</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #fbbf2499;"><span class="text-gray-300">ATs</span></div>
+      <!-- Row 2: AKo, KK, KQs, KJs, KTs -->
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #fbbf24b3;"><span class="text-gray-50">AKo</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #fbbf24e6;"><span class="text-gray-50">KK</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #fbbf24a0;"><span class="text-gray-300">KQs</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #fbbf2480;"><span class="text-gray-300">KJs</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #38bdf880;"><span class="text-gray-300">KTs</span></div>
+      <!-- Row 3: AQo, KQo, QQ, QJs, QTs -->
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #fbbf2480;"><span class="text-gray-300">AQo</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #38bdf890;"><span class="text-gray-300">KQo</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #fbbf24e6;"><span class="text-gray-50">QQ</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #38bdf870;"><span class="text-gray-300">QJs</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #38bdf860;"><span class="text-gray-300">QTs</span></div>
+      <!-- Row 4: AJo, KJo, QJo, JJ, JTs -->
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #38bdf870;"><span class="text-gray-300">AJo</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #6b728060;"><span class="text-gray-400">KJo</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #6b728060;"><span class="text-gray-400">QJo</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #fbbf24e6;"><span class="text-gray-50">JJ</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #38bdf860;"><span class="text-gray-300">JTs</span></div>
+      <!-- Row 5: ATo, KTo, QTo, JTo, TT -->
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #38bdf850;"><span class="text-gray-400">ATo</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #6b728050;"><span class="text-gray-400">KTo</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #6b728066;"><span class="text-gray-400">QTo</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #6b728066;"><span class="text-gray-400">JTo</span></div>
+      <div class="w-10 h-10 flex items-center justify-center text-[10px] font-bold rounded-sm" style="background-color: #fbbf24cc;"><span class="text-gray-50">TT</span></div>
+    </div>
+  </div>
+</body>
+</html>

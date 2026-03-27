@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=400" />
+  <title>SessionSummaryPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 448px; margin: 0 auto;">
+    <div class="flex flex-col gap-6 w-full px-4 py-6">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between">
+        <button class="flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-50 transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+          Home
+        </button>
+        <h1 class="text-lg font-semibold text-gray-50">Session Summary</h1>
+        <div class="w-14"></div>
+      </div>
+
+      <!-- Hands Played Badge -->
+      <div class="flex justify-center">
+        <span class="px-3 py-1 text-sm text-gray-400 bg-gray-800 border border-gray-700 rounded-full">
+          47 hands played
+        </span>
+      </div>
+
+      <!-- Net Result Card -->
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-6">
+        <div class="flex flex-col items-center gap-1">
+          <span class="text-sm text-gray-400 uppercase tracking-wide">Net Result</span>
+          <span class="text-5xl font-bold text-emerald-400">+125</span>
+          <span class="text-sm text-gray-500">chips</span>
+        </div>
+      </div>
+
+      <!-- GTO Alignment Card -->
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 flex justify-center">
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-sm text-gray-400 uppercase tracking-wide">GTO Alignment</span>
+          <div class="relative" style="width: 128px; height: 128px;">
+            <svg style="width: 128px; height: 128px; transform: rotate(-90deg);" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="54" fill="none" stroke="#374151" stroke-width="8" />
+              <circle cx="60" cy="60" r="54" fill="none" stroke="#34d399" stroke-width="8"
+                stroke-linecap="round"
+                stroke-dasharray="339.29"
+                stroke-dashoffset="93.30" />
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span class="text-3xl font-bold text-emerald-400">72.5</span>
+              <span class="text-xs text-gray-500">%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notable Hands -->
+      <div class="flex flex-col gap-3">
+        <h2 class="text-sm text-gray-400 uppercase tracking-wide font-medium">Notable Hands</h2>
+
+        <!-- Biggest Win -->
+        <button class="flex items-center justify-between w-full px-4 py-3 bg-gray-800 border border-emerald-400/20 rounded-xl hover:bg-gray-700 transition-colors cursor-pointer text-left">
+          <div class="flex flex-col gap-0.5">
+            <span class="text-xs text-gray-400 uppercase tracking-wide">Biggest Win</span>
+            <span class="text-sm text-gray-50 font-medium">Hand #23</span>
+          </div>
+          <span class="text-lg font-bold text-emerald-400">+245</span>
+        </button>
+
+        <!-- Biggest Loss -->
+        <button class="flex items-center justify-between w-full px-4 py-3 bg-gray-800 border border-red-400/20 rounded-xl hover:bg-gray-700 transition-colors cursor-pointer text-left">
+          <div class="flex flex-col gap-0.5">
+            <span class="text-xs text-gray-400 uppercase tracking-wide">Biggest Loss</span>
+            <span class="text-sm text-gray-50 font-medium">Hand #31</span>
+          </div>
+          <span class="text-lg font-bold text-red-400">-180</span>
+        </button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col gap-3 mt-2">
+        <button class="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-semibold rounded-xl transition-colors">
+          Review All Hands
+        </button>
+        <button class="w-full py-3 bg-gray-800 hover:bg-gray-700 text-gray-50 font-semibold rounded-xl border border-gray-700 transition-colors">
+          Back to Home
+        </button>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
