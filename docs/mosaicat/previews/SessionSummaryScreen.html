@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SessionSummaryScreen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; color: #f9fafb; }
+  </style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto px-4 py-8 space-y-6">
+
+    <!-- Header -->
+    <div class="text-center space-y-2">
+      <p class="text-4xl">🎉</p>
+      <h1 class="text-2xl font-bold text-gray-50">Session Complete</h1>
+      <p class="text-3xl font-bold text-emerald-400">+34 chips</p>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="grid grid-cols-5 gap-3">
+      <div class="bg-gray-800 rounded-xl p-4 text-center">
+        <p class="text-gray-500 text-xs font-medium uppercase tracking-wider mb-1">Hands</p>
+        <p class="text-xl font-bold text-gray-50">47</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-4 text-center">
+        <p class="text-gray-500 text-xs font-medium uppercase tracking-wider mb-1">Profit</p>
+        <p class="text-xl font-bold text-emerald-400">+34</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-4 text-center">
+        <p class="text-gray-500 text-xs font-medium uppercase tracking-wider mb-1">BB/100</p>
+        <p class="text-xl font-bold text-emerald-400">12.5</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-4 text-center">
+        <p class="text-gray-500 text-xs font-medium uppercase tracking-wider mb-1">VPIP</p>
+        <p class="text-xl font-bold text-gray-50">24.3%</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-4 text-center">
+        <p class="text-gray-500 text-xs font-medium uppercase tracking-wider mb-1">PFR</p>
+        <p class="text-xl font-bold text-gray-50">18.7%</p>
+      </div>
+    </div>
+
+    <!-- GTO Accuracy Card -->
+    <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold text-gray-50">GTO Accuracy</h3>
+        <div class="flex items-baseline gap-1">
+          <span class="text-3xl font-bold text-emerald-400">62%</span>
+          <span class="text-gray-500 text-sm">score</span>
+        </div>
+      </div>
+
+      <!-- Stacked bar -->
+      <div class="flex h-3 rounded-full overflow-hidden mb-4 bg-gray-800">
+        <div class="bg-emerald-400" style="width: 62%"></div>
+        <div class="bg-amber-300" style="width: 24%"></div>
+        <div class="bg-amber-400" style="width: 10%"></div>
+        <div class="bg-red-400" style="width: 4%"></div>
+      </div>
+
+      <!-- Legend -->
+      <div class="grid grid-cols-4 gap-2">
+        <div class="text-center">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 mr-1"></span>
+          <span class="text-gray-400 text-xs">Good</span>
+          <p class="text-gray-50 font-semibold text-sm">31</p>
+        </div>
+        <div class="text-center">
+          <span class="inline-block w-2 h-2 rounded-full bg-amber-300 mr-1"></span>
+          <span class="text-gray-400 text-xs">Minor</span>
+          <p class="text-gray-50 font-semibold text-sm">12</p>
+        </div>
+        <div class="text-center">
+          <span class="inline-block w-2 h-2 rounded-full bg-amber-400 mr-1"></span>
+          <span class="text-gray-400 text-xs">Mistake</span>
+          <p class="text-gray-50 font-semibold text-sm">5</p>
+        </div>
+        <div class="text-center">
+          <span class="inline-block w-2 h-2 rounded-full bg-red-400 mr-1"></span>
+          <span class="text-gray-400 text-xs">Blunder</span>
+          <p class="text-gray-50 font-semibold text-sm">2</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profit Chart -->
+    <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6">
+      <h3 class="text-lg font-semibold text-gray-50 mb-4">Profit Chart</h3>
+      <svg viewBox="0 0 400 200" class="w-full h-48" preserveAspectRatio="none">
+        <!-- Zero line -->
+        <line x1="20" y1="120" x2="380" y2="120" stroke="#374151" stroke-width="1" stroke-dasharray="4 4" />
+        <!-- Profit polyline (mock data: starts 0, dips negative, recovers, ends +34) -->
+        <polyline fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linejoin="round"
+          points="20,120 40,115 60,125 80,135 100,140 120,130 140,125 160,120 180,110 200,100 220,95 240,105 260,90 280,80 300,75 320,70 340,65 360,55 380,50" />
+      </svg>
+      <div class="flex justify-between text-xs text-gray-500 mt-2">
+        <span>Hand 1</span>
+        <span>Hand 47</span>
+      </div>
+    </div>
+
+    <!-- Notable Hands -->
+    <div class="space-y-3">
+      <h3 class="text-lg font-semibold text-gray-50">Notable Hands</h3>
+
+      <!-- Hand 1: Blunder -->
+      <div class="w-full bg-gray-800 hover:bg-gray-700/80 border border-gray-700 rounded-xl p-4 text-left transition-colors cursor-pointer">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-gray-400 text-xs font-medium">Hand #12</span>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded-lg text-red-400 bg-red-400/10">Blunder</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="flex gap-1 bg-gray-900 rounded-lg px-2 py-1">
+              <span class="inline-flex items-center font-mono font-bold text-sm text-gray-50">A♠</span>
+              <span class="inline-flex items-center font-mono font-bold text-sm text-red-400">K♥</span>
+            </div>
+            <span class="text-gray-500 text-xs">2 deviations</span>
+          </div>
+          <span class="font-bold text-sm text-red-400">-24</span>
+        </div>
+      </div>
+
+      <!-- Hand 2: Mistake -->
+      <div class="w-full bg-gray-800 hover:bg-gray-700/80 border border-gray-700 rounded-xl p-4 text-left transition-colors cursor-pointer">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-gray-400 text-xs font-medium">Hand #31</span>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded-lg text-amber-400 bg-amber-400/10">Mistake</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="flex gap-1 bg-gray-900 rounded-lg px-2 py-1">
+              <span class="inline-flex items-center font-mono font-bold text-sm text-red-400">Q♥</span>
+              <span class="inline-flex items-center font-mono font-bold text-sm text-red-400">J♥</span>
+            </div>
+            <span class="text-gray-500 text-xs">1 deviation</span>
+          </div>
+          <span class="font-bold text-sm text-red-400">-18</span>
+        </div>
+      </div>
+
+      <!-- Hand 3: Minor -->
+      <div class="w-full bg-gray-800 hover:bg-gray-700/80 border border-gray-700 rounded-xl p-4 text-left transition-colors cursor-pointer">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-gray-400 text-xs font-medium">Hand #8</span>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded-lg text-amber-300 bg-amber-300/10">Minor</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="flex gap-1 bg-gray-900 rounded-lg px-2 py-1">
+              <span class="inline-flex items-center font-mono font-bold text-sm text-gray-50">T♠</span>
+              <span class="inline-flex items-center font-mono font-bold text-sm text-gray-50">T♣</span>
+            </div>
+            <span class="text-gray-500 text-xs">1 deviation</span>
+          </div>
+          <span class="font-bold text-sm text-emerald-400">+12</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="space-y-3 pt-2">
+      <button class="w-full bg-amber-500 hover:bg-amber-400 text-gray-950 font-semibold py-3 rounded-xl transition-colors">
+        Review All Hands
+      </button>
+      <div class="grid grid-cols-2 gap-3">
+        <button class="bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-50 font-semibold py-3 rounded-xl transition-colors">
+          Quick Start
+        </button>
+        <button class="bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-50 font-semibold py-3 rounded-xl transition-colors">
+          New Session
+        </button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

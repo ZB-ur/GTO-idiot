@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameTable Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; color: #f9fafb; }
+    @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.4); } 50% { box-shadow: 0 0 12px 4px rgba(245,158,11,0.25); } }
+    .turn-glow { animation: pulse-glow 2s ease-in-out infinite; }
+    @keyframes pulse-text { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .animate-pulse-text { animation: pulse-text 2s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+  <div style="width:1024px; height:768px;" class="flex flex-col bg-gray-950 text-gray-50 overflow-hidden">
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="shrink-0 flex items-center justify-between px-5 py-3 bg-gray-900 border-b border-gray-800">
+      <div class="flex items-center gap-4">
+        <span class="text-sm font-semibold text-amber-500">GTO Idiot</span>
+        <span class="text-xs text-gray-500">Hand #12</span>
+        <span class="px-2 py-0.5 rounded bg-gray-800 text-xs font-medium text-emerald-400 uppercase tracking-wide">Flop</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="text-sm font-medium text-emerald-400">+34 chips</span>
+        <button class="text-xs text-gray-400 hover:text-gray-200 px-2 py-1 rounded-lg border border-gray-700">⚙ Settings</button>
+        <button class="text-xs text-red-400 hover:text-red-300 px-2 py-1 rounded-lg border border-gray-700">End Session</button>
+      </div>
+    </div>
+
+    <!-- ===== TABLE AREA ===== -->
+    <div class="flex-1 relative overflow-hidden">
+      <div class="absolute inset-8 lg:inset-12">
+        <!-- Felt -->
+        <div class="relative w-full h-full rounded-[50%] border-4 border-emerald-700 shadow-lg shadow-black/40"
+             style="background: radial-gradient(ellipse at center, rgba(6,78,59,0.9) 0%, rgb(6,78,59) 100%);">
+
+          <!-- ===== COMMUNITY CARDS (center) ===== -->
+          <div class="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2">
+            <!-- Card: K♠ -->
+            <div class="w-14 h-20 rounded-lg bg-white shadow-md flex flex-col items-center justify-center border border-gray-200">
+              <span class="text-sm font-bold text-gray-900">K</span>
+              <span class="text-lg" style="color:#1a1a2e;">♠</span>
+            </div>
+            <!-- Card: 9♥ -->
+            <div class="w-14 h-20 rounded-lg bg-white shadow-md flex flex-col items-center justify-center border border-gray-200">
+              <span class="text-sm font-bold text-red-600">9</span>
+              <span class="text-lg text-red-600">♥</span>
+            </div>
+            <!-- Card: 5♦ -->
+            <div class="w-14 h-20 rounded-lg bg-white shadow-md flex flex-col items-center justify-center border border-gray-200">
+              <span class="text-sm font-bold text-blue-600">5</span>
+              <span class="text-lg text-blue-600">♦</span>
+            </div>
+            <!-- Empty slots -->
+            <div class="w-14 h-20 rounded-lg border-2 border-dashed border-emerald-600/30"></div>
+            <div class="w-14 h-20 rounded-lg border-2 border-dashed border-emerald-600/30"></div>
+          </div>
+
+          <!-- ===== POT DISPLAY ===== -->
+          <div class="absolute top-[54%] left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/40 border border-emerald-700/50">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="text-amber-500">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor" font-weight="bold">$</text>
+              </svg>
+              <span class="text-sm font-bold text-amber-400">24</span>
+            </div>
+          </div>
+
+          <!-- ===== DEALER BUTTON (at seat 3 = BTN) ===== -->
+          <div class="absolute z-20 -translate-x-1/2 -translate-y-1/2" style="top:14%; left:46%;">
+            <div class="w-7 h-7 rounded-full bg-amber-500 border-2 border-amber-300 flex items-center justify-center text-xs font-bold text-gray-900 shadow-md">D</div>
+          </div>
+
+          <!-- ===== SEAT 0 — HUMAN (bottom center) — current turn ===== -->
+          <div class="absolute -translate-x-1/2 -translate-y-1/2 z-10" style="top:78%; left:50%;">
+            <div class="turn-glow flex flex-col items-center gap-1 px-4 py-2 rounded-xl bg-gray-900/90 border-2 border-amber-500 shadow-lg shadow-black/40 min-w-[120px]">
+              <div class="flex gap-1">
+                <!-- Hole Card: A♠ -->
+                <div class="w-10 h-14 rounded bg-white shadow flex flex-col items-center justify-center">
+                  <span class="text-xs font-bold text-gray-900">A</span>
+                  <span class="text-sm" style="color:#1a1a2e;">♠</span>
+                </div>
+                <!-- Hole Card: K♥ -->
+                <div class="w-10 h-14 rounded bg-white shadow flex flex-col items-center justify-center">
+                  <span class="text-xs font-bold text-red-600">K</span>
+                  <span class="text-sm text-red-600">♥</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold text-amber-400">You</span>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-400">CO</span>
+                <span class="text-sm font-bold text-gray-50">186</span>
+              </div>
+              <div class="text-[10px] text-amber-500 font-medium">Bet: 6</div>
+            </div>
+          </div>
+
+          <!-- ===== SEAT 1 — BOT (bottom-left) ===== -->
+          <div class="absolute -translate-x-1/2 -translate-y-1/2 z-10" style="top:58%; left:8%;">
+            <div class="flex flex-col items-center gap-1 px-4 py-2 rounded-xl bg-gray-900/90 border border-gray-700 shadow-lg shadow-black/40 min-w-[110px]">
+              <div class="flex gap-1">
+                <div class="w-10 h-14 rounded bg-gray-700 shadow flex items-center justify-center">
+                  <span class="text-lg text-gray-500">?</span>
+                </div>
+                <div class="w-10 h-14 rounded bg-gray-700 shadow flex items-center justify-center">
+                  <span class="text-lg text-gray-500">?</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold text-gray-300">TAG Bot</span>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-500">UTG</span>
+                <span class="text-sm font-bold text-gray-50">194</span>
+              </div>
+              <div class="text-[10px] text-gray-500">Bet: 6</div>
+            </div>
+          </div>
+
+          <!-- ===== SEAT 2 — BOT (top-left) — folded ===== -->
+          <div class="absolute -translate-x-1/2 -translate-y-1/2 z-10" style="top:18%; left:8%;">
+            <div class="flex flex-col items-center gap-1 px-4 py-2 rounded-xl bg-gray-900/60 border border-gray-800 shadow-lg shadow-black/40 min-w-[110px] opacity-50">
+              <div class="flex gap-1">
+                <div class="w-10 h-14 rounded bg-gray-800 shadow flex items-center justify-center">
+                  <span class="text-lg text-gray-600">—</span>
+                </div>
+                <div class="w-10 h-14 rounded bg-gray-800 shadow flex items-center justify-center">
+                  <span class="text-lg text-gray-600">—</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold text-gray-500">Fish Bot</span>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">MP</span>
+                <span class="text-sm font-bold text-gray-500">200</span>
+              </div>
+              <div class="text-[10px] text-gray-600">Folded</div>
+            </div>
+          </div>
+
+          <!-- ===== SEAT 3 — BOT (top center) — dealer ===== -->
+          <div class="absolute -translate-x-1/2 -translate-y-1/2 z-10" style="top:5%; left:50%;">
+            <div class="flex flex-col items-center gap-1 px-4 py-2 rounded-xl bg-gray-900/90 border border-gray-700 shadow-lg shadow-black/40 min-w-[110px]">
+              <div class="flex gap-1">
+                <div class="w-10 h-14 rounded bg-gray-700 shadow flex items-center justify-center">
+                  <span class="text-lg text-gray-500">?</span>
+                </div>
+                <div class="w-10 h-14 rounded bg-gray-700 shadow flex items-center justify-center">
+                  <span class="text-lg text-gray-500">?</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold text-gray-300">LAG Bot</span>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-500">BTN</span>
+                <span class="text-sm font-bold text-gray-50">212</span>
+              </div>
+              <div class="text-[10px] text-gray-500">Bet: 6</div>
+            </div>
+          </div>
+
+          <!-- ===== SEAT 4 — BOT (top-right) ===== -->
+          <div class="absolute -translate-x-1/2 -translate-y-1/2 z-10" style="top:18%; left:92%;">
+            <div class="flex flex-col items-center gap-1 px-4 py-2 rounded-xl bg-gray-900/90 border border-gray-700 shadow-lg shadow-black/40 min-w-[110px]">
+              <div class="flex gap-1">
+                <div class="w-10 h-14 rounded bg-gray-700 shadow flex items-center justify-center">
+                  <span class="text-lg text-gray-500">?</span>
+                </div>
+                <div class="w-10 h-14 rounded bg-gray-700 shadow flex items-center justify-center">
+                  <span class="text-lg text-gray-500">?</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold text-gray-300">Nit Bot</span>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-500">SB</span>
+                <span class="text-sm font-bold text-gray-50">197</span>
+              </div>
+              <div class="text-[10px] text-gray-500">Bet: 3</div>
+            </div>
+          </div>
+
+          <!-- ===== SEAT 5 — BOT (bottom-right) — folded ===== -->
+          <div class="absolute -translate-x-1/2 -translate-y-1/2 z-10" style="top:58%; left:92%;">
+            <div class="flex flex-col items-center gap-1 px-4 py-2 rounded-xl bg-gray-900/60 border border-gray-800 shadow-lg shadow-black/40 min-w-[110px] opacity-50">
+              <div class="flex gap-1">
+                <div class="w-10 h-14 rounded bg-gray-800 shadow flex items-center justify-center">
+                  <span class="text-lg text-gray-600">—</span>
+                </div>
+                <div class="w-10 h-14 rounded bg-gray-800 shadow flex items-center justify-center">
+                  <span class="text-lg text-gray-600">—</span>
+                </div>
+              </div>
+              <span class="text-xs font-semibold text-gray-500">CS Bot</span>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600">BB</span>
+                <span class="text-sm font-bold text-gray-500">190</span>
+              </div>
+              <div class="text-[10px] text-gray-600">Folded</div>
+            </div>
+          </div>
+
+          <!-- ===== HAND STRENGTH BADGE ===== -->
+          <div class="absolute bottom-[26%] left-1/2 -translate-x-1/2 z-20">
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 border border-emerald-700/50 backdrop-blur-sm">
+              <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+              <span class="text-xs font-medium text-gray-200">Top Pair, King Kicker</span>
+              <span class="text-xs font-bold text-emerald-400">72%</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ACTION PANEL ===== -->
+    <div class="shrink-0 bg-gray-900 border-t border-gray-800 px-6 py-4">
+      <div class="flex items-center justify-center gap-3 max-w-2xl mx-auto">
+        <!-- Fold -->
+        <button class="px-6 py-3 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 font-semibold text-sm hover:bg-gray-700 transition-colors">
+          Fold
+        </button>
+        <!-- Call -->
+        <button class="px-6 py-3 rounded-lg bg-sky-900/60 border border-sky-700 text-sky-300 font-semibold text-sm hover:bg-sky-800/60 transition-colors">
+          Call <span class="text-sky-400 font-bold ml-1">6</span>
+        </button>
+        <!-- Raise Slider Area -->
+        <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700">
+          <span class="text-xs text-gray-500 w-6 text-right">12</span>
+          <div class="relative w-32 h-2 bg-gray-700 rounded-full">
+            <div class="absolute left-0 top-0 h-2 bg-amber-500 rounded-full" style="width:30%;"></div>
+            <div class="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-amber-400 rounded-full border-2 border-amber-300 shadow" style="left:28%;"></div>
+          </div>
+          <span class="text-xs text-gray-500 w-8">186</span>
+        </div>
+        <!-- Raise -->
+        <button class="px-6 py-3 rounded-lg bg-amber-500/20 border border-amber-500 text-amber-400 font-semibold text-sm hover:bg-amber-500/30 transition-colors">
+          Raise to <span class="font-bold ml-1">18</span>
+        </button>
+        <!-- All-In -->
+        <button class="px-5 py-3 rounded-lg bg-red-900/40 border border-red-700 text-red-400 font-semibold text-sm hover:bg-red-900/60 transition-colors">
+          All-In
+        </button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

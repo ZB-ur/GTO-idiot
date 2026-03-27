@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToggleSwitch Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-6 max-w-sm">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wide">ToggleSwitch — States</p>
+
+    <!-- Card container to simulate SettingsPanel -->
+    <div class="rounded-2xl bg-gray-900 border border-gray-700 p-5 flex flex-col gap-5">
+      <!-- On -->
+      <div class="flex items-center justify-between gap-4">
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-gray-50">Sound Effects</span>
+          <span class="text-xs text-gray-500 mt-0.5">Play sounds on actions</span>
+        </div>
+        <div class="relative inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-amber-500">
+          <span class="pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-lg shadow-black/20 translate-x-5"></span>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800"></div>
+
+      <!-- Off -->
+      <div class="flex items-center justify-between gap-4">
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-gray-50">Hand Strength</span>
+          <span class="text-xs text-gray-500 mt-0.5">Show hand strength indicator</span>
+        </div>
+        <div class="relative inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-gray-700">
+          <span class="pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-lg shadow-black/20 translate-x-1"></span>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800"></div>
+
+      <!-- On, no description -->
+      <div class="flex items-center justify-between gap-4">
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-gray-50">Vibration</span>
+        </div>
+        <div class="relative inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-amber-500">
+          <span class="pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-lg shadow-black/20 translate-x-5"></span>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800"></div>
+
+      <!-- Off, no description -->
+      <div class="flex items-center justify-between gap-4">
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-gray-50">Auto Muck</span>
+        </div>
+        <div class="relative inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-gray-700">
+          <span class="pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-lg shadow-black/20 translate-x-1"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

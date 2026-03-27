@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandResultToast Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 24px; align-items: flex-start;">
+
+    <!-- Positive result -->
+    <div class="inline-flex items-center gap-2 px-5 py-3 rounded-xl shadow-lg shadow-black/40 bg-emerald-900/80 border border-emerald-700 text-emerald-400">
+      <span class="text-lg">🪙</span>
+      <span class="text-lg font-bold tabular-nums tracking-tight">+14 chips</span>
+    </div>
+
+    <!-- Negative result -->
+    <div class="inline-flex items-center gap-2 px-5 py-3 rounded-xl shadow-lg shadow-black/40 bg-red-900/80 border border-red-700 text-red-400">
+      <span class="text-lg">🪙</span>
+      <span class="text-lg font-bold tabular-nums tracking-tight">-6 chips</span>
+    </div>
+
+    <!-- Zero / push -->
+    <div class="inline-flex items-center gap-2 px-5 py-3 rounded-xl shadow-lg shadow-black/40 bg-emerald-900/80 border border-emerald-700 text-emerald-400">
+      <span class="text-lg">🪙</span>
+      <span class="text-lg font-bold tabular-nums tracking-tight">+0 chips</span>
+    </div>
+
+  </div>
+</body>
+</html>

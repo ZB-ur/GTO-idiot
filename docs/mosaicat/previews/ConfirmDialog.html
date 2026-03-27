@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConfirmDialog Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+    <div class="bg-gray-900 border border-gray-700 rounded-2xl shadow-lg shadow-black/40 p-8 max-w-md w-full mx-4">
+      <h2 class="text-xl font-bold text-gray-50 mb-2">Delete Hand History?</h2>
+      <p class="text-sm text-gray-400 mb-8 leading-relaxed">This will permanently remove this hand and all associated GTO analysis data. This action cannot be undone.</p>
+      <div class="flex gap-3">
+        <button class="flex-1 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-50 font-semibold py-3 px-6 text-sm transition-colors border border-gray-700">Cancel</button>
+        <button class="flex-1 rounded-lg bg-red-500 hover:bg-red-400 text-white font-semibold py-3 px-6 text-sm transition-colors">Delete</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

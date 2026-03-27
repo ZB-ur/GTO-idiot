@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SplashScreen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="fixed inset-0 bg-gray-950 flex flex-col items-center justify-center">
+    <!-- Background glow -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-amber-500/5 blur-3xl"></div>
+    </div>
+
+    <!-- Logo -->
+    <div class="relative flex flex-col items-center gap-6">
+      <div class="w-20 h-20 rounded-2xl bg-amber-500 flex items-center justify-center shadow-lg shadow-amber-500/20">
+        <span class="text-gray-950 text-4xl font-bold">♠</span>
+      </div>
+
+      <div class="text-center">
+        <h1 class="text-2xl font-bold text-gray-50 tracking-tight">Poker<span class="text-amber-500">Coach</span></h1>
+        <p class="text-sm text-gray-500 mt-1">AI-Powered GTO Training</p>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="w-64 flex flex-col items-center gap-3 mt-4">
+        <div class="w-full h-1.5 rounded-full bg-gray-800 overflow-hidden">
+          <div class="h-full bg-amber-500 rounded-full" style="width: 65%"></div>
+        </div>
+        <p class="text-xs text-gray-500">Loading strategy data...</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

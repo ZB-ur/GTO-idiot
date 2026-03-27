@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spinner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .anim-spin { animation: spin 0.7s linear infinite; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-6">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wide">Spinner — Sizes</p>
+
+    <div class="flex items-center gap-8">
+      <!-- sm -->
+      <div class="flex flex-col items-center gap-2">
+        <div class="w-4 h-4 border-2 rounded-full border-amber-500 border-t-transparent anim-spin"></div>
+        <span class="text-gray-500 text-xs">sm</span>
+      </div>
+      <!-- md -->
+      <div class="flex flex-col items-center gap-2">
+        <div class="w-6 h-6 border-2 rounded-full border-amber-500 border-t-transparent anim-spin"></div>
+        <span class="text-gray-500 text-xs">md</span>
+      </div>
+      <!-- lg -->
+      <div class="flex flex-col items-center gap-2">
+        <div class="w-8 h-8 border-[3px] rounded-full border-amber-500 border-t-transparent anim-spin"></div>
+        <span class="text-gray-500 text-xs">lg</span>
+      </div>
+    </div>
+
+    <!-- In button context -->
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wide mt-4">In Button</p>
+    <div class="flex items-center gap-4">
+      <button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500 text-gray-900 font-semibold text-sm">
+        <div class="w-4 h-4 border-2 rounded-full border-gray-900 border-t-transparent anim-spin"></div>
+        Loading…
+      </button>
+      <button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-50 font-semibold text-sm">
+        <div class="w-4 h-4 border-2 rounded-full border-amber-500 border-t-transparent anim-spin"></div>
+        Connecting…
+      </button>
+    </div>
+  </div>
+</body>
+</html>
