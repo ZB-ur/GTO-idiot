@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-felt: #0d5c2e;
+    --color-felt-dark: #094a24;
+    --color-gold: #d4a843;
+    --color-chip-red: #dc2626;
+    --color-chip-blue: #2563eb;
+    --color-chip-green: #16a34a;
+    --color-chip-black: #1e1e1e;
+    --color-chip-white: #e5e7eb;
+  }
+
+  html {
+    @apply h-full;
+  }
+
+  body {
+    @apply h-full bg-gray-950 text-gray-100 font-sans antialiased;
+    margin: 0;
+  }
+
+  #root {
+    @apply h-full flex flex-col;
+  }
+}
+
+@layer components {
+  .card-shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .felt-gradient {
+    background: radial-gradient(ellipse at center, var(--color-felt) 0%, var(--color-felt-dark) 100%);
+  }
+
+  .chip-stack {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  }
+}
