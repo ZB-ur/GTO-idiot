@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-lg mx-auto space-y-6">
+
+    <!-- Variant 1: Facing a bet (Fold / Call / Raise) with GTO available -->
+    <div class="bg-gray-900/95 border border-gray-700 rounded-xl p-4 space-y-3">
+      <!-- GTO Badge -->
+      <div class="flex justify-end">
+        <span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          GTO Available
+        </span>
+      </div>
+
+      <!-- Sizing controls -->
+      <div class="space-y-2">
+        <div class="flex gap-1.5">
+          <button class="flex-1 text-xs py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 rounded-lg">⅓ Pot</button>
+          <button class="flex-1 text-xs py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 rounded-lg">½ Pot</button>
+          <button class="flex-1 text-xs py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 rounded-lg">¾ Pot</button>
+          <button class="flex-1 text-xs py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 rounded-lg">Pot</button>
+        </div>
+        <div class="flex items-center gap-3">
+          <input type="range" min="8" max="100" value="16" class="flex-1 h-1.5 bg-gray-700 rounded-full appearance-none cursor-pointer accent-amber-500"/>
+          <span class="text-sm font-mono font-semibold text-amber-400 min-w-[56px] text-right">16.0 BB</span>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex gap-2">
+        <button class="flex-1 py-3 bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold rounded-xl border border-gray-700">Fold</button>
+        <button class="flex-1 py-3 bg-emerald-900/50 hover:bg-emerald-900/70 text-emerald-400 font-semibold rounded-xl border border-emerald-700/50">Call 4 BB</button>
+        <button class="flex-1 py-3 bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold rounded-xl">Raise 16.0</button>
+        <button class="flex-1 py-3 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl">All In</button>
+      </div>
+    </div>
+
+    <!-- Variant 2: Check or Bet (no facing bet) with GTO N/A -->
+    <div class="bg-gray-900/95 border border-gray-700 rounded-xl p-4 space-y-3">
+      <!-- GTO Badge -->
+      <div class="flex justify-end">
+        <span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-gray-700 text-gray-400 border border-gray-600">
+          <span class="w-1.5 h-1.5 rounded-full bg-gray-500"></span>
+          GTO N/A
+        </span>
+      </div>
+
+      <!-- Sizing controls -->
+      <div class="space-y-2">
+        <div class="flex gap-1.5">
+          <button class="flex-1 text-xs py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 rounded-lg">⅓ Pot</button>
+          <button class="flex-1 text-xs py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 rounded-lg">½ Pot</button>
+          <button class="flex-1 text-xs py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 rounded-lg">¾ Pot</button>
+          <button class="flex-1 text-xs py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 rounded-lg">Pot</button>
+        </div>
+        <div class="flex items-center gap-3">
+          <input type="range" min="2" max="98" value="6" class="flex-1 h-1.5 bg-gray-700 rounded-full appearance-none cursor-pointer accent-amber-500"/>
+          <span class="text-sm font-mono font-semibold text-amber-400 min-w-[56px] text-right">6.0 BB</span>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex gap-2">
+        <button class="flex-1 py-3 bg-emerald-900/50 hover:bg-emerald-900/70 text-emerald-400 font-semibold rounded-xl border border-emerald-700/50">Check</button>
+        <button class="flex-1 py-3 bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold rounded-xl">Bet 6.0</button>
+      </div>
+    </div>
+
+    <!-- Variant 3: Preflop fold only (disabled state) -->
+    <div class="bg-gray-900/95 border border-gray-700 rounded-xl p-4 space-y-3 opacity-60">
+      <div class="flex gap-2">
+        <button class="flex-1 py-3 bg-gray-800 text-gray-300 font-semibold rounded-xl border border-gray-700 opacity-40 cursor-not-allowed">Fold</button>
+        <button class="flex-1 py-3 bg-emerald-900/50 text-emerald-400 font-semibold rounded-xl border border-emerald-700/50 opacity-40 cursor-not-allowed">Call 2 BB</button>
+        <button class="flex-1 py-3 bg-amber-500 text-gray-950 font-bold rounded-xl opacity-40 cursor-not-allowed">Raise 6.0</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

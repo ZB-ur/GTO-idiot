@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionLabel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-wrap items-center gap-4 p-8">
+    <!-- Fold -->
+    <div class="px-2.5 py-1 rounded-lg bg-gray-950/80 backdrop-blur-sm text-sm font-semibold text-gray-400 select-none">
+      Fold
+    </div>
+
+    <!-- Check -->
+    <div class="px-2.5 py-1 rounded-lg bg-gray-950/80 backdrop-blur-sm text-sm font-semibold text-gray-300 select-none">
+      Check
+    </div>
+
+    <!-- Call -->
+    <div class="px-2.5 py-1 rounded-lg bg-gray-950/80 backdrop-blur-sm text-sm font-semibold text-emerald-400 select-none">
+      Call 20
+    </div>
+
+    <!-- Raise -->
+    <div class="px-2.5 py-1 rounded-lg bg-gray-950/80 backdrop-blur-sm text-sm font-semibold text-amber-400 select-none">
+      Raise 60
+    </div>
+
+    <!-- All-in -->
+    <div class="px-2.5 py-1 rounded-lg bg-gray-950/80 backdrop-blur-sm text-sm font-semibold text-red-400 select-none">
+      All-in 1500
+    </div>
+
+    <!-- In seat context -->
+    <div class="relative w-28 h-20 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center mt-4">
+      <span class="text-gray-50 text-xs font-semibold">Player 1</span>
+      <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-lg bg-gray-950/80 backdrop-blur-sm text-sm font-semibold text-amber-400 select-none whitespace-nowrap">
+        Raise 6
+      </div>
+    </div>
+  </div>
+</body>
+</html>

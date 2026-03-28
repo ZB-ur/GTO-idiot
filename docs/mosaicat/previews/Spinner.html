@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner { animation: spin 0.8s linear infinite; }
+</style>
+</head>
+<body>
+<div class="flex gap-8 items-center">
+  <!-- sm -->
+  <div class="flex flex-col items-center gap-2">
+    <div class="w-4 h-4 border-2 border-gray-700 rounded-full spinner" style="border-top-color:#f59e0b"></div>
+    <span class="text-xs text-gray-500">sm</span>
+  </div>
+  <!-- md -->
+  <div class="flex flex-col items-center gap-2">
+    <div class="w-8 h-8 border-gray-700 rounded-full spinner" style="border-width:3px;border-top-color:#f59e0b"></div>
+    <span class="text-xs text-gray-500">md</span>
+  </div>
+  <!-- lg -->
+  <div class="flex flex-col items-center gap-2">
+    <div class="w-12 h-12 border-4 border-gray-700 rounded-full spinner" style="border-top-color:#f59e0b"></div>
+    <span class="text-xs text-gray-500">lg</span>
+  </div>
+</div>
+</body>
+</html>

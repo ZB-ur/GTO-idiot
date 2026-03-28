@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.animate-spin { animation: spin 1s linear infinite; }
+</style>
+</head>
+<body>
+  <div style="max-width: 400px;">
+    <!-- Some placeholder rows above -->
+    <div class="flex items-center gap-4 px-4 py-3 bg-gray-900 rounded-xl border border-gray-700 mb-2">
+      <span class="text-gray-400 text-sm">#42</span>
+      <span class="text-gray-500 text-sm">03/28 21:30</span>
+      <span class="flex-1"></span>
+      <span class="text-emerald-500 text-sm font-semibold">+120</span>
+    </div>
+    <div class="flex items-center gap-4 px-4 py-3 bg-gray-900 rounded-xl border border-gray-700 mb-2">
+      <span class="text-gray-400 text-sm">#41</span>
+      <span class="text-gray-500 text-sm">03/28 21:25</span>
+      <span class="flex-1"></span>
+      <span class="text-red-500 text-sm font-semibold">-80</span>
+    </div>
+    <!-- Spinner -->
+    <div class="flex items-center justify-center py-4">
+      <svg class="animate-spin h-6 w-6 text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      <span class="ml-2 text-sm text-gray-400">加载更多...</span>
+    </div>
+  </div>
+</body>
+</html>

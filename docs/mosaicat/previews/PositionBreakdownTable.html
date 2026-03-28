@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PositionBreakdownTable Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto">
+    <div class="bg-gray-900 border border-gray-700 rounded-xl overflow-hidden">
+      <div class="px-5 py-4 border-b border-gray-700">
+        <h3 class="text-lg font-semibold text-gray-50">Position Breakdown</h3>
+      </div>
+      <table class="w-full">
+        <thead>
+          <tr class="text-xs text-gray-500 uppercase tracking-wider">
+            <th class="text-left px-5 py-3">Position</th>
+            <th class="text-right px-3 py-3">Hands</th>
+            <th class="text-right px-3 py-3">P/L (BB)</th>
+            <th class="text-right px-3 py-3">bb/100</th>
+            <th class="text-right px-5 py-3">GTO %</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- UTG -->
+          <tr class="hover:bg-gray-800 cursor-pointer transition-colors">
+            <td class="px-5 py-3"><span class="text-sm font-bold text-amber-400">UTG</span></td>
+            <td class="text-right px-3 py-3 text-sm text-gray-300 font-mono">57</td>
+            <td class="text-right px-3 py-3 text-sm font-mono font-semibold text-red-500">-8.5</td>
+            <td class="text-right px-3 py-3 text-sm font-mono text-red-500">-14.9</td>
+            <td class="text-right px-5 py-3">
+              <div class="flex items-center justify-end gap-2">
+                <div class="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
+                  <div class="h-full rounded-full bg-emerald-500" style="width: 78%"></div>
+                </div>
+                <span class="text-sm font-mono text-emerald-500">78%</span>
+              </div>
+            </td>
+          </tr>
+          <!-- HJ -->
+          <tr class="hover:bg-gray-800 cursor-pointer transition-colors">
+            <td class="px-5 py-3"><span class="text-sm font-bold text-amber-400">HJ</span></td>
+            <td class="text-right px-3 py-3 text-sm text-gray-300 font-mono">55</td>
+            <td class="text-right px-3 py-3 text-sm font-mono font-semibold text-emerald-500">+12.0</td>
+            <td class="text-right px-3 py-3 text-sm font-mono text-emerald-500">+21.8</td>
+            <td class="text-right px-5 py-3">
+              <div class="flex items-center justify-end gap-2">
+                <div class="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
+                  <div class="h-full rounded-full bg-yellow-500" style="width: 65%"></div>
+                </div>
+                <span class="text-sm font-mono text-yellow-500">65%</span>
+              </div>
+            </td>
+          </tr>
+          <!-- CO - selected -->
+          <tr class="bg-amber-500/10 border-l-2 border-amber-400 cursor-pointer transition-colors">
+            <td class="px-5 py-3"><span class="text-sm font-bold text-amber-400">CO</span></td>
+            <td class="text-right px-3 py-3 text-sm text-gray-300 font-mono">61</td>
+            <td class="text-right px-3 py-3 text-sm font-mono font-semibold text-emerald-500">+22.5</td>
+            <td class="text-right px-3 py-3 text-sm font-mono text-emerald-500">+36.9</td>
+            <td class="text-right px-5 py-3">
+              <div class="flex items-center justify-end gap-2">
+                <div class="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
+                  <div class="h-full rounded-full bg-emerald-500" style="width: 82%"></div>
+                </div>
+                <span class="text-sm font-mono text-emerald-500">82%</span>
+              </div>
+            </td>
+          </tr>
+          <!-- BTN -->
+          <tr class="hover:bg-gray-800 cursor-pointer transition-colors">
+            <td class="px-5 py-3"><span class="text-sm font-bold text-amber-400">BTN</span></td>
+            <td class="text-right px-3 py-3 text-sm text-gray-300 font-mono">58</td>
+            <td class="text-right px-3 py-3 text-sm font-mono font-semibold text-emerald-500">+31.0</td>
+            <td class="text-right px-3 py-3 text-sm font-mono text-emerald-500">+53.4</td>
+            <td class="text-right px-5 py-3">
+              <div class="flex items-center justify-end gap-2">
+                <div class="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
+                  <div class="h-full rounded-full bg-emerald-500" style="width: 75%"></div>
+                </div>
+                <span class="text-sm font-mono text-emerald-500">75%</span>
+              </div>
+            </td>
+          </tr>
+          <!-- SB -->
+          <tr class="hover:bg-gray-800 cursor-pointer transition-colors">
+            <td class="px-5 py-3"><span class="text-sm font-bold text-amber-400">SB</span></td>
+            <td class="text-right px-3 py-3 text-sm text-gray-300 font-mono">54</td>
+            <td class="text-right px-3 py-3 text-sm font-mono font-semibold text-red-500">-15.5</td>
+            <td class="text-right px-3 py-3 text-sm font-mono text-red-500">-28.7</td>
+            <td class="text-right px-5 py-3">
+              <div class="flex items-center justify-end gap-2">
+                <div class="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
+                  <div class="h-full rounded-full bg-red-500" style="width: 42%"></div>
+                </div>
+                <span class="text-sm font-mono text-red-500">42%</span>
+              </div>
+            </td>
+          </tr>
+          <!-- BB -->
+          <tr class="hover:bg-gray-800 cursor-pointer transition-colors">
+            <td class="px-5 py-3"><span class="text-sm font-bold text-amber-400">BB</span></td>
+            <td class="text-right px-3 py-3 text-sm text-gray-300 font-mono">57</td>
+            <td class="text-right px-3 py-3 text-sm font-mono font-semibold text-emerald-500">+4.0</td>
+            <td class="text-right px-3 py-3 text-sm font-mono text-emerald-500">+7.0</td>
+            <td class="text-right px-5 py-3">
+              <div class="flex items-center justify-end gap-2">
+                <div class="w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden">
+                  <div class="h-full rounded-full bg-emerald-500" style="width: 72%"></div>
+                </div>
+                <span class="text-sm font-mono text-emerald-500">72%</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

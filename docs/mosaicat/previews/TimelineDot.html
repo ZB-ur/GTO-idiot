@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex items-center gap-3 p-4">
+    <!-- match -->
+    <button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500 transition-all duration-200">
+    </button>
+    <!-- minor, user decision -->
+    <button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-yellow-500 border-2 border-amber-400 transition-all duration-200">
+      <span class="text-xs font-bold text-gray-950">U</span>
+    </button>
+    <!-- severe, active -->
+    <button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-red-500 ring-4 ring-red-500/40 scale-125 transition-all duration-200">
+      <span class="absolute -bottom-1 w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+    </button>
+    <!-- no_data -->
+    <button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-gray-600 transition-all duration-200">
+    </button>
+    <!-- match, user decision, active -->
+    <button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500 ring-4 ring-emerald-500/40 scale-125 border-2 border-amber-400 transition-all duration-200">
+      <span class="text-xs font-bold text-gray-950">U</span>
+      <span class="absolute -bottom-1 w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+    </button>
+  </div>
+  <p class="text-gray-400 text-sm mt-2 px-4">States: match · minor+user · severe+active · no_data · match+user+active</p>
+</body>
+</html>

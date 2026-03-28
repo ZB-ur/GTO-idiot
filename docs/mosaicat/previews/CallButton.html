@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex gap-4 items-center">
+    <!-- Normal -->
+    <button class="px-6 py-3 rounded-xl font-semibold text-base bg-amber-500 text-gray-950 border border-amber-400 hover:bg-amber-400">
+      跟注 200
+    </button>
+    <!-- Large amount -->
+    <button class="px-6 py-3 rounded-xl font-semibold text-base bg-amber-500 text-gray-950 border border-amber-400 hover:bg-amber-400">
+      跟注 1,500
+    </button>
+    <!-- Disabled -->
+    <button disabled class="px-6 py-3 rounded-xl font-semibold text-base bg-amber-500/10 text-amber-800 border border-amber-900/50 cursor-not-allowed">
+      跟注 200
+    </button>
+  </div>
+</body>
+</html>

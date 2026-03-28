@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    input[type="range"] { -webkit-appearance: none; appearance: none; background: transparent; cursor: pointer; }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
+      background: #fbbf24; border: 2px solid #030712; box-shadow: 0 1px 3px rgba(0,0,0,.4);
+      margin-top: -6px;
+    }
+    input[type="range"]::-webkit-slider-runnable-track { height: 8px; border-radius: 9999px; background: transparent; }
+    input[type="range"]::-moz-range-thumb {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #fbbf24; border: 2px solid #030712;
+    }
+  </style>
+</head>
+<body>
+  <div class="max-w-sm mx-auto flex flex-col gap-6">
+    <!-- Slider at ~40% -->
+    <div class="flex flex-col gap-2 w-full">
+      <div class="flex justify-between text-sm text-gray-400">
+        <span>Min 20</span>
+        <span class="text-amber-400 font-semibold text-base">120</span>
+        <span>All-in 500</span>
+      </div>
+      <div class="relative w-full h-2">
+        <div class="absolute inset-0 rounded-full bg-gray-700"></div>
+        <div class="absolute inset-y-0 left-0 rounded-full bg-amber-500" style="width: 21%"></div>
+        <input type="range" min="20" max="500" value="120" class="absolute inset-0 w-full" />
+      </div>
+    </div>
+    <!-- Slider at ~80% -->
+    <div class="flex flex-col gap-2 w-full">
+      <div class="flex justify-between text-sm text-gray-400">
+        <span>Min 20</span>
+        <span class="text-amber-400 font-semibold text-base">400</span>
+        <span>All-in 500</span>
+      </div>
+      <div class="relative w-full h-2">
+        <div class="absolute inset-0 rounded-full bg-gray-700"></div>
+        <div class="absolute inset-y-0 left-0 rounded-full bg-amber-500" style="width: 79%"></div>
+        <input type="range" min="20" max="500" value="400" class="absolute inset-0 w-full" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>

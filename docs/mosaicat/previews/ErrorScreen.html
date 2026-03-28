@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-950 px-6 text-center">
+  <!-- Error icon -->
+  <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6" style="background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3)">
+    <span class="text-red-500 text-3xl font-bold">!</span>
+  </div>
+
+  <h1 class="text-2xl font-bold text-gray-50 mb-2">Something Went Wrong</h1>
+  <p class="text-sm text-gray-400 max-w-sm mb-8">The equity calculation engine encountered an unexpected error. Please try again or check your input parameters.</p>
+
+  <button class="px-6 py-2.5 text-sm font-medium text-gray-950 bg-amber-500 hover:bg-amber-400 rounded-lg">Try Again</button>
+</div>
+</body>
+</html>

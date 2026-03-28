@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BotThinkingIndicator Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes dot-bounce {
+      0%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-6px); }
+    }
+    .dot { animation: dot-bounce 1.2s ease-in-out infinite; }
+    .dot-1 { animation-delay: 0ms; }
+    .dot-2 { animation-delay: 150ms; }
+    .dot-3 { animation-delay: 300ms; }
+  </style>
+</head>
+<body>
+  <div class="flex items-center gap-8 p-8">
+    <!-- Standalone dots -->
+    <div class="inline-flex items-center gap-1">
+      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 dot dot-1"></span>
+      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 dot dot-2"></span>
+      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 dot dot-3"></span>
+    </div>
+
+    <!-- In seat context -->
+    <div class="relative w-28 h-20 rounded-xl bg-gray-800 border border-gray-700 flex flex-col items-center justify-center gap-2">
+      <span class="text-gray-50 text-xs font-semibold">BOT</span>
+      <div class="inline-flex items-center gap-1">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 dot dot-1"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 dot dot-2"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 dot dot-3"></span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

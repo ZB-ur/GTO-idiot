@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandSummary Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xs mx-auto">
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 space-y-5">
+
+      <!-- Header -->
+      <div class="space-y-1">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-semibold text-gray-50">Hand #42</h3>
+          <svg class="w-5 h-5 text-amber-400 fill-amber-400" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <p class="text-sm text-gray-500">Mar 29, 14:32</p>
+      </div>
+
+      <!-- Result -->
+      <div class="bg-gray-800 rounded-lg p-3 text-center">
+        <p class="text-sm text-gray-400 mb-1">Result</p>
+        <p class="text-2xl font-bold font-mono text-emerald-500">+25.5 BB</p>
+        <p class="text-sm text-gray-400 mt-1">AKs → Top Pair, won at showdown</p>
+      </div>
+
+      <!-- Board -->
+      <div>
+        <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">Board</p>
+        <div class="flex gap-1.5">
+          <div class="bg-gray-800 border border-gray-700 rounded-lg px-2 py-1.5 text-center min-w-[36px] font-mono font-bold text-gray-50">A♠</div>
+          <div class="bg-gray-800 border border-gray-700 rounded-lg px-2 py-1.5 text-center min-w-[36px] font-mono font-bold text-red-500">7♥</div>
+          <div class="bg-gray-800 border border-gray-700 rounded-lg px-2 py-1.5 text-center min-w-[36px] font-mono font-bold text-blue-400">3♦</div>
+          <div class="bg-gray-800 border border-gray-700 rounded-lg px-2 py-1.5 text-center min-w-[36px] font-mono font-bold text-emerald-500">K♣</div>
+          <div class="bg-gray-800 border border-gray-700 rounded-lg px-2 py-1.5 text-center min-w-[36px] font-mono font-bold text-gray-50">2♠</div>
+        </div>
+      </div>
+
+      <!-- Players -->
+      <div>
+        <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">Players</p>
+        <div class="space-y-1">
+          <!-- User (highlighted) -->
+          <div class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm bg-gray-800 border border-amber-500/30">
+            <span class="w-8 text-center text-xs font-bold text-amber-400">BTN</span>
+            <span class="flex-1 text-gray-50 font-semibold">You</span>
+            <span class="flex gap-0.5 font-mono font-bold"><span class="text-gray-50">A♠</span> <span class="text-red-500">K♥</span></span>
+            <span class="font-mono text-xs text-emerald-500">+25.5</span>
+          </div>
+          <div class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm bg-gray-800/50">
+            <span class="w-8 text-center text-xs font-bold text-amber-400">SB</span>
+            <span class="flex-1 text-gray-300">Bot_TAG_1</span>
+            <span class="text-xs text-gray-500 bg-gray-700 px-1.5 py-0.5 rounded">TAG</span>
+            <span class="font-mono text-xs text-red-500">-12.0</span>
+          </div>
+          <div class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm bg-gray-800/50">
+            <span class="w-8 text-center text-xs font-bold text-amber-400">BB</span>
+            <span class="flex-1 text-gray-300">Bot_FISH_1</span>
+            <span class="text-xs text-gray-500 bg-gray-700 px-1.5 py-0.5 rounded">FISH</span>
+            <span class="font-mono text-xs text-red-500">-13.5</span>
+          </div>
+          <div class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm bg-gray-800/50">
+            <span class="w-8 text-center text-xs font-bold text-amber-400">UTG</span>
+            <span class="flex-1 text-gray-300">Bot_NIT_1</span>
+            <span class="text-xs text-gray-500 bg-gray-700 px-1.5 py-0.5 rounded">NIT</span>
+            <span class="font-mono text-xs text-gray-500">0.0</span>
+          </div>
+          <div class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm bg-gray-800/50">
+            <span class="w-8 text-center text-xs font-bold text-amber-400">HJ</span>
+            <span class="flex-1 text-gray-300">Bot_LAG_1</span>
+            <span class="text-xs text-gray-500 bg-gray-700 px-1.5 py-0.5 rounded">LAG</span>
+            <span class="font-mono text-xs text-gray-500">0.0</span>
+          </div>
+          <div class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm bg-gray-800/50">
+            <span class="w-8 text-center text-xs font-bold text-amber-400">CO</span>
+            <span class="flex-1 text-gray-300">Bot_TAG_2</span>
+            <span class="text-xs text-gray-500 bg-gray-700 px-1.5 py-0.5 rounded">TAG</span>
+            <span class="font-mono text-xs text-gray-500">0.0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pots -->
+      <div>
+        <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">Pots</p>
+        <div class="space-y-1">
+          <div class="flex justify-between text-sm px-3 py-1.5 bg-gray-800 rounded-lg">
+            <span class="text-gray-400">主池</span>
+            <span class="text-amber-400 font-mono font-semibold">51 BB</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

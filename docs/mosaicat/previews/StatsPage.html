@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StatsPage Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {}
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-950 text-gray-50 min-h-screen">
+
+  <!-- Page Container -->
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <div class="space-y-6">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-gray-50">Stats</h1>
+      </div>
+
+      <!-- Position Filter Chips -->
+      <div class="flex flex-wrap gap-2">
+        <button class="px-3 py-1.5 text-sm font-medium rounded-lg border border-gray-700 bg-gray-900 text-gray-400 hover:border-amber-500 hover:text-amber-400 transition-colors">UTG</button>
+        <button class="px-3 py-1.5 text-sm font-medium rounded-lg border border-amber-500 bg-amber-500/10 text-amber-400 transition-colors">HJ</button>
+        <button class="px-3 py-1.5 text-sm font-medium rounded-lg border border-gray-700 bg-gray-900 text-gray-400 hover:border-amber-500 hover:text-amber-400 transition-colors">CO</button>
+        <button class="px-3 py-1.5 text-sm font-medium rounded-lg border border-gray-700 bg-gray-900 text-gray-400 hover:border-amber-500 hover:text-amber-400 transition-colors">BTN</button>
+        <button class="px-3 py-1.5 text-sm font-medium rounded-lg border border-gray-700 bg-gray-900 text-gray-400 hover:border-amber-500 hover:text-amber-400 transition-colors">SB</button>
+        <button class="px-3 py-1.5 text-sm font-medium rounded-lg border border-gray-700 bg-gray-900 text-gray-400 hover:border-amber-500 hover:text-amber-400 transition-colors">BB</button>
+      </div>
+
+      <!-- Overview Cards Grid -->
+      <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <!-- Hands Played -->
+        <div class="rounded-xl bg-gray-900 border border-gray-700 p-6">
+          <p class="text-sm text-gray-500 mb-1">Hands Played</p>
+          <p class="text-2xl font-bold text-gray-50">342</p>
+        </div>
+        <!-- Total P/L -->
+        <div class="rounded-xl bg-gray-900 border border-gray-700 p-6">
+          <p class="text-sm text-gray-500 mb-1">Total P/L</p>
+          <p class="text-2xl font-bold text-emerald-500">+45.5 BB</p>
+        </div>
+        <!-- bb/100 -->
+        <div class="rounded-xl bg-gray-900 border border-gray-700 p-6">
+          <p class="text-sm text-gray-500 mb-1">bb/100</p>
+          <p class="text-2xl font-bold text-emerald-500">+13.3</p>
+        </div>
+        <!-- GTO Conformance -->
+        <div class="rounded-xl bg-gray-900 border border-gray-700 p-6">
+          <p class="text-sm text-gray-500 mb-1">GTO Conformance</p>
+          <p class="text-2xl font-bold text-amber-400">68.5%</p>
+        </div>
+      </div>
+
+      <!-- GTO Conformance Chart -->
+      <div class="rounded-xl bg-gray-900 border border-gray-700 p-6">
+        <h2 class="text-lg font-semibold text-gray-50 mb-4">GTO Conformance by Position</h2>
+        <div class="space-y-3">
+          <!-- UTG -->
+          <div class="flex items-center gap-3">
+            <span class="w-10 text-sm text-gray-400 text-right">UTG</span>
+            <div class="flex-1 h-6 bg-gray-800 rounded-lg overflow-hidden relative">
+              <div class="h-full bg-amber-500/80 rounded-lg" style="width: 72%"></div>
+            </div>
+            <span class="w-12 text-sm text-gray-400 text-right">72%</span>
+          </div>
+          <!-- HJ -->
+          <div class="flex items-center gap-3">
+            <span class="w-10 text-sm text-amber-400 text-right font-medium">HJ</span>
+            <div class="flex-1 h-6 bg-gray-800 rounded-lg overflow-hidden relative">
+              <div class="h-full bg-amber-500 rounded-lg" style="width: 65%"></div>
+            </div>
+            <span class="w-12 text-sm text-gray-400 text-right">65%</span>
+          </div>
+          <!-- CO -->
+          <div class="flex items-center gap-3">
+            <span class="w-10 text-sm text-gray-400 text-right">CO</span>
+            <div class="flex-1 h-6 bg-gray-800 rounded-lg overflow-hidden relative">
+              <div class="h-full bg-amber-500/80 rounded-lg" style="width: 78%"></div>
+            </div>
+            <span class="w-12 text-sm text-gray-400 text-right">78%</span>
+          </div>
+          <!-- BTN -->
+          <div class="flex items-center gap-3">
+            <span class="w-10 text-sm text-gray-400 text-right">BTN</span>
+            <div class="flex-1 h-6 bg-gray-800 rounded-lg overflow-hidden relative">
+              <div class="h-full bg-emerald-500/80 rounded-lg" style="width: 82%"></div>
+            </div>
+            <span class="w-12 text-sm text-gray-400 text-right">82%</span>
+          </div>
+          <!-- SB -->
+          <div class="flex items-center gap-3">
+            <span class="w-10 text-sm text-gray-400 text-right">SB</span>
+            <div class="flex-1 h-6 bg-gray-800 rounded-lg overflow-hidden relative">
+              <div class="h-full bg-red-500/80 rounded-lg" style="width: 48%"></div>
+            </div>
+            <span class="w-12 text-sm text-gray-400 text-right">48%</span>
+          </div>
+          <!-- BB -->
+          <div class="flex items-center gap-3">
+            <span class="w-10 text-sm text-gray-400 text-right">BB</span>
+            <div class="flex-1 h-6 bg-gray-800 rounded-lg overflow-hidden relative">
+              <div class="h-full bg-amber-500/80 rounded-lg" style="width: 61%"></div>
+            </div>
+            <span class="w-12 text-sm text-gray-400 text-right">61%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Position Breakdown Table -->
+      <div class="rounded-xl bg-gray-900 border border-gray-700 p-6">
+        <h2 class="text-lg font-semibold text-gray-50 mb-4">Position Breakdown</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-gray-700">
+                <th class="text-left py-3 px-2 text-gray-500 font-medium">Position</th>
+                <th class="text-right py-3 px-2 text-gray-500 font-medium">Hands</th>
+                <th class="text-right py-3 px-2 text-gray-500 font-medium">P/L (BB)</th>
+                <th class="text-right py-3 px-2 text-gray-500 font-medium">bb/100</th>
+                <th class="text-right py-3 px-2 text-gray-500 font-medium">GTO %</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
+                <td class="py-3 px-2 text-gray-50 font-medium">UTG</td>
+                <td class="py-3 px-2 text-right text-gray-400">57</td>
+                <td class="py-3 px-2 text-right text-emerald-500">+12.5</td>
+                <td class="py-3 px-2 text-right text-emerald-500">+21.9</td>
+                <td class="py-3 px-2 text-right text-amber-400">72%</td>
+              </tr>
+              <tr class="border-b border-gray-800 hover:bg-gray-800/50 transition-colors bg-amber-500/5">
+                <td class="py-3 px-2 text-amber-400 font-medium">HJ</td>
+                <td class="py-3 px-2 text-right text-gray-400">52</td>
+                <td class="py-3 px-2 text-right text-emerald-500">+8.0</td>
+                <td class="py-3 px-2 text-right text-emerald-500">+15.4</td>
+                <td class="py-3 px-2 text-right text-amber-400">65%</td>
+              </tr>
+              <tr class="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
+                <td class="py-3 px-2 text-gray-50 font-medium">CO</td>
+                <td class="py-3 px-2 text-right text-gray-400">61</td>
+                <td class="py-3 px-2 text-right text-emerald-500">+18.0</td>
+                <td class="py-3 px-2 text-right text-emerald-500">+29.5</td>
+                <td class="py-3 px-2 text-right text-amber-400">78%</td>
+              </tr>
+              <tr class="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
+                <td class="py-3 px-2 text-gray-50 font-medium">BTN</td>
+                <td class="py-3 px-2 text-right text-gray-400">58</td>
+                <td class="py-3 px-2 text-right text-emerald-500">+22.0</td>
+                <td class="py-3 px-2 text-right text-emerald-500">+37.9</td>
+                <td class="py-3 px-2 text-right text-emerald-500">82%</td>
+              </tr>
+              <tr class="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
+                <td class="py-3 px-2 text-gray-50 font-medium">SB</td>
+                <td class="py-3 px-2 text-right text-gray-400">56</td>
+                <td class="py-3 px-2 text-right text-red-500">-9.5</td>
+                <td class="py-3 px-2 text-right text-red-500">-17.0</td>
+                <td class="py-3 px-2 text-right text-red-500">48%</td>
+              </tr>
+              <tr class="hover:bg-gray-800/50 transition-colors">
+                <td class="py-3 px-2 text-gray-50 font-medium">BB</td>
+                <td class="py-3 px-2 text-right text-gray-400">58</td>
+                <td class="py-3 px-2 text-right text-red-500">-5.5</td>
+                <td class="py-3 px-2 text-right text-red-500">-9.5</td>
+                <td class="py-3 px-2 text-right text-amber-400">61%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

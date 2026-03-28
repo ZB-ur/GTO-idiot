@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+<div class="fixed inset-0 z-50 flex items-center justify-center" style="min-height:400px">
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-black/60" style="backdrop-filter:blur(4px)"></div>
+
+  <!-- Dialog -->
+  <div class="relative z-10 w-full max-w-sm mx-4 bg-gray-900 border border-gray-700 rounded-xl shadow-xl p-6">
+    <h2 class="text-lg font-semibold text-gray-50 mb-2">Clear History</h2>
+    <p class="text-sm text-gray-400 mb-6">This will permanently delete all saved hand histories. This action cannot be undone.</p>
+    <div class="flex gap-3 justify-end">
+      <button class="px-4 py-2 text-sm font-medium text-gray-400 bg-gray-800 hover:bg-gray-700 rounded-lg border border-gray-700">Cancel</button>
+      <button class="px-4 py-2 text-sm font-medium text-gray-950 bg-red-500 hover:bg-red-400 rounded-lg">Confirm</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

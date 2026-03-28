@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md space-y-4 p-4">
+    <!-- Match -->
+    <div class="border-l-4 border-emerald-500 bg-emerald-500/10 rounded-r-xl px-4 py-3">
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-semibold text-gray-50">You chose: <span class="text-amber-400">Call</span></span>
+        <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500">GTO Match</span>
+      </div>
+      <p class="text-sm text-gray-400 mt-1">Your call matches the GTO-optimal play in this spot.</p>
+    </div>
+    <!-- Minor -->
+    <div class="border-l-4 border-yellow-500 bg-yellow-500/10 rounded-r-xl px-4 py-3">
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-semibold text-gray-50">You chose: <span class="text-amber-400">Raise 2.5x</span></span>
+        <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500">Minor Deviation</span>
+      </div>
+      <p class="text-sm text-gray-400 mt-1">GTO prefers a smaller raise sizing of 2.2x in this spot.</p>
+    </div>
+    <!-- Severe -->
+    <div class="border-l-4 border-red-500 bg-red-500/10 rounded-r-xl px-4 py-3">
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-semibold text-gray-50">You chose: <span class="text-amber-400">Fold</span></span>
+        <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500">Significant Deviation</span>
+      </div>
+      <p class="text-sm text-gray-400 mt-1">Folding here loses significant EV. GTO calls 85% of the time with this hand.</p>
+    </div>
+  </div>
+</body>
+</html>
