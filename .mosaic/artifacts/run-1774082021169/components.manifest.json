@@ -1,0 +1,378 @@
+{
+  "components": [
+    {
+      "name": "CardComponent",
+      "file": "components/CardComponent.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "ChipStack",
+      "file": "components/ChipStack.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "ActionButton",
+      "file": "components/ActionButton.tsx",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "name": "IconButton",
+      "file": "components/IconButton.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "Spinner",
+      "file": "components/Spinner.tsx",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "name": "SkeletonLoader",
+      "file": "components/SkeletonLoader.tsx",
+      "covers_features": [
+        "F-004",
+        "F-008"
+      ]
+    },
+    {
+      "name": "Toast",
+      "file": "components/Toast.tsx",
+      "covers_features": [
+        "F-012"
+      ]
+    },
+    {
+      "name": "Modal",
+      "file": "components/Modal.tsx",
+      "covers_features": [
+        "F-002",
+        "F-012"
+      ]
+    },
+    {
+      "name": "DecisionPointMarker",
+      "file": "components/DecisionPointMarker.tsx",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "name": "EVDifferenceBadge",
+      "file": "components/EVDifferenceBadge.tsx",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "name": "LeakTypeTag",
+      "file": "components/LeakTypeTag.tsx",
+      "covers_features": [
+        "F-011"
+      ]
+    },
+    {
+      "name": "StatCard",
+      "file": "components/StatCard.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "PlayerSeat",
+      "file": "components/PlayerSeat.tsx",
+      "covers_features": [
+        "F-004",
+        "F-003"
+      ]
+    },
+    {
+      "name": "CommunityCards",
+      "file": "components/CommunityCards.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "PotDisplay",
+      "file": "components/PotDisplay.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "RaiseSlider",
+      "file": "components/RaiseSlider.tsx",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "name": "AllInConfirmDialog",
+      "file": "components/AllInConfirmDialog.tsx",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "name": "SeatSelector",
+      "file": "components/SeatSelector.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "ActionPanel",
+      "file": "components/ActionPanel.tsx",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "name": "ReplayControls",
+      "file": "components/ReplayControls.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "ActionTimeline",
+      "file": "components/ActionTimeline.tsx",
+      "covers_features": [
+        "F-009",
+        "F-010"
+      ]
+    },
+    {
+      "name": "GTOActionComparison",
+      "file": "components/GTOActionComparison.tsx",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "name": "GTOFrequencyBar",
+      "file": "components/GTOFrequencyBar.tsx",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "name": "GTOPanel",
+      "file": "components/GTOPanel.tsx",
+      "covers_features": [
+        "F-010",
+        "F-005",
+        "F-006"
+      ]
+    },
+    {
+      "name": "ImprovementTip",
+      "file": "components/ImprovementTip.tsx",
+      "covers_features": [
+        "F-011"
+      ]
+    },
+    {
+      "name": "LeakCard",
+      "file": "components/LeakCard.tsx",
+      "covers_features": [
+        "F-011"
+      ]
+    },
+    {
+      "name": "ReviewSummary",
+      "file": "components/ReviewSummary.tsx",
+      "covers_features": [
+        "F-010",
+        "F-011"
+      ]
+    },
+    {
+      "name": "HandHistoryRow",
+      "file": "components/HandHistoryRow.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "HistoryFilter",
+      "file": "components/HistoryFilter.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "ProfitChart",
+      "file": "components/ProfitChart.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "StatsDashboard",
+      "file": "components/StatsDashboard.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "HandHistoryList",
+      "file": "components/HandHistoryList.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "StorageInfo",
+      "file": "components/StorageInfo.tsx",
+      "covers_features": [
+        "F-012"
+      ]
+    },
+    {
+      "name": "DataCleanupDialog",
+      "file": "components/DataCleanupDialog.tsx",
+      "covers_features": [
+        "F-012"
+      ]
+    },
+    {
+      "name": "PokerTable",
+      "file": "components/PokerTable.tsx",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004"
+      ]
+    },
+    {
+      "name": "HandReplayer",
+      "file": "components/HandReplayer.tsx",
+      "covers_features": [
+        "F-009",
+        "F-010",
+        "F-011"
+      ]
+    },
+    {
+      "name": "HomeScreen",
+      "file": "components/HomeScreen.tsx",
+      "covers_features": [
+        "F-004",
+        "F-008"
+      ]
+    },
+    {
+      "name": "SettingsPanel",
+      "file": "components/SettingsPanel.tsx",
+      "covers_features": [
+        "F-012"
+      ]
+    },
+    {
+      "name": "AppShell",
+      "file": "components/AppShell.tsx",
+      "covers_features": [
+        "F-004",
+        "F-008",
+        "F-009",
+        "F-012"
+      ]
+    }
+  ],
+  "screenshots": [
+    "screenshots/CardComponent.png",
+    "screenshots/ChipStack.png",
+    "screenshots/ActionButton.png",
+    "screenshots/IconButton.png",
+    "screenshots/Spinner.png",
+    "screenshots/SkeletonLoader.png",
+    "screenshots/Toast.png",
+    "screenshots/Modal.png",
+    "screenshots/DecisionPointMarker.png",
+    "screenshots/EVDifferenceBadge.png",
+    "screenshots/LeakTypeTag.png",
+    "screenshots/StatCard.png",
+    "screenshots/PlayerSeat.png",
+    "screenshots/CommunityCards.png",
+    "screenshots/PotDisplay.png",
+    "screenshots/RaiseSlider.png",
+    "screenshots/AllInConfirmDialog.png",
+    "screenshots/SeatSelector.png",
+    "screenshots/ActionPanel.png",
+    "screenshots/ReplayControls.png",
+    "screenshots/ActionTimeline.png",
+    "screenshots/GTOActionComparison.png",
+    "screenshots/GTOFrequencyBar.png",
+    "screenshots/GTOPanel.png",
+    "screenshots/ImprovementTip.png",
+    "screenshots/LeakCard.png",
+    "screenshots/ReviewSummary.png",
+    "screenshots/HandHistoryRow.png",
+    "screenshots/HistoryFilter.png",
+    "screenshots/ProfitChart.png",
+    "screenshots/StatsDashboard.png",
+    "screenshots/HandHistoryList.png",
+    "screenshots/StorageInfo.png",
+    "screenshots/DataCleanupDialog.png",
+    "screenshots/PokerTable.png",
+    "screenshots/HandReplayer.png",
+    "screenshots/HomeScreen.png",
+    "screenshots/SettingsPanel.png",
+    "screenshots/AppShell.png"
+  ],
+  "previews": [
+    "previews/CardComponent.html",
+    "previews/ChipStack.html",
+    "previews/ActionButton.html",
+    "previews/IconButton.html",
+    "previews/Spinner.html",
+    "previews/SkeletonLoader.html",
+    "previews/Toast.html",
+    "previews/Modal.html",
+    "previews/DecisionPointMarker.html",
+    "previews/EVDifferenceBadge.html",
+    "previews/LeakTypeTag.html",
+    "previews/StatCard.html",
+    "previews/PlayerSeat.html",
+    "previews/CommunityCards.html",
+    "previews/PotDisplay.html",
+    "previews/RaiseSlider.html",
+    "previews/AllInConfirmDialog.html",
+    "previews/SeatSelector.html",
+    "previews/ReplayControls.html",
+    "previews/GTOActionComparison.html",
+    "previews/GTOFrequencyBar.html",
+    "previews/ImprovementTip.html",
+    "previews/HandHistoryRow.html",
+    "previews/HistoryFilter.html",
+    "previews/ProfitChart.html",
+    "previews/StorageInfo.html",
+    "previews/DataCleanupDialog.html",
+    "previews/ActionPanel.html",
+    "previews/ActionTimeline.html",
+    "previews/GTOPanel.html",
+    "previews/LeakCard.html",
+    "previews/StatsDashboard.html",
+    "previews/HandHistoryList.html",
+    "previews/ReviewSummary.html",
+    "previews/PokerTable.html",
+    "previews/HandReplayer.html",
+    "previews/HomeScreen.html",
+    "previews/SettingsPanel.html",
+    "previews/AppShell.html"
+  ]
+}

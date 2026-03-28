@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spinner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .animate-spin { animation: spin 1s linear infinite; }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">Spinner</h2>
+
+  <!-- Small -->
+  <p class="text-sm text-gray-600 mb-2">Size: sm</p>
+  <div class="flex items-center gap-2 mb-5">
+    <div class="w-4 h-4 rounded-full border-2 border-gray-200 border-t-blue-600 animate-spin"></div>
+    <span class="text-xs text-gray-600">Loading...</span>
+  </div>
+
+  <!-- Medium -->
+  <p class="text-sm text-gray-600 mb-2">Size: md</p>
+  <div class="flex items-center gap-2 mb-5">
+    <div class="w-6 h-6 rounded-full border-2 border-gray-200 border-t-blue-600 animate-spin"></div>
+    <span class="text-sm text-gray-600">Calculating GTO...</span>
+  </div>
+
+  <!-- Large -->
+  <p class="text-sm text-gray-600 mb-2">Size: lg</p>
+  <div class="flex items-center gap-2 mb-5">
+    <div class="w-8 h-8 rounded-full border-[3px] border-gray-200 border-t-blue-600 animate-spin"></div>
+    <span class="text-base text-gray-600">Analyzing hand...</span>
+  </div>
+
+  <!-- Without label -->
+  <p class="text-sm text-gray-600 mb-2">Without Label</p>
+  <div class="flex items-center gap-4">
+    <div class="w-4 h-4 rounded-full border-2 border-gray-200 border-t-blue-600 animate-spin"></div>
+    <div class="w-6 h-6 rounded-full border-2 border-gray-200 border-t-blue-600 animate-spin"></div>
+    <div class="w-8 h-8 rounded-full border-[3px] border-gray-200 border-t-blue-600 animate-spin"></div>
+  </div>
+</body>
+</html>

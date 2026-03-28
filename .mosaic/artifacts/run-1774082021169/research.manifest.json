@@ -1,0 +1,30 @@
+{
+  "competitors": [
+    "GTO Wizard",
+    "DTO Poker",
+    "GTOBase",
+    "Fearless River (WPT GTO Trainer)",
+    "InstaGTO",
+    "GTO LAB",
+    "WASM Postflop",
+    "PeakGTO"
+  ],
+  "key_insights": [
+    "Play-then-Review（先打再学）是未被满足的核心需求，市场上无实战对抗+即时GTO复盘的一站式产品",
+    "简化GTO近似（preflop range表 + postflop启发式）足以覆盖初学者到中级玩家80%学习场景",
+    "BOT风格多样性是用户留存关键，不同风格BOT帮助用户理解GTO为何是最优策略",
+    "Preflop决策占所有决策~60%，标准6-max range表是最高ROI的GTO功能",
+    "免费+纯前端定位在$20-200/月付费竞品中具有天然传播优势",
+    "复盘UX（GTO动作 vs 实际动作 vs EV差异的视觉对比）是核心产品体验",
+    "成熟npm生态（pokersolver, poker-odds-calc）可加速开发，WASM Postflop为未来升级提供清晰路径"
+  ],
+  "feasibility": "medium",
+  "risks": [
+    "简化GTO近似的postflop策略精度可能不足，导致高级用户质疑可信度",
+    "BOT行为真实感调参困难，过于机械的BOT会降低练习价值",
+    "纯前端架构下复杂equity计算可能在低端设备上出现性能问题",
+    "WASM Postflop的AGPL-3.0许可证对未来商业化有传染性风险",
+    "GTO策略数据的准确性和完整性需要扑克领域专家验证",
+    "市场教育成本：用户可能不理解简化GTO与精确solver的差异，产生错误期望"
+  ]
+}

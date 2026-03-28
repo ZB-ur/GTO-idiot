@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-lg mx-auto">
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+      <h4 class="text-gray-200 text-xs font-semibold uppercase tracking-wide mb-3">Action Timeline</h4>
+      <div class="relative flex items-center gap-1 overflow-x-auto pb-2">
+        <!-- Preflop frames -->
+        <button class="relative flex-shrink-0"><div class="w-3 h-3 rounded-full" style="background:#6b7280;opacity:0.6"></div></button>
+        <button class="relative flex-shrink-0"><div class="w-3 h-3 rounded-full" style="background:#6b7280;opacity:0.6"></div></button>
+        <button class="relative flex-shrink-0">
+          <div class="w-3 h-3 rounded-full" style="background:#22c55e;opacity:0.6"></div>
+          <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-green-500"></div>
+        </button>
+        <button class="relative flex-shrink-0"><div class="w-3 h-3 rounded-full" style="background:#6b7280;opacity:0.6"></div></button>
+        <button class="relative flex-shrink-0"><div class="w-3 h-3 rounded-full" style="background:#6b7280;opacity:0.6"></div></button>
+        <!-- Flop frames -->
+        <button class="relative flex-shrink-0"><div class="w-3 h-3 rounded-full" style="background:#3b82f6;opacity:0.6"></div></button>
+        <button class="relative flex-shrink-0">
+          <div class="w-3 h-3 rounded-full" style="background:#eab308;opacity:0.6"></div>
+          <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
+        </button>
+        <button class="relative flex-shrink-0"><div class="w-3 h-3 rounded-full" style="background:#3b82f6;opacity:0.6"></div></button>
+        <!-- Current frame -->
+        <button class="relative flex-shrink-0 scale-125 z-10">
+          <div class="w-3 h-3 rounded-full border-2 border-white" style="background:#3b82f6"></div>
+        </button>
+        <!-- Turn frames -->
+        <button class="relative flex-shrink-0"><div class="w-3 h-3 rounded-full" style="background:#eab308;opacity:0.6"></div></button>
+        <button class="relative flex-shrink-0">
+          <div class="w-3 h-3 rounded-full" style="background:#ef4444;opacity:0.6"></div>
+          <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-red-500"></div>
+        </button>
+        <button class="relative flex-shrink-0"><div class="w-3 h-3 rounded-full" style="background:#eab308;opacity:0.6"></div></button>
+        <!-- River frames -->
+        <button class="relative flex-shrink-0"><div class="w-3 h-3 rounded-full" style="background:#ef4444;opacity:0.6"></div></button>
+        <button class="relative flex-shrink-0"><div class="w-3 h-3 rounded-full" style="background:#ef4444;opacity:0.6"></div></button>
+      </div>
+      <div class="flex gap-3 mt-2">
+        <div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full" style="background:#6b7280"></div><span class="text-gray-500 text-[10px]">Preflop</span></div>
+        <div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full" style="background:#3b82f6"></div><span class="text-gray-500 text-[10px]">Flop</span></div>
+        <div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full" style="background:#eab308"></div><span class="text-gray-500 text-[10px]">Turn</span></div>
+        <div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full" style="background:#ef4444"></div><span class="text-gray-500 text-[10px]">River</span></div>
+        <div class="w-px h-3 bg-gray-700"></div>
+        <div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-green-500"></div><span class="text-gray-500 text-[10px]">Decision</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

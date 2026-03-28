@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col items-center gap-4">
+    <h3 class="text-lg font-semibold text-gray-200">Choose Your Seat</h3>
+    <div class="relative w-80 h-52">
+      <div class="absolute inset-4 rounded-[50%] bg-emerald-800 border-4 border-emerald-900 shadow-inner"></div>
+      <!-- UTG - top -->
+      <button class="absolute w-14 h-14 -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center text-xs font-bold bg-gray-700 text-gray-300" style="left:50%;top:8%">UTG</button>
+      <!-- MP - top right -->
+      <button class="absolute w-14 h-14 -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center text-xs font-bold bg-gray-700 text-gray-300" style="left:93%;top:29%">MP</button>
+      <!-- CO - bottom right -->
+      <button class="absolute w-14 h-14 -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center text-xs font-bold bg-gray-700 text-gray-300" style="left:93%;top:71%">CO</button>
+      <!-- BTN - selected -->
+      <button class="absolute w-14 h-14 -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center text-xs font-bold bg-yellow-500 text-black ring-2 ring-yellow-300 shadow-lg shadow-yellow-500/30 scale-110" style="left:50%;top:92%">BTN</button>
+      <!-- SB - bottom left -->
+      <button class="absolute w-14 h-14 -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center text-xs font-bold bg-gray-700 text-gray-300" style="left:7%;top:71%">SB</button>
+      <!-- BB - top left -->
+      <button class="absolute w-14 h-14 -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center text-xs font-bold bg-gray-700 text-gray-300" style="left:7%;top:29%">BB</button>
+    </div>
+    <p class="text-gray-400 text-sm">Selected: <span class="text-yellow-400 font-semibold">BTN</span></p>
+  </div>
+</body>
+</html>

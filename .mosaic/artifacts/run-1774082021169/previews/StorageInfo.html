@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-sm mx-auto space-y-4">
+    <!-- Normal -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+      <h4 class="text-gray-200 text-sm font-semibold mb-3">Storage</h4>
+      <div class="space-y-2">
+        <div class="flex justify-between"><span class="text-gray-400 text-sm">Total Hands</span><span class="text-white font-mono text-sm">2,450</span></div>
+        <div class="flex justify-between"><span class="text-gray-400 text-sm">Storage Used</span><span class="text-white font-mono text-sm">12.3 MB</span></div>
+        <div class="flex justify-between"><span class="text-gray-400 text-sm">Oldest Hand</span><span class="text-gray-300 text-sm">1/15/2026</span></div>
+        <div class="mt-2">
+          <div class="w-full bg-gray-700 rounded-full h-2"><div class="h-2 rounded-full bg-blue-500" style="width:24.6%"></div></div>
+          <div class="flex justify-between mt-1"><span class="text-gray-500 text-[10px]">0 MB</span><span class="text-gray-500 text-[10px]">50 MB</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Warning -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+      <h4 class="text-gray-200 text-sm font-semibold mb-3">Storage</h4>
+      <div class="space-y-2">
+        <div class="flex justify-between"><span class="text-gray-400 text-sm">Total Hands</span><span class="text-white font-mono text-sm">12,340</span></div>
+        <div class="flex justify-between"><span class="text-gray-400 text-sm">Storage Used</span><span class="text-white font-mono text-sm">43.7 MB</span></div>
+        <div class="flex justify-between"><span class="text-gray-400 text-sm">Oldest Hand</span><span class="text-gray-300 text-sm">8/10/2025</span></div>
+        <div class="mt-2">
+          <div class="w-full bg-gray-700 rounded-full h-2"><div class="h-2 rounded-full bg-amber-500" style="width:87.4%"></div></div>
+          <div class="flex justify-between mt-1"><span class="text-gray-500 text-[10px]">0 MB</span><span class="text-gray-500 text-[10px]">50 MB</span></div>
+        </div>
+        <div class="flex items-start gap-2 bg-amber-500/10 border border-amber-500/20 rounded-lg p-2 mt-2">
+          <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+          <span class="text-amber-400 text-xs">Storage is getting full. Consider cleaning up old hand data.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

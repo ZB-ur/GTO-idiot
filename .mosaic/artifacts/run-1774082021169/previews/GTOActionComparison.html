@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-4">
+    <!-- Optimal -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold px-2 py-0.5 rounded bg-green-500/20 text-green-400">Optimal</span>
+        <span class="text-xs font-mono font-bold text-green-400">+0.00 BB EV</span>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="bg-gray-700/50 rounded-lg p-3 text-center">
+          <div class="text-gray-400 text-[10px] uppercase tracking-wide mb-1">Your Action</div>
+          <div class="text-white font-bold text-sm">Raise <span class="text-yellow-400 ml-1">12</span></div>
+          <div class="text-gray-400 text-xs mt-1">GTO freq: 65%</div>
+        </div>
+        <div class="bg-gray-700/50 rounded-lg p-3 text-center">
+          <div class="text-gray-400 text-[10px] uppercase tracking-wide mb-1">GTO Optimal</div>
+          <div class="text-white font-bold text-sm">Raise <span class="text-blue-400 ml-1 text-xs">75% pot</span></div>
+          <div class="text-gray-400 text-xs mt-1">Freq: 65%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Major mistake -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold px-2 py-0.5 rounded bg-red-500/20 text-red-400">Major Mistake</span>
+        <span class="text-xs font-mono font-bold text-red-400">-3.45 BB EV</span>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="bg-gray-700/50 rounded-lg p-3 text-center">
+          <div class="text-gray-400 text-[10px] uppercase tracking-wide mb-1">Your Action</div>
+          <div class="text-white font-bold text-sm">Call</div>
+          <div class="text-gray-400 text-xs mt-1">GTO freq: 12%</div>
+        </div>
+        <div class="bg-gray-700/50 rounded-lg p-3 text-center">
+          <div class="text-gray-400 text-[10px] uppercase tracking-wide mb-1">GTO Optimal</div>
+          <div class="text-white font-bold text-sm">Raise <span class="text-blue-400 ml-1 text-xs">33% pot</span></div>
+          <div class="text-gray-400 text-xs mt-1">Freq: 72%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

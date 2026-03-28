@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkeletonLoader Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .skeleton { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; background-color: #e5e7eb; border-radius: 0.25rem; }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">SkeletonLoader</h2>
+
+  <!-- Table variant -->
+  <p class="text-sm text-gray-600 mb-2">Variant: table</p>
+  <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden mb-6" style="max-width: 600px;">
+    <div class="flex items-center gap-4 px-6 py-3 border-b border-gray-100 bg-gray-50">
+      <div class="skeleton h-3 w-20"></div>
+      <div class="skeleton h-3 w-32 flex-1"></div>
+      <div class="skeleton h-3 w-16"></div>
+      <div class="skeleton h-3 w-16"></div>
+    </div>
+    <div class="flex items-center gap-4 px-6 py-3 border-b border-gray-50">
+      <div class="skeleton h-3 w-20"></div>
+      <div class="skeleton h-3 w-32 flex-1"></div>
+      <div class="skeleton h-3 w-16"></div>
+      <div class="skeleton h-3 w-16"></div>
+    </div>
+    <div class="flex items-center gap-4 px-6 py-3 border-b border-gray-50">
+      <div class="skeleton h-3 w-20"></div>
+      <div class="skeleton h-3 w-32 flex-1"></div>
+      <div class="skeleton h-3 w-16"></div>
+      <div class="skeleton h-3 w-16"></div>
+    </div>
+    <div class="flex items-center gap-4 px-6 py-3">
+      <div class="skeleton h-3 w-20"></div>
+      <div class="skeleton h-3 w-32 flex-1"></div>
+      <div class="skeleton h-3 w-16"></div>
+      <div class="skeleton h-3 w-16"></div>
+    </div>
+  </div>
+
+  <!-- Row variant -->
+  <p class="text-sm text-gray-600 mb-2">Variant: row (count=3)</p>
+  <div class="space-y-0 mb-6" style="max-width: 500px;">
+    <div class="flex items-center gap-3 py-3">
+      <div class="skeleton w-8 h-8 rounded-full flex-shrink-0" style="border-radius: 9999px;"></div>
+      <div class="flex-1 space-y-2">
+        <div class="skeleton h-3 w-3/4"></div>
+        <div class="skeleton h-3 w-1/2"></div>
+      </div>
+      <div class="skeleton h-4 w-16 flex-shrink-0"></div>
+    </div>
+    <div class="flex items-center gap-3 py-3">
+      <div class="skeleton w-8 h-8 rounded-full flex-shrink-0" style="border-radius: 9999px;"></div>
+      <div class="flex-1 space-y-2">
+        <div class="skeleton h-3 w-3/4"></div>
+        <div class="skeleton h-3 w-1/2"></div>
+      </div>
+      <div class="skeleton h-4 w-16 flex-shrink-0"></div>
+    </div>
+    <div class="flex items-center gap-3 py-3">
+      <div class="skeleton w-8 h-8 rounded-full flex-shrink-0" style="border-radius: 9999px;"></div>
+      <div class="flex-1 space-y-2">
+        <div class="skeleton h-3 w-3/4"></div>
+        <div class="skeleton h-3 w-1/2"></div>
+      </div>
+      <div class="skeleton h-4 w-16 flex-shrink-0"></div>
+    </div>
+  </div>
+
+  <!-- Card variant -->
+  <p class="text-sm text-gray-600 mb-2">Variant: card</p>
+  <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 space-y-4 mb-6" style="max-width: 400px;">
+    <div class="flex items-center gap-3">
+      <div class="skeleton w-10 h-10 flex-shrink-0" style="border-radius: 9999px;"></div>
+      <div class="flex-1 space-y-2">
+        <div class="skeleton h-4" style="width: 33%;"></div>
+        <div class="skeleton h-3" style="width: 25%;"></div>
+      </div>
+    </div>
+    <div class="skeleton h-3 w-full"></div>
+    <div class="skeleton h-3" style="width: 83%;"></div>
+    <div class="skeleton h-3" style="width: 66%;"></div>
+  </div>
+
+  <!-- Panel variant -->
+  <p class="text-sm text-gray-600 mb-2">Variant: panel</p>
+  <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 space-y-4" style="max-width: 400px;">
+    <div class="skeleton h-5 mb-2" style="width: 25%;"></div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="space-y-2">
+        <div class="skeleton h-3 w-full"></div>
+        <div class="skeleton h-8 w-full" style="border-radius: 0.5rem;"></div>
+      </div>
+      <div class="space-y-2">
+        <div class="skeleton h-3 w-full"></div>
+        <div class="skeleton h-8 w-full" style="border-radius: 0.5rem;"></div>
+      </div>
+    </div>
+    <div class="skeleton h-10 w-full" style="border-radius: 0.5rem;"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+{
+  "features": [
+    {
+      "id": "F-001",
+      "name": "game-engine"
+    },
+    {
+      "id": "F-002",
+      "name": "player-actions"
+    },
+    {
+      "id": "F-003",
+      "name": "bot-opponents"
+    },
+    {
+      "id": "F-004",
+      "name": "table-ui"
+    },
+    {
+      "id": "F-005",
+      "name": "gto-preflop"
+    },
+    {
+      "id": "F-006",
+      "name": "gto-postflop"
+    },
+    {
+      "id": "F-007",
+      "name": "hand-recorder"
+    },
+    {
+      "id": "F-008",
+      "name": "session-history"
+    },
+    {
+      "id": "F-009",
+      "name": "hand-replayer"
+    },
+    {
+      "id": "F-010",
+      "name": "gto-comparison"
+    },
+    {
+      "id": "F-011",
+      "name": "leak-finder"
+    },
+    {
+      "id": "F-012",
+      "name": "local-storage"
+    }
+  ],
+  "constraints": [
+    "纯浏览器端运行，零后端依赖，所有游戏逻辑和 GTO 计算在前端完成",
+    "技术栈限定 React + TypeScript + Tailwind CSS",
+    "GTO 策略采用简化近似方案（preflop 查表 + postflop 启发式），非精确 CFR solver",
+    "数据持久化仅使用 IndexedDB，无需用户账号体系",
+    "仅支持六人桌 NL Hold'em 现金桌（固定盲注，无限注）",
+    "避免使用 AGPL 许可证依赖，MVP 使用自研简化方案",
+    "所有 npm 依赖须为 MIT 或 Apache-2.0 兼容许可证"
+  ],
+  "out_of_scope": [
+    "精确 GTO solver（CFR 算法迭代求解）",
+    "多桌同时游戏",
+    "锦标赛模式（MTT/SNG/Spin&Go）",
+    "在线多人对战（玩家 vs 玩家）",
+    "用户自定义 BOT 风格/参数",
+    "移动端原生适配",
+    "数据导入导出",
+    "高级统计分析面板",
+    "用户账号注册/登录系统",
+    "国际化/多语言支持",
+    "音效/语音功能",
+    "筹码购买/真金模式"
+  ]
+}

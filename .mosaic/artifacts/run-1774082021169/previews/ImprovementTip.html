@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-4">
+    <!-- Collapsed -->
+    <div class="bg-blue-500/10 border border-blue-500/20 rounded-lg overflow-hidden">
+      <button class="w-full flex items-center gap-2 px-3 py-2 text-left">
+        <svg class="w-4 h-4 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-blue-400 text-xs font-semibold">Improvement Tip</span>
+      </button>
+    </div>
+
+    <!-- Expanded -->
+    <div class="bg-blue-500/10 border border-blue-500/20 rounded-lg overflow-hidden">
+      <button class="w-full flex items-center gap-2 px-3 py-2 text-left">
+        <svg class="w-4 h-4 text-blue-400 flex-shrink-0 rotate-90" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-blue-400 text-xs font-semibold">Improvement Tip</span>
+      </button>
+      <div class="px-3 pb-3 pt-0">
+        <p class="text-gray-300 text-sm leading-relaxed">When facing a 3-bet from the blinds while holding suited connectors in position, consider a higher raise sizing (75% pot) to deny equity realization. Your flat calling frequency in this spot is 15% too high compared to GTO.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

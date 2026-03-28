@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-3">
+    <!-- Leak card 1 -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+      <div class="flex items-start gap-3">
+        <div class="w-7 h-7 rounded-full bg-gray-700 flex items-center justify-center flex-shrink-0">
+          <span class="text-gray-300 text-xs font-bold">#1</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
+            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-500/20 text-red-300">Bad call</span>
+            <span class="text-gray-500 text-[10px] uppercase">river</span>
+            <span class="text-red-400 text-xs font-mono font-bold ml-auto">-5.20 BB</span>
+          </div>
+          <p class="text-gray-400 text-sm mb-2">Called a large river bet with a weak top pair against a tight range.</p>
+          <div class="bg-blue-500/10 border border-blue-500/20 rounded-lg overflow-hidden">
+            <button class="w-full flex items-center gap-2 px-3 py-2 text-left">
+              <svg class="w-4 h-4 text-blue-400 flex-shrink-0 rotate-90" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+              <span class="text-blue-400 text-xs font-semibold">Improvement Tip</span>
+            </button>
+            <div class="px-3 pb-3 pt-0">
+              <p class="text-gray-300 text-sm leading-relaxed">Against tight opponents who raise the river, your top pair hands should fold at a much higher frequency. This spot calls for a fold 80%+ of the time.</p>
+            </div>
+          </div>
+          <button class="mt-2 text-blue-400 text-xs">View in replay →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leak card 2 -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
+      <div class="flex items-start gap-3">
+        <div class="w-7 h-7 rounded-full bg-gray-700 flex items-center justify-center flex-shrink-0">
+          <span class="text-gray-300 text-xs font-bold">#2</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
+            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-yellow-500/20 text-yellow-300">Sizing error</span>
+            <span class="text-gray-500 text-[10px] uppercase">turn</span>
+            <span class="text-red-400 text-xs font-mono font-bold ml-auto">-2.10 BB</span>
+          </div>
+          <p class="text-gray-400 text-sm mb-2">C-bet sizing was too small on a wet board texture.</p>
+          <div class="bg-blue-500/10 border border-blue-500/20 rounded-lg overflow-hidden">
+            <button class="w-full flex items-center gap-2 px-3 py-2 text-left">
+              <svg class="w-4 h-4 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+              <span class="text-blue-400 text-xs font-semibold">Improvement Tip</span>
+            </button>
+          </div>
+          <button class="mt-2 text-blue-400 text-xs">View in replay →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

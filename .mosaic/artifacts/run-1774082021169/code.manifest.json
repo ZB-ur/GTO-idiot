@@ -1,0 +1,470 @@
+{
+  "files": [
+    {
+      "path": "code/dist/assets/index-BloBnbxJ.js",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/dist/assets/index-BloBnbxJ.js.map",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/dist/assets/index-NZfmIdaW.css",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/dist/index.html",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/index.html",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/package-lock.json",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/package.json",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/postcss.config.js",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/App.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/__tests__/e2e/game-loop.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
+      "path": "code/src/__tests__/engine/bot-decision.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
+      "path": "code/src/__tests__/engine/deck.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
+      "path": "code/src/__tests__/engine/game-state.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
+      "path": "code/src/__tests__/engine/hand-evaluator.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
+      "path": "code/src/__tests__/services/analysis-service.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
+      "path": "code/src/__tests__/services/game-service.test.ts",
+      "module": "testing",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/action/ActionPanel.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/action/AllInConfirmDialog.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/action/RaiseSlider.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/history/DataCleanupDialog.tsx",
+      "module": "ui-features",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/history/HistoryFilter.tsx",
+      "module": "ui-features",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/history/ProfitChart.tsx",
+      "module": "ui-features",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/history/StatCard.tsx",
+      "module": "ui-features",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/history/StorageInfo.tsx",
+      "module": "ui-features",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/shared/Modal.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/shared/SkeletonLoader.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/shared/Spinner.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/shared/Toast.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/shell/AppShell.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/shell/HomeScreen.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/shell/SeatSelector.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/table/CardComponent.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/table/ChipStack.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/table/CommunityCards.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/table/PlayerSeat.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/table/PokerTable.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/components/table/PotDisplay.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/contexts/GameContext.tsx",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/contexts/ReplayContext.tsx",
+      "module": "ui-features",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/action-validator.ts",
+      "module": "core-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/bot/preflop-ranges.ts",
+      "module": "bot-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/bot/profiles.ts",
+      "module": "bot-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/bot/sizing.ts",
+      "module": "bot-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/deck.ts",
+      "module": "core-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/game-state.ts",
+      "module": "core-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/gto/preflop-data.json",
+      "module": "gto-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/gto/preflop-ranges.ts",
+      "module": "gto-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/hand-evaluator.ts",
+      "module": "core-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/pot-calculator.ts",
+      "module": "core-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/engine/utils.ts",
+      "module": "core-engine",
+      "description": ""
+    },
+    {
+      "path": "code/src/hooks/useActionPanel.ts",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/hooks/useCardDeal.ts",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/hooks/useChipMove.ts",
+      "module": "ui-foundation",
+      "description": ""
+    },
+    {
+      "path": "code/src/hooks/useReplayNavigation.ts",
+      "module": "ui-features",
+      "description": ""
+    },
+    {
+      "path": "code/src/index.css",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/main.tsx",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/pages/PlayPage.tsx",
+      "module": "ui-features",
+      "description": ""
+    },
+    {
+      "path": "code/src/services/analysis-service.ts",
+      "module": "data-services",
+      "description": ""
+    },
+    {
+      "path": "code/src/services/db.ts",
+      "module": "data-services",
+      "description": ""
+    },
+    {
+      "path": "code/src/services/game-service.ts",
+      "module": "data-services",
+      "description": ""
+    },
+    {
+      "path": "code/src/services/hand-recorder.ts",
+      "module": "data-services",
+      "description": ""
+    },
+    {
+      "path": "code/src/services/history-service.ts",
+      "module": "data-services",
+      "description": ""
+    },
+    {
+      "path": "code/src/services/replay-service.ts",
+      "module": "data-services",
+      "description": ""
+    },
+    {
+      "path": "code/src/services/storage-service.ts",
+      "module": "data-services",
+      "description": ""
+    },
+    {
+      "path": "code/src/types/analysis.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/types/bot.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/types/card.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/types/game.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/types/gto.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/src/vite-env.d.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/tailwind.config.d.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tailwind.config.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/tsconfig.json",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/tsconfig.node.json",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/tsconfig.node.tsbuildinfo",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/tsconfig.tsbuildinfo",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/vite.config.d.ts",
+      "module": "unknown",
+      "description": ""
+    },
+    {
+      "path": "code/vite.config.ts",
+      "module": "scaffold",
+      "description": ""
+    },
+    {
+      "path": "code/vitest.config.ts",
+      "module": "testing",
+      "description": ""
+    }
+  ],
+  "modules": [
+    "scaffold",
+    "core-engine",
+    "bot-engine",
+    "gto-engine",
+    "data-services",
+    "ui-foundation",
+    "ui-features",
+    "testing"
+  ],
+  "covers_tasks": [
+    "T-001",
+    "T-002",
+    "T-003",
+    "T-004",
+    "T-005",
+    "T-006",
+    "T-007",
+    "T-008",
+    "T-013",
+    "T-014",
+    "T-015",
+    "T-016",
+    "T-017",
+    "T-009",
+    "T-010",
+    "T-011",
+    "T-012",
+    "T-030",
+    "T-031",
+    "T-032",
+    "T-035",
+    "T-038",
+    "T-039",
+    "T-044",
+    "T-018",
+    "T-019",
+    "T-020",
+    "T-021",
+    "T-022",
+    "T-023",
+    "T-024",
+    "T-025",
+    "T-026",
+    "T-027",
+    "T-028",
+    "T-043",
+    "T-029",
+    "T-033",
+    "T-034",
+    "T-036",
+    "T-037",
+    "T-040",
+    "T-041",
+    "T-042",
+    "T-045"
+  ],
+  "covers_features": [
+    "F-001",
+    "F-002",
+    "F-004",
+    "F-012",
+    "F-003",
+    "F-005",
+    "F-006",
+    "F-010",
+    "F-007",
+    "F-008",
+    "F-009",
+    "F-011"
+  ]
+}

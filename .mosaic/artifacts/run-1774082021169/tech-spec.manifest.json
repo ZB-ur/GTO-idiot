@@ -1,0 +1,515 @@
+{
+  "modules": [
+    {
+      "name": "game-engine",
+      "description": "Core NL Hold'em rules engine — deck, dealing, blinds, street progression, pot calculation, action validation",
+      "covers_features": [
+        "F-001",
+        "F-002"
+      ]
+    },
+    {
+      "name": "hand-evaluator",
+      "description": "Poker hand evaluation, ranking, and winner determination",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "name": "bot-engine",
+      "description": "5 parameterized BOT opponent profiles with preflop ranges and postflop decision trees",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "name": "gto-engine",
+      "description": "Preflop GTO range tables, postflop heuristic engine, Monte Carlo equity calculator",
+      "covers_features": [
+        "F-005",
+        "F-006"
+      ]
+    },
+    {
+      "name": "game-service",
+      "description": "Game session orchestration, hand lifecycle, BOT action coordination, hand recording",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-007"
+      ]
+    },
+    {
+      "name": "analysis-service",
+      "description": "GTO comparison analysis and leak detection for completed hands",
+      "covers_features": [
+        "F-010",
+        "F-011"
+      ]
+    },
+    {
+      "name": "replay-service",
+      "description": "Replay frame generation from hand records for step-by-step visual replay",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "history-service",
+      "description": "Hand history queries, statistics aggregation, profit chart data",
+      "covers_features": [
+        "F-007",
+        "F-008"
+      ]
+    },
+    {
+      "name": "storage",
+      "description": "Dexie.js IndexedDB schema, CRUD operations, storage management, settings",
+      "covers_features": [
+        "F-012"
+      ]
+    },
+    {
+      "name": "ui-table",
+      "description": "Poker table visualization — 6-seat layout, cards, chips, animations",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "ui-action",
+      "description": "Player action UI — action panel, raise slider, all-in confirmation",
+      "covers_features": [
+        "F-002",
+        "F-004"
+      ]
+    },
+    {
+      "name": "ui-replay",
+      "description": "Hand replay interface — transport controls, timeline, keyboard navigation",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "ui-analysis",
+      "description": "GTO comparison overlay, EV badges, leak cards, review summary",
+      "covers_features": [
+        "F-010",
+        "F-011"
+      ]
+    },
+    {
+      "name": "ui-history",
+      "description": "History list, filters, stats dashboard, profit chart, data management",
+      "covers_features": [
+        "F-008",
+        "F-012"
+      ]
+    },
+    {
+      "name": "ui-shell",
+      "description": "App layout, routing, home screen, settings, shared UI primitives",
+      "covers_features": [
+        "F-004"
+      ]
+    }
+  ],
+  "tech_stack": [
+    "TypeScript (strict)",
+    "React 18",
+    "Tailwind CSS",
+    "Vite",
+    "React Router v6",
+    "Dexie.js (IndexedDB)",
+    "Recharts",
+    "Framer Motion",
+    "Web Workers (equity calc)",
+    "Vitest + React Testing Library"
+  ],
+  "implementation_tasks": [
+    {
+      "id": "T-001",
+      "name": "Project scaffold — Vite + React + TS + Tailwind + Dexie + Router",
+      "module": "ui-shell",
+      "covers_features": [
+        "F-004",
+        "F-012"
+      ]
+    },
+    {
+      "id": "T-002",
+      "name": "Define core TypeScript types from API spec",
+      "module": "game-engine",
+      "covers_features": [
+        "F-001",
+        "F-002"
+      ]
+    },
+    {
+      "id": "T-003",
+      "name": "Implement deck & dealing logic",
+      "module": "game-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-004",
+      "name": "Implement hand evaluator — 7-card evaluation and winner determination",
+      "module": "hand-evaluator",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-005",
+      "name": "Implement game state machine — blinds, streets, pots, action validation",
+      "module": "game-engine",
+      "covers_features": [
+        "F-001",
+        "F-002"
+      ]
+    },
+    {
+      "id": "T-006",
+      "name": "Implement available actions logic with raise range constraints",
+      "module": "game-engine",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "id": "T-007",
+      "name": "Build 5 BOT strategy profiles with preflop range tables",
+      "module": "bot-engine",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-008",
+      "name": "Implement BOT decision engine with randomization",
+      "module": "bot-engine",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-009",
+      "name": "Set up Dexie database schema and migrations",
+      "module": "storage",
+      "covers_features": [
+        "F-012"
+      ]
+    },
+    {
+      "id": "T-010",
+      "name": "Implement storage service — CRUD, storage info, cleanup, settings",
+      "module": "storage",
+      "covers_features": [
+        "F-012"
+      ]
+    },
+    {
+      "id": "T-011",
+      "name": "Implement game service — session management, hand lifecycle, BOT coordination",
+      "module": "game-service",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-012",
+      "name": "Implement hand recorder — persist complete hand records",
+      "module": "game-service",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-013",
+      "name": "Build preflop GTO range tables as static JSON data",
+      "module": "gto-engine",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "id": "T-014",
+      "name": "Implement preflop GTO lookup service",
+      "module": "gto-engine",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "id": "T-015",
+      "name": "Implement board texture classifier",
+      "module": "gto-engine",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "id": "T-016",
+      "name": "Implement Monte Carlo equity calculator in Web Worker",
+      "module": "gto-engine",
+      "covers_features": [
+        "F-006",
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-017",
+      "name": "Implement postflop GTO heuristic engine",
+      "module": "gto-engine",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "id": "T-018",
+      "name": "Build shared UI primitives — Modal, Toast, Spinner, Skeleton",
+      "module": "ui-shell",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-019",
+      "name": "Build AppShell + routing configuration",
+      "module": "ui-shell",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-020",
+      "name": "Build HomeScreen with Start Practice and History CTAs",
+      "module": "ui-shell",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-021",
+      "name": "Build SeatSelector for pre-game setup",
+      "module": "ui-shell",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-022",
+      "name": "Build CardComponent with flip animation",
+      "module": "ui-table",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-023",
+      "name": "Build PokerTable 6-seat oval layout",
+      "module": "ui-table",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-024",
+      "name": "Build PlayerSeat component",
+      "module": "ui-table",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-025",
+      "name": "Build CommunityCards + PotDisplay with animations",
+      "module": "ui-table",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-026",
+      "name": "Build ActionPanel with contextual enable/disable",
+      "module": "ui-action",
+      "covers_features": [
+        "F-002",
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-027",
+      "name": "Build RaiseSlider with presets and constraints",
+      "module": "ui-action",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "id": "T-028",
+      "name": "Build AllInConfirmDialog",
+      "module": "ui-action",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "id": "T-029",
+      "name": "Integrate full game loop — GameService ↔ UI with animations",
+      "module": "game-service",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-030",
+      "name": "Implement history service with filters and pagination",
+      "module": "history-service",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-031",
+      "name": "Implement stats aggregation from raw hand data",
+      "module": "history-service",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-032",
+      "name": "Implement profit chart data generation",
+      "module": "history-service",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-033",
+      "name": "Build HandHistoryList with filters and sorting",
+      "module": "ui-history",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-034",
+      "name": "Build StatsDashboard + ProfitChart",
+      "module": "ui-history",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-035",
+      "name": "Implement replay service — frame generation",
+      "module": "replay-service",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "id": "T-036",
+      "name": "Build HandReplayer + ReplayControls with keyboard shortcuts",
+      "module": "ui-replay",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "id": "T-037",
+      "name": "Build ActionTimeline with decision point markers",
+      "module": "ui-replay",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "id": "T-038",
+      "name": "Implement hand analysis service — GTO comparison + EV calculation",
+      "module": "analysis-service",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-039",
+      "name": "Implement leak detection — top 5 leaks with type classification",
+      "module": "analysis-service",
+      "covers_features": [
+        "F-011"
+      ]
+    },
+    {
+      "id": "T-040",
+      "name": "Build GTOPanel + comparison components for replay overlay",
+      "module": "ui-analysis",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-041",
+      "name": "Build ReviewSummary + LeakCards with drill-down",
+      "module": "ui-analysis",
+      "covers_features": [
+        "F-011"
+      ]
+    },
+    {
+      "id": "T-042",
+      "name": "Build SettingsPanel + DataManagement UI",
+      "module": "ui-history",
+      "covers_features": [
+        "F-012"
+      ]
+    },
+    {
+      "id": "T-043",
+      "name": "Implement card/chip animations with Framer Motion",
+      "module": "ui-table",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-044",
+      "name": "Implement BOT action delay with randomization",
+      "module": "game-service",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-045",
+      "name": "End-to-end testing — game loop, replay, analysis",
+      "module": "game-engine",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008",
+        "F-009",
+        "F-010",
+        "F-011",
+        "F-012"
+      ]
+    }
+  ]
+}

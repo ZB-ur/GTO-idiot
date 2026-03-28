@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #1e293b; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-lg mx-auto space-y-6">
+    <!-- Basic actions -->
+    <div>
+      <p class="text-gray-400 text-xs mb-2">Basic actions (facing a bet)</p>
+      <div class="flex gap-2 flex-wrap justify-center">
+        <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-gray-600 text-gray-100">Fold</button>
+        <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-blue-700 text-white">Call 12</button>
+        <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-yellow-600 text-black">Raise</button>
+        <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-red-700 text-white">All In</button>
+      </div>
+    </div>
+
+    <!-- With raise slider open -->
+    <div>
+      <p class="text-gray-400 text-xs mb-2">With raise slider expanded</p>
+      <div class="flex flex-col items-center gap-3 w-full">
+        <div class="w-full bg-gray-800/90 rounded-xl p-3 border border-gray-700">
+          <div class="flex flex-col gap-2 w-full">
+            <div class="flex gap-1 flex-wrap justify-center">
+              <button class="px-2 py-1 rounded text-xs font-medium bg-gray-700 text-gray-300">Min</button>
+              <button class="px-2 py-1 rounded text-xs font-medium bg-yellow-500 text-black">1/2 Pot</button>
+              <button class="px-2 py-1 rounded text-xs font-medium bg-gray-700 text-gray-300">2/3 Pot</button>
+              <button class="px-2 py-1 rounded text-xs font-medium bg-gray-700 text-gray-300">Pot</button>
+              <button class="px-2 py-1 rounded text-xs font-medium bg-gray-700 text-gray-300">All-In</button>
+            </div>
+            <div class="relative flex items-center gap-3">
+              <span class="text-gray-400 text-xs font-mono w-12 text-right">4</span>
+              <div class="relative flex-1 h-6 flex items-center">
+                <div class="absolute w-full h-2 rounded-full bg-gray-700"></div>
+                <div class="absolute h-2 rounded-full bg-yellow-500" style="width:35%"></div>
+              </div>
+              <span class="text-gray-400 text-xs font-mono w-12">200</span>
+            </div>
+            <div class="flex items-center justify-center gap-2">
+              <input type="number" value="72" class="w-24 bg-gray-700 border border-gray-600 rounded-lg px-2 py-1 text-center text-yellow-400 font-mono text-lg font-bold"/>
+              <span class="text-gray-400 text-sm">BB</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-2 flex-wrap justify-center">
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-gray-600 text-gray-100">Fold</button>
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-blue-700 text-white">Call 12</button>
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-yellow-600 text-black">Raise to 72</button>
+          <button class="px-5 py-2.5 rounded-lg font-bold text-sm bg-red-700 text-white">All In</button>
+          <button class="px-3 py-2.5 rounded-lg text-sm text-gray-400">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="space-y-3 max-w-sm">
+    <!-- Success -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-green-50 border-green-300">
+      <span class="flex-shrink-0 w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-xs font-bold">✓</span>
+      <p class="text-sm font-medium text-green-800 flex-1">Hand saved successfully!</p>
+      <button class="flex-shrink-0 text-green-800 opacity-60 hover:opacity-100 text-lg leading-none">×</button>
+    </div>
+    <!-- Warning -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-amber-50 border-amber-300">
+      <span class="flex-shrink-0 w-6 h-6 rounded-full bg-amber-500 text-white flex items-center justify-center text-xs font-bold">⚠</span>
+      <p class="text-sm font-medium text-amber-800 flex-1">Storage usage exceeds 80%. Consider clearing old hands.</p>
+      <button class="flex-shrink-0 text-amber-800 opacity-60 hover:opacity-100 text-lg leading-none">×</button>
+    </div>
+    <!-- Error -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-rose-50 border-rose-300">
+      <span class="flex-shrink-0 w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs font-bold">✕</span>
+      <p class="text-sm font-medium text-rose-800 flex-1">Failed to load hand data.</p>
+      <button class="flex-shrink-0 text-rose-800 opacity-60 hover:opacity-100 text-lg leading-none">×</button>
+    </div>
+    <!-- Info -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-blue-50 border-blue-300">
+      <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold">ℹ</span>
+      <p class="text-sm font-medium text-blue-800 flex-1">New GTO range tables available.</p>
+      <button class="flex-shrink-0 text-blue-800 opacity-60 hover:opacity-100 text-lg leading-none">×</button>
+    </div>
+  </div>
+</body>
+</html>

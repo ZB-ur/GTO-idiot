@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DecisionPointMarker Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="space-y-6">
+    <!-- Label -->
+    <p class="text-sm font-medium text-gray-600">Decision Point Markers on Timeline</p>
+
+    <!-- Simulated timeline bar with markers -->
+    <div class="relative flex items-center gap-0 bg-gray-100 rounded-full h-2 w-80">
+      <div class="absolute inset-0 bg-gray-200 rounded-full"></div>
+      <!-- Markers positioned along the timeline -->
+      <div class="absolute flex items-center gap-6" style="left: 8px; top: -6px;">
+        <!-- Good -->
+        <div class="flex flex-col items-center gap-1">
+          <button class="relative flex items-center justify-center w-5 h-5 rounded-full bg-green-500 hover:scale-110 transition-all">
+            <span class="w-2 h-2 rounded-full bg-white/60"></span>
+          </button>
+          <span class="text-xs text-gray-400 mt-2">F3</span>
+        </div>
+        <!-- Minor Deviation (Active) -->
+        <div class="flex flex-col items-center gap-1">
+          <button class="relative flex items-center justify-center w-5 h-5 rounded-full bg-amber-500 ring-4 ring-amber-200 scale-125 transition-all">
+            <span class="w-2 h-2 rounded-full bg-white/60"></span>
+          </button>
+          <span class="text-xs text-gray-400 mt-2">F7</span>
+        </div>
+        <!-- Major Deviation -->
+        <div class="flex flex-col items-center gap-1">
+          <button class="relative flex items-center justify-center w-5 h-5 rounded-full bg-rose-500 hover:scale-110 transition-all">
+            <span class="w-2 h-2 rounded-full bg-white/60"></span>
+          </button>
+          <span class="text-xs text-gray-400 mt-2">F12</span>
+        </div>
+        <!-- Good -->
+        <div class="flex flex-col items-center gap-1">
+          <button class="relative flex items-center justify-center w-5 h-5 rounded-full bg-green-500 hover:scale-110 transition-all">
+            <span class="w-2 h-2 rounded-full bg-white/60"></span>
+          </button>
+          <span class="text-xs text-gray-400 mt-2">F18</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="flex items-center gap-4 mt-10 pt-4">
+      <div class="flex items-center gap-1.5">
+        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+        <span class="text-xs text-gray-500">Good</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+        <span class="text-xs text-gray-500">Minor Deviation</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+        <span class="text-xs text-gray-500">Major Deviation</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

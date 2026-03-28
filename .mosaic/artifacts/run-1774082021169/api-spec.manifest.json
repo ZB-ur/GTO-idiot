@@ -1,0 +1,205 @@
+{
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/games",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/games/{gameId}",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/games/{gameId}",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/games/{gameId}/hands",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/games/{gameId}/hands/{handId}",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/games/{gameId}/hands/{handId}/available-actions",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/games/{gameId}/hands/{handId}/actions",
+      "covers_features": [
+        "F-002",
+        "F-003",
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/bots",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/bots/{botId}",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/gto/preflop",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/gto/postflop",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}",
+      "covers_features": [
+        "F-007",
+        "F-009"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}/replay",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}/analysis",
+      "covers_features": [
+        "F-010",
+        "F-011"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}/analysis/leaks",
+      "covers_features": [
+        "F-011"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/profit-chart",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/storage/info",
+      "covers_features": [
+        "F-012"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/storage/hands",
+      "covers_features": [
+        "F-012"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/settings",
+      "covers_features": [
+        "F-012"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/settings",
+      "covers_features": [
+        "F-012"
+      ]
+    }
+  ],
+  "models": [
+    "Card",
+    "HoleCards",
+    "Position",
+    "Street",
+    "ActionType",
+    "BotStyle",
+    "HandPhase",
+    "DecisionQuality",
+    "CreateGameRequest",
+    "GameSession",
+    "PlayerInfo",
+    "HandState",
+    "HandPlayerState",
+    "ActionEntry",
+    "WinnerInfo",
+    "AvailableActions",
+    "AvailableAction",
+    "PlayerAction",
+    "ActionResult",
+    "BotProfile",
+    "PreflopGTOResult",
+    "PostflopGTORequest",
+    "PostflopGTOResult",
+    "GTORecommendation",
+    "HandRecord",
+    "HandHistoryList",
+    "HandHistorySummary",
+    "ReplayData",
+    "ReplayFrame",
+    "HandAnalysis",
+    "DecisionPointAnalysis",
+    "LeakAnalysis",
+    "LeakEntry",
+    "SessionStats",
+    "ProfitChartData",
+    "StorageInfo",
+    "UserSettings",
+    "ErrorResponse"
+  ]
+}

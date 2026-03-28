@@ -1,0 +1,107 @@
+{
+  "flows": [
+    {
+      "name": "game-loop",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-007"
+      ]
+    },
+    {
+      "name": "action-decision",
+      "covers_features": [
+        "F-002",
+        "F-004"
+      ]
+    },
+    {
+      "name": "hand-review",
+      "covers_features": [
+        "F-009",
+        "F-010"
+      ]
+    },
+    {
+      "name": "leak-analysis",
+      "covers_features": [
+        "F-005",
+        "F-006",
+        "F-010",
+        "F-011"
+      ]
+    },
+    {
+      "name": "session-stats",
+      "covers_features": [
+        "F-008",
+        "F-009"
+      ]
+    },
+    {
+      "name": "data-management",
+      "covers_features": [
+        "F-012"
+      ]
+    }
+  ],
+  "components": [
+    "AppShell",
+    "HomeScreen",
+    "SettingsPanel",
+    "PokerTable",
+    "PlayerSeat",
+    "CommunityCards",
+    "PotDisplay",
+    "CardComponent",
+    "ChipStack",
+    "ActionPanel",
+    "ActionButton",
+    "RaiseSlider",
+    "AllInConfirmDialog",
+    "HandReplayer",
+    "ReplayControls",
+    "ActionTimeline",
+    "DecisionPointMarker",
+    "GTOPanel",
+    "GTOActionComparison",
+    "EVDifferenceBadge",
+    "GTOFrequencyBar",
+    "ReviewSummary",
+    "LeakCard",
+    "LeakTypeTag",
+    "ImprovementTip",
+    "HandHistoryList",
+    "HandHistoryRow",
+    "HistoryFilter",
+    "StatsDatabase",
+    "ProfitChart",
+    "StatCard",
+    "Modal",
+    "Toast",
+    "SkeletonLoader",
+    "Spinner",
+    "IconButton",
+    "SeatSelector",
+    "StorageInfo",
+    "DataCleanupDialog"
+  ],
+  "interaction_rules": [
+    "Raise amount validates in real-time: must be >= min raise and <= remaining stack; invalid disables confirm",
+    "Action buttons are contextually enabled/disabled — invalid actions never shown",
+    "Storage quota warnings appear as non-blocking toast notifications",
+    "Data deletion requires explicit modal confirmation dialog",
+    "Action panel visible only during user turn; slides up on narrow, fixed right on desktop",
+    "Fold/Check/Call are single-tap instant; Raise opens slider; All-in requires confirmation",
+    "Replay keyboard shortcuts: arrow keys for prev/next, 1-4 for street jump",
+    "GTO overlay panel stays visible and updates per decision point during replay",
+    "Card deal animation 200ms, chip movement 300ms, BOT action delay 500-1500ms randomized",
+    "GTO color coding: green (#22c55e) = match, yellow (#eab308) = minor deviation <0.5BB, red (#ef4444) = major deviation >=0.5BB",
+    "Every completed hand auto-saves to IndexedDB; incomplete hands discarded",
+    "Storage warning at >10000 hands or >50MB IndexedDB usage",
+    "Statistics recalculated from raw hand data on dashboard open",
+    "Minimum supported viewport width 1024px, primary target 1280px+"
+  ]
+}

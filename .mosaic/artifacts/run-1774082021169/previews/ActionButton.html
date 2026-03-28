@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">ActionButton</h2>
+
+  <!-- Enabled row -->
+  <p class="text-sm text-gray-600 mb-2">Enabled States</p>
+  <div class="flex gap-3 mb-6">
+    <!-- Fold -->
+    <button class="inline-flex flex-col items-center justify-center min-w-[72px] px-4 py-2.5 rounded-lg text-white font-semibold text-sm bg-gray-600 hover:bg-gray-700 transition-colors duration-150 cursor-pointer">
+      <span>Fold</span>
+    </button>
+
+    <!-- Check -->
+    <button class="inline-flex flex-col items-center justify-center min-w-[72px] px-4 py-2.5 rounded-lg text-white font-semibold text-sm bg-green-500 hover:bg-green-600 transition-colors duration-150 cursor-pointer">
+      <span>Check</span>
+    </button>
+
+    <!-- Call -->
+    <button class="inline-flex flex-col items-center justify-center min-w-[72px] px-4 py-2.5 rounded-lg text-white font-semibold text-sm bg-blue-600 hover:bg-blue-700 transition-colors duration-150 cursor-pointer">
+      <span>Call</span>
+      <span class="text-xs mt-0.5 text-white/80">3 BB</span>
+    </button>
+
+    <!-- Raise -->
+    <button class="inline-flex flex-col items-center justify-center min-w-[72px] px-4 py-2.5 rounded-lg text-white font-semibold text-sm bg-amber-500 hover:bg-amber-600 transition-colors duration-150 cursor-pointer">
+      <span>Raise</span>
+      <span class="text-xs mt-0.5 text-white/80">8 BB</span>
+    </button>
+
+    <!-- All In -->
+    <button class="inline-flex flex-col items-center justify-center min-w-[72px] px-4 py-2.5 rounded-lg text-white font-semibold text-sm bg-red-500 hover:bg-red-600 transition-colors duration-150 cursor-pointer">
+      <span>All In</span>
+      <span class="text-xs mt-0.5 text-white/80">100 BB</span>
+    </button>
+  </div>
+
+  <!-- Disabled row -->
+  <p class="text-sm text-gray-600 mb-2">Disabled States</p>
+  <div class="flex gap-3">
+    <button disabled class="inline-flex flex-col items-center justify-center min-w-[72px] px-4 py-2.5 rounded-lg text-white font-semibold text-sm bg-gray-300 cursor-not-allowed opacity-60">
+      <span>Fold</span>
+    </button>
+
+    <button disabled class="inline-flex flex-col items-center justify-center min-w-[72px] px-4 py-2.5 rounded-lg text-white font-semibold text-sm bg-green-200 cursor-not-allowed opacity-60">
+      <span>Check</span>
+    </button>
+
+    <button disabled class="inline-flex flex-col items-center justify-center min-w-[72px] px-4 py-2.5 rounded-lg text-white font-semibold text-sm bg-blue-200 cursor-not-allowed opacity-60">
+      <span>Call</span>
+      <span class="text-xs mt-0.5 text-white/50">3 BB</span>
+    </button>
+
+    <button disabled class="inline-flex flex-col items-center justify-center min-w-[72px] px-4 py-2.5 rounded-lg text-white font-semibold text-sm bg-amber-200 cursor-not-allowed opacity-60">
+      <span>Raise</span>
+      <span class="text-xs mt-0.5 text-white/50">8 BB</span>
+    </button>
+
+    <button disabled class="inline-flex flex-col items-center justify-center min-w-[72px] px-4 py-2.5 rounded-lg text-white font-semibold text-sm bg-red-200 cursor-not-allowed opacity-60">
+      <span>All In</span>
+      <span class="text-xs mt-0.5 text-white/50">100 BB</span>
+    </button>
+  </div>
+</body>
+</html>
