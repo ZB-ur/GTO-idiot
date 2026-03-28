@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PotDisplay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <!-- Dark felt background to simulate poker table context -->
+  <div class="min-h-screen bg-emerald-800 flex flex-col items-center justify-center gap-16 p-8">
+
+    <!-- Scenario 1: Main pot only -->
+    <div class="text-center">
+      <p class="text-emerald-300/60 text-xs font-medium mb-3 uppercase tracking-widest">Main Pot Only</p>
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-5 py-2 border border-amber-500/30 shadow-lg">
+          <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="10" />
+            <text x="12" y="16" text-anchor="middle" font-size="12" font-weight="bold" fill="#000">$</text>
+          </svg>
+          <span class="text-amber-400 font-bold text-lg tracking-wide" style="font-variant-numeric: tabular-nums;">1,500</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario 2: Main pot + 1 side pot -->
+    <div class="text-center">
+      <p class="text-emerald-300/60 text-xs font-medium mb-3 uppercase tracking-widest">With Side Pot</p>
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-5 py-2 border border-amber-500/30 shadow-lg">
+          <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="10" />
+            <text x="12" y="16" text-anchor="middle" font-size="12" font-weight="bold" fill="#000">$</text>
+          </svg>
+          <span class="text-amber-400 font-bold text-lg tracking-wide" style="font-variant-numeric: tabular-nums;">12,500</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-1.5">
+          <div class="flex items-center gap-1.5 bg-black/30 backdrop-blur-sm rounded-full px-3 py-1 border border-gray-500/30">
+            <span class="text-gray-400 text-xs font-medium">边池</span>
+            <span class="text-amber-300 text-sm font-semibold" style="font-variant-numeric: tabular-nums;">5,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario 3: Main pot + multiple side pots -->
+    <div class="text-center">
+      <p class="text-emerald-300/60 text-xs font-medium mb-3 uppercase tracking-widest">Multiple Side Pots</p>
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-5 py-2 border border-amber-500/30 shadow-lg">
+          <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="10" />
+            <text x="12" y="16" text-anchor="middle" font-size="12" font-weight="bold" fill="#000">$</text>
+          </svg>
+          <span class="text-amber-400 font-bold text-lg tracking-wide" style="font-variant-numeric: tabular-nums;">28.5K</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-1.5">
+          <div class="flex items-center gap-1.5 bg-black/30 backdrop-blur-sm rounded-full px-3 py-1 border border-gray-500/30">
+            <span class="text-gray-400 text-xs font-medium">边池 1</span>
+            <span class="text-amber-300 text-sm font-semibold" style="font-variant-numeric: tabular-nums;">8,000</span>
+          </div>
+          <div class="flex items-center gap-1.5 bg-black/30 backdrop-blur-sm rounded-full px-3 py-1 border border-gray-500/30">
+            <span class="text-gray-400 text-xs font-medium">边池 2</span>
+            <span class="text-amber-300 text-sm font-semibold" style="font-variant-numeric: tabular-nums;">3,500</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario 4: Large pot -->
+    <div class="text-center">
+      <p class="text-emerald-300/60 text-xs font-medium mb-3 uppercase tracking-widest">Large Pot</p>
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-5 py-2 border border-amber-500/30 shadow-lg">
+          <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="10" />
+            <text x="12" y="16" text-anchor="middle" font-size="12" font-weight="bold" fill="#000">$</text>
+          </svg>
+          <span class="text-amber-400 font-bold text-lg tracking-wide" style="font-variant-numeric: tabular-nums;">1.2M</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

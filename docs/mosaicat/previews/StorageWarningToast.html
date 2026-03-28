@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StorageWarningToast Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-sm mx-auto space-y-6">
+    <!-- 85% usage (amber) -->
+    <div class="w-full rounded-xl border border-amber-200 bg-white shadow-md overflow-hidden">
+      <div class="flex items-start gap-3 px-4 pt-4 pb-2">
+        <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-amber-100">
+          <svg class="h-5 w-5 text-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.168 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold text-gray-900">存储空间不足</p>
+          <p class="mt-0.5 text-xs text-gray-600">已使用 4.3 MB / 5.0 MB (85%)</p>
+        </div>
+        <button class="flex-shrink-0 rounded-lg p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors">
+          <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="px-4 pb-3">
+        <div class="h-2 w-full rounded-full bg-gray-100 overflow-hidden">
+          <div class="h-full rounded-full bg-amber-500" style="width: 85%"></div>
+        </div>
+      </div>
+      <div class="flex items-center justify-end gap-2 border-t border-gray-100 bg-gray-50 px-4 py-2.5">
+        <button class="rounded-lg px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-200 transition-colors">稍后提醒</button>
+        <button class="rounded-lg bg-amber-500 px-3 py-1.5 text-xs font-medium text-white hover:bg-amber-600 transition-colors">管理存储</button>
+      </div>
+    </div>
+
+    <!-- 95% usage (red/critical) -->
+    <div class="w-full rounded-xl border border-amber-200 bg-white shadow-md overflow-hidden">
+      <div class="flex items-start gap-3 px-4 pt-4 pb-2">
+        <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-amber-100">
+          <svg class="h-5 w-5 text-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.168 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold text-gray-900">存储空间不足</p>
+          <p class="mt-0.5 text-xs text-gray-600">已使用 4.8 MB / 5.0 MB (95%)</p>
+        </div>
+        <button class="flex-shrink-0 rounded-lg p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors">
+          <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="px-4 pb-3">
+        <div class="h-2 w-full rounded-full bg-gray-100 overflow-hidden">
+          <div class="h-full rounded-full bg-red-500" style="width: 95%"></div>
+        </div>
+      </div>
+      <div class="flex items-center justify-end gap-2 border-t border-gray-100 bg-gray-50 px-4 py-2.5">
+        <button class="rounded-lg px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-200 transition-colors">稍后提醒</button>
+        <button class="rounded-lg bg-amber-500 px-3 py-1.5 text-xs font-medium text-white hover:bg-amber-600 transition-colors">管理存储</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

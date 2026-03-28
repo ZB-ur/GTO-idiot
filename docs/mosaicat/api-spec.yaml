@@ -1,0 +1,1599 @@
+openapi: "3.0.0"
+info:
+  title: GTO Idiot API
+  version: "1.0.0"
+  description: >
+    Client-side service API for GTO Idiot — a 6-max NL Hold'em GTO strategy trainer.
+    This is a pure frontend application; all endpoints are implemented as in-browser
+    service functions (not HTTP calls). The OpenAPI spec defines the contract between
+    UI components and the game engine / storage / GTO analysis layers.
+
+servers:
+  - url: /api
+    description: In-browser service layer (no network calls)
+
+tags:
+  - name: Game
+    description: Poker game engine — session lifecycle, dealing, actions
+  - name: Seat
+    description: Seat selection before game starts
+  - name: HandHistory
+    description: Hand history recording, listing, deletion
+  - name: Replay
+    description: Hand review and GTO comparison replay
+  - name: Stats
+    description: Session statistics and performance summary
+  - name: Storage
+    description: LocalStorage management, export, usage info
+  - name: Config
+    description: App-level configuration and metadata
+
+components:
+  securitySchemes:
+    NoAuth:
+      type: http
+      scheme: basic
+      description: >
+        No authentication required. This is a pure client-side app with no user accounts.
+        Security scheme defined for OpenAPI compliance only.
+
+  schemas:
+    # ── Error ──
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code
+              example: "INVALID_ACTION"
+            message:
+              type: string
+              description: Human-readable error message
+              example: "当前不能执行该操作"
+            details:
+              type: array
+              items:
+                type: object
+                properties:
+                  field:
+                    type: string
+                    example: "raiseAmount"
+                  reason:
+                    type: string
+                    example: "低于最小加注额"
+
+    # ── Enums ──
+    Position:
+      type: string
+      enum: [UTG, MP, CO, BTN, SB, BB]
+      description: Player seat position at a 6-max table
+      example: "BTN"
+
+    Street:
+      type: string
+      enum: [preflop, flop, turn, river]
+      description: Betting round / street in a hand
+      example: "flop"
+
+    ActionType:
+      type: string
+      enum: [fold, check, call, bet, raise, all-in, post-blind]
+      description: Player action type
+      example: "raise"
+
+    Suit:
+      type: string
+      enum: [s, h, d, c]
+      description: "Card suit — s=spades, h=hearts, d=diamonds, c=clubs"
+      example: "s"
+
+    Rank:
+      type: string
+      enum: ["2","3","4","5","6","7","8","9","T","J","Q","K","A"]
+      description: Card rank
+      example: "A"
+
+    HandResultType:
+      type: string
+      enum: [win, lose, tie]
+      description: Outcome of the hand for a given player
+      example: "win"
+
+    PlayerStatus:
+      type: string
+      enum: [active, folded, all-in, sitting-out]
+      description: Current status of a player in the hand
+      example: "active"
+
+    DeviationStatus:
+      type: string
+      enum: [correct, deviation]
+      description: Whether user action matched GTO recommendation
+      example: "deviation"
+
+    HandRank:
+      type: string
+      enum:
+        - high-card
+        - one-pair
+        - two-pair
+        - three-of-a-kind
+        - straight
+        - flush
+        - full-house
+        - four-of-a-kind
+        - straight-flush
+        - royal-flush
+      description: Poker hand ranking category
+      example: "two-pair"
+
+    # ── Card ──
+    Card:
+      type: object
+      required: [rank, suit]
+      properties:
+        rank:
+          $ref: "#/components/schemas/Rank"
+        suit:
+          $ref: "#/components/schemas/Suit"
+      example:
+        rank: "A"
+        suit: "s"
+
+    # ── Player ──
+    Player:
+      type: object
+      required: [seatIndex, position, name, chipCount, status, isUser, currentBet]
+      properties:
+        seatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          description: Seat index (0-5)
+          example: 3
+        position:
+          $ref: "#/components/schemas/Position"
+        name:
+          type: string
+          description: Display name
+          example: "BOT 3"
+        chipCount:
+          type: integer
+          minimum: 0
+          description: Current chip count
+          example: 10000
+        status:
+          $ref: "#/components/schemas/PlayerStatus"
+        isUser:
+          type: boolean
+          description: Whether this player is the human user
+          example: false
+        currentBet:
+          type: integer
+          minimum: 0
+          description: Amount bet in current street
+          example: 200
+        holeCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 2
+          maxItems: 2
+          nullable: true
+          description: "Hole cards — visible only for user during play, all at showdown; null if face-down"
+        lastAction:
+          $ref: "#/components/schemas/ActionType"
+          nullable: true
+          description: Last action taken this street (null if hasn't acted)
+        lastActionAmount:
+          type: integer
+          nullable: true
+          description: Amount associated with last action (null for fold/check)
+          example: 300
+        isDealer:
+          type: boolean
+          description: Whether this player is the current dealer
+          example: true
+
+    # ── Game State ──
+    GameState:
+      type: object
+      required:
+        - sessionId
+        - handNumber
+        - street
+        - players
+        - communityCards
+        - potTotal
+        - currentPlayerIndex
+        - isUserTurn
+        - dealerIndex
+        - smallBlind
+        - bigBlind
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+          description: Current game session ID
+          example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+        handNumber:
+          type: integer
+          minimum: 1
+          description: Sequential hand number in this session
+          example: 12
+        street:
+          $ref: "#/components/schemas/Street"
+        players:
+          type: array
+          items:
+            $ref: "#/components/schemas/Player"
+          minItems: 6
+          maxItems: 6
+          description: All 6 players at the table
+        communityCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 0
+          maxItems: 5
+          description: Community cards currently revealed
+        potTotal:
+          type: integer
+          minimum: 0
+          description: Total pot size (main pot + side pots)
+          example: 1500
+        sidePots:
+          type: array
+          items:
+            $ref: "#/components/schemas/SidePot"
+          description: Side pots if any all-in situations exist
+        currentPlayerIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          nullable: true
+          description: "Seat index of player whose turn it is; null if between hands"
+          example: 3
+        isUserTurn:
+          type: boolean
+          description: Whether it is currently the human user's turn to act
+          example: true
+        availableActions:
+          $ref: "#/components/schemas/AvailableActions"
+          nullable: true
+          description: "Available actions for the current player; null if not user's turn"
+        dealerIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          description: Seat index of the dealer button
+          example: 3
+        smallBlind:
+          type: integer
+          description: Small blind amount
+          example: 50
+        bigBlind:
+          type: integer
+          description: Big blind amount
+          example: 100
+        handPhase:
+          type: string
+          enum: [dealing, betting, showdown, complete]
+          description: Current phase within the hand
+          example: "betting"
+        showdownResults:
+          $ref: "#/components/schemas/ShowdownResult"
+          nullable: true
+          description: "Results at showdown; null if hand hasn't reached showdown"
+
+    SidePot:
+      type: object
+      required: [amount, eligiblePlayerIndices]
+      properties:
+        amount:
+          type: integer
+          minimum: 0
+          description: Side pot amount
+          example: 5000
+        eligiblePlayerIndices:
+          type: array
+          items:
+            type: integer
+          description: Seat indices of players eligible for this pot
+          example: [0, 2, 4]
+
+    AvailableActions:
+      type: object
+      required: [canFold, canCheck, canCall, canBet, canRaise]
+      properties:
+        canFold:
+          type: boolean
+          example: true
+        canCheck:
+          type: boolean
+          example: false
+        canCall:
+          type: boolean
+          example: true
+        callAmount:
+          type: integer
+          nullable: true
+          description: "Amount required to call; null if canCall is false"
+          example: 200
+        canBet:
+          type: boolean
+          example: false
+        minBetAmount:
+          type: integer
+          nullable: true
+          description: "Minimum bet amount; null if canBet is false"
+          example: 100
+        maxBetAmount:
+          type: integer
+          nullable: true
+          description: "Maximum bet (all-in); null if canBet is false"
+          example: 10000
+        canRaise:
+          type: boolean
+          example: true
+        minRaiseAmount:
+          type: integer
+          nullable: true
+          description: "Minimum raise to amount; null if canRaise is false"
+          example: 400
+        maxRaiseAmount:
+          type: integer
+          nullable: true
+          description: "Maximum raise (all-in); null if canRaise is false"
+          example: 10000
+        presetRaises:
+          type: array
+          items:
+            $ref: "#/components/schemas/PresetRaise"
+          description: Preset raise options (2x, 3x, pot)
+
+    PresetRaise:
+      type: object
+      required: [label, amount]
+      properties:
+        label:
+          type: string
+          description: Display label for the preset
+          example: "3x"
+        amount:
+          type: integer
+          description: Raise-to amount for this preset
+          example: 600
+
+    ShowdownResult:
+      type: object
+      required: [winners, playerHands]
+      properties:
+        winners:
+          type: array
+          items:
+            type: object
+            required: [seatIndex, amountWon]
+            properties:
+              seatIndex:
+                type: integer
+                example: 3
+              amountWon:
+                type: integer
+                example: 2400
+          description: Winning player(s) and amount won
+        playerHands:
+          type: array
+          items:
+            type: object
+            required: [seatIndex, holeCards, bestHand, handRank, handDescription]
+            properties:
+              seatIndex:
+                type: integer
+                example: 3
+              holeCards:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Card"
+                minItems: 2
+                maxItems: 2
+              bestHand:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Card"
+                minItems: 5
+                maxItems: 5
+                description: Best 5-card hand
+              handRank:
+                $ref: "#/components/schemas/HandRank"
+              handDescription:
+                type: string
+                description: Human-readable hand description (Chinese)
+                example: "两对 A和K"
+          description: All non-folded players' hands at showdown
+
+    # ── Action Input ──
+    PlayerActionInput:
+      type: object
+      required: [actionType]
+      properties:
+        actionType:
+          $ref: "#/components/schemas/ActionType"
+        amount:
+          type: integer
+          minimum: 0
+          nullable: true
+          description: "Bet/raise amount; required for bet/raise, ignored for fold/check/call"
+          example: 600
+
+    # ── Session ──
+    GameSession:
+      type: object
+      required: [sessionId, createdAt, seatPosition, status, handCount]
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+          example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2026-03-26T14:30:00.000Z"
+        seatPosition:
+          $ref: "#/components/schemas/Position"
+        status:
+          type: string
+          enum: [active, completed, abandoned]
+          description: Session status
+          example: "active"
+        handCount:
+          type: integer
+          minimum: 0
+          description: Number of hands played in session
+          example: 47
+
+    CreateSessionInput:
+      type: object
+      required: [seatPosition]
+      properties:
+        seatPosition:
+          $ref: "#/components/schemas/Position"
+
+    # ── Hand History ──
+    HandRecord:
+      type: object
+      required:
+        - handId
+        - sessionId
+        - handNumber
+        - timestamp
+        - userPosition
+        - userHoleCards
+        - communityCards
+        - result
+        - profitLoss
+        - decisionPoints
+        - finalStreet
+      properties:
+        handId:
+          type: string
+          format: uuid
+          description: Unique hand identifier
+          example: "f1e2d3c4-b5a6-7890-abcd-ef1234567890"
+        sessionId:
+          type: string
+          format: uuid
+          example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+        handNumber:
+          type: integer
+          minimum: 1
+          example: 12
+        timestamp:
+          type: string
+          format: date-time
+          example: "2026-03-26T14:32:15.000Z"
+        userPosition:
+          $ref: "#/components/schemas/Position"
+        userHoleCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 2
+          maxItems: 2
+        communityCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 0
+          maxItems: 5
+          description: Community cards revealed during the hand
+        result:
+          $ref: "#/components/schemas/HandResultType"
+        profitLoss:
+          type: integer
+          description: Profit/loss in chips (positive = won, negative = lost)
+          example: 450
+        handSummary:
+          type: string
+          description: "Short display summary, e.g. A♠K♥ — 两对"
+          example: "A♠K♥ — 两对 +45BB"
+        finalStreet:
+          $ref: "#/components/schemas/Street"
+          description: The last street reached in this hand
+        decisionPoints:
+          type: array
+          items:
+            $ref: "#/components/schemas/DecisionPoint"
+          description: All decision points where the user acted
+        allActions:
+          type: array
+          items:
+            $ref: "#/components/schemas/HandAction"
+          description: Complete action history for all players in order
+
+    HandAction:
+      type: object
+      required: [seatIndex, position, street, actionType, timestamp]
+      properties:
+        seatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          example: 3
+        position:
+          $ref: "#/components/schemas/Position"
+        street:
+          $ref: "#/components/schemas/Street"
+        actionType:
+          $ref: "#/components/schemas/ActionType"
+        amount:
+          type: integer
+          nullable: true
+          example: 300
+        potAfterAction:
+          type: integer
+          description: Pot size after this action
+          example: 750
+        timestamp:
+          type: string
+          format: date-time
+
+    DecisionPoint:
+      type: object
+      required:
+        - decisionId
+        - street
+        - userAction
+        - potBeforeAction
+        - communityCardsAtPoint
+        - playerStates
+      properties:
+        decisionId:
+          type: string
+          format: uuid
+          example: "d1c2b3a4-9876-5432-abcd-ef0987654321"
+        street:
+          $ref: "#/components/schemas/Street"
+        userAction:
+          $ref: "#/components/schemas/ActionType"
+        userActionAmount:
+          type: integer
+          nullable: true
+          example: 300
+        potBeforeAction:
+          type: integer
+          description: Pot size before user acted
+          example: 450
+        communityCardsAtPoint:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+          minItems: 0
+          maxItems: 5
+          description: Community cards visible at this decision point
+        playerStates:
+          type: array
+          items:
+            $ref: "#/components/schemas/DecisionPlayerState"
+          description: Snapshot of all players at this decision point
+        actionsBeforeUser:
+          type: array
+          items:
+            $ref: "#/components/schemas/HandAction"
+          description: Actions that happened before user in this betting round
+
+    DecisionPlayerState:
+      type: object
+      required: [seatIndex, position, chipCount, status, currentBet]
+      properties:
+        seatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+        position:
+          $ref: "#/components/schemas/Position"
+        chipCount:
+          type: integer
+          minimum: 0
+        status:
+          $ref: "#/components/schemas/PlayerStatus"
+        currentBet:
+          type: integer
+          minimum: 0
+
+    # ── Hand History List ──
+    HandHistoryListItem:
+      type: object
+      required: [handId, timestamp, userPosition, result, profitLoss, handSummary]
+      properties:
+        handId:
+          type: string
+          format: uuid
+          example: "f1e2d3c4-b5a6-7890-abcd-ef1234567890"
+        timestamp:
+          type: string
+          format: date-time
+          example: "2026-03-26T14:32:15.000Z"
+        userPosition:
+          $ref: "#/components/schemas/Position"
+        result:
+          $ref: "#/components/schemas/HandResultType"
+        profitLoss:
+          type: integer
+          example: 450
+        handSummary:
+          type: string
+          description: "Short summary for list display"
+          example: "A♠K♥ — 两对"
+        sessionId:
+          type: string
+          format: uuid
+
+    HandHistoryListResponse:
+      type: object
+      required: [items, total, page, perPage]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/HandHistoryListItem"
+        total:
+          type: integer
+          description: Total number of records
+          example: 142
+        page:
+          type: integer
+          description: Current page number
+          example: 1
+        perPage:
+          type: integer
+          description: Items per page
+          example: 20
+
+    DeleteHandsInput:
+      type: object
+      required: [handIds]
+      properties:
+        handIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          minItems: 1
+          description: List of hand IDs to delete
+          example: ["f1e2d3c4-b5a6-7890-abcd-ef1234567890"]
+        deleteAll:
+          type: boolean
+          description: "If true, deletes all hand history (handIds ignored)"
+          example: false
+
+    DeleteHandsResponse:
+      type: object
+      required: [deletedCount]
+      properties:
+        deletedCount:
+          type: integer
+          description: Number of records deleted
+          example: 5
+
+    # ── GTO Replay / Analysis ──
+    GtoAnalysis:
+      type: object
+      required: [handId, decisionAnalyses, overallDeviationCount, overallCorrectCount]
+      properties:
+        handId:
+          type: string
+          format: uuid
+        decisionAnalyses:
+          type: array
+          items:
+            $ref: "#/components/schemas/DecisionAnalysis"
+        overallDeviationCount:
+          type: integer
+          description: Total deviations in this hand
+          example: 1
+        overallCorrectCount:
+          type: integer
+          description: Total correct decisions in this hand
+          example: 2
+
+    DecisionAnalysis:
+      type: object
+      required:
+        - decisionId
+        - street
+        - userAction
+        - gtoRecommendedAction
+        - deviationStatus
+        - explanation
+      properties:
+        decisionId:
+          type: string
+          format: uuid
+          description: Matches DecisionPoint.decisionId
+        street:
+          $ref: "#/components/schemas/Street"
+        userAction:
+          $ref: "#/components/schemas/ActionType"
+        userActionAmount:
+          type: integer
+          nullable: true
+          example: 0
+        gtoRecommendedAction:
+          $ref: "#/components/schemas/ActionType"
+        gtoRecommendedAmount:
+          type: integer
+          nullable: true
+          description: "Recommended amount for bet/raise; null for fold/check/call"
+          example: 300
+        gtoActionFrequencies:
+          type: array
+          items:
+            $ref: "#/components/schemas/GtoActionFrequency"
+          description: GTO mixed strategy frequencies for this spot
+        deviationStatus:
+          $ref: "#/components/schemas/DeviationStatus"
+        explanation:
+          type: string
+          description: Human-readable explanation in Chinese of why GTO recommends this action
+          example: "在CO位置，A5s属于标准开局范围，fold是过紧的偏离。建议用此类同花Ax手牌进行open raise以平衡范围。"
+
+    GtoActionFrequency:
+      type: object
+      required: [actionType, frequency]
+      properties:
+        actionType:
+          $ref: "#/components/schemas/ActionType"
+        amount:
+          type: integer
+          nullable: true
+          description: "Amount for bet/raise; null for fold/check/call"
+          example: 300
+        frequency:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: "Frequency this action is taken (0-1, rounded to 0.25 increments)"
+          example: 0.75
+
+    # ── Replay State ──
+    ReplayState:
+      type: object
+      required:
+        - handId
+        - handRecord
+        - gtoAnalysis
+        - totalDecisionPoints
+        - currentDecisionIndex
+        - currentBoardState
+      properties:
+        handId:
+          type: string
+          format: uuid
+        handRecord:
+          $ref: "#/components/schemas/HandRecord"
+        gtoAnalysis:
+          $ref: "#/components/schemas/GtoAnalysis"
+        totalDecisionPoints:
+          type: integer
+          description: Total number of user decision points in this hand
+          example: 3
+        currentDecisionIndex:
+          type: integer
+          description: Index of currently displayed decision point (0-based)
+          example: 0
+        currentBoardState:
+          $ref: "#/components/schemas/ReplayBoardState"
+
+    ReplayBoardState:
+      type: object
+      required: [street, communityCards, pot, players]
+      properties:
+        street:
+          $ref: "#/components/schemas/Street"
+        communityCards:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
+        pot:
+          type: integer
+          minimum: 0
+          example: 750
+        players:
+          type: array
+          items:
+            $ref: "#/components/schemas/DecisionPlayerState"
+          minItems: 6
+          maxItems: 6
+
+    # ── Session Stats ──
+    SessionStats:
+      type: object
+      required:
+        - sessionId
+        - totalHands
+        - totalProfitLoss
+        - deviationCount
+        - correctCount
+        - gtoComplianceRate
+        - positionBreakdown
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+          example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+        totalHands:
+          type: integer
+          minimum: 0
+          description: Total hands played in session
+          example: 47
+        totalProfitLoss:
+          type: integer
+          description: Net profit/loss in chips
+          example: 1250
+        deviationCount:
+          type: integer
+          minimum: 0
+          description: Total GTO deviation count
+          example: 12
+        correctCount:
+          type: integer
+          minimum: 0
+          description: Total GTO correct decision count
+          example: 35
+        gtoComplianceRate:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: "Ratio of correct decisions (0-1)"
+          example: 0.74
+        positionBreakdown:
+          type: array
+          items:
+            $ref: "#/components/schemas/PositionStats"
+
+    PositionStats:
+      type: object
+      required: [position, handsPlayed, deviationRate, profitLoss]
+      properties:
+        position:
+          $ref: "#/components/schemas/Position"
+        handsPlayed:
+          type: integer
+          minimum: 0
+          example: 8
+        deviationRate:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: "Ratio of deviations at this position (0-1)"
+          example: 0.25
+        profitLoss:
+          type: integer
+          description: Net profit/loss at this position
+          example: -200
+        deviationCount:
+          type: integer
+          minimum: 0
+          example: 2
+        correctCount:
+          type: integer
+          minimum: 0
+          example: 6
+
+    # ── Storage ──
+    StorageInfo:
+      type: object
+      required: [usedBytes, totalBytes, estimatedHandCapacity, currentHandCount]
+      properties:
+        usedBytes:
+          type: integer
+          minimum: 0
+          description: Bytes used in localStorage
+          example: 2200000
+        totalBytes:
+          type: integer
+          description: Total localStorage capacity (typically 5MB)
+          example: 5242880
+        usagePercent:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: "Usage ratio (0-1)"
+          example: 0.42
+        estimatedHandCapacity:
+          type: integer
+          description: Estimated remaining hand storage capacity
+          example: 1200
+        currentHandCount:
+          type: integer
+          minimum: 0
+          description: Number of hands currently stored
+          example: 340
+        isNearFull:
+          type: boolean
+          description: "True if usage exceeds 80%"
+          example: false
+
+    ExportDataResponse:
+      type: object
+      required: [filename, data]
+      properties:
+        filename:
+          type: string
+          description: Suggested filename for download
+          example: "gto-idiot-history-2026-03-26.json"
+        data:
+          type: string
+          description: "JSON string of all hand history data for download"
+        handCount:
+          type: integer
+          description: Number of hands included in export
+          example: 340
+
+    # ── App Config ──
+    AppConfig:
+      type: object
+      required: [blinds, startingChips, maxPlayers, gtoDisclaimerText]
+      properties:
+        blinds:
+          type: object
+          required: [small, big]
+          properties:
+            small:
+              type: integer
+              example: 50
+            big:
+              type: integer
+              example: 100
+        startingChips:
+          type: integer
+          description: Starting chip count (100BB)
+          example: 10000
+        maxPlayers:
+          type: integer
+          description: Fixed at 6 for 6-max
+          example: 6
+        gtoDisclaimerText:
+          type: string
+          description: Disclaimer text about approximate GTO
+          example: "本应用使用简化GTO近似策略，适用于学习目的，非精确solver结果"
+        gtoReplayDisclaimer:
+          type: string
+          description: Shorter disclaimer for replay screens
+          example: "近似GTO策略，仅供学习参考"
+
+    # ── Seat Selection ──
+    SeatSelectionState:
+      type: object
+      required: [seats]
+      properties:
+        seats:
+          type: array
+          items:
+            $ref: "#/components/schemas/SeatOption"
+          minItems: 6
+          maxItems: 6
+
+    SeatOption:
+      type: object
+      required: [seatIndex, position, isAvailable, label]
+      properties:
+        seatIndex:
+          type: integer
+          minimum: 0
+          maximum: 5
+          example: 3
+        position:
+          $ref: "#/components/schemas/Position"
+        isAvailable:
+          type: boolean
+          description: Whether this seat can be selected (always true for user)
+          example: true
+        label:
+          type: string
+          description: Display label
+          example: "BTN"
+
+paths:
+  # ── Seat Selection ──
+  /seats:
+    get:
+      summary: Get available seat positions for selection
+      operationId: getSeats
+      tags: [Seat]
+      x-covers-features: ["F-002"]
+      responses:
+        "200":
+          description: Available seat positions
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SeatSelectionState"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ── Game Session ──
+  /game/sessions:
+    post:
+      summary: Create a new game session with selected seat position
+      operationId: createGameSession
+      tags: [Game]
+      x-covers-features: ["F-001", "F-002"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateSessionInput"
+      responses:
+        "201":
+          description: Session created, first hand dealing begins
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "400":
+          description: Invalid seat position
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /game/sessions/current:
+    get:
+      summary: Get the current active game session state
+      operationId: getCurrentSession
+      tags: [Game]
+      x-covers-features: ["F-001", "F-003"]
+      responses:
+        "200":
+          description: Current game state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: No active session
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    delete:
+      summary: End the current game session (leave table)
+      operationId: endCurrentSession
+      tags: [Game]
+      x-covers-features: ["F-001", "F-010"]
+      responses:
+        "200":
+          description: Session ended, returns final session info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameSession"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: No active session
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ── Player Action ──
+  /game/sessions/current/action:
+    post:
+      summary: Submit user action (fold/check/call/bet/raise) for the current decision point
+      operationId: submitPlayerAction
+      tags: [Game]
+      x-covers-features: ["F-001", "F-003", "F-005"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlayerActionInput"
+      responses:
+        "200":
+          description: Action accepted, returns updated game state (includes BOT actions that follow)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "400":
+          description: Invalid action (not user's turn, illegal action, invalid amount)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: No active session
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ── Advance to Next Hand ──
+  /game/sessions/current/next-hand:
+    post:
+      summary: Advance to the next hand after current hand completes
+      operationId: advanceToNextHand
+      tags: [Game]
+      x-covers-features: ["F-001"]
+      responses:
+        "200":
+          description: New hand started, returns fresh game state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameState"
+        "400":
+          description: Current hand is still in progress
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: No active session
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ── BOT Strategy (internal, exposed for testability) ──
+  /game/bot-decision:
+    post:
+      summary: "[Internal] Compute BOT decision for a given game state"
+      operationId: computeBotDecision
+      tags: [Game]
+      x-covers-features: ["F-004"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [gameState, botSeatIndex]
+              properties:
+                gameState:
+                  $ref: "#/components/schemas/GameState"
+                botSeatIndex:
+                  type: integer
+                  minimum: 0
+                  maximum: 5
+                  description: Seat index of the BOT to make decision for
+      responses:
+        "200":
+          description: BOT decision computed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlayerActionInput"
+        "400":
+          description: Invalid input or not a BOT seat
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Game state not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ── Hand History ──
+  /hands:
+    get:
+      summary: List saved hand history with pagination and optional filters
+      operationId: listHandHistory
+      tags: [HandHistory]
+      x-covers-features: ["F-007"]
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+          description: Page number
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+          description: Items per page
+        - name: session_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+          description: Filter by session ID
+        - name: sort_by
+          in: query
+          schema:
+            type: string
+            enum: [timestamp, profit_loss]
+            default: timestamp
+          description: Sort field
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: desc
+          description: Sort order
+      responses:
+        "200":
+          description: Paginated list of hand history items
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HandHistoryListResponse"
+        "400":
+          description: Invalid query parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /hands/{handId}:
+    get:
+      summary: Get full hand record including all decision points and actions
+      operationId: getHandRecord
+      tags: [HandHistory]
+      x-covers-features: ["F-005", "F-006", "F-007"]
+      parameters:
+        - name: handId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Full hand record
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HandRecord"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Hand not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /hands/batch-delete:
+    post:
+      summary: Delete selected hand history records or all records
+      operationId: deleteHands
+      tags: [HandHistory]
+      x-covers-features: ["F-007"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeleteHandsInput"
+      responses:
+        "200":
+          description: Records deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeleteHandsResponse"
+        "400":
+          description: Invalid input (empty handIds array)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: One or more hand IDs not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ── GTO Analysis / Replay ──
+  /hands/{handId}/gto-analysis:
+    get:
+      summary: Get GTO comparison analysis for a specific hand
+      operationId: getGtoAnalysis
+      tags: [Replay]
+      x-covers-features: ["F-006", "F-009"]
+      parameters:
+        - name: handId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: GTO analysis with per-decision comparisons
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GtoAnalysis"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Hand not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /hands/{handId}/replay:
+    get:
+      summary: Get full replay state for a hand including board state at each decision point
+      operationId: getHandReplay
+      tags: [Replay]
+      x-covers-features: ["F-006"]
+      parameters:
+        - name: handId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: decision_index
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+          description: Index of decision point to display (0-based)
+      responses:
+        "200":
+          description: Full replay state at specified decision point
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReplayState"
+        "400":
+          description: Invalid decision index
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Hand not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ── Session Stats ──
+  /stats/sessions/{sessionId}:
+    get:
+      summary: Get statistics summary for a specific game session
+      operationId: getSessionStats
+      tags: [Stats]
+      x-covers-features: ["F-008"]
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Session statistics with position breakdown
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SessionStats"
+        "400":
+          description: Invalid session ID or no hands played
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Session not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /stats/sessions/current:
+    get:
+      summary: Get statistics for the current active session
+      operationId: getCurrentSessionStats
+      tags: [Stats]
+      x-covers-features: ["F-008"]
+      responses:
+        "200":
+          description: Current session statistics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SessionStats"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: No active session
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ── Storage Management ──
+  /storage/info:
+    get:
+      summary: Get localStorage usage information and capacity estimates
+      operationId: getStorageInfo
+      tags: [Storage]
+      x-covers-features: ["F-011", "F-005"]
+      responses:
+        "200":
+          description: Storage usage information
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StorageInfo"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /storage/export:
+    get:
+      summary: Export all hand history data as downloadable JSON
+      operationId: exportData
+      tags: [Storage]
+      x-covers-features: ["F-011"]
+      responses:
+        "200":
+          description: Export data ready for download
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExportDataResponse"
+        "400":
+          description: No data to export
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ── App Config ──
+  /config:
+    get:
+      summary: Get application configuration and GTO disclaimer text
+      operationId: getAppConfig
+      tags: [Config]
+      x-covers-features: ["F-009"]
+      responses:
+        "200":
+          description: Application configuration
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppConfig"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"

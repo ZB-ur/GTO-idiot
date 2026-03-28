@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PageContainer Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <!-- Show the container with placeholder content -->
+  <div class="max-w-4xl mx-auto px-4 py-6">
+    <div class="bg-white border border-gray-200 rounded-xl p-6 mb-6">
+      <h1 class="text-2xl font-bold text-gray-900 mb-2">页面标题</h1>
+      <p class="text-base text-gray-600">PageContainer 提供最大宽度居中的内容区域，适用于所有页面级布局。</p>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="bg-white border border-gray-200 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-1">卡片 A</h3>
+        <p class="text-sm text-gray-600">示例内容区域</p>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-1">卡片 B</h3>
+        <p class="text-sm text-gray-600">示例内容区域</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Boundary indicator -->
+  <div class="max-w-4xl mx-auto px-4 mt-4">
+    <div class="border-2 border-dashed border-blue-300 rounded-xl p-3 text-center">
+      <span class="text-xs text-blue-400 font-mono">max-w-4xl · px-4 · py-6</span>
+    </div>
+  </div>
+</body>
+</html>

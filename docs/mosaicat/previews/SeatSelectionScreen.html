@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeatSelectionScreen Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-6">
+
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <h1 class="text-2xl font-bold text-gray-900 mb-2">选择你的座位</h1>
+      <p class="text-base text-gray-600">选择一个位置开始 6-max 无限注德州扑克 GTO 训练</p>
+    </div>
+
+    <!-- Table Area -->
+    <div class="relative w-full max-w-2xl" style="aspect-ratio: 16/10;">
+
+      <!-- Poker Table (oval) -->
+      <div class="absolute rounded-full border-4 border-emerald-900 shadow-lg"
+           style="inset: 15%; background: #065f46;">
+        <div class="absolute inset-3 rounded-full border border-emerald-700/40"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <span class="text-lg font-semibold tracking-wider" style="color: rgba(16,185,129,0.4);">6-MAX</span>
+        </div>
+      </div>
+
+      <!-- Seat 1: UTG (bottom-left) -->
+      <button class="absolute w-20 h-20 rounded-xl border-2 bg-white border-gray-200 text-gray-900 shadow-sm flex flex-col items-center justify-center gap-0.5 hover:border-blue-400 transition-all"
+              style="top: 68%; left: 10%; transform: translate(-50%, -50%);">
+        <span class="text-sm font-bold">UTG</span>
+        <span class="text-xs text-gray-500">Seat 1</span>
+      </button>
+
+      <!-- Seat 2: MP (top-left) -->
+      <button class="absolute w-20 h-20 rounded-xl border-2 bg-white border-gray-200 text-gray-900 shadow-sm flex flex-col items-center justify-center gap-0.5 hover:border-blue-400 transition-all"
+              style="top: 20%; left: 10%; transform: translate(-50%, -50%);">
+        <span class="text-sm font-bold">MP</span>
+        <span class="text-xs text-gray-500">Seat 2</span>
+      </button>
+
+      <!-- Seat 3: CO (top-center) -->
+      <button class="absolute w-20 h-20 rounded-xl border-2 bg-white border-gray-200 text-gray-900 shadow-sm flex flex-col items-center justify-center gap-0.5 hover:border-blue-400 transition-all"
+              style="top: 5%; left: 50%; transform: translate(-50%, -50%);">
+        <span class="text-sm font-bold">CO</span>
+        <span class="text-xs text-gray-500">Seat 3</span>
+      </button>
+
+      <!-- Seat 4: BTN (top-right) — SELECTED -->
+      <button class="absolute w-20 h-20 rounded-xl border-2 bg-blue-600 border-blue-700 text-white shadow-md flex flex-col items-center justify-center gap-0.5"
+              style="top: 20%; left: 90%; transform: translate(-50%, -50%) scale(1.1);">
+        <span class="text-sm font-bold text-white">BTN</span>
+        <span class="text-xs text-blue-100">Seat 4</span>
+      </button>
+
+      <!-- Seat 5: SB (bottom-right) -->
+      <button class="absolute w-20 h-20 rounded-xl border-2 bg-white border-gray-200 text-gray-900 shadow-sm flex flex-col items-center justify-center gap-0.5 hover:border-blue-400 transition-all"
+              style="top: 68%; left: 90%; transform: translate(-50%, -50%);">
+        <span class="text-sm font-bold">SB</span>
+        <span class="text-xs text-gray-500">Seat 5</span>
+      </button>
+
+      <!-- Seat 6: BB (bottom-center) -->
+      <button class="absolute w-20 h-20 rounded-xl border-2 bg-white border-gray-200 text-gray-900 shadow-sm flex flex-col items-center justify-center gap-0.5 hover:border-blue-400 transition-all"
+              style="top: 85%; left: 50%; transform: translate(-50%, -50%);">
+        <span class="text-sm font-bold">BB</span>
+        <span class="text-xs text-gray-500">Seat 6</span>
+      </button>
+    </div>
+
+    <!-- Selected Seat Info -->
+    <div class="text-center mb-6">
+      <p class="text-lg font-semibold text-gray-900">BTN</p>
+      <p class="text-sm text-gray-600">庄家位 · 最佳位置</p>
+    </div>
+
+    <!-- Start Game Button (enabled state) -->
+    <button class="px-8 py-3 rounded-lg text-base font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-sm transition-all">
+      开始游戏
+    </button>
+
+    <!-- GTO Disclaimer Banner -->
+    <div class="mt-8 max-w-lg w-full bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 flex items-start gap-3">
+      <span class="text-amber-500 mt-0.5 flex-shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+        </svg>
+      </span>
+      <p class="text-sm text-amber-800">本应用使用简化GTO近似策略，适用于学习目的，非精确solver结果</p>
+    </div>
+  </div>
+</body>
+</html>

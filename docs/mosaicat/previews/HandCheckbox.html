@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandCheckbox Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-4">
+    <div class="flex items-center gap-3">
+      <!-- Unchecked state -->
+      <div class="w-5 h-5 rounded-lg border-2 border-gray-200 bg-white flex items-center justify-center"></div>
+      <span class="text-sm text-gray-600">Unchecked</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <!-- Checked state -->
+      <div class="w-5 h-5 rounded-lg border-2 border-blue-600 bg-blue-600 flex items-center justify-center">
+        <svg class="w-3 h-3 text-white" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg>
+      </div>
+      <span class="text-sm text-gray-600">Checked</span>
+    </div>
+    <!-- In context: inside a hand history row -->
+    <div class="mt-4 bg-white border border-gray-200 rounded-xl p-4 shadow-sm flex items-center gap-4 max-w-sm">
+      <div class="w-5 h-5 rounded-lg border-2 border-blue-600 bg-blue-600 flex items-center justify-center flex-shrink-0">
+        <svg class="w-3 h-3 text-white" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="text-sm font-semibold text-gray-900">Hand #1042</div>
+        <div class="text-xs text-gray-600">Won +$85 &middot; Two Pair</div>
+      </div>
+    </div>
+    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm flex items-center gap-4 max-w-sm">
+      <div class="w-5 h-5 rounded-lg border-2 border-gray-200 bg-white flex items-center justify-center flex-shrink-0"></div>
+      <div class="flex-1 min-w-0">
+        <div class="text-sm font-semibold text-gray-900">Hand #1041</div>
+        <div class="text-xs text-gray-600">Lost -$40 &middot; High Card</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

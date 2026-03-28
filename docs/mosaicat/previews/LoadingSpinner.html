@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LoadingSpinner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner { animation: spin 0.8s linear infinite; }
+  </style>
+</head>
+<body>
+  <p class="text-sm text-gray-500 mb-6 font-semibold">LoadingSpinner — Sizes</p>
+
+  <div class="flex items-center gap-8">
+    <!-- Small -->
+    <div class="flex flex-col items-center gap-2">
+      <div class="w-4 h-4 border-2 border-gray-200 border-t-blue-600 rounded-full spinner"></div>
+      <span class="text-xs text-gray-400">sm</span>
+    </div>
+
+    <!-- Medium -->
+    <div class="flex flex-col items-center gap-2">
+      <div class="w-6 h-6 border-2 border-gray-200 border-t-blue-600 rounded-full spinner"></div>
+      <span class="text-xs text-gray-400">md</span>
+    </div>
+
+    <!-- Large -->
+    <div class="flex flex-col items-center gap-2">
+      <div class="w-10 h-10 border-[3px] border-gray-200 border-t-blue-600 rounded-full spinner"></div>
+      <span class="text-xs text-gray-400">lg</span>
+    </div>
+  </div>
+</body>
+</html>

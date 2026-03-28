@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StorageIndicator Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-6 max-w-sm">
+    <!-- Normal usage (42%) -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2">Normal (42%)</p>
+      <div class="w-full">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs text-gray-600">存储空间</span>
+          <span class="text-xs font-medium text-gray-600">2.1 MB / 5.0 MB</span>
+        </div>
+        <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+          <div class="h-full rounded-full bg-blue-600" style="width: 42%"></div>
+        </div>
+        <div class="flex items-center justify-between mt-1">
+          <span class="text-xs text-gray-400">340 手记录</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Near full (85%) -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2">Near Full (85%)</p>
+      <div class="w-full">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs text-gray-600">存储空间</span>
+          <span class="text-xs font-medium text-amber-600">4.3 MB / 5.0 MB</span>
+        </div>
+        <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+          <div class="h-full rounded-full bg-amber-500" style="width: 85%"></div>
+        </div>
+        <div class="flex items-center justify-between mt-1">
+          <span class="text-xs text-gray-400">680 手记录</span>
+          <span class="text-xs font-medium text-amber-600">存储空间不足</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Critical (97%) -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2">Critical (97%)</p>
+      <div class="w-full">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs text-gray-600">存储空间</span>
+          <span class="text-xs font-medium text-red-600">4.9 MB / 5.0 MB</span>
+        </div>
+        <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+          <div class="h-full rounded-full bg-red-500" style="width: 97%"></div>
+        </div>
+        <div class="flex items-center justify-between mt-1">
+          <span class="text-xs text-gray-400">790 手记录</span>
+          <span class="text-xs font-medium text-red-600">存储空间即将满</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+import React from 'react';
+
+interface EmptyHistoryStateProps {
+  onStartGame: () => void;
+}
+
+export const EmptyHistoryState: React.FC<EmptyHistoryStateProps> = ({
+  onStartGame,
+}) => {
+  return (
+    <div className="flex flex-col items-center justify-center py-16 px-6">
+      {/* Illustration: stylized card fan */}
+      <div className="relative w-24 h-24 mb-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          {/* Card 1 (left, rotated) */}
+          <div
+            className="absolute w-14 h-20 bg-white border border-gray-200 rounded-lg shadow-sm"
+            style={{ transform: 'rotate(-15deg) translateX(-8px)' }}
+          >
+            <div className="flex items-center justify-center h-full text-gray-300">
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 3.87 7 13 7 13s7-9.13 7-13c0-3.87-3.13-7-7-7z" />
+              </svg>
+            </div>
+          </div>
+          {/* Card 2 (center) */}
+          <div className="absolute w-14 h-20 bg-white border border-gray-200 rounded-lg shadow-sm z-10">
+            <div className="flex items-center justify-center h-full text-gray-300">
+              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+              </svg>
+            </div>
+          </div>
+          {/* Card 3 (right, rotated) */}
+          <div
+            className="absolute w-14 h-20 bg-white border border-gray-200 rounded-lg shadow-sm"
+            style={{ transform: 'rotate(15deg) translateX(8px)' }}
+          >
+            <div className="flex items-center justify-center h-full text-gray-300">
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 className="text-lg font-semibold text-gray-900 mb-2">
+        还没有手牌记录
+      </h3>
+      <p className="text-sm text-gray-600 text-center mb-6 max-w-xs">
+        开始一局游戏，你的每一手牌都会被记录下来，方便之后复盘和分析。
+      </p>
+      <button
+        type="button"
+        onClick={onStartGame}
+        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 transition-colors duration-150 shadow-sm"
+      >
+        <svg
+          className="w-4 h-4"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path d="M10 5a.75.75 0 01.75.75v3.5h3.5a.75.75 0 010 1.5h-3.5v3.5a.75.75 0 01-1.5 0v-3.5h-3.5a.75.75 0 010-1.5h3.5v-3.5A.75.75 0 0110 5z" />
+        </svg>
+        开始新游戏
+      </button>
+    </div>
+  );
+};
+
+export default EmptyHistoryState;

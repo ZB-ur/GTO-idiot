@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayTimeline Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-8 max-w-md mx-auto">
+
+    <!-- Active on Flop, decisions on Preflop & Turn -->
+    <div>
+      <p class="text-xs text-gray-400 mb-4">Active: Flop | Decisions: Preflop, Turn</p>
+      <div class="w-full">
+        <div class="flex items-center">
+          <!-- Preflop (past, has decision) -->
+          <button class="flex flex-col items-center gap-1.5 relative">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center border-2 bg-blue-100 border-blue-300 text-blue-600 transition-colors duration-150">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <span class="text-xs font-medium text-gray-600">Preflop</span>
+            <div class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full border-2 border-white"></div>
+          </button>
+
+          <!-- Connector (past) -->
+          <div class="flex-1 mx-1">
+            <div class="h-0.5 w-full rounded-full bg-blue-300"></div>
+          </div>
+
+          <!-- Flop (active) -->
+          <button class="flex flex-col items-center gap-1.5 relative">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center border-2 bg-blue-600 border-blue-600 text-white transition-colors duration-150">
+              <span class="text-xs font-medium">2</span>
+            </div>
+            <span class="text-xs font-medium text-blue-600">Flop</span>
+          </button>
+
+          <!-- Connector (future) -->
+          <div class="flex-1 mx-1">
+            <div class="h-0.5 w-full rounded-full bg-gray-200"></div>
+          </div>
+
+          <!-- Turn (future, has decision) -->
+          <button class="flex flex-col items-center gap-1.5 relative">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center border-2 bg-white border-gray-200 text-gray-400 hover:border-gray-300 transition-colors duration-150">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <span class="text-xs font-medium text-gray-400">Turn</span>
+            <div class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full border-2 border-white"></div>
+          </button>
+
+          <!-- Connector (future) -->
+          <div class="flex-1 mx-1">
+            <div class="h-0.5 w-full rounded-full bg-gray-200"></div>
+          </div>
+
+          <!-- River (future) -->
+          <button class="flex flex-col items-center gap-1.5 relative">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center border-2 bg-white border-gray-200 text-gray-400 hover:border-gray-300 transition-colors duration-150">
+              <span class="text-xs font-medium">4</span>
+            </div>
+            <span class="text-xs font-medium text-gray-400">River</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active on River (all past) -->
+    <div>
+      <p class="text-xs text-gray-400 mb-4">Active: River | All streets passed</p>
+      <div class="w-full">
+        <div class="flex items-center">
+          <!-- Preflop (past) -->
+          <button class="flex flex-col items-center gap-1.5 relative">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center border-2 bg-blue-100 border-blue-300 text-blue-600">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <span class="text-xs font-medium text-gray-600">Preflop</span>
+          </button>
+
+          <div class="flex-1 mx-1"><div class="h-0.5 w-full rounded-full bg-blue-300"></div></div>
+
+          <!-- Flop (past) -->
+          <button class="flex flex-col items-center gap-1.5 relative">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center border-2 bg-blue-100 border-blue-300 text-blue-600">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <span class="text-xs font-medium text-gray-600">Flop</span>
+          </button>
+
+          <div class="flex-1 mx-1"><div class="h-0.5 w-full rounded-full bg-blue-300"></div></div>
+
+          <!-- Turn (past) -->
+          <button class="flex flex-col items-center gap-1.5 relative">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center border-2 bg-blue-100 border-blue-300 text-blue-600">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <span class="text-xs font-medium text-gray-600">Turn</span>
+          </button>
+
+          <div class="flex-1 mx-1"><div class="h-0.5 w-full rounded-full bg-blue-300"></div></div>
+
+          <!-- River (active) -->
+          <button class="flex flex-col items-center gap-1.5 relative">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center border-2 bg-blue-600 border-blue-600 text-white">
+              <span class="text-xs font-medium">4</span>
+            </div>
+            <span class="text-xs font-medium text-blue-600">River</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

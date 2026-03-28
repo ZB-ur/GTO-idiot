@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SessionStatsPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+<div class="max-w-4xl mx-auto space-y-6">
+
+  <!-- Header -->
+  <div class="flex items-center justify-between">
+    <div>
+      <h2 class="text-2xl font-bold text-gray-900">牌局统计</h2>
+      <p class="text-sm text-gray-400 mt-0.5 font-mono">a1b2c3d4…</p>
+    </div>
+    <button class="px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors">
+      查看历史
+    </button>
+  </div>
+
+  <!-- Quick Stats Row -->
+  <div class="grid grid-cols-3 gap-4">
+    <!-- Total Hands -->
+    <div class="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 shadow-sm">
+      <span class="text-sm font-medium text-gray-600 mb-1">总手数</span>
+      <span class="text-2xl font-bold text-gray-900">47</span>
+      <span class="text-xs text-gray-400 mt-0.5">本次牌局</span>
+    </div>
+    <!-- Profit/Loss -->
+    <div class="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 shadow-sm">
+      <span class="text-sm font-medium text-gray-600 mb-1">盈亏</span>
+      <span class="text-2xl font-bold text-green-500">+1,250</span>
+      <span class="text-xs text-gray-400 mt-0.5">筹码</span>
+    </div>
+    <!-- Decisions -->
+    <div class="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-200 shadow-sm">
+      <span class="text-sm font-medium text-gray-600 mb-1">决策数</span>
+      <span class="text-2xl font-bold text-gray-900">47</span>
+      <span class="text-xs text-gray-400 mt-0.5">35 正确 / 12 偏差</span>
+    </div>
+  </div>
+
+  <!-- GTO Compliance Gauge -->
+  <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4 text-center">GTO 符合率</h3>
+    <div class="flex flex-col items-center">
+      <div class="relative" style="width:128px;height:128px;">
+        <svg width="128" height="128" viewBox="0 0 120 120" style="transform:rotate(-90deg)">
+          <circle cx="60" cy="60" r="54" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+          <!-- 74% compliance: circumference=339.29, offset=339.29*(1-0.74)=88.22 -->
+          <circle cx="60" cy="60" r="54" fill="none" stroke="#3b82f6" stroke-width="8"
+                  stroke-linecap="round"
+                  stroke-dasharray="339.29"
+                  stroke-dashoffset="88.22"/>
+        </svg>
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-3xl font-bold text-blue-600">74%</span>
+          <span class="text-xs text-gray-400">良好</span>
+        </div>
+      </div>
+      <div class="flex gap-4 mt-3 text-sm">
+        <span class="text-green-600 font-medium">✓ 35 正确</span>
+        <span class="text-red-500 font-medium">✗ 12 偏差</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Position Breakdown Table -->
+  <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">位置分布</h3>
+    <div class="overflow-hidden rounded-xl border border-gray-200">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-slate-50 text-gray-600">
+            <th class="text-left py-3 px-4 font-semibold">位置</th>
+            <th class="text-center py-3 px-4 font-semibold">手数</th>
+            <th class="text-center py-3 px-4 font-semibold">偏差率</th>
+            <th class="text-right py-3 px-4 font-semibold">盈亏</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          <!-- UTG -->
+          <tr class="hover:bg-slate-50/50">
+            <td class="py-3 px-4 font-mono font-bold text-gray-900">UTG</td>
+            <td class="py-3 px-4 text-center text-gray-600">6</td>
+            <td class="py-3 px-4 text-center">
+              <span class="inline-block px-2 py-0.5 rounded-lg text-xs font-medium bg-red-100 text-red-700">33%</span>
+            </td>
+            <td class="py-3 px-4 text-right font-mono text-red-500 font-semibold">-450</td>
+          </tr>
+          <!-- MP -->
+          <tr class="hover:bg-slate-50/50">
+            <td class="py-3 px-4 font-mono font-bold text-gray-900">MP</td>
+            <td class="py-3 px-4 text-center text-gray-600">7</td>
+            <td class="py-3 px-4 text-center">
+              <span class="inline-block px-2 py-0.5 rounded-lg text-xs font-medium bg-amber-100 text-amber-700">29%</span>
+            </td>
+            <td class="py-3 px-4 text-right font-mono text-red-500 font-semibold">-200</td>
+          </tr>
+          <!-- CO -->
+          <tr class="hover:bg-slate-50/50">
+            <td class="py-3 px-4 font-mono font-bold text-gray-900">CO</td>
+            <td class="py-3 px-4 text-center text-gray-600">8</td>
+            <td class="py-3 px-4 text-center">
+              <span class="inline-block px-2 py-0.5 rounded-lg text-xs font-medium bg-green-100 text-green-700">13%</span>
+            </td>
+            <td class="py-3 px-4 text-right font-mono text-green-500 font-semibold">+380</td>
+          </tr>
+          <!-- BTN -->
+          <tr class="hover:bg-slate-50/50">
+            <td class="py-3 px-4 font-mono font-bold text-gray-900">BTN</td>
+            <td class="py-3 px-4 text-center text-gray-600">10</td>
+            <td class="py-3 px-4 text-center">
+              <span class="inline-block px-2 py-0.5 rounded-lg text-xs font-medium bg-green-100 text-green-700">10%</span>
+            </td>
+            <td class="py-3 px-4 text-right font-mono text-green-500 font-semibold">+920</td>
+          </tr>
+          <!-- SB -->
+          <tr class="hover:bg-slate-50/50">
+            <td class="py-3 px-4 font-mono font-bold text-gray-900">SB</td>
+            <td class="py-3 px-4 text-center text-gray-600">8</td>
+            <td class="py-3 px-4 text-center">
+              <span class="inline-block px-2 py-0.5 rounded-lg text-xs font-medium bg-amber-100 text-amber-700">25%</span>
+            </td>
+            <td class="py-3 px-4 text-right font-mono text-green-500 font-semibold">+150</td>
+          </tr>
+          <!-- BB -->
+          <tr class="hover:bg-slate-50/50">
+            <td class="py-3 px-4 font-mono font-bold text-gray-900">BB</td>
+            <td class="py-3 px-4 text-center text-gray-600">8</td>
+            <td class="py-3 px-4 text-center">
+              <span class="inline-block px-2 py-0.5 rounded-lg text-xs font-medium bg-amber-100 text-amber-700">25%</span>
+            </td>
+            <td class="py-3 px-4 text-right font-mono text-green-500 font-semibold">+450</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

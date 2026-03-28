@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommunityCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            felt: { DEFAULT: '#065f46', dark: '#064e3b', border: '#064e3b' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { margin: 0; padding: 0; font-family: system-ui, sans-serif; }
+    .card-face {
+      width: 60px;
+      height: 84px;
+      border-radius: 8px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 4px 6px;
+      position: relative;
+      user-select: none;
+    }
+    .card-empty {
+      width: 60px;
+      height: 84px;
+      border-radius: 8px;
+      border: 2px dashed rgba(5,150,105,0.4);
+      background: rgba(6,78,58,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-empty span { color: rgba(5,150,105,0.3); font-size: 18px; }
+    .suit-red { color: #dc2626; }
+    .suit-black { color: #111827; }
+    .rank-top { font-size: 14px; font-weight: 700; line-height: 1; }
+    .suit-top { font-size: 11px; line-height: 1; margin-top: -1px; }
+    .suit-center { font-size: 24px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  </style>
+</head>
+<body class="bg-emerald-800 min-h-screen flex flex-col items-center justify-center gap-16 p-8">
+
+  <!-- State 1: Preflop (0 cards) -->
+  <div class="flex flex-col items-center gap-2">
+    <span class="text-xs font-medium tracking-wide uppercase text-emerald-300/70">Preflop</span>
+    <div class="flex items-center gap-2">
+      <div class="card-empty"><span>?</span></div>
+      <div class="card-empty"><span>?</span></div>
+      <div class="card-empty"><span>?</span></div>
+      <div class="card-empty ml-3"><span>?</span></div>
+      <div class="card-empty"><span>?</span></div>
+    </div>
+  </div>
+
+  <!-- State 2: Flop (3 cards) — A♠ K♥ 9♦ -->
+  <div class="flex flex-col items-center gap-2">
+    <span class="text-xs font-medium tracking-wide uppercase text-emerald-300/70">Flop</span>
+    <div class="flex items-center gap-2">
+      <!-- A♠ -->
+      <div class="card-face">
+        <div class="suit-black">
+          <div class="rank-top">A</div>
+          <div class="suit-top">♠</div>
+        </div>
+        <div class="suit-center suit-black">♠</div>
+      </div>
+      <!-- K♥ -->
+      <div class="card-face">
+        <div class="suit-red">
+          <div class="rank-top">K</div>
+          <div class="suit-top">♥</div>
+        </div>
+        <div class="suit-center suit-red">♥</div>
+      </div>
+      <!-- 9♦ -->
+      <div class="card-face">
+        <div class="suit-red">
+          <div class="rank-top">9</div>
+          <div class="suit-top">♦</div>
+        </div>
+        <div class="suit-center suit-red">♦</div>
+      </div>
+      <!-- empty turn -->
+      <div class="card-empty ml-3"><span>?</span></div>
+      <!-- empty river -->
+      <div class="card-empty"><span>?</span></div>
+    </div>
+  </div>
+
+  <!-- State 3: Turn (4 cards) — A♠ K♥ 9♦ | 5♣ -->
+  <div class="flex flex-col items-center gap-2">
+    <span class="text-xs font-medium tracking-wide uppercase text-emerald-300/70">Turn</span>
+    <div class="flex items-center gap-2">
+      <div class="card-face">
+        <div class="suit-black"><div class="rank-top">A</div><div class="suit-top">♠</div></div>
+        <div class="suit-center suit-black">♠</div>
+      </div>
+      <div class="card-face">
+        <div class="suit-red"><div class="rank-top">K</div><div class="suit-top">♥</div></div>
+        <div class="suit-center suit-red">♥</div>
+      </div>
+      <div class="card-face">
+        <div class="suit-red"><div class="rank-top">9</div><div class="suit-top">♦</div></div>
+        <div class="suit-center suit-red">♦</div>
+      </div>
+      <!-- Turn card -->
+      <div class="card-face ml-3">
+        <div class="suit-black"><div class="rank-top">5</div><div class="suit-top">♣</div></div>
+        <div class="suit-center suit-black">♣</div>
+      </div>
+      <div class="card-empty"><span>?</span></div>
+    </div>
+  </div>
+
+  <!-- State 4: River (5 cards) — A♠ K♥ 9♦ | 5♣ T♠ -->
+  <div class="flex flex-col items-center gap-2">
+    <span class="text-xs font-medium tracking-wide uppercase text-emerald-300/70">River</span>
+    <div class="flex items-center gap-2">
+      <div class="card-face">
+        <div class="suit-black"><div class="rank-top">A</div><div class="suit-top">♠</div></div>
+        <div class="suit-center suit-black">♠</div>
+      </div>
+      <div class="card-face">
+        <div class="suit-red"><div class="rank-top">K</div><div class="suit-top">♥</div></div>
+        <div class="suit-center suit-red">♥</div>
+      </div>
+      <div class="card-face">
+        <div class="suit-red"><div class="rank-top">9</div><div class="suit-top">♦</div></div>
+        <div class="suit-center suit-red">♦</div>
+      </div>
+      <div class="card-face ml-3">
+        <div class="suit-black"><div class="rank-top">5</div><div class="suit-top">♣</div></div>
+        <div class="suit-center suit-black">♣</div>
+      </div>
+      <div class="card-face">
+        <div class="suit-black"><div class="rank-top">T</div><div class="suit-top">♠</div></div>
+        <div class="suit-center suit-black">♠</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

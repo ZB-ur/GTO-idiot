@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayBoard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 672px; margin: 0 auto;">
+
+    <!-- ReplayBoard -->
+    <div style="position: relative; width: 100%; aspect-ratio: 16/10;">
+
+      <!-- Table felt (ellipse) -->
+      <div style="position: absolute; inset: 16px; border-radius: 50%; background: #065f46; border: 6px solid #064e3b; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+        <!-- Inner line -->
+        <div style="position: absolute; inset: 12px; border-radius: 50%; border: 1px solid rgba(4,120,87,0.5);"></div>
+
+        <!-- Street label -->
+        <div style="position: absolute; top: 14px; left: 50%; transform: translateX(-50%); color: rgba(110,231,183,0.6); font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500;">
+          FLOP
+        </div>
+
+        <!-- Community Cards + Pot (center) -->
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 8px;">
+          <!-- 3 community cards (flop) -->
+          <div style="display: flex; gap: 6px;">
+            <!-- Card: A♠ -->
+            <div style="width: 40px; height: 56px; border-radius: 8px; background: white; border: 1px solid #d1d5db; box-shadow: 0 2px 4px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #111827;">
+              <span style="font-size: 14px; font-weight: 700; line-height: 1;">A</span>
+              <span style="font-size: 12px; line-height: 1;">♠</span>
+            </div>
+            <!-- Card: K♥ -->
+            <div style="width: 40px; height: 56px; border-radius: 8px; background: white; border: 1px solid #d1d5db; box-shadow: 0 2px 4px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #dc2626;">
+              <span style="font-size: 14px; font-weight: 700; line-height: 1;">K</span>
+              <span style="font-size: 12px; line-height: 1;">♥</span>
+            </div>
+            <!-- Card: 7♦ -->
+            <div style="width: 40px; height: 56px; border-radius: 8px; background: white; border: 1px solid #d1d5db; box-shadow: 0 2px 4px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #dc2626;">
+              <span style="font-size: 14px; font-weight: 700; line-height: 1;">7</span>
+              <span style="font-size: 12px; line-height: 1;">♦</span>
+            </div>
+          </div>
+          <!-- Pot -->
+          <div style="display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px); padding: 4px 12px; border-radius: 9999px;">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="#facc15"><circle cx="10" cy="10" r="8"/></svg>
+            <span style="color: white; font-weight: 600; font-size: 14px;">750</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seat 0: Bottom center (USER - BTN) -->
+      <div style="position: absolute; top: 78%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 4px;">
+        <!-- User hole cards -->
+        <div style="display: flex; gap: 2px; margin-bottom: 2px;">
+          <!-- A♠ -->
+          <div style="width: 40px; height: 56px; border-radius: 8px; background: white; border: 1px solid #d1d5db; box-shadow: 0 2px 4px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #111827;">
+            <span style="font-size: 14px; font-weight: 700; line-height: 1;">A</span>
+            <span style="font-size: 12px; line-height: 1;">♠</span>
+          </div>
+          <!-- 5♠ -->
+          <div style="width: 40px; height: 56px; border-radius: 8px; background: white; border: 1px solid #d1d5db; box-shadow: 0 2px 4px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #111827;">
+            <span style="font-size: 14px; font-weight: 700; line-height: 1;">5</span>
+            <span style="font-size: 12px; line-height: 1;">♠</span>
+          </div>
+        </div>
+        <!-- Player box -->
+        <div style="border-radius: 8px; border: 2px solid #34d399; background: rgba(6,78,59,0.4); padding: 4px 12px; text-align: center; min-width: 72px;">
+          <div style="color: white; font-size: 12px; font-weight: 600;">你</div>
+          <div style="color: #a7f3d0; font-size: 12px; font-family: monospace;">9.7k</div>
+        </div>
+        <!-- Current bet -->
+        <div style="display: flex; align-items: center; gap: 4px; background: rgba(0,0,0,0.4); padding: 2px 8px; border-radius: 9999px;">
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: #facc15;"></div>
+          <span style="color: #fef08a; font-size: 12px; font-family: monospace;">300</span>
+        </div>
+      </div>
+
+      <!-- Seat 1: Bottom left (SB) -->
+      <div style="position: absolute; top: 65%; left: 12%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 4px;">
+        <!-- Face-down cards -->
+        <div style="display: flex; gap: 2px; margin-bottom: 2px;">
+          <div style="width: 40px; height: 56px; border-radius: 8px; background: #1d4ed8; border: 1px solid #1e40af; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 24px; height: 32px; border-radius: 4px; border: 1px solid #3b82f6; background: #2563eb;"></div>
+          </div>
+          <div style="width: 40px; height: 56px; border-radius: 8px; background: #1d4ed8; border: 1px solid #1e40af; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 24px; height: 32px; border-radius: 4px; border: 1px solid #3b82f6; background: #2563eb;"></div>
+          </div>
+        </div>
+        <div style="border-radius: 8px; border: 2px solid #34d399; background: rgba(6,78,59,0.4); padding: 4px 12px; text-align: center; min-width: 72px;">
+          <div style="color: white; font-size: 12px; font-weight: 600;">SB</div>
+          <div style="color: #a7f3d0; font-size: 12px; font-family: monospace;">9.9k</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 4px; background: rgba(0,0,0,0.4); padding: 2px 8px; border-radius: 9999px;">
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: #facc15;"></div>
+          <span style="color: #fef08a; font-size: 12px; font-family: monospace;">100</span>
+        </div>
+      </div>
+
+      <!-- Seat 2: Top left (BB) -->
+      <div style="position: absolute; top: 18%; left: 12%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 4px;">
+        <div style="display: flex; gap: 2px; margin-bottom: 2px;">
+          <div style="width: 40px; height: 56px; border-radius: 8px; background: #1d4ed8; border: 1px solid #1e40af; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 24px; height: 32px; border-radius: 4px; border: 1px solid #3b82f6; background: #2563eb;"></div>
+          </div>
+          <div style="width: 40px; height: 56px; border-radius: 8px; background: #1d4ed8; border: 1px solid #1e40af; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 24px; height: 32px; border-radius: 4px; border: 1px solid #3b82f6; background: #2563eb;"></div>
+          </div>
+        </div>
+        <div style="border-radius: 8px; border: 2px solid #34d399; background: rgba(6,78,59,0.4); padding: 4px 12px; text-align: center; min-width: 72px;">
+          <div style="color: white; font-size: 12px; font-weight: 600;">BB</div>
+          <div style="color: #a7f3d0; font-size: 12px; font-family: monospace;">9.8k</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 4px; background: rgba(0,0,0,0.4); padding: 2px 8px; border-radius: 9999px;">
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: #facc15;"></div>
+          <span style="color: #fef08a; font-size: 12px; font-family: monospace;">200</span>
+        </div>
+      </div>
+
+      <!-- Seat 3: Top center (UTG) - FOLDED -->
+      <div style="position: absolute; top: 5%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 4px; opacity: 0.5;">
+        <div style="border-radius: 8px; border: 2px solid #4b5563; background: rgba(31,41,55,0.6); padding: 4px 12px; text-align: center; min-width: 72px;">
+          <div style="color: white; font-size: 12px; font-weight: 600;">UTG</div>
+          <div style="color: #a7f3d0; font-size: 12px; font-family: monospace;">10k</div>
+        </div>
+        <span style="color: #9ca3af; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;">Fold</span>
+      </div>
+
+      <!-- Seat 4: Top right (MP) -->
+      <div style="position: absolute; top: 18%; left: 88%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 4px;">
+        <div style="display: flex; gap: 2px; margin-bottom: 2px;">
+          <div style="width: 40px; height: 56px; border-radius: 8px; background: #1d4ed8; border: 1px solid #1e40af; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 24px; height: 32px; border-radius: 4px; border: 1px solid #3b82f6; background: #2563eb;"></div>
+          </div>
+          <div style="width: 40px; height: 56px; border-radius: 8px; background: #1d4ed8; border: 1px solid #1e40af; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 24px; height: 32px; border-radius: 4px; border: 1px solid #3b82f6; background: #2563eb;"></div>
+          </div>
+        </div>
+        <div style="border-radius: 8px; border: 2px solid #34d399; background: rgba(6,78,59,0.4); padding: 4px 12px; text-align: center; min-width: 72px;">
+          <div style="color: white; font-size: 12px; font-weight: 600;">MP</div>
+          <div style="color: #a7f3d0; font-size: 12px; font-family: monospace;">9.5k</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 4px; background: rgba(0,0,0,0.4); padding: 2px 8px; border-radius: 9999px;">
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: #facc15;"></div>
+          <span style="color: #fef08a; font-size: 12px; font-family: monospace;">150</span>
+        </div>
+      </div>
+
+      <!-- Seat 5: Bottom right (CO) - ALL-IN -->
+      <div style="position: absolute; top: 65%; left: 88%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 4px;">
+        <div style="display: flex; gap: 2px; margin-bottom: 2px;">
+          <div style="width: 40px; height: 56px; border-radius: 8px; background: #1d4ed8; border: 1px solid #1e40af; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 24px; height: 32px; border-radius: 4px; border: 1px solid #3b82f6; background: #2563eb;"></div>
+          </div>
+          <div style="width: 40px; height: 56px; border-radius: 8px; background: #1d4ed8; border: 1px solid #1e40af; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 24px; height: 32px; border-radius: 4px; border: 1px solid #3b82f6; background: #2563eb;"></div>
+          </div>
+        </div>
+        <div style="border-radius: 8px; border: 2px solid #fbbf24; background: rgba(120,53,15,0.4); padding: 4px 12px; text-align: center; min-width: 72px;">
+          <div style="color: white; font-size: 12px; font-weight: 600;">CO</div>
+          <div style="color: #a7f3d0; font-size: 12px; font-family: monospace;">0</div>
+        </div>
+        <span style="color: #fcd34d; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">All-in</span>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

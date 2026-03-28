@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GtoComplianceGauge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-6">
+    <!-- High compliance -->
+    <div>
+      <p class="text-sm text-gray-400 mb-2">High (85%)</p>
+      <div class="bg-white border border-gray-200 rounded-xl p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-sm font-medium text-gray-600">GTO 符合率</span>
+          <span class="text-2xl font-bold text-green-600">85%</span>
+        </div>
+        <div class="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
+          <div class="h-full rounded-full bg-green-500" style="width: 85%"></div>
+        </div>
+        <div class="flex justify-between mt-2">
+          <span class="text-xs text-gray-400">0%</span>
+          <span class="text-xs text-gray-400">100%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Medium compliance -->
+    <div>
+      <p class="text-sm text-gray-400 mb-2">Medium (62%)</p>
+      <div class="bg-white border border-gray-200 rounded-xl p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-sm font-medium text-gray-600">GTO 符合率</span>
+          <span class="text-2xl font-bold text-amber-600">62%</span>
+        </div>
+        <div class="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
+          <div class="h-full rounded-full bg-amber-500" style="width: 62%"></div>
+        </div>
+        <div class="flex justify-between mt-2">
+          <span class="text-xs text-gray-400">0%</span>
+          <span class="text-xs text-gray-400">100%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Low compliance -->
+    <div>
+      <p class="text-sm text-gray-400 mb-2">Low (28%)</p>
+      <div class="bg-white border border-gray-200 rounded-xl p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-sm font-medium text-gray-600">GTO 符合率</span>
+          <span class="text-2xl font-bold text-red-600">28%</span>
+        </div>
+        <div class="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
+          <div class="h-full rounded-full bg-red-500" style="width: 28%"></div>
+        </div>
+        <div class="flex justify-between mt-2">
+          <span class="text-xs text-gray-400">0%</span>
+          <span class="text-xs text-gray-400">100%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

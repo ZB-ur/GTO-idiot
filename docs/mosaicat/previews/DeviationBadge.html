@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeviationBadge Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <p class="text-sm text-gray-500 mb-4 font-semibold">DeviationBadge — GTO Status</p>
+
+  <div class="flex items-center gap-4">
+    <!-- Correct -->
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-green-50 text-green-700 border border-green-200">
+      <span class="text-[10px]">✓</span>
+      GTO
+    </span>
+
+    <!-- Deviation -->
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-200">
+      <span class="text-[10px]">✗</span>
+      Deviation
+    </span>
+  </div>
+
+  <!-- In-context example -->
+  <div class="mt-8">
+    <p class="text-xs text-gray-400 mb-3">In context (decision point card mock)</p>
+    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm max-w-xs">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm font-semibold text-gray-900">Flop — Check</span>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-200">
+          <span class="text-[10px]">✗</span>
+          Deviation
+        </span>
+      </div>
+      <p class="text-xs text-gray-500">GTO suggests Bet 33% pot</p>
+    </div>
+
+    <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm max-w-xs mt-3">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm font-semibold text-gray-900">Turn — Bet 75%</span>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-green-50 text-green-700 border border-green-200">
+          <span class="text-[10px]">✓</span>
+          GTO
+        </span>
+      </div>
+      <p class="text-xs text-gray-500">Matches GTO strategy</p>
+    </div>
+  </div>
+</body>
+</html>

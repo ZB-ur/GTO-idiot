@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StatItem Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm max-w-md">
+    <div class="grid grid-cols-3 gap-6">
+      <!-- Default variant -->
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-medium text-gray-600 uppercase tracking-wide">Hands Played</span>
+        <span class="text-xl font-bold text-gray-900">142</span>
+      </div>
+      <!-- Positive variant -->
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-medium text-gray-600 uppercase tracking-wide">Net Profit</span>
+        <span class="text-xl font-bold text-green-500">+$1,250</span>
+      </div>
+      <!-- Negative variant -->
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-medium text-gray-600 uppercase tracking-wide">Biggest Loss</span>
+        <span class="text-xl font-bold text-red-500">-$320</span>
+      </div>
+      <!-- Default variant -->
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-medium text-gray-600 uppercase tracking-wide">VPIP</span>
+        <span class="text-xl font-bold text-gray-900">24%</span>
+      </div>
+      <!-- Positive variant -->
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-medium text-gray-600 uppercase tracking-wide">Win Rate</span>
+        <span class="text-xl font-bold text-green-500">68%</span>
+      </div>
+      <!-- Default variant -->
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-medium text-gray-600 uppercase tracking-wide">Duration</span>
+        <span class="text-xl font-bold text-gray-900">2h 15m</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
