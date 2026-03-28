@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-md space-y-2 p-4">
+    <!-- Stacked bar -->
+    <div class="flex h-6 rounded-lg overflow-hidden bg-gray-800">
+      <div class="bg-red-500 flex items-center justify-center text-xs font-semibold text-gray-950" style="width: 35%">35%</div>
+      <div class="bg-emerald-500 flex items-center justify-center text-xs font-semibold text-gray-950 ring-2 ring-amber-400 ring-inset" style="width: 40%">40%</div>
+      <div class="bg-amber-500 flex items-center justify-center text-xs font-semibold text-gray-950" style="width: 25%">25%</div>
+    </div>
+    <!-- Legend -->
+    <div class="flex gap-3 text-xs text-gray-400">
+      <span class="text-red-500">Fold 35%</span>
+      <span class="text-emerald-500 font-bold underline decoration-amber-400">Call 40%</span>
+      <span class="text-amber-500">Raise 25%</span>
+    </div>
+  </div>
+</body>
+</html>

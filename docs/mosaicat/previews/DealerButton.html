@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex items-center gap-6 p-8">
+    <!-- Standalone -->
+    <div class="w-7 h-7 rounded-full bg-white text-gray-950 font-bold text-xs flex items-center justify-center shadow-md border-2 border-gray-300 select-none">
+      D
+    </div>
+
+    <!-- On a dark seat context -->
+    <div class="relative w-24 h-24 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center">
+      <span class="text-gray-400 text-xs">Seat</span>
+      <div class="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-white text-gray-950 font-bold text-xs flex items-center justify-center shadow-md border-2 border-gray-300 select-none">
+        D
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReviewTimeline Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto">
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-4">
+      <div class="flex items-center gap-1">
+
+        <!-- Preflop -->
+        <div class="flex flex-col items-center gap-2 flex-shrink-0">
+          <span class="text-xs text-gray-500 font-medium">Preflop</span>
+          <div class="flex items-center gap-1.5">
+            <!-- Bot action (small, gray) -->
+            <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
+            <!-- User action: raise, GTO match (green, large) -->
+            <div class="w-4 h-4 rounded-full bg-emerald-500"></div>
+            <!-- Bot action -->
+            <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
+            <!-- Bot action -->
+            <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="flex-shrink-0 w-8 h-px bg-gray-700"></div>
+
+        <!-- Flop -->
+        <div class="flex flex-col items-center gap-2 flex-shrink-0">
+          <span class="text-xs text-gray-500 font-medium">Flop</span>
+          <div class="flex items-center gap-1.5">
+            <!-- Bot check -->
+            <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
+            <!-- User: bet, GTO minor deviation (yellow), SELECTED -->
+            <div class="w-4 h-4 rounded-full bg-yellow-500 ring-2 ring-amber-400 ring-offset-2 ring-offset-gray-900"></div>
+            <!-- Bot call -->
+            <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="flex-shrink-0 w-8 h-px bg-gray-700"></div>
+
+        <!-- Turn -->
+        <div class="flex flex-col items-center gap-2 flex-shrink-0">
+          <span class="text-xs text-gray-500 font-medium">Turn</span>
+          <div class="flex items-center gap-1.5">
+            <!-- Bot check -->
+            <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
+            <!-- User: check, GTO match (green) -->
+            <div class="w-4 h-4 rounded-full bg-emerald-500"></div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="flex-shrink-0 w-8 h-px bg-gray-700"></div>
+
+        <!-- River -->
+        <div class="flex flex-col items-center gap-2 flex-shrink-0">
+          <span class="text-xs text-gray-500 font-medium">River</span>
+          <div class="flex items-center gap-1.5">
+            <!-- Bot bet -->
+            <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
+            <!-- User: call, severe deviation (red) -->
+            <div class="w-4 h-4 rounded-full bg-red-500"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="flex items-center gap-4 mt-4 px-2">
+      <div class="flex items-center gap-1.5">
+        <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+        <span class="text-xs text-gray-400">GTO Match</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+        <span class="text-xs text-gray-400">Minor Deviation</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+        <span class="text-xs text-gray-400">Severe Deviation</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
+        <span class="text-xs text-gray-400">Bot Action</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

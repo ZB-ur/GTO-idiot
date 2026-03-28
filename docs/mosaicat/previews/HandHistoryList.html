@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandHistoryList Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-4xl mx-auto bg-gray-900 border border-gray-700 rounded-xl overflow-hidden" style="height: 600px; display: flex; flex-direction: column;">
+    <!-- Header -->
+    <div class="flex items-center justify-between px-4 py-3 border-b border-gray-700 flex-shrink-0">
+      <div>
+        <h2 class="text-lg font-semibold text-gray-50">Hand History</h2>
+        <p class="text-xs text-gray-500 mt-0.5">342 hands total</p>
+      </div>
+      <div class="flex items-center gap-2 flex-wrap">
+        <select class="bg-gray-800 border border-gray-700 rounded-lg px-2 py-1.5 text-xs text-gray-300">
+          <option>All Streets</option>
+        </select>
+        <select class="bg-gray-800 border border-gray-700 rounded-lg px-2 py-1.5 text-xs text-gray-300">
+          <option>All Results</option>
+        </select>
+        <label class="flex items-center gap-1.5 text-xs text-gray-400 cursor-pointer">
+          <input type="checkbox" class="accent-amber-400 w-3.5 h-3.5" />
+          Key hands only
+        </label>
+      </div>
+    </div>
+
+    <!-- List -->
+    <div class="flex-1 overflow-y-auto">
+      <!-- Row 1: Key hand, won -->
+      <button class="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-800 transition-colors text-left border-b border-gray-800">
+        <div class="w-1 h-8 rounded-full flex-shrink-0">
+          <div class="w-1 h-8 rounded-full bg-amber-400"></div>
+        </div>
+        <div class="flex gap-0.5 min-w-[48px]">
+          <span class="font-mono font-bold text-xs text-red-400">A&#9829;</span>
+          <span class="font-mono font-bold text-xs text-gray-300">K&#9824;</span>
+        </div>
+        <span class="text-[10px] font-bold text-gray-400 bg-gray-800 px-1.5 py-0.5 rounded min-w-[28px] text-center">BTN</span>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm text-gray-50 truncate">AKs &rarr; Top Pair, won at showdown</p>
+          <p class="text-[10px] text-gray-500 mt-0.5">3/28/2026, 2:15 PM · showdown</p>
+        </div>
+        <span class="text-sm font-bold tabular-nums text-emerald-400">+25.5 BB</span>
+      </button>
+
+      <!-- Row 2: Normal hand, lost -->
+      <button class="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-800 transition-colors text-left border-b border-gray-800">
+        <div class="w-1 h-8 rounded-full flex-shrink-0"></div>
+        <div class="flex gap-0.5 min-w-[48px]">
+          <span class="font-mono font-bold text-xs text-blue-400">Q&#9830;</span>
+          <span class="font-mono font-bold text-xs text-blue-400">J&#9830;</span>
+        </div>
+        <span class="text-[10px] font-bold text-gray-400 bg-gray-800 px-1.5 py-0.5 rounded min-w-[28px] text-center">CO</span>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm text-gray-50 truncate">QJd &rarr; Missed flush draw, folded river</p>
+          <p class="text-[10px] text-gray-500 mt-0.5">3/28/2026, 2:12 PM · river</p>
+        </div>
+        <span class="text-sm font-bold tabular-nums text-red-400">-8.0 BB</span>
+      </button>
+
+      <!-- Row 3: Normal, won small -->
+      <button class="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-800 transition-colors text-left border-b border-gray-800">
+        <div class="w-1 h-8 rounded-full flex-shrink-0"></div>
+        <div class="flex gap-0.5 min-w-[48px]">
+          <span class="font-mono font-bold text-xs text-gray-300">T&#9824;</span>
+          <span class="font-mono font-bold text-xs text-gray-300">T&#9827;</span>
+        </div>
+        <span class="text-[10px] font-bold text-gray-400 bg-gray-800 px-1.5 py-0.5 rounded min-w-[28px] text-center">HJ</span>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm text-gray-50 truncate">TT &rarr; Pocket pair held, all folded flop</p>
+          <p class="text-[10px] text-gray-500 mt-0.5">3/28/2026, 2:08 PM · flop</p>
+        </div>
+        <span class="text-sm font-bold tabular-nums text-emerald-400">+4.5 BB</span>
+      </button>
+
+      <!-- Row 4: Key hand (gto deviation), lost big -->
+      <button class="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-800 transition-colors text-left border-b border-gray-800">
+        <div class="w-1 h-8 rounded-full flex-shrink-0">
+          <div class="w-1 h-8 rounded-full bg-amber-400"></div>
+        </div>
+        <div class="flex gap-0.5 min-w-[48px]">
+          <span class="font-mono font-bold text-xs text-red-400">9&#9829;</span>
+          <span class="font-mono font-bold text-xs text-emerald-400">8&#9827;</span>
+        </div>
+        <span class="text-[10px] font-bold text-gray-400 bg-gray-800 px-1.5 py-0.5 rounded min-w-[28px] text-center">SB</span>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm text-gray-50 truncate">98o &rarr; Overplayed middle pair, stacked</p>
+          <p class="text-[10px] text-gray-500 mt-0.5">3/28/2026, 2:04 PM · showdown</p>
+        </div>
+        <span class="text-sm font-bold tabular-nums text-red-400">-42.0 BB</span>
+      </button>
+
+      <!-- Row 5: Breakeven -->
+      <button class="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-800 transition-colors text-left border-b border-gray-800">
+        <div class="w-1 h-8 rounded-full flex-shrink-0"></div>
+        <div class="flex gap-0.5 min-w-[48px]">
+          <span class="font-mono font-bold text-xs text-red-400">7&#9829;</span>
+          <span class="font-mono font-bold text-xs text-gray-300">6&#9824;</span>
+        </div>
+        <span class="text-[10px] font-bold text-gray-400 bg-gray-800 px-1.5 py-0.5 rounded min-w-[28px] text-center">BB</span>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm text-gray-50 truncate">76s &rarr; Checked through, split pot</p>
+          <p class="text-[10px] text-gray-500 mt-0.5">3/28/2026, 2:00 PM · showdown</p>
+        </div>
+        <span class="text-sm font-bold tabular-nums text-gray-400">0.0 BB</span>
+      </button>
+
+      <!-- Row 6 -->
+      <button class="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-800 transition-colors text-left border-b border-gray-800">
+        <div class="w-1 h-8 rounded-full flex-shrink-0"></div>
+        <div class="flex gap-0.5 min-w-[48px]">
+          <span class="font-mono font-bold text-xs text-red-400">K&#9829;</span>
+          <span class="font-mono font-bold text-xs text-red-400">Q&#9829;</span>
+        </div>
+        <span class="text-[10px] font-bold text-gray-400 bg-gray-800 px-1.5 py-0.5 rounded min-w-[28px] text-center">UTG</span>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm text-gray-50 truncate">KQs &rarr; Folded to 3-bet preflop</p>
+          <p class="text-[10px] text-gray-500 mt-0.5">3/28/2026, 1:56 PM · preflop</p>
+        </div>
+        <span class="text-sm font-bold tabular-nums text-red-400">-3.0 BB</span>
+      </button>
+
+      <!-- Row 7 -->
+      <button class="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-800 transition-colors text-left border-b border-gray-800">
+        <div class="w-1 h-8 rounded-full flex-shrink-0"></div>
+        <div class="flex gap-0.5 min-w-[48px]">
+          <span class="font-mono font-bold text-xs text-emerald-400">A&#9827;</span>
+          <span class="font-mono font-bold text-xs text-blue-400">5&#9830;</span>
+        </div>
+        <span class="text-[10px] font-bold text-gray-400 bg-gray-800 px-1.5 py-0.5 rounded min-w-[28px] text-center">BTN</span>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm text-gray-50 truncate">A5o &rarr; C-bet took it down on flop</p>
+          <p class="text-[10px] text-gray-500 mt-0.5">3/28/2026, 1:52 PM · flop</p>
+        </div>
+        <span class="text-sm font-bold tabular-nums text-emerald-400">+6.5 BB</span>
+      </button>
+
+      <!-- Load more -->
+      <button class="w-full py-3 text-sm text-amber-400 hover:bg-gray-800 transition-colors">
+        Load more
+      </button>
+    </div>
+  </div>
+</body>
+</html>

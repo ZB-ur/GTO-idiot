@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BetChip Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-4 p-8">
+    <!-- Small bet -->
+    <div class="inline-flex items-center gap-1.5">
+      <div class="w-5 h-5 rounded-full bg-amber-400 border-2 border-amber-300 shadow-sm flex-shrink-0"></div>
+      <span class="text-sm font-semibold text-gray-50 tabular-nums">25</span>
+    </div>
+
+    <!-- Medium bet -->
+    <div class="inline-flex items-center gap-1.5">
+      <div class="w-5 h-5 rounded-full bg-amber-400 border-2 border-amber-300 shadow-sm flex-shrink-0"></div>
+      <span class="text-sm font-semibold text-gray-50 tabular-nums">150</span>
+    </div>
+
+    <!-- Large bet -->
+    <div class="inline-flex items-center gap-1.5">
+      <div class="w-5 h-5 rounded-full bg-amber-400 border-2 border-amber-300 shadow-sm flex-shrink-0"></div>
+      <span class="text-sm font-semibold text-gray-50 tabular-nums">2.5k</span>
+    </div>
+
+    <!-- On table context -->
+    <div class="relative w-40 h-20 rounded-xl bg-emerald-900 border border-emerald-800 flex items-center justify-center">
+      <span class="text-emerald-700 text-xs">Table Felt</span>
+      <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5">
+        <div class="w-5 h-5 rounded-full bg-amber-400 border-2 border-amber-300 shadow-sm flex-shrink-0"></div>
+        <span class="text-sm font-semibold text-gray-50 tabular-nums">50</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

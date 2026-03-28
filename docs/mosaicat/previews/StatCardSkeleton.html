@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+.animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+</style>
+</head>
+<body>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 600px;">
+    <!-- Skeleton 1 -->
+    <div class="bg-gray-900 rounded-xl border border-gray-700 p-6 animate-pulse">
+      <div class="w-20 h-3 bg-gray-700 rounded mb-3"></div>
+      <div class="w-24 h-8 bg-gray-700 rounded mb-2"></div>
+      <div class="w-16 h-3 bg-gray-700 rounded"></div>
+    </div>
+    <!-- Skeleton 2 -->
+    <div class="bg-gray-900 rounded-xl border border-gray-700 p-6 animate-pulse" style="animation-delay: 0.1s;">
+      <div class="w-20 h-3 bg-gray-700 rounded mb-3"></div>
+      <div class="w-24 h-8 bg-gray-700 rounded mb-2"></div>
+      <div class="w-16 h-3 bg-gray-700 rounded"></div>
+    </div>
+    <!-- Skeleton 3 -->
+    <div class="bg-gray-900 rounded-xl border border-gray-700 p-6 animate-pulse" style="animation-delay: 0.2s;">
+      <div class="w-20 h-3 bg-gray-700 rounded mb-3"></div>
+      <div class="w-24 h-8 bg-gray-700 rounded mb-2"></div>
+      <div class="w-16 h-3 bg-gray-700 rounded"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StepControls Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <!-- Both enabled -->
+  <div class="mb-8">
+    <p class="text-xs text-gray-500 mb-2">Both enabled</p>
+    <div class="flex items-center gap-3">
+      <button class="flex items-center justify-center w-12 h-12 rounded-xl border bg-gray-800 border-gray-700 text-gray-50 hover:bg-gray-700">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button class="flex items-center justify-center w-12 h-12 rounded-xl border bg-amber-500 border-amber-500 text-gray-950">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Previous disabled -->
+  <div class="mb-8">
+    <p class="text-xs text-gray-500 mb-2">At start (no previous)</p>
+    <div class="flex items-center gap-3">
+      <button class="flex items-center justify-center w-12 h-12 rounded-xl border bg-gray-900 border-gray-800 text-gray-600 cursor-not-allowed" disabled>
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button class="flex items-center justify-center w-12 h-12 rounded-xl border bg-amber-500 border-amber-500 text-gray-950">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Next disabled -->
+  <div class="mb-8">
+    <p class="text-xs text-gray-500 mb-2">At end (no next)</p>
+    <div class="flex items-center gap-3">
+      <button class="flex items-center justify-center w-12 h-12 rounded-xl border bg-gray-800 border-gray-700 text-gray-50">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button class="flex items-center justify-center w-12 h-12 rounded-xl border bg-gray-900 border-gray-800 text-gray-600 cursor-not-allowed" disabled>
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Both disabled -->
+  <div>
+    <p class="text-xs text-gray-500 mb-2">Both disabled</p>
+    <div class="flex items-center gap-3">
+      <button class="flex items-center justify-center w-12 h-12 rounded-xl border bg-gray-900 border-gray-800 text-gray-600 cursor-not-allowed" disabled>
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button class="flex items-center justify-center w-12 h-12 rounded-xl border bg-gray-900 border-gray-800 text-gray-600 cursor-not-allowed" disabled>
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</body>
+</html>

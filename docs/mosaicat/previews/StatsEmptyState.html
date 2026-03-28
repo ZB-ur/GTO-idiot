@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StatsEmptyState Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col items-center justify-center py-20 px-6">
+    <!-- Bar chart illustration -->
+    <div class="relative w-32 h-32 mb-8 flex items-end justify-center gap-2">
+      <div class="w-6 h-8 bg-gray-800 border border-gray-700 rounded-t-lg"></div>
+      <div class="w-6 h-14 bg-gray-800 border border-gray-700 rounded-t-lg"></div>
+      <div class="w-6 h-10 bg-gray-800 border border-gray-700 rounded-t-lg"></div>
+      <div class="w-6 h-16 bg-gray-800 border border-gray-700 rounded-t-lg"></div>
+      <div class="w-6 h-6 bg-gray-800 border border-gray-700 rounded-t-lg"></div>
+    </div>
+
+    <h3 class="text-xl font-semibold text-gray-50 mb-2">暂无统计数据</h3>
+    <p class="text-gray-500 text-sm text-center max-w-xs mb-8">
+      完成几手牌后，你的胜率、盈亏和 GTO 一致性数据将会在这里展示。
+    </p>
+
+    <button class="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-gray-950 font-semibold rounded-xl transition-colors">
+      开始游戏
+    </button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokerTable Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="relative w-full" style="height: 640px; background: #030712;">
+    <!-- Felt oval -->
+    <div
+      class="absolute rounded-[50%] bg-emerald-900 border-4 border-emerald-800"
+      style="top: 12%; left: 8%; right: 8%; bottom: 18%; box-shadow: inset 0 4px 30px rgba(0,0,0,0.5);"
+    ></div>
+
+    <!-- Pot Display -->
+    <div class="absolute left-1/2 -translate-x-1/2" style="top: 32%;">
+      <div class="px-4 py-1.5 bg-gray-900/80 rounded-xl border border-gray-700 text-center" style="backdrop-filter: blur(8px);">
+        <div class="text-[10px] text-gray-400 uppercase tracking-wider">Pot</div>
+        <div class="text-lg font-bold text-amber-400">15 BB</div>
+      </div>
+    </div>
+
+    <!-- Community Cards (flop dealt) -->
+    <div class="absolute left-1/2 -translate-x-1/2 flex gap-1.5" style="top: 43%;">
+      <!-- Kh -->
+      <div class="w-10 h-14 bg-gray-50 border border-gray-300 rounded-lg flex flex-col items-center justify-center shadow-sm">
+        <span class="text-sm font-bold leading-none text-red-500">K</span>
+        <span class="text-xs leading-none text-red-500">&#9829;</span>
+      </div>
+      <!-- 9s -->
+      <div class="w-10 h-14 bg-gray-50 border border-gray-300 rounded-lg flex flex-col items-center justify-center shadow-sm">
+        <span class="text-sm font-bold leading-none text-gray-900">9</span>
+        <span class="text-xs leading-none text-gray-900">&#9824;</span>
+      </div>
+      <!-- 4d -->
+      <div class="w-10 h-14 bg-gray-50 border border-gray-300 rounded-lg flex flex-col items-center justify-center shadow-sm">
+        <span class="text-sm font-bold leading-none text-blue-400">4</span>
+        <span class="text-xs leading-none text-blue-400">&#9830;</span>
+      </div>
+      <!-- Empty slot -->
+      <div class="w-10 h-14 rounded-lg border border-emerald-800/50 bg-emerald-900/30"></div>
+      <!-- Empty slot -->
+      <div class="w-10 h-14 rounded-lg border border-emerald-800/50 bg-emerald-900/30"></div>
+    </div>
+
+    <!-- Seat 0: User (bottom center) -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1" style="top: 78%; left: 50%;">
+      <div class="flex gap-0.5">
+        <div class="w-10 h-14 bg-gray-50 border border-gray-300 rounded-lg flex flex-col items-center justify-center shadow-sm">
+          <span class="text-sm font-bold leading-none text-red-500">A</span>
+          <span class="text-xs leading-none text-red-500">&#9829;</span>
+        </div>
+        <div class="w-10 h-14 bg-gray-50 border border-gray-300 rounded-lg flex flex-col items-center justify-center shadow-sm">
+          <span class="text-sm font-bold leading-none text-gray-900">K</span>
+          <span class="text-xs leading-none text-gray-900">&#9824;</span>
+        </div>
+      </div>
+      <div class="relative px-3 py-1.5 rounded-xl text-center min-w-[80px] border bg-amber-500/20 border-amber-400" style="box-shadow: 0 0 12px rgba(251,191,36,0.3);">
+        <div class="text-xs font-semibold text-gray-50">You</div>
+        <div class="text-[10px] text-gray-400">BTN · 98 BB</div>
+        <span class="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-amber-400 text-gray-950 text-[10px] font-bold flex items-center justify-center">D</span>
+      </div>
+    </div>
+
+    <!-- Seat 1: Bot (bottom-left) -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1" style="top: 65%; left: 10%;">
+      <div class="flex gap-0.5">
+        <div class="w-10 h-14 bg-gray-700 border border-gray-600 rounded-lg flex items-center justify-center">
+          <div class="w-6 h-8 rounded bg-amber-400/20 border border-amber-400/30"></div>
+        </div>
+        <div class="w-10 h-14 bg-gray-700 border border-gray-600 rounded-lg flex items-center justify-center">
+          <div class="w-6 h-8 rounded bg-amber-400/20 border border-amber-400/30"></div>
+        </div>
+      </div>
+      <div class="relative px-3 py-1.5 rounded-xl text-center min-w-[80px] border bg-gray-800 border-gray-600">
+        <div class="text-xs font-semibold text-gray-50">SB_Fish</div>
+        <div class="text-[10px] text-gray-400">SB · 95 BB</div>
+        <span class="absolute -top-2 -right-2 text-[9px] px-1 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">FISH</span>
+      </div>
+    </div>
+
+    <!-- Seat 2: Bot (top-left) -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1" style="top: 18%; left: 10%;">
+      <div class="flex gap-0.5">
+        <div class="w-10 h-14 bg-gray-700 border border-gray-600 rounded-lg flex items-center justify-center">
+          <div class="w-6 h-8 rounded bg-amber-400/20 border border-amber-400/30"></div>
+        </div>
+        <div class="w-10 h-14 bg-gray-700 border border-gray-600 rounded-lg flex items-center justify-center">
+          <div class="w-6 h-8 rounded bg-amber-400/20 border border-amber-400/30"></div>
+        </div>
+      </div>
+      <div class="relative px-3 py-1.5 rounded-xl text-center min-w-[80px] border bg-gray-800 border-gray-600">
+        <div class="text-xs font-semibold text-gray-50">BB_TAG</div>
+        <div class="text-[10px] text-gray-400">BB · 88 BB</div>
+        <span class="absolute -top-2 -right-2 text-[9px] px-1 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">TAG</span>
+      </div>
+    </div>
+
+    <!-- Seat 3: Bot (top center) - folded -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1" style="top: 5%; left: 50%;">
+      <div class="relative px-3 py-1.5 rounded-xl text-center min-w-[80px] border bg-gray-800/50 border-gray-700 opacity-50">
+        <div class="text-xs font-semibold text-gray-50">UTG_Nit</div>
+        <div class="text-[10px] text-gray-400">UTG · 100 BB</div>
+        <span class="absolute -top-2 -right-2 text-[9px] px-1 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">NIT</span>
+      </div>
+    </div>
+
+    <!-- Seat 4: Bot (top-right) - folded -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1" style="top: 18%; left: 90%;">
+      <div class="relative px-3 py-1.5 rounded-xl text-center min-w-[80px] border bg-gray-800/50 border-gray-700 opacity-50">
+        <div class="text-xs font-semibold text-gray-50">HJ_LAG</div>
+        <div class="text-[10px] text-gray-400">HJ · 112 BB</div>
+        <span class="absolute -top-2 -right-2 text-[9px] px-1 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">LAG</span>
+      </div>
+    </div>
+
+    <!-- Seat 5: Bot (bottom-right) -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1" style="top: 65%; left: 90%;">
+      <div class="flex gap-0.5">
+        <div class="w-10 h-14 bg-gray-700 border border-gray-600 rounded-lg flex items-center justify-center">
+          <div class="w-6 h-8 rounded bg-amber-400/20 border border-amber-400/30"></div>
+        </div>
+        <div class="w-10 h-14 bg-gray-700 border border-gray-600 rounded-lg flex items-center justify-center">
+          <div class="w-6 h-8 rounded bg-amber-400/20 border border-amber-400/30"></div>
+        </div>
+      </div>
+      <div class="relative px-3 py-1.5 rounded-xl text-center min-w-[80px] border bg-gray-800 border-gray-600">
+        <div class="text-xs font-semibold text-gray-50">CO_Man</div>
+        <div class="text-[10px] text-gray-400">CO · 76 BB</div>
+        <span class="absolute -top-2 -right-2 text-[9px] px-1 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">MANIAC</span>
+      </div>
+    </div>
+
+    <!-- Bet chips -->
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex items-center gap-1" style="top: 62%; left: 50%;">
+      <div class="w-4 h-4 rounded-full bg-amber-400 border-2 border-amber-300 shadow"></div>
+      <span class="text-xs font-bold text-amber-400">6</span>
+    </div>
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex items-center gap-1" style="top: 55%; left: 25%;">
+      <div class="w-4 h-4 rounded-full bg-amber-400 border-2 border-amber-300 shadow"></div>
+      <span class="text-xs font-bold text-amber-400">1</span>
+    </div>
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex items-center gap-1" style="top: 32%; left: 25%;">
+      <div class="w-4 h-4 rounded-full bg-amber-400 border-2 border-amber-300 shadow"></div>
+      <span class="text-xs font-bold text-amber-400">4</span>
+    </div>
+    <div class="absolute -translate-x-1/2 -translate-y-1/2 flex items-center gap-1" style="top: 55%; left: 75%;">
+      <div class="w-4 h-4 rounded-full bg-amber-400 border-2 border-amber-300 shadow"></div>
+      <span class="text-xs font-bold text-amber-400">4</span>
+    </div>
+
+    <!-- Action Panel -->
+    <div class="absolute bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-700 px-4 py-3">
+      <div class="max-w-2xl mx-auto flex items-center gap-2 flex-wrap justify-center">
+        <button class="px-4 py-2 rounded-lg text-sm font-semibold bg-red-500/20 text-red-400 border border-red-500/30">
+          Fold
+        </button>
+        <button class="px-4 py-2 rounded-lg text-sm font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+          Call 4
+        </button>
+        <button class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30">
+          Raise
+        </button>
+        <div class="flex items-center gap-2 ml-2">
+          <input type="range" min="8" max="98" value="12" class="w-28 accent-amber-400" />
+          <span class="text-sm font-bold text-amber-400 min-w-[40px]">12</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

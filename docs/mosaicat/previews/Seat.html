@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seat Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+    .anim-bounce { animation: bounce 0.6s infinite; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-wrap gap-8 items-start">
+
+    <!-- User seat (active, dealer, with cards) -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2">User (active, dealer)</p>
+      <div class="relative flex flex-col items-center gap-1">
+        <!-- Dealer Button -->
+        <div class="absolute -top-2 -right-2 w-6 h-6 bg-amber-400 text-gray-950 rounded-full flex items-center justify-center text-xs font-bold shadow-md z-10">D</div>
+        <div class="relative w-28 rounded-xl border p-3 bg-gray-800 border-amber-500 shadow-lg shadow-amber-500/20">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-semibold text-amber-400 truncate">You</span>
+            <span class="text-[10px] text-gray-500 font-medium">BTN</span>
+          </div>
+          <div class="text-sm font-bold text-gray-50 mb-2">100 <span class="text-[10px] text-gray-500 font-normal">BB</span></div>
+          <div class="flex gap-1 justify-center">
+            <div class="w-8 h-11 bg-gray-900 border border-gray-600 rounded-md flex flex-col items-center justify-center">
+              <span class="text-xs font-bold text-gray-50 leading-none">A</span>
+              <span class="text-xs text-gray-300 leading-none">♠</span>
+            </div>
+            <div class="w-8 h-11 bg-gray-900 border border-gray-600 rounded-md flex flex-col items-center justify-center">
+              <span class="text-xs font-bold text-gray-50 leading-none">K</span>
+              <span class="text-xs text-red-400 leading-none">♥</span>
+            </div>
+          </div>
+        </div>
+        <div class="text-xs font-semibold text-amber-400">Raise 6</div>
+      </div>
+    </div>
+
+    <!-- Bot seat (TAG, face down cards) -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2">Bot (TAG)</p>
+      <div class="relative flex flex-col items-center gap-1">
+        <div class="relative w-28 rounded-xl border p-3 bg-gray-800 border-gray-700">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-semibold text-gray-50 truncate">SharkyBot</span>
+            <span class="text-[10px] text-gray-500 font-medium">CO</span>
+          </div>
+          <div class="text-sm font-bold text-gray-50 mb-2">87 <span class="text-[10px] text-gray-500 font-normal">BB</span></div>
+          <div class="flex gap-1 justify-center">
+            <div class="w-8 h-11 bg-emerald-900 border border-emerald-700 rounded-md"></div>
+            <div class="w-8 h-11 bg-emerald-900 border border-emerald-700 rounded-md"></div>
+          </div>
+          <div class="mt-2 text-center text-[10px] font-medium px-2 py-0.5 rounded-full border bg-blue-500/20 text-blue-400 border-blue-500/30">TAG</div>
+        </div>
+        <div class="text-xs font-semibold text-emerald-400">Call</div>
+      </div>
+    </div>
+
+    <!-- Bot thinking -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2">Bot (thinking)</p>
+      <div class="relative flex flex-col items-center gap-1">
+        <div class="relative w-28 rounded-xl border p-3 bg-gray-800 border-gray-700">
+          <!-- Thinking dots -->
+          <div class="absolute -top-1 left-1/2 -translate-x-1/2 flex gap-1">
+            <div class="w-1.5 h-1.5 bg-amber-400 rounded-full anim-bounce"></div>
+            <div class="w-1.5 h-1.5 bg-amber-400 rounded-full anim-bounce" style="animation-delay: 150ms"></div>
+            <div class="w-1.5 h-1.5 bg-amber-400 rounded-full anim-bounce" style="animation-delay: 300ms"></div>
+          </div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-semibold text-gray-50 truncate">WildOne</span>
+            <span class="text-[10px] text-gray-500 font-medium">SB</span>
+          </div>
+          <div class="text-sm font-bold text-gray-50 mb-2">45 <span class="text-[10px] text-gray-500 font-normal">BB</span></div>
+          <div class="flex gap-1 justify-center">
+            <div class="w-8 h-11 bg-emerald-900 border border-emerald-700 rounded-md"></div>
+            <div class="w-8 h-11 bg-emerald-900 border border-emerald-700 rounded-md"></div>
+          </div>
+          <div class="mt-2 text-center text-[10px] font-medium px-2 py-0.5 rounded-full border bg-red-500/20 text-red-400 border-red-500/30">MANIAC</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Folded seat -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2">Folded</p>
+      <div class="relative flex flex-col items-center gap-1 opacity-50">
+        <div class="relative w-28 rounded-xl border p-3 bg-gray-800 border-gray-700">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-semibold text-gray-50 truncate">TightMike</span>
+            <span class="text-[10px] text-gray-500 font-medium">UTG</span>
+          </div>
+          <div class="text-sm font-bold text-gray-50 mb-2">92 <span class="text-[10px] text-gray-500 font-normal">BB</span></div>
+          <div class="mt-2 text-center text-[10px] font-medium px-2 py-0.5 rounded-full border bg-gray-500/20 text-gray-400 border-gray-500/30">NIT</div>
+        </div>
+        <div class="text-xs font-semibold text-gray-500">Fold</div>
+      </div>
+    </div>
+
+    <!-- All-in seat -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2">All In (FISH)</p>
+      <div class="relative flex flex-col items-center gap-1">
+        <div class="relative w-28 rounded-xl border p-3 bg-gray-800 border-gray-700">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-semibold text-gray-50 truncate">LuckyFish</span>
+            <span class="text-[10px] text-gray-500 font-medium">BB</span>
+          </div>
+          <div class="text-sm font-bold text-gray-50 mb-2">0 <span class="text-[10px] text-gray-500 font-normal">BB</span></div>
+          <div class="flex gap-1 justify-center">
+            <div class="w-8 h-11 bg-emerald-900 border border-emerald-700 rounded-md"></div>
+            <div class="w-8 h-11 bg-emerald-900 border border-emerald-700 rounded-md"></div>
+          </div>
+          <div class="mt-2 text-center text-[10px] font-medium px-2 py-0.5 rounded-full border bg-cyan-500/20 text-cyan-400 border-cyan-500/30">FISH</div>
+        </div>
+        <div class="text-xs font-semibold text-red-400">All In</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

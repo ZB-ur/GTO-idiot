@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionHighlight Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes glow-pulse {
+      0%, 100% { box-shadow: 0 0 12px rgba(251,191,36,0.4); opacity: 1; }
+      50% { box-shadow: 0 0 20px rgba(251,191,36,0.6); opacity: 0.8; }
+    }
+    .glow-active {
+      animation: glow-pulse 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="flex items-center gap-8 p-8">
+    <!-- Inactive seat -->
+    <div class="relative w-28 h-20 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center">
+      <span class="text-gray-400 text-xs">Inactive</span>
+    </div>
+
+    <!-- Active seat with highlight -->
+    <div class="relative w-28 h-20 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center">
+      <span class="text-gray-50 text-xs font-semibold">Active</span>
+      <div class="absolute inset-0 rounded-xl border-2 border-amber-400 glow-active pointer-events-none"></div>
+    </div>
+  </div>
+</body>
+</html>

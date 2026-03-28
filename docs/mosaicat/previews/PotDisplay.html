@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-8 items-center">
+    <!-- Main pot only -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-2 text-center">
+        <span class="text-gray-400 text-xs uppercase tracking-wider">Pot</span>
+        <div class="text-amber-400 font-bold text-xl" style="font-variant-numeric: tabular-nums;">3,600</div>
+      </div>
+    </div>
+
+    <!-- Main pot + side pots -->
+    <div class="flex flex-col items-center gap-1">
+      <div class="bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-2 text-center">
+        <span class="text-gray-400 text-xs uppercase tracking-wider">Main Pot</span>
+        <div class="text-amber-400 font-bold text-xl" style="font-variant-numeric: tabular-nums;">8,200</div>
+      </div>
+      <div class="flex gap-2">
+        <div class="bg-gray-800/80 border border-gray-700 rounded-lg px-3 py-1 text-center">
+          <span class="text-gray-500 text-xs">Side 1</span>
+          <div class="text-amber-400/80 font-semibold text-sm" style="font-variant-numeric: tabular-nums;">2,400</div>
+        </div>
+        <div class="bg-gray-800/80 border border-gray-700 rounded-lg px-3 py-1 text-center">
+          <span class="text-gray-500 text-xs">Side 2</span>
+          <div class="text-amber-400/80 font-semibold text-sm" style="font-variant-numeric: tabular-nums;">800</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

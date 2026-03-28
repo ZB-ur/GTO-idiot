@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AppShell Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; color: #f9fafb; }
+    @keyframes slide-in { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: translateX(0); } }
+    .animate-slide-in { animation: slide-in 0.25s ease-out; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen bg-gray-950 text-gray-50">
+
+    <!-- Top Nav -->
+    <nav class="sticky top-0 z-40 bg-gray-950/80 backdrop-blur-md border-b border-gray-700">
+      <div class="max-w-5xl mx-auto flex items-center h-14 px-4">
+        <a href="#" class="flex items-center gap-2 mr-8">
+          <span class="text-amber-400 text-xl font-bold tracking-tight">GTO</span>
+          <span class="text-gray-50 text-xl font-bold tracking-tight">Idiot</span>
+        </a>
+        <div class="flex items-center gap-1">
+          <a href="#" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-amber-500/15 text-amber-400">
+            <span>♠</span><span>Play</span>
+          </a>
+          <a href="#" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-50 hover:bg-gray-800">
+            <span>📋</span><span>History</span>
+          </a>
+          <a href="#" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-50 hover:bg-gray-800">
+            <span>🔍</span><span>Review</span>
+          </a>
+          <a href="#" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-50 hover:bg-gray-800">
+            <span>📊</span><span>Stats</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area (placeholder page) -->
+    <main class="max-w-5xl mx-auto px-4 py-6">
+      <!-- Placeholder: Landing Hero -->
+      <div class="flex flex-col items-center justify-center py-24 text-center">
+        <div class="text-6xl mb-6">♠</div>
+        <h1 class="text-3xl font-bold text-gray-50 mb-3">
+          Train Your <span class="text-amber-400">Poker Game</span>
+        </h1>
+        <p class="text-gray-400 text-base mb-8 max-w-md">
+          Practice against 5 bots with different play styles. Review your hands with GTO analysis and track your progress.
+        </p>
+        <button class="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold text-sm rounded-lg transition-colors">
+          Start Playing
+        </button>
+      </div>
+    </main>
+
+    <!-- Toast Stack (bottom-right) -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 w-80">
+      <!-- Success Toast -->
+      <div class="flex items-center gap-3 px-4 py-3 rounded-xl border bg-emerald-500/20 border-emerald-500/40 text-emerald-400 animate-slide-in">
+        <span class="text-lg font-bold">✓</span>
+        <span class="text-sm font-medium text-gray-50">Hand saved to history</span>
+        <button class="ml-auto text-gray-400 hover:text-gray-50 transition-colors">✕</button>
+      </div>
+      <!-- Warning Toast -->
+      <div class="flex items-center gap-3 px-4 py-3 rounded-xl border bg-yellow-500/20 border-yellow-500/40 text-yellow-400 animate-slide-in">
+        <span class="text-lg font-bold">⚠</span>
+        <span class="text-sm font-medium text-gray-50">No GTO data for this spot</span>
+        <button class="ml-auto text-gray-400 hover:text-gray-50 transition-colors">✕</button>
+      </div>
+    </div>
+
+    <!-- Confirm Dialog Overlay -->
+    <div class="fixed inset-0 z-50 flex items-center justify-center">
+      <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+      <div class="relative bg-gray-900 border border-gray-700 rounded-xl shadow-md p-6 w-full max-w-sm mx-4">
+        <h3 class="text-lg font-semibold text-gray-50 mb-2">Leave Table?</h3>
+        <p class="text-sm text-gray-400 mb-6">Your current hand will be forfeited. Are you sure you want to leave?</p>
+        <div class="flex gap-3 justify-end">
+          <button class="px-4 py-2 text-sm font-medium text-gray-400 hover:text-gray-50 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
+            Cancel
+          </button>
+          <button class="px-4 py-2 text-sm font-bold rounded-lg bg-red-500 hover:bg-red-400 text-white transition-colors">
+            Leave
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GtoConformanceChart Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-xs mx-auto">
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-5">
+      <h3 class="text-lg font-semibold text-gray-50 mb-4">GTO Conformance</h3>
+
+      <div class="flex flex-col items-center">
+        <!-- Donut Chart (SVG) -->
+        <div class="relative w-36 h-36">
+          <svg class="w-full h-full" viewBox="0 0 120 120" style="transform: rotate(-90deg);">
+            <!-- Background circle -->
+            <circle cx="60" cy="60" r="54" fill="none" stroke="#374151" stroke-width="8"/>
+            <!-- Progress arc: 68.5% conformance -->
+            <!-- circumference = 2 * PI * 54 ≈ 339.29 -->
+            <!-- dashoffset = 339.29 - (68.5/100)*339.29 ≈ 106.88 -->
+            <circle cx="60" cy="60" r="54" fill="none" stroke="#f59e0b" stroke-width="8"
+              stroke-linecap="round"
+              stroke-dasharray="339.29"
+              stroke-dashoffset="106.88"/>
+          </svg>
+          <!-- Center text -->
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <span class="text-3xl font-bold font-mono text-yellow-500">69%</span>
+            <span class="text-xs font-medium text-yellow-500">Moderate</span>
+          </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-1.5 text-xs">
+          <div class="flex items-center gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+            <span class="text-gray-400">Match (≥75%)</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+            <span class="text-gray-400">Moderate (50-74%)</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-full bg-amber-500"></div>
+            <span class="text-gray-400">Weak (25-49%)</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+            <span class="text-gray-400">Poor (&lt;25%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
