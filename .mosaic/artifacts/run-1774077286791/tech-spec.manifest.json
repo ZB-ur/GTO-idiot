@@ -1,0 +1,515 @@
+{
+  "modules": [
+    {
+      "name": "poker-engine",
+      "description": "Core poker game logic — deck, dealing, betting, pots, showdown",
+      "covers_features": [
+        "F-001",
+        "F-002"
+      ]
+    },
+    {
+      "name": "gto-bot",
+      "description": "GTO-approximate rule engine for BOT decisions with preflop ranges and postflop decision tree",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "name": "gto-analyzer",
+      "description": "Post-hand GTO analysis — decision comparison, EV calculation, quality assessment, strategy explanations",
+      "covers_features": [
+        "F-007",
+        "F-008"
+      ]
+    },
+    {
+      "name": "data-layer",
+      "description": "IndexedDB persistence via Dexie.js for sessions, hands, and decisions",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "name": "services",
+      "description": "Service layer implementing internal API contract, orchestrating engine/bot/analyzer/data",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008",
+        "F-009",
+        "F-010"
+      ]
+    },
+    {
+      "name": "stores",
+      "description": "Zustand state stores bridging services and UI components",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-004",
+        "F-007",
+        "F-009",
+        "F-010"
+      ]
+    },
+    {
+      "name": "ui-table",
+      "description": "Poker table UI — 6-seat layout, cards, action panel, animations, result display",
+      "covers_features": [
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005"
+      ]
+    },
+    {
+      "name": "ui-replay",
+      "description": "Post-hand replay UI — step-through, decision comparison, EV display, strategy explanations",
+      "covers_features": [
+        "F-007",
+        "F-008"
+      ]
+    },
+    {
+      "name": "ui-history",
+      "description": "History browsing UI — paginated list, date filtering, session summary",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "ui-shell",
+      "description": "App shell, routing, navigation, landing page, global components (toast, dialogs, guards)",
+      "covers_features": [
+        "F-004",
+        "F-010"
+      ]
+    }
+  ],
+  "tech_stack": [
+    "TypeScript",
+    "React 18",
+    "Tailwind CSS 3",
+    "Vite",
+    "Zustand",
+    "Dexie.js",
+    "pokersolver",
+    "React Router v6",
+    "Framer Motion",
+    "Vitest",
+    "React Testing Library"
+  ],
+  "implementation_tasks": [
+    {
+      "id": "T-001",
+      "name": "Project scaffolding — Vite + React + TS + Tailwind + folder structure",
+      "module": "ui-shell",
+      "covers_features": [
+        "F-004",
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-002",
+      "name": "Define core TypeScript types matching API schemas",
+      "module": "poker-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-003",
+      "name": "Implement deck operations — create, shuffle (Fisher-Yates), deal",
+      "module": "poker-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-004",
+      "name": "Implement position assignment for 6-max",
+      "module": "poker-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-005",
+      "name": "Implement blind posting and hand initialization",
+      "module": "poker-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-006",
+      "name": "Integrate pokersolver for hand evaluation",
+      "module": "poker-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-007",
+      "name": "Implement betting round logic — validation, actions, street advancement",
+      "module": "poker-engine",
+      "covers_features": [
+        "F-001",
+        "F-002"
+      ]
+    },
+    {
+      "id": "T-008",
+      "name": "Implement pot calculation with side pots",
+      "module": "poker-engine",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "id": "T-009",
+      "name": "Implement showdown resolution and result generation",
+      "module": "poker-engine",
+      "covers_features": [
+        "F-001",
+        "F-005"
+      ]
+    },
+    {
+      "id": "T-010",
+      "name": "Set up Dexie.js database schema and indexes",
+      "module": "data-layer",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "id": "T-011",
+      "name": "Implement SessionRepository CRUD",
+      "module": "data-layer",
+      "covers_features": [
+        "F-006",
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-012",
+      "name": "Implement HandRepository with filtering and pagination",
+      "module": "data-layer",
+      "covers_features": [
+        "F-006",
+        "F-009"
+      ]
+    },
+    {
+      "id": "T-013",
+      "name": "Implement DecisionRepository for replay data",
+      "module": "data-layer",
+      "covers_features": [
+        "F-006",
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-014",
+      "name": "Build preflop GTO range tables for all positions",
+      "module": "gto-bot",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-015",
+      "name": "Implement preflop bot decision logic with mixed strategies",
+      "module": "gto-bot",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-016",
+      "name": "Implement hand strength calculator for postflop",
+      "module": "gto-bot",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-017",
+      "name": "Implement postflop bot decision tree (SPR + pot odds)",
+      "module": "gto-bot",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-018",
+      "name": "Implement SessionService — full session lifecycle",
+      "module": "services",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-019",
+      "name": "Implement HandService — hand lifecycle and action orchestration",
+      "module": "services",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-020",
+      "name": "Implement HistoryService with date filtering",
+      "module": "services",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "id": "T-021",
+      "name": "Build Zustand gameStore for hand state management",
+      "module": "stores",
+      "covers_features": [
+        "F-001",
+        "F-002"
+      ]
+    },
+    {
+      "id": "T-022",
+      "name": "Build Zustand sessionStore for session lifecycle",
+      "module": "stores",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-023",
+      "name": "Build AppShell + routing + LandingScreen + DesktopOnlyGuard",
+      "module": "ui-shell",
+      "covers_features": [
+        "F-010",
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-024",
+      "name": "Build PokerTable 6-seat elliptical layout",
+      "module": "ui-table",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-025",
+      "name": "Build CardDisplay SVG component with flip animation",
+      "module": "ui-table",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-026",
+      "name": "Build PlayerSeat component with status indicators",
+      "module": "ui-table",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-027",
+      "name": "Build CommunityCards + PotDisplay with animations",
+      "module": "ui-table",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-028",
+      "name": "Build ActionPanel + BetSizer with validation",
+      "module": "ui-table",
+      "covers_features": [
+        "F-002",
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-029",
+      "name": "Build BotThinkingIndicator + dealing animations",
+      "module": "ui-table",
+      "covers_features": [
+        "F-004",
+        "F-003"
+      ]
+    },
+    {
+      "id": "T-030",
+      "name": "Build HandResultModal with highlights",
+      "module": "ui-table",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "id": "T-031",
+      "name": "Integrate game loop — UI → store → service → engine pipeline",
+      "module": "services",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004"
+      ]
+    },
+    {
+      "id": "T-032",
+      "name": "Implement decision snapshot capture during play",
+      "module": "services",
+      "covers_features": [
+        "F-006",
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-033",
+      "name": "Implement GTO analyzer — recommendations and quality assessment",
+      "module": "gto-analyzer",
+      "covers_features": [
+        "F-007",
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-034",
+      "name": "Implement EV calculation with confidence levels",
+      "module": "gto-analyzer",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-035",
+      "name": "Implement strategy explanation generator",
+      "module": "gto-analyzer",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-036",
+      "name": "Implement ReplayService orchestration",
+      "module": "services",
+      "covers_features": [
+        "F-007",
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-037",
+      "name": "Build Zustand replayStore for decision navigation",
+      "module": "stores",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-038",
+      "name": "Build ReplayView + ReplayControls step-through UI",
+      "module": "ui-replay",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-039",
+      "name": "Build DecisionComparison panel with color coding",
+      "module": "ui-replay",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "id": "T-040",
+      "name": "Build EVDisplay + ConfidenceBadge components",
+      "module": "ui-replay",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-041",
+      "name": "Build StrategyExplanation + HandSummaryCard",
+      "module": "ui-replay",
+      "covers_features": [
+        "F-007",
+        "F-008"
+      ]
+    },
+    {
+      "id": "T-042",
+      "name": "Build HistoryList with virtual scrolling and date filter",
+      "module": "ui-history",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "id": "T-043",
+      "name": "Build Zustand historyStore for list state management",
+      "module": "stores",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "id": "T-044",
+      "name": "Implement session continuity — beforeunload, restore, BOT rebuy",
+      "module": "services",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-045",
+      "name": "Build Toast notification system for storage errors",
+      "module": "ui-shell",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "id": "T-046",
+      "name": "End-to-end testing — full gameplay, replay, history flows",
+      "module": "all",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008",
+        "F-009",
+        "F-010"
+      ]
+    },
+    {
+      "id": "T-047",
+      "name": "Performance optimization — BOT speed, animations, large queries",
+      "module": "poker-engine",
+      "covers_features": [
+        "F-003",
+        "F-004",
+        "F-009"
+      ]
+    }
+  ]
+}

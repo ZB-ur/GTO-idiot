@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PotDisplay Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 32px;">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">Pot Display — Variants</p>
+
+    <!-- Single main pot -->
+    <div>
+      <p class="text-gray-500 text-xs mb-3">Main Pot Only</p>
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="text-gray-300 text-xs font-medium tracking-wide uppercase">Total Pot</div>
+        <div class="flex items-center gap-1.5 bg-black/40 backdrop-blur-sm rounded-full px-4 py-1.5 border border-amber-400/30 shadow-lg shadow-black/30">
+          <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+            <circle cx="10" cy="10" r="8" />
+            <text x="10" y="14" text-anchor="middle" font-size="10" fill="#1a1a1a" font-weight="bold">$</text>
+          </svg>
+          <span class="text-amber-400 text-lg font-bold" style="font-variant-numeric: tabular-nums;">24.5 BB</span>
+        </div>
+        <div class="flex items-center gap-2 flex-wrap justify-center">
+          <div class="flex items-center gap-1 bg-black/30 rounded-lg px-2.5 py-1 border border-gray-600/40">
+            <div class="flex flex-col items-center gap-px">
+              <div class="w-3.5 h-1 rounded-sm bg-amber-400 shadow-sm"></div>
+              <div class="w-3.5 h-1 rounded-sm bg-amber-500 shadow-sm"></div>
+              <div class="w-3.5 h-1 rounded-sm bg-amber-600 shadow-sm"></div>
+            </div>
+            <div class="flex flex-col items-start ml-0.5">
+              <span class="text-gray-400 text-[10px] leading-tight">Main</span>
+              <span class="text-white text-xs font-semibold" style="font-variant-numeric: tabular-nums;">24.5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main pot + side pots -->
+    <div>
+      <p class="text-gray-500 text-xs mb-3">Main + Side Pots</p>
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="text-gray-300 text-xs font-medium tracking-wide uppercase">Total Pot</div>
+        <div class="flex items-center gap-1.5 bg-black/40 backdrop-blur-sm rounded-full px-4 py-1.5 border border-amber-400/30 shadow-lg shadow-black/30">
+          <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+            <circle cx="10" cy="10" r="8" />
+            <text x="10" y="14" text-anchor="middle" font-size="10" fill="#1a1a1a" font-weight="bold">$</text>
+          </svg>
+          <span class="text-amber-400 text-lg font-bold" style="font-variant-numeric: tabular-nums;">156.0 BB</span>
+        </div>
+        <div class="flex items-center gap-2 flex-wrap justify-center">
+          <div class="flex items-center gap-1 bg-black/30 rounded-lg px-2.5 py-1 border border-gray-600/40">
+            <div class="flex flex-col items-center gap-px">
+              <div class="w-3.5 h-1 rounded-sm bg-amber-400 shadow-sm"></div>
+              <div class="w-3.5 h-1 rounded-sm bg-amber-500 shadow-sm"></div>
+              <div class="w-3.5 h-1 rounded-sm bg-amber-600 shadow-sm"></div>
+            </div>
+            <div class="flex flex-col items-start ml-0.5">
+              <span class="text-gray-400 text-[10px] leading-tight">Main</span>
+              <span class="text-white text-xs font-semibold" style="font-variant-numeric: tabular-nums;">90.0</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 bg-black/30 rounded-lg px-2.5 py-1 border border-gray-600/40">
+            <div class="flex flex-col items-center gap-px">
+              <div class="w-3.5 h-1 rounded-sm bg-emerald-400 shadow-sm"></div>
+              <div class="w-3.5 h-1 rounded-sm bg-emerald-500 shadow-sm"></div>
+            </div>
+            <div class="flex flex-col items-start ml-0.5">
+              <span class="text-gray-400 text-[10px] leading-tight">Side 1</span>
+              <span class="text-white text-xs font-semibold" style="font-variant-numeric: tabular-nums;">42.0</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 bg-black/30 rounded-lg px-2.5 py-1 border border-gray-600/40">
+            <div class="flex flex-col items-center gap-px">
+              <div class="w-3.5 h-1 rounded-sm bg-emerald-400 shadow-sm"></div>
+              <div class="w-3.5 h-1 rounded-sm bg-emerald-500 shadow-sm"></div>
+            </div>
+            <div class="flex flex-col items-start ml-0.5">
+              <span class="text-gray-400 text-[10px] leading-tight">Side 2</span>
+              <span class="text-white text-xs font-semibold" style="font-variant-numeric: tabular-nums;">24.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HistoryList Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 480px; margin: 0 auto; height: 100vh;" class="flex flex-col bg-slate-50">
+
+    <!-- Header -->
+    <div class="px-6 pt-6 pb-4">
+      <h1 class="text-2xl font-bold text-gray-900 mb-1">牌局历史</h1>
+      <p class="text-sm text-gray-600">共 156 局 · 选择一局进入复盘</p>
+    </div>
+
+    <!-- Date Range Filter -->
+    <div class="px-6 pb-4">
+      <div class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-3">
+        <svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <span class="text-sm text-gray-700">2026-03-01</span>
+        <span class="text-gray-300">—</span>
+        <span class="text-sm text-gray-700">2026-03-21</span>
+        <button class="ml-auto text-xs text-blue-600 hover:text-blue-700 font-medium">清除</button>
+      </div>
+    </div>
+
+    <!-- List Items -->
+    <div class="flex-1 overflow-y-auto px-6 pb-6 space-y-2">
+
+      <!-- Hand 1: Big win, showdown -->
+      <button class="w-full text-left bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-sm transition-all group">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900"># 156</span>
+              <span class="text-[10px] font-medium bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">摊牌</span>
+              <span class="text-xs text-gray-400">4 个决策点</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-1">03/21 14:32</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm font-bold text-green-500">+24.5 BB</span>
+            <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+
+      <!-- Hand 2: Loss -->
+      <button class="w-full text-left bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-sm transition-all group">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900"># 155</span>
+              <span class="text-xs text-gray-400">2 个决策点</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-1">03/21 14:28</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm font-bold text-red-500">-8.0 BB</span>
+            <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+
+      <!-- Hand 3: Small win -->
+      <button class="w-full text-left bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-sm transition-all group">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900"># 154</span>
+              <span class="text-[10px] font-medium bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">摊牌</span>
+              <span class="text-xs text-gray-400">5 个决策点</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-1">03/21 14:23</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm font-bold text-green-500">+3.0 BB</span>
+            <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+
+      <!-- Hand 4: Break even -->
+      <button class="w-full text-left bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-sm transition-all group">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900"># 153</span>
+              <span class="text-xs text-gray-400">1 个决策点</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-1">03/21 14:19</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm font-bold text-gray-400">0 BB</span>
+            <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+
+      <!-- Hand 5: Large loss, showdown -->
+      <button class="w-full text-left bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-sm transition-all group">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900"># 152</span>
+              <span class="text-[10px] font-medium bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">摊牌</span>
+              <span class="text-xs text-gray-400">6 个决策点</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-1">03/21 14:12</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm font-bold text-red-500">-42.0 BB</span>
+            <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+
+      <!-- Hand 6: Win -->
+      <button class="w-full text-left bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-sm transition-all group">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900"># 151</span>
+              <span class="text-xs text-gray-400">3 个决策点</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-1">03/21 14:05</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm font-bold text-green-500">+12.5 BB</span>
+            <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+
+      <!-- Hand 7: Loss -->
+      <button class="w-full text-left bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-sm transition-all group">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900"># 150</span>
+              <span class="text-[10px] font-medium bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">摊牌</span>
+              <span class="text-xs text-gray-400">4 个决策点</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-1">03/21 13:58</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm font-bold text-red-500">-15.5 BB</span>
+            <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+
+      <!-- Hand 8: Small win -->
+      <button class="w-full text-left bg-white border border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-sm transition-all group">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-gray-900"># 149</span>
+              <span class="text-xs text-gray-400">2 个决策点</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-1">03/21 13:52</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-sm font-bold text-green-500">+5.0 BB</span>
+            <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+
+    </div>
+  </div>
+</body>
+</html>
