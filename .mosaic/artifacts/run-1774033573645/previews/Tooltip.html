@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tooltip Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-lg mx-auto space-y-12 pt-16">
+    <!-- Top tooltip (always visible for preview) -->
+    <div class="flex justify-center">
+      <div class="relative inline-flex">
+        <span class="text-blue-600 font-semibold underline decoration-dotted cursor-help text-base">GTO Strategy</span>
+        <div class="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-2 pointer-events-none">
+          <div class="relative bg-gray-900 text-white text-sm rounded-lg px-3 py-1.5 whitespace-nowrap shadow-md">
+            Game Theory Optimal — 博弈论最优策略
+            <div class="absolute w-0 h-0 border-4 top-full left-1/2 -translate-x-1/2 border-t-gray-900 border-x-transparent border-b-transparent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom tooltip -->
+    <div class="flex justify-center">
+      <div class="relative inline-flex">
+        <span class="text-blue-600 font-semibold underline decoration-dotted cursor-help text-base">EV Loss</span>
+        <div class="absolute z-50 top-full left-1/2 -translate-x-1/2 mt-2 pointer-events-none">
+          <div class="relative bg-gray-900 text-white text-sm rounded-lg px-3 py-1.5 whitespace-nowrap shadow-md">
+            Expected Value Loss — 期望值损失 (BB)
+            <div class="absolute w-0 h-0 border-4 bottom-full left-1/2 -translate-x-1/2 border-b-gray-900 border-x-transparent border-t-transparent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right tooltip -->
+    <div class="flex justify-center">
+      <div class="relative inline-flex">
+        <span class="text-blue-600 font-semibold underline decoration-dotted cursor-help text-base">3-Bet</span>
+        <div class="absolute z-50 left-full top-1/2 -translate-y-1/2 ml-2 pointer-events-none">
+          <div class="relative bg-gray-900 text-white text-sm rounded-lg px-3 py-1.5 whitespace-nowrap shadow-md">
+            第三次加注 — 对 open raise 的再加注
+            <div class="absolute w-0 h-0 border-4 right-full top-1/2 -translate-y-1/2 border-r-gray-900 border-y-transparent border-l-transparent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left tooltip -->
+    <div class="flex justify-center">
+      <div class="relative inline-flex">
+        <span class="text-blue-600 font-semibold underline decoration-dotted cursor-help text-base">C-Bet</span>
+        <div class="absolute z-50 right-full top-1/2 -translate-y-1/2 mr-2 pointer-events-none">
+          <div class="relative bg-gray-900 text-white text-sm rounded-lg px-3 py-1.5 whitespace-nowrap shadow-md">
+            Continuation Bet — 持续下注
+            <div class="absolute w-0 h-0 border-4 left-full top-1/2 -translate-y-1/2 border-l-gray-900 border-y-transparent border-r-transparent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

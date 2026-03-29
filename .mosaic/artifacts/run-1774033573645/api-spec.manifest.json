@@ -1,0 +1,213 @@
+{
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/sessions",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions/{sessionId}",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/sessions/{sessionId}",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/end",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/hands/deal",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sessions/{sessionId}/hands/current",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sessions/{sessionId}/hands/current/action",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/bot/decide",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/gto/preflop",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/gto/postflop",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/gto/evaluate",
+      "covers_features": [
+        "F-003",
+        "F-006",
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/hands/{handId}",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}/replay",
+      "covers_features": [
+        "F-006",
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hands/{handId}/ev-summary",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/overview",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/by-position",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/by-street",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/by-scenario",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stats/drilldown/{scenario}",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/export/hands",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/export/stats",
+      "covers_features": [
+        "F-010"
+      ]
+    }
+  ],
+  "models": [
+    "Card",
+    "Player",
+    "Action",
+    "PotInfo",
+    "HandResult",
+    "Session",
+    "SessionSummary",
+    "GameState",
+    "AvailableAction",
+    "BotActionEvent",
+    "BotDecisionRequest",
+    "BotDecisionResponse",
+    "PreflopStrategy",
+    "PostflopStrategy",
+    "HandRange",
+    "ActionFrequency",
+    "GTOEvaluation",
+    "EVAnalysis",
+    "Hand",
+    "StreetData",
+    "HandReplay",
+    "DecisionPoint",
+    "TableSnapshot",
+    "HandEVSummary",
+    "OverviewStats",
+    "FrequencyComparison",
+    "PositionStats",
+    "StreetStats",
+    "ScenarioStats",
+    "DrilldownResponse",
+    "ExportResult",
+    "StatsExportResult",
+    "ErrorResponse"
+  ]
+}

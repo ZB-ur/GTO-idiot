@@ -1,0 +1,60 @@
+{
+  "issues": [
+    {
+      "severity": "critical",
+      "file": "code/src/engine/deck.ts",
+      "description": "Modular bias in Fisher-Yates shuffle: `randomValues[i] % (i + 1)` is not uniformly distributed. Must use rejection sampling for fair card distribution in a GTO training tool."
+    },
+    {
+      "severity": "critical",
+      "file": "code/src/services/game-service.ts",
+      "description": "GameService reimplements ~250 lines of game state logic (applyAction, isStreetComplete, isHandComplete, etc.) instead of delegating to the pure functional state machine in engine/state-machine.ts. Two divergent rule implementations with differing blind sizes (0.5/1 vs 1/2) and edge-case handling."
+    },
+    {
+      "severity": "major",
+      "file": "code/",
+      "description": "No test files exist. T-009 (engine unit tests), T-015 (BOT behavioral tests), and T-046 (E2E integration tests) are completely missing."
+    },
+    {
+      "severity": "major",
+      "file": "code/package.json",
+      "description": "vitest is missing from devDependencies despite being specified in T-001 scaffold and tech stack."
+    },
+    {
+      "severity": "major",
+      "file": "code/src/components/",
+      "description": "T-045 not implemented: No IndexedDB availability detection, no error recovery Modal, no Toast warnings for engine failures."
+    },
+    {
+      "severity": "major",
+      "file": "code/src/engine/showdown.ts",
+      "description": "Pot calculation at showdown uses per-street currentBet (reset each street) instead of cumulative total hand contributions. Side pots incorrect for multi-street all-in scenarios."
+    },
+    {
+      "severity": "minor",
+      "file": "code/src/bot/decision-tree.ts",
+      "description": "Duplicate hand evaluation and combinations() code. Should import from engine/hand-evaluator.ts instead of reimplementing."
+    },
+    {
+      "severity": "minor",
+      "file": "code/src/services/session-service.ts",
+      "description": "uuid package is a dependency but never used. ID generation uses Date.now() + Math.random() instead of RFC4122 UUIDs as specified by the API spec."
+    },
+    {
+      "severity": "minor",
+      "file": "code/src/gto/provider.ts",
+      "description": "Multiple eslint-disable for `any` types in preflop cache. Should use typed interfaces or `unknown`."
+    }
+  ],
+  "spec_coverage": {
+    "total_tasks": 46,
+    "covered_tasks": 42,
+    "missing_tasks": [
+      "T-009",
+      "T-015",
+      "T-045",
+      "T-046"
+    ]
+  },
+  "verdict": "fail"
+}

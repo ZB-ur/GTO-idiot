@@ -1,0 +1,124 @@
+{
+  "flows": [
+    {
+      "name": "home-session-management",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "game-play",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-009"
+      ]
+    },
+    {
+      "name": "hand-history-browsing",
+      "covers_features": [
+        "F-005",
+        "F-010"
+      ]
+    },
+    {
+      "name": "hand-replay-gto-review",
+      "covers_features": [
+        "F-003",
+        "F-006",
+        "F-007"
+      ]
+    },
+    {
+      "name": "stats-dashboard",
+      "covers_features": [
+        "F-003",
+        "F-008",
+        "F-010"
+      ]
+    }
+  ],
+  "components": [
+    "AppShell",
+    "TopNav",
+    "PageContainer",
+    "HomePage",
+    "RecentSessionCard",
+    "QuickStartPanel",
+    "GameTable",
+    "PokerTable",
+    "PlayerSeat",
+    "CommunityCards",
+    "PotDisplay",
+    "PlayingCard",
+    "ActionPanel",
+    "RaiseSlider",
+    "BetTimeline",
+    "ShowdownOverlay",
+    "DealerButton",
+    "SessionConfigModal",
+    "SessionPauseModal",
+    "SessionSummaryModal",
+    "SessionProfitChart",
+    "HandHistoryList",
+    "HandHistoryCard",
+    "HandHistoryFilter",
+    "ScenarioTag",
+    "HandReplayView",
+    "ReplayTableSnapshot",
+    "DecisionPointPanel",
+    "GTOFrequencyChart",
+    "DeviationBadge",
+    "EVAnalysisCard",
+    "ReplayNavBar",
+    "StreetJumpNav",
+    "DecisionTimeline",
+    "HandSummaryFooter",
+    "StatsDashboard",
+    "TimeRangeSelector",
+    "OverviewStatsCards",
+    "PositionStatsChart",
+    "StreetStatsChart",
+    "ScenarioRadarChart",
+    "DrilldownPanel",
+    "ExportModal",
+    "ExportButton",
+    "Toast",
+    "Modal",
+    "ConfirmDialog",
+    "Skeleton",
+    "EmptyState",
+    "ChipStack",
+    "Tooltip"
+  ],
+  "interaction_rules": [
+    "ActionPanel activates only when it is the player's turn; disabled/greyed out otherwise",
+    "Unavailable actions auto-hide (e.g. Call hidden when no bet to call, show Check instead)",
+    "Raise click expands amount selector with slider + quick-bet buttons (1/3, 1/2, 2/3, pot, all-in)",
+    "All-in requires secondary confirmation dialog to prevent misclick",
+    "Single-click submits action immediately (no double confirm) for gameplay rhythm",
+    "Raise amount input validates on blur; illegal values auto-correct to nearest legal value",
+    "Stack depth input: range 20-500BB with preset buttons, real-time validation with inline error",
+    "All filters apply instantly without submit button (real-time list refresh)",
+    "BOT thinking: 500-1500ms simulated delay with animated dots on active BOT seat",
+    "Deal animation: cards fly from deck to seats (~300ms/card) with flip reveal",
+    "Chips animate from player to pot on bet (~200ms), pot to winner on showdown",
+    "Community cards flip sequentially (Flop 3 cards in sequence, Turn/River single flip)",
+    "Page transitions use fade+slide (~200ms duration)",
+    "Winner highlight: pot chips slide to winner + seat pulse glow animation",
+    "Replay keyboard shortcuts: ← previous / → next / Space play-pause",
+    "Auto-replay mode: 2s per decision point, adjustable speed (1x/2x/3x)",
+    "Decision timeline: horizontal clickable bar, red markers on severe deviations",
+    "Deviation color coding: green = GTO match, yellow = minor deviation, red = severe deviation",
+    "Each hand auto-saves to IndexedDB on completion; no manual save needed",
+    "Session state auto-persists on pause and browser close; recoverable on reopen",
+    "Empty history state: illustration + prompt text + CTA to start first game",
+    "Insufficient stats data: prompt 'complete at least 10 hands for meaningful stats'",
+    "Filter no results: prompt to adjust filter criteria",
+    "IndexedDB unavailable: toast warning, allow usage but disable save features",
+    "Export failure: toast error with retry button",
+    "Engine error: error modal with 'restart this hand' option"
+  ]
+}

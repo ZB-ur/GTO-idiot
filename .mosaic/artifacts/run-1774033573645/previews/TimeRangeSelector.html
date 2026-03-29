@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TimeRangeSelector Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 32px;">
+    <!-- State: "last_100" selected -->
+    <div>
+      <p class="text-sm text-gray-500 mb-2">Selected: 近100手</p>
+      <div class="inline-flex items-center rounded-lg bg-slate-100 p-1">
+        <button class="px-4 py-1.5 text-sm font-medium rounded-md bg-white text-gray-900 shadow-sm">近100手</button>
+        <button class="px-4 py-1.5 text-sm font-medium rounded-md text-gray-500">近500手</button>
+        <button class="px-4 py-1.5 text-sm font-medium rounded-md text-gray-500">全部</button>
+      </div>
+    </div>
+
+    <!-- State: "last_500" selected -->
+    <div>
+      <p class="text-sm text-gray-500 mb-2">Selected: 近500手</p>
+      <div class="inline-flex items-center rounded-lg bg-slate-100 p-1">
+        <button class="px-4 py-1.5 text-sm font-medium rounded-md text-gray-500">近100手</button>
+        <button class="px-4 py-1.5 text-sm font-medium rounded-md bg-white text-gray-900 shadow-sm">近500手</button>
+        <button class="px-4 py-1.5 text-sm font-medium rounded-md text-gray-500">全部</button>
+      </div>
+    </div>
+
+    <!-- State: "all" selected -->
+    <div>
+      <p class="text-sm text-gray-500 mb-2">Selected: 全部</p>
+      <div class="inline-flex items-center rounded-lg bg-slate-100 p-1">
+        <button class="px-4 py-1.5 text-sm font-medium rounded-md text-gray-500">近100手</button>
+        <button class="px-4 py-1.5 text-sm font-medium rounded-md text-gray-500">近500手</button>
+        <button class="px-4 py-1.5 text-sm font-medium rounded-md bg-white text-gray-900 shadow-sm">全部</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

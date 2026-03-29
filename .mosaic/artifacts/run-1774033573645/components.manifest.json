@@ -1,0 +1,490 @@
+{
+  "components": [
+    {
+      "name": "PlayingCard",
+      "file": "components/PlayingCard.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "ChipStack",
+      "file": "components/ChipStack.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "DealerButton",
+      "file": "components/DealerButton.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "ScenarioTag",
+      "file": "components/ScenarioTag.tsx",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "DeviationBadge",
+      "file": "components/DeviationBadge.tsx",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "name": "Toast",
+      "file": "components/Toast.tsx",
+      "covers_features": [
+        "F-004",
+        "F-005"
+      ]
+    },
+    {
+      "name": "Skeleton",
+      "file": "components/Skeleton.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "Tooltip",
+      "file": "components/Tooltip.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "ExportButton",
+      "file": "components/ExportButton.tsx",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "name": "Modal",
+      "file": "components/Modal.tsx",
+      "covers_features": [
+        "F-004",
+        "F-009"
+      ]
+    },
+    {
+      "name": "ConfirmDialog",
+      "file": "components/ConfirmDialog.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "EmptyState",
+      "file": "components/EmptyState.tsx",
+      "covers_features": [
+        "F-005",
+        "F-008"
+      ]
+    },
+    {
+      "name": "TopNav",
+      "file": "components/TopNav.tsx",
+      "covers_features": [
+        "F-004",
+        "F-009"
+      ]
+    },
+    {
+      "name": "PageContainer",
+      "file": "components/PageContainer.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "PlayerSeat",
+      "file": "components/PlayerSeat.tsx",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-004"
+      ]
+    },
+    {
+      "name": "CommunityCards",
+      "file": "components/CommunityCards.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "PotDisplay",
+      "file": "components/PotDisplay.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "RaiseSlider",
+      "file": "components/RaiseSlider.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "ActionPanel",
+      "file": "components/ActionPanel.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "BetTimeline",
+      "file": "components/BetTimeline.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "ShowdownOverlay",
+      "file": "components/ShowdownOverlay.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "RecentSessionCard",
+      "file": "components/RecentSessionCard.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "QuickStartPanel",
+      "file": "components/QuickStartPanel.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "HandHistoryCard",
+      "file": "components/HandHistoryCard.tsx",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "HandHistoryFilter",
+      "file": "components/HandHistoryFilter.tsx",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "GTOFrequencyChart",
+      "file": "components/GTOFrequencyChart.tsx",
+      "covers_features": [
+        "F-003",
+        "F-006"
+      ]
+    },
+    {
+      "name": "EVAnalysisCard",
+      "file": "components/EVAnalysisCard.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "DecisionPointPanel",
+      "file": "components/DecisionPointPanel.tsx",
+      "covers_features": [
+        "F-006",
+        "F-007"
+      ]
+    },
+    {
+      "name": "ReplayNavBar",
+      "file": "components/ReplayNavBar.tsx",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "name": "StreetJumpNav",
+      "file": "components/StreetJumpNav.tsx",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "name": "DecisionTimeline",
+      "file": "components/DecisionTimeline.tsx",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "name": "HandSummaryFooter",
+      "file": "components/HandSummaryFooter.tsx",
+      "covers_features": [
+        "F-006",
+        "F-007"
+      ]
+    },
+    {
+      "name": "TimeRangeSelector",
+      "file": "components/TimeRangeSelector.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "OverviewStatsCards",
+      "file": "components/OverviewStatsCards.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "PositionStatsChart",
+      "file": "components/PositionStatsChart.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "StreetStatsChart",
+      "file": "components/StreetStatsChart.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "ScenarioRadarChart",
+      "file": "components/ScenarioRadarChart.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "DrilldownPanel",
+      "file": "components/DrilldownPanel.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "SessionProfitChart",
+      "file": "components/SessionProfitChart.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "SessionConfigModal",
+      "file": "components/SessionConfigModal.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "SessionPauseModal",
+      "file": "components/SessionPauseModal.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "SessionSummaryModal",
+      "file": "components/SessionSummaryModal.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "ExportModal",
+      "file": "components/ExportModal.tsx",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "name": "PokerTable",
+      "file": "components/PokerTable.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "ReplayTableSnapshot",
+      "file": "components/ReplayTableSnapshot.tsx",
+      "covers_features": [
+        "F-006"
+      ]
+    },
+    {
+      "name": "GameTable",
+      "file": "components/GameTable.tsx",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-004",
+        "F-009"
+      ]
+    },
+    {
+      "name": "HandReplayView",
+      "file": "components/HandReplayView.tsx",
+      "covers_features": [
+        "F-006",
+        "F-007"
+      ]
+    },
+    {
+      "name": "HandHistoryList",
+      "file": "components/HandHistoryList.tsx",
+      "covers_features": [
+        "F-005",
+        "F-010"
+      ]
+    },
+    {
+      "name": "StatsDashboard",
+      "file": "components/StatsDashboard.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "HomePage",
+      "file": "components/HomePage.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "AppShell",
+      "file": "components/AppShell.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    }
+  ],
+  "screenshots": [
+    "screenshots/PlayingCard.png",
+    "screenshots/ChipStack.png",
+    "screenshots/DealerButton.png",
+    "screenshots/ScenarioTag.png",
+    "screenshots/DeviationBadge.png",
+    "screenshots/Toast.png",
+    "screenshots/Skeleton.png",
+    "screenshots/Tooltip.png",
+    "screenshots/ExportButton.png",
+    "screenshots/Modal.png",
+    "screenshots/ConfirmDialog.png",
+    "screenshots/EmptyState.png",
+    "screenshots/TopNav.png",
+    "screenshots/PageContainer.png",
+    "screenshots/PlayerSeat.png",
+    "screenshots/CommunityCards.png",
+    "screenshots/PotDisplay.png",
+    "screenshots/RaiseSlider.png",
+    "screenshots/ActionPanel.png",
+    "screenshots/BetTimeline.png",
+    "screenshots/ShowdownOverlay.png",
+    "screenshots/RecentSessionCard.png",
+    "screenshots/QuickStartPanel.png",
+    "screenshots/HandHistoryCard.png",
+    "screenshots/HandHistoryFilter.png",
+    "screenshots/GTOFrequencyChart.png",
+    "screenshots/EVAnalysisCard.png",
+    "screenshots/DecisionPointPanel.png",
+    "screenshots/ReplayNavBar.png",
+    "screenshots/StreetJumpNav.png",
+    "screenshots/DecisionTimeline.png",
+    "screenshots/HandSummaryFooter.png",
+    "screenshots/TimeRangeSelector.png",
+    "screenshots/OverviewStatsCards.png",
+    "screenshots/PositionStatsChart.png",
+    "screenshots/StreetStatsChart.png",
+    "screenshots/ScenarioRadarChart.png",
+    "screenshots/DrilldownPanel.png",
+    "screenshots/SessionProfitChart.png",
+    "screenshots/SessionConfigModal.png",
+    "screenshots/SessionPauseModal.png",
+    "screenshots/SessionSummaryModal.png",
+    "screenshots/ExportModal.png",
+    "screenshots/PokerTable.png",
+    "screenshots/ReplayTableSnapshot.png",
+    "screenshots/GameTable.png",
+    "screenshots/HandReplayView.png",
+    "screenshots/HandHistoryList.png",
+    "screenshots/StatsDashboard.png",
+    "screenshots/HomePage.png",
+    "screenshots/AppShell.png"
+  ],
+  "previews": [
+    "previews/PlayingCard.html",
+    "previews/ChipStack.html",
+    "previews/DealerButton.html",
+    "previews/ScenarioTag.html",
+    "previews/DeviationBadge.html",
+    "previews/Toast.html",
+    "previews/Skeleton.html",
+    "previews/Tooltip.html",
+    "previews/ExportButton.html",
+    "previews/Modal.html",
+    "previews/ConfirmDialog.html",
+    "previews/EmptyState.html",
+    "previews/TopNav.html",
+    "previews/PageContainer.html",
+    "previews/PlayerSeat.html",
+    "previews/CommunityCards.html",
+    "previews/PotDisplay.html",
+    "previews/RaiseSlider.html",
+    "previews/BetTimeline.html",
+    "previews/ShowdownOverlay.html",
+    "previews/RecentSessionCard.html",
+    "previews/QuickStartPanel.html",
+    "previews/HandHistoryCard.html",
+    "previews/HandHistoryFilter.html",
+    "previews/GTOFrequencyChart.html",
+    "previews/EVAnalysisCard.html",
+    "previews/ReplayNavBar.html",
+    "previews/StreetJumpNav.html",
+    "previews/DecisionTimeline.html",
+    "previews/HandSummaryFooter.html",
+    "previews/TimeRangeSelector.html",
+    "previews/OverviewStatsCards.html",
+    "previews/PositionStatsChart.html",
+    "previews/StreetStatsChart.html",
+    "previews/ScenarioRadarChart.html",
+    "previews/SessionProfitChart.html",
+    "previews/ActionPanel.html",
+    "previews/DecisionPointPanel.html",
+    "previews/DrilldownPanel.html",
+    "previews/SessionConfigModal.html",
+    "previews/SessionPauseModal.html",
+    "previews/SessionSummaryModal.html",
+    "previews/ExportModal.html",
+    "previews/PokerTable.html",
+    "previews/ReplayTableSnapshot.html",
+    "previews/GameTable.html",
+    "previews/HandReplayView.html",
+    "previews/HandHistoryList.html",
+    "previews/StatsDashboard.html",
+    "previews/HomePage.html",
+    "previews/AppShell.html"
+  ]
+}

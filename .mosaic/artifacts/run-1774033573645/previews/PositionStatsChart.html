@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PositionStatsChart Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-3xl mx-auto">
+    <!-- Card Container -->
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-5">
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900">Action by Position</h3>
+          <p class="text-sm text-gray-500 mt-0.5">Your frequency vs GTO baseline</p>
+        </div>
+        <div class="flex gap-1 bg-slate-100 rounded-lg p-1">
+          <button class="px-3 py-1.5 text-xs font-medium rounded-md bg-white text-blue-600 shadow-sm">Raise</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-md text-gray-500">Call</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-md text-gray-500">Fold</button>
+          <button class="px-3 py-1.5 text-xs font-medium rounded-md text-gray-500">All Actions</button>
+        </div>
+      </div>
+
+      <!-- Chart Area -->
+      <div class="relative" style="height: 320px;">
+        <!-- Y-axis labels -->
+        <div class="absolute left-0 top-0 bottom-8 w-10 flex flex-col justify-between text-right pr-2">
+          <span class="text-xs text-gray-400">100%</span>
+          <span class="text-xs text-gray-400">75%</span>
+          <span class="text-xs text-gray-400">50%</span>
+          <span class="text-xs text-gray-400">25%</span>
+          <span class="text-xs text-gray-400">0%</span>
+        </div>
+
+        <!-- Grid lines -->
+        <div class="absolute left-12 right-4 top-0 bottom-8">
+          <div class="absolute w-full border-t border-dashed border-gray-100" style="top: 0%"></div>
+          <div class="absolute w-full border-t border-dashed border-gray-100" style="top: 25%"></div>
+          <div class="absolute w-full border-t border-dashed border-gray-100" style="top: 50%"></div>
+          <div class="absolute w-full border-t border-dashed border-gray-100" style="top: 75%"></div>
+          <div class="absolute w-full border-t border-gray-200" style="top: 100%"></div>
+        </div>
+
+        <!-- Bars Container -->
+        <div class="absolute left-12 right-4 top-0 bottom-8 flex items-end justify-around">
+          <!-- UTG -->
+          <div class="flex flex-col items-center gap-1 flex-1">
+            <div class="flex items-end gap-1.5 h-full">
+              <div class="w-8 rounded-t-md bg-blue-600" style="height: 22%;" title="You: 22%"></div>
+              <div class="w-8 rounded-t-md bg-blue-600/20 border border-dashed border-blue-600" style="height: 18%;" title="GTO: 18%"></div>
+            </div>
+          </div>
+          <!-- HJ -->
+          <div class="flex flex-col items-center gap-1 flex-1">
+            <div class="flex items-end gap-1.5 h-full">
+              <div class="w-8 rounded-t-md bg-blue-600" style="height: 28%;" title="You: 28%"></div>
+              <div class="w-8 rounded-t-md bg-blue-600/20 border border-dashed border-blue-600" style="height: 24%;" title="GTO: 24%"></div>
+            </div>
+          </div>
+          <!-- CO -->
+          <div class="flex flex-col items-center gap-1 flex-1">
+            <div class="flex items-end gap-1.5 h-full">
+              <div class="w-8 rounded-t-md bg-blue-600" style="height: 35%;" title="You: 35%"></div>
+              <div class="w-8 rounded-t-md bg-blue-600/20 border border-dashed border-blue-600" style="height: 32%;" title="GTO: 32%"></div>
+            </div>
+          </div>
+          <!-- BTN -->
+          <div class="flex flex-col items-center gap-1 flex-1">
+            <div class="flex items-end gap-1.5 h-full">
+              <div class="w-8 rounded-t-md bg-blue-600" style="height: 52%;" title="You: 52%"></div>
+              <div class="w-8 rounded-t-md bg-blue-600/20 border border-dashed border-blue-600" style="height: 48%;" title="GTO: 48%"></div>
+            </div>
+          </div>
+          <!-- SB -->
+          <div class="flex flex-col items-center gap-1 flex-1">
+            <div class="flex items-end gap-1.5 h-full">
+              <div class="w-8 rounded-t-md bg-blue-600" style="height: 38%;" title="You: 38%"></div>
+              <div class="w-8 rounded-t-md bg-blue-600/20 border border-dashed border-blue-600" style="height: 42%;" title="GTO: 42%"></div>
+            </div>
+          </div>
+          <!-- BB -->
+          <div class="flex flex-col items-center gap-1 flex-1">
+            <div class="flex items-end gap-1.5 h-full">
+              <div class="w-8 rounded-t-md bg-blue-600" style="height: 15%;" title="You: 15%"></div>
+              <div class="w-8 rounded-t-md bg-blue-600/20 border border-dashed border-blue-600" style="height: 20%;" title="GTO: 20%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- X-axis labels -->
+        <div class="absolute left-12 right-4 bottom-0 flex justify-around">
+          <span class="text-xs font-medium text-gray-600 flex-1 text-center">UTG</span>
+          <span class="text-xs font-medium text-gray-600 flex-1 text-center">HJ</span>
+          <span class="text-xs font-medium text-gray-600 flex-1 text-center">CO</span>
+          <span class="text-xs font-medium text-gray-600 flex-1 text-center">BTN</span>
+          <span class="text-xs font-medium text-gray-600 flex-1 text-center">SB</span>
+          <span class="text-xs font-medium text-gray-600 flex-1 text-center">BB</span>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="flex items-center justify-center gap-6 mt-4 pt-3 border-t border-gray-100">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-blue-600"></span>
+          <span class="text-xs text-gray-600">You</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-sm bg-blue-600/20 border border-dashed border-blue-600"></span>
+          <span class="text-xs text-gray-600">GTO</span>
+        </div>
+      </div>
+
+      <!-- Sample Size Row -->
+      <div class="mt-4 flex justify-around text-center">
+        <div class="flex-1">
+          <span class="text-xs text-gray-400">87 hands</span>
+        </div>
+        <div class="flex-1">
+          <span class="text-xs text-gray-400">92 hands</span>
+        </div>
+        <div class="flex-1">
+          <span class="text-xs text-gray-400">95 hands</span>
+        </div>
+        <div class="flex-1">
+          <span class="text-xs text-gray-400">101 hands</span>
+        </div>
+        <div class="flex-1">
+          <span class="text-xs text-gray-400">98 hands</span>
+        </div>
+        <div class="flex-1">
+          <span class="text-xs text-gray-400">103 hands</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

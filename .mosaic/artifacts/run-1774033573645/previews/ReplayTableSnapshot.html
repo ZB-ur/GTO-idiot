@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayTableSnapshot Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto space-y-8">
+    <!-- Title -->
+    <h2 class="text-lg font-semibold text-gray-900">Replay Table Snapshot</h2>
+
+    <!-- Snapshot 1: Flop with highlighted seat -->
+    <div class="relative w-full aspect-[16/10]">
+      <!-- Felt -->
+      <div class="absolute inset-0 bg-emerald-900 rounded-[40%] border-4 border-emerald-800 shadow-lg"></div>
+      <div class="absolute inset-4 border-2 border-emerald-700/40 rounded-[38%]"></div>
+
+      <!-- Community cards + pot center -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2">
+        <div class="flex gap-1">
+          <!-- Ah -->
+          <span class="inline-flex items-center justify-center w-8 h-11 bg-white rounded-md shadow-sm border border-gray-200 text-sm font-bold">
+            <span class="flex flex-col items-center leading-none">
+              <span class="text-gray-900">A</span>
+              <span class="text-red-500">♥</span>
+            </span>
+          </span>
+          <!-- Kd -->
+          <span class="inline-flex items-center justify-center w-8 h-11 bg-white rounded-md shadow-sm border border-gray-200 text-sm font-bold">
+            <span class="flex flex-col items-center leading-none">
+              <span class="text-gray-900">K</span>
+              <span class="text-blue-500">♦</span>
+            </span>
+          </span>
+          <!-- 7s -->
+          <span class="inline-flex items-center justify-center w-8 h-11 bg-white rounded-md shadow-sm border border-gray-200 text-sm font-bold">
+            <span class="flex flex-col items-center leading-none">
+              <span class="text-gray-900">7</span>
+              <span class="text-gray-900">♠</span>
+            </span>
+          </span>
+        </div>
+        <div class="bg-black/30 text-white text-xs font-semibold px-3 py-1 rounded-full">
+          Pot: 24 BB
+        </div>
+      </div>
+
+      <!-- Seat 0: bottom center — highlighted (human, BTN) -->
+      <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:78%;left:50%">
+        <div class="flex flex-col items-center gap-1 px-3 py-2 rounded-xl min-w-[80px] bg-blue-600 text-white ring-2 ring-blue-400 ring-offset-2 ring-offset-emerald-900">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-blue-700 text-blue-100">BTN</span>
+            <span class="text-xs font-medium">Hero</span>
+          </div>
+          <span class="text-xs font-mono text-blue-100">88 BB</span>
+          <span class="text-[10px] font-semibold text-amber-300">Bet: 8 BB</span>
+        </div>
+      </div>
+
+      <!-- Seat 1: bottom-left (SB) -->
+      <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:65%;left:12%">
+        <div class="flex flex-col items-center gap-1 px-3 py-2 rounded-xl min-w-[80px] bg-slate-100 text-gray-900 border border-gray-200">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">SB</span>
+            <span class="text-xs font-medium">BOT-Nit</span>
+          </div>
+          <span class="text-xs font-mono text-gray-500">97 BB</span>
+          <span class="text-[10px] font-semibold text-amber-600">Bet: 3 BB</span>
+        </div>
+      </div>
+
+      <!-- Seat 2: top-left (BB) — folded -->
+      <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:20%;left:12%">
+        <div class="flex flex-col items-center gap-1 px-3 py-2 rounded-xl min-w-[80px] bg-gray-300/60 text-gray-400 border border-gray-300">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">BB</span>
+            <span class="text-xs font-medium">BOT-Fish</span>
+          </div>
+          <span class="text-xs font-mono text-gray-400">95 BB</span>
+          <span class="text-[10px] italic text-gray-400">Folded</span>
+        </div>
+      </div>
+
+      <!-- Seat 3: top center (UTG) — folded -->
+      <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:5%;left:50%">
+        <div class="flex flex-col items-center gap-1 px-3 py-2 rounded-xl min-w-[80px] bg-gray-300/60 text-gray-400 border border-gray-300">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">UTG</span>
+            <span class="text-xs font-medium">BOT-TAG</span>
+          </div>
+          <span class="text-xs font-mono text-gray-400">100 BB</span>
+          <span class="text-[10px] italic text-gray-400">Folded</span>
+        </div>
+      </div>
+
+      <!-- Seat 4: top-right (HJ) — folded -->
+      <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:20%;left:88%">
+        <div class="flex flex-col items-center gap-1 px-3 py-2 rounded-xl min-w-[80px] bg-gray-300/60 text-gray-400 border border-gray-300">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">HJ</span>
+            <span class="text-xs font-medium">BOT-LAG</span>
+          </div>
+          <span class="text-xs font-mono text-gray-400">104 BB</span>
+          <span class="text-[10px] italic text-gray-400">Folded</span>
+        </div>
+      </div>
+
+      <!-- Seat 5: bottom-right (CO) -->
+      <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:65%;left:88%">
+        <div class="flex flex-col items-center gap-1 px-3 py-2 rounded-xl min-w-[80px] bg-slate-100 text-gray-900 border border-gray-200">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">CO</span>
+            <span class="text-xs font-medium">BOT-GTO</span>
+          </div>
+          <span class="text-xs font-mono text-gray-500">92 BB</span>
+          <span class="text-[10px] font-semibold text-amber-600">Bet: 8 BB</span>
+        </div>
+      </div>
+
+      <!-- REPLAY badge -->
+      <div class="absolute top-2 right-4 bg-black/40 text-white/70 text-[10px] font-medium px-2 py-0.5 rounded-full">
+        REPLAY
+      </div>
+    </div>
+
+    <!-- Snapshot 2: Preflop (no community cards) without highlight -->
+    <h2 class="text-lg font-semibold text-gray-900 mt-6">Preflop — No Highlight</h2>
+    <div class="relative w-full aspect-[16/10]">
+      <div class="absolute inset-0 bg-emerald-900 rounded-[40%] border-4 border-emerald-800 shadow-lg"></div>
+      <div class="absolute inset-4 border-2 border-emerald-700/40 rounded-[38%]"></div>
+
+      <!-- Center: pot only, no cards -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2">
+        <div class="bg-black/30 text-white text-xs font-semibold px-3 py-1 rounded-full">
+          Pot: 3.5 BB
+        </div>
+      </div>
+
+      <!-- All 6 seats, no highlight -->
+      <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:78%;left:50%">
+        <div class="flex flex-col items-center gap-1 px-3 py-2 rounded-xl min-w-[80px] bg-slate-100 text-gray-900 border border-gray-200">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">BB</span>
+            <span class="text-xs font-medium">Hero</span>
+          </div>
+          <span class="text-xs font-mono text-gray-500">99 BB</span>
+        </div>
+      </div>
+
+      <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:65%;left:12%">
+        <div class="flex flex-col items-center gap-1 px-3 py-2 rounded-xl min-w-[80px] bg-slate-100 text-gray-900 border border-gray-200">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">UTG</span>
+            <span class="text-xs font-medium">BOT-TAG</span>
+          </div>
+          <span class="text-xs font-mono text-gray-500">100 BB</span>
+          <span class="text-[10px] font-semibold text-amber-600">Bet: 2.5 BB</span>
+        </div>
+      </div>
+
+      <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:20%;left:12%">
+        <div class="flex flex-col items-center gap-1 px-3 py-2 rounded-xl min-w-[80px] bg-slate-100 text-gray-900 border border-gray-200">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">HJ</span>
+            <span class="text-xs font-medium">BOT-LAG</span>
+          </div>
+          <span class="text-xs font-mono text-gray-500">100 BB</span>
+        </div>
+      </div>
+
+      <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:5%;left:50%">
+        <div class="flex flex-col items-center gap-1 px-3 py-2 rounded-xl min-w-[80px] bg-slate-100 text-gray-900 border border-gray-200">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">CO</span>
+            <span class="text-xs font-medium">BOT-Nit</span>
+          </div>
+          <span class="text-xs font-mono text-gray-500">100 BB</span>
+        </div>
+      </div>
+
+      <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:20%;left:88%">
+        <div class="flex flex-col items-center gap-1 px-3 py-2 rounded-xl min-w-[80px] bg-slate-100 text-gray-900 border border-gray-200">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">BTN</span>
+            <span class="text-xs font-medium">BOT-GTO</span>
+          </div>
+          <span class="text-xs font-mono text-gray-500">100 BB</span>
+        </div>
+      </div>
+
+      <div class="absolute -translate-x-1/2 -translate-y-1/2" style="top:65%;left:88%">
+        <div class="flex flex-col items-center gap-1 px-3 py-2 rounded-xl min-w-[80px] bg-slate-100 text-gray-900 border border-gray-200">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">SB</span>
+            <span class="text-xs font-medium">BOT-Fish</span>
+          </div>
+          <span class="text-xs font-mono text-gray-500">99.5 BB</span>
+          <span class="text-[10px] font-semibold text-amber-600">Bet: 0.5 BB</span>
+        </div>
+      </div>
+
+      <div class="absolute top-2 right-4 bg-black/40 text-white/70 text-[10px] font-medium px-2 py-0.5 rounded-full">
+        REPLAY
+      </div>
+    </div>
+  </div>
+</body>
+</html>

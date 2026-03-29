@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PotDisplay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="space-y-10">
+
+    <!-- Scenario 1: Main pot only (small) -->
+    <div class="text-sm font-semibold text-gray-500 mb-2">Main Pot Only — Small</div>
+    <div class="flex justify-center py-8 rounded-xl" style="background: #064e3b;">
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="text-xs font-medium uppercase tracking-wider" style="color: rgba(110,231,183,0.7);">Total Pot</div>
+        <div class="flex items-center gap-2 rounded-full px-4 py-1.5 border" style="background: rgba(0,0,0,0.4); border-color: rgba(16,185,129,0.2);">
+          <div class="relative w-5 h-5 flex-shrink-0">
+            <div class="absolute bottom-0 left-0 w-5 rounded-full" style="height:6px; background:#fbbf24; border:1px solid #f59e0b;"></div>
+            <div class="absolute left-0 w-5 rounded-full" style="bottom:4px; height:6px; background:#fcd34d; border:1px solid #fbbf24;"></div>
+            <div class="absolute left-0 w-5 rounded-full" style="bottom:8px; height:6px; background:#fde68a; border:1px solid #facc15;"></div>
+          </div>
+          <span class="text-lg font-bold tabular-nums" style="color:#fde047;">150</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario 2: Main pot only (large) -->
+    <div class="text-sm font-semibold text-gray-500 mb-2">Main Pot Only — Large</div>
+    <div class="flex justify-center py-8 rounded-xl" style="background: #064e3b;">
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="text-xs font-medium uppercase tracking-wider" style="color: rgba(110,231,183,0.7);">Total Pot</div>
+        <div class="flex items-center gap-2 rounded-full px-4 py-1.5 border" style="background: rgba(0,0,0,0.4); border-color: rgba(16,185,129,0.2);">
+          <div class="relative w-5 h-5 flex-shrink-0">
+            <div class="absolute bottom-0 left-0 w-5 rounded-full" style="height:6px; background:#fbbf24; border:1px solid #f59e0b;"></div>
+            <div class="absolute left-0 w-5 rounded-full" style="bottom:4px; height:6px; background:#fcd34d; border:1px solid #fbbf24;"></div>
+            <div class="absolute left-0 w-5 rounded-full" style="bottom:8px; height:6px; background:#fde68a; border:1px solid #facc15;"></div>
+          </div>
+          <span class="text-lg font-bold tabular-nums" style="color:#fde047;">2.4K</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario 3: Main pot + 1 side pot -->
+    <div class="text-sm font-semibold text-gray-500 mb-2">Main Pot + 1 Side Pot</div>
+    <div class="flex justify-center py-8 rounded-xl" style="background: #064e3b;">
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="text-xs font-medium uppercase tracking-wider" style="color: rgba(110,231,183,0.7);">Total Pot</div>
+        <div class="flex items-center gap-2 rounded-full px-4 py-1.5 border" style="background: rgba(0,0,0,0.4); border-color: rgba(16,185,129,0.2);">
+          <div class="relative w-5 h-5 flex-shrink-0">
+            <div class="absolute bottom-0 left-0 w-5 rounded-full" style="height:6px; background:#fbbf24; border:1px solid #f59e0b;"></div>
+            <div class="absolute left-0 w-5 rounded-full" style="bottom:4px; height:6px; background:#fcd34d; border:1px solid #fbbf24;"></div>
+            <div class="absolute left-0 w-5 rounded-full" style="bottom:8px; height:6px; background:#fde68a; border:1px solid #facc15;"></div>
+          </div>
+          <span class="text-lg font-bold tabular-nums" style="color:#fde047;">1.8K</span>
+        </div>
+
+        <!-- Pot breakdown -->
+        <div class="flex flex-wrap items-center justify-center gap-1.5 mt-0.5">
+          <div class="flex items-center gap-1 rounded-full px-2.5 py-0.5 border" style="background:rgba(0,0,0,0.3); border-color:rgba(5,150,105,0.3);">
+            <div class="w-2 h-2 rounded-full" style="background:#facc15;"></div>
+            <span class="text-xs font-medium" style="color:#e5e7eb;">Main: 1.2K</span>
+          </div>
+          <div class="flex items-center gap-1 rounded-full px-2.5 py-0.5 border" style="background:rgba(0,0,0,0.3); border-color:rgba(59,130,246,0.3);">
+            <div class="w-2 h-2 rounded-full" style="background:#60a5fa;"></div>
+            <span class="text-xs font-medium" style="color:#e5e7eb;">Side 1: 600</span>
+            <span class="text-gray-400" style="font-size:10px;">(3p)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario 4: Main pot + 2 side pots -->
+    <div class="text-sm font-semibold text-gray-500 mb-2">Main Pot + 2 Side Pots</div>
+    <div class="flex justify-center py-8 rounded-xl" style="background: #064e3b;">
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="text-xs font-medium uppercase tracking-wider" style="color: rgba(110,231,183,0.7);">Total Pot</div>
+        <div class="flex items-center gap-2 rounded-full px-4 py-1.5 border" style="background: rgba(0,0,0,0.4); border-color: rgba(16,185,129,0.2);">
+          <div class="relative w-5 h-5 flex-shrink-0">
+            <div class="absolute bottom-0 left-0 w-5 rounded-full" style="height:6px; background:#fbbf24; border:1px solid #f59e0b;"></div>
+            <div class="absolute left-0 w-5 rounded-full" style="bottom:4px; height:6px; background:#fcd34d; border:1px solid #fbbf24;"></div>
+            <div class="absolute left-0 w-5 rounded-full" style="bottom:8px; height:6px; background:#fde68a; border:1px solid #facc15;"></div>
+          </div>
+          <span class="text-lg font-bold tabular-nums" style="color:#fde047;">5.6K</span>
+        </div>
+
+        <!-- Pot breakdown -->
+        <div class="flex flex-wrap items-center justify-center gap-1.5 mt-0.5">
+          <div class="flex items-center gap-1 rounded-full px-2.5 py-0.5 border" style="background:rgba(0,0,0,0.3); border-color:rgba(5,150,105,0.3);">
+            <div class="w-2 h-2 rounded-full" style="background:#facc15;"></div>
+            <span class="text-xs font-medium" style="color:#e5e7eb;">Main: 3K</span>
+          </div>
+          <div class="flex items-center gap-1 rounded-full px-2.5 py-0.5 border" style="background:rgba(0,0,0,0.3); border-color:rgba(59,130,246,0.3);">
+            <div class="w-2 h-2 rounded-full" style="background:#60a5fa;"></div>
+            <span class="text-xs font-medium" style="color:#e5e7eb;">Side 1: 1.6K</span>
+            <span class="text-gray-400" style="font-size:10px;">(4p)</span>
+          </div>
+          <div class="flex items-center gap-1 rounded-full px-2.5 py-0.5 border" style="background:rgba(0,0,0,0.3); border-color:rgba(59,130,246,0.3);">
+            <div class="w-2 h-2 rounded-full" style="background:#60a5fa;"></div>
+            <span class="text-xs font-medium" style="color:#e5e7eb;">Side 2: 1K</span>
+            <span class="text-gray-400" style="font-size:10px;">(2p)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+{
+  "features": [
+    {
+      "id": "F-001",
+      "name": "poker-engine"
+    },
+    {
+      "id": "F-002",
+      "name": "bot-ai"
+    },
+    {
+      "id": "F-003",
+      "name": "gto-data"
+    },
+    {
+      "id": "F-004",
+      "name": "game-ui"
+    },
+    {
+      "id": "F-005",
+      "name": "hand-history"
+    },
+    {
+      "id": "F-006",
+      "name": "hand-replay"
+    },
+    {
+      "id": "F-007",
+      "name": "ev-analysis"
+    },
+    {
+      "id": "F-008",
+      "name": "stats-dashboard"
+    },
+    {
+      "id": "F-009",
+      "name": "session-management"
+    },
+    {
+      "id": "F-010",
+      "name": "data-export"
+    }
+  ],
+  "constraints": [
+    "纯浏览器端运行，无需后端服务器；采用 Next.js 静态导出",
+    "GTO 策略数据为预计算简化版，内置于前端 bundle，非实时 solver",
+    "所有用户数据使用 IndexedDB + Dexie.js 本地持久化，无需登录注册",
+    "仅支持六人桌（6-max）No-Limit Hold'em",
+    "BOT 决策延迟 < 200ms",
+    "技术栈：Next.js + React + TypeScript + Tailwind CSS + Dexie.js + Recharts",
+    "仅支持桌面浏览器最新版本，不做移动端适配"
+  ],
+  "out_of_scope": [
+    "在线多人真人对战",
+    "实时 solver 计算",
+    "用户账号系统与云端数据同步",
+    "移动端 / 响应式适配",
+    "锦标赛（MTT）模式与 ICM 计算",
+    "筹码兑换与真金博弈",
+    "PioSolver 解法文件导入",
+    "自定义 BOT 风格参数",
+    "多语言国际化",
+    "游戏化元素（评分升级、成就系统）"
+  ]
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayingCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    .h-22 { height: 5.5rem; }
+    .h-34 { height: 8.5rem; }
+  </style>
+</head>
+<body>
+  <h2 class="text-lg font-semibold text-gray-900 mb-4">PlayingCard</h2>
+
+  <!-- Size variants -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-500 mb-2">Sizes: sm / md / lg</p>
+    <div class="flex items-end gap-3">
+      <!-- sm: A♠ -->
+      <div class="w-10 h-14 rounded-lg border border-gray-200 shadow-sm inline-flex flex-col items-center justify-between bg-white overflow-hidden select-none">
+        <div class="self-start pl-1 pt-0.5 leading-none text-gray-900">
+          <div class="text-xs font-bold">A</div>
+          <div class="text-xs -mt-0.5">♠</div>
+        </div>
+        <div class="text-lg text-gray-900 -mt-2">♠</div>
+        <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-gray-900">
+          <div class="text-xs font-bold">A</div>
+          <div class="text-xs -mt-0.5">♠</div>
+        </div>
+      </div>
+
+      <!-- md: K♥ -->
+      <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm inline-flex flex-col items-center justify-between bg-white overflow-hidden select-none">
+        <div class="self-start pl-1 pt-0.5 leading-none text-red-500">
+          <div class="text-sm font-bold">K</div>
+          <div class="text-sm -mt-0.5">♥</div>
+        </div>
+        <div class="text-2xl text-red-500 -mt-2">♥</div>
+        <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-red-500">
+          <div class="text-sm font-bold">K</div>
+          <div class="text-sm -mt-0.5">♥</div>
+        </div>
+      </div>
+
+      <!-- lg: Q♦ -->
+      <div class="w-24 h-34 rounded-lg border border-gray-200 shadow-sm inline-flex flex-col items-center justify-between bg-white overflow-hidden select-none">
+        <div class="self-start pl-1 pt-0.5 leading-none text-blue-500">
+          <div class="text-lg font-bold">Q</div>
+          <div class="text-base -mt-0.5">♦</div>
+        </div>
+        <div class="text-4xl text-blue-500 -mt-2">♦</div>
+        <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-blue-500">
+          <div class="text-lg font-bold">Q</div>
+          <div class="text-base -mt-0.5">♦</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All suits (md) -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-500 mb-2">All suits (md)</p>
+    <div class="flex items-center gap-3">
+      <!-- A♠ -->
+      <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm inline-flex flex-col items-center justify-between bg-white overflow-hidden select-none">
+        <div class="self-start pl-1 pt-0.5 leading-none text-gray-900">
+          <div class="text-sm font-bold">A</div>
+          <div class="text-sm -mt-0.5">♠</div>
+        </div>
+        <div class="text-2xl text-gray-900 -mt-2">♠</div>
+        <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-gray-900">
+          <div class="text-sm font-bold">A</div>
+          <div class="text-sm -mt-0.5">♠</div>
+        </div>
+      </div>
+      <!-- A♥ -->
+      <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm inline-flex flex-col items-center justify-between bg-white overflow-hidden select-none">
+        <div class="self-start pl-1 pt-0.5 leading-none text-red-500">
+          <div class="text-sm font-bold">A</div>
+          <div class="text-sm -mt-0.5">♥</div>
+        </div>
+        <div class="text-2xl text-red-500 -mt-2">♥</div>
+        <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-red-500">
+          <div class="text-sm font-bold">A</div>
+          <div class="text-sm -mt-0.5">♥</div>
+        </div>
+      </div>
+      <!-- A♦ -->
+      <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm inline-flex flex-col items-center justify-between bg-white overflow-hidden select-none">
+        <div class="self-start pl-1 pt-0.5 leading-none text-blue-500">
+          <div class="text-sm font-bold">A</div>
+          <div class="text-sm -mt-0.5">♦</div>
+        </div>
+        <div class="text-2xl text-blue-500 -mt-2">♦</div>
+        <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-blue-500">
+          <div class="text-sm font-bold">A</div>
+          <div class="text-sm -mt-0.5">♦</div>
+        </div>
+      </div>
+      <!-- A♣ -->
+      <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm inline-flex flex-col items-center justify-between bg-white overflow-hidden select-none">
+        <div class="self-start pl-1 pt-0.5 leading-none text-emerald-600">
+          <div class="text-sm font-bold">A</div>
+          <div class="text-sm -mt-0.5">♣</div>
+        </div>
+        <div class="text-2xl text-emerald-600 -mt-2">♣</div>
+        <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-emerald-600">
+          <div class="text-sm font-bold">A</div>
+          <div class="text-sm -mt-0.5">♣</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Face down -->
+  <div class="mb-6">
+    <p class="text-sm text-gray-500 mb-2">Face down (sm / md / lg)</p>
+    <div class="flex items-end gap-3">
+      <div class="w-10 h-14 rounded-lg border border-gray-200 shadow-sm bg-gradient-to-br from-blue-600 to-blue-800 overflow-hidden select-none flex items-center justify-center">
+        <div class="w-[80%] h-[85%] rounded border border-blue-400/30 bg-blue-700/50 flex items-center justify-center">
+          <span class="text-blue-200/60 text-lg font-bold">♠</span>
+        </div>
+      </div>
+      <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm bg-gradient-to-br from-blue-600 to-blue-800 overflow-hidden select-none flex items-center justify-center">
+        <div class="w-[80%] h-[85%] rounded border border-blue-400/30 bg-blue-700/50 flex items-center justify-center">
+          <span class="text-blue-200/60 text-lg font-bold">♠</span>
+        </div>
+      </div>
+      <div class="w-24 h-34 rounded-lg border border-gray-200 shadow-sm bg-gradient-to-br from-blue-600 to-blue-800 overflow-hidden select-none flex items-center justify-center">
+        <div class="w-[80%] h-[85%] rounded border border-blue-400/30 bg-blue-700/50 flex items-center justify-center">
+          <span class="text-blue-200/60 text-lg font-bold">♠</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Texas Hold'em hand example -->
+  <div>
+    <p class="text-sm text-gray-500 mb-2">Hand example: A♠ K♠</p>
+    <div class="flex items-center gap-1">
+      <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm inline-flex flex-col items-center justify-between bg-white overflow-hidden select-none">
+        <div class="self-start pl-1 pt-0.5 leading-none text-gray-900">
+          <div class="text-sm font-bold">A</div>
+          <div class="text-sm -mt-0.5">♠</div>
+        </div>
+        <div class="text-2xl text-gray-900 -mt-2">♠</div>
+        <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-gray-900">
+          <div class="text-sm font-bold">A</div>
+          <div class="text-sm -mt-0.5">♠</div>
+        </div>
+      </div>
+      <div class="w-16 h-22 rounded-lg border border-gray-200 shadow-sm inline-flex flex-col items-center justify-between bg-white overflow-hidden select-none">
+        <div class="self-start pl-1 pt-0.5 leading-none text-gray-900">
+          <div class="text-sm font-bold">K</div>
+          <div class="text-sm -mt-0.5">♠</div>
+        </div>
+        <div class="text-2xl text-gray-900 -mt-2">♠</div>
+        <div class="self-end pr-1 pb-0.5 leading-none rotate-180 text-gray-900">
+          <div class="text-sm font-bold">K</div>
+          <div class="text-sm -mt-0.5">♠</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

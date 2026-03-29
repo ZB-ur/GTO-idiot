@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DecisionPointPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-2xl mx-auto space-y-6">
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- Decision Point #1 — Major Deviation (preflop)         -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <!-- Header -->
+      <div class="flex items-center justify-between px-5 py-3 border-b bg-red-50 border-red-200">
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-bold text-gray-400">#1</span>
+          <span class="text-sm font-semibold text-gray-900">Preflop</span>
+        </div>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border bg-red-50 text-red-700 border-red-200">
+          <span class="text-sm leading-none">✗</span>
+          Major Deviation
+        </span>
+      </div>
+      <!-- Body -->
+      <div class="p-5 space-y-5">
+        <!-- Context bar -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4 text-sm">
+            <span class="text-gray-400">Pot:</span>
+            <span class="font-semibold text-gray-900">6.5 BB</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-400">You chose:</span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-bold text-white bg-emerald-500">
+              Call
+            </span>
+          </div>
+        </div>
+
+        <!-- GTO Frequency Distribution -->
+        <div class="space-y-2">
+          <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">GTO Frequency Distribution</h4>
+          <div class="space-y-1.5">
+            <!-- Raise -->
+            <div class="flex items-center gap-2">
+              <span class="w-14 text-xs font-medium text-right text-gray-500">Raise</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-lg overflow-hidden">
+                <div class="h-full rounded-lg bg-amber-500 opacity-70" style="width: 62%"></div>
+              </div>
+              <span class="w-10 text-xs text-right text-gray-400">62%</span>
+            </div>
+            <!-- Call -->
+            <div class="flex items-center gap-2">
+              <span class="w-14 text-xs font-bold text-right text-gray-900">Call</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-lg overflow-hidden relative">
+                <div class="h-full rounded-lg bg-emerald-500" style="width: 18%"></div>
+                <div class="absolute inset-y-0 left-0 flex items-center pl-1">
+                  <span class="text-[10px] text-white font-bold drop-shadow">YOU</span>
+                </div>
+              </div>
+              <span class="w-10 text-xs text-right font-bold text-gray-900">18%</span>
+            </div>
+            <!-- Fold -->
+            <div class="flex items-center gap-2">
+              <span class="w-14 text-xs font-medium text-right text-gray-500">Fold</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-lg overflow-hidden">
+                <div class="h-full rounded-lg bg-gray-400 opacity-70" style="width: 20%"></div>
+              </div>
+              <span class="w-10 text-xs text-right text-gray-400">20%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deviation description -->
+        <div class="flex items-start gap-2 px-4 py-3 rounded-lg border text-sm bg-red-50 border-red-200 text-red-700">
+          <span class="font-bold mt-0.5">✗</span>
+          <p>在 CO 位置面对 UTG 开池，AKs 应以 62% 频率 3-bet 而非平跟。平跟损失了该手牌的大量价值。</p>
+        </div>
+
+        <!-- EV Analysis -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">EV Analysis</h4>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="bg-slate-50 rounded-lg p-3 text-center">
+              <p class="text-[10px] uppercase text-gray-400 font-medium mb-1">Your EV</p>
+              <p class="text-base font-bold text-emerald-600">+1.24 BB</p>
+            </div>
+            <div class="bg-slate-50 rounded-lg p-3 text-center">
+              <p class="text-[10px] uppercase text-gray-400 font-medium mb-1">GTO Optimal</p>
+              <p class="text-base font-bold text-emerald-600">+3.87 BB</p>
+            </div>
+            <div class="bg-red-50 rounded-lg p-3 text-center">
+              <p class="text-[10px] uppercase text-gray-400 font-medium mb-1">EV Loss</p>
+              <p class="text-base font-bold text-red-600">-2.63 BB</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- Decision Point #2 — Minor Deviation (flop)            -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <!-- Header -->
+      <div class="flex items-center justify-between px-5 py-3 border-b bg-amber-50 border-amber-200">
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-bold text-gray-400">#2</span>
+          <span class="text-sm font-semibold text-gray-900">Flop</span>
+          <!-- Community cards -->
+          <div class="flex gap-1">
+            <span class="inline-flex items-center justify-center w-8 h-10 bg-white border border-gray-200 rounded shadow-sm text-sm font-bold text-red-500">K♥</span>
+            <span class="inline-flex items-center justify-center w-8 h-10 bg-white border border-gray-200 rounded shadow-sm text-sm font-bold text-gray-900">9♠</span>
+            <span class="inline-flex items-center justify-center w-8 h-10 bg-white border border-gray-200 rounded shadow-sm text-sm font-bold text-blue-500">4♦</span>
+          </div>
+        </div>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border bg-amber-50 text-amber-700 border-amber-200">
+          <span class="text-sm leading-none">!</span>
+          Minor Deviation
+        </span>
+      </div>
+      <!-- Body -->
+      <div class="p-5 space-y-5">
+        <!-- Context bar -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4 text-sm">
+            <span class="text-gray-400">Pot:</span>
+            <span class="font-semibold text-gray-900">14.0 BB</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-400">You chose:</span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-bold text-white bg-amber-500">
+              Raise 9.5 BB
+            </span>
+          </div>
+        </div>
+
+        <!-- GTO Frequency Distribution -->
+        <div class="space-y-2">
+          <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">GTO Frequency Distribution</h4>
+          <div class="space-y-1.5">
+            <!-- Call -->
+            <div class="flex items-center gap-2">
+              <span class="w-14 text-xs font-medium text-right text-gray-500">Call</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-lg overflow-hidden">
+                <div class="h-full rounded-lg bg-emerald-500 opacity-70" style="width: 55%"></div>
+              </div>
+              <span class="w-10 text-xs text-right text-gray-400">55%</span>
+            </div>
+            <!-- Raise -->
+            <div class="flex items-center gap-2">
+              <span class="w-14 text-xs font-bold text-right text-gray-900">Raise</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-lg overflow-hidden relative">
+                <div class="h-full rounded-lg bg-amber-500" style="width: 35%"></div>
+                <div class="absolute inset-y-0 left-0 flex items-center pl-1">
+                  <span class="text-[10px] text-white font-bold drop-shadow">YOU</span>
+                </div>
+              </div>
+              <span class="w-10 text-xs text-right font-bold text-gray-900">35%</span>
+            </div>
+            <!-- Fold -->
+            <div class="flex items-center gap-2">
+              <span class="w-14 text-xs font-medium text-right text-gray-500">Fold</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-lg overflow-hidden">
+                <div class="h-full rounded-lg bg-gray-400 opacity-70" style="width: 10%"></div>
+              </div>
+              <span class="w-10 text-xs text-right text-gray-400">10%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deviation description -->
+        <div class="flex items-start gap-2 px-4 py-3 rounded-lg border text-sm bg-amber-50 border-amber-200 text-amber-700">
+          <span class="font-bold mt-0.5">!</span>
+          <p>面对 C-bet 时 AKs 在此面更偏向平跟（55%），加注频率略高于 GTO 推荐。</p>
+        </div>
+
+        <!-- EV Analysis -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">EV Analysis</h4>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="bg-slate-50 rounded-lg p-3 text-center">
+              <p class="text-[10px] uppercase text-gray-400 font-medium mb-1">Your EV</p>
+              <p class="text-base font-bold text-emerald-600">+2.10 BB</p>
+            </div>
+            <div class="bg-slate-50 rounded-lg p-3 text-center">
+              <p class="text-[10px] uppercase text-gray-400 font-medium mb-1">GTO Optimal</p>
+              <p class="text-base font-bold text-emerald-600">+2.55 BB</p>
+            </div>
+            <div class="bg-red-50 rounded-lg p-3 text-center">
+              <p class="text-[10px] uppercase text-gray-400 font-medium mb-1">EV Loss</p>
+              <p class="text-base font-bold text-red-600">-0.45 BB</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- Decision Point #3 — GTO Match (turn)                  -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <!-- Header -->
+      <div class="flex items-center justify-between px-5 py-3 border-b bg-emerald-50 border-emerald-200">
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-bold text-gray-400">#3</span>
+          <span class="text-sm font-semibold text-gray-900">Turn</span>
+          <div class="flex gap-1">
+            <span class="inline-flex items-center justify-center w-8 h-10 bg-white border border-gray-200 rounded shadow-sm text-sm font-bold text-red-500">K♥</span>
+            <span class="inline-flex items-center justify-center w-8 h-10 bg-white border border-gray-200 rounded shadow-sm text-sm font-bold text-gray-900">9♠</span>
+            <span class="inline-flex items-center justify-center w-8 h-10 bg-white border border-gray-200 rounded shadow-sm text-sm font-bold text-blue-500">4♦</span>
+            <span class="inline-flex items-center justify-center w-8 h-10 bg-white border border-gray-200 rounded shadow-sm text-sm font-bold text-emerald-600">7♣</span>
+          </div>
+        </div>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border bg-emerald-50 text-emerald-700 border-emerald-200">
+          <span class="text-sm leading-none">✓</span>
+          GTO Match
+        </span>
+      </div>
+      <!-- Body -->
+      <div class="p-5 space-y-5">
+        <!-- Context bar -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4 text-sm">
+            <span class="text-gray-400">Pot:</span>
+            <span class="font-semibold text-gray-900">33.0 BB</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-400">You chose:</span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-bold text-white bg-emerald-500">
+              Call
+            </span>
+          </div>
+        </div>
+
+        <!-- GTO Frequency Distribution -->
+        <div class="space-y-2">
+          <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">GTO Frequency Distribution</h4>
+          <div class="space-y-1.5">
+            <!-- Call -->
+            <div class="flex items-center gap-2">
+              <span class="w-14 text-xs font-bold text-right text-gray-900">Call</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-lg overflow-hidden relative">
+                <div class="h-full rounded-lg bg-emerald-500" style="width: 72%"></div>
+                <div class="absolute inset-y-0 left-0 flex items-center pl-1">
+                  <span class="text-[10px] text-white font-bold drop-shadow">YOU</span>
+                </div>
+              </div>
+              <span class="w-10 text-xs text-right font-bold text-gray-900">72%</span>
+            </div>
+            <!-- Raise -->
+            <div class="flex items-center gap-2">
+              <span class="w-14 text-xs font-medium text-right text-gray-500">Raise</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-lg overflow-hidden">
+                <div class="h-full rounded-lg bg-amber-500 opacity-70" style="width: 18%"></div>
+              </div>
+              <span class="w-10 text-xs text-right text-gray-400">18%</span>
+            </div>
+            <!-- Fold -->
+            <div class="flex items-center gap-2">
+              <span class="w-14 text-xs font-medium text-right text-gray-500">Fold</span>
+              <div class="flex-1 h-5 bg-gray-100 rounded-lg overflow-hidden">
+                <div class="h-full rounded-lg bg-gray-400 opacity-70" style="width: 10%"></div>
+              </div>
+              <span class="w-10 text-xs text-right text-gray-400">10%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- No deviation description for GTO Match -->
+
+        <!-- EV Analysis -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">EV Analysis</h4>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="bg-slate-50 rounded-lg p-3 text-center">
+              <p class="text-[10px] uppercase text-gray-400 font-medium mb-1">Your EV</p>
+              <p class="text-base font-bold text-emerald-600">+5.40 BB</p>
+            </div>
+            <div class="bg-slate-50 rounded-lg p-3 text-center">
+              <p class="text-[10px] uppercase text-gray-400 font-medium mb-1">GTO Optimal</p>
+              <p class="text-base font-bold text-emerald-600">+5.40 BB</p>
+            </div>
+            <div class="bg-emerald-50 rounded-lg p-3 text-center">
+              <p class="text-[10px] uppercase text-gray-400 font-medium mb-1">EV Loss</p>
+              <p class="text-base font-bold text-emerald-600">0.00 BB</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandHistoryFilter Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-md mx-auto space-y-8">
+
+    <!-- State 1: Default / No Filters -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2 uppercase tracking-wide">Default State</p>
+      <div class="bg-white border border-gray-200 rounded-xl p-6 space-y-5">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-semibold text-gray-900">筛选条件</h3>
+        </div>
+
+        <!-- Date Range -->
+        <div class="space-y-2">
+          <label class="text-sm font-medium text-gray-900">日期范围</label>
+          <div class="flex items-center gap-3">
+            <input type="text" placeholder="开始日期" class="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-400 bg-white focus:outline-none" readonly />
+            <span class="text-gray-400 text-sm">至</span>
+            <input type="text" placeholder="结束日期" class="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-400 bg-white focus:outline-none" readonly />
+          </div>
+        </div>
+
+        <!-- Scenarios -->
+        <div class="space-y-2">
+          <label class="text-sm font-medium text-gray-900">场景类型</label>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-600">Open Raise</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-600">3-Bet Pot</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-600">4-Bet Pot</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-600">Single Raised Pot</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-600">Limp Pot</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-600">River Bluff</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-600">Check-Raise</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-600">All-In Preflop</span>
+          </div>
+        </div>
+
+        <!-- Profit Range -->
+        <div class="space-y-2">
+          <label class="text-sm font-medium text-gray-900">盈亏范围 <span class="text-gray-400 font-normal">(BB)</span></label>
+          <div class="flex items-center gap-3">
+            <input type="text" placeholder="最小值" class="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-400 bg-white focus:outline-none" readonly />
+            <span class="text-gray-400 text-sm">至</span>
+            <input type="text" placeholder="最大值" class="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-400 bg-white focus:outline-none" readonly />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 2: With Active Filters -->
+    <div>
+      <p class="text-xs text-gray-400 mb-2 uppercase tracking-wide">With Active Filters</p>
+      <div class="bg-white border border-gray-200 rounded-xl p-6 space-y-5">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-semibold text-gray-900">筛选条件</h3>
+          <button class="text-sm text-blue-600 hover:text-blue-700 font-medium">重置筛选</button>
+        </div>
+
+        <!-- Date Range with values -->
+        <div class="space-y-2">
+          <label class="text-sm font-medium text-gray-900">日期范围</label>
+          <div class="flex items-center gap-3">
+            <input type="text" value="2026-03-01" class="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 bg-white focus:outline-none" readonly />
+            <span class="text-gray-400 text-sm">至</span>
+            <input type="text" value="2026-03-21" class="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 bg-white focus:outline-none" readonly />
+          </div>
+        </div>
+
+        <!-- Scenarios with selections -->
+        <div class="space-y-2">
+          <label class="text-sm font-medium text-gray-900">场景类型</label>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-600">Open Raise</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-blue-600 bg-blue-600 text-white">3-Bet Pot</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-600">4-Bet Pot</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-600">Single Raised Pot</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-600">Limp Pot</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-blue-600 bg-blue-600 text-white">River Bluff</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-blue-600 bg-blue-600 text-white">Check-Raise</span>
+            <span class="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-600">All-In Preflop</span>
+          </div>
+        </div>
+
+        <!-- Profit Range with values -->
+        <div class="space-y-2">
+          <label class="text-sm font-medium text-gray-900">盈亏范围 <span class="text-gray-400 font-normal">(BB)</span></label>
+          <div class="flex items-center gap-3">
+            <input type="text" value="-50" class="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 bg-white focus:outline-none" readonly />
+            <span class="text-gray-400 text-sm">至</span>
+            <input type="text" value="100" class="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 bg-white focus:outline-none" readonly />
+          </div>
+        </div>
+
+        <!-- Active filter summary -->
+        <div class="pt-3 border-t border-gray-200">
+          <p class="text-xs text-gray-500">已启用 日期、3 个场景、盈亏 筛选</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

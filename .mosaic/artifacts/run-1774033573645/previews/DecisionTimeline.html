@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DecisionTimeline Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- Card wrapper -->
+  <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-4 max-w-3xl mx-auto">
+    <h3 class="text-sm font-semibold text-gray-900 mb-3">Decision Timeline</h3>
+
+    <!-- Timeline -->
+    <div class="w-full overflow-x-auto">
+      <div class="flex items-center gap-0 min-w-max px-4 py-3">
+
+        <!-- Decision 1: Preflop Raise — no deviation (current) -->
+        <div class="relative flex flex-col items-center gap-1.5 px-3 py-2 rounded-lg bg-blue-50 ring-2 ring-blue-600 shadow-sm flex-shrink-0">
+          <span class="text-[10px] font-medium text-gray-400 uppercase tracking-wider">PF</span>
+          <div class="w-5 h-5 rounded-full flex items-center justify-center bg-emerald-500 ring-2 ring-offset-2 ring-emerald-500"></div>
+          <span class="text-xs font-medium text-gray-900">Raise</span>
+        </div>
+
+        <!-- Connector -->
+        <div class="h-0.5 w-8 flex-shrink-0 bg-blue-300"></div>
+
+        <!-- Decision 2: Flop Raise — major deviation -->
+        <div class="relative flex flex-col items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-gray-50 cursor-pointer flex-shrink-0">
+          <span class="text-[10px] font-medium text-gray-400 uppercase tracking-wider">F</span>
+          <div class="w-5 h-5 rounded-full flex items-center justify-center bg-red-500">
+            <span class="text-white text-[10px] font-bold">!</span>
+          </div>
+          <span class="text-xs font-medium text-gray-500">Raise</span>
+          <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-red-50 text-red-700">-3.2 BB</span>
+        </div>
+
+        <!-- Connector -->
+        <div class="h-0.5 w-8 flex-shrink-0 bg-gray-200"></div>
+
+        <!-- Decision 3: Turn Call — minor deviation -->
+        <div class="relative flex flex-col items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-gray-50 cursor-pointer flex-shrink-0">
+          <span class="text-[10px] font-medium text-gray-400 uppercase tracking-wider">T</span>
+          <div class="w-5 h-5 rounded-full flex items-center justify-center bg-amber-500">
+            <span class="text-white text-[10px] font-bold">!</span>
+          </div>
+          <span class="text-xs font-medium text-gray-500">Call</span>
+          <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-amber-50 text-amber-700">-0.8 BB</span>
+        </div>
+
+        <!-- Connector -->
+        <div class="h-0.5 w-8 flex-shrink-0 bg-gray-200"></div>
+
+        <!-- Decision 4: River Call — no deviation -->
+        <div class="relative flex flex-col items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-gray-50 cursor-pointer flex-shrink-0">
+          <span class="text-[10px] font-medium text-gray-400 uppercase tracking-wider">R</span>
+          <div class="w-5 h-5 rounded-full flex items-center justify-center bg-emerald-500"></div>
+          <span class="text-xs font-medium text-gray-500">Call</span>
+        </div>
+
+        <!-- Connector -->
+        <div class="h-0.5 w-8 flex-shrink-0 bg-gray-200"></div>
+
+        <!-- Decision 5: River Fold — major deviation -->
+        <div class="relative flex flex-col items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-gray-50 cursor-pointer flex-shrink-0">
+          <span class="text-[10px] font-medium text-gray-400 uppercase tracking-wider">R</span>
+          <div class="w-5 h-5 rounded-full flex items-center justify-center bg-red-500">
+            <span class="text-white text-[10px] font-bold">!</span>
+          </div>
+          <span class="text-xs font-medium text-gray-500">Fold</span>
+          <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-red-50 text-red-700">-5.1 BB</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="flex items-center gap-4 mt-3 px-4">
+      <div class="flex items-center gap-1.5">
+        <div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+        <span class="text-[11px] text-gray-500">GTO Match</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <div class="w-2.5 h-2.5 rounded-full bg-amber-500"></div>
+        <span class="text-[11px] text-gray-500">Minor Deviation</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+        <span class="text-[11px] text-gray-500">Major Deviation</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

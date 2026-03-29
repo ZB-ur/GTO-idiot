@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreetJumpNav Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-xl mx-auto space-y-8">
+
+    <!-- State 1: Preflop active, only preflop available -->
+    <div>
+      <p class="text-sm font-medium text-gray-500 mb-2">Preflop (only street available)</p>
+      <nav class="flex items-center gap-1 rounded-xl bg-slate-100 p-1">
+        <!-- Preflop - current -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium bg-blue-600 text-white shadow-sm">
+          <span class="text-xs">🃏</span><span>Preflop</span>
+        </button>
+        <div class="h-px w-4 flex-shrink-0 bg-gray-300"></div>
+        <!-- Flop - disabled -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-gray-400 cursor-not-allowed" disabled>
+          <span class="text-xs">3️⃣</span><span>Flop</span>
+        </button>
+        <div class="h-px w-4 flex-shrink-0 bg-gray-300"></div>
+        <!-- Turn - disabled -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-gray-400 cursor-not-allowed" disabled>
+          <span class="text-xs">4️⃣</span><span>Turn</span>
+        </button>
+        <div class="h-px w-4 flex-shrink-0 bg-gray-300"></div>
+        <!-- River - disabled -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-gray-400 cursor-not-allowed" disabled>
+          <span class="text-xs">5️⃣</span><span>River</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- State 2: Flop active, preflop & flop available -->
+    <div>
+      <p class="text-sm font-medium text-gray-500 mb-2">Flop active (preflop is past)</p>
+      <nav class="flex items-center gap-1 rounded-xl bg-slate-100 p-1">
+        <!-- Preflop - past -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium bg-white text-blue-600 hover:bg-blue-50 shadow-sm cursor-pointer">
+          <span class="text-xs">🃏</span><span>Preflop</span>
+        </button>
+        <div class="h-px w-4 flex-shrink-0 bg-blue-300"></div>
+        <!-- Flop - current -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium bg-blue-600 text-white shadow-sm">
+          <span class="text-xs">3️⃣</span><span>Flop</span>
+        </button>
+        <div class="h-px w-4 flex-shrink-0 bg-gray-300"></div>
+        <!-- Turn - disabled -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-gray-400 cursor-not-allowed" disabled>
+          <span class="text-xs">4️⃣</span><span>Turn</span>
+        </button>
+        <div class="h-px w-4 flex-shrink-0 bg-gray-300"></div>
+        <!-- River - disabled -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-gray-400 cursor-not-allowed" disabled>
+          <span class="text-xs">5️⃣</span><span>River</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- State 3: Turn active, all up to turn available -->
+    <div>
+      <p class="text-sm font-medium text-gray-500 mb-2">Turn active (preflop & flop are past)</p>
+      <nav class="flex items-center gap-1 rounded-xl bg-slate-100 p-1">
+        <!-- Preflop - past -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium bg-white text-blue-600 hover:bg-blue-50 shadow-sm cursor-pointer">
+          <span class="text-xs">🃏</span><span>Preflop</span>
+        </button>
+        <div class="h-px w-4 flex-shrink-0 bg-blue-300"></div>
+        <!-- Flop - past -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium bg-white text-blue-600 hover:bg-blue-50 shadow-sm cursor-pointer">
+          <span class="text-xs">3️⃣</span><span>Flop</span>
+        </button>
+        <div class="h-px w-4 flex-shrink-0 bg-blue-300"></div>
+        <!-- Turn - current -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium bg-blue-600 text-white shadow-sm">
+          <span class="text-xs">4️⃣</span><span>Turn</span>
+        </button>
+        <div class="h-px w-4 flex-shrink-0 bg-gray-300"></div>
+        <!-- River - disabled -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-gray-400 cursor-not-allowed" disabled>
+          <span class="text-xs">5️⃣</span><span>River</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- State 4: River active, all streets available -->
+    <div>
+      <p class="text-sm font-medium text-gray-500 mb-2">River active (all streets available)</p>
+      <nav class="flex items-center gap-1 rounded-xl bg-slate-100 p-1">
+        <!-- Preflop - past -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium bg-white text-blue-600 hover:bg-blue-50 shadow-sm cursor-pointer">
+          <span class="text-xs">🃏</span><span>Preflop</span>
+        </button>
+        <div class="h-px w-4 flex-shrink-0 bg-blue-300"></div>
+        <!-- Flop - past -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium bg-white text-blue-600 hover:bg-blue-50 shadow-sm cursor-pointer">
+          <span class="text-xs">3️⃣</span><span>Flop</span>
+        </button>
+        <div class="h-px w-4 flex-shrink-0 bg-blue-300"></div>
+        <!-- Turn - past -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium bg-white text-blue-600 hover:bg-blue-50 shadow-sm cursor-pointer">
+          <span class="text-xs">4️⃣</span><span>Turn</span>
+        </button>
+        <div class="h-px w-4 flex-shrink-0 bg-blue-300"></div>
+        <!-- River - current -->
+        <button class="relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium bg-blue-600 text-white shadow-sm">
+          <span class="text-xs">5️⃣</span><span>River</span>
+        </button>
+      </nav>
+    </div>
+
+  </div>
+</body>
+</html>

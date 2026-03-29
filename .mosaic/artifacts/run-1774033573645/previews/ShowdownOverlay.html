@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShowdownOverlay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; font-family: system-ui, sans-serif; }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 0.9; }
+    }
+    .glow-ring { animation: pulseGlow 2s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+  <!-- Overlay backdrop -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+    <div class="relative w-full max-w-lg mx-4">
+
+      <!-- Trophy glow ring -->
+      <div class="absolute -inset-1 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 rounded-2xl blur-sm opacity-75 glow-ring"></div>
+
+      <div class="relative bg-emerald-900 border border-emerald-700 rounded-2xl overflow-hidden shadow-2xl">
+
+        <!-- Header -->
+        <div class="bg-gradient-to-b from-emerald-800 to-emerald-900 px-6 pt-6 pb-4 text-center">
+          <div class="text-4xl mb-2">🏆</div>
+          <h2 class="text-xl font-bold text-amber-300 tracking-wide">SHOWDOWN</h2>
+          <p class="text-emerald-300 text-sm mt-1">Pot: 1,240 chips</p>
+        </div>
+
+        <!-- Winners -->
+        <div class="px-6 py-4 space-y-3">
+          <!-- Winner 1 -->
+          <div class="bg-gradient-to-r from-amber-500/20 to-amber-400/10 border border-amber-500/40 rounded-xl p-4">
+            <div class="flex items-center justify-between mb-2">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">👑</span>
+                <span class="text-white font-bold text-lg">You</span>
+                <span class="bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-medium">YOU</span>
+              </div>
+              <span class="text-amber-300 font-bold text-lg">+1,240</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex gap-1">
+                <!-- A♠ -->
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-gray-900">A♠</span>
+                <!-- K♠ -->
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-gray-900">K♠</span>
+                <!-- Q♠ -->
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-gray-900">Q♠</span>
+                <!-- J♠ -->
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-gray-900">J♠</span>
+                <!-- T♠ -->
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-gray-900">T♠</span>
+              </div>
+              <span class="text-amber-200 text-sm font-medium">Royal Flush</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Hands -->
+        <div class="px-6 pb-4 space-y-2">
+          <div class="border-t border-emerald-700 pt-3 mb-2">
+            <span class="text-emerald-400 text-xs font-medium uppercase tracking-wider">Other Hands</span>
+          </div>
+
+          <!-- Loser 1 -->
+          <div class="flex items-center justify-between bg-emerald-800/50 border border-emerald-700/50 rounded-lg px-4 py-2.5">
+            <div class="flex items-center gap-2">
+              <span class="text-emerald-200 font-medium text-sm">BOT-Mike (TAG)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="flex gap-0.5">
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-red-500">A♥</span>
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-red-500">K♥</span>
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-red-500">Q♥</span>
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-red-500">J♥</span>
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-red-500">9♥</span>
+              </div>
+              <span class="text-emerald-400 text-xs min-w-[100px] text-right">Flush, Ace high</span>
+            </div>
+          </div>
+
+          <!-- Loser 2 -->
+          <div class="flex items-center justify-between bg-emerald-800/50 border border-emerald-700/50 rounded-lg px-4 py-2.5">
+            <div class="flex items-center gap-2">
+              <span class="text-emerald-200 font-medium text-sm">BOT-Sarah (LAG)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="flex gap-0.5">
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-gray-900">8♠</span>
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-gray-900">8♣</span>
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-emerald-600">8♣</span>
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-blue-500">5♦</span>
+                <span class="inline-flex items-center justify-center w-9 h-12 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-bold text-red-500">5♥</span>
+              </div>
+              <span class="text-emerald-400 text-xs min-w-[100px] text-right">Full House, 8s over 5s</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="px-6 pb-6 pt-2">
+          <button class="w-full bg-amber-500 hover:bg-amber-400 text-emerald-900 font-bold py-3 rounded-lg transition-colors duration-200 text-sm uppercase tracking-wider shadow-lg cursor-pointer">
+            Continue
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

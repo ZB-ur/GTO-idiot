@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OverviewStatsCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <!-- Normal state -->
+  <div class="max-w-4xl mx-auto mb-10">
+    <p class="text-xs text-gray-400 mb-3 uppercase tracking-wide">Normal — Profitable</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <!-- Total Hands -->
+      <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-sm font-medium text-gray-500">总手数</span>
+          <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" />
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-gray-900 mb-1">1,247</div>
+        <div class="text-xs text-gray-400">全部</div>
+      </div>
+
+      <!-- Total P/L (positive) -->
+      <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-sm font-medium text-gray-500">总盈亏</span>
+          <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-emerald-500 mb-1">+42.5 BB</div>
+        <div class="text-xs text-gray-400">盈利中</div>
+      </div>
+
+      <!-- Avg EV Loss (good) -->
+      <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-sm font-medium text-gray-500">平均 EV Loss</span>
+          <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-emerald-500 mb-1">0.35 BB</div>
+        <div class="text-xs text-gray-400">表现优秀</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Losing state -->
+  <div class="max-w-4xl mx-auto mb-10">
+    <p class="text-xs text-gray-400 mb-3 uppercase tracking-wide">Variant — Losing / Needs Improvement</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <!-- Total Hands -->
+      <div class="bg-white border border-gray-200 rounded-xl p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-sm font-medium text-gray-500">总手数</span>
+          <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" />
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-gray-900 mb-1">83</div>
+        <div class="text-xs text-gray-400">最近 100 手</div>
+      </div>
+
+      <!-- Total P/L (negative) -->
+      <div class="bg-white border border-gray-200 rounded-xl p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-sm font-medium text-gray-500">总盈亏</span>
+          <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-red-500 mb-1">-18.3 BB</div>
+        <div class="text-xs text-gray-400">亏损中</div>
+      </div>
+
+      <!-- Avg EV Loss (bad) -->
+      <div class="bg-white border border-gray-200 rounded-xl p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-sm font-medium text-gray-500">平均 EV Loss</span>
+          <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-red-500 mb-1">2.14 BB</div>
+        <div class="text-xs text-gray-400">需要改进</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading state -->
+  <div class="max-w-4xl mx-auto">
+    <p class="text-xs text-gray-400 mb-3 uppercase tracking-wide">Loading State</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="bg-white border border-gray-200 rounded-xl p-6 animate-pulse">
+        <div class="h-4 w-24 bg-gray-200 rounded mb-3"></div>
+        <div class="h-8 w-32 bg-gray-200 rounded mb-2"></div>
+        <div class="h-3 w-20 bg-gray-100 rounded"></div>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-xl p-6 animate-pulse">
+        <div class="h-4 w-24 bg-gray-200 rounded mb-3"></div>
+        <div class="h-8 w-32 bg-gray-200 rounded mb-2"></div>
+        <div class="h-3 w-20 bg-gray-100 rounded"></div>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-xl p-6 animate-pulse">
+        <div class="h-4 w-24 bg-gray-200 rounded mb-3"></div>
+        <div class="h-8 w-32 bg-gray-200 rounded mb-2"></div>
+        <div class="h-3 w-20 bg-gray-100 rounded"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

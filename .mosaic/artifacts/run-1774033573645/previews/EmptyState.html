@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EmptyState Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- Variant 1: Hand History Empty (F-005) -->
+  <div class="bg-white border border-gray-200 rounded-xl shadow-sm mb-6">
+    <div class="flex flex-col items-center justify-center py-16 px-6 text-center">
+      <!-- Poker cards icon -->
+      <div class="mb-4">
+        <svg class="w-16 h-16 text-gray-300" fill="none" viewBox="0 0 64 64" stroke="currentColor" stroke-width="1.5">
+          <rect x="6" y="10" width="24" height="34" rx="3" />
+          <rect x="34" y="10" width="24" height="34" rx="3" />
+          <text x="18" y="32" text-anchor="middle" font-size="14" fill="currentColor" stroke="none">♠</text>
+          <text x="46" y="32" text-anchor="middle" font-size="14" fill="currentColor" stroke="none">♥</text>
+        </svg>
+      </div>
+      <h3 class="text-lg font-semibold text-gray-900 mb-1">No Hand History Yet</h3>
+      <p class="text-sm text-gray-500 max-w-sm mb-6">Play some hands to start building your history. Every decision will be recorded and analysed against GTO strategy.</p>
+      <button class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors">
+        Start New Session
+      </button>
+    </div>
+  </div>
+
+  <!-- Variant 2: Stats Dashboard Empty (F-008) -->
+  <div class="bg-white border border-gray-200 rounded-xl shadow-sm mb-6">
+    <div class="flex flex-col items-center justify-center py-16 px-6 text-center">
+      <!-- Chart icon -->
+      <div class="mb-4">
+        <svg class="w-16 h-16 text-gray-300" fill="none" viewBox="0 0 64 64" stroke="currentColor" stroke-width="1.5">
+          <rect x="8" y="8" width="48" height="48" rx="4" />
+          <rect x="16" y="32" width="6" height="16" rx="1" fill="currentColor" opacity="0.3" stroke="none" />
+          <rect x="26" y="24" width="6" height="24" rx="1" fill="currentColor" opacity="0.3" stroke="none" />
+          <rect x="36" y="28" width="6" height="20" rx="1" fill="currentColor" opacity="0.3" stroke="none" />
+          <rect x="46" y="20" width="6" height="28" rx="1" fill="currentColor" opacity="0.3" stroke="none" />
+        </svg>
+      </div>
+      <h3 class="text-lg font-semibold text-gray-900 mb-1">No Statistics Available</h3>
+      <p class="text-sm text-gray-500 max-w-sm mb-6">Complete at least a few hands to see your performance stats, position analysis, and GTO deviation breakdowns.</p>
+      <button class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors">
+        Play Your First Hand
+      </button>
+    </div>
+  </div>
+
+  <!-- Variant 3: Minimal — no description, no CTA -->
+  <div class="bg-white border border-gray-200 rounded-xl shadow-sm">
+    <div class="flex flex-col items-center justify-center py-16 px-6 text-center">
+      <div class="mb-4">
+        <svg class="w-16 h-16 text-gray-300" fill="none" viewBox="0 0 64 64" stroke="currentColor" stroke-width="1.5">
+          <rect x="8" y="12" width="48" height="40" rx="4" />
+          <path d="M8 24h48" />
+          <circle cx="32" cy="38" r="6" />
+          <path d="M29 38l2 2 4-4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <h3 class="text-lg font-semibold text-gray-900">Nothing Here</h3>
+    </div>
+  </div>
+
+</body>
+</html>
