@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DesktopOnlyGuard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <!-- Shows the "desktop only" message state -->
+  <div class="min-h-screen bg-slate-50 flex items-center justify-center p-6">
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-8 max-w-md text-center space-y-5">
+      <!-- Monitor icon -->
+      <div class="mx-auto w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center">
+        <svg class="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h13.5A2.25 2.25 0 0121 5.25z" />
+        </svg>
+      </div>
+
+      <div class="space-y-2">
+        <h1 class="text-2xl font-bold text-gray-900">Desktop Only</h1>
+        <p class="text-gray-600">
+          GTO Idiot is designed for desktop screens. Please use a device with a screen width of at least 1024px for the best experience.
+        </p>
+      </div>
+
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-lg text-sm text-gray-600">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+        </svg>
+        Minimum width: 1024px
+      </div>
+    </div>
+  </div>
+</body>
+</html>

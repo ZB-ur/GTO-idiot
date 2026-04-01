@@ -1,0 +1,100 @@
+{
+  "flows": [
+    {
+      "name": "game-session-setup",
+      "covers_features": [
+        "F-003",
+        "F-004"
+      ]
+    },
+    {
+      "name": "playing-a-hand",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-007"
+      ]
+    },
+    {
+      "name": "preflop-gto-reference",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "postflop-gto-solving",
+      "covers_features": [
+        "F-006",
+        "F-010"
+      ]
+    },
+    {
+      "name": "hand-history-browsing",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "hand-review-replay",
+      "covers_features": [
+        "F-008",
+        "F-010"
+      ]
+    },
+    {
+      "name": "session-summary",
+      "covers_features": [
+        "F-009",
+        "F-010"
+      ]
+    }
+  ],
+  "components": [
+    "LobbyScreen",
+    "PokerTable",
+    "PlayerSeat",
+    "CommunityCards",
+    "PotDisplay",
+    "ActionBar",
+    "BetSlider",
+    "PlayingCard",
+    "DealerButton",
+    "BotThinkingIndicator",
+    "HandResultOverlay",
+    "HandHistoryList",
+    "HandHistoryFilter",
+    "HandHistoryRow",
+    "HandReplayViewer",
+    "GtoComparisonPanel",
+    "DeviationBadge",
+    "EvLossIndicator",
+    "PrecisionDisclaimer",
+    "SessionSummaryScreen",
+    "ProfitCurveChart",
+    "GtoScoreGauge",
+    "StatsGrid",
+    "ConfirmationModal",
+    "Toast",
+    "SkeletonLoader",
+    "AppHeader",
+    "DesktopOnlyGuard",
+    "GlobalDisclaimerFooter"
+  ],
+  "interaction_rules": [
+    "Bet/Raise slider syncs bidirectionally with numeric input; invalid values auto-clamped with shake animation",
+    "Single-click executes Fold/Check/Call; Bet/Raise requires amount then confirm; All-in requires 300ms hold-press",
+    "Invalid action shows inline toast above action bar with auto-dismiss 3s",
+    "Solver timeout (>5s) falls back to approximation with precision disclaimer badge",
+    "IndexedDB failure shows non-blocking warning toast; game continues",
+    "Empty hand history shows illustration with prompt to play first hand",
+    "Table init uses skeleton loader; BOT thinking shows animated ellipsis bubble (0.5-2s delay)",
+    "First WASM load shows progress bar; subsequent solves show subtle spinner on GTO panel",
+    "Mid-hand navigation triggers confirmation modal: Fold and leave or Cancel",
+    "Session state persists via IndexedDB checkpoint; resume or start new on return",
+    "Precision disclaimer shown as inline pill badge with hover tooltip for simplified calculations",
+    "Desktop only: minimum 1024px width; below shows desktop-only message",
+    "Global footer on GTO screens: For learning purposes only"
+  ]
+}

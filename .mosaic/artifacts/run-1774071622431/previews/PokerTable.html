@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokerTable Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #0f172a; font-family: system-ui, sans-serif; }
+    @keyframes pulse-glow { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .pulse-dot { animation: pulse-glow 1.5s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col h-screen bg-slate-900">
+    <!-- Header -->
+    <div class="flex items-center justify-between px-6 py-3 bg-slate-800 border-b border-slate-700">
+      <div class="text-gray-100 font-semibold text-sm">Hand #14</div>
+      <div class="flex items-center gap-3">
+        <span class="text-gray-400 text-xs uppercase tracking-wider">flop</span>
+        <span class="bg-emerald-600/20 text-emerald-400 text-xs font-medium px-2.5 py-0.5 rounded-full">6-Max NL Hold'em</span>
+      </div>
+    </div>
+
+    <!-- Table area -->
+    <div class="flex-1 flex items-center justify-center p-4">
+      <div class="relative w-full max-w-4xl" style="aspect-ratio:16/10;">
+
+        <!-- Felt oval -->
+        <div class="absolute rounded-[50%] bg-gradient-to-b from-emerald-700 to-emerald-800 border-[6px] border-emerald-900" style="inset:8%; box-shadow: inset 0 4px 30px rgba(0,0,0,0.4), 0 8px 40px rgba(0,0,0,0.5);">
+          <!-- Rail -->
+          <div class="absolute -inset-3 rounded-[50%] border-4 border-amber-900/60 pointer-events-none"></div>
+        </div>
+
+        <!-- Community cards + Pot (center) -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 z-10">
+          <!-- Cards -->
+          <div class="flex gap-1.5">
+            <!-- A♠ -->
+            <div class="w-10 h-14 rounded-lg bg-white border border-gray-300 shadow-md flex flex-col items-center justify-center leading-none">
+              <span class="text-sm font-bold text-gray-900">A</span>
+              <span class="text-base text-gray-900">♠</span>
+            </div>
+            <!-- K♥ -->
+            <div class="w-10 h-14 rounded-lg bg-white border border-gray-300 shadow-md flex flex-col items-center justify-center leading-none">
+              <span class="text-sm font-bold text-red-500">K</span>
+              <span class="text-base text-red-500">♥</span>
+            </div>
+            <!-- 7♦ -->
+            <div class="w-10 h-14 rounded-lg bg-white border border-gray-300 shadow-md flex flex-col items-center justify-center leading-none">
+              <span class="text-sm font-bold text-blue-500">7</span>
+              <span class="text-base text-blue-500">♦</span>
+            </div>
+            <!-- Empty slot -->
+            <div class="w-10 h-14 rounded-lg border border-emerald-600/40 bg-emerald-900/30"></div>
+            <!-- Empty slot -->
+            <div class="w-10 h-14 rounded-lg border border-emerald-600/40 bg-emerald-900/30"></div>
+          </div>
+          <!-- Pot -->
+          <div class="bg-black/40 backdrop-blur-sm text-yellow-300 text-sm font-bold px-4 py-1.5 rounded-full">
+            Pot: 24 BB
+          </div>
+        </div>
+
+        <!-- Seat 0 — User (bottom center) -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 z-20" style="top:82%;left:50%;">
+          <div class="flex flex-col items-center gap-1">
+            <div class="flex gap-0.5 h-14">
+              <!-- A♥ -->
+              <div class="w-10 h-14 rounded-lg bg-white border border-gray-300 shadow-md flex flex-col items-center justify-center leading-none">
+                <span class="text-sm font-bold text-red-500">A</span>
+                <span class="text-base text-red-500">♥</span>
+              </div>
+              <!-- Q♠ -->
+              <div class="w-10 h-14 rounded-lg bg-white border border-gray-300 shadow-md flex flex-col items-center justify-center leading-none">
+                <span class="text-sm font-bold text-gray-900">Q</span>
+                <span class="text-base text-gray-900">♠</span>
+              </div>
+            </div>
+            <div class="relative px-3 py-1.5 rounded-xl text-center min-w-[100px] border-2 border-yellow-400 shadow-lg shadow-yellow-400/30 bg-blue-600 text-white">
+              <div class="text-xs font-semibold">You</div>
+              <div class="text-sm font-bold">186 BB</div>
+              <span class="text-[10px] text-blue-200 uppercase">BTN</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seat 1 — Bot (bottom-left) -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 z-20 opacity-50" style="top:70%;left:12%;">
+          <div class="flex flex-col items-center gap-1">
+            <div class="flex gap-0.5 h-14"></div>
+            <div class="relative px-3 py-1.5 rounded-xl text-center min-w-[100px] border-2 border-transparent bg-slate-700 text-gray-100">
+              <div class="text-xs font-semibold">Crazy Mike</div>
+              <div class="text-sm font-bold">95 BB</div>
+              <span class="text-[10px] text-gray-300 uppercase">SB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seat 2 — Bot (top-left) -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 z-20" style="top:22%;left:8%;">
+          <div class="flex flex-col items-center gap-1">
+            <div class="flex gap-0.5 h-14">
+              <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div></div>
+              <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div></div>
+            </div>
+            <div class="relative px-3 py-1.5 rounded-xl text-center min-w-[100px] border-2 border-transparent bg-slate-700 text-gray-100">
+              <div class="text-xs font-semibold">Tight Tom</div>
+              <div class="text-sm font-bold">210 BB</div>
+              <span class="text-[10px] text-gray-300 uppercase">BB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seat 3 — Bot (top center) -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 z-20" style="top:8%;left:50%;">
+          <div class="flex flex-col items-center gap-1">
+            <div class="flex gap-0.5 h-14">
+              <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div></div>
+              <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div></div>
+            </div>
+            <div class="relative px-3 py-1.5 rounded-xl text-center min-w-[100px] border-2 border-transparent bg-slate-700 text-gray-100">
+              <span class="absolute -top-2 -right-2 w-5 h-5 bg-yellow-400 text-gray-900 rounded-full text-xs font-bold flex items-center justify-center shadow">D</span>
+              <div class="text-xs font-semibold">Slick Eddie</div>
+              <div class="text-sm font-bold">245 BB</div>
+              <span class="text-[10px] text-gray-300 uppercase">UTG</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seat 4 — Bot (top-right, all-in) -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 z-20" style="top:22%;left:92%;">
+          <div class="flex flex-col items-center gap-1">
+            <div class="flex gap-0.5 h-14">
+              <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div></div>
+              <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div></div>
+            </div>
+            <div class="relative px-3 py-1.5 rounded-xl text-center min-w-[100px] border-2 border-transparent bg-slate-700 text-gray-100">
+              <div class="text-xs font-semibold">Fishy Phil</div>
+              <div class="text-sm font-bold">0 BB</div>
+              <span class="text-[10px] text-gray-300 uppercase">HJ</span>
+              <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[10px] font-bold px-1.5 rounded-full">ALL IN</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seat 5 — Bot (bottom-right) -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 z-20" style="top:70%;left:88%;">
+          <div class="flex flex-col items-center gap-1">
+            <div class="flex gap-0.5 h-14">
+              <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div></div>
+              <div class="w-10 h-14 rounded-lg bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-600 shadow-md flex items-center justify-center"><div class="w-6 h-8 rounded border border-blue-400/30 bg-blue-800"></div></div>
+            </div>
+            <div class="relative px-3 py-1.5 rounded-xl text-center min-w-[100px] border-2 border-transparent bg-slate-700 text-gray-100">
+              <div class="text-xs font-semibold">Nit Nancy</div>
+              <div class="text-sm font-bold">198 BB</div>
+              <span class="text-[10px] text-gray-300 uppercase">CO</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bet chips -->
+        <!-- Seat 0 bet -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 z-10" style="top:68%;left:50%;">
+          <div class="bg-black/40 text-yellow-300 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">6</div>
+        </div>
+        <!-- Seat 2 bet -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 z-10" style="top:36%;left:22%;">
+          <div class="bg-black/40 text-yellow-300 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">6</div>
+        </div>
+        <!-- Seat 4 bet (all-in) -->
+        <div class="absolute -translate-x-1/2 -translate-y-1/2 z-10" style="top:36%;left:78%;">
+          <div class="bg-black/40 text-yellow-300 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">12</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Action bar -->
+    <div class="bg-slate-800 border-t border-slate-700">
+      <div class="flex items-center justify-center gap-3 py-3 px-4">
+        <!-- Fold -->
+        <button class="bg-gray-600 hover:bg-gray-500 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors shadow-md">Fold</button>
+        <!-- Call -->
+        <button class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors shadow-md">Call 6</button>
+        <!-- Slider + Raise -->
+        <div class="flex items-center gap-2 bg-slate-700 rounded-lg px-3 py-1.5">
+          <input type="range" min="12" max="186" value="18" class="w-24 accent-blue-500" />
+          <input type="number" value="18" class="w-16 bg-slate-600 text-white text-sm text-center rounded px-1 py-1 border border-slate-500" />
+        </div>
+        <button class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors shadow-md">Raise</button>
+        <!-- All In -->
+        <button class="bg-red-500 hover:bg-red-400 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors shadow-md">All In</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

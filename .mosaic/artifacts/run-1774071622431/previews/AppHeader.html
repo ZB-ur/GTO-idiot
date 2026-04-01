@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AppHeader Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 0; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+
+<!-- With session active, on table view -->
+<header class="bg-white border-b border-gray-200 px-4 py-3">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="text-xl font-bold text-gray-900">GTO <span class="text-blue-600">Idiot</span></div>
+      <span class="px-2 py-0.5 bg-amber-100 text-amber-700 text-[10px] font-semibold uppercase tracking-wider rounded-full">Learning Tool</span>
+    </div>
+    <nav class="flex items-center gap-1">
+      <button class="px-3 py-1.5 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50">Lobby</button>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-lg bg-blue-50 text-blue-600">Table</button>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50">History</button>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50">Summary</button>
+    </nav>
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-1.5">
+        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+        <span class="text-xs text-gray-500">Session Active</span>
+      </div>
+      <button class="px-3 py-1.5 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg">End Session</button>
+    </div>
+  </div>
+</header>
+
+<!-- Some page content for context -->
+<div class="max-w-6xl mx-auto p-8">
+  <div class="h-96 bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400">
+    Page content area
+  </div>
+</div>
+
+</body>
+</html>

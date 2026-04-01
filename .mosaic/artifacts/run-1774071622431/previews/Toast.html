@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="space-y-4 pt-4">
+    <p class="text-sm font-semibold text-gray-600">Toast Notifications</p>
+    <div class="space-y-3 max-w-md mx-auto">
+      <!-- Error -->
+      <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-red-50 border-red-200 min-w-[300px]">
+        <span class="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold bg-red-500 text-white">✕</span>
+        <span class="text-sm font-medium flex-1 text-red-800">Connection lost. Please check your network.</span>
+        <button class="flex-shrink-0 text-red-800 opacity-50 hover:opacity-100 text-lg leading-none">×</button>
+      </div>
+      <!-- Warning -->
+      <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-amber-50 border-amber-200 min-w-[300px]">
+        <span class="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold bg-amber-500 text-white">!</span>
+        <span class="text-sm font-medium flex-1 text-amber-800">Solver timeout — using approximate result.</span>
+        <button class="flex-shrink-0 text-amber-800 opacity-50 hover:opacity-100 text-lg leading-none">×</button>
+      </div>
+      <!-- Info -->
+      <div class="flex items-center gap-3 px-4 py-3 rounded-xl border shadow-md bg-blue-50 border-blue-200 min-w-[300px]">
+        <span class="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold bg-blue-500 text-white">i</span>
+        <span class="text-sm font-medium flex-1 text-blue-800">Hand history saved to browser storage.</span>
+        <button class="flex-shrink-0 text-blue-800 opacity-50 hover:opacity-100 text-lg leading-none">×</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

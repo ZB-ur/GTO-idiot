@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ProfitCurveChart Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+<div class="max-w-2xl mx-auto py-8">
+  <div class="w-full bg-white border border-gray-200 rounded-xl p-4">
+    <div class="text-sm font-semibold text-gray-900 mb-2">Profit Curve (BB)</div>
+    <svg viewBox="0 0 600 240" class="w-full h-auto">
+      <!-- Zero line -->
+      <line x1="50" y1="140" x2="580" y2="140" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4,4" />
+      <!-- Y-axis labels -->
+      <text x="42" y="24" text-anchor="end" fill="#9ca3af" font-size="10">80</text>
+      <text x="42" y="144" text-anchor="end" fill="#9ca3af" font-size="10">0</text>
+      <text x="42" y="214" text-anchor="end" fill="#9ca3af" font-size="10">-30</text>
+      <!-- X-axis labels -->
+      <text x="50" y="235" text-anchor="middle" fill="#9ca3af" font-size="10">1</text>
+      <text x="580" y="235" text-anchor="middle" fill="#9ca3af" font-size="10">100</text>
+      <!-- Profit line (going up overall with variance) -->
+      <path d="M 50 140 L 103 155 L 156 145 L 209 130 L 262 160 L 315 120 L 368 95 L 421 110 L 474 70 L 527 55 L 580 40" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linejoin="round" />
+      <!-- End dot -->
+      <circle cx="580" cy="40" r="4" fill="#10b981" />
+      <!-- Axis lines -->
+      <line x1="50" y1="20" x2="50" y2="210" stroke="#e2e8f0" stroke-width="1" />
+      <line x1="50" y1="210" x2="580" y2="210" stroke="#e2e8f0" stroke-width="1" />
+    </svg>
+  </div>
+</div>
+</body>
+</html>

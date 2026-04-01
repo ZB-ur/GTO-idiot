@@ -1,0 +1,284 @@
+{
+  "components": [
+    {
+      "name": "PlayingCard",
+      "file": "components/PlayingCard.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "DealerButton",
+      "file": "components/DealerButton.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "DeviationBadge",
+      "file": "components/DeviationBadge.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "EvLossIndicator",
+      "file": "components/EvLossIndicator.tsx",
+      "covers_features": [
+        "F-008"
+      ]
+    },
+    {
+      "name": "PrecisionDisclaimer",
+      "file": "components/PrecisionDisclaimer.tsx",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "name": "Toast",
+      "file": "components/Toast.tsx",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "name": "SkeletonLoader",
+      "file": "components/SkeletonLoader.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "GlobalDisclaimerFooter",
+      "file": "components/GlobalDisclaimerFooter.tsx",
+      "covers_features": [
+        "F-010"
+      ]
+    },
+    {
+      "name": "DesktopOnlyGuard",
+      "file": "components/DesktopOnlyGuard.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "BotThinkingIndicator",
+      "file": "components/BotThinkingIndicator.tsx",
+      "covers_features": [
+        "F-003"
+      ]
+    },
+    {
+      "name": "PlayerSeat",
+      "file": "components/PlayerSeat.tsx",
+      "covers_features": [
+        "F-001",
+        "F-003",
+        "F-004"
+      ]
+    },
+    {
+      "name": "CommunityCards",
+      "file": "components/CommunityCards.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "PotDisplay",
+      "file": "components/PotDisplay.tsx",
+      "covers_features": [
+        "F-001",
+        "F-004"
+      ]
+    },
+    {
+      "name": "BetSlider",
+      "file": "components/BetSlider.tsx",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "name": "ActionBar",
+      "file": "components/ActionBar.tsx",
+      "covers_features": [
+        "F-002"
+      ]
+    },
+    {
+      "name": "HandResultOverlay",
+      "file": "components/HandResultOverlay.tsx",
+      "covers_features": [
+        "F-001"
+      ]
+    },
+    {
+      "name": "HandHistoryRow",
+      "file": "components/HandHistoryRow.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "HandHistoryFilter",
+      "file": "components/HandHistoryFilter.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "GtoComparisonPanel",
+      "file": "components/GtoComparisonPanel.tsx",
+      "covers_features": [
+        "F-008",
+        "F-005",
+        "F-006"
+      ]
+    },
+    {
+      "name": "GtoScoreGauge",
+      "file": "components/GtoScoreGauge.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "ProfitCurveChart",
+      "file": "components/ProfitCurveChart.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "StatsGrid",
+      "file": "components/StatsGrid.tsx",
+      "covers_features": [
+        "F-009"
+      ]
+    },
+    {
+      "name": "ConfirmationModal",
+      "file": "components/ConfirmationModal.tsx",
+      "covers_features": [
+        "F-004"
+      ]
+    },
+    {
+      "name": "AppHeader",
+      "file": "components/AppHeader.tsx",
+      "covers_features": [
+        "F-004",
+        "F-010"
+      ]
+    },
+    {
+      "name": "PokerTable",
+      "file": "components/PokerTable.tsx",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004"
+      ]
+    },
+    {
+      "name": "HandHistoryList",
+      "file": "components/HandHistoryList.tsx",
+      "covers_features": [
+        "F-007"
+      ]
+    },
+    {
+      "name": "HandReplayViewer",
+      "file": "components/HandReplayViewer.tsx",
+      "covers_features": [
+        "F-008",
+        "F-005",
+        "F-006",
+        "F-010"
+      ]
+    },
+    {
+      "name": "SessionSummaryScreen",
+      "file": "components/SessionSummaryScreen.tsx",
+      "covers_features": [
+        "F-009",
+        "F-010"
+      ]
+    },
+    {
+      "name": "LobbyScreen",
+      "file": "components/LobbyScreen.tsx",
+      "covers_features": [
+        "F-004",
+        "F-009"
+      ]
+    }
+  ],
+  "screenshots": [
+    "screenshots/PlayingCard.png",
+    "screenshots/DealerButton.png",
+    "screenshots/DeviationBadge.png",
+    "screenshots/EvLossIndicator.png",
+    "screenshots/PrecisionDisclaimer.png",
+    "screenshots/Toast.png",
+    "screenshots/SkeletonLoader.png",
+    "screenshots/GlobalDisclaimerFooter.png",
+    "screenshots/DesktopOnlyGuard.png",
+    "screenshots/BotThinkingIndicator.png",
+    "screenshots/PlayerSeat.png",
+    "screenshots/CommunityCards.png",
+    "screenshots/PotDisplay.png",
+    "screenshots/BetSlider.png",
+    "screenshots/ActionBar.png",
+    "screenshots/HandResultOverlay.png",
+    "screenshots/HandHistoryRow.png",
+    "screenshots/HandHistoryFilter.png",
+    "screenshots/GtoComparisonPanel.png",
+    "screenshots/GtoScoreGauge.png",
+    "screenshots/ProfitCurveChart.png",
+    "screenshots/StatsGrid.png",
+    "screenshots/ConfirmationModal.png",
+    "screenshots/AppHeader.png",
+    "screenshots/PokerTable.png",
+    "screenshots/HandHistoryList.png",
+    "screenshots/HandReplayViewer.png",
+    "screenshots/SessionSummaryScreen.png",
+    "screenshots/LobbyScreen.png"
+  ],
+  "previews": [
+    "previews/PlayingCard.html",
+    "previews/DealerButton.html",
+    "previews/DeviationBadge.html",
+    "previews/EvLossIndicator.html",
+    "previews/PrecisionDisclaimer.html",
+    "previews/Toast.html",
+    "previews/SkeletonLoader.html",
+    "previews/GlobalDisclaimerFooter.html",
+    "previews/DesktopOnlyGuard.html",
+    "previews/BotThinkingIndicator.html",
+    "previews/PlayerSeat.html",
+    "previews/CommunityCards.html",
+    "previews/PotDisplay.html",
+    "previews/BetSlider.html",
+    "previews/HandResultOverlay.html",
+    "previews/HandHistoryRow.html",
+    "previews/HandHistoryFilter.html",
+    "previews/GtoScoreGauge.html",
+    "previews/ProfitCurveChart.html",
+    "previews/StatsGrid.html",
+    "previews/ConfirmationModal.html",
+    "previews/AppHeader.html",
+    "previews/ActionBar.html",
+    "previews/GtoComparisonPanel.html",
+    "previews/PokerTable.html",
+    "previews/HandHistoryList.html",
+    "previews/HandReplayViewer.html",
+    "previews/SessionSummaryScreen.html",
+    "previews/LobbyScreen.html"
+  ]
+}

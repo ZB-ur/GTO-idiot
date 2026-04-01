@@ -1,0 +1,68 @@
+{
+  "features": [
+    {
+      "id": "F-001",
+      "name": "game-engine"
+    },
+    {
+      "id": "F-002",
+      "name": "player-actions"
+    },
+    {
+      "id": "F-003",
+      "name": "bot-ai"
+    },
+    {
+      "id": "F-004",
+      "name": "table-ui"
+    },
+    {
+      "id": "F-005",
+      "name": "preflop-solver"
+    },
+    {
+      "id": "F-006",
+      "name": "postflop-solver"
+    },
+    {
+      "id": "F-007",
+      "name": "hand-history"
+    },
+    {
+      "id": "F-008",
+      "name": "hand-review"
+    },
+    {
+      "id": "F-009",
+      "name": "session-summary"
+    },
+    {
+      "id": "F-010",
+      "name": "precision-disclaimer"
+    }
+  ],
+  "constraints": [
+    "前端技术栈限定 React + TypeScript + Tailwind CSS",
+    "后端技术栈限定 Node.js",
+    "数据持久化仅使用浏览器 IndexedDB，无服务端数据库",
+    "CFR 求解器必须使用 Rust→WASM 路线，推荐 fork postflop-solver（MIT 许可）",
+    "翻后实时求解响应时间 < 5 秒",
+    "仅支持六人桌无限注德州扑克现金局，固定盲注结构",
+    "6-max 多人翻后场景降级为伪单挑模型求解",
+    "产品需标注仅供学习用途",
+    "避免 AGPL 许可的开源依赖"
+  ],
+  "out_of_scope": [
+    "多桌同时游戏",
+    "锦标赛/SNG 模式",
+    "用户账号系统",
+    "云端数据同步",
+    "高精度 Solver",
+    "详细 HUD 统计报表",
+    "移动端适配",
+    "实时多人在线对战",
+    "自定义盲注结构",
+    "手牌范围编辑器",
+    "积分/排名系统"
+  ]
+}

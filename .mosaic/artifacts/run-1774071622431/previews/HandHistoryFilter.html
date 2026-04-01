@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HandHistoryFilter Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+<div class="max-w-xl mx-auto py-8">
+  <div class="flex flex-wrap items-center gap-3 p-4 bg-white border border-gray-200 rounded-xl">
+    <!-- Result type toggles -->
+    <div class="flex gap-2">
+      <button class="px-3 py-1.5 text-sm font-medium rounded-lg border bg-green-100 text-green-700 border-green-300">Won</button>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-lg border bg-gray-50 text-gray-500 border-gray-200">Lost</button>
+      <button class="px-3 py-1.5 text-sm font-medium rounded-lg border bg-gray-50 text-gray-500 border-gray-200">Folded</button>
+    </div>
+    <div class="h-6 w-px bg-gray-200"></div>
+    <!-- Date inputs -->
+    <div class="flex items-center gap-2 text-sm">
+      <input type="date" value="2026-03-01" class="px-2 py-1.5 border border-gray-200 rounded-lg text-gray-600 text-sm" />
+      <span class="text-gray-400">to</span>
+      <input type="date" value="2026-03-21" class="px-2 py-1.5 border border-gray-200 rounded-lg text-gray-600 text-sm" />
+    </div>
+  </div>
+</div>
+</body>
+</html>

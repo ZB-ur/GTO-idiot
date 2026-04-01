@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandHistoryList Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }
+    @keyframes pulse { 0%,100% { opacity:1 } 50% { opacity:.5 } }
+    .animate-pulse { animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 640px; margin: 0 auto;">
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col" style="max-height: 600px;">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200">
+        <h2 class="text-lg font-semibold text-gray-900">Hand History</h2>
+        <span class="text-sm text-gray-400">8 hands</span>
+      </div>
+
+      <!-- Filter bar -->
+      <div class="flex flex-wrap items-center gap-3 px-4 py-3 border-b border-gray-200 bg-slate-50">
+        <!-- Search -->
+        <div class="relative flex-1" style="min-width:160px">
+          <svg class="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
+          </svg>
+          <input type="text" placeholder="Search hand # or cards…" class="w-full pl-8 pr-3 py-1.5 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none" />
+        </div>
+        <select class="text-sm border border-gray-200 rounded-lg px-2.5 py-1.5 bg-white focus:outline-none">
+          <option>All Streets</option>
+          <option>Preflop</option>
+          <option>Flop</option>
+          <option>Turn</option>
+          <option>River</option>
+        </select>
+        <select class="text-sm border border-gray-200 rounded-lg px-2.5 py-1.5 bg-white focus:outline-none">
+          <option>All Results</option>
+          <option>Won</option>
+          <option>Lost</option>
+        </select>
+      </div>
+
+      <!-- Hand list -->
+      <div class="flex-1 overflow-y-auto">
+
+        <!-- Row 1: Won hand -->
+        <button class="w-full flex items-center gap-3 px-4 py-3 border-b border-gray-200 hover:bg-blue-50 transition-colors text-left group">
+          <span class="text-sm font-mono text-gray-400 w-10 shrink-0">#42</span>
+          <span class="flex gap-0.5 shrink-0 text-sm">
+            <span class="font-mono font-bold text-gray-900">A♠</span>
+            <span class="font-mono font-bold text-red-500">K♥</span>
+          </span>
+          <span class="text-xs font-medium text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded shrink-0">BTN</span>
+          <span class="text-xs text-gray-400 shrink-0">River</span>
+          <span class="flex-1"></span>
+          <span class="text-sm font-semibold px-2 py-0.5 rounded-lg text-green-500 bg-green-50 shrink-0">+24.5 BB</span>
+          <span class="text-xs text-gray-400 w-14 text-right shrink-0">2m ago</span>
+          <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+        <!-- Row 2: Lost hand -->
+        <button class="w-full flex items-center gap-3 px-4 py-3 border-b border-gray-200 hover:bg-blue-50 transition-colors text-left group">
+          <span class="text-sm font-mono text-gray-400 w-10 shrink-0">#41</span>
+          <span class="flex gap-0.5 shrink-0 text-sm">
+            <span class="font-mono font-bold text-red-500">Q♥</span>
+            <span class="font-mono font-bold text-red-500">J♥</span>
+          </span>
+          <span class="text-xs font-medium text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded shrink-0">CO</span>
+          <span class="text-xs text-gray-400 shrink-0">Turn</span>
+          <span class="flex-1"></span>
+          <span class="text-sm font-semibold px-2 py-0.5 rounded-lg text-red-500 bg-red-50 shrink-0">-12.0 BB</span>
+          <span class="text-xs text-gray-400 w-14 text-right shrink-0">5m ago</span>
+          <svg class="w-4 h-4 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+        <!-- Row 3: Won small -->
+        <button class="w-full flex items-center gap-3 px-4 py-3 border-b border-gray-200 hover:bg-blue-50 transition-colors text-left group">
+          <span class="text-sm font-mono text-gray-400 w-10 shrink-0">#40</span>
+          <span class="flex gap-0.5 shrink-0 text-sm">
+            <span class="font-mono font-bold text-gray-900">T♠</span>
+            <span class="font-mono font-bold text-gray-900">T♣</span>
+          </span>
+          <span class="text-xs font-medium text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded shrink-0">HJ</span>
+          <span class="text-xs text-gray-400 shrink-0">Flop</span>
+          <span class="flex-1"></span>
+          <span class="text-sm font-semibold px-2 py-0.5 rounded-lg text-green-500 bg-green-50 shrink-0">+6.0 BB</span>
+          <span class="text-xs text-gray-400 w-14 text-right shrink-0">8m ago</span>
+          <svg class="w-4 h-4 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+        <!-- Row 4: Break even -->
+        <button class="w-full flex items-center gap-3 px-4 py-3 border-b border-gray-200 hover:bg-blue-50 transition-colors text-left group">
+          <span class="text-sm font-mono text-gray-400 w-10 shrink-0">#39</span>
+          <span class="flex gap-0.5 shrink-0 text-sm">
+            <span class="font-mono font-bold text-blue-500">7♦</span>
+            <span class="font-mono font-bold text-gray-900">6♠</span>
+          </span>
+          <span class="text-xs font-medium text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded shrink-0">BB</span>
+          <span class="text-xs text-gray-400 shrink-0">Preflop</span>
+          <span class="flex-1"></span>
+          <span class="text-sm font-semibold px-2 py-0.5 rounded-lg text-gray-500 bg-gray-50 shrink-0">+0.0 BB</span>
+          <span class="text-xs text-gray-400 w-14 text-right shrink-0">12m ago</span>
+          <svg class="w-4 h-4 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+        <!-- Row 5: Big loss -->
+        <button class="w-full flex items-center gap-3 px-4 py-3 border-b border-gray-200 hover:bg-blue-50 transition-colors text-left group">
+          <span class="text-sm font-mono text-gray-400 w-10 shrink-0">#38</span>
+          <span class="flex gap-0.5 shrink-0 text-sm">
+            <span class="font-mono font-bold text-green-600">K♣</span>
+            <span class="font-mono font-bold text-blue-500">Q♦</span>
+          </span>
+          <span class="text-xs font-medium text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded shrink-0">UTG</span>
+          <span class="text-xs text-gray-400 shrink-0">River</span>
+          <span class="flex-1"></span>
+          <span class="text-sm font-semibold px-2 py-0.5 rounded-lg text-red-500 bg-red-50 shrink-0">-45.0 BB</span>
+          <span class="text-xs text-gray-400 w-14 text-right shrink-0">15m ago</span>
+          <svg class="w-4 h-4 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+        <!-- Row 6: Won -->
+        <button class="w-full flex items-center gap-3 px-4 py-3 border-b border-gray-200 hover:bg-blue-50 transition-colors text-left group">
+          <span class="text-sm font-mono text-gray-400 w-10 shrink-0">#37</span>
+          <span class="flex gap-0.5 shrink-0 text-sm">
+            <span class="font-mono font-bold text-red-500">A♥</span>
+            <span class="font-mono font-bold text-red-500">9♥</span>
+          </span>
+          <span class="text-xs font-medium text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded shrink-0">SB</span>
+          <span class="text-xs text-gray-400 shrink-0">Flop</span>
+          <span class="flex-1"></span>
+          <span class="text-sm font-semibold px-2 py-0.5 rounded-lg text-green-500 bg-green-50 shrink-0">+8.5 BB</span>
+          <span class="text-xs text-gray-400 w-14 text-right shrink-0">18m ago</span>
+          <svg class="w-4 h-4 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+        <!-- Row 7: Lost -->
+        <button class="w-full flex items-center gap-3 px-4 py-3 border-b border-gray-200 hover:bg-blue-50 transition-colors text-left group">
+          <span class="text-sm font-mono text-gray-400 w-10 shrink-0">#36</span>
+          <span class="flex gap-0.5 shrink-0 text-sm">
+            <span class="font-mono font-bold text-blue-500">J♦</span>
+            <span class="font-mono font-bold text-gray-900">T♠</span>
+          </span>
+          <span class="text-xs font-medium text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded shrink-0">BTN</span>
+          <span class="text-xs text-gray-400 shrink-0">Turn</span>
+          <span class="flex-1"></span>
+          <span class="text-sm font-semibold px-2 py-0.5 rounded-lg text-red-500 bg-red-50 shrink-0">-3.0 BB</span>
+          <span class="text-xs text-gray-400 w-14 text-right shrink-0">22m ago</span>
+          <svg class="w-4 h-4 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+        <!-- Row 8: Won -->
+        <button class="w-full flex items-center gap-3 px-4 py-3 border-b border-gray-200 hover:bg-blue-50 transition-colors text-left group">
+          <span class="text-sm font-mono text-gray-400 w-10 shrink-0">#35</span>
+          <span class="flex gap-0.5 shrink-0 text-sm">
+            <span class="font-mono font-bold text-green-600">9♣</span>
+            <span class="font-mono font-bold text-green-600">8♣</span>
+          </span>
+          <span class="text-xs font-medium text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded shrink-0">CO</span>
+          <span class="text-xs text-gray-400 shrink-0">River</span>
+          <span class="flex-1"></span>
+          <span class="text-sm font-semibold px-2 py-0.5 rounded-lg text-green-500 bg-green-50 shrink-0">+18.0 BB</span>
+          <span class="text-xs text-gray-400 w-14 text-right shrink-0">25m ago</span>
+          <svg class="w-4 h-4 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

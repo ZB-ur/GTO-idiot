@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GtoComparisonPanel Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body { margin: 0; padding: 16px; background: #f8fafc; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+<div class="max-w-md mx-auto space-y-6 py-8">
+
+  <!-- Match -->
+  <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 space-y-4">
+    <div class="flex items-center justify-between">
+      <span class="px-2.5 py-1 text-xs font-semibold text-white rounded-full bg-emerald-500">Match</span>
+    </div>
+    <div>
+      <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Your Action</div>
+      <span class="px-3 py-1.5 text-sm font-semibold text-white rounded-lg bg-amber-500">Raise 600</span>
+    </div>
+    <div>
+      <div class="text-xs text-gray-500 uppercase tracking-wider mb-2">GTO Strategy</div>
+      <div class="space-y-2">
+        <div class="space-y-0.5">
+          <div class="flex items-center justify-between text-sm">
+            <span class="font-medium text-gray-700">Raise 600</span>
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-gray-400 font-mono">EV: +2.35</span>
+              <span class="text-xs font-semibold text-gray-600">65%</span>
+            </div>
+          </div>
+          <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden"><div class="h-full rounded-full bg-amber-500" style="width:65%"></div></div>
+        </div>
+        <div class="space-y-0.5">
+          <div class="flex items-center justify-between text-sm">
+            <span class="font-medium text-gray-700">Call</span>
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-gray-400 font-mono">EV: +1.80</span>
+              <span class="text-xs font-semibold text-gray-600">30%</span>
+            </div>
+          </div>
+          <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden"><div class="h-full rounded-full bg-green-500" style="width:30%"></div></div>
+        </div>
+        <div class="space-y-0.5">
+          <div class="flex items-center justify-between text-sm">
+            <span class="font-medium text-gray-700">Fold</span>
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-gray-400 font-mono">EV: 0.00</span>
+              <span class="text-xs font-semibold text-gray-600">5%</span>
+            </div>
+          </div>
+          <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden"><div class="h-full rounded-full bg-gray-400" style="width:5%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Major deviation with approximate -->
+  <div class="bg-red-50 border border-red-200 rounded-xl p-5 space-y-4">
+    <div class="flex items-center justify-between">
+      <span class="px-2.5 py-1 text-xs font-semibold text-white rounded-full bg-red-500">Major Deviation</span>
+      <span class="text-sm font-mono text-red-500 font-semibold">-4.20 BB EV</span>
+    </div>
+    <div>
+      <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Your Action</div>
+      <span class="px-3 py-1.5 text-sm font-semibold text-white rounded-lg bg-green-500">Call</span>
+    </div>
+    <div>
+      <div class="text-xs text-gray-500 uppercase tracking-wider mb-2">GTO Strategy</div>
+      <div class="space-y-2">
+        <div class="space-y-0.5">
+          <div class="flex items-center justify-between text-sm">
+            <span class="font-medium text-gray-700">Raise 1200</span>
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-gray-400 font-mono">EV: +5.10</span>
+              <span class="text-xs font-semibold text-gray-600">78%</span>
+            </div>
+          </div>
+          <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden"><div class="h-full rounded-full bg-amber-500" style="width:78%"></div></div>
+        </div>
+        <div class="space-y-0.5">
+          <div class="flex items-center justify-between text-sm">
+            <span class="font-medium text-gray-700">Fold</span>
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-gray-400 font-mono">EV: 0.00</span>
+              <span class="text-xs font-semibold text-gray-600">22%</span>
+            </div>
+          </div>
+          <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden"><div class="h-full rounded-full bg-gray-400" style="width:22%"></div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Precision disclaimer -->
+    <div class="flex items-start gap-2 p-3 bg-white/60 rounded-lg border border-gray-200">
+      <svg class="w-4 h-4 text-gray-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span class="text-xs text-gray-500">Simplified calculation (simplified) — for reference only</span>
+    </div>
+  </div>
+
+  <!-- Minor deviation -->
+  <div class="bg-amber-50 border border-amber-200 rounded-xl p-5 space-y-4">
+    <div class="flex items-center justify-between">
+      <span class="px-2.5 py-1 text-xs font-semibold text-white rounded-full bg-amber-400">Minor Deviation</span>
+      <span class="text-sm font-mono text-red-500 font-semibold">-0.85 BB EV</span>
+    </div>
+    <div>
+      <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Your Action</div>
+      <span class="px-3 py-1.5 text-sm font-semibold text-white rounded-lg bg-blue-500">Check</span>
+    </div>
+    <div>
+      <div class="text-xs text-gray-500 uppercase tracking-wider mb-2">GTO Strategy</div>
+      <div class="space-y-2">
+        <div class="space-y-0.5">
+          <div class="flex items-center justify-between text-sm">
+            <span class="font-medium text-gray-700">Bet 450</span>
+            <span class="text-xs font-semibold text-gray-600">55%</span>
+          </div>
+          <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden"><div class="h-full rounded-full bg-amber-500" style="width:55%"></div></div>
+        </div>
+        <div class="space-y-0.5">
+          <div class="flex items-center justify-between text-sm">
+            <span class="font-medium text-gray-700">Check</span>
+            <span class="text-xs font-semibold text-gray-600">45%</span>
+          </div>
+          <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden"><div class="h-full rounded-full bg-blue-500" style="width:45%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
