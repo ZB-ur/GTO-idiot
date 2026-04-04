@@ -1,0 +1,120 @@
+{
+  "flows": [
+    {
+      "name": "game-setup-flow",
+      "covers_features": [
+        "F-009",
+        "F-003",
+        "F-010"
+      ]
+    },
+    {
+      "name": "hand-play-flow",
+      "covers_features": [
+        "F-001",
+        "F-002",
+        "F-008",
+        "F-010"
+      ]
+    },
+    {
+      "name": "session-flow",
+      "covers_features": [
+        "F-010",
+        "F-005"
+      ]
+    },
+    {
+      "name": "history-flow",
+      "covers_features": [
+        "F-005"
+      ]
+    },
+    {
+      "name": "review-flow",
+      "covers_features": [
+        "F-006",
+        "F-004"
+      ]
+    },
+    {
+      "name": "stats-flow",
+      "covers_features": [
+        "F-007"
+      ]
+    }
+  ],
+  "components": [
+    "AppShell",
+    "TopNavBar",
+    "GameLobby",
+    "QuickStartCard",
+    "SessionSetupPanel",
+    "SeatSelector",
+    "BotStylePicker",
+    "ResumeSessionCard",
+    "PokerTable",
+    "PlayerSeat",
+    "PlayerCards",
+    "CommunityCards",
+    "PotDisplay",
+    "PlayingCard",
+    "DealerButton",
+    "ActionBar",
+    "ActionButton",
+    "BetSlider",
+    "QuickBetButtons",
+    "FoldConfirmDialog",
+    "SessionStatusBar",
+    "SessionSummaryPanel",
+    "PauseOverlay",
+    "HandHistoryPage",
+    "HistoryFilterBar",
+    "HandHistoryList",
+    "HandHistoryCard",
+    "HandDetailPanel",
+    "ExportButton",
+    "ClearHistoryButton",
+    "HandReviewPage",
+    "ReplayTable",
+    "ReplayControls",
+    "StreetNavigator",
+    "DecisionAnnotation",
+    "DeviationBadge",
+    "EVLossIndicator",
+    "HandReviewSummary",
+    "GTODisclaimerBanner",
+    "PracticeStatsPage",
+    "KPICardGroup",
+    "KPICard",
+    "StreetAccuracyChart",
+    "PositionWinRateChart",
+    "BotStyleWinRateChart",
+    "GTOTrendLineChart",
+    "TrendRangeSelector",
+    "ConfirmDialog",
+    "LoadingSpinner",
+    "EmptyState",
+    "StorageWarningBanner",
+    "TooltipPopover"
+  ],
+  "interaction_rules": [
+    "seat-selection-single-highlight: 牌桌座位点击选择，一次仅选一个，选中态高亮",
+    "bot-style-independent-dropdown: 每个对手座位独立下拉选择风格，默认随机分配",
+    "bet-slider-input-linked: 下注滑块与数字输入框联动，范围限制 min-raise 到 all-in",
+    "quick-bet-presets: 提供 1/3 Pot / 1/2 Pot / 2/3 Pot / Pot / All-in 快捷下注按钮",
+    "fold-confirm-on-strong-hand: 持有较强手牌时 Fold 需二次确认弹窗",
+    "bot-action-delay: Bot 行动间隔 0.5-1.5s 随机延迟模拟思考",
+    "card-deal-animation: 每张牌 0.2s 飞入动画，公共牌依次翻开",
+    "shuffle-animation-on-load: 进入牌桌时短暂洗牌动画（< 1s）",
+    "loading-indicator-large-dataset: 超过 1000 条历史记录时显示加载指示器",
+    "session-restore-toast: Session 恢复时显示提示（< 0.5s）",
+    "storage-full-warning: localStorage 接近上限时提示导出并清理旧数据",
+    "corrupted-session-prompt: 检测到不完整 Session 数据时提示放弃",
+    "beforeunload-guard: 牌局进行中刷新页面弹出离开确认",
+    "nav-lock-during-play: 牌局进行中禁用页面导航，仅显示暂停和结束按钮",
+    "replay-free-navigation: 复盘模式可随时退出，无需保存状态",
+    "responsive-desktop-first: 桌面端（≥1024px）完整展示，平板（768-1023px）等比缩放增大触摸区域",
+    "gto-disclaimer-visible: 复盘页面底部始终显示简化 GTO 参考声明"
+  ]
+}

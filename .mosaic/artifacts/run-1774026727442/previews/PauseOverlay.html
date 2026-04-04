@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PauseOverlay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #111827;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <!-- Simulated poker table background -->
+  <div class="w-full h-screen bg-gray-900 relative">
+    <!-- Faint table hint behind overlay -->
+    <div class="absolute inset-0 flex items-center justify-center opacity-30">
+      <div class="w-[600px] h-[320px] bg-emerald-800 rounded-full border-8 border-amber-900/60"></div>
+    </div>
+
+    <!-- Pause overlay -->
+    <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+      <!-- Overlay card -->
+      <div class="relative w-full max-w-sm mx-4 bg-gray-800 border border-gray-600 rounded-xl shadow-2xl overflow-hidden">
+        <!-- Top accent bar -->
+        <div class="h-1 bg-gradient-to-r from-emerald-600 via-emerald-400 to-emerald-600"></div>
+
+        <div class="px-8 py-10 flex flex-col items-center text-center">
+          <!-- Pause icon -->
+          <div class="w-16 h-16 rounded-full bg-gray-700 border-2 border-emerald-600 flex items-center justify-center mb-5">
+            <svg class="w-8 h-8 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+              <rect x="6" y="4" width="4" height="16" rx="1" />
+              <rect x="14" y="4" width="4" height="16" rx="1" />
+            </svg>
+          </div>
+
+          <!-- Title -->
+          <h2 class="text-2xl font-bold text-white mb-2">游戏已暂停</h2>
+          <p class="text-gray-300 text-sm mb-8">当前牌局进度已保存，你可以随时继续</p>
+
+          <!-- Action buttons -->
+          <div class="w-full space-y-3">
+            <button class="w-full py-3 px-6 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-colors duration-150 flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              继续游戏
+            </button>
+
+            <button class="w-full py-3 px-6 bg-gray-700 border border-gray-600 text-gray-300 font-semibold rounded-lg transition-colors duration-150 flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              结束牌局
+            </button>
+          </div>
+        </div>
+
+        <!-- Keyboard hint -->
+        <div class="px-8 pb-5">
+          <p class="text-gray-500 text-xs text-center">
+            按 <kbd class="px-1.5 py-0.5 bg-gray-700 border border-gray-600 rounded text-gray-400 text-xs font-mono">ESC</kbd> 继续游戏
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

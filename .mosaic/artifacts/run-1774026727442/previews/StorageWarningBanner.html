@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StorageWarningBanner Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-3xl mx-auto space-y-4">
+    <!-- Warning state (85%) -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-lg border bg-yellow-400/10 border-yellow-400/30 text-yellow-400">
+      <span class="text-lg flex-shrink-0">⚠️</span>
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-medium">存储空间使用率较高</p>
+        <p class="text-xs text-gray-400 mt-0.5">已使用 85% — 建议导出数据以释放空间</p>
+      </div>
+      <div class="w-20 h-1.5 bg-gray-700 rounded-full overflow-hidden flex-shrink-0">
+        <div class="h-full rounded-full bg-yellow-400" style="width: 85%"></div>
+      </div>
+      <button class="flex-shrink-0 px-3 py-1.5 text-xs font-medium text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg">
+        导出数据
+      </button>
+      <button class="flex-shrink-0 p-1 text-gray-500 hover:text-gray-300">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Critical state (97%) -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-lg border bg-red-500/10 border-red-500/30 text-red-400">
+      <span class="text-lg flex-shrink-0">🚨</span>
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-medium">存储空间即将耗尽</p>
+        <p class="text-xs text-gray-400 mt-0.5">已使用 97% — 建议导出数据以释放空间</p>
+      </div>
+      <div class="w-20 h-1.5 bg-gray-700 rounded-full overflow-hidden flex-shrink-0">
+        <div class="h-full rounded-full bg-red-500" style="width: 97%"></div>
+      </div>
+      <button class="flex-shrink-0 px-3 py-1.5 text-xs font-medium text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg">
+        导出数据
+      </button>
+      <button class="flex-shrink-0 p-1 text-gray-500 hover:text-gray-300">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</body>
+</html>

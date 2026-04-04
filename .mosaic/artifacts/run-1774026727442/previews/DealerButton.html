@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DealerButton Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">Dealer Button</p>
+
+    <div style="display: flex; gap: 24px; align-items: center;">
+      <!-- On dark background (table felt) -->
+      <div class="bg-emerald-800 rounded-xl p-6 flex items-center justify-center">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-300 to-amber-500
+          border-2 border-amber-600 shadow-md
+          flex items-center justify-center
+          text-gray-900 font-bold text-sm select-none">
+          D
+        </div>
+      </div>
+
+      <!-- On surface background -->
+      <div class="bg-gray-800 rounded-xl p-6 flex items-center justify-center">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-300 to-amber-500
+          border-2 border-amber-600 shadow-md
+          flex items-center justify-center
+          text-gray-900 font-bold text-sm select-none">
+          D
+        </div>
+      </div>
+
+      <!-- Standalone -->
+      <div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-300 to-amber-500
+        border-2 border-amber-600 shadow-md
+        flex items-center justify-center
+        text-gray-900 font-bold text-sm select-none">
+        D
+      </div>
+    </div>
+  </div>
+</body>
+</html>

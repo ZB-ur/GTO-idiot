@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResumeSessionCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 400px; margin: 0 auto;">
+
+    <!-- ResumeSessionCard: Paused, Positive Profit -->
+    <div class="bg-gray-800 border border-gray-600 rounded-xl p-5 space-y-4 mb-6">
+      <!-- Header -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-yellow-400"></span>
+          <span class="text-sm font-medium text-gray-300">Paused Session</span>
+        </div>
+        <span class="text-xs text-gray-500">23m ago</span>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="grid grid-cols-3 gap-3">
+        <div class="bg-gray-700/50 rounded-lg px-3 py-2 text-center">
+          <p class="text-xs text-gray-500 mb-0.5">Hands</p>
+          <p class="text-lg font-bold text-white">34</p>
+        </div>
+        <div class="bg-gray-700/50 rounded-lg px-3 py-2 text-center">
+          <p class="text-xs text-gray-500 mb-0.5">Profit</p>
+          <p class="text-lg font-bold text-green-400">+12.5 BB</p>
+        </div>
+        <div class="bg-gray-700/50 rounded-lg px-3 py-2 text-center">
+          <p class="text-xs text-gray-500 mb-0.5">Position</p>
+          <p class="text-lg font-bold text-amber-400">BTN</p>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex gap-3">
+        <button class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+          </svg>
+          Resume
+        </button>
+        <button class="px-4 py-2.5 bg-gray-700 hover:bg-gray-600 text-gray-300 font-medium rounded-lg transition-colors">
+          Discard
+        </button>
+      </div>
+    </div>
+
+    <!-- ResumeSessionCard: Active, Negative Profit -->
+    <div class="bg-gray-800 border border-gray-600 rounded-xl p-5 space-y-4">
+      <!-- Header -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span class="text-sm font-medium text-gray-300">Active Session</span>
+        </div>
+        <span class="text-xs text-gray-500">2h ago</span>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="grid grid-cols-3 gap-3">
+        <div class="bg-gray-700/50 rounded-lg px-3 py-2 text-center">
+          <p class="text-xs text-gray-500 mb-0.5">Hands</p>
+          <p class="text-lg font-bold text-white">78</p>
+        </div>
+        <div class="bg-gray-700/50 rounded-lg px-3 py-2 text-center">
+          <p class="text-xs text-gray-500 mb-0.5">Profit</p>
+          <p class="text-lg font-bold text-red-400">-8.3 BB</p>
+        </div>
+        <div class="bg-gray-700/50 rounded-lg px-3 py-2 text-center">
+          <p class="text-xs text-gray-500 mb-0.5">Position</p>
+          <p class="text-lg font-bold text-amber-400">CO</p>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex gap-3">
+        <button class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+          </svg>
+          Resume
+        </button>
+        <button class="px-4 py-2.5 bg-gray-700 hover:bg-gray-600 text-gray-300 font-medium rounded-lg transition-colors">
+          Discard
+        </button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

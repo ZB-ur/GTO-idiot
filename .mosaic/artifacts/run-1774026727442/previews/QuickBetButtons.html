@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickBetButtons Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <!-- Default state (no active) -->
+  <div class="mb-6">
+    <p class="text-gray-500 text-xs mb-2 uppercase tracking-wide">Default — no selection</p>
+    <div class="flex items-center gap-2">
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-gray-700 border-gray-600 text-gray-300 hover:bg-gray-600 whitespace-nowrap">1/3 Pot</button>
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-gray-700 border-gray-600 text-gray-300 hover:bg-gray-600 whitespace-nowrap">1/2 Pot</button>
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-gray-700 border-gray-600 text-gray-300 hover:bg-gray-600 whitespace-nowrap">2/3 Pot</button>
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-gray-700 border-gray-600 text-gray-300 hover:bg-gray-600 whitespace-nowrap">Pot</button>
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-gray-700 border-gray-600 text-gray-300 hover:bg-gray-600 whitespace-nowrap">All-in</button>
+    </div>
+  </div>
+
+  <!-- Active state (1/2 Pot selected) -->
+  <div class="mb-6">
+    <p class="text-gray-500 text-xs mb-2 uppercase tracking-wide">Active — "1/2 Pot" selected</p>
+    <div class="flex items-center gap-2">
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-gray-700 border-gray-600 text-gray-300 whitespace-nowrap">1/3 Pot</button>
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-emerald-600 border-emerald-400 text-white shadow-md whitespace-nowrap">1/2 Pot</button>
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-gray-700 border-gray-600 text-gray-300 whitespace-nowrap">2/3 Pot</button>
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-gray-700 border-gray-600 text-gray-300 whitespace-nowrap">Pot</button>
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-gray-700 border-gray-600 text-gray-300 whitespace-nowrap">All-in</button>
+    </div>
+  </div>
+
+  <!-- Active state (All-in selected) -->
+  <div>
+    <p class="text-gray-500 text-xs mb-2 uppercase tracking-wide">Active — "All-in" selected</p>
+    <div class="flex items-center gap-2">
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-gray-700 border-gray-600 text-gray-300 whitespace-nowrap">1/3 Pot</button>
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-gray-700 border-gray-600 text-gray-300 whitespace-nowrap">1/2 Pot</button>
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-gray-700 border-gray-600 text-gray-300 whitespace-nowrap">2/3 Pot</button>
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-gray-700 border-gray-600 text-gray-300 whitespace-nowrap">Pot</button>
+      <button class="px-3 py-1.5 text-sm font-semibold rounded-lg border bg-emerald-600 border-emerald-400 text-white shadow-md whitespace-nowrap">All-in</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "competitors": [
+    "GTO Wizard",
+    "DTO Poker",
+    "FreeBetRange",
+    "Simple GTO Trainer",
+    "PokerSnowie",
+    "Poker Trainer (pokertrainer.se)",
+    "Postflop+"
+  ],
+  "key_insights": [
+    "打牌+复盘闭环是核心差异化：市场缺少完整牌局对战+GTO偏差分析一体化工具",
+    "免费+零注册纯前端方案是获客利器，竞品普遍需要$26-200/月订阅",
+    "多风格Bot（GTO/LAG/TAG/Fish）是教学亮点，竞品通常仅提供GTO Bot",
+    "简化GTO（Preflop range chart + postflop决策树）对入门到中级玩家足够有价值",
+    "复盘数据可视化和EV损失趋势是用户留存关键",
+    "React+TypeScript纯前端技术栈完全可行，开源扑克引擎资源丰富",
+    "潜在扩展：手牌导入、Tournament模式、Solver API接入、社区排行榜"
+  ],
+  "feasibility": "high",
+  "risks": [
+    "Postflop简化GTO精度可能被中高阶玩家质疑，需明确标注为参考而非精确解",
+    "Bot行为真实性取决于决策树和range chart的设计质量，需多轮调优",
+    "牌桌UI交互复杂度较高（动画、多玩家状态、底池显示等），需合理控制MVP范围",
+    "localStorage容量限制（5-10MB），长期使用需要数据管理策略",
+    "与GTO Wizard等成熟品牌的认知差距大，需要明确定位为入门级练习工具"
+  ]
+}

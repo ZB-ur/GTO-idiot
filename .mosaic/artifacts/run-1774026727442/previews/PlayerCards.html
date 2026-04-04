@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PlayerCards Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 32px;">
+
+    <!-- Title -->
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">PlayerCards — Three States</p>
+
+    <!-- ── State 1: Own hand (face up, md) ── -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2 uppercase tracking-wider">己方明牌 (Own Hand · md)</p>
+      <div class="inline-flex -space-x-3">
+        <!-- Ace of Spades -->
+        <div class="relative">
+          <div class="w-16 h-[92px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+            <div class="w-full h-full flex flex-col items-center justify-center text-gray-900">
+              <span class="text-lg font-bold leading-none">A</span>
+              <span class="text-xl leading-none">♠</span>
+            </div>
+          </div>
+        </div>
+        <!-- King of Hearts -->
+        <div class="relative">
+          <div class="w-16 h-[92px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+            <div class="w-full h-full flex flex-col items-center justify-center text-red-600">
+              <span class="text-lg font-bold leading-none">K</span>
+              <span class="text-xl leading-none">♥</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── State 1b: Own hand (face up, sm) ── -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2 uppercase tracking-wider">己方明牌 (Own Hand · sm)</p>
+      <div class="inline-flex -space-x-2">
+        <!-- Queen of Diamonds sm -->
+        <div class="relative">
+          <div class="w-12 h-[68px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+            <div class="w-full h-full flex flex-col items-center justify-center text-red-600">
+              <span class="text-sm font-bold leading-none">Q</span>
+              <span class="text-base leading-none">♦</span>
+            </div>
+          </div>
+        </div>
+        <!-- Jack of Clubs sm -->
+        <div class="relative">
+          <div class="w-12 h-[68px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+            <div class="w-full h-full flex flex-col items-center justify-center text-gray-900">
+              <span class="text-sm font-bold leading-none">J</span>
+              <span class="text-base leading-none">♣</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── State 2: Opponent hand (face down, md) ── -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2 uppercase tracking-wider">对手暗牌 (Face Down · md)</p>
+      <div class="inline-flex -space-x-3">
+        <!-- Face down card 1 -->
+        <div class="relative">
+          <div class="w-16 h-[92px] rounded-md inline-flex bg-gradient-to-br from-emerald-700 to-emerald-900 border-2 border-emerald-600">
+            <div class="w-full h-full flex items-center justify-center">
+              <div class="w-[70%] h-[80%] rounded-sm border border-emerald-500/40 bg-emerald-800/50 flex items-center justify-center">
+                <span class="text-emerald-400/60 text-xs font-bold">♠♥♦♣</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Face down card 2 -->
+        <div class="relative">
+          <div class="w-16 h-[92px] rounded-md inline-flex bg-gradient-to-br from-emerald-700 to-emerald-900 border-2 border-emerald-600">
+            <div class="w-full h-full flex items-center justify-center">
+              <div class="w-[70%] h-[80%] rounded-sm border border-emerald-500/40 bg-emerald-800/50 flex items-center justify-center">
+                <span class="text-emerald-400/60 text-xs font-bold">♠♥♦♣</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── State 2b: Opponent hand (face down, sm) ── -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2 uppercase tracking-wider">对手暗牌 (Face Down · sm)</p>
+      <div class="inline-flex -space-x-2">
+        <!-- Face down card 1 sm -->
+        <div class="relative">
+          <div class="w-12 h-[68px] rounded-md inline-flex bg-gradient-to-br from-emerald-700 to-emerald-900 border-2 border-emerald-600">
+            <div class="w-full h-full flex items-center justify-center">
+              <div class="w-[70%] h-[80%] rounded-sm border border-emerald-500/40 bg-emerald-800/50 flex items-center justify-center">
+                <span class="text-emerald-400/60 text-xs font-bold">♠♥♦♣</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Face down card 2 sm -->
+        <div class="relative">
+          <div class="w-12 h-[68px] rounded-md inline-flex bg-gradient-to-br from-emerald-700 to-emerald-900 border-2 border-emerald-600">
+            <div class="w-full h-full flex items-center justify-center">
+              <div class="w-[70%] h-[80%] rounded-sm border border-emerald-500/40 bg-emerald-800/50 flex items-center justify-center">
+                <span class="text-emerald-400/60 text-xs font-bold">♠♥♦♣</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── State 3: Showdown revealed (md) ── -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2 uppercase tracking-wider">摊牌翻开 (Showdown Revealed · md)</p>
+      <div class="inline-flex -space-x-3 relative">
+        <!-- Amber glow background -->
+        <div class="absolute -inset-1 rounded-lg bg-amber-400/20 blur-sm pointer-events-none"></div>
+        <!-- Ten of Spades revealed -->
+        <div class="relative ring-1 ring-amber-400/60 rounded-md">
+          <div class="w-16 h-[92px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+            <div class="w-full h-full flex flex-col items-center justify-center text-gray-900">
+              <span class="text-lg font-bold leading-none">T</span>
+              <span class="text-xl leading-none">♠</span>
+            </div>
+          </div>
+        </div>
+        <!-- Ten of Hearts revealed -->
+        <div class="relative ring-1 ring-amber-400/60 rounded-md">
+          <div class="w-16 h-[92px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+            <div class="w-full h-full flex flex-col items-center justify-center text-red-600">
+              <span class="text-lg font-bold leading-none">T</span>
+              <span class="text-xl leading-none">♥</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── State 3b: Showdown revealed (sm) ── -->
+    <div>
+      <p class="text-gray-500 text-xs mb-2 uppercase tracking-wider">摊牌翻开 (Showdown Revealed · sm)</p>
+      <div class="inline-flex -space-x-2 relative">
+        <!-- Amber glow background -->
+        <div class="absolute -inset-1 rounded-lg bg-amber-400/20 blur-sm pointer-events-none"></div>
+        <!-- 7 of Diamonds revealed sm -->
+        <div class="relative ring-1 ring-amber-400/60 rounded-md">
+          <div class="w-12 h-[68px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+            <div class="w-full h-full flex flex-col items-center justify-center text-red-600">
+              <span class="text-sm font-bold leading-none">7</span>
+              <span class="text-base leading-none">♦</span>
+            </div>
+          </div>
+        </div>
+        <!-- 2 of Clubs revealed sm -->
+        <div class="relative ring-1 ring-amber-400/60 rounded-md">
+          <div class="w-12 h-[68px] rounded-md inline-flex bg-white border border-gray-300 shadow-sm">
+            <div class="w-full h-full flex flex-col items-center justify-center text-gray-900">
+              <span class="text-sm font-bold leading-none">2</span>
+              <span class="text-base leading-none">♣</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

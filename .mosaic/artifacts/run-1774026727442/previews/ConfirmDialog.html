@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConfirmDialog Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #111827; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <!-- Backdrop -->
+  <div class="fixed inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+  <!-- Default variant dialog -->
+  <div class="fixed inset-0 flex items-center justify-center z-10 mb-40">
+    <div class="w-full max-w-md mx-4 bg-gray-800 border border-gray-600 rounded-xl shadow-xl">
+      <div class="p-6">
+        <h2 class="text-lg font-semibold text-white mb-2">确认 Fold？</h2>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          你当前持有 A♠ K♥，确定要弃牌吗？此操作无法撤销。
+        </p>
+      </div>
+      <div class="flex items-center justify-end gap-3 px-6 pb-6">
+        <button class="px-4 py-2 text-sm font-medium text-gray-300 bg-gray-700 hover:bg-gray-600 rounded-lg">
+          取消
+        </button>
+        <button class="px-4 py-2 text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg">
+          确认
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Danger variant dialog -->
+  <div class="fixed inset-0 flex items-center justify-center z-20 mt-52">
+    <div class="w-full max-w-md mx-4 bg-gray-800 border border-gray-600 rounded-xl shadow-xl">
+      <div class="p-6">
+        <h2 class="text-lg font-semibold text-white mb-2">清除所有数据？</h2>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          此操作将永久删除所有历史手牌记录和统计数据，且无法恢复。
+        </p>
+      </div>
+      <div class="flex items-center justify-end gap-3 px-6 pb-6">
+        <button class="px-4 py-2 text-sm font-medium text-gray-300 bg-gray-700 hover:bg-gray-600 rounded-lg">
+          取消
+        </button>
+        <button class="px-4 py-2 text-sm font-medium text-white bg-red-500 hover:bg-red-600 rounded-lg">
+          删除全部
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

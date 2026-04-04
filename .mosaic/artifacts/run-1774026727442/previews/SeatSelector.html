@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeatSelector Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {}
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="flex flex-col items-center gap-8 py-8">
+
+    <!-- State 1: No selection -->
+    <div class="bg-gray-800 rounded-xl p-6 border border-gray-600">
+      <div class="text-xs text-gray-500 mb-3 uppercase tracking-wider">未选择状态</div>
+      <div class="flex flex-col items-center gap-4">
+        <div class="text-sm text-gray-300 font-medium">选择你的座位</div>
+
+        <div class="relative" style="width: 288px; height: 192px;">
+          <!-- Table felt -->
+          <div class="absolute rounded-[50%] bg-emerald-800 border-4 border-amber-900 shadow-inner" style="inset: 24px;"></div>
+          <div class="absolute rounded-[50%] border border-emerald-600/20" style="inset: 36px; background: rgba(4,120,87,0.3);"></div>
+
+          <!-- BTN seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300 hover:bg-gray-600" style="top: 78%; left: 75%;">
+            <span class="leading-none">BTN</span>
+          </button>
+          <!-- SB seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 78%; left: 25%;">
+            <span class="leading-none">SB</span>
+          </button>
+          <!-- BB seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 50%; left: 4%;">
+            <span class="leading-none">BB</span>
+          </button>
+          <!-- UTG seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 18%; left: 25%;">
+            <span class="leading-none">UTG</span>
+          </button>
+          <!-- MP seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 18%; left: 75%;">
+            <span class="leading-none">MP</span>
+          </button>
+          <!-- CO seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 50%; left: 96%;">
+            <span class="leading-none">CO</span>
+          </button>
+        </div>
+
+        <div class="text-sm text-gray-500">点击座位进行选择</div>
+      </div>
+    </div>
+
+    <!-- State 2: BTN selected -->
+    <div class="bg-gray-800 rounded-xl p-6 border border-gray-600">
+      <div class="text-xs text-gray-500 mb-3 uppercase tracking-wider">已选择 BTN</div>
+      <div class="flex flex-col items-center gap-4">
+        <div class="text-sm text-gray-300 font-medium">选择你的座位</div>
+
+        <div class="relative" style="width: 288px; height: 192px;">
+          <!-- Table felt -->
+          <div class="absolute rounded-[50%] bg-emerald-800 border-4 border-amber-900 shadow-inner" style="inset: 24px;"></div>
+          <div class="absolute rounded-[50%] border border-emerald-600/20" style="inset: 36px; background: rgba(4,120,87,0.3);"></div>
+
+          <!-- BTN seat — SELECTED -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-emerald-600 border-emerald-400 text-white scale-110" style="top: 78%; left: 75%; box-shadow: 0 10px 15px -3px rgba(16,185,129,0.4);">
+            <span class="leading-none">BTN</span>
+            <span class="leading-none mt-0.5 text-emerald-200" style="font-size: 8px;">YOU</span>
+          </button>
+          <!-- SB seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 78%; left: 25%;">
+            <span class="leading-none">SB</span>
+          </button>
+          <!-- BB seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 50%; left: 4%;">
+            <span class="leading-none">BB</span>
+          </button>
+          <!-- UTG seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 18%; left: 25%;">
+            <span class="leading-none">UTG</span>
+          </button>
+          <!-- MP seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 18%; left: 75%;">
+            <span class="leading-none">MP</span>
+          </button>
+          <!-- CO seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 50%; left: 96%;">
+            <span class="leading-none">CO</span>
+          </button>
+        </div>
+
+        <div class="text-center">
+          <span class="text-sm text-emerald-400 font-semibold">BTN</span>
+          <span class="text-sm text-gray-500 mx-1">·</span>
+          <span class="text-sm text-gray-400">Button (Dealer)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- State 3: CO selected -->
+    <div class="bg-gray-800 rounded-xl p-6 border border-gray-600">
+      <div class="text-xs text-gray-500 mb-3 uppercase tracking-wider">已选择 CO</div>
+      <div class="flex flex-col items-center gap-4">
+        <div class="text-sm text-gray-300 font-medium">选择你的座位</div>
+
+        <div class="relative" style="width: 288px; height: 192px;">
+          <!-- Table felt -->
+          <div class="absolute rounded-[50%] bg-emerald-800 border-4 border-amber-900 shadow-inner" style="inset: 24px;"></div>
+          <div class="absolute rounded-[50%] border border-emerald-600/20" style="inset: 36px; background: rgba(4,120,87,0.3);"></div>
+
+          <!-- BTN seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 78%; left: 75%;">
+            <span class="leading-none">BTN</span>
+          </button>
+          <!-- SB seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 78%; left: 25%;">
+            <span class="leading-none">SB</span>
+          </button>
+          <!-- BB seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 50%; left: 4%;">
+            <span class="leading-none">BB</span>
+          </button>
+          <!-- UTG seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 18%; left: 25%;">
+            <span class="leading-none">UTG</span>
+          </button>
+          <!-- MP seat -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-gray-700 border-gray-500 text-gray-300" style="top: 18%; left: 75%;">
+            <span class="leading-none">MP</span>
+          </button>
+          <!-- CO seat — SELECTED -->
+          <button class="absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex flex-col items-center justify-center text-xs font-bold border-2 bg-emerald-600 border-emerald-400 text-white scale-110" style="top: 50%; left: 96%; box-shadow: 0 10px 15px -3px rgba(16,185,129,0.4);">
+            <span class="leading-none">CO</span>
+            <span class="leading-none mt-0.5 text-emerald-200" style="font-size: 8px;">YOU</span>
+          </button>
+        </div>
+
+        <div class="text-center">
+          <span class="text-sm text-emerald-400 font-semibold">CO</span>
+          <span class="text-sm text-gray-500 mx-1">·</span>
+          <span class="text-sm text-gray-400">Cut Off</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreetNavigator Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="space-y-8 max-w-2xl mx-auto">
+
+    <!-- Label -->
+    <p class="text-gray-400 text-xs font-mono uppercase tracking-wider">State: Flop active (preflop, flop, turn available)</p>
+
+    <!-- Navigator — current = flop -->
+    <nav class="flex items-center gap-1 bg-gray-800 rounded-xl p-1.5 border border-gray-600">
+      <!-- Preflop (available, not current) -->
+      <button class="relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white transition-all duration-200 whitespace-nowrap">
+        <span class="text-base">🂠</span>
+        <span>Preflop</span>
+      </button>
+
+      <!-- Connector (preflop → flop, both available) -->
+      <div class="w-6 h-0.5 bg-emerald-600"></div>
+
+      <!-- Flop (current) -->
+      <button class="relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-emerald-600 text-white shadow-md shadow-emerald-900/40 transition-all duration-200 whitespace-nowrap">
+        <span class="text-base">🃏</span>
+        <span>Flop</span>
+        <span class="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-4 h-1 bg-emerald-400 rounded-full"></span>
+      </button>
+
+      <!-- Connector (flop → turn, both available) -->
+      <div class="w-6 h-0.5 bg-emerald-600"></div>
+
+      <!-- Turn (available, not current) -->
+      <button class="relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white transition-all duration-200 whitespace-nowrap">
+        <span class="text-base">🃁</span>
+        <span>Turn</span>
+      </button>
+
+      <!-- Connector (turn → river, river not available) -->
+      <div class="w-6 h-0.5 bg-gray-600"></div>
+
+      <!-- River (not available) -->
+      <button class="relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-500 opacity-50 cursor-not-allowed transition-all duration-200 whitespace-nowrap" disabled>
+        <span class="text-base">🂡</span>
+        <span>River</span>
+      </button>
+    </nav>
+
+    <!-- Label -->
+    <p class="text-gray-400 text-xs font-mono uppercase tracking-wider mt-8">State: All streets available, current = river</p>
+
+    <!-- Navigator — current = river, all available -->
+    <nav class="flex items-center gap-1 bg-gray-800 rounded-xl p-1.5 border border-gray-600">
+      <button class="relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white transition-all duration-200 whitespace-nowrap">
+        <span class="text-base">🂠</span>
+        <span>Preflop</span>
+      </button>
+      <div class="w-6 h-0.5 bg-emerald-600"></div>
+      <button class="relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white transition-all duration-200 whitespace-nowrap">
+        <span class="text-base">🃏</span>
+        <span>Flop</span>
+      </button>
+      <div class="w-6 h-0.5 bg-emerald-600"></div>
+      <button class="relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white transition-all duration-200 whitespace-nowrap">
+        <span class="text-base">🃁</span>
+        <span>Turn</span>
+      </button>
+      <div class="w-6 h-0.5 bg-emerald-600"></div>
+      <button class="relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-emerald-600 text-white shadow-md shadow-emerald-900/40 transition-all duration-200 whitespace-nowrap">
+        <span class="text-base">🂡</span>
+        <span>River</span>
+        <span class="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-4 h-1 bg-emerald-400 rounded-full"></span>
+      </button>
+    </nav>
+
+    <!-- Label -->
+    <p class="text-gray-400 text-xs font-mono uppercase tracking-wider mt-8">State: Preflop only</p>
+
+    <!-- Navigator — current = preflop, only preflop available -->
+    <nav class="flex items-center gap-1 bg-gray-800 rounded-xl p-1.5 border border-gray-600">
+      <button class="relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-emerald-600 text-white shadow-md shadow-emerald-900/40 transition-all duration-200 whitespace-nowrap">
+        <span class="text-base">🂠</span>
+        <span>Preflop</span>
+        <span class="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-4 h-1 bg-emerald-400 rounded-full"></span>
+      </button>
+      <div class="w-6 h-0.5 bg-gray-600"></div>
+      <button class="relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-500 opacity-50 cursor-not-allowed transition-all duration-200 whitespace-nowrap" disabled>
+        <span class="text-base">🃏</span>
+        <span>Flop</span>
+      </button>
+      <div class="w-6 h-0.5 bg-gray-600"></div>
+      <button class="relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-500 opacity-50 cursor-not-allowed transition-all duration-200 whitespace-nowrap" disabled>
+        <span class="text-base">🃁</span>
+        <span>Turn</span>
+      </button>
+      <div class="w-6 h-0.5 bg-gray-600"></div>
+      <button class="relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-500 opacity-50 cursor-not-allowed transition-all duration-200 whitespace-nowrap" disabled>
+        <span class="text-base">🂡</span>
+        <span>River</span>
+      </button>
+    </nav>
+
+  </div>
+</body>
+</html>

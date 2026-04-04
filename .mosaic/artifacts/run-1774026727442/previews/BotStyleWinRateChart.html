@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BotStyleWinRateChart Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 480px; margin: 0 auto;">
+    <div class="bg-gray-800 rounded-xl border border-gray-600 p-6">
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-lg font-semibold text-white">Bot 风格胜率对比</h3>
+        <span class="text-sm text-gray-500">共 482 手</span>
+      </div>
+
+      <!-- Chart Bars -->
+      <div class="space-y-5">
+
+        <!-- GTO -->
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-3 h-3 rounded-sm bg-emerald-500"></span>
+              <span class="text-sm font-medium text-white">GTO</span>
+              <span class="text-xs text-gray-500">142 手</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-sm font-semibold text-white">38.7%</span>
+              <span class="text-xs font-medium text-red-400">-1.2 BB</span>
+            </div>
+          </div>
+          <div class="h-4 bg-gray-700 rounded-lg overflow-hidden">
+            <div class="h-full bg-emerald-500 rounded-lg" style="width: 62%"></div>
+          </div>
+        </div>
+
+        <!-- LAG -->
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-3 h-3 rounded-sm bg-amber-500"></span>
+              <span class="text-sm font-medium text-white">LAG</span>
+              <span class="text-xs text-gray-500">128 手</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-sm font-semibold text-white">45.3%</span>
+              <span class="text-xs font-medium text-green-400">+2.8 BB</span>
+            </div>
+          </div>
+          <div class="h-4 bg-gray-700 rounded-lg overflow-hidden">
+            <div class="h-full bg-amber-500 rounded-lg" style="width: 73%"></div>
+          </div>
+        </div>
+
+        <!-- TAG -->
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-3 h-3 rounded-sm bg-blue-500"></span>
+              <span class="text-sm font-medium text-white">TAG</span>
+              <span class="text-xs text-gray-500">108 手</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-sm font-semibold text-white">41.6%</span>
+              <span class="text-xs font-medium text-green-400">+0.5 BB</span>
+            </div>
+          </div>
+          <div class="h-4 bg-gray-700 rounded-lg overflow-hidden">
+            <div class="h-full bg-blue-500 rounded-lg" style="width: 67%"></div>
+          </div>
+        </div>
+
+        <!-- Fish -->
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-3 h-3 rounded-sm bg-red-500"></span>
+              <span class="text-sm font-medium text-white">Fish</span>
+              <span class="text-xs text-gray-500">104 手</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-sm font-semibold text-white">62.5%</span>
+              <span class="text-xs font-medium text-green-400">+5.4 BB</span>
+            </div>
+          </div>
+          <div class="h-4 bg-gray-700 rounded-lg overflow-hidden">
+            <div class="h-full bg-red-500 rounded-lg" style="width: 100%"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Summary Footer -->
+      <div class="mt-6 pt-4 border-t border-gray-700">
+        <div class="grid grid-cols-2 gap-3">
+          <div class="text-center">
+            <p class="text-xs text-gray-500 mb-1">最高胜率</p>
+            <p class="text-sm font-semibold text-green-400">vs Fish 62.5%</p>
+          </div>
+          <div class="text-center">
+            <p class="text-xs text-gray-500 mb-1">最低胜率</p>
+            <p class="text-sm font-semibold text-red-400">vs GTO 38.7%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

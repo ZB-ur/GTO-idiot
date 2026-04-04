@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EmptyState Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #111827; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="max-w-4xl mx-auto space-y-8">
+    <!-- Empty state: No history -->
+    <div class="bg-gray-800 border border-gray-600 rounded-xl">
+      <div class="flex flex-col items-center justify-center py-16 px-6 text-center">
+        <div class="text-4xl text-gray-500 mb-4">🃏</div>
+        <h3 class="text-lg font-semibold text-white mb-2">暂无历史记录</h3>
+        <p class="text-sm text-gray-400 max-w-sm mb-6 leading-relaxed">
+          完成你的第一手牌局，这里将会显示你的练习历史和统计数据。
+        </p>
+        <button class="px-5 py-2.5 text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors">
+          开始练习
+        </button>
+      </div>
+    </div>
+
+    <!-- Empty state: No stats -->
+    <div class="bg-gray-800 border border-gray-600 rounded-xl">
+      <div class="flex flex-col items-center justify-center py-16 px-6 text-center">
+        <div class="text-4xl text-gray-500 mb-4">📊</div>
+        <h3 class="text-lg font-semibold text-white mb-2">统计数据不足</h3>
+        <p class="text-sm text-gray-400 max-w-sm leading-relaxed">
+          至少完成 5 手牌才能生成统计分析报告。
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
