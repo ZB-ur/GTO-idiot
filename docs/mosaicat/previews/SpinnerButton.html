@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpinnerButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-4 items-start">
+    <!-- Primary default -->
+    <button class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-emerald-500 text-gray-950 hover:bg-emerald-400 transition-colors">
+      Start Session
+    </button>
+
+    <!-- Primary loading -->
+    <button class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-emerald-500 text-gray-950 opacity-50 cursor-not-allowed transition-colors" disabled>
+      <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
+      Starting…
+    </button>
+
+    <!-- Secondary default -->
+    <button class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-gray-800 text-gray-50 border border-gray-700 hover:bg-gray-700 transition-colors">
+      Cancel
+    </button>
+
+    <!-- Secondary loading -->
+    <button class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-gray-800 text-gray-50 border border-gray-700 opacity-50 cursor-not-allowed transition-colors" disabled>
+      <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
+      Saving…
+    </button>
+
+    <!-- Disabled -->
+    <button class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-emerald-500 text-gray-950 opacity-50 cursor-not-allowed transition-colors" disabled>
+      Disabled
+    </button>
+  </div>
+</body>
+</html>

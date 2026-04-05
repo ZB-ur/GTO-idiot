@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionLog Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="width: 320px; height: 420px;" class="flex flex-col bg-gray-900 border border-gray-700 rounded-xl overflow-hidden">
+    <div class="px-4 py-3 border-b border-gray-700 bg-gray-800">
+      <h3 class="text-sm font-semibold text-gray-50 tracking-wide uppercase">Action Log</h3>
+    </div>
+    <div class="flex-1 overflow-y-auto p-3 space-y-1">
+      <!-- Action 1: User posts blind -->
+      <div class="flex items-center justify-between px-3 py-2 rounded-lg text-sm bg-gray-800/60">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400">U</span>
+          <span class="text-gray-300 font-medium">You</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-sky-400">Call</span>
+          <span class="text-gray-400 text-xs">2</span>
+        </div>
+      </div>
+      <!-- Action 2: Bot 1 raises -->
+      <div class="flex items-center justify-between px-3 py-2 rounded-lg text-sm bg-transparent">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold bg-gray-700 text-gray-400">B1</span>
+          <span class="text-gray-300 font-medium">Alice</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-amber-400">Raise</span>
+          <span class="text-gray-400 text-xs">6</span>
+        </div>
+      </div>
+      <!-- Action 3: Bot 2 folds -->
+      <div class="flex items-center justify-between px-3 py-2 rounded-lg text-sm bg-transparent">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold bg-gray-700 text-gray-400">B2</span>
+          <span class="text-gray-300 font-medium">Bob</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-gray-500">Fold</span>
+        </div>
+      </div>
+      <!-- Action 4: Bot 3 calls -->
+      <div class="flex items-center justify-between px-3 py-2 rounded-lg text-sm bg-transparent">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold bg-gray-700 text-gray-400">B3</span>
+          <span class="text-gray-300 font-medium">Carol</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-sky-400">Call</span>
+          <span class="text-gray-400 text-xs">6</span>
+        </div>
+      </div>
+      <!-- Action 5: Bot 4 folds -->
+      <div class="flex items-center justify-between px-3 py-2 rounded-lg text-sm bg-transparent">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold bg-gray-700 text-gray-400">B4</span>
+          <span class="text-gray-300 font-medium">Dave</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-gray-500">Fold</span>
+        </div>
+      </div>
+      <!-- Action 6: Bot 5 all-in -->
+      <div class="flex items-center justify-between px-3 py-2 rounded-lg text-sm bg-transparent">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold bg-gray-700 text-gray-400">B5</span>
+          <span class="text-gray-300 font-medium">Eve</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-red-400">All In</span>
+          <span class="text-gray-400 text-xs">200</span>
+        </div>
+      </div>
+      <!-- Action 7: User raises -->
+      <div class="flex items-center justify-between px-3 py-2 rounded-lg text-sm bg-gray-800/60">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400">U</span>
+          <span class="text-gray-300 font-medium">You</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-amber-400">Raise</span>
+          <span class="text-gray-400 text-xs">18</span>
+        </div>
+      </div>
+      <!-- Action 8: Bot 3 checks -->
+      <div class="flex items-center justify-between px-3 py-2 rounded-lg text-sm bg-transparent">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold bg-gray-700 text-gray-400">B3</span>
+          <span class="text-gray-300 font-medium">Carol</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-gray-400">Check</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

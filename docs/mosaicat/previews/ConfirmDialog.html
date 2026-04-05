@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConfirmDialog Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-8 p-8">
+    <!-- Default variant -->
+    <div class="relative">
+      <div class="bg-gray-900 border border-gray-700 rounded-xl shadow-md max-w-sm w-full p-6">
+        <h2 class="text-lg font-semibold text-gray-50 mb-2">End Session</h2>
+        <p class="text-sm text-gray-400 mb-6">Are you sure you want to end this session? Your progress will be saved.</p>
+        <div class="flex items-center justify-end gap-3">
+          <button class="px-4 py-2 text-sm font-semibold rounded-xl bg-gray-800 text-gray-50 border border-gray-700 hover:bg-gray-700 transition-colors">
+            Keep Playing
+          </button>
+          <button class="px-4 py-2 text-sm font-semibold rounded-xl bg-emerald-500 text-gray-950 hover:bg-emerald-400 transition-colors">
+            End Session
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Danger variant -->
+    <div class="relative">
+      <div class="bg-gray-900 border border-gray-700 rounded-xl shadow-md max-w-sm w-full p-6">
+        <h2 class="text-lg font-semibold text-gray-50 mb-2">Delete Session</h2>
+        <p class="text-sm text-gray-400 mb-6">This action cannot be undone. All hands and analysis data for this session will be permanently removed.</p>
+        <div class="flex items-center justify-end gap-3">
+          <button class="px-4 py-2 text-sm font-semibold rounded-xl bg-gray-800 text-gray-50 border border-gray-700 hover:bg-gray-700 transition-colors">
+            Cancel
+          </button>
+          <button class="px-4 py-2 text-sm font-semibold rounded-xl bg-red-500 text-white hover:bg-red-400 transition-colors">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

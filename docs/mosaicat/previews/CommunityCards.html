@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommunityCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-8">
+    <!-- Flop (3 cards) -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2">Flop — 3 cards dealt</p>
+      <div class="inline-flex items-center gap-2 rounded-2xl bg-emerald-900/40 px-6 py-4">
+        <!-- 10 of Hearts -->
+        <div class="w-16 h-[5.5rem] flex flex-col items-center justify-center rounded-lg bg-gray-100 shadow-lg border border-gray-200">
+          <span class="text-xl font-bold text-red-500 leading-none">10</span>
+          <span class="text-base text-red-500 leading-none mt-0.5">&hearts;</span>
+        </div>
+        <!-- 7 of Clubs -->
+        <div class="w-16 h-[5.5rem] flex flex-col items-center justify-center rounded-lg bg-gray-100 shadow-lg border border-gray-200">
+          <span class="text-xl font-bold text-gray-900 leading-none">7</span>
+          <span class="text-base text-gray-900 leading-none mt-0.5">&clubs;</span>
+        </div>
+        <!-- 2 of Spades -->
+        <div class="w-16 h-[5.5rem] flex flex-col items-center justify-center rounded-lg bg-gray-100 shadow-lg border border-gray-200">
+          <span class="text-xl font-bold text-gray-900 leading-none">2</span>
+          <span class="text-base text-gray-900 leading-none mt-0.5">&spades;</span>
+        </div>
+        <!-- Empty slot -->
+        <div class="w-16 h-[5.5rem] rounded-lg border-2 border-dashed border-gray-700 bg-gray-800/30"></div>
+        <!-- Empty slot -->
+        <div class="w-16 h-[5.5rem] rounded-lg border-2 border-dashed border-gray-700 bg-gray-800/30"></div>
+      </div>
+    </div>
+
+    <!-- River (all 5 cards) -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2">River — all 5 cards dealt</p>
+      <div class="inline-flex items-center gap-2 rounded-2xl bg-emerald-900/40 px-6 py-4">
+        <!-- A of Spades -->
+        <div class="w-16 h-[5.5rem] flex flex-col items-center justify-center rounded-lg bg-gray-100 shadow-lg border border-gray-200">
+          <span class="text-xl font-bold text-gray-900 leading-none">A</span>
+          <span class="text-base text-gray-900 leading-none mt-0.5">&spades;</span>
+        </div>
+        <!-- K of Hearts -->
+        <div class="w-16 h-[5.5rem] flex flex-col items-center justify-center rounded-lg bg-gray-100 shadow-lg border border-gray-200">
+          <span class="text-xl font-bold text-red-500 leading-none">K</span>
+          <span class="text-base text-red-500 leading-none mt-0.5">&hearts;</span>
+        </div>
+        <!-- 9 of Diamonds -->
+        <div class="w-16 h-[5.5rem] flex flex-col items-center justify-center rounded-lg bg-gray-100 shadow-lg border border-gray-200">
+          <span class="text-xl font-bold text-red-500 leading-none">9</span>
+          <span class="text-base text-red-500 leading-none mt-0.5">&diams;</span>
+        </div>
+        <!-- 5 of Clubs -->
+        <div class="w-16 h-[5.5rem] flex flex-col items-center justify-center rounded-lg bg-gray-100 shadow-lg border border-gray-200">
+          <span class="text-xl font-bold text-gray-900 leading-none">5</span>
+          <span class="text-base text-gray-900 leading-none mt-0.5">&clubs;</span>
+        </div>
+        <!-- 3 of Hearts -->
+        <div class="w-16 h-[5.5rem] flex flex-col items-center justify-center rounded-lg bg-gray-100 shadow-lg border border-gray-200">
+          <span class="text-xl font-bold text-red-500 leading-none">3</span>
+          <span class="text-base text-red-500 leading-none mt-0.5">&hearts;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pre-flop (no cards) -->
+    <div>
+      <p class="text-xs text-gray-500 mb-2">Pre-flop — no community cards</p>
+      <div class="inline-flex items-center gap-2 rounded-2xl bg-emerald-900/40 px-6 py-4">
+        <div class="w-16 h-[5.5rem] rounded-lg border-2 border-dashed border-gray-700 bg-gray-800/30"></div>
+        <div class="w-16 h-[5.5rem] rounded-lg border-2 border-dashed border-gray-700 bg-gray-800/30"></div>
+        <div class="w-16 h-[5.5rem] rounded-lg border-2 border-dashed border-gray-700 bg-gray-800/30"></div>
+        <div class="w-16 h-[5.5rem] rounded-lg border-2 border-dashed border-gray-700 bg-gray-800/30"></div>
+        <div class="w-16 h-[5.5rem] rounded-lg border-2 border-dashed border-gray-700 bg-gray-800/30"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkeletonCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-6">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">SkeletonCard — Loading Placeholder</p>
+
+    <div class="flex items-end gap-4">
+      <!-- Single skeleton card -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="w-14 h-20 rounded-lg bg-gray-800 border border-gray-700 animate-pulse"></div>
+        <span class="text-gray-500 text-xs">single</span>
+      </div>
+
+      <!-- Pair of skeleton cards (hole cards loading) -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="flex gap-1">
+          <div class="w-14 h-20 rounded-lg bg-gray-800 border border-gray-700 animate-pulse"></div>
+          <div class="w-14 h-20 rounded-lg bg-gray-800 border border-gray-700 animate-pulse"></div>
+        </div>
+        <span class="text-gray-500 text-xs">hole cards</span>
+      </div>
+
+      <!-- Five skeleton cards (community cards loading) -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="flex gap-1">
+          <div class="w-14 h-20 rounded-lg bg-gray-800 border border-gray-700 animate-pulse"></div>
+          <div class="w-14 h-20 rounded-lg bg-gray-800 border border-gray-700 animate-pulse"></div>
+          <div class="w-14 h-20 rounded-lg bg-gray-800 border border-gray-700 animate-pulse"></div>
+          <div class="w-14 h-20 rounded-lg bg-gray-800 border border-gray-700 animate-pulse"></div>
+          <div class="w-14 h-20 rounded-lg bg-gray-800 border border-gray-700 animate-pulse"></div>
+        </div>
+        <span class="text-gray-500 text-xs">community</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

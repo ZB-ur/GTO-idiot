@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTOPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex gap-6 items-start">
+    <!-- Panel with comparison data -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl overflow-hidden w-80">
+      <!-- Header -->
+      <div class="px-4 py-3 border-b border-gray-700 flex items-center justify-between">
+        <h3 class="text-sm font-semibold text-gray-50">GTO Analysis</h3>
+      </div>
+
+      <!-- Content -->
+      <div class="p-4 space-y-4">
+        <!-- Betting round badge -->
+        <div class="inline-flex px-2.5 py-0.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-400 border border-gray-700 capitalize">
+          Preflop
+        </div>
+
+        <!-- User's Action -->
+        <div class="space-y-1.5">
+          <div class="text-xs text-gray-500 font-medium uppercase tracking-wider">Your Action</div>
+          <div class="flex items-center gap-2">
+            <div class="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+            <span class="text-base font-semibold text-emerald-400">Raise 6</span>
+            <span class="ml-auto inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-xs font-semibold bg-emerald-400/10 text-emerald-400 border border-emerald-400/30">
+              GTO Aligned
+            </span>
+          </div>
+        </div>
+
+        <!-- GTO Recommendation -->
+        <div class="space-y-2">
+          <div class="text-xs text-gray-500 font-medium uppercase tracking-wider">GTO Recommendation</div>
+          <div class="space-y-1.5">
+            <!-- Raise -->
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+              <span class="text-sm text-gray-300">Raise</span>
+              <div class="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden mx-2">
+                <div class="h-full rounded-full bg-emerald-400" style="width: 65%"></div>
+              </div>
+              <span class="text-sm font-medium text-gray-50 min-w-[3rem] text-right">65%</span>
+            </div>
+            <!-- Call -->
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-sky-400"></div>
+              <span class="text-sm text-gray-300">Call</span>
+              <div class="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden mx-2">
+                <div class="h-full rounded-full bg-sky-400" style="width: 30%"></div>
+              </div>
+              <span class="text-sm font-medium text-gray-50 min-w-[3rem] text-right">30%</span>
+            </div>
+            <!-- Fold -->
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-gray-500"></div>
+              <span class="text-sm text-gray-300">Fold</span>
+              <div class="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden mx-2">
+                <div class="h-full rounded-full bg-gray-500" style="width: 5%"></div>
+              </div>
+              <span class="text-sm font-medium text-gray-50 min-w-[3rem] text-right">5%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mini Range Matrix -->
+        <button class="w-full bg-gray-800 border border-gray-700 rounded-xl p-3 hover:border-gray-600 transition-colors text-left">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Range Matrix</span>
+            <span class="text-xs text-emerald-400">Expand →</span>
+          </div>
+          <div class="grid grid-cols-5 gap-px">
+            <div class="w-full aspect-square rounded-sm bg-emerald-400/80"></div>
+            <div class="w-full aspect-square rounded-sm bg-emerald-400/70"></div>
+            <div class="w-full aspect-square rounded-sm bg-emerald-400/60"></div>
+            <div class="w-full aspect-square rounded-sm bg-emerald-400/50"></div>
+            <div class="w-full aspect-square rounded-sm bg-emerald-400/40"></div>
+            <div class="w-full aspect-square rounded-sm bg-emerald-400/60"></div>
+            <div class="w-full aspect-square rounded-sm bg-emerald-400/70"></div>
+            <div class="w-full aspect-square rounded-sm bg-sky-400/50"></div>
+            <div class="w-full aspect-square rounded-sm bg-sky-400/40"></div>
+            <div class="w-full aspect-square rounded-sm bg-sky-400/30"></div>
+            <div class="w-full aspect-square rounded-sm bg-emerald-400/50"></div>
+            <div class="w-full aspect-square rounded-sm bg-sky-400/40"></div>
+            <div class="w-full aspect-square rounded-sm bg-emerald-400/60"></div>
+            <div class="w-full aspect-square rounded-sm bg-sky-400/30"></div>
+            <div class="w-full aspect-square rounded-sm bg-gray-500/30"></div>
+            <div class="w-full aspect-square rounded-sm bg-emerald-400/40"></div>
+            <div class="w-full aspect-square rounded-sm bg-sky-400/30"></div>
+            <div class="w-full aspect-square rounded-sm bg-sky-400/25"></div>
+            <div class="w-full aspect-square rounded-sm bg-emerald-400/50"></div>
+            <div class="w-full aspect-square rounded-sm bg-gray-500/30"></div>
+            <div class="w-full aspect-square rounded-sm bg-sky-400/30"></div>
+            <div class="w-full aspect-square rounded-sm bg-gray-500/30"></div>
+            <div class="w-full aspect-square rounded-sm bg-gray-500/25"></div>
+            <div class="w-full aspect-square rounded-sm bg-gray-500/25"></div>
+            <div class="w-full aspect-square rounded-sm bg-emerald-400/40"></div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Panel with deviation + approximate label -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl overflow-hidden w-80">
+      <!-- Header -->
+      <div class="px-4 py-3 border-b border-gray-700 flex items-center justify-between">
+        <h3 class="text-sm font-semibold text-gray-50">GTO Analysis</h3>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-[10px] font-medium bg-orange-400/10 text-orange-400 border border-orange-400/30">
+          ~ Approximate
+        </span>
+      </div>
+
+      <div class="p-4 space-y-4">
+        <div class="inline-flex px-2.5 py-0.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-400 border border-gray-700 capitalize">
+          Flop
+        </div>
+
+        <!-- User's Action (deviation) -->
+        <div class="space-y-1.5">
+          <div class="text-xs text-gray-500 font-medium uppercase tracking-wider">Your Action</div>
+          <div class="flex items-center gap-2">
+            <div class="w-2.5 h-2.5 rounded-full bg-sky-400"></div>
+            <span class="text-base font-semibold text-sky-400">Check</span>
+            <span class="ml-auto inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-xs font-semibold bg-orange-400/10 text-orange-400 border border-orange-400/30">
+              Deviation
+            </span>
+          </div>
+        </div>
+
+        <!-- GTO Recommendation -->
+        <div class="space-y-2">
+          <div class="text-xs text-gray-500 font-medium uppercase tracking-wider">GTO Recommendation</div>
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+              <span class="text-sm text-gray-300">Bet</span>
+              <div class="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden mx-2">
+                <div class="h-full rounded-full bg-emerald-400" style="width: 72%"></div>
+              </div>
+              <span class="text-sm font-medium text-gray-50 min-w-[3rem] text-right">72%</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-sky-400"></div>
+              <span class="text-sm text-gray-300">Check</span>
+              <div class="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden mx-2">
+                <div class="h-full rounded-full bg-sky-400" style="width: 28%"></div>
+              </div>
+              <span class="text-sm font-medium text-gray-50 min-w-[3rem] text-right">28%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

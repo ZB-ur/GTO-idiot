@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToastNotification Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-4 max-w-md">
+    <!-- Success -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border bg-emerald-400/10 border-emerald-400/30 text-gray-50 text-sm shadow-md" role="alert">
+      <span class="text-base font-bold text-emerald-400">✓</span>
+      <span class="flex-1">Session imported successfully — 142 hands loaded.</span>
+      <button class="text-gray-500 hover:text-gray-300 transition-colors ml-2">✕</button>
+    </div>
+
+    <!-- Warning -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border bg-amber-400/10 border-amber-400/30 text-gray-50 text-sm shadow-md" role="alert">
+      <span class="text-base font-bold text-amber-400">⚠</span>
+      <span class="flex-1">3 hands skipped due to incomplete data.</span>
+      <button class="text-gray-500 hover:text-gray-300 transition-colors ml-2">✕</button>
+    </div>
+
+    <!-- Error -->
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl border bg-red-400/10 border-red-400/30 text-gray-50 text-sm shadow-md" role="alert">
+      <span class="text-base font-bold text-red-400">✕</span>
+      <span class="flex-1">Failed to parse hand history file. Please check the format.</span>
+      <button class="text-gray-500 hover:text-gray-300 transition-colors ml-2">✕</button>
+    </div>
+  </div>
+</body>
+</html>

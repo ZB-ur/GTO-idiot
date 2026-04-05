@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RangeMatrixOverlay Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(13, 1fr);
+      gap: 2px;
+    }
+    .cell {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+      font-size: 9px;
+      font-weight: 500;
+      color: #f9fafb;
+      user-select: none;
+    }
+  </style>
+  <script>
+    // Generate the 13x13 matrix labels
+    const RANKS = ['A','K','Q','J','T','9','8','7','6','5','4','3','2'];
+    // Preflop raise-heavy hands (simplified for preview)
+    const RAISE_HEAVY = new Set([
+      'AA','KK','QQ','JJ','TT','99','AKs','AQs','AJs','ATs','AKo','KQs','KJs','AQo'
+    ]);
+    const RAISE_MIXED = new Set([
+      '88','77','A9s','A8s','A7s','A6s','A5s','A4s','KTs','K9s','QJs','QTs','JTs','AJo','ATo','KQo'
+    ]);
+    const CALL_HANDS = new Set([
+      '66','55','44','33','22','A3s','A2s','K8s','K7s','K6s','Q9s','J9s','T9s','98s','87s','76s',
+      'KJo','KTo','QJo','QTo','JTo'
+    ]);
+
+    function getLabel(r, c) {
+      if (r === c) return RANKS[r] + RANKS[c];
+      if (r < c) return RANKS[r] + RANKS[c] + 's';
+      return RANKS[c] + RANKS[r] + 'o';
+    }
+    function getColor(label) {
+      if (RAISE_HEAVY.has(label)) return 'rgba(239,68,68,0.8)';
+      if (RAISE_MIXED.has(label)) return 'rgba(239,68,68,0.4)';
+      if (CALL_HANDS.has(label)) return 'rgba(16,185,129,0.6)';
+      return '#374151';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('matrix');
+      const highlightR = 0, highlightC = 1; // AKs highlighted
+      for (let r = 0; r < 13; r++) {
+        for (let c = 0; c < 13; c++) {
+          const label = getLabel(r, c);
+          const div = document.createElement('div');
+          div.className = 'cell';
+          div.style.backgroundColor = getColor(label);
+          div.textContent = label;
+          if (r === highlightR && c === highlightC) {
+            div.style.outline = '2px solid #eab308';
+            div.style.outlineOffset = '1px';
+            div.style.zIndex = '10';
+            div.style.position = 'relative';
+          }
+          grid.appendChild(div);
+        }
+      }
+    });
+  </script>
+</head>
+<body>
+  <!-- Overlay backdrop -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center" style="background: rgba(3,7,18,0.9); backdrop-filter: blur(4px);">
+    <div class="relative w-full max-w-xl bg-gray-900 border border-gray-700 rounded-xl p-6 mx-4">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-semibold text-gray-50">Range Matrix</h2>
+        <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-gray-50 transition-colors">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Legend -->
+      <div class="flex items-center gap-4 mb-4 text-xs text-gray-400">
+        <div class="flex items-center gap-1.5">
+          <div class="w-3 h-3 rounded-sm" style="background: rgba(239,68,68,0.8);"></div>
+          <span>Raise</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <div class="w-3 h-3 rounded-sm" style="background: rgba(16,185,129,0.8);"></div>
+          <span>Call</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <div class="w-3 h-3 rounded-sm bg-gray-700"></div>
+          <span>Fold</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <div class="w-3 h-3 rounded-sm bg-gray-600" style="outline: 2px solid #eab308; outline-offset: 1px;"></div>
+          <span>Your Hand</span>
+        </div>
+      </div>
+
+      <!-- Matrix -->
+      <div id="matrix" class="matrix-grid"></div>
+
+      <!-- Footer -->
+      <p class="mt-4 text-xs text-gray-500 text-center">
+        Press <kbd class="px-1.5 py-0.5 bg-gray-800 border border-gray-700 rounded text-gray-400">Esc</kbd> or click outside to close
+      </p>
+    </div>
+  </div>
+</body>
+</html>

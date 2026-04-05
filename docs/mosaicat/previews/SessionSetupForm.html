@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SessionSetupForm Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-lg mx-auto">
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 space-y-6">
+      <h2 class="text-2xl font-bold text-gray-50">Session Setup</h2>
+
+      <!-- Stack Size -->
+      <div class="space-y-2">
+        <label class="text-sm font-medium text-gray-400">Starting Stack</label>
+        <div class="flex gap-2">
+          <button class="flex-1 py-2.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-400 hover:bg-gray-700">50 BB</button>
+          <button class="flex-1 py-2.5 rounded-lg text-sm font-semibold bg-emerald-500 text-gray-950">100 BB</button>
+          <button class="flex-1 py-2.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-400 hover:bg-gray-700">200 BB</button>
+        </div>
+      </div>
+
+      <!-- Blind Level -->
+      <div class="space-y-2">
+        <label class="text-sm font-medium text-gray-400">Blind Level</label>
+        <div class="flex gap-2">
+          <button class="flex-1 py-2.5 rounded-lg text-sm font-semibold bg-emerald-500 text-gray-950">1/2</button>
+          <button class="flex-1 py-2.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-400 hover:bg-gray-700">2/5</button>
+          <button class="flex-1 py-2.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-400 hover:bg-gray-700">5/10</button>
+        </div>
+      </div>
+
+      <!-- Bot Configuration -->
+      <div class="space-y-3">
+        <label class="text-sm font-medium text-gray-400">Bot Configuration</label>
+        <div class="grid gap-3">
+          <!-- Seat 1 -->
+          <div class="flex items-center gap-3 bg-gray-800 rounded-xl px-4 py-3">
+            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-sm font-bold text-gray-400">1</div>
+            <div class="flex-1">
+              <select class="w-full bg-gray-700 text-gray-50 border border-gray-600 rounded-lg px-3 py-1.5 text-sm">
+                <option selected>🎯 TAG — Tight-Aggressive</option>
+              </select>
+            </div>
+          </div>
+          <!-- Seat 2 -->
+          <div class="flex items-center gap-3 bg-gray-800 rounded-xl px-4 py-3">
+            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-sm font-bold text-gray-400">2</div>
+            <div class="flex-1">
+              <select class="w-full bg-gray-700 text-gray-50 border border-gray-600 rounded-lg px-3 py-1.5 text-sm">
+                <option selected>🔥 LAG — Loose-Aggressive</option>
+              </select>
+            </div>
+          </div>
+          <!-- Seat 3 -->
+          <div class="flex items-center gap-3 bg-gray-800 rounded-xl px-4 py-3">
+            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-sm font-bold text-gray-400">3</div>
+            <div class="flex-1">
+              <select class="w-full bg-gray-700 text-gray-50 border border-gray-600 rounded-lg px-3 py-1.5 text-sm">
+                <option selected>🐟 Fish — Loose-Passive</option>
+              </select>
+            </div>
+          </div>
+          <!-- Seat 4 -->
+          <div class="flex items-center gap-3 bg-gray-800 rounded-xl px-4 py-3">
+            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-sm font-bold text-gray-400">4</div>
+            <div class="flex-1">
+              <select class="w-full bg-gray-700 text-gray-50 border border-gray-600 rounded-lg px-3 py-1.5 text-sm">
+                <option selected>🔒 Nit — Ultra-Tight</option>
+              </select>
+            </div>
+          </div>
+          <!-- Seat 5 -->
+          <div class="flex items-center gap-3 bg-gray-800 rounded-xl px-4 py-3">
+            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-sm font-bold text-gray-400">5</div>
+            <div class="flex-1">
+              <select class="w-full bg-gray-700 text-gray-50 border border-gray-600 rounded-lg px-3 py-1.5 text-sm">
+                <option selected>💥 Maniac — Hyper-Aggressive</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Start Button -->
+      <button class="w-full py-3.5 rounded-xl text-base font-bold bg-emerald-500 text-gray-950 hover:bg-emerald-400 transition-colors">
+        Start Game
+      </button>
+    </div>
+  </div>
+</body>
+</html>

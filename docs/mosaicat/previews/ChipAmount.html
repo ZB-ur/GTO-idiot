@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChipAmount Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-6">
+    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider">ChipAmount — Variants</p>
+
+    <div class="flex flex-col gap-4 bg-gray-900 rounded-xl p-6 border border-gray-700">
+      <!-- Neutral amounts -->
+      <div class="flex items-center gap-6">
+        <div class="w-20 text-gray-500 text-xs">Neutral sm</div>
+        <span class="inline-flex items-center gap-1 text-gray-50 text-xs font-semibold">
+          <svg class="w-3 h-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+            <circle cx="10" cy="10" r="9" fill="currentColor" opacity="0.2"/>
+            <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <text x="10" y="14" text-anchor="middle" font-size="10" font-weight="bold" fill="currentColor">$</text>
+          </svg>
+          <span>1,250</span>
+        </span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <div class="w-20 text-gray-500 text-xs">Neutral md</div>
+        <span class="inline-flex items-center gap-1 text-gray-50 text-sm font-semibold">
+          <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+            <circle cx="10" cy="10" r="9" fill="currentColor" opacity="0.2"/>
+            <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <text x="10" y="14" text-anchor="middle" font-size="10" font-weight="bold" fill="currentColor">$</text>
+          </svg>
+          <span>25,000</span>
+        </span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <div class="w-20 text-gray-500 text-xs">Neutral lg</div>
+        <span class="inline-flex items-center gap-1 text-gray-50 text-lg font-semibold">
+          <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+            <circle cx="10" cy="10" r="9" fill="currentColor" opacity="0.2"/>
+            <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <text x="10" y="14" text-anchor="middle" font-size="10" font-weight="bold" fill="currentColor">$</text>
+          </svg>
+          <span>1.5M</span>
+        </span>
+      </div>
+
+      <!-- Positive with sign -->
+      <div class="flex items-center gap-6">
+        <div class="w-20 text-gray-500 text-xs">Win (+)</div>
+        <span class="inline-flex items-center gap-1 text-emerald-400 text-sm font-semibold">
+          <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+            <circle cx="10" cy="10" r="9" fill="currentColor" opacity="0.2"/>
+            <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <text x="10" y="14" text-anchor="middle" font-size="10" font-weight="bold" fill="currentColor">$</text>
+          </svg>
+          <span>+3.2K</span>
+        </span>
+      </div>
+
+      <!-- Negative with sign -->
+      <div class="flex items-center gap-6">
+        <div class="w-20 text-gray-500 text-xs">Loss (-)</div>
+        <span class="inline-flex items-center gap-1 text-red-400 text-sm font-semibold">
+          <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+            <circle cx="10" cy="10" r="9" fill="currentColor" opacity="0.2"/>
+            <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <text x="10" y="14" text-anchor="middle" font-size="10" font-weight="bold" fill="currentColor">$</text>
+          </svg>
+          <span>-850</span>
+        </span>
+      </div>
+
+      <!-- Zero -->
+      <div class="flex items-center gap-6">
+        <div class="w-20 text-gray-500 text-xs">Zero</div>
+        <span class="inline-flex items-center gap-1 text-gray-50 text-sm font-semibold">
+          <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+            <circle cx="10" cy="10" r="9" fill="currentColor" opacity="0.2"/>
+            <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <text x="10" y="14" text-anchor="middle" font-size="10" font-weight="bold" fill="currentColor">$</text>
+          </svg>
+          <span>0</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

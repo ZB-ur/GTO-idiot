@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Session Setup — GTO Idiot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-950 text-gray-50">
+  <div class="max-w-4xl mx-auto px-4 py-8">
+
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-2xl font-bold text-gray-50">New Session</h1>
+      <p class="text-gray-400 mt-1">Configure your practice table and opponents</p>
+    </div>
+
+    <div class="space-y-6">
+
+      <!-- Table Settings Card -->
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-6">
+        <h2 class="text-lg font-semibold text-gray-50 mb-4">Table Settings</h2>
+
+        <div class="space-y-5">
+
+          <!-- Blinds -->
+          <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2">Blinds</label>
+            <div class="flex flex-wrap gap-2">
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">1/2</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">2/5</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-emerald-500 text-white">5/10</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">10/20</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">25/50</button>
+            </div>
+          </div>
+
+          <!-- Starting Stack -->
+          <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2">
+              Starting Stack
+              <span class="ml-2 text-gray-500 font-normal">(100 BB)</span>
+            </label>
+            <div class="flex flex-wrap gap-2">
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">500</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-emerald-500 text-white">1,000</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">2,000</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">5,000</button>
+            </div>
+          </div>
+
+          <!-- User Position -->
+          <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2">Your Starting Position</label>
+            <div class="flex flex-wrap gap-2">
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-emerald-500 text-white">Random</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">UTG</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">MP</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">CO</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">BTN</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">SB</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">BB</button>
+            </div>
+          </div>
+
+          <!-- Hands Limit -->
+          <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2">Hand Limit</label>
+            <div class="flex flex-wrap gap-2">
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-emerald-500 text-white">Unlimited</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">25 hands</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">50 hands</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">100 hands</button>
+              <button class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-800 text-gray-300">200 hands</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bot Setup Card -->
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-semibold text-gray-50">Opponents</h2>
+          <span class="text-sm text-gray-400">5/5 active</span>
+        </div>
+
+        <div class="space-y-3">
+
+          <!-- Bot 1 — Alice (TAG selected) -->
+          <div class="flex items-center gap-4 p-4 rounded-xl border bg-gray-800 border-gray-700">
+            <div class="w-10 h-6 rounded-full bg-emerald-500 relative flex-shrink-0">
+              <span class="absolute top-1 left-5 w-4 h-4 rounded-full bg-white"></span>
+            </div>
+            <div class="w-8 h-8 rounded-lg bg-gray-700 flex items-center justify-center text-sm font-medium text-gray-300 flex-shrink-0">1</div>
+            <span class="text-gray-50 font-medium w-28">Alice</span>
+            <div class="flex gap-1.5 ml-auto">
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-500/20 text-emerald-400 ring-1 ring-emerald-500/40">TAG</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">LAG</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">Fish</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">Nit</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">Maniac</span>
+            </div>
+          </div>
+
+          <!-- Bot 2 — Bob (LAG selected) -->
+          <div class="flex items-center gap-4 p-4 rounded-xl border bg-gray-800 border-gray-700">
+            <div class="w-10 h-6 rounded-full bg-emerald-500 relative flex-shrink-0">
+              <span class="absolute top-1 left-5 w-4 h-4 rounded-full bg-white"></span>
+            </div>
+            <div class="w-8 h-8 rounded-lg bg-gray-700 flex items-center justify-center text-sm font-medium text-gray-300 flex-shrink-0">2</div>
+            <span class="text-gray-50 font-medium w-28">Bob</span>
+            <div class="flex gap-1.5 ml-auto">
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">TAG</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-500/20 text-emerald-400 ring-1 ring-emerald-500/40">LAG</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">Fish</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">Nit</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">Maniac</span>
+            </div>
+          </div>
+
+          <!-- Bot 3 — Charlie (Fish selected) -->
+          <div class="flex items-center gap-4 p-4 rounded-xl border bg-gray-800 border-gray-700">
+            <div class="w-10 h-6 rounded-full bg-emerald-500 relative flex-shrink-0">
+              <span class="absolute top-1 left-5 w-4 h-4 rounded-full bg-white"></span>
+            </div>
+            <div class="w-8 h-8 rounded-lg bg-gray-700 flex items-center justify-center text-sm font-medium text-gray-300 flex-shrink-0">3</div>
+            <span class="text-gray-50 font-medium w-28">Charlie</span>
+            <div class="flex gap-1.5 ml-auto">
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">TAG</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">LAG</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-500/20 text-emerald-400 ring-1 ring-emerald-500/40">Fish</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">Nit</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">Maniac</span>
+            </div>
+          </div>
+
+          <!-- Bot 4 — Diana (TAG selected) -->
+          <div class="flex items-center gap-4 p-4 rounded-xl border bg-gray-800 border-gray-700">
+            <div class="w-10 h-6 rounded-full bg-emerald-500 relative flex-shrink-0">
+              <span class="absolute top-1 left-5 w-4 h-4 rounded-full bg-white"></span>
+            </div>
+            <div class="w-8 h-8 rounded-lg bg-gray-700 flex items-center justify-center text-sm font-medium text-gray-300 flex-shrink-0">4</div>
+            <span class="text-gray-50 font-medium w-28">Diana</span>
+            <div class="flex gap-1.5 ml-auto">
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-500/20 text-emerald-400 ring-1 ring-emerald-500/40">TAG</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">LAG</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">Fish</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">Nit</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700 text-gray-400">Maniac</span>
+            </div>
+          </div>
+
+          <!-- Bot 5 — Eddie (disabled) -->
+          <div class="flex items-center gap-4 p-4 rounded-xl border bg-gray-800/40 border-gray-800 opacity-50">
+            <div class="w-10 h-6 rounded-full bg-gray-600 relative flex-shrink-0">
+              <span class="absolute top-1 left-1 w-4 h-4 rounded-full bg-white"></span>
+            </div>
+            <div class="w-8 h-8 rounded-lg bg-gray-700 flex items-center justify-center text-sm font-medium text-gray-300 flex-shrink-0">5</div>
+            <span class="text-gray-500 font-medium w-28">Eddie</span>
+            <div class="flex gap-1.5 ml-auto">
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700/50 text-gray-600">TAG</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700/50 text-gray-600">LAG</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700/50 text-gray-600">Fish</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700/50 text-gray-600">Nit</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-700/50 text-gray-600">Maniac</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Summary & Start -->
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-6">
+        <div class="flex items-center justify-between">
+          <div class="space-y-1">
+            <p class="text-sm text-gray-400">5/10 blinds · 1,000 chips (100 BB) · 5 players</p>
+            <p class="text-sm text-gray-500">Unlimited hands · Position: Random</p>
+          </div>
+          <button class="px-8 py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-xl transition-colors text-base">
+            Start Session
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

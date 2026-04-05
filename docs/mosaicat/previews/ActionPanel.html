@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body class="flex items-end min-h-screen">
+  <div class="w-full">
+    <div class="bg-gray-900 border-t border-gray-700 px-4 py-4 space-y-3">
+      <!-- Bet Slider Row -->
+      <div class="space-y-2">
+        <div class="flex items-center gap-2">
+          <button class="px-3 py-1 rounded-lg text-xs font-semibold bg-gray-800 text-gray-400 hover:bg-gray-700">½ Pot</button>
+          <button class="px-3 py-1 rounded-lg text-xs font-semibold bg-gray-800 text-gray-400 hover:bg-gray-700">¾ Pot</button>
+          <button class="px-3 py-1 rounded-lg text-xs font-semibold bg-gray-800 text-gray-400 hover:bg-gray-700">Pot</button>
+          <div class="flex-1 flex items-center gap-3">
+            <input
+              type="range"
+              min="8"
+              max="985"
+              value="24"
+              class="flex-1 h-1.5 accent-emerald-500 bg-gray-700 rounded-full appearance-none cursor-pointer"
+            />
+            <span class="text-sm font-mono font-semibold text-emerald-400 min-w-[4rem] text-right">24</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons Row -->
+      <div class="flex items-center gap-2">
+        <button class="flex-1 py-3 rounded-xl text-sm font-bold bg-gray-800 text-red-400 border border-gray-700 hover:bg-red-400/10 hover:border-red-400/30 transition-colors">
+          Fold
+        </button>
+        <button class="flex-1 py-3 rounded-xl text-sm font-bold bg-gray-800 text-emerald-400 border border-gray-700 hover:bg-emerald-400/10 hover:border-emerald-400/30 transition-colors">
+          Call 4
+        </button>
+        <button class="flex-1 py-3 rounded-xl text-sm font-bold bg-emerald-500 text-gray-950 hover:bg-emerald-400 transition-colors">
+          Raise 24
+        </button>
+        <button class="flex-1 py-3 rounded-xl text-sm font-bold bg-amber-400 text-gray-950 hover:bg-amber-300 transition-colors">
+          All-In 985
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

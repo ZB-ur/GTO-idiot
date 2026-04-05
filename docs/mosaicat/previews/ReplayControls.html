@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayControls Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 520px;">
+    <div class="rounded-xl bg-gray-900 border border-gray-700 p-4 space-y-4">
+      <!-- Timeline -->
+      <div class="relative w-full" style="height: 20px;">
+        <!-- Track -->
+        <div class="absolute top-1/2 -translate-y-1/2 w-full h-1.5 rounded-full bg-gray-800">
+          <div class="h-full rounded-full bg-emerald-500" style="width: 37.5%;"></div>
+        </div>
+        <!-- Decision markers -->
+        <!-- Step 4 (active) -->
+        <div class="absolute top-1/2 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-emerald-300" style="left: 16.67%; transform: translate(-50%, -50%);"></div>
+        <!-- Step 9 (ahead) -->
+        <div class="absolute top-1/2 w-2.5 h-2.5 rounded-full bg-gray-600 border-2 border-gray-500" style="left: 37.5%; transform: translate(-50%, -50%);"></div>
+        <!-- Step 14 (ahead) -->
+        <div class="absolute top-1/2 w-2.5 h-2.5 rounded-full bg-gray-600 border-2 border-gray-500" style="left: 58.33%; transform: translate(-50%, -50%);"></div>
+        <!-- Step 19 (ahead) -->
+        <div class="absolute top-1/2 w-2.5 h-2.5 rounded-full bg-gray-600 border-2 border-gray-500" style="left: 79.17%; transform: translate(-50%, -50%);"></div>
+        <!-- Current Position -->
+        <div class="absolute top-1/2 w-4 h-4 rounded-full bg-emerald-500 border-2 border-gray-950 shadow-lg" style="left: 37.5%; transform: translate(-50%, -50%);"></div>
+      </div>
+
+      <!-- Controls Row -->
+      <div class="flex items-center justify-between">
+        <!-- Previous -->
+        <button class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold bg-gray-800 text-gray-300 border border-gray-700">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Previous
+        </button>
+
+        <!-- Step Indicator -->
+        <div class="flex items-center gap-2">
+          <span class="text-sm text-gray-400">Step</span>
+          <span class="text-lg font-bold text-gray-50">10</span>
+          <span class="text-sm text-gray-500">/ 24</span>
+        </div>
+
+        <!-- Next -->
+        <button class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold bg-emerald-600 text-gray-50 border border-emerald-500">
+          Next
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

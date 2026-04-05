@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScenarioDropdown Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="p-8 flex gap-12 items-start">
+
+    <!-- Closed state -->
+    <div>
+      <p class="text-xs text-gray-500 mb-3 uppercase tracking-wider">Closed</p>
+      <div class="relative w-64">
+        <button class="w-full flex items-center justify-between gap-2 px-4 py-2.5 bg-gray-800 border border-gray-700 rounded-xl text-sm font-medium text-gray-50 hover:border-gray-600 transition-all">
+          <span class="truncate">Open Raise (RFI)</span>
+          <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Open state with selection -->
+    <div>
+      <p class="text-xs text-gray-500 mb-3 uppercase tracking-wider">Open (with selection)</p>
+      <div class="relative w-64">
+        <button class="w-full flex items-center justify-between gap-2 px-4 py-2.5 bg-gray-800 border border-emerald-500/50 ring-1 ring-emerald-500/20 rounded-xl text-sm font-medium text-gray-50 transition-all">
+          <span class="truncate">Open Raise (RFI)</span>
+          <svg class="w-4 h-4 text-gray-400 rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+        <!-- Dropdown menu -->
+        <div class="absolute z-50 w-full mt-1.5 bg-gray-800 border border-gray-700 rounded-xl shadow-xl shadow-black/30 py-1">
+          <button class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-left bg-emerald-500/10 text-emerald-400 font-semibold">
+            <svg class="w-4 h-4 shrink-0 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            Open Raise (RFI)
+          </button>
+          <button class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-left text-gray-300 hover:bg-gray-700 hover:text-gray-50">
+            <span class="ml-6">Facing Open (EP)</span>
+          </button>
+          <button class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-left text-gray-300 hover:bg-gray-700 hover:text-gray-50">
+            <span class="ml-6">Facing Open (MP)</span>
+          </button>
+          <button class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-left text-gray-300 hover:bg-gray-700 hover:text-gray-50">
+            <span class="ml-6">Facing Open (CO)</span>
+          </button>
+          <button class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-left text-gray-300 hover:bg-gray-700 hover:text-gray-50">
+            <span class="ml-6">Facing Open (BTN)</span>
+          </button>
+          <button class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-left text-gray-300 hover:bg-gray-700 hover:text-gray-50">
+            <span class="ml-6">Facing 3-Bet</span>
+          </button>
+          <button class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-left text-gray-300 hover:bg-gray-700 hover:text-gray-50">
+            <span class="ml-6">Facing 4-Bet</span>
+          </button>
+          <button class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-left text-gray-300 hover:bg-gray-700 hover:text-gray-50">
+            <span class="ml-6">SB vs BB</span>
+          </button>
+          <button class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-left text-gray-300 hover:bg-gray-700 hover:text-gray-50">
+            <span class="ml-6">BB vs SB</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

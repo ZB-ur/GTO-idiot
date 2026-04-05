@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SessionListCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 520px;" class="space-y-4">
+
+    <!-- Session 1: Expanded, positive result -->
+    <div class="rounded-xl bg-gray-900 border border-gray-700 overflow-hidden">
+      <!-- Header -->
+      <div class="w-full flex items-center justify-between p-4 cursor-pointer">
+        <div class="flex items-center gap-4">
+          <div>
+            <div class="text-sm font-semibold text-gray-50">Mar 28, 2026</div>
+            <div class="text-xs text-gray-500">47 hands</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-5">
+          <div class="text-right">
+            <div class="text-sm font-bold text-emerald-400">72.5%</div>
+            <div class="text-[10px] text-gray-500">GTO</div>
+          </div>
+          <div class="text-right">
+            <div class="text-sm font-bold text-emerald-400">+125</div>
+            <div class="text-[10px] text-gray-500">chips</div>
+          </div>
+          <svg class="w-5 h-5 text-gray-500 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+      </div>
+      <!-- Expanded Hand List -->
+      <div class="border-t border-gray-800 px-2 py-1">
+        <!-- Hand 1 -->
+        <div class="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-800/50">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono text-gray-500 w-6">#23</span>
+            <span class="text-xs text-gray-400 w-8">BTN</span>
+            <div class="flex gap-0.5">
+              <span class="text-xs text-gray-300">A♠</span>
+              <span class="text-xs text-gray-300">K♥</span>
+            </div>
+            <span class="text-xs text-emerald-400">Won</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold text-emerald-400">+245</span>
+            <svg class="w-3.5 h-3.5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+        <!-- Hand 2 -->
+        <div class="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-800/50">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono text-gray-500 w-6">#24</span>
+            <span class="text-xs text-gray-400 w-8">CO</span>
+            <div class="flex gap-0.5">
+              <span class="text-xs text-gray-300">Q♦</span>
+              <span class="text-xs text-gray-300">J♦</span>
+            </div>
+            <span class="text-xs text-gray-500">Folded Pre</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold text-gray-400">0</span>
+            <svg class="w-3.5 h-3.5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+        <!-- Hand 3 -->
+        <div class="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-800/50">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono text-gray-500 w-6">#25</span>
+            <span class="text-xs text-gray-400 w-8">MP</span>
+            <div class="flex gap-0.5">
+              <span class="text-xs text-gray-300">9♣</span>
+              <span class="text-xs text-gray-300">9♠</span>
+            </div>
+            <span class="text-xs text-red-400">Lost</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold text-red-400">-85</span>
+            <svg class="w-3.5 h-3.5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+        <!-- Hand 4 -->
+        <div class="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-800/50">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono text-gray-500 w-6">#26</span>
+            <span class="text-xs text-gray-400 w-8">BB</span>
+            <div class="flex gap-0.5">
+              <span class="text-xs text-gray-300">7♥</span>
+              <span class="text-xs text-gray-300">6♥</span>
+            </div>
+            <span class="text-xs text-emerald-400">Won (fold)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold text-emerald-400">+18</span>
+            <svg class="w-3.5 h-3.5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Session 2: Collapsed, negative result -->
+    <div class="rounded-xl bg-gray-900 border border-gray-700 overflow-hidden">
+      <div class="w-full flex items-center justify-between p-4 cursor-pointer">
+        <div class="flex items-center gap-4">
+          <div>
+            <div class="text-sm font-semibold text-gray-50">Mar 27, 2026</div>
+            <div class="text-xs text-gray-500">31 hands</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-5">
+          <div class="text-right">
+            <div class="text-sm font-bold text-amber-400">58.2%</div>
+            <div class="text-[10px] text-gray-500">GTO</div>
+          </div>
+          <div class="text-right">
+            <div class="text-sm font-bold text-red-400">-180</div>
+            <div class="text-[10px] text-gray-500">chips</div>
+          </div>
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Session 3: Collapsed, small positive -->
+    <div class="rounded-xl bg-gray-900 border border-gray-700 overflow-hidden">
+      <div class="w-full flex items-center justify-between p-4 cursor-pointer">
+        <div class="flex items-center gap-4">
+          <div>
+            <div class="text-sm font-semibold text-gray-50">Mar 25, 2026</div>
+            <div class="text-xs text-gray-500">52 hands</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-5">
+          <div class="text-right">
+            <div class="text-sm font-bold text-emerald-400">81.3%</div>
+            <div class="text-[10px] text-gray-500">GTO</div>
+          </div>
+          <div class="text-right">
+            <div class="text-sm font-bold text-emerald-400">+42</div>
+            <div class="text-[10px] text-gray-500">chips</div>
+          </div>
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

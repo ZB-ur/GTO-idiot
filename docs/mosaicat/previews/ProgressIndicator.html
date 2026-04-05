@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 16px; max-width: 480px;">
+    <!-- In progress -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 flex flex-col gap-3">
+      <div class="flex items-center justify-between">
+        <span class="text-sm font-medium text-gray-50">Leak Analysis Progress</span>
+        <span class="text-sm text-gray-400">32 / 50</span>
+      </div>
+      <div class="w-full h-3 bg-gray-800 rounded-full overflow-hidden">
+        <div class="h-full rounded-full bg-emerald-500/60" style="width: 64%;"></div>
+      </div>
+      <span class="text-xs text-gray-500">18 more hands needed for leak analysis</span>
+    </div>
+    <!-- Complete -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 flex flex-col gap-3">
+      <div class="flex items-center justify-between">
+        <span class="text-sm font-medium text-gray-50">Leak Analysis Progress</span>
+        <span class="text-sm text-gray-400">50 / 50</span>
+      </div>
+      <div class="w-full h-3 bg-gray-800 rounded-full overflow-hidden">
+        <div class="h-full rounded-full bg-emerald-500" style="width: 100%;"></div>
+      </div>
+      <span class="text-xs text-emerald-400">✓ Leak analysis available</span>
+    </div>
+  </div>
+</body>
+</html>

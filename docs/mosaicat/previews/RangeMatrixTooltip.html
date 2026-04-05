@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RangeMatrixTooltip Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="p-8 flex gap-12 items-start">
+
+    <!-- Default tooltip (AKs - raise dominant) -->
+    <div class="relative">
+      <p class="text-xs text-gray-500 mb-3 uppercase tracking-wider">Default Tooltip</p>
+      <div class="min-w-[180px] bg-gray-800 border border-gray-700 rounded-xl p-4 shadow-xl">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-lg font-bold text-gray-50">AKs</span>
+        </div>
+        <!-- Action breakdown -->
+        <div class="space-y-2">
+          <div class="flex items-center gap-2.5">
+            <span class="text-xs font-medium w-12 shrink-0 text-amber-400">Raise</span>
+            <div class="flex-1 h-4 bg-gray-900 rounded-md overflow-hidden">
+              <div class="h-full rounded-md bg-amber-400 opacity-100" style="width: 85%;"></div>
+            </div>
+            <span class="text-xs text-gray-400 w-10 text-right tabular-nums font-medium">85%</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="text-xs font-medium w-12 shrink-0 text-sky-400">Call</span>
+            <div class="flex-1 h-4 bg-gray-900 rounded-md overflow-hidden">
+              <div class="h-full rounded-md bg-sky-400 opacity-50" style="width: 15%;"></div>
+            </div>
+            <span class="text-xs text-gray-400 w-10 text-right tabular-nums font-medium">15%</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="text-xs font-medium w-12 shrink-0 text-gray-500">Fold</span>
+            <div class="flex-1 h-4 bg-gray-900 rounded-md overflow-hidden">
+              <div class="h-full rounded-md bg-gray-500 opacity-50" style="width: 0%;"></div>
+            </div>
+            <span class="text-xs text-gray-400 w-10 text-right tabular-nums font-medium">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pinned tooltip (QTo - mixed) -->
+    <div class="relative">
+      <p class="text-xs text-gray-500 mb-3 uppercase tracking-wider">Pinned Tooltip</p>
+      <div class="min-w-[180px] bg-gray-800 border border-emerald-500/50 rounded-xl p-4 shadow-xl shadow-emerald-500/10">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-lg font-bold text-gray-50">QTo</span>
+          <span class="text-[10px] text-emerald-400 uppercase tracking-wider font-semibold">Pinned</span>
+        </div>
+        <!-- Action breakdown -->
+        <div class="space-y-2">
+          <div class="flex items-center gap-2.5">
+            <span class="text-xs font-medium w-12 shrink-0 text-sky-400">Call</span>
+            <div class="flex-1 h-4 bg-gray-900 rounded-md overflow-hidden">
+              <div class="h-full rounded-md bg-sky-400 opacity-100" style="width: 50%;"></div>
+            </div>
+            <span class="text-xs text-gray-400 w-10 text-right tabular-nums font-medium">50%</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="text-xs font-medium w-12 shrink-0 text-amber-400">Raise</span>
+            <div class="flex-1 h-4 bg-gray-900 rounded-md overflow-hidden">
+              <div class="h-full rounded-md bg-amber-400 opacity-50" style="width: 20%;"></div>
+            </div>
+            <span class="text-xs text-gray-400 w-10 text-right tabular-nums font-medium">20%</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="text-xs font-medium w-12 shrink-0 text-gray-500">Fold</span>
+            <div class="flex-1 h-4 bg-gray-900 rounded-md overflow-hidden">
+              <div class="h-full rounded-md bg-gray-500 opacity-50" style="width: 30%;"></div>
+            </div>
+            <span class="text-xs text-gray-400 w-10 text-right tabular-nums font-medium">30%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- All-in dominant tooltip -->
+    <div class="relative">
+      <p class="text-xs text-gray-500 mb-3 uppercase tracking-wider">All-In Dominant</p>
+      <div class="min-w-[180px] bg-gray-800 border border-gray-700 rounded-xl p-4 shadow-xl">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-lg font-bold text-gray-50">AA</span>
+        </div>
+        <div class="space-y-2">
+          <div class="flex items-center gap-2.5">
+            <span class="text-xs font-medium w-12 shrink-0 text-red-400">All In</span>
+            <div class="flex-1 h-4 bg-gray-900 rounded-md overflow-hidden">
+              <div class="h-full rounded-md bg-red-400 opacity-100" style="width: 60%;"></div>
+            </div>
+            <span class="text-xs text-gray-400 w-10 text-right tabular-nums font-medium">60%</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="text-xs font-medium w-12 shrink-0 text-amber-400">Raise</span>
+            <div class="flex-1 h-4 bg-gray-900 rounded-md overflow-hidden">
+              <div class="h-full rounded-md bg-amber-400 opacity-50" style="width: 40%;"></div>
+            </div>
+            <span class="text-xs text-gray-400 w-10 text-right tabular-nums font-medium">40%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

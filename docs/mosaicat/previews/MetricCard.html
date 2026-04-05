@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+    <!-- Win Rate - up -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 flex flex-col gap-2" style="min-width: 180px;">
+      <span class="text-sm text-gray-400">Win Rate</span>
+      <div class="flex items-baseline gap-2">
+        <span class="text-3xl font-bold text-gray-50">8.3</span>
+        <span class="text-lg text-gray-400">BB/100</span>
+        <span class="text-sm font-medium text-emerald-400">↑</span>
+      </div>
+    </div>
+    <!-- VPIP - neutral -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 flex flex-col gap-2" style="min-width: 180px;">
+      <span class="text-sm text-gray-400">VPIP</span>
+      <div class="flex items-baseline gap-2">
+        <span class="text-3xl font-bold text-gray-50">26.1</span>
+        <span class="text-lg text-gray-400">%</span>
+        <span class="text-sm font-medium text-gray-400">→</span>
+      </div>
+    </div>
+    <!-- Aggression - down -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 flex flex-col gap-2" style="min-width: 180px;">
+      <span class="text-sm text-gray-400">Aggression</span>
+      <div class="flex items-baseline gap-2">
+        <span class="text-3xl font-bold text-gray-50">2.1</span>
+        <span class="text-sm font-medium text-red-400">↓</span>
+      </div>
+    </div>
+    <!-- Hands Played - no trend -->
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 flex flex-col gap-2" style="min-width: 180px;">
+      <span class="text-sm text-gray-400">Hands Played</span>
+      <div class="flex items-baseline gap-2">
+        <span class="text-3xl font-bold text-gray-50">247</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

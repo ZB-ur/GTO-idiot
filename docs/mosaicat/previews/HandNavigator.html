@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandNavigator Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="p-8 space-y-8">
+
+    <!-- Normal state (middle of session) -->
+    <div>
+      <p class="text-xs text-gray-500 mb-3 uppercase tracking-wider">Normal (Hand 12 of 47)</p>
+      <div class="flex items-center gap-3">
+        <button class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border bg-gray-800 text-gray-50 border-gray-700 hover:bg-gray-700 transition-all">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+          Previous
+        </button>
+        <div class="flex items-center gap-1.5 px-3 py-1.5 bg-gray-800 rounded-lg border border-gray-700">
+          <span class="text-sm font-bold text-gray-50 tabular-nums">12</span>
+          <span class="text-sm text-gray-500">/</span>
+          <span class="text-sm text-gray-400 tabular-nums">47</span>
+        </div>
+        <button class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border bg-gray-800 text-gray-50 border-gray-700 hover:bg-gray-700 transition-all">
+          Next
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- First hand (Previous disabled) -->
+    <div>
+      <p class="text-xs text-gray-500 mb-3 uppercase tracking-wider">First Hand (Previous Disabled)</p>
+      <div class="flex items-center gap-3">
+        <button disabled class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border bg-gray-800/50 text-gray-600 border-gray-700/50 cursor-not-allowed">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+          Previous
+        </button>
+        <div class="flex items-center gap-1.5 px-3 py-1.5 bg-gray-800 rounded-lg border border-gray-700">
+          <span class="text-sm font-bold text-gray-50 tabular-nums">1</span>
+          <span class="text-sm text-gray-500">/</span>
+          <span class="text-sm text-gray-400 tabular-nums">47</span>
+        </div>
+        <button class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border bg-gray-800 text-gray-50 border-gray-700 hover:bg-gray-700 transition-all">
+          Next
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Last hand (Next disabled) -->
+    <div>
+      <p class="text-xs text-gray-500 mb-3 uppercase tracking-wider">Last Hand (Next Disabled)</p>
+      <div class="flex items-center gap-3">
+        <button class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border bg-gray-800 text-gray-50 border-gray-700 hover:bg-gray-700 transition-all">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+          Previous
+        </button>
+        <div class="flex items-center gap-1.5 px-3 py-1.5 bg-gray-800 rounded-lg border border-gray-700">
+          <span class="text-sm font-bold text-gray-50 tabular-nums">47</span>
+          <span class="text-sm text-gray-500">/</span>
+          <span class="text-sm text-gray-400 tabular-nums">47</span>
+        </div>
+        <button disabled class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border bg-gray-800/50 text-gray-600 border-gray-700/50 cursor-not-allowed">
+          Next
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

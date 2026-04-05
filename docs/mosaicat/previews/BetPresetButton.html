@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BetPresetButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <!-- Row of preset buttons - default state -->
+  <div class="mb-6">
+    <p class="text-gray-400 text-xs mb-2 uppercase tracking-wide">Default State</p>
+    <div class="flex gap-2">
+      <button class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-50 border-gray-700 hover:bg-emerald-500 hover:border-emerald-400 hover:text-gray-950 active:scale-95 transition-all duration-150">
+        Min
+      </button>
+      <button class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-50 border-gray-700 hover:bg-emerald-500 hover:border-emerald-400 hover:text-gray-950 active:scale-95 transition-all duration-150">
+        1/2 Pot
+      </button>
+      <button class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-50 border-gray-700 hover:bg-emerald-500 hover:border-emerald-400 hover:text-gray-950 active:scale-95 transition-all duration-150">
+        3/4 Pot
+      </button>
+      <button class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-50 border-gray-700 hover:bg-emerald-500 hover:border-emerald-400 hover:text-gray-950 active:scale-95 transition-all duration-150">
+        Pot
+      </button>
+      <button class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-50 border-gray-700 hover:bg-emerald-500 hover:border-emerald-400 hover:text-gray-950 active:scale-95 transition-all duration-150">
+        All-In
+      </button>
+    </div>
+  </div>
+
+  <!-- Hover / active simulation -->
+  <div class="mb-6">
+    <p class="text-gray-400 text-xs mb-2 uppercase tracking-wide">Hover State (simulated)</p>
+    <div class="flex gap-2">
+      <button class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-50 border-gray-700">
+        Min
+      </button>
+      <button class="px-3 py-2 text-sm font-semibold rounded-xl border bg-emerald-500 text-gray-950 border-emerald-400">
+        1/2 Pot
+      </button>
+      <button class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-50 border-gray-700">
+        3/4 Pot
+      </button>
+      <button class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-50 border-gray-700">
+        Pot
+      </button>
+      <button class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-50 border-gray-700">
+        All-In
+      </button>
+    </div>
+  </div>
+
+  <!-- Disabled state -->
+  <div>
+    <p class="text-gray-400 text-xs mb-2 uppercase tracking-wide">Disabled State</p>
+    <div class="flex gap-2">
+      <button disabled class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-500 border-gray-700 cursor-not-allowed opacity-50">
+        Min
+      </button>
+      <button disabled class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-500 border-gray-700 cursor-not-allowed opacity-50">
+        1/2 Pot
+      </button>
+      <button disabled class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-500 border-gray-700 cursor-not-allowed opacity-50">
+        3/4 Pot
+      </button>
+      <button disabled class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-500 border-gray-700 cursor-not-allowed opacity-50">
+        Pot
+      </button>
+      <button disabled class="px-3 py-2 text-sm font-semibold rounded-xl border bg-gray-800 text-gray-500 border-gray-700 cursor-not-allowed opacity-50">
+        All-In
+      </button>
+    </div>
+  </div>
+</body>
+</html>

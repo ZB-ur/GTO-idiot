@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+    <!-- Positive -->
+    <div class="bg-emerald-400/10 border border-emerald-400/20 rounded-xl p-6 flex flex-col items-center gap-1" style="min-width: 200px;">
+      <span class="text-xs uppercase tracking-wider text-gray-500 font-medium">Net Result</span>
+      <span class="text-4xl font-bold text-emerald-400">+125</span>
+      <span class="text-sm text-gray-500">chips</span>
+    </div>
+    <!-- Negative -->
+    <div class="bg-red-400/10 border border-red-400/20 rounded-xl p-6 flex flex-col items-center gap-1" style="min-width: 200px;">
+      <span class="text-xs uppercase tracking-wider text-gray-500 font-medium">Net Result</span>
+      <span class="text-4xl font-bold text-red-400">-340</span>
+      <span class="text-sm text-gray-500">chips</span>
+    </div>
+    <!-- Zero -->
+    <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-6 flex flex-col items-center gap-1" style="min-width: 200px;">
+      <span class="text-xs uppercase tracking-wider text-gray-500 font-medium">Net Result</span>
+      <span class="text-4xl font-bold text-gray-400">0</span>
+      <span class="text-sm text-gray-500">chips</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProgressBar Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="flex flex-col gap-6 max-w-md">
+    <!-- With label, 75% -->
+    <div class="w-full">
+      <div class="flex items-center justify-between mb-1.5">
+        <span class="text-sm text-gray-400">Loading hands…</span>
+        <span class="text-sm font-medium text-gray-50">75%</span>
+      </div>
+      <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+        <div class="h-full bg-emerald-500 rounded-full" style="width: 75%"></div>
+      </div>
+    </div>
+
+    <!-- With label, 30% -->
+    <div class="w-full">
+      <div class="flex items-center justify-between mb-1.5">
+        <span class="text-sm text-gray-400">Analyzing session</span>
+        <span class="text-sm font-medium text-gray-50">30%</span>
+      </div>
+      <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+        <div class="h-full bg-emerald-500 rounded-full" style="width: 30%"></div>
+      </div>
+    </div>
+
+    <!-- No label, 100% -->
+    <div class="w-full">
+      <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+        <div class="h-full bg-emerald-500 rounded-full" style="width: 100%"></div>
+      </div>
+    </div>
+
+    <!-- No label, 0% -->
+    <div class="w-full">
+      <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+        <div class="h-full bg-emerald-500 rounded-full" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RangeMatrix Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    .cell { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; border-radius: 2px; cursor: pointer; }
+    .cell:hover { outline: 1px solid #6b7280; }
+    .grid-13 { display: grid; grid-template-columns: repeat(13, 1fr); gap: 1px; }
+    .suited { color: #6ee7b7; }
+    .offsuit { color: #d1d5db; }
+    .pair { color: #f9fafb; }
+    .highlight { outline: 2px solid #fbbf24; outline-offset: 1px; z-index: 10; position: relative; }
+  </style>
+</head>
+<body>
+  <div class="max-w-xl mx-auto space-y-3">
+    <div class="inline-block bg-gray-900 border border-gray-700 rounded-xl p-3 overflow-hidden">
+      <div class="grid-13">
+        <script>
+          // Generate static cells via document.write
+          const ranks = ['A','K','Q','J','T','9','8','7','6','5','4','3','2'];
+          const raiseFreqs = [
+            [100,100,100,100,90,70,65,60,55,50,48,45,42],
+            [95,100,95,90,75,55,45,40,35,30,28,25,22],
+            [90,85,100,80,65,45,35,28,22,20,18,15,12],
+            [85,78,72,100,55,38,28,20,15,12,10,8,6],
+            [70,60,52,45,100,30,22,15,10,8,6,5,4],
+            [50,40,32,28,22,80,18,12,8,5,4,3,2],
+            [45,32,24,20,16,14,70,10,8,5,3,2,1],
+            [40,28,20,15,12,10,8,60,6,5,3,2,1],
+            [35,22,16,12,8,6,5,5,50,4,3,2,1],
+            [30,18,14,10,6,4,3,3,3,45,3,2,1],
+            [28,16,12,8,5,3,2,2,2,2,40,2,1],
+            [25,14,10,6,4,2,1,1,1,1,1,35,1],
+            [22,12,8,5,3,1,0,0,0,0,0,0,30]
+          ];
+          for (let r = 0; r < 13; r++) {
+            for (let c = 0; c < 13; c++) {
+              const isPair = r === c;
+              const isSuited = c > r;
+              let label;
+              if (isPair) label = ranks[r] + ranks[c];
+              else if (isSuited) label = ranks[r] + ranks[c] + 's';
+              else label = ranks[c] + ranks[r] + 'o';
+
+              const rf = raiseFreqs[r][c];
+              const rOp = Math.round((rf / 100) * 0.8 * 255);
+              const rHex = rOp.toString(16).padStart(2,'0');
+              let bg, cls;
+              if (rf >= 50) {
+                bg = `#34d399${rHex}`;
+              } else if (rf >= 20) {
+                bg = `#38bdf8${Math.round(rf/100*0.6*255).toString(16).padStart(2,'0')}`;
+              } else {
+                bg = `#6b7280${Math.round(rf/100*0.5*255).toString(16).padStart(2,'0')}`;
+              }
+              cls = isPair ? 'pair' : isSuited ? 'suited' : 'offsuit';
+              const hl = (r === 0 && c === 1) ? ' highlight' : '';
+              document.write(`<div class="cell ${cls}${hl}" style="background:${bg}">${label}</div>`);
+            }
+          }
+        </script>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="flex items-center gap-4 text-xs text-gray-400">
+      <div class="flex items-center gap-1.5">
+        <div class="w-3 h-3 rounded" style="background: rgba(52,211,153,0.7)"></div>
+        <span>Raise</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <div class="w-3 h-3 rounded" style="background: rgba(56,189,248,0.5)"></div>
+        <span>Call</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <div class="w-3 h-3 rounded" style="background: rgba(107,114,128,0.4)"></div>
+        <span>Fold</span>
+      </div>
+    </div>
+
+    <!-- Tooltip mockup -->
+    <div class="inline-block bg-gray-800 border border-gray-600 rounded-xl px-4 py-3 shadow-lg mt-4">
+      <div class="text-sm font-bold text-gray-50 mb-1.5">AKs</div>
+      <div class="space-y-1">
+        <div class="flex items-center gap-2 text-xs">
+          <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+          <span class="text-gray-400">Raise</span>
+          <span class="text-gray-50 font-medium ml-auto">85%</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <div class="w-2 h-2 rounded-full bg-sky-400"></div>
+          <span class="text-gray-400">Call</span>
+          <span class="text-gray-50 font-medium ml-auto">15%</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <div class="w-2 h-2 rounded-full bg-gray-500"></div>
+          <span class="text-gray-400">Fold</span>
+          <span class="text-gray-50 font-medium ml-auto">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

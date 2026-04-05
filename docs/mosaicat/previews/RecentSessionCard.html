@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RecentSessionCard Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="max-w-sm space-y-3">
+    <!-- Card 1: Positive result -->
+    <button class="w-full text-left bg-gray-900 border border-gray-700 rounded-xl p-5 hover:border-gray-500 hover:bg-gray-800/50 transition-all group">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <p class="text-gray-50 text-sm font-semibold">Mar 28, 02:30 PM</p>
+          <p class="text-gray-500 text-xs mt-0.5">47 hands • Completed</p>
+        </div>
+        <span class="text-lg font-bold tabular-nums text-emerald-400">+125 BB</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
+          <div class="h-full bg-emerald-400 rounded-full" style="width: 73%"></div>
+        </div>
+        <span class="text-xs text-gray-400 tabular-nums whitespace-nowrap">73% GTO</span>
+      </div>
+      <div class="flex justify-end mt-2">
+        <svg class="w-4 h-4 text-gray-500 group-hover:text-gray-300 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+    </button>
+
+    <!-- Card 2: Negative result -->
+    <button class="w-full text-left bg-gray-900 border border-gray-700 rounded-xl p-5 hover:border-gray-500 hover:bg-gray-800/50 transition-all group">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <p class="text-gray-50 text-sm font-semibold">Mar 27, 10:15 AM</p>
+          <p class="text-gray-500 text-xs mt-0.5">32 hands • Completed</p>
+        </div>
+        <span class="text-lg font-bold tabular-nums text-red-400">-80 BB</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
+          <div class="h-full bg-emerald-400 rounded-full" style="width: 58%"></div>
+        </div>
+        <span class="text-xs text-gray-400 tabular-nums whitespace-nowrap">58% GTO</span>
+      </div>
+      <div class="flex justify-end mt-2">
+        <svg class="w-4 h-4 text-gray-500 group-hover:text-gray-300 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+    </button>
+
+    <!-- Card 3: Active session -->
+    <button class="w-full text-left bg-gray-900 border border-gray-700 rounded-xl p-5 hover:border-gray-500 hover:bg-gray-800/50 transition-all group">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <p class="text-gray-50 text-sm font-semibold">Mar 28, 04:00 PM</p>
+          <p class="text-gray-500 text-xs mt-0.5">12 hands • In Progress</p>
+        </div>
+        <span class="text-lg font-bold tabular-nums text-emerald-400">+34 BB</span>
+      </div>
+      <div class="flex justify-end mt-2">
+        <svg class="w-4 h-4 text-gray-500 group-hover:text-gray-300 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+    </button>
+  </div>
+</body>
+</html>
