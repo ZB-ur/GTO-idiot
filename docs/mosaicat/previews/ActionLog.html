@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ActionLog Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="max-width: 320px; display: flex; flex-direction: column; gap: 24px;">
+    <!-- Expanded state -->
+    <div class="bg-gray-800 border border-gray-700 rounded-xl overflow-hidden">
+      <!-- Header -->
+      <button class="w-full flex items-center justify-between px-4 py-3 text-left">
+        <span class="text-sm font-semibold text-gray-100">动作记录</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="text-gray-400 rotate-180">
+          <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <!-- Body -->
+      <div class="px-4 pb-3 max-h-64 overflow-y-auto space-y-3">
+        <!-- Preflop -->
+        <div>
+          <div class="text-xs text-gray-500 font-medium mb-1.5 uppercase tracking-wide">Preflop</div>
+          <div class="space-y-0.5">
+            <div class="text-sm px-2 py-1 rounded-lg text-gray-300">BOT-1 (UTG) 弃牌</div>
+            <div class="text-sm px-2 py-1 rounded-lg text-gray-300">BOT-2 (MP) 弃牌</div>
+            <div class="text-sm px-2 py-1 rounded-lg text-gray-300">BOT-3 (CO) 加注 6</div>
+            <div class="text-sm px-2 py-1 rounded-lg text-amber-400">Player (BTN) 跟注 6</div>
+            <div class="text-sm px-2 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 font-medium">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 mr-2 align-middle"></span>
+              BOT-4 (SB) 弃牌
+            </div>
+            <div class="text-sm px-2 py-1 rounded-lg text-gray-500">BOT-5 (BB) 跟注 6</div>
+          </div>
+        </div>
+        <!-- Flop -->
+        <div>
+          <div class="text-xs text-gray-500 font-medium mb-1.5 uppercase tracking-wide">Flop</div>
+          <div class="space-y-0.5">
+            <div class="text-sm px-2 py-1 rounded-lg text-gray-500">BOT-5 (BB) 过牌</div>
+            <div class="text-sm px-2 py-1 rounded-lg text-gray-500">BOT-3 (CO) 加注 9</div>
+            <div class="text-sm px-2 py-1 rounded-lg text-gray-500">Player (BTN) 跟注 9</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collapsed state -->
+    <div class="bg-gray-800 border border-gray-700 rounded-xl overflow-hidden">
+      <button class="w-full flex items-center justify-between px-4 py-3 text-left">
+        <span class="text-sm font-semibold text-gray-100">动作记录</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="text-gray-400">
+          <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReplayTimeline Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div style="max-width: 600px;">
+    <div class="bg-gray-800 border border-gray-700 rounded-xl p-4 overflow-x-auto">
+      <div class="flex gap-1 min-w-max">
+        <!-- Preflop: 8 steps, user decisions at 3,7 -->
+        <div class="flex flex-col gap-1.5">
+          <span class="text-xs text-gray-500 font-medium text-center px-1">Preflop</span>
+          <div class="flex gap-0.5 px-1">
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-amber-500 border-2 border-amber-400"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-emerald-500 border-2 border-emerald-400 ring-2 ring-emerald-500/30 scale-125"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-amber-500 border-2 border-amber-400"></button>
+          </div>
+        </div>
+        <!-- Flop: 6 steps, user decision at 11 -->
+        <div class="flex flex-col gap-1.5">
+          <span class="text-xs text-gray-500 font-medium text-center px-1">Flop</span>
+          <div class="flex gap-0.5 px-1">
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-amber-500 border-2 border-amber-400"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+          </div>
+        </div>
+        <!-- Turn: 4 steps, user decision at 16 -->
+        <div class="flex flex-col gap-1.5">
+          <span class="text-xs text-gray-500 font-medium text-center px-1">Turn</span>
+          <div class="flex gap-0.5 px-1">
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-amber-500 border-2 border-amber-400"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+          </div>
+        </div>
+        <!-- River: 4 steps -->
+        <div class="flex flex-col gap-1.5">
+          <span class="text-xs text-gray-500 font-medium text-center px-1">River</span>
+          <div class="flex gap-0.5 px-1">
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-amber-500 border-2 border-amber-400"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+          </div>
+        </div>
+        <!-- Showdown: 2 steps -->
+        <div class="flex flex-col gap-1.5">
+          <span class="text-xs text-gray-500 font-medium text-center px-1">Showdown</span>
+          <div class="flex gap-0.5 px-1">
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 border-2 border-gray-500"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="flex items-center gap-4 mt-3 pt-3 border-t border-gray-700">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>
+          <span class="text-xs text-gray-400">当前位置</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span>
+          <span class="text-xs text-gray-400">你的决策点</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-gray-600 inline-block"></span>
+          <span class="text-xs text-gray-400">其他动作</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

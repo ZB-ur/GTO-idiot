@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SessionSummaryPanel Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { margin: 0; padding: 0; background: #030712; font-family: system-ui, sans-serif; }</style>
+</head>
+<body>
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+    <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 w-full max-w-sm shadow-xl">
+      <!-- Result Icon -->
+      <div class="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        </svg>
+      </div>
+
+      <h3 class="text-xl font-bold text-gray-100 text-center mb-1">游戏结束</h3>
+      <p class="text-sm text-gray-400 text-center mb-6">以下是本次 Session 汇总</p>
+
+      <!-- Stats -->
+      <div class="space-y-4 mb-6">
+        <!-- Net Result -->
+        <div class="bg-gray-800 border border-gray-700/50 rounded-lg p-4 text-center">
+          <div class="text-sm text-gray-500 mb-1">净盈亏</div>
+          <div class="text-3xl font-bold text-emerald-400">+23 BB</div>
+        </div>
+
+        <!-- Hand Count & Duration -->
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-gray-800 border border-gray-700/50 rounded-lg p-4 text-center">
+            <div class="text-sm text-gray-500 mb-1">总手数</div>
+            <div class="text-2xl font-bold text-gray-100">47</div>
+          </div>
+          <div class="bg-gray-800 border border-gray-700/50 rounded-lg p-4 text-center">
+            <div class="text-sm text-gray-500 mb-1">游玩时长</div>
+            <div class="text-2xl font-bold text-gray-100">32m</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="space-y-3">
+        <button class="w-full py-3 rounded-lg font-semibold bg-emerald-500 text-gray-950">
+          查看手牌记录
+        </button>
+        <button class="w-full py-3 rounded-lg font-semibold border border-gray-600 text-gray-300">
+          返回主页
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

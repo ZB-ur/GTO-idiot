@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RangeHeatmap Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    .grid-13 { display: grid; grid-template-columns: repeat(13, 1fr); gap: 1px; }
+  </style>
+</head>
+<body>
+  <div style="max-width: 480px;">
+    <div class="bg-gray-800 border border-gray-700 rounded-xl p-4">
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-sm font-semibold text-gray-100">范围表 — CO open</span>
+        <span class="text-xs text-amber-400 font-mono">A5s</span>
+      </div>
+
+      <!-- 13×13 Grid (simplified mock — showing key hands) -->
+      <div class="grid-13">
+        <script>
+          // We'll generate this statically below
+        </script>
+      </div>
+
+      <!-- Static 13x13 grid -->
+      <div class="grid-13" id="heatmap">
+      </div>
+
+      <!-- Color legend -->
+      <div class="flex items-center gap-2 mt-3 pt-3 border-t border-gray-700">
+        <span class="text-xs text-gray-500">弃牌</span>
+        <div class="flex gap-px flex-1">
+          <div class="h-2 flex-1 rounded-sm bg-gray-700 opacity-50"></div>
+          <div class="h-2 flex-1 rounded-sm bg-emerald-900"></div>
+          <div class="h-2 flex-1 rounded-sm bg-emerald-800"></div>
+          <div class="h-2 flex-1 rounded-sm bg-emerald-700"></div>
+          <div class="h-2 flex-1 rounded-sm bg-emerald-600"></div>
+          <div class="h-2 flex-1 rounded-sm bg-emerald-500"></div>
+        </div>
+        <span class="text-xs text-gray-500">行动</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const ranks = ['A','K','Q','J','T','9','8','7','6','5','4','3','2'];
+    // Simplified action frequencies for visual demo
+    const strongHands = new Set(['AA','KK','QQ','JJ','TT','AKs','AQs','AJs','ATs','AKo','KQs','AQo']);
+    const mediumHands = new Set(['99','88','77','A9s','A8s','A7s','A6s','A5s','A4s','A3s','A2s','KJs','KTs','QJs','QTs','JTs','KQo','AJo','ATo','KJo']);
+    const weakHands = new Set(['66','55','44','33','22','K9s','Q9s','J9s','T9s','98s','87s','76s','65s','54s']);
+    const highlightHand = 'A5s';
+
+    const container = document.getElementById('heatmap');
+    for (let r = 0; r < 13; r++) {
+      for (let c = 0; c < 13; c++) {
+        let hand;
+        if (r === c) hand = ranks[r] + ranks[c];
+        else if (r < c) hand = ranks[r] + ranks[c] + 's';
+        else hand = ranks[c] + ranks[r] + 'o';
+
+        const div = document.createElement('div');
+        div.style.aspectRatio = '1';
+        div.style.display = 'flex';
+        div.style.alignItems = 'center';
+        div.style.justifyContent = 'center';
+        div.style.fontSize = '8px';
+        div.style.fontFamily = 'monospace';
+        div.style.borderRadius = '2px';
+        div.style.transition = 'all 0.15s';
+
+        let bg, opacity, textColor;
+        if (strongHands.has(hand)) {
+          bg = '#10b981'; opacity = '1'; textColor = '#e5e7eb';
+        } else if (mediumHands.has(hand)) {
+          bg = '#047857'; opacity = '0.9'; textColor = '#d1d5db';
+        } else if (weakHands.has(hand)) {
+          bg = '#064e3b'; opacity = '0.7'; textColor = '#9ca3af';
+        } else {
+          bg = '#374151'; opacity = '0.5'; textColor = '#6b7280';
+        }
+
+        div.style.backgroundColor = bg;
+        div.style.opacity = opacity;
+        div.style.color = textColor;
+
+        if (hand === highlightHand) {
+          div.style.outline = '2px solid #fbbf24';
+          div.style.outlineOffset = '-1px';
+          div.style.zIndex = '10';
+          div.style.transform = 'scale(1.1)';
+          div.style.opacity = '1';
+          div.style.color = '#fbbf24';
+          div.style.fontWeight = 'bold';
+        }
+
+        div.textContent = hand;
+        container.appendChild(div);
+      }
+    }
+  </script>
+</body>
+</html>

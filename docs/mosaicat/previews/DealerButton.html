@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-wrap gap-6 items-center">
+
+    <!-- Dealer Button -->
+    <div class="relative w-8 h-8 flex items-center justify-center select-none">
+      <div class="absolute inset-0 rounded-full bg-amber-400/20 blur-sm"></div>
+      <div class="relative w-8 h-8 rounded-full flex items-center justify-center border-2 border-amber-500 shadow-lg"
+           style="background: linear-gradient(145deg, #fbbf24, #d97706); box-shadow: 0 0 8px rgba(251,191,36,0.4), inset 0 1px 2px rgba(255,255,255,0.3);">
+        <div class="absolute inset-1 rounded-full border border-amber-300/40"></div>
+        <span class="text-xs font-extrabold text-gray-900 relative z-10">D</span>
+      </div>
+    </div>
+
+    <!-- Larger version for visibility -->
+    <div class="relative w-12 h-12 flex items-center justify-center select-none">
+      <div class="absolute inset-0 rounded-full bg-amber-400/20 blur-sm"></div>
+      <div class="relative w-12 h-12 rounded-full flex items-center justify-center border-2 border-amber-500 shadow-lg"
+           style="background: linear-gradient(145deg, #fbbf24, #d97706); box-shadow: 0 0 12px rgba(251,191,36,0.4), inset 0 2px 4px rgba(255,255,255,0.3);">
+        <div class="absolute inset-1.5 rounded-full border border-amber-300/40"></div>
+        <span class="text-sm font-extrabold text-gray-900 relative z-10">D</span>
+      </div>
+    </div>
+
+    <!-- On felt background context -->
+    <div class="w-24 h-24 rounded-xl flex items-center justify-center" style="background: radial-gradient(ellipse, #064e3b, #022c22);">
+      <div class="relative w-8 h-8 flex items-center justify-center select-none">
+        <div class="absolute inset-0 rounded-full bg-amber-400/20 blur-sm"></div>
+        <div class="relative w-8 h-8 rounded-full flex items-center justify-center border-2 border-amber-500 shadow-lg"
+             style="background: linear-gradient(145deg, #fbbf24, #d97706); box-shadow: 0 0 8px rgba(251,191,36,0.4), inset 0 1px 2px rgba(255,255,255,0.3);">
+          <div class="absolute inset-1 rounded-full border border-amber-300/40"></div>
+          <span class="text-xs font-extrabold text-gray-900 relative z-10">D</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flex flex-wrap gap-6 mt-3 text-gray-400 text-xs">
+    <span class="w-8 text-center">Default</span>
+    <span class="w-12 text-center">Large</span>
+    <span class="w-24 text-center">On Felt</span>
+  </div>
+</body>
+</html>

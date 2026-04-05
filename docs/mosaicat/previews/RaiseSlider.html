@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RaiseSlider Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    input[type="number"] { -moz-appearance: textfield; }
+  </style>
+</head>
+<body>
+  <div class="space-y-8">
+    <p class="text-gray-400 text-sm font-semibold tracking-wide uppercase">RaiseSlider — Raise Panel</p>
+
+    <!-- RaiseSlider panel -->
+    <div class="w-full max-w-sm bg-gray-900 border border-gray-700 rounded-xl p-4 space-y-4 shadow-xl">
+      <!-- Preset buttons -->
+      <div class="flex flex-wrap gap-2">
+        <button class="px-3 py-1.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-300 border border-gray-700">Min</button>
+        <button class="px-3 py-1.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-300 border border-gray-700">½ Pot</button>
+        <button class="px-3 py-1.5 rounded-lg text-sm font-semibold bg-emerald-500 text-white shadow-md">¾ Pot</button>
+        <button class="px-3 py-1.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-300 border border-gray-700">Pot</button>
+        <button class="px-3 py-1.5 rounded-lg text-sm font-semibold bg-gray-800 text-gray-300 border border-gray-700">All-In</button>
+      </div>
+
+      <!-- Slider -->
+      <div class="space-y-2">
+        <div class="relative w-full h-2 bg-gray-700 rounded-full">
+          <div class="absolute h-2 bg-emerald-500 rounded-full" style="width:55%"></div>
+          <div class="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white rounded-full shadow-md border-2 border-emerald-500" style="left:calc(55% - 10px)"></div>
+        </div>
+        <div class="flex justify-between text-xs text-gray-500">
+          <span>8</span>
+          <span>200</span>
+        </div>
+      </div>
+
+      <!-- Input + Confirm -->
+      <div class="flex items-center gap-3">
+        <input
+          type="text"
+          value="113"
+          readonly
+          class="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 text-center font-bold text-lg focus:outline-none"
+          style="font-variant-numeric:tabular-nums"
+        />
+        <button class="bg-emerald-500 text-white font-bold px-6 py-2 rounded-lg shadow-md">Raise</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandHistoryCardSkeleton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+    @keyframes shimmer {
+      0% { opacity: 0.4; }
+      50% { opacity: 0.7; }
+      100% { opacity: 0.4; }
+    }
+    .skeleton-pulse {
+      animation: shimmer 1.5s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="space-y-6 max-w-md">
+    <p class="text-gray-400 text-sm font-semibold tracking-wide uppercase">HandHistoryCardSkeleton — Loading State</p>
+
+    <!-- Skeleton card 1 -->
+    <div class="bg-gray-800 border border-gray-700 rounded-xl p-4 skeleton-pulse">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="flex items-center">
+            <div class="w-8 h-11 bg-gray-700 rounded-md"></div>
+            <div class="-ml-2 w-8 h-11 bg-gray-700 rounded-md"></div>
+          </div>
+          <div class="w-10 h-5 bg-gray-700 rounded-full"></div>
+        </div>
+        <div class="w-16 h-6 bg-gray-700 rounded-lg"></div>
+      </div>
+      <div class="flex items-center justify-between mt-3">
+        <div class="w-20 h-3 bg-gray-700/60 rounded"></div>
+        <div class="w-24 h-3 bg-gray-700/60 rounded"></div>
+      </div>
+    </div>
+
+    <!-- Skeleton card 2 (staggered animation) -->
+    <div class="bg-gray-800 border border-gray-700 rounded-xl p-4 skeleton-pulse" style="animation-delay:0.3s">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="flex items-center">
+            <div class="w-8 h-11 bg-gray-700 rounded-md"></div>
+            <div class="-ml-2 w-8 h-11 bg-gray-700 rounded-md"></div>
+          </div>
+          <div class="w-10 h-5 bg-gray-700 rounded-full"></div>
+        </div>
+        <div class="w-16 h-6 bg-gray-700 rounded-lg"></div>
+      </div>
+      <div class="flex items-center justify-between mt-3">
+        <div class="w-20 h-3 bg-gray-700/60 rounded"></div>
+        <div class="w-24 h-3 bg-gray-700/60 rounded"></div>
+      </div>
+    </div>
+
+    <!-- Skeleton card 3 -->
+    <div class="bg-gray-800 border border-gray-700 rounded-xl p-4 skeleton-pulse" style="animation-delay:0.6s">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="flex items-center">
+            <div class="w-8 h-11 bg-gray-700 rounded-md"></div>
+            <div class="-ml-2 w-8 h-11 bg-gray-700 rounded-md"></div>
+          </div>
+          <div class="w-10 h-5 bg-gray-700 rounded-full"></div>
+        </div>
+        <div class="w-16 h-6 bg-gray-700 rounded-lg"></div>
+      </div>
+      <div class="flex items-center justify-between mt-3">
+        <div class="w-20 h-3 bg-gray-700/60 rounded"></div>
+        <div class="w-24 h-3 bg-gray-700/60 rounded"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

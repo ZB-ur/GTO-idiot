@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FrequencyBar Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; gap: 32px; max-width: 480px;">
+    <!-- Example 1: Normal distribution -->
+    <div>
+      <p class="text-gray-400 text-xs mb-2">GTO Frequency — Flop Action</p>
+      <div class="flex h-6 rounded-lg overflow-hidden w-full">
+        <div class="bg-gray-500 flex items-center justify-center" style="width: 35%">
+          <span class="text-xs font-medium text-gray-950">35%</span>
+        </div>
+        <div class="bg-blue-400 flex items-center justify-center" style="width: 25%">
+          <span class="text-xs font-medium text-gray-950">25%</span>
+        </div>
+        <div class="bg-emerald-400 flex items-center justify-center" style="width: 20%">
+          <span class="text-xs font-medium text-gray-950">20%</span>
+        </div>
+        <div class="bg-amber-400 flex items-center justify-center" style="width: 15%">
+          <span class="text-xs font-medium text-gray-950">15%</span>
+        </div>
+        <div class="bg-red-400 flex items-center justify-center" style="width: 5%"></div>
+      </div>
+      <div class="flex flex-wrap gap-3 mt-2">
+        <span class="flex items-center gap-1.5 text-xs text-gray-400"><span class="w-2 h-2 rounded-sm bg-gray-500"></span>Fold 35%</span>
+        <span class="flex items-center gap-1.5 text-xs text-gray-400"><span class="w-2 h-2 rounded-sm bg-blue-400"></span>Check 25%</span>
+        <span class="flex items-center gap-1.5 text-xs text-gray-400"><span class="w-2 h-2 rounded-sm bg-emerald-400"></span>Call 20%</span>
+        <span class="flex items-center gap-1.5 text-xs text-gray-400"><span class="w-2 h-2 rounded-sm bg-amber-400"></span>Bet 15%</span>
+        <span class="flex items-center gap-1.5 text-xs text-gray-400"><span class="w-2 h-2 rounded-sm bg-red-400"></span>Raise 5%</span>
+      </div>
+    </div>
+
+    <!-- Example 2: With highlight on "Raise" -->
+    <div>
+      <p class="text-gray-400 text-xs mb-2">Highlighted: Raise</p>
+      <div class="flex h-6 rounded-lg overflow-hidden w-full">
+        <div class="bg-gray-500 opacity-40 flex items-center justify-center" style="width: 30%">
+          <span class="text-xs font-medium text-gray-950">30%</span>
+        </div>
+        <div class="bg-emerald-400 opacity-40 flex items-center justify-center" style="width: 40%">
+          <span class="text-xs font-medium text-gray-950">40%</span>
+        </div>
+        <div class="bg-red-400 opacity-100 flex items-center justify-center" style="width: 30%">
+          <span class="text-xs font-medium text-gray-950">30%</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3 mt-2">
+        <span class="flex items-center gap-1.5 text-xs text-gray-400 opacity-40"><span class="w-2 h-2 rounded-sm bg-gray-500"></span>Fold 30%</span>
+        <span class="flex items-center gap-1.5 text-xs text-gray-400 opacity-40"><span class="w-2 h-2 rounded-sm bg-emerald-400"></span>Call 40%</span>
+        <span class="flex items-center gap-1.5 text-xs text-gray-400"><span class="w-2 h-2 rounded-sm bg-red-400"></span>Raise 30%</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

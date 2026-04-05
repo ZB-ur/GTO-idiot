@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CallButton Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col gap-4 max-w-xs">
+    <!-- Default state -->
+    <button class="flex flex-col items-center justify-center w-full px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-gray-100 font-semibold rounded-xl shadow-md transition-all duration-150">
+      <span class="text-sm uppercase tracking-wide">Call</span>
+      <span class="text-lg font-bold">$200</span>
+    </button>
+
+    <!-- Larger amount -->
+    <button class="flex flex-col items-center justify-center w-full px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-gray-100 font-semibold rounded-xl shadow-md transition-all duration-150">
+      <span class="text-sm uppercase tracking-wide">Call</span>
+      <span class="text-lg font-bold">$1,500</span>
+    </button>
+
+    <!-- Disabled state -->
+    <button disabled class="flex flex-col items-center justify-center w-full px-6 py-3 bg-gray-700 text-gray-500 cursor-not-allowed font-semibold rounded-xl shadow-md">
+      <span class="text-sm uppercase tracking-wide">Call</span>
+      <span class="text-lg font-bold">$200</span>
+    </button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HoleCards Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 16px; background: #030712; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="space-y-8">
+    <!-- Label -->
+    <p class="text-gray-400 text-sm font-semibold tracking-wide uppercase">HoleCards — Face Up (User)</p>
+
+    <!-- Face Up: md size -->
+    <div class="flex items-center gap-8">
+      <div>
+        <p class="text-gray-500 text-xs mb-2">Size: md</p>
+        <div class="flex items-center">
+          <div class="w-14 h-20 bg-white rounded-lg shadow-md flex flex-col items-center justify-center border border-gray-200 select-none">
+            <span class="text-lg font-bold text-gray-100 leading-none">A</span>
+            <span class="text-lg text-gray-100 leading-none">♠</span>
+          </div>
+          <div class="-ml-4">
+            <div class="w-14 h-20 bg-white rounded-lg shadow-md flex flex-col items-center justify-center border border-gray-200 select-none">
+              <span class="text-lg font-bold text-red-500 leading-none">K</span>
+              <span class="text-lg text-red-500 leading-none">♥</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-gray-500 text-xs mb-2">Size: sm</p>
+        <div class="flex items-center">
+          <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center border border-gray-200 select-none">
+            <span class="text-sm font-bold text-red-500 leading-none">Q</span>
+            <span class="text-sm text-red-500 leading-none">♦</span>
+          </div>
+          <div class="-ml-3">
+            <div class="w-10 h-14 bg-white rounded-lg shadow-md flex flex-col items-center justify-center border border-gray-200 select-none">
+              <span class="text-sm font-bold text-gray-100 leading-none">J</span>
+              <span class="text-sm text-gray-100 leading-none">♣</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-gray-500 text-xs mb-2">Size: lg</p>
+        <div class="flex items-center">
+          <div class="w-20 h-28 bg-white rounded-lg shadow-md flex flex-col items-center justify-center border border-gray-200 select-none">
+            <span class="text-2xl font-bold text-red-500 leading-none">T</span>
+            <span class="text-2xl text-red-500 leading-none">♥</span>
+          </div>
+          <div class="-ml-5">
+            <div class="w-20 h-28 bg-white rounded-lg shadow-md flex flex-col items-center justify-center border border-gray-200 select-none">
+              <span class="text-2xl font-bold text-red-500 leading-none">9</span>
+              <span class="text-2xl text-red-500 leading-none">♥</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Face Down: BOT -->
+    <p class="text-gray-400 text-sm font-semibold tracking-wide uppercase mt-6">HoleCards — Face Down (BOT)</p>
+    <div class="flex items-center gap-8">
+      <div>
+        <p class="text-gray-500 text-xs mb-2">Size: md</p>
+        <div class="flex items-center">
+          <div class="w-14 h-20 rounded-lg shadow-md border border-gray-600 bg-gradient-to-br from-blue-800 to-blue-950 flex items-center justify-center select-none">
+            <div class="w-3/4 h-3/4 rounded border border-blue-400/30 bg-blue-900/50 flex items-center justify-center">
+              <span class="text-blue-400/40 text-xs font-bold">&#9824;</span>
+            </div>
+          </div>
+          <div class="-ml-4">
+            <div class="w-14 h-20 rounded-lg shadow-md border border-gray-600 bg-gradient-to-br from-blue-800 to-blue-950 flex items-center justify-center select-none">
+              <div class="w-3/4 h-3/4 rounded border border-blue-400/30 bg-blue-900/50 flex items-center justify-center">
+                <span class="text-blue-400/40 text-xs font-bold">&#9824;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-gray-500 text-xs mb-2">Size: sm</p>
+        <div class="flex items-center">
+          <div class="w-10 h-14 rounded-lg shadow-md border border-gray-600 bg-gradient-to-br from-blue-800 to-blue-950 flex items-center justify-center select-none">
+            <div class="w-3/4 h-3/4 rounded border border-blue-400/30 bg-blue-900/50 flex items-center justify-center">
+              <span class="text-blue-400/40 text-xs font-bold">&#9824;</span>
+            </div>
+          </div>
+          <div class="-ml-3">
+            <div class="w-10 h-14 rounded-lg shadow-md border border-gray-600 bg-gradient-to-br from-blue-800 to-blue-950 flex items-center justify-center select-none">
+              <div class="w-3/4 h-3/4 rounded border border-blue-400/30 bg-blue-900/50 flex items-center justify-center">
+                <span class="text-blue-400/40 text-xs font-bold">&#9824;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
